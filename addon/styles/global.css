@@ -1,0 +1,72 @@
+@value ui-light, ui-slate from 'ui-colors';
+
+/* Top Level Global Styles */
+*, *::before, *::after {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-text-size-adjust: none;
+  -webkit-touch-callout: none;
+}
+
+html,
+body,
+:global(body.ember-application > .ember-view) {
+  height: fallback(100vh, 100%);
+}
+
+body {
+  color: ui-slate;
+  font: normal 14px / 20px sans-serif;
+  background-color: ui-light;
+
+  /* Partially Supported Styles */
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -moz-font-feature-settings: 'liga', 'kern';
+}
+
+@supports (font-synthesis: none) {
+  body {
+    font-synthesis: none;
+  }
+}
+
+/* Reset Common HTML Tags */
+h1, h2, h3, h4, h5, h6, p, blockquote, dl, ol, ul {
+  margin: 0;
+}
+
+ul, ol {
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  outline: none;
+  text-decoration: none;
+}
+
+/* 如果发现某些标签的字体继承缺失，补在这条规则里来覆盖 */
+input, textarea, keygen, select, button {
+  font-family: inherit;
+}
+
+input, textarea {
+  -webkit-user-select: text !important;
+  appearance: none;
+
+  & ::-ms-expand {
+    display: none;
+  }
+}
+
+select {
+  appearance: none;
+}
+
+img {
+  display: inline-block;
+  max-width: 100%;
+  vertical-align: middle;
+}
