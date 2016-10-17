@@ -1,4 +1,5 @@
 var RSVP = require('rsvp');
+var blueprintOptions = { saveDev: true };
 
 module.exports = {
   name: 'ember-cform-ui',
@@ -8,8 +9,6 @@ module.exports = {
 
   afterInstall() {
     return RSVP.all([
-      // Build same style system for consuming applications
-      this.addAddonToProject({ name: 'ember-css-modules' }),
       this.addPackagesToProject([
         {name: 'postcss-browser-reporter'},
         {name: 'postcss-cssnext'},
@@ -18,7 +17,9 @@ module.exports = {
         {name: 'postcss-import'},
         {name: 'postcss-sassy-mixins'},
         {name: 'rucksack-css'},
-      ])
+      ]),
+      this.addAddonToProject('ember-cli-node-assets', { blueprintOptions }),
+      this.addAddonToProject('ember-css-modules', { blueprintOptions })
     ]);
   }
 };
