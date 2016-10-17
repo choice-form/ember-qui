@@ -1,5 +1,3 @@
-@value ui-light, ui-slate from 'ui-colors';
-
 /* Top Level Global Styles */
 *, *::before, *::after {
   box-sizing: border-box;
@@ -15,7 +13,6 @@ body,
 }
 
 body {
-  color: ui-slate;
   font: normal 14px / 20px sans-serif;
   background-color: ui-light;
 
@@ -53,12 +50,7 @@ input, textarea, keygen, select, button {
 }
 
 input, textarea {
-  -webkit-user-select: text !important;
-  appearance: none;
 
-  & ::-ms-expand {
-    display: none;
-  }
 }
 
 select {
