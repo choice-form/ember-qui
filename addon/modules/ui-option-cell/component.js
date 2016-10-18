@@ -30,7 +30,6 @@ export default Component.extend({
     const label = this.element.querySelector('label');
     const picture = this.element.querySelector('img');
     label.setAttribute('for', input.id);
-    picture.setAttribute('alt', input.name);
     this.element.classList.add('ui-option-cell');
   }
 });
