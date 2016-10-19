@@ -9,6 +9,7 @@ const Router = Ember.Router.extend({
 Router.map(function() {
   this.route('faker');
   this.route('option-cell');
+  this.route('svg-icon');
 });
 
 export default Router;
