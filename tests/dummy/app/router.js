@@ -10,6 +10,7 @@ Router.map(function() {
   this.route('faker');
   this.route('option-cell');
   this.route('svgicon');
+  this.route('ui-contral-wrapper');
 });
 
 export default Router;
