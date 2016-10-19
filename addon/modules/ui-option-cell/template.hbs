@@ -1,20 +1,22 @@
-{{input
-  type=type
-  autofocus=autofocus
-  checked=checked
-  disabled=disabled
-  name=name
-  required=required
-  tabindex=tabindex
-}}
+<div class="item" onclick={{handClick}}>
+  {{input
+    type=type
+    autofocus=autofocus
+    checked=checked
+    disabled=disabled
+    name=name
+    required=required
+    tabindex=tabindex
+  }}
 
-<label>
-  {{#if svg}}
-    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="16px" height="16px" viewBox="0 0 16 16">
-      <use xlink:href={{svg}} fill={{color}}></use>
-    </svg>
-  {{/if}}
-  {{label}}
-  {{picture}}
-</label>
-{{errorMessage}}
+  <label>
+    {{#if svg}}
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="16px" height="16px" viewBox="0 0 16 16">
+        <use xlink:href={{svg}} fill={{color}}></use>
+      </svg>
+    {{/if}}
+    {{label}}
+    {{picture}}
+  </label>
+  {{errorMessage}}
+</div>
