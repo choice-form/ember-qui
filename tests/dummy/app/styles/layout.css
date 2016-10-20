@@ -1,7 +1,3 @@
-@value ui-white, ui-silver from 'ui-colors';
-@value spacing-xs, spacing-s, spacing-m, spacing-l, spacing-xl from 'ui-spacing';
-@value radius-s, radius-m, radius-l from 'ui-radius';
-
 :global(.main-wrapper) {
   min-height: 100%;
   padding: 129px 0 0 0;
