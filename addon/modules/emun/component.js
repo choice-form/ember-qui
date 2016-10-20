@@ -1,5 +1,3 @@
-import Component from 'ember-component';
-
 
 export default {
   BREAK: -1, // 断点
@@ -39,3 +37,5 @@ export default {
   WEIGHT: 33, // 权重
   PIC_LIST: 34, // 图片列表
 };
+
+

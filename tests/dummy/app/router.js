@@ -10,7 +10,8 @@ Router.map(function() {
   this.route('faker');
   this.route('option-cell');
   this.route('svgicon');
-  this.route('ui-contral-wrapper');
+  this.route('option-wrapper');
+  this.route('option-header');
 });
 
 export default Router;
