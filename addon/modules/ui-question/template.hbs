@@ -1,0 +1,13 @@
+{{#if isSinglePage}}
+  {{#each question.nodes as |node|}}
+
+    <div class=wrapper
+         {{each <node class="options"></node>
+    {{/each}}
+{{else}}
+  {{#each question.options as |option|}}
+    {{component componentName option api}}
+  {{/each}}
+{{/if}}
+
+<button type="button" onclick={{action "submit"}}>下一题</button>

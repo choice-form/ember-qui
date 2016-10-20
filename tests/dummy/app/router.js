@@ -12,6 +12,7 @@ Router.map(function() {
   this.route('svgicon');
   this.route('option-wrapper');
   this.route('option-header');
+  this.route('question', { path: 'q' });
 });
 
 export default Router;
