@@ -9,19 +9,20 @@ export default Component.extend({
   layout,
   uiService: inject('ui'),
 
-  componentName: computed('question.type', function() {
-    return `ui-question/${get(this, 'question.type')}`;
+  /**
+   * 根据节点类型的名称，返回所需要加载的component名称
+   */
+  componentName: computed('question.nodeInfo.type', function() {
+    const uiService = get(this, 'uiService');
+    const optionName = uiService.getOptionComponentName(get(this, 'question.nodeInfo.type'));
+    return `ui-question/${optionName}`;
   }),
 
-  didReceiveAttrs() {
-    this._super(...arguments);
-    const uiService = get(this, 'uiService');
-    this.api = uiService.generateAPI(get(this, 'question.type'));
-  },
 
   actions: {
     submit() {
-      console.log(get(this, 'question'), get(this, 'api'));
+      console.log(get(this, 'question'));
+
     }
   }
 }).reopenClass({ positionalParams: ['question'] });

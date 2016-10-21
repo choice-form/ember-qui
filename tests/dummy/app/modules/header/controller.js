@@ -3,8 +3,8 @@ import faker from 'faker';
 export default Controller.extend({
 
   header:{
-    questionText:faker.address.streetAddress(true),
-    questionDescribe: faker.lorem.paragraph(),
+    title:faker.address.streetAddress(true),
+    description: faker.lorem.paragraph(),
     images:[1].map(function () {
       return faker.image.image(360, 360, true)
     }),

@@ -1,7 +1,47 @@
 import Service from 'ember-service';
 import set from 'ember-metal/set';
+import {htmlSafe} from 'ember-string';
 
 export default Service.extend({
+
+  /*
+  获取题型的名称
+   */
+  getOptionComponentName(type){
+    if(['select','fill'].includes(type)){
+      return 'ui-option-cell';
+    }else return 'single-select';
+  },
+
+  /*
+   获取input的类型
+   */
+  getOptionType(type, selectType){
+    if(type == 'fill') return 'text';
+    return selectType == 'single' ? 'radio' : 'checkbox';
+  },
+
+
+  /*
+   获取选项的Icon
+   */
+  getOptionSvg(inputType, slected, icon){
+    let svgName, color = '';
+    if(inputType){
+      svgName = slected ? `${icon}-fill` : icon;
+      color = slected ? 'red' : '';
+    }else{
+      svgName = icon;
+    }
+    return htmlSafe(`<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="16px" height="16px" viewBox="0 0 16 16">
+        <use xlink:href=${svgName} fill=${color}></use>
+      </svg>`);
+  },
+
+
+  /*
+  API 暂时不用
+   */
   generateAPI(type) {
     switch(type) {
     case 'single-select':

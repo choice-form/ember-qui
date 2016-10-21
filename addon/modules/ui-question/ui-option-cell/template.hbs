@@ -1,0 +1,25 @@
+<div class="item" onclick={{action 'select'}}>
+  {{input
+    id=option.uuid
+    type=type
+    autofocus=autofocus
+    disabled=disabled
+    name=nodeInfo.id
+    required=required
+    tabindex=tabindex
+  }}
+
+  <label for={{option.uuid}} onclick={{action 'stopPropagation'}}>
+    {{optionSvg}}
+    {{#if option.text}}
+      <span>{{option.text}}</span>
+    {{/if}}
+    {{option.picture}}
+  </label>
+
+  {{#if option.selected}}
+    <span>选择了</span>
+  {{/if}}
+
+  {{errorMessage}}
+</div>
