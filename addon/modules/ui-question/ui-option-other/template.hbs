@@ -1,6 +1,6 @@
 {{#if isShowInput}}
   <div class="item" onclick={{action 'select'}}>
-    <input id={{option.uuid}} type='radio'>
+    <input id={{option.uuid}} type='radio' name={{nodeInfo.id}}>
     <label for={{option.uuid}} onclick={{action 'stopPropagation'}}>
       {{optionSvg}}
       {{option.text}}
