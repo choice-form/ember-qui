@@ -10,54 +10,54 @@ export default Route.extend({
 
     let options = [
       Ember.Object.create({
-        value: '',
-        placeholder: '',
-        selected: true,
+        selected: false,
         text: faker.address.streetAddress(true),
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
         icon: '#svg-folder', // 选项的Icon
-        inputType: 'select', // 'select', 'input', 'select-input',
-        inputRule: 'time', //输入控件初始化规则
-      }),
-      Ember.Object.create({
+        inputType: '', // 'select', 'input', 'select-input',
+        inputRule: '', //输入控件初始化规则
         value: '',
         placeholder: '',
-        selected: false,
-        text: faker.address.streetAddress(true),
+      }),
+      Ember.Object.create({
+        selected: true,
+        text: '',
         uuid: "443E6B4F-D705-483D-905F-07E420920E19",
         icon: '#svg-folder',
-        inputType: 'select',
+        inputType: 'input',
         inputRule: 'time',
+        value: faker.address.streetAddress(true),
+        placeholder: '',
       }),
       Ember.Object.create({
-        value: '',
-        placeholder: '',
         selected: false,
         text: faker.lorem.paragraph(),
         uuid: "443E6B4F-D705-483D-905F-07E420920E18",
         icon: '#svg-folder',
         inputType: 'select',
-        inputRule: 'time',
-      }),
-      Ember.Object.create({
+        inputRule: '',
         value: '',
         placeholder: '',
+      }),
+      Ember.Object.create({
         selected: false,
         text: faker.address.streetAddress(true),
         uuid: "443E6B4F-D705-483D-905F-07E420920E15",
         icon: '#svg-folder',
-        inputType: 'select',
+        inputType: 'select-input',
         inputRule: 'time',
+        value: faker.address.streetAddress(true),
+        placeholder: '',
       }),
       Ember.Object.create({
-        value: '',
-        placeholder: '',
         selected: false,
         text: faker.lorem.paragraph(),
         uuid: "443E6B4F-D705-483D-905F-07E420920E12",
         icon: '#svg-folder',
-        inputType: 'select',
+        inputType: 'input',
         inputRule: 'time',
+        value: faker.address.streetAddress(true),
+        placeholder: '',
       })
     ];
 

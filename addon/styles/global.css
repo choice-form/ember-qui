@@ -56,6 +56,10 @@ input, textarea, keygen, select, button {
   font-family: inherit;
 }
 
+input[type="text"]{
+  border: 1px solid;
+}
+
 input, textarea {
 
 }

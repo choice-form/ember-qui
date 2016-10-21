@@ -25,14 +25,10 @@ export default Service.extend({
   /*
    获取选项的Icon
    */
-  getOptionSvg(inputType, slected, icon){
+  getOptionSvg(slected, icon){
     let svgName, color = '';
-    if(inputType){
-      svgName = slected ? `${icon}-fill` : icon;
-      color = slected ? 'red' : '';
-    }else{
-      svgName = icon;
-    }
+    svgName = slected ? `${icon}-fill` : icon;
+    color = slected ? 'red' : '';
     return htmlSafe(`<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="16px" height="16px" viewBox="0 0 16 16">
         <use xlink:href=${svgName} fill=${color}></use>
       </svg>`);

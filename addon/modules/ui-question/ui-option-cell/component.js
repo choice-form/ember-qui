@@ -32,12 +32,11 @@ export default Component.extend({
     return uiService.getOptionType(type, selectType);
   }),
 
-  optionSvg: computed('option.', 'option.selected', 'option.icon', function () {
+  optionSvg: computed('option.selected', 'option.icon', function () {
     const uiService = get(this, 'uiService');
-    const inputType = get(this, 'option.inputType');
     const slected = get(this, 'option.selected');
     const icon = get(this, 'option.icon');
-    return uiService.getOptionSvg(inputType, slected, icon);
+    return uiService.getOptionSvg(slected, icon);
   }),
 
   didInsertElement() {
