@@ -13,13 +13,12 @@ export default Component.extend({
    */
   this_images: computed('header.images', function () {
     const images = get(this, 'header.images');
+    if(!images) return;
     if(images.length == 0) return ;
     let html = '';
     for(var i = 0; i < images.length; i++){
       html = html + `<img src=${images[i]} />`;
     }
-    console.log(html);
-
     return htmlSafe(`<div class="imagesBox">${html}</div>`);
   }),
 

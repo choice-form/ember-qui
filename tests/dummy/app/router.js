@@ -11,7 +11,10 @@ Router.map(function() {
   this.route('option-cell');
   this.route('svgicon', {path:'svg'});
   this.route('header', {path: 'h'});
+  this.route('button', {path: 'b'});
+  this.route('options', { path: 'o' });
   this.route('question', { path: 'q' });
+
 });
 
 export default Router;

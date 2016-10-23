@@ -15,14 +15,14 @@ export default Component.extend({
   componentName: computed('question.nodeInfo.type', function() {
     const uiService = get(this, 'uiService');
     const optionName = uiService.getOptionComponentName(get(this, 'question.nodeInfo.type'));
-    return `ui-question/${optionName}`;
+    return `ui-options/${optionName}`;
   }),
 
 
   actions: {
     submit() {
       console.log(get(this, 'question'));
-
     }
   }
+
 }).reopenClass({ positionalParams: ['question'] });

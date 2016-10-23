@@ -1,9 +1,0 @@
-{{#each question.options as |option|}}
-  {{#if option.inputType}}
-    {{component 'ui-question/ui-option-other' option question.nodeInfo handleClick=question.handleOptionClick}}
-  {{else}}
-    {{component componentName option question.nodeInfo handleClick=question.handleOptionClick}}
-  {{/if}}
-{{/each}}
-
-<button type="button" onclick={{action "submit"}}>下一题</button>
