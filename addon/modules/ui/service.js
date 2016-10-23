@@ -8,19 +8,12 @@ export default Service.extend({
   获取题型的名称
    */
   getOptionComponentName(type){
-    if(['select','fill'].includes(type)){
+    if(['select'].includes(type)){
       return 'ui-option-cell';
-    }else return 'single-select';
+    }else{
+      return `ui-option-${type}`;
+    }
   },
-
-  /*
-   获取input的类型
-   */
-  getOptionType(type, selectType){
-    if(type == 'fill') return 'text';
-    return selectType == 'single' ? 'radio' : 'checkbox';
-  },
-
 
   /*
    获取选项的Icon

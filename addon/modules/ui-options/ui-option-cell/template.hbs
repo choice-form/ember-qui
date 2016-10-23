@@ -1,16 +1,18 @@
 <div class="item" onclick={{action 'select'}}>
   {{input
     id=option.uuid
-    type=type
+    type=nodeInfo.selectType
     autofocus=autofocus
     disabled=disabled
     name=nodeInfo.id
     required=required
     tabindex=tabindex
+    value=option.value
   }}
 
   <label for={{option.uuid}} onclick={{action 'stopPropagation'}}>
     {{optionSvg}}
+
     {{#if option.text}}
       <span>{{option.text}}</span>
     {{/if}}

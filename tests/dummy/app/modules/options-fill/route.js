@@ -11,59 +11,59 @@ export default Route.extend({
     let options = [
       Ember.Object.create({
         selected: false,
-        text: faker.address.streetAddress(true),
+        text:'',
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
         icon: '#svg-folder', // 选项的Icon
         inputType: '', // 'select', 'input', 'select-input',
         inputRule: '', //输入控件初始化规则
         value: '',
-        placeholder: '',
+        placeholder: '请输入文字',
+      }),
+      Ember.Object.create({
+        selected: false,
+        text: '',
+        uuid: "443E6B4F-D705-483D-905F-07E420920E19",
+        icon: '#svg-folder',
+        inputType: '',
+        inputRule: '',
+        value: faker.address.streetAddress(true),
+        placeholder: '请输入文字',
+      }),
+      Ember.Object.create({
+        selected: false,
+        text: '',
+        uuid: "443E6B4F-D705-483D-905F-07E420920E19",
+        icon: '#svg-folder',
+        inputType: '',
+        inputRule: '',
+        value: '',
+        placeholder: '请输入文字',
       }),
       Ember.Object.create({
         selected: true,
         text: '',
         uuid: "443E6B4F-D705-483D-905F-07E420920E19",
         icon: '#svg-folder',
-        inputType: 'input',
-        inputRule: 'time',
-        value: faker.address.streetAddress(true),
-        placeholder: '',
-      }),
-      Ember.Object.create({
-        selected: false,
-        text: faker.lorem.paragraph(),
-        uuid: "443E6B4F-D705-483D-905F-07E420920E18",
-        icon: '#svg-folder',
-        inputType: 'select',
+        inputType: '',
         inputRule: '',
-        value: '',
-        placeholder: '',
+        value: faker.address.streetAddress(true),
+        placeholder: '请输入文字',
       }),
       Ember.Object.create({
         selected: false,
-        text: faker.address.streetAddress(true),
-        uuid: "443E6B4F-D705-483D-905F-07E420920E15",
+        text: '',
+        uuid: "443E6B4F-D705-483D-905F-07E420920E19",
         icon: '#svg-folder',
-        inputType: 'select-input',
-        inputRule: 'time',
+        inputType: '',
+        inputRule: '',
         value: faker.address.streetAddress(true),
-        placeholder: '',
+        placeholder: '请输入文字',
       }),
-      Ember.Object.create({
-        selected: false,
-        text: faker.lorem.paragraph(),
-        uuid: "443E6B4F-D705-483D-905F-07E420920E12",
-        icon: '#svg-folder',
-        inputType: 'input',
-        inputRule: 'time',
-        value: faker.address.streetAddress(true),
-        placeholder: '',
-      })
     ];
 
     return {
       nodeInfo: {
-        type: 'select', //select, fill
+        type: 'fill', //select, fill
         selectType: 'single',
         showStyle: '',
         id: '001',

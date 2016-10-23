@@ -20,17 +20,17 @@ export default Component.extend({
       get(this, 'handleClick')(get(this, 'option'));
     },
 
+    change(e){
+      const value = e.target.value;
+      console.log(value);
+      set(this, 'option.value', value);
+    },
+
     stopPropagation(event){
       event.stopPropagation();
     }
   },
 
-  type: computed('nodeInfo.selectType', 'nodeInfo.type', function () {
-    const selectType = get(this, 'nodeInfo.selectType');
-    const type = get(this, 'nodeInfo.type');
-    const uiService = get(this, 'uiService');
-    return uiService.getOptionType(type, selectType);
-  }),
 
   optionSvg: computed('option.selected', 'option.icon', function () {
     const uiService = get(this, 'uiService');
@@ -42,5 +42,6 @@ export default Component.extend({
   didInsertElement() {
     const input = this.element.querySelector('input');
     get(this, 'option.selected') && input.setAttribute('checked','checked');
+    const nodeType = get(this, 'nodeInfo.type');
   }
 }).reopenClass({ positionalParams: ['option', 'nodeInfo']});

@@ -1,0 +1,16 @@
+{{input
+  id=option.uuid
+  type='text'
+  autofocus=autofocus
+  disabled=disabled
+  required=required
+  tabindex=tabindex
+  value=option.value
+  placeholder=option.placeholder
+  onchane=(action 'change')
+}}
+
+<label for={{option.uuid}}>
+  {{optionSvg}}
+</label>
+{{errorMessage}}
