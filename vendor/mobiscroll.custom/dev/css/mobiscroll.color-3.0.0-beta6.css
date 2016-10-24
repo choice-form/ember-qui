@@ -1,0 +1,132 @@
+/* 23848782-3adc-48ad-87fa-6f78b72ec6d7 */
+.mbsc-color-preview {
+    height: 24px;
+    line-height: 24px;
+    -webkit-transition: background-color .2s;
+    -moz-transition: background-color .2s;
+    transition: background-color .2s;
+}
+
+.mbsc-color .mbsc-sc-itm {
+    padding: 0;
+}
+
+.mbsc-color .mbsc-sc-itm.mbsc-btn-a {
+    background: none;
+}
+
+.mbsc-color-itm {
+    width: 100%;
+    height: 100%;
+    border-bottom: 1px solid rgba(170, 170, 170, 0.5);
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.mbsc-color-itm-a {
+    height: 100%;
+    background: rgba(255, 255, 255, .3);
+    display: none;
+}
+
+.mbsc-sc-itm.mbsc-btn-a .mbsc-color-itm-a {
+    display: block;
+}
+
+
+/* Default Theme */
+
+.mbsc-mobiscroll.mbsc-color .mbsc-sc-whl-l {
+    display: none;
+}
+
+.mbsc-mobiscroll .mbsc-color-preview {
+    height: auto;
+    font-size: .75em;
+    line-height: 2.5em;
+    text-transform: uppercase;
+}
+
+.mbsc-mobiscroll .mbsc-color-itm {
+    border-top: 1px solid #f7f7f7;
+    border-bottom: 0;
+}
+
+
+/* Android Holo Theme */
+
+.mbsc-android-holo.mbsc-color .mbsc-sc-whl-l {
+    display: none;
+}
+
+.mbsc-android-holo .mbsc-color-preview {
+    height: 2.375em;
+    line-height: 2.375em;
+}
+
+
+/* Bootstrap */
+
+.mbsc-bootstrap.mbsc-color .mbsc-sc-whl-l {
+    display: none;
+}
+
+
+/* iOS Theme */
+
+.mbsc-ios.mbsc-color .mbsc-sc-whl-w {
+    margin: 0 .25em;
+}
+
+.mbsc-ios.mbsc-color .mbsc-sc-whl-l {
+    display: none;
+}
+
+.mbsc-ios .mbsc-color-preview {
+    border-bottom: 1px solid #acacac;
+}
+
+
+/* JQM Theme */
+
+.mbsc-jqm.mbsc-color .mbsc-sc-whl-l {
+    display: none;
+}
+
+.mbsc-jqm .mbsc-color-preview {
+    text-shadow: none;
+    border-bottom: 1px solid #222;
+}
+
+
+/* WP theme */
+
+.mbsc-wp.mbsc-color .mbsc-sc-whl-w {
+    margin: 0 .25em;
+}
+
+.mbsc-wp.mbsc-color .mbsc-sc-itm {
+    opacity: 1;
+}
+
+.mbsc-wp.mbsc-color .mbsc-sc-itm:after {
+    display: none;
+}
+
+.mbsc-wp .mbsc-color-preview {
+    margin: -.625em -625em 0 -625em;
+    border-bottom: 1px solid #fff;
+}
+
+
+/* Material theme */
+
+.mbsc-material .mbsc-color-preview {
+    height: auto;
+    font-size: .75em;
+    line-height: 2.5em;
+    text-transform: uppercase;
+}
+
+.mbsc-material.mbsc-color .mbsc-sc-whl-l {
+    display: none;
+}
