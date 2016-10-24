@@ -1,0 +1,184 @@
+/* 23848782-3adc-48ad-87fa-6f78b72ec6d7 */
+.mbsc-rating .mbsc-ltr .mbsc-sc-itm {
+    text-align: left;
+}
+
+.mbsc-rating .mbsc-rtl .mbsc-sc-itm {
+    text-align: right;
+}
+
+.mbsc-rating-txt {
+    padding-left: 5px;
+    margin-top: -0.1em;
+}
+
+.mbsc-rating-icon {
+    display: inline-block;
+    width: 1.8em;
+    text-align: center;
+    font-size: 22px;
+    vertical-align: top;
+    color: #e9bb2f;
+}
+
+.mbsc-rating-icon-unf {
+    color: #eee;
+}
+
+.mbsc-rating-circle {
+    display: inline-block;
+    background: #959595;
+    text-align: center;
+    padding: 0;
+    margin: 0 7px;
+    width: 26px;
+    height: 26px;
+    font-family: Verdana;
+    font-size: 16px;
+    line-height: 26px;
+    vertical-align: top;
+    border-radius: 20px;
+    position: relative;
+    top: 50%;
+    margin-top: -13px;
+}
+
+.mbsc-rating-circle-unf {
+    background: #5d5d5d;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+
+/* Default theme */
+
+.mbsc-mobiscroll .mbsc-rating-icon {
+    color: #4eccc4;
+}
+
+.mbsc-mobiscroll .mbsc-rating-icon-unf {
+    color: rgba(78, 204, 196, .3);
+}
+
+.mbsc-mobiscroll .mbsc-rating-circle {
+    background: #4eccc4;
+    color: #f7f7f7;
+}
+
+.mbsc-mobiscroll .mbsc-rating-circle-unf {
+    background: none;
+    border: 1px solid #4eccc4;
+}
+
+
+/* Android Holo theme */
+
+.mbsc-android-holo .mbsc-rating-icon {
+    color: #31b6e7;
+}
+
+.mbsc-android-holo .mbsc-rating-icon-same {
+    opacity: 0.3;
+}
+
+.mbsc-android-holo .mbsc-rating-circle {
+    color: #000;
+    background: #999;
+}
+
+.mbsc-android-holo .mbsc-rating-circle-unf {
+    background: #636363;
+}
+
+.mbsc-android-holo-light .mbsc-rating-circle {
+    color: #fff;
+}
+
+
+/* iOS theme*/
+
+.mbsc-ios .mbsc-rating-icon-unf {
+    color: #d5d5d5;
+}
+
+.mbsc-ios .mbsc-rating-circle {
+    background: #0c80fe;
+    width: 2em;
+    height: 2em;
+    font-size: .545454em;
+    line-height: 2em;
+    color: #fff;
+}
+
+.mbsc-ios .mbsc-rating-circle-unf {
+    background: none;
+    border: 1px solid #0c80fe;
+}
+
+
+/* WP theme */
+
+.mbsc-wp .mbsc-rating-icon {
+    color: #fff;
+    vertical-align: middle;
+}
+
+.mbsc-wp .mbsc-rating-txt {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.mbsc-wp .mbsc-rating-icon-same {
+    opacity: 0.3;
+}
+
+.mbsc-wp .mbsc-rating-circle {
+    width: 24px;
+    height: 24px;
+    margin-top: -12px;
+    background: #fff;
+    font-size: 11px;
+    line-height: 24px;
+    color: #000;
+}
+
+.mbsc-wp .mbsc-rating-circle-unf {
+    background: #646464;
+}
+
+.mbsc-wp-light .mbsc-rating-icon {
+    color: #000;
+}
+
+.mbsc-wp-light .mbsc-rating-circle {
+    background: #000;
+    color: #fff;
+}
+
+.mbsc-wp-light .mbsc-rating-circle-unf {
+    background: #646464;
+}
+
+
+/* Material theme */
+
+.mbsc-material .mbsc-rating-icon {
+    width: 1.4285em;
+    color: #009688;
+    font-size: 1.2729em;
+}
+
+.mbsc-material .mbsc-rating-icon-unf {
+    opacity: .5;
+}
+
+.mbsc-material .mbsc-rating-circle {
+    background: #009688;
+    color: #eee;
+}
+
+.mbsc-material .mbsc-rating-circle-unf {
+    background: none;
+    border: 2px solid #009688;
+}

@@ -1,0 +1,30 @@
+<div>
+  {{#unless (eq option.inputType 'input')}}
+    <input
+      id={{option.uuid}}
+        type={{nodeInfo.selectType}}
+      onclick={{action 'select'}}
+        name={{nodeInfo.id}}
+      autofocus={{autofocus}}
+        placeholder={{option.placeholder}}
+      checked={{option.selected}}
+        disabled={{disabled}}
+      required={{required}}
+        tabindex={{tabindex}}
+      value={{option.value}}
+    >
+    {{ui-question/ui-label option}}
+  {{else}}
+    {{ui-question/ui-input option}}
+  {{/unless}}
+</div>
+
+{{#if (and (eq option.inputType 'select-input') option.selected)}}
+  {{ui-question/ui-input option}}
+{{/if}}
+
+{{#if option.selected}}
+  <span>选择了</span>
+{{/if}}
+
+{{errorMessage}}

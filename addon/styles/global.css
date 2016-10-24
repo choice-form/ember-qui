@@ -34,6 +34,13 @@ h1, h2, h3, h4, h5, h6, p, blockquote, dl, ol, ul {
   margin: 0;
 }
 
+pre{
+  margin: 0;
+  word-break: break-all;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
 ul, ol {
   padding: 0;
   list-style: none;
@@ -47,6 +54,10 @@ a {
 /* 如果发现某些标签的字体继承缺失，补在这条规则里来覆盖 */
 input, textarea, keygen, select, button {
   font-family: inherit;
+}
+
+input[type="text"]{
+  border: 1px solid;
 }
 
 input, textarea {

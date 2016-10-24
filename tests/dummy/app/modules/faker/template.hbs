@@ -1,0 +1,19 @@
+<p><code>faker.name.findName()</code>: {{name}}</p>
+<p><code>faker.address.country()</code>: {{country}}</p>
+<p><code>faker.address.streetAddress()</code>: {{address}}</p>
+  <p><code>faker.internet.exampleEmail()</code>: {{email}}</p>
+  <p><code>faker.phone.phoneNumber('###-####-####')</code>: {{cellphone}}</p>
+  <p><code>computed property</code>: {{geoCode}}</p>
+  <p><code>faker.date.recent(7)</code>: {{recentWeek}}</p>
+  <p><code>faker.date.between('2016-01-01', '2016-12-31')</code>: {{betweenDate}}</p>
+  <p><code>faker.helpers.randomize(['一', '二', '三', '四', '五'])</code>: {{randomNumber}}</p>
+  <p><code>faker.helpers.shuffle(['一', '二', '三', '四', '五'])</code>: {{shuffleNumber}}</p>
+  <p><code>faker.helpers.userCard()</code>:
+    {{#each-in user as |key value|}}
+      {{key}} - {{value}}
+    {{/each-in}}
+  </p>
+  <p><code>faker.image.image(480, 320, true)</code>: <img src={{image}}></p>
+  <p><code>faker.image.avatar()</code>: <img src={{avatar}}></p>
+  <p><code>faker.lorem.paragraph()</code>: {{paragraph}}</p>
+  <p><code>faker.lorem.paragraph()</code>: {{randomParagraphs}}</p>

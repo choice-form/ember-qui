@@ -1,0 +1,59 @@
+.icon-title {
+  font-size: 36px;
+  color: color(black a(64%));
+  margin-top: 64px;
+}
+
+.svg-icon {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  padding: 24px 0;
+  margin-top: 24px;
+  border-top: 1px solid color(black a(24%));
+}
+
+.wrapper {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+
+.svg-container {
+  cursor: pointer;
+  padding: 12px;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  &:hover {
+    background-color: color(black a(4%));
+    box-shadow: inset color(black a(8%)) 0 0 0 1px;
+    & svg {
+      fill: color(black a(96%));
+    }
+  }
+  & svg {
+    fill: color(black a(64%));
+    align-self: center;
+  }
+}
+
+.attr {
+  text-align: center;
+  z-index: 10;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 128px;
+  padding-top: 80px;
+  background-color: white;
+  border-top: 1px solid silver;
+  & span {
+    display: block;
+    line-height: 48px;
+    & strong {
+      color: seagreen;
+    }
+  }
+}
