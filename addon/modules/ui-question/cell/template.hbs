@@ -1,24 +1,26 @@
 <div>
-  <input
-    id={{option.uuid}}
-      type={{type}}
-    onchange={{action 'change'}}
+  {{#unless (eq option.inputType 'input')}}
+    <input
+      id={{option.uuid}}
+        type={{nodeInfo.selectType}}
       onclick={{action 'select'}}
-    name={{nodeInfo.id}}
+        name={{nodeInfo.id}}
       autofocus={{autofocus}}
-    placeholder={{option.placeholder}}
+        placeholder={{option.placeholder}}
       checked={{option.selected}}
-    disabled={{disabled}}
+        disabled={{disabled}}
       required={{required}}
-    tabindex={{tabindex}}
+        tabindex={{tabindex}}
       value={{option.value}}
-  >
-
-  {{ui-question/ui-label option}}
+    >
+    {{ui-question/ui-label option}}
+  {{else}}
+    {{ui-question/ui-input option}}
+  {{/unless}}
 </div>
 
 {{#if (and (eq option.inputType 'select-input') option.selected)}}
-  <input type="text" value={{option.value}} onchange={{action 'change'}}>
+  {{ui-question/ui-input option}}
 {{/if}}
 
 {{#if option.selected}}

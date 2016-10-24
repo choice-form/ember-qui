@@ -21,30 +21,7 @@ export default Component.extend({
       if (inputType === 'input')return;
       this.handleClick(get(this, 'option'));
     },
-
-    /**
-     * change事件
-     */
-    change(e){
-      console.log('点了Change');
-    },
   },
-
-  /**
-   * 其他选项input Type类型
-   */
-  type: computed('option.inputType', function () {
-    const inputType = get(this, 'option.inputType');
-    if(!inputType){
-      return get(this, 'nodeInfo.selectType');
-    }
-
-    if (inputType === 'input') {
-      return 'text';
-    } else {
-      return 'radio';
-    }
-  }),
 
 
   didInsertElement() {
