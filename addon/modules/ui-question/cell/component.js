@@ -46,15 +46,6 @@ export default Component.extend({
     }
   }),
 
-  /**
-   * 设置选项的svg icon
-   */
-  optionSvg: computed('option.selected', 'option.icon', function () {
-    const uiService = get(this, 'uiService');
-    const selected = get(this, 'option.selected');
-    const icon = get(this, 'option.icon');
-    return uiService.getOptionSvg(selected, icon);
-  }),
 
   didInsertElement() {
   }

@@ -13,13 +13,8 @@
     tabindex={{tabindex}}
       value={{option.value}}
   >
-  <label for={{option.uuid}}>
-    {{optionSvg}}
-    {{#if option.text}}
-      <span>{{option.text}}</span>
-    {{/if}}
-    {{option.picture}}
-  </label>
+
+  {{ui-question/ui-label option}}
 </div>
 
 {{#if (and (eq option.inputType 'select-input') option.selected)}}

@@ -22,14 +22,6 @@ export default Component.extend({
     },
   },
 
-
-  optionSvg: computed('option.icon', function () {
-    const svgName = get(this,'option.icon');
-    return htmlSafe(`<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="16px" height="16px" viewBox="0 0 16 16">
-        <use xlink:href=${svgName}></use>
-      </svg>`);
-  }),
-
   didInsertElement() {
   }
 
