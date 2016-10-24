@@ -32,7 +32,7 @@ export default Route.extend({
       Ember.Object.create({
         selected: false,
         text: '',
-        uuid: "443E6B4F-D705-483D-905F-07E420920E19",
+        uuid: "443E6B4F-D705-483D-905F-07E420920E17",
         icon: '#svg-folder',
         inputType: '',
         inputRule: '',
@@ -42,9 +42,9 @@ export default Route.extend({
       Ember.Object.create({
         selected: true,
         text: '',
-        uuid: "443E6B4F-D705-483D-905F-07E420920E19",
+        uuid: "443E6B4F-D705-483D-905F-07E770920E16",
         icon: '#svg-folder',
-        inputType: '',
+        inputType: 'select-input',
         inputRule: '',
         value: faker.address.streetAddress(true),
         placeholder: '请输入文字',
@@ -52,7 +52,7 @@ export default Route.extend({
       Ember.Object.create({
         selected: false,
         text: '',
-        uuid: "443E6B4F-D705-483D-905F-07E420920E19",
+        uuid: "443E6B4F-D705-483D-905F-07E420920E11",
         icon: '#svg-folder',
         inputType: '',
         inputRule: '',

@@ -12,7 +12,7 @@ export default Component.extend({
   layout,
   uiService: inject('ui'),
 
-  classNames: ['ui-option-cell'],
+  classNames: ['cell'],
 
   actions: {
     select() {

@@ -9,9 +9,9 @@ export default Service.extend({
    */
   getOptionComponentName(type){
     if(['select'].includes(type)){
-      return 'ui-option-cell';
+      return 'cell';
     }else{
-      return `ui-option-${type}`;
+      return type;
     }
   },
 
