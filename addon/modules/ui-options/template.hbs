@@ -1,7 +1,0 @@
-{{#each question.options as |option|}}
-  {{#if option.inputType}}
-    {{component 'ui-options/ui-option-other' option question.nodeInfo handleClick=question.handleOptionClick}}
-  {{else}}
-    {{component componentName option question.nodeInfo handleClick=question.handleOptionClick}}
-  {{/if}}
-{{/each}}

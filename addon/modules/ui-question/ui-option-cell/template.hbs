@@ -1,0 +1,32 @@
+<input
+  id={{option.uuid}}
+    type={{type}}
+  onchange={{action 'change'}}
+    onclick={{action 'select'}}
+    name={{nodeInfo.id}}
+  autofocus={{autofocus}}
+    placeholder={{option.placeholder}}
+  checked={{option.selected}}
+    disabled={{disabled}}
+  required={{required}}
+    tabindex={{tabindex}}
+  value={{option.value}}
+>
+
+{{#if (and (eq option.inputType 'select-input') option.selected)}}
+  <input type="text" value={{option.value}} onchange={{action 'change'}}>
+{{/if}}
+
+<label for={{option.uuid}}>
+  {{optionSvg}}
+  {{#if option.text}}
+    <span>{{option.text}}</span>
+  {{/if}}
+  {{option.picture}}
+</label>
+
+{{#if option.selected}}
+  <span>选择了</span>
+{{/if}}
+
+{{errorMessage}}

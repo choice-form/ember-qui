@@ -1,0 +1,21 @@
+<div class="item" onclick={{action 'select'}}>
+  {{input
+    id=option.uuid
+    type= (if (eq nodeInfo.type 'valueMark') 'range' 'radio')
+    value=option.value
+  }}
+
+  <label for={{option.uuid}} onclick={{action 'stopPropagation'}}>
+    {{optionSvg}}
+    {{#if option.text}}
+      <span>{{option.text}}</span>
+    {{/if}}
+    {{option.picture}}
+  </label>
+
+  {{#if option.selected}}
+    <span>选择了</span>
+  {{/if}}
+
+  {{errorMessage}}
+</div>

@@ -1,0 +1,18 @@
+<div local-class="wrapper">
+
+  <div local-class="row">
+    {{ui-question/ui-header question.header}}
+      <div local-class={{concat "control " question.nodeInfo.type}}>
+        {{#each question.options as |option|}}
+          {{component componentName option question.nodeInfo handleClick=question.handleOptionClick}}
+        {{/each}}
+      </div>
+  </div>
+
+
+  <textarea name="" id="" cols="30" rows="10"></textarea>
+
+</div>
+
+
+{{ui-question/ui-button question.button}}

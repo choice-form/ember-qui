@@ -13,8 +13,10 @@ Router.map(function() {
   this.route('header', {path: 'h'});
   this.route('button', {path: 'b'});
   this.route('question', { path: 'q' });
-  this.route('options-select', { path: 'select' });
-  this.route('options-fill', { path: 'fill' });
+  this.route('question-select', { path: 'select' });
+  this.route('question-fill', { path: 'fill' });
+  this.route('question-valueMark', { path: 'valueMark' });
+
 
 });
 
