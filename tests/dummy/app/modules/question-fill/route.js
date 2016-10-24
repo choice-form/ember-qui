@@ -45,7 +45,7 @@ export default Route.extend({
         uuid: "443E6B4F-D705-483D-905F-07E770920E16",
         icon: '#svg-folder',
         inputType: 'select-input',
-        inputRule: '',
+        inputRule: 'time',
         value: faker.address.streetAddress(true),
         placeholder: '请输入文字',
       }),
