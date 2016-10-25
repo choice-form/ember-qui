@@ -1,4 +1,3 @@
-
 <div local-class="wrapper">
 
   <div local-class="row">
@@ -8,12 +7,12 @@
         {{#if (eq option.inputType '')}}
           {{component componentName option nodeInfo handleClick=question.handleOptionClick}}
         {{else}}
-          {{component 'ui-question/cell' option nodeInfo handleClick=question.handleOptionClick}}
+          {{component 'ui-control/option-cell' option nodeInfo handleClick=question.handleOptionClick}}
         {{/if}}
       {{/each}}
     </div>
   </div>
 </div>
 
+{{ui-addon/button buttonData}}
 
-{{ui-question/button buttonData}}
