@@ -1,8 +1,8 @@
-<span>123123</span>
+
 <div local-class="wrapper">
 
   <div local-class="row">
-    {{ui-question/header headerDate}}
+    {{ui-question/header headerData}}
     <div local-class={{concat "control " nodeInfo.type}}>
       {{#each question.options as |option|}}
         {{#if (eq option.inputType '')}}
@@ -16,4 +16,4 @@
 </div>
 
 
-{{ui-question/button buttonDate}}
+{{ui-question/button buttonData}}

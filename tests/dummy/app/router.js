@@ -17,6 +17,7 @@ Router.map(function() {
   this.route('question-select', { path: 'select' });
   this.route('question-fill', { path: 'fill' });
   this.route('question-valuemark', { path: 'valuemark' });
+  this.route('question-graphmark', { path: 'graphmark' });
 });
 
 export default Router;

@@ -14,7 +14,7 @@ export default Component.extend({
   /**
    * 将header的数据打包到一起
    */
-  headerDate:computed('question', function () {
+  headerData:computed('question', function () {
     const question = get(this, 'question');
     return  Ember.getProperties(question, ['title', 'description', 'images']);
   }),
@@ -30,7 +30,7 @@ export default Component.extend({
   /**
    * 将button的数据打包到一起
    */
-  buttonDate:computed('question', function () {
+  buttonData:computed('question', function () {
     const question = get(this, 'question');
     return  Ember.getProperties(question, ['prevButton', 'nextButton']);
   }),
