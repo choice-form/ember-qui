@@ -39,6 +39,7 @@ pre{
   word-break: break-all;
   white-space: pre-wrap;
   word-wrap: break-word;
+  font-family: inherit;
 }
 
 ul, ol {
