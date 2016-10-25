@@ -1,3 +1,4 @@
+{{!--如果输入类型是input，则，使用其他选项备注组件--}}
 <div>
   {{#unless (eq option.inputType 'input')}}
     <input
@@ -15,13 +16,21 @@
     >
     {{ui-question/ui-label option}}
   {{else}}
-    {{ui-question/ui-input option}}
+    {{ui-question/fill option}}
   {{/unless}}
 </div>
 
-{{#if (and (eq option.inputType 'select-input') option.selected)}}
-  {{ui-question/ui-input option}}
+
+{{!--选择选项再弹出输入框--}}
+{{#if (and (eq option.inputType "select-input") option.selected)}}
+  {{ui-question/fill option}}
 {{/if}}
+
+{{!--直接显示输入框--}}
+{{#if (eq option.inputType "ower-input")}}
+  {{ui-question/fill option}}
+{{/if}}
+
 
 {{#if option.selected}}
   <span>选择了</span>

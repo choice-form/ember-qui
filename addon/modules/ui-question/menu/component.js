@@ -10,19 +10,20 @@ import inject from 'ember-service/inject';
 
 export default Component.extend({
   layout,
-  uiService: inject('ui'),
+  uiService : inject('ui'),
+
+  svg: computed('', 'option.icon', function () {
+    const uiService = get(this, 'uiService');
+    const icon = get(this, 'option.icon');
+    return uiService.getOptionSvg('', icon);
+  }),
+
 
   actions: {
-    /**
-     * 选中事件，如果其他选项是'input'类型？则，直接return
-     */
-    select(){
-      const inputType = get(this, 'option.inputType');
-      if (inputType === 'input')return;
-      this.handleClick(get(this, 'option'));
+    change(e){
+      const id = e.target.value;
+      console.log('menu-id = ' + id);
     },
   },
 
-  didInsertElement() {
-  }
-}).reopenClass({positionalParams: ['option', 'nodeInfo']});
+}).reopenClass({ positionalParams: ['option']});

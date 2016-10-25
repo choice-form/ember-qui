@@ -1,15 +1,11 @@
-{{input
-  id=option.uuid
-  type='text'
-  autofocus=autofocus
-  disabled=disabled
-  required=required
-  tabindex=tabindex
-  value=option.value
-  placeholder=option.placeholder
-  onchane=(action 'change')
-}}
-
-{{ui-question/ui-label option}}
+<div class="input">
+  {{svg}}
+  <input
+    type="text"
+    value={{option.value}}
+    placeholder={{option.placeholder}}
+    onchange={{action 'change'}}
+  >
+</div>
 
 {{errorMessage}}

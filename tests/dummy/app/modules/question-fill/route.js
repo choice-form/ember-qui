@@ -10,73 +10,67 @@ export default Route.extend({
 
     let options = [
       Ember.Object.create({
-        selected: false,
+        selected: '',
         text:'',
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
-        icon: '#svg-folder', // 选项的Icon
-        inputType: '', // 'select', 'input', 'select-input',
-        inputRule: '', //输入控件初始化规则
+        icon: '', // 选项的Icon
+        inputType: 'input', // 'select', 'input', 'select-input',
+        inputRule: 'time', //输入控件初始化规则
         value: '',
-        placeholder: '请输入文字',
+        placeholder: '请输入时间',
       }),
       Ember.Object.create({
-        selected: false,
+        selected: '',
         text: '',
         uuid: "443E6B4F-D705-483D-905F-07E420920E19",
-        icon: '#svg-folder',
-        inputType: '',
-        inputRule: '',
+        icon: '',
+        inputType: 'input',
+        inputRule: 'count',
         value: faker.address.streetAddress(true),
-        placeholder: '请输入文字',
-      }),
-      Ember.Object.create({
-        selected: false,
-        text: '',
-        uuid: "443E6B4F-D705-483D-905F-07E420920E17",
-        icon: '#svg-folder',
-        inputType: '',
-        inputRule: '',
+        placeholder: '请输入字数',
+      }),Ember.Object.create({
+        selected: '',
+        text:'',
+        uuid: "299CA073-8FD0-4C6F-4C07-02B063AC8C91",
+        icon: '', // 选项的Icon
+        inputType: 'input', // 'select', 'input', 'select-input',
+        inputRule: 'int', //输入控件初始化规则
         value: '',
-        placeholder: '请输入文字',
+        placeholder: '请输入整数',
       }),
       Ember.Object.create({
-        selected: true,
+        selected: '',
         text: '',
-        uuid: "443E6B4F-D705-483D-905F-07E770920E16",
-        icon: '#svg-folder',
-        inputType: 'select-input',
-        inputRule: 'time',
+        uuid: "443E6B4F-D705-483D-905F-07E420920E12",
+        icon: '',
+        inputType: 'input',
+        inputRule: 'float',
         value: faker.address.streetAddress(true),
-        placeholder: '请输入文字',
-      }),
-      Ember.Object.create({
-        selected: false,
-        text: '',
-        uuid: "443E6B4F-D705-483D-905F-07E420920E11",
-        icon: '#svg-folder',
-        inputType: '',
-        inputRule: '',
-        value: faker.address.streetAddress(true),
-        placeholder: '请输入文字',
+        placeholder: '请输入小数',
+      }),Ember.Object.create({
+        selected: '',
+        text:'',
+        uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
+        icon: '', // 选项的Icon
+        inputType: 'input', // 'select', 'input', 'select-input',
+        inputRule: 'calendar', //输入控件初始化规则
+        value: '',
+        placeholder: '选择日期',
       }),
     ];
 
     return {
-      header:{
-        title:faker.address.streetAddress(true),
-        description: faker.lorem.paragraph(),
-        images:[1,2].map(function () {
-          return faker.image.image(360, 360, true)
-        }),
-        typeName:'选择题',
-      },
+      title:faker.address.streetAddress(true),
+      description: faker.lorem.paragraph(),
+      images:[1].map(function () {
+        return faker.image.image(360, 360, true)
+      }),
+      typeName:'选择题',
 
-      nodeInfo: {
-        type: 'fill', //select, fill
-        selectType: 'single',
-        showStyle: '',
-        id: '001',
-      },
+      type: 'fill', //select, fill
+      selectType: '',
+      showStyle: '',
+      id: '002',
 
       options,
 
@@ -92,19 +86,17 @@ export default Route.extend({
         }
       },
 
-      button:{
-        prevButton:{
-          text:'上一题',
-          handlePrev:()=>{
-            console.log('点击了上一题');
-          }
-        },
+      prevButton:{
+        text:'上一题',
+        handlePrev:()=>{
+          console.log('点击了上一题');
+        }
+      },
 
-        nextButton:{
-          text:'下一题',
-          handleNext:()=>{
-            console.log('点击了下一题');
-          }
+      nextButton:{
+        text:'下一题',
+        handleNext:()=>{
+          console.log('点击了下一题');
         }
       }
 
