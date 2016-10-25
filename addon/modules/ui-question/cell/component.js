@@ -23,7 +23,6 @@ export default Component.extend({
     },
   },
 
-
   didInsertElement() {
   }
 }).reopenClass({positionalParams: ['option', 'nodeInfo']});

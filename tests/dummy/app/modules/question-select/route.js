@@ -13,10 +13,10 @@ export default Route.extend({
         text: faker.address.streetAddress(true),
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
         icon: '#svg-folder', // 选项的Icon
-        inputType: '', // 'select', 'input', 'select-input',
-        inputRule: '', //输入控件初始化规则
-        value: '',
-        placeholder: 'placeholder',
+        inputType: 'ower-input', // 'select', 'input', 'select-input, ower-input',
+        inputRule: 'design-16px_pen-01', //输入控件初始化规则
+        value: '这里是自身选项备注',
+        placeholder: '输入备注',
       }),
       Ember.Object.create({
         selected: false,
@@ -84,7 +84,7 @@ export default Route.extend({
       header:{
         title:faker.address.streetAddress(true),
         description: faker.lorem.paragraph(),
-        images:[1,2].map(function () {
+        images:[1].map(function () {
           return faker.image.image(360, 360, true)
         }),
         typeName:'选择题',
