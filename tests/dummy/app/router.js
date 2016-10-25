@@ -14,12 +14,12 @@ Router.map(function() {
   this.route('button', {path: 'b'});
   this.route('intro', {path: 'intro'});
   this.route('question', { path: 'q' });
-  this.route('question-select', { path: 'select' });
-  this.route('question-fill', { path: 'fill' });
-  this.route('question-valuemark', { path: 'valuemark' });
-  this.route('question-graphmark', { path: 'graphmark' });
-  this.route('question-sequence', { path: 'sequence' });
-  this.route('question-menu', { path: 'menu' });
+  this.route('question-choice', { path: 'choice' });
+  this.route('question-short-text', { path: 'short-text' });
+  this.route('question-slider', { path: 'slider' });
+  this.route('question-rating', { path: 'rating' });
+  this.route('question-ranking', { path: 'ranking' });
+  this.route('question-dropdown', { path: 'dropdown' });
 });
 
 export default Router;

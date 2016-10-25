@@ -8,7 +8,7 @@
         {{#if (eq option.inputType '')}}
           {{component componentName option nodeInfo handleClick=question.handleOptionClick}}
         {{else}}
-          {{component 'ui-question/cell' option nodeInfo handleClick=question.handleOptionClick}}
+          {{component 'ui-question/ui-control/option-cell' option nodeInfo handleClick=question.handleOptionClick}}
         {{/if}}
       {{/each}}
     </div>

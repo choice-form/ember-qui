@@ -8,11 +8,7 @@ export default Service.extend({
   获取题型的名称
    */
   getOptionComponentName(type){
-    if(['select'].includes(type)){
-      return 'cell';
-    }else{
-      return type;
-    }
+    return type;
   },
 
   /*
