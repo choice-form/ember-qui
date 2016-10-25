@@ -18,6 +18,7 @@ Router.map(function() {
   this.route('question-fill', { path: 'fill' });
   this.route('question-valuemark', { path: 'valuemark' });
   this.route('question-graphmark', { path: 'graphmark' });
+  this.route('question-sequence', { path: 'sequence' });
 });
 
 export default Router;
