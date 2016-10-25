@@ -19,6 +19,7 @@ Router.map(function() {
   this.route('question-valuemark', { path: 'valuemark' });
   this.route('question-graphmark', { path: 'graphmark' });
   this.route('question-sequence', { path: 'sequence' });
+  this.route('question-menu', { path: 'menu' });
 });
 
 export default Router;
