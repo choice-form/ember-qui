@@ -81,21 +81,19 @@ export default Route.extend({
     ];
 
     return {
-      header:{
-        title:faker.address.streetAddress(true),
-        description: faker.lorem.paragraph(),
-        images:[1].map(function () {
-          return faker.image.image(360, 360, true)
-        }),
-        typeName:'选择题',
-      },
 
-      nodeInfo: {
-        type: 'select', //select, fill
-        selectType: 'checkbox',
-        showStyle: '',
-        id: '001',
-      },
+      title:faker.address.streetAddress(true),
+      description: faker.lorem.paragraph(),
+      images:[1].map(function () {
+        return faker.image.image(360, 360, true)
+      }),
+      typeName:'选择题',
+
+      type: 'select', //select, fill
+      selectType: 'checkbox',
+      showStyle: '',
+      id: '001',
+
       options,
 
       handleOptionClick: (option) => {
@@ -110,21 +108,20 @@ export default Route.extend({
         }
       },
 
-      button:{
-        prevButton:{
-          text:'上一题',
-          handlePrev:()=>{
-            console.log('点击了上一题');
-          }
-        },
+      prevButton:{
+        text:'上一题',
+        handlePrev:()=>{
+          console.log('点击了上一题');
+        }
+      },
 
-        nextButton:{
-          text:'下一题',
-          handleNext:()=>{
-            console.log('点击了下一题');
-          }
+      nextButton:{
+        text:'下一题',
+        handleNext:()=>{
+          console.log('点击了下一题');
         }
       }
+
     }
   }
 });

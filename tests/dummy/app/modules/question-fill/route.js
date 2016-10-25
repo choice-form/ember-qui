@@ -60,21 +60,17 @@ export default Route.extend({
     ];
 
     return {
-      header:{
-        title:faker.address.streetAddress(true),
-        description: faker.lorem.paragraph(),
-        images:[1,2].map(function () {
-          return faker.image.image(360, 360, true)
-        }),
-        typeName:'选择题',
-      },
+      title:faker.address.streetAddress(true),
+      description: faker.lorem.paragraph(),
+      images:[1].map(function () {
+        return faker.image.image(360, 360, true)
+      }),
+      typeName:'选择题',
 
-      nodeInfo: {
-        type: 'fill', //select, fill
-        selectType: 'single',
-        showStyle: '',
-        id: '001',
-      },
+      type: 'fill', //select, fill
+      selectType: '',
+      showStyle: '',
+      id: '002',
 
       options,
 
@@ -90,19 +86,17 @@ export default Route.extend({
         }
       },
 
-      button:{
-        prevButton:{
-          text:'上一题',
-          handlePrev:()=>{
-            console.log('点击了上一题');
-          }
-        },
+      prevButton:{
+        text:'上一题',
+        handlePrev:()=>{
+          console.log('点击了上一题');
+        }
+      },
 
-        nextButton:{
-          text:'下一题',
-          handleNext:()=>{
-            console.log('点击了下一题');
-          }
+      nextButton:{
+        text:'下一题',
+        handleNext:()=>{
+          console.log('点击了下一题');
         }
       }
 

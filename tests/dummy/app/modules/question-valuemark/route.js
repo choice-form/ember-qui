@@ -11,73 +11,68 @@ export default Route.extend({
     let options = [
       Ember.Object.create({
         selected: '',
-        text: faker.address.streetAddress(true),
+        text: '最低10分,最高100分',
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
         icon: '', // 选项的Icon
         inputType: '', // 'select', 'input', 'select-input',
         inputRule: '', //输入控件初始化规则
-        value: 3,
+        value: '0',
         placeholder: '',
       }),
       Ember.Object.create({
         selected: '',
-        text: faker.address.streetAddress(true),
-        uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
+        text: '最低30分,最高100分',
+        uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C91",
         icon: '', // 选项的Icon
         inputType: '', // 'select', 'input', 'select-input',
         inputRule: '', //输入控件初始化规则
-        value: 2,
+        value: '20',
         placeholder: '',
       }),
       Ember.Object.create({
         selected: '',
-        text: faker.address.streetAddress(true),
-        uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
+        text: '最低30分,最高80分',
+        uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C92",
         icon: '', // 选项的Icon
         inputType: '', // 'select', 'input', 'select-input',
         inputRule: '', //输入控件初始化规则
-        value: 1,
+        value: '40',
         placeholder: '',
       }),
       Ember.Object.create({
         selected: '',
-        text: faker.address.streetAddress(true),
-        uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
+        text: '最低20分,最高60分',
+        uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C93",
         icon: '', // 选项的Icon
         inputType: '', // 'select', 'input', 'select-input',
         inputRule: '', //输入控件初始化规则
-        value: 0,
+        value: '0',
         placeholder: '',
       }),
       Ember.Object.create({
         selected: '',
-        text: faker.address.streetAddress(true),
-        uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
+        text: '最低60分,最高100分',
+        uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C94",
         icon: '', // 选项的Icon
         inputType: '', // 'select', 'input', 'select-input',
         inputRule: '', //输入控件初始化规则
-        value: 6,
+        value: '60',
         placeholder: '',
       }),
     ];
 
     return {
+      title:faker.address.streetAddress(true),
+      description: faker.lorem.paragraph(),
+      images:[1].map(function () {
+        return faker.image.image(360, 360, true)
+      }),
+      typeName:'分值打分题',
 
-      header:{
-        title:faker.address.streetAddress(true),
-        description: faker.lorem.paragraph(),
-        images:[1,2].map(function () {
-          return faker.image.image(360, 360, true)
-        }),
-        typeName:'选择题',
-      },
-
-      nodeInfo: {
-        type: 'valueMark', //select, fill,valueMark
-        selectType: 'range',
-        showStyle: '',
-        id: '001',
-      },
+      type: 'valuemark', //select, fill, valuemark
+      selectType: '',
+      showStyle: '',
+      id: '002',
 
       options,
 
@@ -93,21 +88,20 @@ export default Route.extend({
         }
       },
 
-      button:{
-        prevButton:{
-          text:'上一题',
-          handlePrev:()=>{
-            console.log('点击了上一题');
-          }
-        },
+      prevButton:{
+        text:'上一题',
+        handlePrev:()=>{
+          console.log('点击了上一题');
+        }
+      },
 
-        nextButton:{
-          text:'下一题',
-          handleNext:()=>{
-            console.log('点击了下一题');
-          }
+      nextButton:{
+        text:'下一题',
+        handleNext:()=>{
+          console.log('点击了下一题');
         }
       }
+
     }
   }
 });

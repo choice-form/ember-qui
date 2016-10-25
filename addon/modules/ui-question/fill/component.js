@@ -21,7 +21,6 @@ export default Component.extend({
   }),
 
   actions: {
-
     /**
      * change事件
      */
