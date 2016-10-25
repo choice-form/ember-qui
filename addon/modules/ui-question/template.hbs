@@ -1,0 +1,19 @@
+
+<div local-class="wrapper">
+
+  <div local-class="row">
+    {{ui-question/header headerData}}
+    <div local-class={{concat "control " nodeInfo.type}}>
+      {{#each question.options as |option|}}
+        {{#if (eq option.inputType '')}}
+          {{component componentName option nodeInfo handleClick=question.handleOptionClick}}
+        {{else}}
+          {{component 'ui-question/cell' option nodeInfo handleClick=question.handleOptionClick}}
+        {{/if}}
+      {{/each}}
+    </div>
+  </div>
+</div>
+
+
+{{ui-question/button buttonData}}
