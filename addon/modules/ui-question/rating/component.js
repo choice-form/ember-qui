@@ -24,7 +24,7 @@ export default Component.extend({
       };
 
       if(i < value ){
-        array[i].icon = graph + '-fill';
+        array[i].icon = graph + '-active';
         array[i].checked = true;
       }else{
         array[i].icon = graph;

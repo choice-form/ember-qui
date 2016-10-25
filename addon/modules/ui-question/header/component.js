@@ -1,12 +1,12 @@
 import Component from 'ember-component';
 import layout from './template';
+import styles from './styles';
 import computed from 'ember-computed';
 import get from 'ember-metal/get';
 import {htmlSafe} from 'ember-string';
 
-
 export default Component.extend({
-  layout,
+  layout, styles,
   tagName:'',
   /**
    * 获取所有的图片
