@@ -10,7 +10,7 @@ export default Route.extend({
     let options = [
       Ember.Object.create({
         selected: false,
-        text: faker.address.streetAddress(true),
+        text: faker.hacker.phrase(),
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
         icon: 'check', // 选项的Icon
         inputType: 'ower-input', // 'select', 'input', 'select-input, ower-input',
@@ -20,7 +20,7 @@ export default Route.extend({
       }),
       Ember.Object.create({
         selected: false,
-        text: faker.address.streetAddress(true),
+        text: faker.hacker.phrase(),
         uuid: "443E6B4F-D705-483D-905F-07E420920E19",
         icon: 'check',
         inputType: '',
@@ -30,7 +30,7 @@ export default Route.extend({
       }),
       Ember.Object.create({
         selected: false,
-        text: `选项 ${faker.lorem.paragraph()}`,
+        text: faker.hacker.phrase(),
         uuid: "443E6B4F-D705-483D-905F-07E420920E18",
         icon: 'check',
         inputType: 'select',
@@ -40,7 +40,7 @@ export default Route.extend({
       }),
       Ember.Object.create({
         selected: false,
-        text: faker.address.streetAddress(true),
+        text: faker.hacker.phrase(),
         uuid: "443E6B4F-D705-483D-905F-07E420920E15",
         icon: 'check',
         inputType: 'select-input',
@@ -60,7 +60,7 @@ export default Route.extend({
       }),
       Ember.Object.create({
         selected: true,
-        text: faker.lorem.paragraph(),
+        text: faker.hacker.phrase(),
         uuid: "443E6B4F-D705-483D-905F-07E420920E12",
         icon: 'check',
         inputType: 'input',
@@ -70,7 +70,7 @@ export default Route.extend({
       }),
       Ember.Object.create({
         selected: true,
-        text: faker.lorem.paragraph(),
+        text: faker.hacker.phrase(),
         uuid: "443E6B4F-D705-483D-905F-07E420920E12",
         icon: 'check',
         inputType: 'input',
@@ -82,12 +82,12 @@ export default Route.extend({
 
     return {
 
-      title:faker.address.streetAddress(true),
+      title: faker.hacker.phrase(),
       description: faker.lorem.paragraph(),
-      images:[1].map(function () {
-        return faker.image.image(360, 360, true)
+      images: [1].map(function () {
+        return faker.image.image(640, 360, true)
       }),
-      typeName:'选择题',
+      typeName: '选择题',
 
       type: 'choice', //select, fill
       selectType: 'checkbox',
@@ -108,16 +108,16 @@ export default Route.extend({
         }
       },
 
-      prevButton:{
-        text:'上一题',
-        handlePrev:()=>{
+      prevButton: {
+        text: '上一题',
+        handlePrev: () => {
           console.log('点击了上一题');
         }
       },
 
-      nextButton:{
-        text:'下一题',
-        handleNext:()=>{
+      nextButton: {
+        text: '下一题',
+        handleNext: () => {
           console.log('点击了下一题');
         }
       }

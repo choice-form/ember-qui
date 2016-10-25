@@ -1,0 +1,35 @@
+:global(.option-cell) {
+  margin-bottom: 12px;
+  & input[type="checkbox"],
+  & input[type="radio"] {
+    display: none;
+  }
+  & label {
+    cursor: pointer;
+    display: block;
+  }
+  & svg {
+    display: inline-block;
+    vertical-align: bottom;
+  }
+}
+
+:global(.input) {
+  margin-bottom: 12px;
+  & input {
+    float: right;
+    appearance: none;
+    width: calc(100% - 20px);
+    resize: none;
+    border-radius: 0;
+    background-color: transparent;
+  }
+  & svg {
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
+
+:global(.attachment) {
+  padding: 12px 0;
+}
