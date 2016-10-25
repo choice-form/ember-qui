@@ -12,6 +12,7 @@ Router.map(function() {
   this.route('svgicon', {path:'svg'});
   this.route('header', {path: 'h'});
   this.route('button', {path: 'b'});
+  this.route('intro', {path: 'intro'});
   this.route('question', { path: 'q' });
   this.route('question-select', { path: 'select' });
   this.route('question-fill', { path: 'fill' });
