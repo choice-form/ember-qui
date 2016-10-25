@@ -3,4 +3,5 @@ import layout from './template';
 
 export default Component.extend({
   layout,
+  tagName: '',
 });

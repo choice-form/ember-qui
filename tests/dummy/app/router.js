@@ -8,8 +8,8 @@ const Router = Ember.Router.extend({
 
 Router.map(function() {
   this.route('faker');
-  this.route('svgicon', {path:'svg'});
-  this.route('intro', {path: 'intro'});
+  this.route('icon-preview', {path:'icon-preview'});
+  this.route('welcome', {path: 'welcome'});
   this.route('question-choice', { path: 'choice' });
   this.route('question-short-text', { path: 'short-text' });
   this.route('question-slider', { path: 'slider' });
