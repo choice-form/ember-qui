@@ -72,7 +72,11 @@ pre[data-color='color5'] {
 }
 
 /*choice*/
-:global(.choice) {
+:global(.ui-radio),
+:global(.ui-checkbox) {
+  &:before {
+    background-color: var(--color7);
+  }
   & svg[data-color='color6'] {
     fill: var(--color6);
   }
@@ -87,7 +91,7 @@ pre[data-color='color5'] {
   }
 }
 
-:global(.input) {
+:global(.ui-text) {
   & input[data-color='color6 color8'] {
     color: var(--color6);
     border-color: var(--color8);
@@ -98,6 +102,12 @@ pre[data-color='color5'] {
       opacity: .6;
       color: var(--color6);
     }
+  }
+  & svg[data-color='color6'] {
+    fill: var(--color6);
+  }
+  &:before {
+    background-color: var(--color8);
   }
 }
 

@@ -1,18 +1,60 @@
 article {
-  padding: 48px 0;
+  background-color: white;
 }
 
-:global(.choice) {
+:global(.row) {
+  margin: -8px;
+  padding: 24px 0;
+  border-bottom-style: solid;
+  border-width: 1px;
+}
+
+:global(.attachment) {
+  padding: 24px 8px;
+  & img {
+    width: 50%;
+    transition: all 200ms ease;
+    @media(max-width: 767px) {
+      width: 100%;
+    }
+  }
+}
+
+:global(.option-cell) {
+
+}
+
+:global(.question-header) {
+  padding: 8px;
+}
+
+:global(.ui-radio),
+:global(.ui-checkbox) {
+  padding: 8px;
   position: relative;
-  margin-bottom: 12px;
+  &:before {
+    content: "";
+    position: absolute 0 0 0 0;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 200ms ease;
+  }
+  &:hover {
+    &:before {
+      opacity: .1;
+    }
+  }
+  @media(max-width: 479px) {
+    margin-bottom: 6px;
+  }
   & input[type="checkbox"],
   & input[type="radio"] {
-    position: absolute 0 0 auto 0;
+    position: absolute 2px auto 2px 2px;
     overflow: hidden;
     opacity: 0;
-    outline: 0;
     width: 16px;
     height: 16px;
+    border: none;
   }
   & label {
     cursor: pointer;
@@ -26,36 +68,48 @@ article {
   & span {
     vertical-align: middle;
   }
+
+  & + :global(.ui-text) {
+    padding-left: 32px;
+    &:before {
+      content: "";
+      position: absolute 8px auto 8px 8px;
+      width: 1px;
+    }
+  }
 }
 
-:global(.input) {
+:global(.ui-text) {
+  width: 50%;
   position: relative;
-  margin-bottom: 12px;
+  padding: 8px;
+  @media(max-width: 767px) {
+    width: 100%;
+  }
+  @media(max-width: 479px) {
+
+  }
   & input {
-    padding: 8px 8px 8px 32px;
+    width: 100%;
+    padding: 12px 36px 8px 12px;
     border-width: 1px;
+    &:hover {
+
+    }
     &:focus {
 
     }
   }
   & svg {
-    opacity: .4;
-    position: absolute 8px auto 8px 8px;
+    opacity: .2;
+    margin: auto 0;
+    position: absolute 0 20px 0 auto;
   }
 }
 
-:global(.attachment) {
-  padding: 24px 0;
-}
-
-:global(.row) {
-  padding: 24px 0;
-  border-bottom-style: solid;
-  border-width: 1px;
-}
 
 :global(.submit-actions) {
-  padding: 24px 0;
+  padding: 24px 8px;
   & button {
     overflow: hidden;
     padding: 8px 12px;
