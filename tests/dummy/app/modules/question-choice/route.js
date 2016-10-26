@@ -117,7 +117,6 @@ export default Route.extend({
           selectType: 'checkbox',
           showStyle: '',
           uuid: '001',
-
           options,
         }
       ],
