@@ -2,11 +2,11 @@
   {{ui-control/header headerData}}
   <div class={{concat "control " control.type}}>
     {{#each control.options as |option|}}
-      {{#unless (or (eq option.inputType '') (eq control.type 'short-text') (eq control.type 'choice'))}}
+      {{#if (and option.inputType isComponent)}}
         {{component 'ui-control/option-cell' control option handleEvents}}
       {{else}}
         {{component componentName control option handleEvents}}
-      {{/unless}}
+      {{/if}}
     {{/each}}
   </div>
 </div>

@@ -25,5 +25,10 @@ export default Component.extend({
     return `ui-question/${optionName}`;
   }),
 
+  isComponent : computed('control.nodeType', function() {
+    const nodeType = get(this, 'control.nodeType');
+    if(nodeType === 'short-text' || 'choice')return false;
+    return true;
+  }),
 
 }).reopenClass({ positionalParams: ['control', 'handleEvents'] });

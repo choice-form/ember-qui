@@ -2,6 +2,7 @@
 <div>
   {{#unless (eq option.inputType 'input')}}
     <input
+      data-color= {{color}}
       id={{option.uuid}}
         type={{control.selectType}}
       onclick={{action 'handleOptionClick'}}
