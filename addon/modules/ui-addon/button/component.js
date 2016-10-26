@@ -12,12 +12,11 @@ export default Component.extend({
 
   actions:{
     prev() {
-      get(this, 'button.prevButton.handlePrev')();
+      get(this, 'handlePrev')();
     },
 
     next() {
-      get(this, 'button.nextButton.handleNext')();
+      get(this, 'handleNext')();
     },
   }
-
 }).reopenClass({positionalParams: ['button']});

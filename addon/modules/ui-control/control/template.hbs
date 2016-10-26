@@ -1,0 +1,12 @@
+<div class="row">
+  {{ui-control/header headerData}}
+  <div class={{concat "control " nodeInfo.type}}>
+    {{#each control.options as |option|}}
+      {{#if (eq option.inputType '')}}
+        {{component componentName option nodeInfo handleEvents}}
+      {{else}}
+        {{component 'ui-control/option-cell' option nodeInfo handleEvents}}
+      {{/if}}
+    {{/each}}
+  </div>
+</div>
