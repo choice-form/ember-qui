@@ -1,13 +1,33 @@
 {{ui-addon/svg-icon}}
+{{ui-addon/svg-icon/theme-basic}}
 
 <div class="w-container normal">
-  <h1 local-class="icon-title">SVG icon Preview</h1>
+  <h1 local-class="icon-title">SVG icon General</h1>
   <div local-class="svg-icon">
-    {{#each model.svg as |item|}}
+    {{#each model.general as |item|}}
       <div local-class="wrapper">
-        <div local-class="svg-container">
+        <div local-class="svg-container"
+             onmouseenter={{action "showHref"}}
+             onmouseleave={{action "hideHref"}}
+             onclick={{action "copyHref"}}>
           <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="16px" height="16px" viewBox="0 0 16 16">
-            <use xlink:href={{item.svgID}}></use>
+            <use xlink:href="{{concat "#" item.icon}}"></use>
+          </svg>
+        </div>
+      </div>
+    {{/each}}
+  </div>
+
+  <h1 local-class="icon-title">SVG icon Theme Basic</h1>
+  <div local-class="svg-icon">
+    {{#each model.basic as |item|}}
+      <div local-class="wrapper">
+        <div local-class="svg-container"
+             onmouseenter={{action "showHref"}}
+             onmouseleave={{action "hideHref"}}
+             onclick={{action "copyHref"}}>
+          <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="16px" height="16px" viewBox="0 0 16 16">
+            <use xlink:href="{{concat "#" item.icon}}"></use>
           </svg>
         </div>
       </div>
@@ -16,5 +36,6 @@
 </div>
 
 <div local-class="attr">
+  <span local-class="hover">{{hrefText}}</span>
   <span>Click on icon copy the <strong>SVG ID</strong> to the clipboard</span>
 </div>

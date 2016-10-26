@@ -1,3 +1,5 @@
+@value ui-white, ui-purple, ui-blue, ui-green, ui-tomato, ui-light, ui-fade-silver, ui-silver, ui-gray, ui-slate, ui-dark-slate from 'ui-colors';
+
 .icon-title {
   font-size: 36px;
   color: color(black a(64%));
@@ -56,4 +58,11 @@
       color: seagreen;
     }
   }
+}
+
+.hover {
+  position: absolute 24px 0 auto 0;
+  color: ui-blue;
+  font-size: 24px;
+  text-align: center;
 }
