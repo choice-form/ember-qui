@@ -1,6 +1,7 @@
 /* Top Level Global Styles */
 *, *::before, *::after {
   box-sizing: border-box;
+  user-select: none;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   -webkit-text-size-adjust: none;
   -webkit-touch-callout: none;
@@ -34,12 +35,11 @@ h1, h2, h3, h4, h5, h6, p, blockquote, dl, ol, ul {
   margin: 0;
 }
 
-pre{
+pre {
   margin: 0;
   word-break: break-all;
   white-space: pre-wrap;
   word-wrap: break-word;
-  font-family: inherit;
 }
 
 ul, ol {
@@ -53,20 +53,26 @@ a {
 }
 
 /* 如果发现某些标签的字体继承缺失，补在这条规则里来覆盖 */
-input, textarea, keygen, select, button {
+input, textarea, keygen, select, button, pre {
   font-family: inherit;
 }
 
-input[type="text"]{
-  border: 1px solid;
-}
-
 input, textarea {
-
+  outline:0;
+  border-radius: 0;
+  border-style: solid;
+  background-color: transparent;
+  -webkit-appearance: none;
+  &:hover {
+    outline: none;
+  }
+  &:focus {
+    outline:0;
+  }
 }
 
 select {
-  appearance: none;
+  -webkit-appearance: none;
 }
 
 img {
@@ -74,3 +80,28 @@ img {
   max-width: 100%;
   vertical-align: middle;
 }
+
+button {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  cursor: pointer;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  border: 0;
+  outline: 0;
+  user-select: none;
+  outline-style: none;
+  background-color: transparent;
+  &:hover {
+    outline: 0;
+  }
+  &:active {
+    border: none;
+    outline: none;
+  }
+  &:focus {
+    outline: 0;
+  }
+}
+

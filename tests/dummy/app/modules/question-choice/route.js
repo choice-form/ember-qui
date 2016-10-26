@@ -94,7 +94,7 @@ export default Route.extend({
           title: faker.address.streetAddress(true),
           description: faker.lorem.paragraph(),
           images: [1].map(function () {
-            return faker.image.image(360, 360, true)
+            return faker.image.image(640, 360, true)
           }),
           renderId:'12213343234',
           typeName: '选择题',
@@ -109,7 +109,7 @@ export default Route.extend({
           title: faker.address.streetAddress(true),
           description: faker.lorem.paragraph(),
           images: [1].map(function () {
-            return faker.image.image(360, 360, true)
+            return faker.image.image(640, 360, true)
           }),
           renderId:'775519',
           typeName: '选择题',

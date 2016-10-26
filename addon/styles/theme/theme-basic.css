@@ -1,4 +1,8 @@
-:global(.option-cell) {
+article {
+  padding: 48px 0;
+}
+
+:global(.choice) {
   margin-bottom: 12px;
   & input[type="checkbox"],
   & input[type="radio"] {
@@ -19,22 +23,37 @@
 }
 
 :global(.input) {
+  position: relative;
   margin-bottom: 12px;
   & input {
-    resize: none;
-    border-radius: 0;
-    background-color: transparent;
-    appearance: none;
+    padding: 8px 8px 8px 32px;
+    border-width: 1px;
     &:focus {
 
     }
   }
   & svg {
-    display: inline-block;
-    vertical-align: middle;
+    opacity: .6;
+    position: absolute 8px auto 8px 8px;
   }
 }
 
 :global(.attachment) {
-  padding: 12px 0;
+  padding: 24px 0;
+}
+
+:global(.row) {
+  padding: 24px 0;
+  border-bottom-style: solid;
+  border-width: 1px;
+}
+
+:global(.submit-actions) {
+  padding: 24px 0;
+  & button {
+    overflow: hidden;
+    padding: 8px 12px;
+    line-height: 20px;
+    border-radius: 3px;
+  }
 }
