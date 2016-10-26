@@ -17,4 +17,4 @@ export default Component.extend({
       get(this, 'handleNextClick')();
     },
   }
-}).reopenClass({positionalParams: ['button']});
+})

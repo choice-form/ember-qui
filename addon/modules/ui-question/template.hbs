@@ -1,11 +1,18 @@
-<div class="wrapper">
-  {{#each question.control as |control|}}
-    {{ui-control/control control question.handleEvents}}
-  {{/each}}
-</div>
+{{#if question.intro}}
+  {{ui-control/intro-page question.intro}}
+{{/if}}
 
-{{ui-addon/button
-  buttonData
-  handlePrevClick=question.handleEvents.handlePrevClick
-  handleNextClick=question.handleEvents.handleNextClick
-}}
+<section>
+  <div class="wrapper">
+    {{#each question.control as |control|}}
+      {{ui-control/control control question.handleEvents}}
+    {{/each}}
+  </div>
+
+  {{ui-addon/button
+    prevButton=question.prevButton
+    nextButton=question.nextButton
+    handlePrevClick=question.handleEvents.handlePrevClick
+    handleNextClick=question.handleEvents.handleNextClick
+  }}
+</section>
