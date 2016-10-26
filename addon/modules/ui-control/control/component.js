@@ -2,7 +2,7 @@ import Component from 'ember-component';
 import layout from './template';
 import styles from './styles';
 import computed from 'ember-computed';
-import get from 'ember-metal/get'
+import get, {getProperties} from 'ember-metal/get'
 
 
 export default Component.extend({
@@ -14,7 +14,7 @@ export default Component.extend({
    */
   headerData:computed('control', function () {
     const question = get(this, 'control');
-    return  Ember.getProperties(question, ['title', 'description', 'images']);
+    return  getProperties(question, ['title', 'description', 'images', 'isMust', 'number']);
   }),
 
   /**

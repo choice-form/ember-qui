@@ -1,6 +1,11 @@
 <header>
+  <div>
+    {{#if header.isMust}}
+      <span data-color="color4" class="required-asterisk">*</span>
+    {{/if}}
+    <span data-color="color4" class="question-number">第{{header.number}}题</span>
+  </div>
   <h2 class="title" data-color="color4">{{header.title}}</h2>
-
   {{#if header.description}}
     <pre class="description" data-color="color5">{{header.description}}</pre>
   {{/if}}

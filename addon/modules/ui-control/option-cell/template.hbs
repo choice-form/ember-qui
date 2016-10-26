@@ -1,7 +1,7 @@
 {{!--如果输入类型是input，则，使用其他选项备注组件--}}
-<div>
   {{#unless (eq option.inputType 'input')}}
     <input
+      class={{concat 'ui-' control.selectType}}
       data-color="color8"
       id={{option.uuid}}
         type={{control.selectType}}
@@ -19,16 +19,10 @@
   {{else}}
     {{ui-control/text-cell control option handleEvents}}
   {{/unless}}
-</div>
-
 
 {{!--选择选项再弹出输入框--}}
 {{#if (and (eq option.inputType "select-input") option.selected)}}
   {{ui-control/text-cell control option handleEvents}}
-{{/if}}
-
-{{#if option.selected}}
-  <span>选择了</span>
 {{/if}}
 
 {{errorMessage}}
