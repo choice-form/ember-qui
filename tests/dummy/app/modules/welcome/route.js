@@ -17,14 +17,14 @@ export default Route.extend({
       button:{
         prevButton:{
           text:'上一题',
-          handlePrev:()=>{
+          handlePrevClick:()=>{
             console.log('点击了上一题');
           }
         },
 
         nextButton:{
           text:'下一题',
-          handleNext:()=>{
+          handleNextClick:()=>{
             console.log('点击了下一题');
           }
         }

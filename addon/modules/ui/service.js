@@ -7,18 +7,18 @@ export default Service.extend({
   /*
   获取题型的名称
    */
-  getOptionComponentName(type){
-    return type;
+  getOptionComponentName(nodeType){
+    return nodeType;
   },
 
   /*
    获取选项的Icon
    */
   getOptionSvg(slected, icon){
-    let svgName, color = '', svgSize = '16', viewBox = '16';
+    let svgName, color = '';
     svgName = slected ? `${icon}-active` : icon;
-    color = slected ? '' : '';
-    return htmlSafe(`<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width=${svgSize} height=${svgSize} viewBox="0 0 ${viewBox} ${viewBox}">
+    color = slected ? 'red' : '';
+    return htmlSafe(`<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="16px" height="16px" viewBox="0 0 16 16">
         <use xlink:href=#${svgName} fill=${color}></use>
       </svg>`);
   },

@@ -9,7 +9,7 @@ import {htmlSafe} from 'ember-string';
 
 export default Component.extend({
   layout,
-
+  tagName: '',
   /**
    * count(字数)，int(整数),phone(手机号),float(小数),email(邮件地址),calendar(日期),time(时间),postCode(邮编),url(网址),region(时间范围，日期范围)
    */
@@ -24,11 +24,9 @@ export default Component.extend({
     /**
      * change事件
      */
-    change(e){
-      const value = e.target.value;
-      set(this, 'option.value', value);
-      console.log('点了Change');
+    handleOptionInput(){
+      this.handleEvents.handleOptionInput(get(this, 'option'), get(this, 'control'));
     },
   },
 
-}).reopenClass({ positionalParams: ['option']});
+}).reopenClass({positionalParams: ['control', 'option', 'handleEvents']});

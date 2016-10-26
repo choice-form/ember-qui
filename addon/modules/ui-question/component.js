@@ -17,7 +17,7 @@ export default Component.extend({
    */
   buttonData:computed('question', function () {
     const question = get(this, 'question');
-    return  Ember.getProperties(question, ['prevButton', 'nextButton', 'question.handleEvents.handlePrev', 'question.handleEvents.handleNext']);
+    return  Ember.getProperties(question, ['prevButton', 'nextButton', 'question.handleEvents.handlePrevClick', 'question.handleEvents.handleNextClick']);
   }),
 
 

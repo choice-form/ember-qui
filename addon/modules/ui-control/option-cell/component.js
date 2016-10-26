@@ -11,18 +11,27 @@ import inject from 'ember-service/inject';
 export default Component.extend({
   layout,
   uiService: inject('ui'),
+  tagName:'',
 
   actions: {
     /**
      * 选中事件，如果其他选项是'input'类型？则，直接return
      */
-    select(){
+    handleOptionClick(){
       const inputType = get(this, 'option.inputType');
       if (inputType === 'input')return;
-      this.handleEvents.handleClick(get(this, 'option'));
+      this.handleEvents.handleOptionClick(get(this, 'option'),get(this,'control'));
     },
+
+    /**
+     * change事件
+     */
+    handleOptionInput(){
+      this.handleEvents.handleOptionInput(get(this, 'option'),get(this,'control'));
+    },
+
   },
 
   didInsertElement() {
   }
-}).reopenClass({positionalParams: ['option', 'nodeInfo', 'handleEvents']});
+}).reopenClass({positionalParams: ['control', 'option', 'handleEvents']});

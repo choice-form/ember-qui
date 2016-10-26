@@ -10,13 +10,26 @@ import inject from 'ember-service/inject';
 
 export default Component.extend({
   layout,
+  tagName:'',
 
   actions: {
-    change(e){
+    /**
+     * click事件
+     */
+    handleOptionClick(e){
+      this.handleEvents.handleOptionClick(get(this, 'option'),get(this,'control'));
+    },
+
+    /**
+     * change事件
+     */
+    handleOptionInput(e){
       const value = e.target.value;
       console.log(value);
       set(this, 'option.value', value);
+      this.handleEvents.handleOptionInput(get(this, 'option'),get(this,'control'));
     },
   },
 
-}).reopenClass({ positionalParams: ['option']});
+
+}).reopenClass({ positionalParams: ['control','option','handleEvents']});
