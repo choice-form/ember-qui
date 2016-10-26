@@ -3,9 +3,6 @@ import layout from './template';
 import computed from 'ember-computed';
 import get from 'ember-metal/get';
 import set from 'ember-metal/set';
-import {isPresent} from 'ember-utils';
-import {htmlSafe} from 'ember-string';
-import inject from 'ember-service/inject';
 
 
 export default Component.extend({
@@ -25,7 +22,7 @@ export default Component.extend({
       };
 
       if(i < value ){
-        array[i].icon = graph + '-fill';
+        array[i].icon = graph + '-active';
         array[i].checked = true;
       }else{
         array[i].icon = graph;
@@ -50,8 +47,7 @@ export default Component.extend({
     /**
      * change事件
      */
-    handleOptionInput(e){
-
+    handleOptionInput(){
       this.handleEvents.handleOptionInput(get(this, 'option'),get(this,'control'));
     },
   },

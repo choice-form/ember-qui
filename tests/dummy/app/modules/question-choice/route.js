@@ -1,10 +1,9 @@
 import Route from 'ember-route';
 import set from 'ember-metal/set';
-import get from 'ember-metal/get';
 import Ember from 'ember';
 import faker from 'faker';
 
-
+/*eslint-disable no-console */
 export default Route.extend({
   model() {
     let options = [
@@ -99,10 +98,11 @@ export default Route.extend({
           renderId:'12213343234',
           typeName: '选择题',
           nodeType: 'choice', //select, fill
-          selectType: 'checkbox',
+          selectType: 'radio',
           showStyle: '',
           uuid: '001',
-
+          isMust:true,
+          number:'1',
           options,
         },
         {
@@ -117,6 +117,8 @@ export default Route.extend({
           selectType: 'checkbox',
           showStyle: '',
           uuid: '001',
+          isMust:false,
+          number:'2',
           options,
         }
       ],
