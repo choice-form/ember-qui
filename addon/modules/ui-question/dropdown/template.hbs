@@ -1,12 +1,10 @@
-<select class="menu-item" onchange={{action 'change'}}>
-  <option>{{option.placeholder}}</option>
-  {{#each option.menus as |q|}}
-    <option value={{q.id}} selected={{q.selected}}>{{q.text}}</option>
-  {{/each}}
-</select>
+<div class='dropdown' data-render-id={{option.renderId}}>
+  <select class="menu-item" onchange={{action 'handleOptionInput'}}>
+    <option>{{option.placeholder}}</option>
+    {{#each option.menus as |q|}}
+      <option value={{q.id}} selected={{q.selected}}>{{q.text}}</option>
+    {{/each}}
+  </select>
 
-
-{{svg}}
-
-
-{{errorMessage}}
+  {{svg}}
+</div>

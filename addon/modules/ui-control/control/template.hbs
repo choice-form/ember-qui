@@ -1,12 +1,12 @@
-<div class="row">
+<div class="row" dara-render-id={{control.renderId}}>
   {{ui-control/header headerData}}
-  <div class={{concat "control " nodeInfo.type}}>
+  <div class={{concat "control " control.type}}>
     {{#each control.options as |option|}}
-      {{#if (eq option.inputType '')}}
-        {{component componentName option nodeInfo handleEvents}}
+      {{#unless (or (eq option.inputType '') (eq control.type 'short-text') (eq control.type 'choice'))}}
+        {{component 'ui-control/option-cell' control option handleEvents}}
       {{else}}
-        {{component 'ui-control/option-cell' option nodeInfo handleEvents}}
-      {{/if}}
+        {{component componentName control option handleEvents}}
+      {{/unless}}
     {{/each}}
   </div>
 </div>

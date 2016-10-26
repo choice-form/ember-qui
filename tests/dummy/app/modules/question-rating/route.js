@@ -11,50 +11,50 @@ export default Route.extend({
     let options = [
       Ember.Object.create({
         selected: '',
+        renderId: '4567890-0987',
         text: '最低10分,最高100分',
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
         icon: 'svg-folder', // 选项的Icon
         inputType: '', // 'select', 'input', 'select-input',
         inputRule: '', //输入控件初始化规则
         value: '5',
-        minValue:'5',
-        maxValue: '7',
+        count: '7',
         placeholder: '',
       }),
       Ember.Object.create({
         selected: '',
+        renderId: '4567890-0987',
         text: '最低30分,最高100分',
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C91",
         icon: 'svg-folder', // 选项的Icon
         inputType: '', // 'select', 'input', 'select-input',
         inputRule: '', //输入控件初始化规则
         value: '0',
-        minValue:'0',
-        maxValue: '7',
+        count: '7',
         placeholder: '',
       }),
       Ember.Object.create({
         selected: '',
+        renderId: '4567890-0987',
         text: '最低30分,最高80分',
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C92",
         icon: 'svg-folder', // 选项的Icon
         inputType: '', // 'select', 'input', 'select-input',
         inputRule: '', //输入控件初始化规则
         value: '2',
-        minValue:'2',
-        maxValue: '7',
+        count: '7',
         placeholder: '',
       }),
       Ember.Object.create({
         selected: '',
+        renderId: '4567890-0987',
         text: '最低30分,最高100分',
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C91",
         icon: 'svg-folder', // 选项的Icon
         inputType: '', // 'select', 'input', 'select-input',
         inputRule: '', //输入控件初始化规则
         value: '7',
-        minValue:'7',
-        maxValue: '7',
+        count: '7',
         placeholder: '',
       })
     ];
@@ -68,19 +68,20 @@ export default Route.extend({
             return faker.image.image(360, 360, true)
           }),
           typeName:'分值打分题',
-
-          type: 'rating', //select, fill, valuemark
+          renderId: '4567890-0987',
+          nodeType: 'rating', //select, fill, valuemark
           selectType: '',
           showStyle: '',
-          id: '002',
+          uuid: '002',
 
           options,
         }
       ],
 
-      handleEvents:{
-        handleClick: (option) => {
+      handleEvents: {
+        handleOptionClick: (option, control) => {
           console.log(option);
+          console.log(control);
           if (option.toggleProperty('selected')) {
 
             options.forEach((opt) => {
@@ -91,11 +92,16 @@ export default Route.extend({
           }
         },
 
-        handlePrev: () => {
+        handleOptionInput: (option, control) => {
+          console.log(option);
+          console.log(control);
+        },
+
+        handlePrevClick: () => {
           console.log('点击了上一题');
         },
 
-        handleNext: () => {
+        handleNextClick: () => {
           console.log('点击了下一题');
         }
       },

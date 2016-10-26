@@ -10,6 +10,7 @@ export default Route.extend({
     let options = [
       Ember.Object.create({
         text: faker.address.streetAddress(true),
+        renderId: '4567890-0987',
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
         icon: 'svg-folder', // 选项的Icon
         sort: 1,
@@ -20,6 +21,7 @@ export default Route.extend({
       }),
       Ember.Object.create({
         text: faker.address.streetAddress(true),
+        renderId: '4567890-0987',
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
         icon: 'svg-folder', // 选项的Icon
         sort: 2,
@@ -30,6 +32,7 @@ export default Route.extend({
       }),
       Ember.Object.create({
         text: faker.address.streetAddress(true),
+        renderId: '4567890-0987',
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
         icon: 'svg-folder', // 选项的Icon
         sort: 3,
@@ -40,6 +43,7 @@ export default Route.extend({
       }),
       Ember.Object.create({
         text: faker.address.streetAddress(true),
+        renderId: '4567890-0987',
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
         icon: 'svg-folder', // 选项的Icon
         sort: 4,
@@ -50,6 +54,7 @@ export default Route.extend({
       }),
       Ember.Object.create({
         text: faker.address.streetAddress(true),
+        renderId: '4567890-0987',
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
         icon: 'svg-folder', // 选项的Icon
         sort: 5,
@@ -60,6 +65,7 @@ export default Route.extend({
       }),
       Ember.Object.create({
         text: faker.address.streetAddress(true),
+        renderId: '4567890-0987',
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
         icon: 'svg-folder', // 选项的Icon
         sort: 6,
@@ -70,6 +76,7 @@ export default Route.extend({
       }),
       Ember.Object.create({
         text: faker.address.streetAddress(true),
+        renderId: '4567890-0987',
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
         icon: 'svg-folder', // 选项的Icon
         sort: 7,
@@ -89,19 +96,20 @@ export default Route.extend({
             return faker.image.image(360, 360, true)
           }),
           typeName:'排序题',
-
-          type: 'ranking',
+          renderId: '4567890-0987',
+          nodeType: 'ranking',
           selectType: '',
           showStyle: '',
-          id: '005',
+          uuid: '005',
 
           options,
         },
       ],
 
-      handleEvents:{
-        handleClick: (option) => {
+      handleEvents: {
+        handleOptionClick: (option, control) => {
           console.log(option);
+          console.log(control);
           if (option.toggleProperty('selected')) {
 
             options.forEach((opt) => {
@@ -112,11 +120,16 @@ export default Route.extend({
           }
         },
 
-        handlePrev: () => {
+        handleOptionInput: (option, control) => {
+          console.log(option);
+          console.log(control);
+        },
+
+        handlePrevClick: () => {
           console.log('点击了上一题');
         },
 
-        handleNext: () => {
+        handleNextClick: () => {
           console.log('点击了下一题');
         }
       },

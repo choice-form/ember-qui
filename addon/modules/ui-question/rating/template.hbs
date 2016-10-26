@@ -1,10 +1,10 @@
-<div>
+<div class='rating' data-render-id={{option.renderId}}>
   {{#each graphs as |g|}}
     <div style="display: inline-block">
       <input type="checkbox"
              id={{g.uuid}}
              value={{g.value}}
-             onclick={{action 'select'}}
+             onclick={{action 'handleOptionClick'}}
              checked={{g.checked}}
       >
 
@@ -16,4 +16,3 @@
     </div>
   {{/each}}
 </div>
-{{errorMessage}}

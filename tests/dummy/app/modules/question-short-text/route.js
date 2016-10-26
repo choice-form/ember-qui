@@ -11,6 +11,7 @@ export default Route.extend({
     let options = [
       Ember.Object.create({
         selected: '',
+        renderId: '4567890-0987',
         text:'',
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
         icon: '', // 选项的Icon
@@ -21,6 +22,7 @@ export default Route.extend({
       }),
       Ember.Object.create({
         selected: '',
+        renderId: '4567890-0987',
         text: '',
         uuid: "443E6B4F-D705-483D-905F-07E420920E19",
         icon: '',
@@ -28,8 +30,10 @@ export default Route.extend({
         inputRule: 'count',
         value: faker.address.streetAddress(true),
         placeholder: '请输入字数',
-      }),Ember.Object.create({
+      }),
+      Ember.Object.create({
         selected: '',
+        renderId: '4567890-0987',
         text:'',
         uuid: "299CA073-8FD0-4C6F-4C07-02B063AC8C91",
         icon: '', // 选项的Icon
@@ -40,6 +44,7 @@ export default Route.extend({
       }),
       Ember.Object.create({
         selected: '',
+        renderId: '4567890-0987',
         text: '',
         uuid: "443E6B4F-D705-483D-905F-07E420920E12",
         icon: '',
@@ -49,6 +54,7 @@ export default Route.extend({
         placeholder: '请输入小数',
       }),Ember.Object.create({
         selected: '',
+        renderId: '4567890-0987',
         text:'',
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
         icon: '', // 选项的Icon
@@ -68,19 +74,20 @@ export default Route.extend({
             return faker.image.image(360, 360, true)
           }),
           typeName:'选择题',
-
-          type: 'short-text', //select, fill
+          renderId: '4567890-0987',
+          nodeType: 'short-text', //select, fill
           selectType: '',
           showStyle: '',
-          id: '002',
+          uuid: '002',
 
           options,
         }
       ],
 
-      handleEvents:{
-        handleClick: (option) => {
+      handleEvents: {
+        handleOptionClick: (option, control) => {
           console.log(option);
+          console.log(control);
           if (option.toggleProperty('selected')) {
 
             options.forEach((opt) => {
@@ -91,11 +98,16 @@ export default Route.extend({
           }
         },
 
-        handlePrev: () => {
+        handleOptionInput: (option, control) => {
+          console.log(option);
+          console.log(control);
+        },
+
+        handlePrevClick: () => {
           console.log('点击了上一题');
         },
 
-        handleNext: () => {
+        handleNextClick: () => {
           console.log('点击了下一题');
         }
       },

@@ -1,11 +1,11 @@
 {{!--如果输入类型是input，则，使用其他选项备注组件--}}
-<div class="option-cell">
+<div>
   {{#unless (eq option.inputType 'input')}}
     <input
       id={{option.uuid}}
-        type={{nodeInfo.selectType}}
-      onclick={{action 'select'}}
-        name={{nodeInfo.id}}
+        type={{control.selectType}}
+      onclick={{action 'handleOptionClick'}}
+        name={{control.uuid}}
       autofocus={{autofocus}}
         placeholder={{option.placeholder}}
       checked={{option.selected}}
@@ -16,21 +16,15 @@
     >
     {{ui-control/label option}}
   {{else}}
-    {{ui-control/text-cell option}}
+    {{ui-control/text-cell control option handleEvents}}
   {{/unless}}
 </div>
 
 
 {{!--选择选项再弹出输入框--}}
 {{#if (and (eq option.inputType "select-input") option.selected)}}
-  {{ui-control/text-cell option}}
+  {{ui-control/text-cell control option handleEvents}}
 {{/if}}
-
-{{!--直接显示输入框--}}
-{{#if (eq option.inputType "ower-input")}}
-  {{ui-control/text-cell option}}
-{{/if}}
-
 
 {{#if option.selected}}
   <span>选择了</span>

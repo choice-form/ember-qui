@@ -11,12 +11,12 @@ export default Component.extend({
   classNames: ['submit-actions'],
 
   actions:{
-    prev() {
-      get(this, 'handlePrev')();
+    handlePrevClick() {
+      get(this, 'handlePrevClick')();
     },
 
-    next() {
-      get(this, 'handleNext')();
+    handleNextClick() {
+      get(this, 'handleNextClick')();
     },
   }
 }).reopenClass({positionalParams: ['button']});

@@ -11,6 +11,7 @@ export default Route.extend({
     let options = [
       Ember.Object.create({
         selected: '',
+        renderId: '4567890-0987',
         text: '最低10分,最高100分',
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
         icon: '', // 选项的Icon
@@ -21,6 +22,7 @@ export default Route.extend({
       }),
       Ember.Object.create({
         selected: '',
+        renderId: '4567890-0987',
         text: '最低30分,最高100分',
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C91",
         icon: '', // 选项的Icon
@@ -31,6 +33,7 @@ export default Route.extend({
       }),
       Ember.Object.create({
         selected: '',
+        renderId: '4567890-0987',
         text: '最低30分,最高80分',
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C92",
         icon: '', // 选项的Icon
@@ -41,6 +44,7 @@ export default Route.extend({
       }),
       Ember.Object.create({
         selected: '',
+        renderId: '4567890-0987',
         text: '最低20分,最高60分',
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C93",
         icon: '', // 选项的Icon
@@ -51,6 +55,7 @@ export default Route.extend({
       }),
       Ember.Object.create({
         selected: '',
+        renderId: '4567890-0987',
         text: '最低60分,最高100分',
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C94",
         icon: '', // 选项的Icon
@@ -71,19 +76,20 @@ export default Route.extend({
             return faker.image.image(360, 360, true)
           }),
           typeName:'分值打分题',
-
-          type: 'slider', //select, fill, slider
+          renderId: '4567890-0987',
+          nodeType: 'slider', //select, fill, slider
           selectType: '',
           showStyle: '',
-          id: '002',
+          uuid: '002',
 
           options,
         }
       ],
 
-      handleEvents:{
-        handleClick: (option) => {
+      handleEvents: {
+        handleOptionClick: (option, control) => {
           console.log(option);
+          console.log(control);
           if (option.toggleProperty('selected')) {
 
             options.forEach((opt) => {
@@ -94,11 +100,16 @@ export default Route.extend({
           }
         },
 
-        handlePrev: () => {
+        handleOptionInput: (option, control) => {
+          console.log(option);
+          console.log(control);
+        },
+
+        handlePrevClick: () => {
           console.log('点击了上一题');
         },
 
-        handleNext: () => {
+        handleNextClick: () => {
           console.log('点击了下一题');
         }
       },

@@ -11,6 +11,7 @@ import inject from 'ember-service/inject';
 export default Component.extend({
   layout,
   uiService : inject('ui'),
+  tagName:'',
 
   svg: computed('', 'option.icon', function () {
     const uiService = get(this, 'uiService');
@@ -20,10 +21,20 @@ export default Component.extend({
 
 
   actions: {
-    change(e){
-      const id = e.target.value;
-      console.log('menu-id = ' + id);
+    /**
+     * click事件
+     */
+    handleOptionClick(){
+      this.handleEvents.handleOptionClick(get(this, 'option'),get(this,'control'));
     },
+
+    /**
+     * change事件
+     */
+    handleOptionInput(){
+      this.handleEvents.handleOptionInput(get(this, 'option'),get(this,'control'));
+    },
+
   },
 
-}).reopenClass({ positionalParams: ['option']});
+}).reopenClass({ positionalParams: ['control','option','handleEvents']});

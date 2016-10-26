@@ -10,5 +10,6 @@ import inject from 'ember-service/inject';
 
 export default Component.extend({
   layout,
+  tagName:'',
 
-}).reopenClass({positionalParams: ['option', 'nodeInfo', 'handleEvents']});
+}).reopenClass({positionalParams: ['control','option', 'handleEvents']});
