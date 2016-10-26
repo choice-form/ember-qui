@@ -81,46 +81,49 @@ export default Route.extend({
     ];
 
     return {
+      control:[
+        {
+          title:faker.address.streetAddress(true),
+          description: faker.lorem.paragraph(),
+          images:[1].map(function () {
+            return faker.image.image(360, 360, true)
+          }),
+          typeName:'排序题',
 
-      title:faker.address.streetAddress(true),
-      description: faker.lorem.paragraph(),
-      images:[1].map(function () {
-        return faker.image.image(360, 360, true)
-      }),
-      typeName:'排序题',
+          type: 'ranking',
+          selectType: '',
+          showStyle: '',
+          id: '005',
 
-      type: 'ranking',
-      selectType: '',
-      showStyle: '',
-      id: '005',
+          options,
+        },
+      ],
 
-      options,
+      handleEvents:{
+        handleClick: (option) => {
+          console.log(option);
+          if (option.toggleProperty('selected')) {
 
-      handleOptionClick: (option) => {
-        console.log(option);
-        if (option.toggleProperty('selected')) {
+            options.forEach((opt) => {
+              if (opt != option) {
+                set(opt, 'selected', false);
+              }
+            })
+          }
+        },
 
-          options.forEach((opt) => {
-            if (opt != option) {
-              set(opt, 'selected', false);
-            }
-          })
-        }
-      },
-
-      prevButton:{
-        text:'上一题',
-        handlePrev:()=>{
+        handlePrev: () => {
           console.log('点击了上一题');
-        }
-      },
+        },
 
-      nextButton:{
-        text:'下一题',
-        handleNext:()=>{
+        handleNext: () => {
           console.log('点击了下一题');
         }
-      }
+      },
+
+      prevButton: '上一题',
+
+      nextButton: '下一题',
 
     }
   }

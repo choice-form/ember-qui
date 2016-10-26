@@ -62,46 +62,50 @@ export default Route.extend({
     ];
 
     return {
-      title:faker.address.streetAddress(true),
-      description: faker.lorem.paragraph(),
-      images:[1].map(function () {
-        return faker.image.image(360, 360, true)
-      }),
-      typeName:'分值打分题',
 
-      type: 'slider', //select, fill, slider
-      selectType: '',
-      showStyle: '',
-      id: '002',
+      control:[
+        {
+          title:faker.address.streetAddress(true),
+          description: faker.lorem.paragraph(),
+          images:[1].map(function () {
+            return faker.image.image(360, 360, true)
+          }),
+          typeName:'分值打分题',
 
-      options,
+          type: 'slider', //select, fill, slider
+          selectType: '',
+          showStyle: '',
+          id: '002',
 
-      handleOptionClick: (option) => {
-        console.log(option);
-        if (option.toggleProperty('selected')) {
-
-          options.forEach((opt) => {
-            if (opt != option) {
-              set(opt, 'selected', false);
-            }
-          })
+          options,
         }
-      },
+      ],
 
-      prevButton:{
-        text:'上一题',
-        handlePrev:()=>{
+      handleEvents:{
+        handleClick: (option) => {
+          console.log(option);
+          if (option.toggleProperty('selected')) {
+
+            options.forEach((opt) => {
+              if (opt != option) {
+                set(opt, 'selected', false);
+              }
+            })
+          }
+        },
+
+        handlePrev: () => {
           console.log('点击了上一题');
-        }
-      },
+        },
 
-      nextButton:{
-        text:'下一题',
-        handleNext:()=>{
+        handleNext: () => {
           console.log('点击了下一题');
         }
-      }
+      },
 
+      prevButton: '上一题',
+
+      nextButton: '下一题',
     }
   }
 });

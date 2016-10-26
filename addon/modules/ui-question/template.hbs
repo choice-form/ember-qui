@@ -1,18 +1,13 @@
 <div class="wrapper">
 
-  <div class="row">
-    {{ui-addon/header headerData}}
-    <div class={{concat "control " nodeInfo.type}}>
-      {{#each question.options as |option|}}
-        {{#if (eq option.inputType '')}}
-          {{component componentName option nodeInfo handleClick=question.handleOptionClick}}
-        {{else}}
-          {{component 'ui-control/option-cell' option nodeInfo handleClick=question.handleOptionClick}}
-        {{/if}}
-      {{/each}}
-    </div>
-  </div>
+  {{#each question.control as |control|}}
+    {{ui-control/control control question.handleEvents}}
+  {{/each}}
 </div>
 
-{{ui-addon/button buttonData}}
+{{ui-addon/button
+  buttonData
+  handlePrev=question.handleEvents.handlePrev
+  handleNext=question.handleEvents.handleNext
+}}
 

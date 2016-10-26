@@ -19,10 +19,10 @@ export default Component.extend({
     select(){
       const inputType = get(this, 'option.inputType');
       if (inputType === 'input')return;
-      this.handleClick(get(this, 'option'));
+      this.handleEvents.handleClick(get(this, 'option'));
     },
   },
 
   didInsertElement() {
   }
-}).reopenClass({positionalParams: ['option', 'nodeInfo']});
+}).reopenClass({positionalParams: ['option', 'nodeInfo', 'handleEvents']});
