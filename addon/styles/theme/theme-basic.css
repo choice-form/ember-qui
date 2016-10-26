@@ -10,19 +10,24 @@
   }
   & svg {
     display: inline-block;
-    vertical-align: bottom;
+    vertical-align: middle;
+    margin: 2px;
+  }
+  & span {
+    vertical-align: middle;
   }
 }
 
 :global(.input) {
   margin-bottom: 12px;
   & input {
-    float: right;
-    appearance: none;
-    width: calc(100% - 20px);
     resize: none;
     border-radius: 0;
     background-color: transparent;
+    appearance: none;
+    &:focus {
+
+    }
   }
   & svg {
     display: inline-block;
