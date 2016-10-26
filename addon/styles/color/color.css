@@ -52,6 +52,11 @@
 
 }
 
+* ::selection {
+  color: var(--color10);
+  background-color: var(--color9);
+}
+
 
 :global(.row[data-color='color3']) {
   border-color: var(--color3);
