@@ -3,10 +3,16 @@ article {
 }
 
 :global(.choice) {
+  position: relative;
   margin-bottom: 12px;
   & input[type="checkbox"],
   & input[type="radio"] {
-    display: none;
+    position: absolute 0 0 auto 0;
+    overflow: hidden;
+    opacity: 0;
+    outline: 0;
+    width: 16px;
+    height: 16px;
   }
   & label {
     cursor: pointer;
@@ -33,7 +39,7 @@ article {
     }
   }
   & svg {
-    opacity: .6;
+    opacity: .4;
     position: absolute 8px auto 8px 8px;
   }
 }
