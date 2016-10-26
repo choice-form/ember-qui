@@ -12,8 +12,8 @@ export default Component.extend({
   /**
    * 获取所有的图片
    */
-  images: computed('header.images', function () {
-    const images = get(this, 'header.images');
+  images: computed('intro.images', function () {
+    const images = get(this, 'intro.images');
     if( images && images.length ){
       return htmlSafe(images.map(function (item) {
         return `<img src=${item} />`
@@ -21,4 +21,4 @@ export default Component.extend({
     }else return '';
   }),
 
-}).reopenClass({positionalParams: ['header']});
+}).reopenClass({positionalParams: ['intro']});
