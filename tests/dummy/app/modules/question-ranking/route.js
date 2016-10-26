@@ -100,7 +100,7 @@ export default Route.extend({
       ],
 
       handleEvents:{
-        handleOptionClick: (option) => {
+        handleClick: (option) => {
           console.log(option);
           if (option.toggleProperty('selected')) {
 
@@ -111,6 +111,14 @@ export default Route.extend({
             })
           }
         },
+
+        handlePrev: () => {
+          console.log('点击了上一题');
+        },
+
+        handleNext: () => {
+          console.log('点击了下一题');
+        }
       },
 
       prevButton: '上一题',
