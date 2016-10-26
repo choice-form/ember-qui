@@ -6,6 +6,9 @@ const options = {
     'faker': {
       srcDir: 'build/build',
       import: ['faker.js']
+    },
+    'clipboard': {
+      import: ['dist/clipboard.js']
     }
   })
 };
@@ -13,5 +16,6 @@ const options = {
 module.exports = function(defaults) {
   const app = new EmberAddon(defaults, options);
   app.import('vendor/shims/faker.js');
+  app.import('vendor/shims/clipboard.js');
   return app.toTree();
 };
