@@ -1,16 +1,19 @@
 <div class='rating' data-render-id={{option.renderId}}>
   {{#each graphs as |g|}}
     <div style="display: inline-block">
-      <input type="checkbox"
-             id={{g.uuid}}
-             value={{g.value}}
-             onclick={{action 'handleOptionClick'}}
-             checked={{g.checked}}
+      <input
+        data-color="color8"
+        type="checkbox"
+        id={{g.uuid}}
+        value={{g.value}}
+        onclick={{action 'handleOptionClick'}}
+        checked={{g.checked}}
       >
 
       <label for={{g.uuid}} value={{g.value}}>
-        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="16px" height="16px" viewBox="0 0 16 16">
-          <use xlink:href="#{{g.icon}}" fill="" />
+        <svg data-color={{if checked "color7" "color6"}} xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="16px"
+             height="16px" viewBox="0 0 16 16">
+          <use xlink:href="#{{g.icon}}" fill=""/>
         </svg>
       </label>
     </div>
