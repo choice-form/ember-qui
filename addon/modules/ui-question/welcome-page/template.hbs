@@ -1,6 +1,9 @@
 {{ui-control/intro-page intro}}
 <section>
-  {{ui-addon/button intro.button}}
+  {{ui-addon/button
+    nextButton=intro.nextButton
+    handleNextClick=intro.handleEvents.handleNextClick
+  }}
 </section>
 
 <footer></footer>
