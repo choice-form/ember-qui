@@ -1,6 +1,10 @@
 {{#if button.prevButton}}
-  <button onclick={{action 'handlePrevClick'}}><span>{{button.prevButton}}</span></button>
+  <button data-color="color9" onclick={{action 'handlePrevClick'}}>
+    <span data-color="color10">{{button.prevButton}}</span>
+  </button>
 {{/if}}
 {{#if button.nextButton}}
-  <button onclick={{action 'handleNextClick'}}><span>{{button.nextButton}}</span></button>
+  <button data-color="color9" onclick={{action 'handleNextClick'}}>
+    <span data-color="color10">{{button.nextButton}}</span>
+  </button>
 {{/if}}

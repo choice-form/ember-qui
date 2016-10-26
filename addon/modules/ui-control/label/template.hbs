@@ -2,7 +2,7 @@
   {{svg}}
   {{yield}}
   {{#if option.text}}
-    <span>{{option.text}}</span>
+    <span data-color={{if option.selected 'color7' 'color6'}}>{{option.text}}</span>
   {{/if}}
   {{image}}
 </label>

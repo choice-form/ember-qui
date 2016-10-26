@@ -1,12 +1,12 @@
-
-
 <div class='slider' data-render-id={{option.renderId}}>
-  <input type="range"
-         id={{option.uuid}}
-           value={{option.value}}
-         onchange={{action 'handleOptionInput'}}
+  <input
+    data-color="color8"
+    type="range"
+    id={{option.uuid}}
+    value={{option.value}}
+    onchange={{action 'handleOptionInput'}}
   >
-  <span>{{option.value}}</span>
+  <span data-color="color6">{{option.value}}</span>
 
   {{ui-control/label option}}
 </div>

@@ -17,7 +17,7 @@ export default Component.extend({
   svg: computed('option.inputRule', 'color', function () {
     const color = get(this, 'color');
     const icon = `#${get(this, 'option.inputRule')}`;
-    return htmlSafe(`<svg data-color=${color} xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="16px" height="16px" viewBox="0 0 16 16">
+    return htmlSafe(`<svg data-color= "color6" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="16px" height="16px" viewBox="0 0 16 16">
         <use xlink:href=${icon}></use>
       </svg>`);
   }),
