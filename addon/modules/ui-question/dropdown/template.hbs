@@ -1,14 +1,10 @@
 <div class='ui-select' data-render-id={{option.renderId}}>
   <select class="menu-item" onchange={{action 'handleOptionInput'}}>
-    <option>{{option.placeholder}}</option>
-    {{#each option.dropDowns as |q|}}
-      <option value={{q.id}} selected={{q.selected}}>{{q.text}}</option>
+    <option>{{control.value}}</option>
+    {{#each control.options as |q|}}
+      <option value={{q.text}} selected={{q.selected}}>{{q.text}}</option>
     {{/each}}
   </select>
 
   {{svg}}
 </div>
-
-{{#if option.inputType}}
-  {{component 'ui-control/option-cell' control option handleEvents}}
-{{/if}}
