@@ -1,10 +1,8 @@
-<div class='ui-select' data-render-id={{option.renderId}}>
-  <select class="menu-item" onchange={{action 'handleOptionInput'}}>
-    <option>{{control.value}}</option>
-    {{#each control.options as |q|}}
-      <option value={{q.text}} selected={{q.selected}}>{{q.text}}</option>
-    {{/each}}
-  </select>
+<ul class='dropdown-list' style="display:none">
+  {{#each control.options as |q|}}
+    <li value={{q.text}} data-selected={{q.selected}}>{{q.text}}</li>
+  {{/each}}
+</ul>
 
-  {{svg}}
-</div>
+
+{{svg}}
