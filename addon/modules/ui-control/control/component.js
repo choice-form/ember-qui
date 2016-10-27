@@ -27,7 +27,8 @@ export default Component.extend({
 
   isSpecialComponent : computed('control.nodeType', function() {
     const nodeType = get(this, 'control.nodeType');
-    if(nodeType === 'dropdown' || 'location' || 'matrix'){
+    console.log(['dropdown', 'location', 'matrix'].includes(nodeType));
+    if(['dropdown', 'location', 'matrix'].includes(nodeType)){
       return true;
     }else{
       return false;
