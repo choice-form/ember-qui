@@ -9,47 +9,48 @@ export default Route.extend({
 
     let options = [
       Ember.Object.create({
-        selected: '',
+        selected:false,
         renderId: '4567890-0987',
-        text: '',
+        text: faker.name.findName(),
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
         icon: 'svg-folder', // 选项的Icon
         inputType: '', // 'select', 'input', 'select-input',
         inputRule: '', //输入控件初始化规则
         value: '',
-        menus:[
-          {
-            selected:false,
-            id:'0',
-            text:faker.address.streetAddress(true),
-          },
-          {
-            selected:false,
-            id:'1',
-            text:faker.address.streetAddress(true),
-          },
-          {
-            selected:false,
-            id:'2',
-            text:faker.address.streetAddress(true),
-          },
-          {
-            selected:false,
-            id:'3',
-            text:faker.address.streetAddress(true),
-          },
-          {
-            selected:false,
-            id:'4',
-            text:faker.address.streetAddress(true),
-          },
-          {
-            selected:false,
-            id:'5',
-            text:faker.address.streetAddress(true),
-          }
-        ],
-        placeholder: '请下拉选择',
+        placeholder: '',
+      }),
+      Ember.Object.create({
+        selected:false,
+        renderId: '4567890-0987',
+        text: faker.name.findName(),
+        uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C91",
+        icon: 'svg-folder', // 选项的Icon
+        inputType: '', // 'select', 'input', 'select-input',
+        inputRule: '', //输入控件初始化规则
+        value: '',
+        placeholder: '',
+      }),
+      Ember.Object.create({
+        selected:false,
+        renderId: '4567890-0987',
+        text: faker.name.findName(),
+        uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C92",
+        icon: 'svg-folder', // 选项的Icon
+        inputType: '', // 'select', 'input', 'select-input',
+        inputRule: '', //输入控件初始化规则
+        value: '',
+        placeholder: '',
+      }),
+      Ember.Object.create({
+        selected:false,
+        renderId: '4567890-0987',
+        text: faker.name.findName(),
+        uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C93",
+        icon: 'svg-folder', // 选项的Icon
+        inputType: '', // 'select', 'input', 'select-input',
+        inputRule: '', //输入控件初始化规则
+        value: '',
+        placeholder: '',
       }),
     ];
 
@@ -69,6 +70,7 @@ export default Route.extend({
           uuid: '002',
           isMust:true,
           number:'3',
+          value:'下拉值',
           options,
         }
       ],

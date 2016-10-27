@@ -1,23 +1,4 @@
 
-options = [
-  Ember.Object.create({
-    selected: '',
-    text: faker.address.streetAddress(true),
-    uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
-    icon: '', // 选项的Icon
-    inputType: '', // 'select', 'input', 'select-input',
-    inputRule: '', //输入控件初始化规则
-    value: 3,
-    placeholder: '',
-  }),
-],
-nodeInfo = {
-  type: 'valueMark', //select, fill,valueMark
-    selectType: 'radio', //radio , checkbox , range
-    showStyle: '',
-    id: '001',
-},
-
 //Todo: Node - Intro 开始节点
 Node_Intro = {
   "title":"Leica Deals Survey",

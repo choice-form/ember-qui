@@ -1,12 +1,16 @@
 <div class="row" data-render-id={{control.renderId}} data-color="color3">
   {{ui-control/header headerData}}
   <div class={{concat "control " control.nodeType}}>
-    {{#each control.options as |option|}}
-      {{#if (and option.inputType isComponent)}}
-        {{component 'ui-control/option-cell' control option handleEvents}}
-      {{else}}
+
+    {{#if isSpecialComponent}}
+      {{component componentName control handleEvents}}
+    {{else}}
+      {{#each control.options as |option|}}
         {{component componentName control option handleEvents}}
-      {{/if}}
-    {{/each}}
+      {{/each}}
+    {{/if}}
+
   </div>
 </div>
+
+{{!--{{component 'ui-control/option-cell' control option handleEvents}}--}}
