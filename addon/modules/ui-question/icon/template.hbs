@@ -1,0 +1,6 @@
+<div class='ui-icon-list' data-render-id={{option.renderId}} onclick={{action 'handleOptionClick'}}>
+{{svg}}
+  {{#if option.text}}
+    <span data-color={{if option.selected 'color7' 'color6'}}>{{option.text}}</span>
+  {{/if}}
+</div>

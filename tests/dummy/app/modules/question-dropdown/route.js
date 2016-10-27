@@ -17,7 +17,8 @@ export default Route.extend({
         inputType: '', // 'select', 'input', 'select-input',
         inputRule: '', //输入控件初始化规则
         value: '',
-        menus:[
+
+        dropDowns:[
           {
             selected:false,
             id:'0',

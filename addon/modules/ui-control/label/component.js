@@ -8,7 +8,7 @@ import inject from 'ember-service/inject';
 export default Component.extend({
   layout,
   tagName: '',
-  uiService: inject('ui'),
+  uiService: inject('ui/icon'),
   /**
    * 设置选项的svg icon
    */

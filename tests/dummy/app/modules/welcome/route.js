@@ -17,7 +17,7 @@ export default Route.extend({
         }
       },
 
-      nextButton: "下一题",
+      nextButton: "开始",
     }
   }
 });
