@@ -4,10 +4,10 @@ article {
   text-rendering: optimizelegibility;
   -webkit-font-smoothing: antialiased;
   margin: 0 auto;
-  width: 80%;
-  max-width: 960px;
+  width: fallback(50vw, 50%);
+  max-width: 96rem;
   min-height: fallback(100vh, 100%);
-  padding: 48px 24px;
+  padding: 4.8rem 2.4rem;
   @media(max-width: 767px) {
     width: 100%;
   }

@@ -12,7 +12,7 @@ export default Route.extend({
         renderId: '4567890-0987',
         text: faker.address.streetAddress(true),
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
-        icon: 'radio', // 选项的Icon
+        icon: 'checkbox', // 选项的Icon
         inputType: 'select-input', // 'select', 'input', 'select-input, ower-input',
         inputRule: 'design-16px_pen-01', //输入控件初始化规则
         value: '这里是自身选项备注',
@@ -23,7 +23,7 @@ export default Route.extend({
         renderId: '4567890-871',
         text: faker.address.streetAddress(true),
         uuid: "443E6B4F-D705-483D-905F-07E420920E19",
-        icon: 'radio',
+        icon: 'checkbox',
         inputType: '',
         inputRule: '',
         value: '',
@@ -34,7 +34,7 @@ export default Route.extend({
         renderId: '4567890-0981',
         text: `选项 ${faker.lorem.paragraph()}`,
         uuid: "443E6B4F-D705-483D-905F-07E420920E18",
-        icon: 'radio',
+        icon: 'checkbox',
         inputType: 'select',
         inputRule: 'count',
         value: '选项',

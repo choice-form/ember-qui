@@ -1,11 +1,7 @@
 h1 {
-  font-size: 24px;
-  font-weight: normal;
-  line-height: 36px;
+  font-size: fallback(2.4rem, 24px);
 }
 
 h2 {
-  font-size: 18px;
-  font-weight: normal;
-  line-height: 36px;
+  font-size: fallback(1.8rem, 18px);
 }
