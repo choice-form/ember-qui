@@ -6,7 +6,7 @@ import inject from 'ember-service/inject';
 
 export default Component.extend({
   layout,
-  uiService: inject('ui/icon'),
+  uiService: inject('service/icon'),
   tagName:'',
 
   actions: {
