@@ -17,7 +17,7 @@ export default Route.extend({
         }
       },
 
-      nextButton: "开始",
+      nextButton: "Start",
     }
   }
 });

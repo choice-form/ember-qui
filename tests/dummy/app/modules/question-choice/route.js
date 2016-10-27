@@ -10,11 +10,9 @@ export default Route.extend({
 
       control: [
         {
-          title: faker.address.streetAddress(true),
+          title: faker.lorem.words(),
           description: faker.lorem.paragraph(),
-          images: [1].map(function () {
-            return faker.image.image(640, 360, true)
-          }),
+          images: '',
           renderId:'12213343234',
           typeName: '选择题',
           nodeType: 'choice', //select, fill
@@ -27,18 +25,18 @@ export default Route.extend({
             Ember.Object.create({
               selected: false,
               renderId: '4567890-0987',
-              text: faker.address.streetAddress(true),
+              text: faker.lorem.sentence(),
               uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
               icon: 'radio', // 选项的Icon
               inputType: 'select-input', // 'select', 'input', 'select-input, ower-input',
               inputRule: 'design-16px_pen-01', //输入控件初始化规则
-              value: '这里是自身选项备注',
-              placeholder: '输入备注',
+              value: 'Here is options comment',
+              placeholder: 'comment',
             }),
             Ember.Object.create({
               selected: false,
               renderId: '4567890-871',
-              text: faker.address.streetAddress(true),
+              text: faker.lorem.sentence(),
               uuid: "443E6B4F-D705-483D-905F-07E420920E19",
               icon: 'radio',
               inputType: '',
@@ -49,7 +47,7 @@ export default Route.extend({
             Ember.Object.create({
               selected: false,
               renderId: '4567890-0981',
-              text: `选项 ${faker.lorem.paragraph()}`,
+              text: faker.lorem.sentence(),
               uuid: "443E6B4F-D705-483D-905F-07E420920E18",
               icon: 'radio',
               inputType: 'select',
@@ -60,51 +58,18 @@ export default Route.extend({
             Ember.Object.create({
               selected: false,
               renderId: '4567890-0985',
-              text: faker.address.streetAddress(true),
+              text: faker.lorem.sentence(),
               uuid: "443E6B4F-D705-483D-905F-07E420920E15",
               icon: 'radio',
               inputType: 'select-input',
               inputRule: 'time',
               value: 'input time',
               placeholder: '',
-            }),
-            Ember.Object.create({
-              selected: true,
-              renderId: '4567890-0988',
-              text: faker.lorem.paragraph(),
-              uuid: "443E6B4F-D705-483D-905F-07E420920E12",
-              icon: 'radio',
-              inputType: 'input',
-              inputRule: 'int',
-              value: '',
-              placeholder: 'input int',
-            }),
-            Ember.Object.create({
-              selected: true,
-              renderId: '4567890-0912',
-              text: faker.lorem.paragraph(),
-              uuid: "443E6B4F-D705-483D-919F-07E420920E12",
-              icon: 'radio',
-              inputType: 'input',
-              inputRule: 'float',
-              value: '',
-              placeholder: 'input float',
-            }),
-            Ember.Object.create({
-              selected: true,
-              renderId: '4567890-0912',
-              text: faker.lorem.paragraph(),
-              uuid: "443E6B4F-Duy5-483D-905F-07E420920E12",
-              icon: 'radio',
-              inputType: 'input',
-              inputRule: 'calendar',
-              value: '',
-              placeholder: 'input calendar',
             })
           ],
         },
         {
-          title: faker.address.streetAddress(true),
+          title: faker.lorem.sentences(),
           description: faker.lorem.paragraph(),
           images: [1].map(function () {
             return faker.image.image(640, 360, true)
@@ -121,18 +86,18 @@ export default Route.extend({
             Ember.Object.create({
               selected: false,
               renderId: '4567890-0987',
-              text: faker.address.streetAddress(true),
+              text: faker.lorem.sentence(),
               uuid: "po9CA073-8FD0-4C6F-8C07-02B063AC8C90",
               icon: 'radio', // 选项的Icon
               inputType: 'select-input', // 'select', 'input', 'select-input, ower-input',
               inputRule: 'design-16px_pen-01', //输入控件初始化规则
-              value: '这里是自身选项备注',
-              placeholder: '输入备注',
+              value: 'Here is options comment',
+              placeholder: 'comment',
             }),
             Ember.Object.create({
               selected: false,
               renderId: '4567890-871',
-              text: faker.address.streetAddress(true),
+              text: faker.lorem.sentence(),
               uuid: "yb3E6B4F-D705-483D-905F-07E420920E19",
               icon: 'radio',
               inputType: '',
@@ -143,7 +108,7 @@ export default Route.extend({
             Ember.Object.create({
               selected: false,
               renderId: '4567890-0981',
-              text: `选项 ${faker.lorem.paragraph()}`,
+              text: faker.lorem.paragraph(),
               uuid: "4ghE6B4F-D705-483D-905F-07E420920E18",
               icon: 'radio',
               inputType: 'select',
@@ -154,7 +119,7 @@ export default Route.extend({
             Ember.Object.create({
               selected: false,
               renderId: '4567890-0985',
-              text: faker.address.streetAddress(true),
+              text: faker.lorem.sentence(),
               uuid: "4msE6B4F-D705-483D-905F-07E420920E15",
               icon: 'radio',
               inputType: 'select-input',
@@ -176,9 +141,9 @@ export default Route.extend({
             Ember.Object.create({
               selected: true,
               renderId: '4567890-0912',
-              text: faker.lorem.paragraph(),
+              text: '',
               uuid: "4iiE6B4F-D705-483D-919F-07E420920E12",
-              icon: 'radio',
+              icon: '',
               inputType: 'input',
               inputRule: 'float',
               value: '',
@@ -187,9 +152,9 @@ export default Route.extend({
             Ember.Object.create({
               selected: true,
               renderId: '4567890-0912',
-              text: faker.lorem.paragraph(),
+              text: '',
               uuid: "4ggE6B4F-Duy5-483D-905F-07E420920E12",
-              icon: 'radio',
+              icon: '',
               inputType: 'input',
               inputRule: 'calendar',
               value: '',
@@ -227,9 +192,9 @@ export default Route.extend({
         }
       },
 
-      prevButton: '上一题',
+      prevButton: 'Previous',
 
-      nextButton: '下一题',
+      nextButton: 'Next',
     }
   }
 });

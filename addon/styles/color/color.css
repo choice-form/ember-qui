@@ -1,3 +1,4 @@
+/*
 @import "var.css";
 
 :global(.survey-title) {
@@ -62,7 +63,7 @@
   border-color: var(--color3);
 }
 
-/*header*/
+!*header*!
 h2[data-color='color4'] {
   color: var(--color4);
 }
@@ -71,7 +72,7 @@ pre[data-color='color5'] {
   color: var(--color5);
 }
 
-/*choice*/
+!*choice*!
 :global(.ui-radio),
 :global(.ui-checkbox) {
   &:before {
@@ -112,7 +113,7 @@ pre[data-color='color5'] {
 }
 
 
-/*button*/
+!*button*!
 button[data-color='color9'] {
   background-color: var(--color9);
 }
@@ -120,3 +121,4 @@ button[data-color='color9'] {
 span[data-color='color10'] {
   color: var(--color10);
 }
+*/

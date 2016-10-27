@@ -133,9 +133,9 @@ export default Route.extend({
         }
       },
 
-      prevButton: '上一题',
+      prevButton: 'Previous',
 
-      nextButton: '下一题',
+      nextButton: 'Next',
 
     }
   }

@@ -8,11 +8,11 @@ export default Route.extend({
   model() {
     return {
 
-      intro:{
-        title:faker.address.streetAddress(true),
-        description: faker.lorem.paragraph(),
-        images:[1,2].map(function () {
-          return faker.image.image(360, 360, true)
+      intro: {
+        title: faker.lorem.sentence(),
+        description: faker.lorem.sentences(),
+        images: [1, 2].map(function () {
+          return faker.image.fashion(640, 360, true)
         }),
 
         handleEvents: {
@@ -21,29 +21,27 @@ export default Route.extend({
           }
         },
 
-        nextButton: "下一题",
+        nextButton: "Start",
       },
 
       control: [
         {
-          title: faker.address.streetAddress(true),
+          title: faker.lorem.sentence(),
           description: faker.lorem.paragraph(),
-          images: [1].map(function () {
-            return faker.image.image(640, 360, true)
-          }),
-          renderId:'12213343234',
+          images: '',
+          renderId: '12213343234',
           typeName: '选择题',
           nodeType: 'choice', //select, fill
           selectType: 'radio',
           showStyle: '',
           uuid: '001',
-          isMust:true,
-          number:'1',
-          options:[
+          isMust: true,
+          number: '1',
+          options: [
             Ember.Object.create({
               selected: false,
               renderId: '4567890-0987',
-              text: faker.address.streetAddress(true),
+              text: faker.lorem.sentence(),
               uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
               icon: 'radio', // 选项的Icon
               inputType: 'select-input', // 'select', 'input', 'select-input, ower-input',
@@ -54,7 +52,7 @@ export default Route.extend({
             Ember.Object.create({
               selected: false,
               renderId: '4567890-871',
-              text: faker.address.streetAddress(true),
+              text: faker.lorem.sentence(),
               uuid: "443E6B4F-D705-483D-905F-07E420920E19",
               icon: 'radio',
               inputType: '',
@@ -65,7 +63,7 @@ export default Route.extend({
             Ember.Object.create({
               selected: false,
               renderId: '4567890-0981',
-              text: `选项 ${faker.lorem.paragraph()}`,
+              text: faker.lorem.sentence(),
               uuid: "443E6B4F-D705-483D-905F-07E420920E18",
               icon: 'radio',
               inputType: 'select',
@@ -76,7 +74,7 @@ export default Route.extend({
             Ember.Object.create({
               selected: false,
               renderId: '4567890-0985',
-              text: faker.address.streetAddress(true),
+              text: faker.lorem.sentence(),
               uuid: "443E6B4F-D705-483D-905F-07E420920E15",
               icon: 'radio',
               inputType: 'select-input',
@@ -120,20 +118,20 @@ export default Route.extend({
           ],
         },
         {
-          title:faker.address.streetAddress(true),
+          title: faker.lorem.sentence(),
           description: faker.lorem.paragraph(),
-          images:[1].map(function () {
-            return faker.image.image(360, 360, true)
+          images: [1].map(function () {
+            return faker.image.fashion(640, 360, true)
           }),
-          typeName:'分值打分题',
+          typeName: '分值打分题',
           renderId: '4567890-0987',
           nodeType: 'rating', //select, fill, valuemark
           selectType: '',
           showStyle: '',
           uuid: '002',
-          isMust:true,
-          number:'4',
-          options:[
+          isMust: true,
+          number: '4',
+          options: [
             Ember.Object.create({
               selected: '',
               renderId: '4567890-0987',
@@ -214,9 +212,9 @@ export default Route.extend({
         }
       },
 
-      prevButton: '上一题',
+      prevButton: 'Previous',
 
-      nextButton: '下一题',
+      nextButton: 'Next',
     }
   }
 });

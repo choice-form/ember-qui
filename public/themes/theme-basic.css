@@ -1,15 +1,16 @@
+/*
 article {
   background-color: white;
 }
 
-:global(.row) {
+.row {
   margin: -1rem;
   padding: 2.4rem 0;
   border-bottom-style: solid;
   border-width: 1px;
 }
 
-:global(.attachment) {
+.attachment {
   padding: 2.4rem .8rem;
   & img {
     width: 100%;
@@ -17,42 +18,37 @@ article {
   }
 }
 
-:global(.option-cell) {
+.option-cell {
 
 }
 
-:global(.question-header) {
+.question-header {
   padding: .8rem;
 }
 
-:global(.ui-radio),
-:global(.ui-checkbox) {
+.ui-radio,
+.ui-checkbox {
   padding: .5rem;
   position: relative;
-  &:before {
-    content: "";
-    position: absolute 0 0 0 0;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 200ms ease;
-  }
-  &:hover {
-    &:before {
-      opacity: .1;
-    }
-  }
-  @media(max-width: 479px) {
-    margin-bottom: 6px;
+  @media (max-width: 479px) {
+
   }
   & input[type="checkbox"],
   & input[type="radio"] {
-    position: absolute .5rem auto .5rem .5rem;
+    position: absolute;
+    top: .5rem;
+    bottom: .5rem;
+    left: .5rem;
     overflow: hidden;
     opacity: 0;
     width: 1.2rem;
     height: 1.2rem;
     border: none;
-    -webkit-appearance: radio;
+    &:focus {
+      & + label {
+
+      }
+    }
   }
   & label {
     cursor: pointer;
@@ -61,7 +57,9 @@ article {
     padding-left: 2rem;
   }
   & svg {
-    position: absolute 0 auto auto 0;
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 1.2rem;
     height: 1.2rem;
     display: inline-block;
@@ -77,20 +75,23 @@ article {
     padding-left: 3.2rem;
     &:before {
       content: "";
-      position: absolute .8rem auto .8rem .8rem;
+      position: absolute;
+      top: .8rem;
+      bottom: .8rem;
+      left: .8rem;
       width: 1px;
     }
   }
 }
 
-:global(.ui-text) {
+.ui-text {
   width: 50%;
   position: relative;
   padding: .5rem;
-  @media(max-width: 767px) {
+  @media (max-width: 767px) {
     width: 100%;
   }
-  @media(max-width: 479px) {
+  @media (max-width: 479px) {
 
   }
   & input {
@@ -109,12 +110,14 @@ article {
     height: 1rem;
     opacity: .2;
     margin: auto 0;
-    position: absolute 0 20px 0 auto;
+    position: absolute;
+    top: 0;
+    right: 20px;
+    bottom: 0;
   }
 }
 
-
-:global(.submit-actions) {
+.submit-actions {
   padding: 24px 8px;
   & button {
     overflow: hidden;
@@ -123,3 +126,4 @@ article {
     border-radius: 3px;
   }
 }
+*/
