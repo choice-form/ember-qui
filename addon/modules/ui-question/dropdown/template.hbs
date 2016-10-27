@@ -8,3 +8,7 @@
 
   {{svg}}
 </div>
+
+{{#if option.inputType}}
+  {{component 'ui-control/option-cell' control option handleEvents}}
+{{/if}}
