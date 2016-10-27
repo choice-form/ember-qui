@@ -14,8 +14,6 @@ export default Route.extend({
         text: '最低10分,最高100分',
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
         icon: 'checkbox', // 选项的Icon
-        inputType: '', // 'select', 'input', 'select-input',
-        inputRule: '', //输入控件初始化规则
         value: '5',
         count: '7',
         placeholder: '',
@@ -26,8 +24,6 @@ export default Route.extend({
         text: '最低30分,最高100分',
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C91",
         icon: 'checkbox', // 选项的Icon
-        inputType: '', // 'select', 'input', 'select-input',
-        inputRule: '', //输入控件初始化规则
         value: '0',
         count: '7',
         placeholder: '',
