@@ -1,7 +1,0 @@
-h1 {
-  font-size: fallback(2.4rem, 24px);
-}
-
-h2 {
-  font-size: fallback(1.8rem, 18px);
-}

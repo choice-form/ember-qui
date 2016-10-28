@@ -1,7 +1,8 @@
 article {
   margin: 0 auto;
   max-width: 960px;
-  min-height: fallback(100vh, 100%);
+  min-height: 100%;
+  min-height: 100vh;
   padding: 2rem;
   @media only screen
   and (min-device-width : 414px)
@@ -14,11 +15,11 @@ article {
   { padding: 1rem;}
 }
 
-:global(.wrapper) {
+.wrapper {
 
 }
 
-:global(.row) {
+.row {
   position: relative;
   padding: 2rem 0;
   &:before {
@@ -32,17 +33,17 @@ article {
   }
 }
 
-:global(.page-header) {
+.page-header {
   padding: 1rem;
 }
 
-:global(.question-header) {
+.question-header {
   padding: 1rem;
   & h2 {
     margin-bottom: 1rem;
     word-wrap: break-word;
   }
-  & + :global(.control) {
+  & + .control {
     margin-top: 1rem;
     padding-top: 2rem;
     &:before {
@@ -58,43 +59,52 @@ article {
   }
 }
 
-:global(.attachment) {
+.attachment {
   padding: 1rem;
 }
 
-:global(.control) {
+.control {
   position: relative;
   padding: 1rem;
   & > div:not(:last-child) {
     margin-bottom: 1rem;
   }
-  & :global(.ui-radio),
-  & :global(.ui-checkbox) {
+  & .ui-radio,
+  & .ui-checkbox {
+    & input {
+
+    }
     & + div {
       margin-top: 1rem;
     }
     & label {
       cursor: pointer;
+      vertical-align: middle;
     }
   }
-  & :global(.ui-text) {
+  & .ui-text {
     & input {
+      font-size: 1rem;
+      line-height: 1rem;
+      padding: .5rem;
       border-radius: 0;
       min-width: 50%;
-      &::-webkit-input-placeholder {
-        line-height: normal;
-      }
       @media(max-width: 479px) {
         width: 100%;
+      }
+      &::-webkit-input-placeholder {
+        line-height: normal;
       }
     }
   }
 }
 
-:global(.submit-actions) {
+.submit-actions {
   margin-top: 1rem;
   padding: 2rem 1rem;
   & button {
+    font-size: 1rem;
+    padding: .5rem 1rem;
     &:only-of-type,
     &:last-of-type {
       float: right;
