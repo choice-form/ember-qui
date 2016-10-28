@@ -1,7 +1,6 @@
 const EmberAddon = require('ember-cli/lib/broccoli/ember-addon');
 const AddonOptions = require('./index.js').options;
 const options = {
-  cssModules: AddonOptions.cssModules,
   nodeAssets: Object.assign({}, AddonOptions.nodeAssets, {
     'faker': {
       srcDir: 'build/build',
