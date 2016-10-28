@@ -1,5 +1,8 @@
 'use strict';
 
+const mergeTrees = require('broccoli-merge-trees');
+const LessCompiler = require('broccoli-less-single');
+
 module.exports = {
   name: 'ember-cform-ui',
 
@@ -62,6 +65,11 @@ module.exports = {
         import: {
           include: [{ path: 'normalize.css', prepend: true }]
         }
+      },
+      fastclick: {
+        import: {
+          include: [{ path: 'lib/fastclick.js'}]
+        }
       }
     }
   },
@@ -76,5 +84,20 @@ module.exports = {
     app.import(`./vendor/mobiscroll/js/mobiscroll.custom-3.0.0-beta6.min.js`);
     app.import(`./vendor/mobiscroll/css/mobiscroll.custom-3.0.0-beta6.min.css`);
     app.import(`./vendor/shims/mobiscroll.js`);
+  },
+
+  treeForPublic(tree) {
+    const publicTree = this._super.treeForPublic.apply(this, arguments);
+    const trees = [];
+
+    if (publicTree) {
+      trees.push(publicTree);
+    }
+
+    trees.push(LessCompiler(
+      './public/themes', 'theme-basic.less', 'assets/theme-basic.css'
+    ));
+
+    return mergeTrees(trees, { overwrite: true });
   }
 };
