@@ -1,0 +1,82 @@
+@primary: gray;
+@secondary: white;
+@contrast: #CA2027;
+@neutrals: gray;
+
+
+html.mobile.portrait,
+html.mobile.landscape,
+html.tablet.portrait {
+  body {
+    background-color: fade(@primary, 10%);
+  }
+  .wrapper {
+    background-color: @secondary;
+    box-shadow: 0 4px 4px 0 fade(@primary, 30%);
+  }
+}
+
+html.mobile.portrait {
+  .submit-actions {
+    margin-bottom: 2rem;
+    & button {
+      &:only-of-type,
+      &:nth-of-type(2) {
+        color: @secondary;
+        background-color: @contrast;
+        &:active {
+          background-color: fade(@contrast, 80%);
+        }
+      }
+    }
+  }
+  footer {
+    border-color: fade(@primary, 30%);
+    & svg {
+      fill: @contrast;
+    }
+  }
+}
+
+body {
+  color: @primary;
+  background-color: @secondary;
+}
+
+.row {
+  &:before {
+    color: @contrast;
+  }
+}
+
+textarea,
+input {
+  &::-webkit-input-placeholder {
+    color: fade(@primary, 50%);
+  }
+}
+
+input:not(.ui-menu) {
+  &:focus {
+    border-color: @contrast;
+    box-shadow: inset 0 0 0 3px fade(@contrast, 10%);
+  }
+}
+
+.ui-radio,
+.ui-checkbox {
+  & input:checked {
+    & + label {
+      color: @contrast;
+    }
+  }
+}
+
+button:active {
+  background-color: fade(@primary, 30%);
+}
+
+::selection {
+  color: @secondary;
+  background-color: @primary;
+}

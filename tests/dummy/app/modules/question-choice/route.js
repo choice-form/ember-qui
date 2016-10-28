@@ -11,7 +11,9 @@ export default Route.extend({
         {
           title: faker.lorem.words(),
           description: faker.lorem.paragraph(),
-          images: '',
+          images: [1].map(function () {
+            return '/images/sample-2.jpg'
+          }),
           renderId:'12213343234',
           typeName: '选择题',
           quesType: 'choice', //select, fill
@@ -85,7 +87,7 @@ export default Route.extend({
               renderId: '4567890-0987',
               text: faker.lorem.sentence(),
               uuid: "po9CA073-8FD0-4C6F-8C07-02B063AC8C90",
-              icon: 'radio', // 选项的Icon
+              icon: 'checkbox', // 选项的Icon
               inputType: 'select-input', // 'select', 'input', 'select-input, ower-input',
               inputRule: 'design-16px_pen-01', //输入控件初始化规则
               value: 'Here is options comment',
@@ -96,7 +98,7 @@ export default Route.extend({
               renderId: '4567890-871',
               text: faker.lorem.sentence(),
               uuid: "yb3E6B4F-D705-483D-905F-07E420920E19",
-              icon: 'radio',
+              icon: 'checkbox',
               inputType: '',
               inputRule: '',
               value: '',
@@ -107,7 +109,7 @@ export default Route.extend({
               renderId: '4567890-0981',
               text: faker.lorem.paragraph(),
               uuid: "4ghE6B4F-D705-483D-905F-07E420920E18",
-              icon: 'radio',
+              icon: 'checkbox',
               inputType: 'select',
               inputRule: 'count',
               value: '选项',
@@ -118,7 +120,7 @@ export default Route.extend({
               renderId: '4567890-0985',
               text: faker.lorem.sentence(),
               uuid: "4msE6B4F-D705-483D-905F-07E420920E15",
-              icon: 'radio',
+              icon: 'checkbox',
               inputType: 'select-input',
               inputRule: 'time',
               value: 'input time',
@@ -129,7 +131,7 @@ export default Route.extend({
               renderId: '4567890-0988',
               text: faker.lorem.paragraph(),
               uuid: "4kjE6B4F-D705-483D-905F-07E420920E12",
-              icon: 'radio',
+              icon: 'checkbox',
               inputType: 'input',
               inputRule: 'int',
               value: '',

@@ -3,7 +3,9 @@ article {
 }
 
 .row {
-
+  &:before {
+    height: 2px;
+  }
 }
 
 .attachment {
@@ -11,60 +13,59 @@ article {
 }
 
 .control {
-  & > div:not(:last-child) {
-    margin-bottom: 0;
+  & > div:not(:first-child) {
+    margin-top: 0;
   }
 }
 
-.option-cell {
-  &:not(:last-child) {
-    & .ui-radio,
-    & .ui-checkbox {
-      padding-bottom: 1rem;
-      margin-bottom: 1rem;
-      &:only-child:before {
-        display: block;
-      }
-      &:nth-last-child(2) {
-        padding-bottom: 0;
-        &:before {
-          display: none;
-        }
-      }
-      &:before {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        height: 1px;
-        opacity: .1;
-        background-color: currentColor;
-      }
-      & + .ui-text {
-        padding-bottom: 1rem;
-        margin-bottom: 1rem;
-        &:before {
-          content: '';
-          position: absolute;
-          bottom: 0;
-          left: 0;
-          right: 0;
-          height: 1px;
-          opacity: .1;
-          background-color: currentColor;
-        }
-        & svg {
-          bottom: 1rem;
-        }
-      }
+.question-header {
+  & + .control {
+
+  }
+}
+
+.cell {
+  & .ui-radio,
+  & .ui-checkbox {
+    position: relative;
+    & input[type="checkbox"],
+    & input[type="radio"] {
+      position: absolute;
+      top: 1rem;
+      right: 0;
+      bottom: 0;
+      overflow: hidden;
+      opacity: 0;
+      width: 1.5rem;
+      height: 1.5rem;
+      margin: auto 0;
+      border: none;
     }
-    & .ui-text {
-      margin-bottom: 1rem;
+    & label {
+      display: block;
+      position: relative;
+      padding-right: 2.5rem;
+    }
+    & svg {
+      display: block;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 1.5rem;
+      height: 1.5rem;
+      margin: auto 0;
+    }
+    & span {
+      display: block;
+      font-size: 1.2rem;
+      line-height: 1.5rem;
     }
   }
+  & .ui-dropdown,
   & .ui-text {
     position: relative;
+    & textarea,
     & input {
       width: 100%;
       padding: 1rem;
@@ -74,9 +75,8 @@ article {
       border-radius: 3px;
       resize: none;
       -webkit-appearance: none;
-      &:hover {
-        outline: none;
-      }
+    }
+    & input:not(.ui-menu) {
       &:invalid {
         & + svg {
           display: block;
@@ -93,7 +93,7 @@ article {
         }
       }
     }
-    svg {
+    & svg {
       width: 1rem;
       height: 1rem;
       opacity: .2;
@@ -104,54 +104,33 @@ article {
       bottom: 0;
       transition: opacity 200ms ease;
     }
-    & .mbsc-comp {
+    & .ui-menu {
       border-style: dashed;
-      & + svg {
+      & ~ svg {
         display: block;
       }
     }
   }
-}
-
-.question-header {
-  & + .control {
-    padding-top: 1rem;
-  }
-}
-
-.ui-radio,
-.ui-checkbox {
-  position: relative;
-  & input[type="checkbox"],
-  & input[type="radio"] {
-    position: absolute;
-    top: 0;
-    left: 0;
-    overflow: hidden;
-    opacity: 0;
-    width: 1.2rem;
-    height: 1.2rem;
-    border: none;
-  }
-  & label {
-    display: block;
-    position: relative;
-    padding-left: 2.5rem;
-  }
-  & svg {
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    width: 1.5rem;
-    height: 1.5rem;
-    margin: auto 0;
-  }
-  & span {
-    display: block;
-    font-size: 1.2rem;
-    line-height: 1.5rem;
+  &:not(:first-child) {
+    & .ui-radio,
+    & .ui-checkbox {
+      padding-top: 1.5rem;
+      margin-top: 1.5rem;
+      &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        opacity: .3;
+        background-color: currentColor;
+      }
+    }
+    & .ui-dropdown,
+    & .ui-text {
+      margin-top: 1.5rem;
+    }
   }
 }
 
@@ -173,90 +152,4 @@ article {
     outline-style: none;
     background-color: transparent;
   }
-}
-
-//--------------------------------------------
-
-body {
-  color: #0c80fe;
-}
-
-input {
-  &:focus {
-    box-shadow: inset 0 0 0 2px fade(#0c80fe, 20%);
-  }
-  &::-webkit-input-placeholder {
-    color: fade(#0c80fe, 50%);
-  }
-}
-
-::selection {
-  color: white;
-  background-color: #0c80fe;
-}
-
-//--------------------------------------------
-
-.mbsc-fr-overlay {
-  background-color: fade(#0c80fe, 50%);
-}
-
-.mbsc-mobiscroll .mbsc-sc-whl-l {
-  border-color: currentColor;
-}
-
-.mbsc-mobiscroll .mbsc-fr-w {
-  background-color: white;
-  color: currentColor;
-}
-
-.mbsc-mobiscroll .mbsc-sc-itm.mbsc-btn-a {
-  background-color: fade(#0c80fe, 50%);
-}
-
-.mbsc-mobiscroll .mbsc-fr-btn {
-  color: currentColor;
-}
-
-.mbsc-mobiscroll .mbsc-fr-btn-a {
-  background-color: fade(#0c80fe, 50%);
-}
-
-.mbsc-mobiscroll-form .mbsc-range-btn-sel .mbsc-range-btn {
-  color: red;
-  background-color: red;
-}
-
-.mbsc-mobiscroll-form .mbsc-range-btn {
-  border-color: currentColor;
-}
-
-.mbsc-mobiscroll-form .mbsc-cal-btn-txt{
-  color: red;
-}
-
-.mbsc-mobiscroll-form .mbsc-cal-days{
-  color: red;
-}
-
-.mbsc-mobiscroll-form .mbsc-cal-days th{
-  border-color: currentColor;
-}
-.mbsc-mobiscroll-form.mbsc-range .mbsc-cal-table .mbsc-cal-day-hl .mbsc-cal-day-i{
-  color: red;
-  background-color: red;
-}
-
-.mbsc-mobiscroll-form.mbsc-range .mbsc-cal-table .mbsc-cal-day-sel .mbsc-cal-day-i {
-  color: red;
-  background-color: red;
-}
-
-.mbsc-mobiscroll-form .mbsc-cal-hl-now .mbsc-cal-today{
-  color: red;
-}
-
-.mbsc-mobiscroll-form .mbsc-cal .mbsc-cal-day-sel .mbsc-cal-day-i, .mbsc-choice-form .mbsc-cal .mbsc-cal-sc-sel .mbsc-cal-sc-cell-i{
-  color: red;
-  background-color: red;
 }

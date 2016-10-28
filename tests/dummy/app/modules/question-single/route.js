@@ -12,8 +12,8 @@ export default Route.extend({
         title:faker.address.streetAddress(true),
         summary:faker.lorem.paragraph(),
         description: faker.lorem.paragraph(),
-        images:[1,2].map(function () {
-          return faker.image.image(360, 360, true)
+        images:[1].map(function () {
+          return '/images/sample-4.jpg'
         }),
 
         handleEvents: {
@@ -30,7 +30,7 @@ export default Route.extend({
           title:faker.address.streetAddress(true),
           description: faker.lorem.paragraph(),
           images:[1].map(function () {
-            return faker.image.image(360, 360, true)
+            return '/images/sample-5.jpg'
           }),
           typeName:'分值打分题',
           renderId: '4567890-0987',
@@ -93,7 +93,7 @@ export default Route.extend({
           title:faker.address.streetAddress(true),
           description: faker.lorem.paragraph(),
           images:[1].map(function () {
-            return 'http://localhost:4001/images/sample-1.jpg'
+            return '/images/sample-1.jpg'
           }),
           typeName:'选择题',
           renderId: '4567890-0987',

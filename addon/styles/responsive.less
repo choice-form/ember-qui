@@ -1,0 +1,100 @@
+html.desktop {
+  article {
+    min-width: 480px;
+  }
+}
+
+html.tablet,
+html.mobile {
+  user-select: none;
+  .ui-radio,
+  .ui-checkbox {
+    & input:checked {
+      & + label {
+        & span {
+          animation: flash 300ms cubic-bezier(0.23, 1, 0.32, 1);
+        }
+      }
+    }
+  }
+}
+
+@keyframes flash {
+  0%, 50% {
+    opacity: 1;
+  }
+  25%,100% {
+    opacity: .3;
+  }
+}
+
+html.tablet.portrait {
+  article {
+    max-width: 70vw;
+  }
+}
+
+html.tablet.portrait,
+html.mobile.landscape {
+  article {
+    max-width: 70vw;
+  }
+  .row:last-child {
+    &:before {
+      display: none;
+    }
+  }
+  .submit-actions {
+    padding: 2rem 0;
+  }
+}
+
+html.mobile.portrait {
+  font-size: 14px;
+  article {
+    padding: 0;
+  }
+  .page-header {
+    padding: 1.5rem;
+  }
+  section {
+    padding-bottom: 8rem;
+    margin-bottom: -8rem;
+  }
+  .wrapper {
+    padding: .5rem;
+  }
+  .row:last-child {
+    padding-bottom: 1rem;
+    &:before {
+      display: none;
+    }
+  }
+  .submit-actions {
+    padding: 2rem 1.5rem;
+    & button {
+      font-size: 1.2rem;
+      padding: 1.5rem 2rem;
+      &:only-of-type {
+        float: none;
+        width: 100%;
+      }
+      &:nth-of-type(2) {
+        width: 50%;
+      }
+    }
+  }
+  footer {
+    height: 8rem;
+    padding-top: 2rem;
+    margin: 0 1.5rem;
+    border-top-width: 1px;
+    border-top-style: solid;
+    & svg:not(:root) {
+      height: 1rem;
+    }
+    & span {
+      font-size: x-small;
+    }
+  }
+}
