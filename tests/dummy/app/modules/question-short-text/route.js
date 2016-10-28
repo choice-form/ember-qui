@@ -118,6 +118,28 @@ export default Route.extend({
         value: '',
         placeholder: 'url',
       }),
+      Ember.Object.create({
+        selected: '',
+        renderId: '4567890-0987',
+        text:'',
+        uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C903",
+        icon: '', // 选项的Icon
+        inputType: 'input', // 'select', 'input', 'select-input',
+        inputRule: 'noValidation', //输入控件初始化规则
+        value: '',
+        placeholder: 'noValidation',
+      }),
+      Ember.Object.create({
+        selected: '',
+        renderId: '4567890-0987',
+        text:'',
+        uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C903",
+        icon: '', // 选项的Icon
+        inputType: 'input', // 'select', 'input', 'select-input',
+        inputRule: 'count', //输入控件初始化规则
+        value: '',
+        placeholder: 'count',
+      }),
     ];
 
     return {

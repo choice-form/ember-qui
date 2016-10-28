@@ -29,6 +29,7 @@
     "Wester Xi <wester@cform.io>"
   ],
   "dependencies": {
+    "ember-autoresize": "0.5.17",
     "ember-cli-babel": "^5.1.10",
     "ember-cli-htmlbars": "^1.1.0",
     "ember-cli-less": "1.5.3",

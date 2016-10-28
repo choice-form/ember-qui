@@ -1,10 +1,20 @@
 {{svg}}
-<input
-  data-color="color6 color8"
-  type={{type}}
-  value={{option.value}}
+{{#if isTextArea}}
+  {{textarea
+  value=option.value
+  placeholder=option.placeholder
+  key-press='handleOptionInput'
+  autoresize=true
+  rows=1
+  max-rows=8
+  }}
+{{else}}
+  <input
+    type={{type}}
+      value={{option.value}}
     placeholder={{option.placeholder}}
-  onchange={{action 'handleOptionInput'}}
->
+      onchange={{action 'handleOptionInput'}}
+  >
+{{/if}}
 
 {{errorMessage}}

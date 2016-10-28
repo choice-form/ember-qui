@@ -1,6 +1,10 @@
 <header class="page-header">
   <h2 class="page-title">{{intro.title}}</h2>
-  <p class="page-description">{{intro.description}}</p>
+  <p class="page-description">{{intro.summary}}</p>
+  {{#if intro.description}}
+    <p class="page-description">{{intro.description}}</p>
+  {{/if}}
+
 </header>
 {{#if intro.images}}
   <div class="attachment">
