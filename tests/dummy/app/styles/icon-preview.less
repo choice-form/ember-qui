@@ -1,46 +1,45 @@
-@value ui-white, ui-purple, ui-blue, ui-green, ui-tomato, ui-light, ui-fade-silver, ui-silver, ui-gray, ui-slate, ui-dark-slate from 'ui-colors';
-
-.icon-title {
+.ip-title {
   font-size: 36px;
-  color: color(black a(64%));
+  color: black;
   margin-top: 64px;
 }
 
-.svg-icon {
+.ip-icon {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
   padding: 24px 0;
   margin-top: 24px;
-  border-top: 1px solid color(black a(24%));
+  border-top: 1px solid black;
 }
 
-.wrapper {
+.ip-wrapper {
   display: flex;
   align-content: center;
   justify-content: center;
 }
 
-.svg-container {
+.ip-container {
   cursor: pointer;
   padding: 12px;
   display: flex;
   align-content: center;
   justify-content: center;
   &:hover {
-    background-color: color(black a(4%));
-    box-shadow: inset color(black a(8%)) 0 0 0 1px;
+    background-color: fade(black, 5%);
+    box-shadow: inset fade(black, 15%) 0 0 0 1px;
     & svg {
-      fill: color(black a(96%));
+      fill: black;
     }
   }
   & svg {
-    fill: color(black a(64%));
+    display: block;
+    fill: fade(black, 50%);
     align-self: center;
   }
 }
 
-.attr {
+.ip-attr {
   text-align: center;
   z-index: 10;
   position: fixed;
@@ -60,9 +59,12 @@
   }
 }
 
-.hover {
-  position: absolute 24px 0 auto 0;
-  color: ui-blue;
+.ip-hover {
+  position: absolute;
+  top: 24px;
+  left: 0;
+  right: 0;
+  color: blue;
   font-size: 24px;
   text-align: center;
 }

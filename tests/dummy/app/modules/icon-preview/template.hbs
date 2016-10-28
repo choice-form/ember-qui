@@ -1,9 +1,9 @@
-<div class="w-container normal">
-  <h1 local-class="icon-title">SVG icon General</h1>
-  <div local-class="svg-icon">
+<div class="container">
+  <h1 class="ip-title">SVG icon General</h1>
+  <div class="ip-icon">
     {{#each model.general as |item|}}
-      <div local-class="wrapper">
-        <div local-class="svg-container"
+      <div class="ip-wrapper">
+        <div class="ip-container"
              onmouseenter={{action "showHref"}}
              onmouseleave={{action "hideHref"}}
              onclick={{action "copyHref"}}>
@@ -15,11 +15,11 @@
     {{/each}}
   </div>
 
-  <h1 local-class="icon-title">SVG icon Theme Basic</h1>
-  <div local-class="svg-icon">
+  <h1 class="ip-title">SVG icon Theme Basic</h1>
+  <div class="ip-icon">
     {{#each model.basic as |item|}}
-      <div local-class="wrapper">
-        <div local-class="svg-container"
+      <div class="ip-wrapper">
+        <div class="ip-container"
              onmouseenter={{action "showHref"}}
              onmouseleave={{action "hideHref"}}
              onclick={{action "copyHref"}}>
@@ -32,7 +32,7 @@
   </div>
 </div>
 
-<div local-class="attr">
-  <span local-class="hover">{{hrefText}}</span>
+<div class="ip-attr">
+  <span class="ip-hover">{{hrefText}}</span>
   <span>Click on icon copy the <strong>SVG ID</strong> to the clipboard</span>
 </div>
