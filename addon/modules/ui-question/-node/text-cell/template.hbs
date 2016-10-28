@@ -1,10 +1,13 @@
 {{svg}}
 {{#if isTextArea}}
-  <textarea
-      value={{option.value}}
-    placeholder={{option.placeholder}}
-      onchange={{action 'handleOptionInput'}}
-  ></textarea>
+  {{textarea
+  value=option.value
+  placeholder=option.placeholder
+  key-press='handleOptionInput'
+  autoresize=true
+  rows=1
+  max-rows=8
+  }}
 {{else}}
   <input
     type={{type}}
