@@ -51,13 +51,21 @@ export default Component.extend({
 
   actions: {
     /**
-     * change事件
+     * change事件Input
      */
     handleOptionInput(e){
       const value = e.currentTarget.value;
       console.log(value);
       set(this, 'option.value', value);
       this.handleEvents.handleOptionInput(get(this, 'option'), get(this, 'node'));
+    },
+
+    /**
+     * textareaAutoResize事件forTextarea
+     */
+    textareaAutoResize(e){
+      console.log(e.currentTarget.scrollHeight + 2 + 'px');
+      e.currentTarget.style.height = e.currentTarget.scrollHeight + 2 + 'px';
     },
   },
 

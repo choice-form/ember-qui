@@ -1,17 +1,19 @@
 {{#if isTextArea}}
+
   <textarea
     value={{option.value}}
-      placeholder={{option.placeholder}}
+    placeholder={{option.placeholder}}
+    oninput={{action 'textareaAutoResize'}}
     onchange={{action 'handleOptionInput'}}
-  >
-  </textarea>
+  ></textarea>
+
 {{else}}
   <input
+    class="ui-menu"
     type={{type}}
-      required
-      value={{option.value}}
+    value={{option.value}}
     placeholder={{option.placeholder}}
-      onchange={{action 'handleOptionInput'}}
+    onchange={{action 'handleOptionInput'}}
   >
 {{/if}}
 {{svg}}

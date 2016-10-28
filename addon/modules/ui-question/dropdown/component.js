@@ -40,7 +40,10 @@ export default Component.extend({
         this.handleEvents.handleOptionInput(option, get(this,'node'));
       },
       onInit: () => {
-        input.previousElementSibling.value = get(this, 'node.value');
+        const mobiInput = input.previousElementSibling
+        mobiInput.value = get(this, 'node.value');
+        //设置input的class名称
+        const className = mobiInput.setAttribute('class', 'ui-menu');
       }
     });
   }
