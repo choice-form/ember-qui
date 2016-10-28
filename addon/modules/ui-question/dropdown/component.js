@@ -43,7 +43,7 @@ export default Component.extend({
         const mobiInput = input.previousElementSibling
         mobiInput.value = get(this, 'node.value');
         //设置input的class名称
-        const className = mobiInput.setAttribute('class', 'ui-menu');
+        mobiInput.setAttribute('class', 'ui-menu');
       }
     });
   }

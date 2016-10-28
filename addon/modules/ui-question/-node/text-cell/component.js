@@ -55,6 +55,7 @@ export default Component.extend({
      */
     handleOptionInput(e){
       const value = e.currentTarget.value;
+      console.log(value);
       set(this, 'option.value', value);
       this.handleEvents.handleOptionInput(get(this, 'option'), get(this, 'node'));
     },
@@ -69,9 +70,15 @@ export default Component.extend({
   },
 
   didRender(){
+    const mobiService = get(this, 'mobiService');
     const type = get(this, 'option.inputRule');
     const input = this.element.getElementsByTagName('input')[0];
-    mobiInit(input, {type: type});
+    mobiInit(input, {
+      type: type,
+      onInit: () => {
+        input.setAttribute('class', 'ui-menu');
+      }
+    });
   }
 
 }).reopenClass({positionalParams: ['node', 'option', 'handleEvents']});
