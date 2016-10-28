@@ -6,6 +6,8 @@ import set from 'ember-metal/set';
 import {htmlSafe} from 'ember-string';
 import mobiInit from '../../../lib/mobile-factory'
 
+let readOnce = true;
+let minTextareaHeight = 0;
 export default Component.extend({
   layout,
   classNames: ['ui-text'],
@@ -18,7 +20,7 @@ export default Component.extend({
 
   isTextArea: computed('option.inputRule', function () {
     const inputRule = get(this, 'option.inputRule');
-    if(['noValidation', 'count'].indexOf(inputRule) > -1) {
+    if (['noValidation', 'count'].indexOf(inputRule) > -1) {
       return true;
     } else {
       return false;
@@ -49,6 +51,7 @@ export default Component.extend({
       </svg>`);
   }),
 
+
   actions: {
     /**
      * change事件Input
@@ -60,11 +63,17 @@ export default Component.extend({
       this.handleEvents.handleOptionInput(get(this, 'option'), get(this, 'node'));
     },
 
+
     /**
      * textareaAutoResize事件forTextarea
      */
     textareaAutoResize(e){
+      if(readOnce){
+        minTextareaHeight = e.currentTarget.offsetHeight;
+        readOnce = false;
+      }
       console.log(e.currentTarget.scrollHeight + 2 + 'px');
+      e.currentTarget.style.height = minTextareaHeight + 'px';
       e.currentTarget.style.height = e.currentTarget.scrollHeight + 2 + 'px';
     },
   },

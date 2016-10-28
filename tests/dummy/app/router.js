@@ -17,6 +17,7 @@ Router.map(function() {
   this.route('question-ranking', { path: 'ranking' });
   this.route('question-dropdown', { path: 'dropdown' });
   this.route('question-icon', { path: 'icon' });
+  this.route('question-picture-choice', { path: 'picture-choice' });
   this.route('question-single', { path: 'single' });
 
 });
