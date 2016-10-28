@@ -73,8 +73,8 @@ module.exports = {
   included(app) {
     this._super.included.apply(this, arguments);
 
-    app.import('./vendor/mobiscroll/js/mobiscroll.custom-3.0.0-beta6.min.js');
-    app.import('./vendor/mobiscroll/css/mobiscroll.custom-3.0.0-beta6.min.css');
-    app.import('./vendor/shims/mobiscroll.js');
+    app.import(`./vendor/mobiscroll/js/mobiscroll.custom-3.0.0-beta6.min.js`);
+    app.import(`./vendor/mobiscroll/css/mobiscroll.custom-3.0.0-beta6.min.css`);
+    app.import(`./vendor/shims/mobiscroll.js`);
   }
 };
