@@ -73,17 +73,27 @@ article {
       border-style: solid;
       border-radius: 3px;
       resize: none;
-      background-color:transparent;
       -webkit-appearance: none;
       &:hover {
         outline: none;
       }
+      &:invalid {
+        & + svg {
+          display: block;
+        }
+      }
       &:focus {
-        outline: none;
+        & + svg {
+          opacity: 0;
+        }
+      }
+      &:valid {
+        & + svg {
+          display: none;
+        }
       }
     }
-    & svg {
-      display: block;
+    svg {
       width: 1rem;
       height: 1rem;
       opacity: .2;
@@ -92,9 +102,13 @@ article {
       top: 0;
       right: 1rem;
       bottom: 0;
+      transition: opacity 200ms ease;
     }
     & .mbsc-comp {
       border-style: dashed;
+      & + svg {
+        display: block;
+      }
     }
   }
 }
@@ -118,11 +132,6 @@ article {
     width: 1.2rem;
     height: 1.2rem;
     border: none;
-    &:focus {
-      & + label {
-
-      }
-    }
   }
   & label {
     display: block;
@@ -152,16 +161,102 @@ article {
     vertical-align: middle;
     overflow: hidden;
     padding: 1rem 2rem;
+    color: currentColor;
+    border: 1px solid currentColor;
     border-radius: 3px;
     cursor: pointer;
     white-space: nowrap;
     text-overflow: ellipsis;
     line-height: 1rem;
-    border: 1px;
-    border-style: solid;
     outline: 0;
     user-select: none;
     outline-style: none;
     background-color: transparent;
   }
+}
+
+//--------------------------------------------
+
+body {
+  color: #0c80fe;
+}
+
+input {
+  &:focus {
+    box-shadow: inset 0 0 0 2px fade(#0c80fe, 20%);
+  }
+  &::-webkit-input-placeholder {
+    color: fade(#0c80fe, 50%);
+  }
+}
+
+::selection {
+  color: white;
+  background-color: #0c80fe;
+}
+
+//--------------------------------------------
+
+.mbsc-fr-overlay {
+  background-color: fade(#0c80fe, 50%);
+}
+
+.mbsc-mobiscroll .mbsc-sc-whl-l {
+  border-color: currentColor;
+}
+
+.mbsc-mobiscroll .mbsc-fr-w {
+  background-color: white;
+  color: currentColor;
+}
+
+.mbsc-mobiscroll .mbsc-sc-itm.mbsc-btn-a {
+  background-color: fade(#0c80fe, 50%);
+}
+
+.mbsc-mobiscroll .mbsc-fr-btn {
+  color: currentColor;
+}
+
+.mbsc-mobiscroll .mbsc-fr-btn-a {
+  background-color: fade(#0c80fe, 50%);
+}
+
+.mbsc-mobiscroll-form .mbsc-range-btn-sel .mbsc-range-btn {
+  color: red;
+  background-color: red;
+}
+
+.mbsc-mobiscroll-form .mbsc-range-btn {
+  border-color: currentColor;
+}
+
+.mbsc-mobiscroll-form .mbsc-cal-btn-txt{
+  color: red;
+}
+
+.mbsc-mobiscroll-form .mbsc-cal-days{
+  color: red;
+}
+
+.mbsc-mobiscroll-form .mbsc-cal-days th{
+  border-color: currentColor;
+}
+.mbsc-mobiscroll-form.mbsc-range .mbsc-cal-table .mbsc-cal-day-hl .mbsc-cal-day-i{
+  color: red;
+  background-color: red;
+}
+
+.mbsc-mobiscroll-form.mbsc-range .mbsc-cal-table .mbsc-cal-day-sel .mbsc-cal-day-i {
+  color: red;
+  background-color: red;
+}
+
+.mbsc-mobiscroll-form .mbsc-cal-hl-now .mbsc-cal-today{
+  color: red;
+}
+
+.mbsc-mobiscroll-form .mbsc-cal .mbsc-cal-day-sel .mbsc-cal-day-i, .mbsc-choice-form .mbsc-cal .mbsc-cal-sc-sel .mbsc-cal-sc-cell-i{
+  color: red;
+  background-color: red;
 }
