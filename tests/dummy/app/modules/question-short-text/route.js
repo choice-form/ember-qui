@@ -148,7 +148,7 @@ export default Route.extend({
           title:faker.address.streetAddress(true),
           description: faker.lorem.paragraph(),
           images:[1].map(function () {
-            return faker.image.image(360, 360, true)
+            return 'http://localhost:4001/images/sample-1.jpg'
           }),
           typeName:'选择题',
           renderId: '4567890-0987',

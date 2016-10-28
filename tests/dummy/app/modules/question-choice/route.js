@@ -27,8 +27,8 @@ export default Route.extend({
               text: faker.lorem.sentence(),
               uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
               icon: 'radio', // 选项的Icon
-              inputType: 'select-input', // 'select', 'input', 'select-input, ower-input',
-              inputRule: 'design-16px_pen-01', //输入控件初始化规则
+              inputType: 'select-input', // 'select', 'input', 'select-input,
+              inputRule: 'timeRange', //输入控件初始化规则
               value: 'Here is options comment',
               placeholder: 'comment',
             }),
