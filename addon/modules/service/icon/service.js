@@ -1,13 +1,14 @@
 import Service from 'ember-service';
+import inject from 'ember-service/inject';
 import {htmlSafe} from 'ember-string';
+import RSVP from 'rsvp';
 
 export default Service.extend({
-
-
+  ajax: inject(),
   /*
    获取选项的Icon
    */
-  getOptionSvg(slected, icon){
+  getOptionSvg(slected, icon) {
     const  svgName = slected ? `${icon}-active` : icon;
     return htmlSafe(`<svg data-color=${slected ? 'color7' : 'color6'} xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="16px" height="16px" viewBox="0 0 16 16">
         <use xlink:href=#${svgName}></use>
@@ -25,19 +26,18 @@ export default Service.extend({
 
   table: {},
 
-  getIconByUrl(url){
+  getIconByUrl(url) {
     let icon = this.table[url];
     if (icon) {
-      return Promise.resolve(icon)
+      return RSVP.resolve(icon)
     }
     if (!this.isURL(url)) {
       return null;
     }
-    return $.ajax(url).then(res => {
+    return this.get('ajax').request(url).then(res => {
       const elem = res.children[0];
       this.table[url] = elem.style.display='block';
       return elem;
     });
   },
-
 });

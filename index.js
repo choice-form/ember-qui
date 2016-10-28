@@ -12,7 +12,7 @@ module.exports = {
         css: {'app': '/assets/bundle.css'},
         js: '/assets/bundle.js',
       },
-    },
+    // },
     // cssModules: {
     //   plugins: [
     //     require('postcss-import'),
@@ -61,12 +61,12 @@ module.exports = {
     //   }
     // },
     // nodeAssets: {
-    //   ['normalize.css']: {
+    //   ['device.js']: {
     //     import: {
-    //       include: [{ path: 'normalize.css', prepend: true }]
+    //       include: [{ path: 'device.js' }]
     //     }
     //   }
-    // }
+    }
   },
 
   isDevelopingAddon() {
@@ -76,18 +76,19 @@ module.exports = {
   included(app) {
     this._super.included.apply(this, arguments);
 
+    app.import(`${app.bowerDirectory}/device.js/lib/device.js`);
+    app.import(`./vendor/shims/device.js`);
+
     app.import(`./vendor/mobiscroll/js/mobiscroll.custom-3.0.0-beta6.min.js`);
     app.import(`./vendor/mobiscroll/css/mobiscroll.custom-3.0.0-beta6.min.css`);
     app.import(`./vendor/shims/mobiscroll.js`);
   },
 
   treeForPublic(tree) {
-    const publicTree = this._super.treeForPublic.apply(this, arguments);
     const trees = [];
 
-    if (publicTree) {
-      trees.push(publicTree);
-    }
+    const publicTree = this._super.treeForPublic.apply(this, arguments);
+    publicTree && trees.push(publicTree);
 
     trees.push(LessCompiler(
       './public/themes', 'theme-basic.less', 'assets/theme-basic.css'
