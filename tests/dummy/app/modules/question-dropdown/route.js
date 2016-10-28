@@ -55,7 +55,7 @@ export default Route.extend({
     ];
 
     return {
-      control:[
+      nodes:[
         {
           title:faker.address.streetAddress(true),
           description: faker.lorem.paragraph(),
@@ -64,21 +64,22 @@ export default Route.extend({
           }),
           typeName:'分值打分题',
           renderId: '4567890-0987',
-          nodeType: 'dropdown', //select, fill, valuemark, graphmark, menu
+          quesType: 'dropdown', //select, fill, valuemark, graphmark, menu
           selectType: '',
           showStyle: '',
           uuid: '002',
           isMust:true,
           number:'3',
-          value:'下拉值',
+          value:'123123',
+          placeholder:'请下拉选择',
           options,
         }
       ],
 
       handleEvents: {
-        handleOptionClick: (option, control) => {
+        handleOptionClick: (option, node) => {
           console.log(option);
-          console.log(control);
+          console.log(node);
           if (option.toggleProperty('selected')) {
 
             options.forEach((opt) => {
@@ -89,9 +90,9 @@ export default Route.extend({
           }
         },
 
-        handleOptionInput: (option, control) => {
+        handleOptionInput: (option, node) => {
           console.log(option);
-          console.log(control);
+          console.log(node);
         },
 
         handlePrevClick: () => {

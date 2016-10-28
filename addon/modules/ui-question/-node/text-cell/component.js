@@ -1,0 +1,62 @@
+import Component from 'ember-component';
+import layout from './template';
+import computed from 'ember-computed';
+import get from 'ember-metal/get';
+import set from 'ember-metal/set';
+import {htmlSafe} from 'ember-string';
+import mobiInit from '../../../lib/mobile-factory'
+
+export default Component.extend({
+  layout,
+  classNames: ['ui-text'],
+  attributeBindings: ['data-render-id'],
+  'data-render-id': computed.oneWay('node.renderId'),
+
+  /**
+   * 'noValidation','count','int','phone','float','email','date','dateRange','time','timeRange','postCode','url'
+   */
+  RuleforInput: ['int', 'phone', 'float', 'email', 'date', 'dateRange', 'time', 'timeRange', 'postCode', 'url'],
+
+  type: computed('option.inputRule', function () {
+    const celType = ['int', 'phone', 'postCode'];
+    const numberType = ['float'];
+    const urlType = ['url', 'email'];
+    const inputRule = get(this, 'option.inputRule');
+    if (celType.includes(inputRule)){
+      return 'tel';
+    }
+    if (numberType.includes(inputRule)){
+      return 'number';
+    }
+    if (urlType.includes(inputRule)){
+      return 'url';
+    }
+    return 'text';
+  }),
+
+  svg: computed('option.inputRule', function () {
+    const icon = `#${get(this, 'option.inputRule')}`;
+    return htmlSafe(`<svg data-color= "color6" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="16px" height="16px" viewBox="0 0 16 16">
+        <use xlink:href=${icon}></use>
+      </svg>`);
+  }),
+
+  actions: {
+    /**
+     * change事件
+     */
+    handleOptionInput(e){
+      const value = e.currentTarget.value;
+      set(this, 'option.value', value);
+      this.handleEvents.handleOptionInput(get(this, 'option'), get(this, 'node'));
+    },
+  },
+
+  didRender(){
+    const mobiService = get(this, 'mobiService');
+    const type = get(this, 'option.inputRule');
+    const input = this.element.getElementsByTagName('input')[0];
+    mobiInit(input, {type: type});
+  }
+
+}).reopenClass({positionalParams: ['node', 'option', 'handleEvents']});

@@ -1,0 +1,16 @@
+<div class="row" data-render-id={{node.renderId}} data-color="color3">
+  {{ui-question/-node/header headerData}}
+  <div class={{concat "control " node.quesType}}>
+
+    {{#if isSpecialComponent}}
+      {{component componentName node handleEvents}}
+    {{else}}
+      {{#each node.options as |option|}}
+        {{component componentName node option handleEvents}}
+      {{/each}}
+    {{/if}}
+
+  </div>
+</div>
+
+{{!--{{component 'ui-question/-node/option-cell' node option handleEvents}}--}}

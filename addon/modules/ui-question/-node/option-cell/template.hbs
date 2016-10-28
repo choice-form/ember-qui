@@ -1,12 +1,12 @@
 {{!--如果输入类型是input，则，使用其他选项备注组件--}}
 {{#unless (eq option.inputType 'input')}}
-  <div class={{concat 'ui-' control.selectType}}>
+  <div class={{concat 'ui-' node.selectType}}>
     <input
       data-color="color8"
       id={{option.uuid}}
-        type={{control.selectType}}
+        type={{node.selectType}}
       onclick={{action 'handleOptionClick'}}
-        name={{control.uuid}}
+        name={{node.uuid}}
       autofocus={{autofocus}}
         placeholder={{option.placeholder}}
       checked={{option.selected}}
@@ -15,16 +15,16 @@
         tabindex={{tabindex}}
       value={{option.value}}
     >
-    {{ui-control/label option}}
+    {{ui-question/-node/label option}}
   </div>
 {{else}}
-  {{ui-control/text-cell control option handleEvents}}
+  {{ui-question/-node/text-cell node option handleEvents}}
 {{/unless}}
 
 
 {{!--选择选项再弹出输入框--}}
 {{#if (and (eq option.inputType "select-input") option.selected)}}
-  {{ui-control/text-cell control option handleEvents}}
+  {{ui-question/-node/text-cell node option handleEvents}}
 {{/if}}
 
 {{errorMessage}}

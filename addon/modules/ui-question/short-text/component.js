@@ -12,14 +12,14 @@ export default Component.extend({
      * click事件
      */
     handleOptionClick(){
-      this.handleEvents.handleOptionClick(get(this, 'option'),get(this,'control'));
+      this.handleEvents.handleOptionClick(get(this, 'option'),get(this,'node'));
     },
 
     /**
      * change事件
      */
     handleOptionInput(){
-      this.handleEvents.handleOptionInput(get(this, 'option'),get(this,'control'));
+      this.handleEvents.handleOptionInput(get(this, 'option'),get(this,'node'));
     },
   },
-}).reopenClass({ positionalParams: ['control', 'option', 'handleEvents']});
+}).reopenClass({ positionalParams: ['node', 'option', 'handleEvents']});

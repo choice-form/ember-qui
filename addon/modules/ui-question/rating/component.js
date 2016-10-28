@@ -41,15 +41,15 @@ export default Component.extend({
       const value = e.target.value;
       const checked = e.target.checked;
       set(this, 'option.value', checked ? value : value -1);
-      this.handleEvents.handleOptionClick(get(this, 'option'),get(this,'control'));
+      this.handleEvents.handleOptionClick(get(this, 'option'),get(this,'node'));
     },
 
     /**
      * change事件
      */
     handleOptionInput(){
-      this.handleEvents.handleOptionInput(get(this, 'option'),get(this,'control'));
+      this.handleEvents.handleOptionInput(get(this, 'option'),get(this,'node'));
     },
   },
 
-}).reopenClass({ positionalParams: ['control','option','handleEvents']});
+}).reopenClass({ positionalParams: ['node','option','handleEvents']});

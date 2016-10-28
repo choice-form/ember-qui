@@ -55,7 +55,7 @@ export default Route.extend({
     ];
 
     return {
-      control:[
+      nodes:[
         {
           title:faker.address.streetAddress(true),
           description: faker.lorem.paragraph(),
@@ -64,7 +64,7 @@ export default Route.extend({
           }),
           typeName:'分值打分题',
           renderId: '4567890-0987',
-          nodeType: 'rating', //select, fill, valuemark
+          quesType: 'rating', //select, fill, valuemark
           selectType: '',
           showStyle: '',
           uuid: '002',
@@ -75,9 +75,9 @@ export default Route.extend({
       ],
 
       handleEvents: {
-        handleOptionClick: (option, control) => {
+        handleOptionClick: (option, node) => {
           console.log(option);
-          console.log(control);
+          console.log(node);
           if (option.toggleProperty('selected')) {
 
             options.forEach((opt) => {
@@ -88,9 +88,9 @@ export default Route.extend({
           }
         },
 
-        handleOptionInput: (option, control) => {
+        handleOptionInput: (option, node) => {
           console.log(option);
-          console.log(control);
+          console.log(node);
         },
 
         handlePrevClick: () => {

@@ -1,11 +1,11 @@
 {{#if question.intro}}
-  {{ui-control/intro-page question.intro}}
+  {{ui-question/-node/intro-page question.intro}}
 {{/if}}
 
 <section>
   <div class="wrapper">
-    {{#each question.control as |control|}}
-      {{ui-control/control control question.handleEvents}}
+    {{#each question.nodes as |node|}}
+      {{ui-question/-node node question.handleEvents}}
     {{/each}}
   </div>
 

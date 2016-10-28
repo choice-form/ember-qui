@@ -16,18 +16,18 @@ export default Component.extend({
     handleOptionClick(){
       const inputType = get(this, 'option.inputType');
       if (inputType === 'input')return;
-      this.handleEvents.handleOptionClick(get(this, 'option'),get(this,'control'));
+      this.handleEvents.handleOptionClick(get(this, 'option'),get(this,'node'));
     },
 
     /**
      * change事件
      */
     handleOptionInput(){
-      this.handleEvents.handleOptionInput(get(this, 'option'),get(this,'control'));
+      this.handleEvents.handleOptionInput(get(this, 'option'),get(this,'node'));
     },
 
   },
 
   didInsertElement() {
   }
-}).reopenClass({positionalParams: ['control', 'option', 'handleEvents']});
+}).reopenClass({positionalParams: ['node', 'option', 'handleEvents']});

@@ -6,4 +6,4 @@ export default Component.extend({
   layout,
   tagName:'',
 
-}).reopenClass({positionalParams: ['control','option', 'handleEvents']});
+}).reopenClass({positionalParams: ['node','option', 'handleEvents']});

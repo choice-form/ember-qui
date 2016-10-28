@@ -13,7 +13,7 @@ export default Component.extend({
      * click事件
      */
     handleOptionClick(){
-      this.handleEvents.handleOptionClick(get(this, 'option'),get(this,'control'));
+      this.handleEvents.handleOptionClick(get(this, 'option'),get(this,'node'));
     },
 
     /**
@@ -22,8 +22,8 @@ export default Component.extend({
     handleOptionInput(e){
       const value = e.target.value;
       set(this, 'option.value', value);
-      this.handleEvents.handleOptionInput(get(this, 'option'),get(this,'control'));
+      this.handleEvents.handleOptionInput(get(this, 'option'),get(this,'node'));
     },
   },
 
-}).reopenClass({ positionalParams: ['control','option','handleEvents']});
+}).reopenClass({ positionalParams: ['node','option','handleEvents']});
