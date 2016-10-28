@@ -22,8 +22,8 @@ export default Component.extend({
   /**
    * 设置选项的image
    */
-  image: computed('option.images', function () {
-    const image = get(this, 'option.images');
+  image: computed('option.image', function () {
+    const image = get(this, 'option.image');
     if(image && image.length){
       return htmlSafe(`<div class="attachment"><img src=${image}/></div>`);
     }else return '';

@@ -1,0 +1,139 @@
+import Route from 'ember-route';
+import set from 'ember-metal/set';
+import Ember from 'ember';
+import faker from 'faker';
+
+/*eslint-disable no-console */
+export default Route.extend({
+  model() {
+    return {
+      nodes: [
+        {
+          title: faker.lorem.sentences(),
+          description: faker.lorem.paragraph(),
+          images: '',
+          renderId:'775519',
+          typeName: '选择题',
+          quesType: 'picture-choice', //select, fill
+          selectType: 'radio',
+          showStyle: '',
+          uuid: '002',
+          isMust:false,
+          number:'2',
+          options:[
+            Ember.Object.create({
+              selected: false,
+              renderId: '4567890-0987',
+              text: faker.lorem.sentence(),
+              uuid: "po9CA073-8FD0-4C6F-8C07-02B063AC8C90",
+              icon: 'radio', // 选项的Icon
+              image: faker.image.image(360, 360, true),
+              inputType: '', // 'select', 'input', 'select-input, ower-input',
+              inputRule: '', //输入控件初始化规则
+              value: '',
+              placeholder: '',
+            }),
+            Ember.Object.create({
+              selected: false,
+              renderId: '4567890-871',
+              text: faker.lorem.sentence(),
+              uuid: "yb3E6B4F-D705-483D-905F-07E420920E19",
+              icon: 'radio',
+              inputType: '',
+              inputRule: '',
+              value: '',
+              placeholder: 'placeholder',
+            }),
+            Ember.Object.create({
+              selected: false,
+              renderId: '4567890-0981',
+              text: faker.lorem.paragraph(),
+              uuid: "4ghE6B4F-D705-483D-905F-07E420920E18",
+              icon: 'radio',
+              inputType: 'select',
+              inputRule: 'count',
+              value: '选项',
+              placeholder: 'input count',
+            }),
+            Ember.Object.create({
+              selected: false,
+              renderId: '4567890-0985',
+              text: faker.lorem.sentence(),
+              uuid: "4msE6B4F-D705-483D-905F-07E420920E15",
+              icon: 'radio',
+              inputType: 'select-input',
+              inputRule: 'time',
+              value: 'input time',
+              placeholder: '',
+            }),
+            Ember.Object.create({
+              selected: true,
+              renderId: '4567890-0988',
+              text: faker.lorem.paragraph(),
+              uuid: "4kjE6B4F-D705-483D-905F-07E420920E12",
+              icon: 'radio',
+              inputType: 'input',
+              inputRule: 'int',
+              value: '',
+              placeholder: 'input int',
+            }),
+            Ember.Object.create({
+              selected: true,
+              renderId: '4567890-0912',
+              text: '',
+              uuid: "4iiE6B4F-D705-483D-919F-07E420920E12",
+              icon: '',
+              inputType: 'input',
+              inputRule: 'float',
+              value: '',
+              placeholder: 'input float',
+            }),
+            Ember.Object.create({
+              selected: true,
+              renderId: '4567890-0912',
+              text: '',
+              uuid: "4ggE6B4F-Duy5-483D-905F-07E420920E12",
+              icon: '',
+              inputType: 'input',
+              inputRule: 'calendar',
+              value: '',
+              placeholder: 'input calendar',
+            })
+          ],
+        }
+      ],
+
+      handleEvents: {
+        handleOptionClick: (option, node) => {
+          console.log(option);
+          console.log(node);
+          if (option.toggleProperty('selected')) {
+
+            node.options.forEach((opt) => {
+              if (opt != option) {
+                set(opt, 'selected', false);
+              }
+            })
+          }
+        },
+
+        handleOptionInput: (option, node) => {
+          console.log(option);
+          console.log(node);
+        },
+
+        handlePrevClick: () => {
+          console.log('点击了上一题');
+        },
+
+        handleNextClick: () => {
+          console.log('点击了下一题');
+        }
+      },
+
+      prevButton: 'Previous',
+
+      nextButton: 'Next',
+    }
+  }
+});
