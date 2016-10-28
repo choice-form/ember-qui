@@ -14,8 +14,6 @@ export default Service.extend({
       </svg>`);
   },
 
-
-
   /**
    * 是否为合理网址格式
    * @param {string} value 需要验证的值
@@ -27,7 +25,6 @@ export default Service.extend({
 
   table: {},
 
-
   getIconByUrl(url){
     let icon = this.table[url];
     if (icon) {
@@ -38,7 +35,7 @@ export default Service.extend({
     }
     return $.ajax(url).then(res => {
       const elem = res.children[0];
-      this.table[url] = elem;
+      this.table[url] = elem.style.display='block';
       return elem;
     });
   },
