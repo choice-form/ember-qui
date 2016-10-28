@@ -85,7 +85,7 @@ const mScroll = {
 
 function mobiInit(input, config) {
   const {type} = config;
-  if (!willHandleInputTypes.includes(type)){
+  if (willHandleInputTypes.indexOf(type) < 0){
     return;
   }
   mScroll[config.type](input, config);

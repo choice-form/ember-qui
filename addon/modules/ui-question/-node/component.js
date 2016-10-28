@@ -26,8 +26,7 @@ export default Component.extend({
 
   isSpecialComponent : computed('node.quesType', function() {
     const quesType = get(this, 'node.quesType');
-    console.log(['dropdown', 'location', 'matrix'].includes(quesType));
-    if(['dropdown', 'location', 'matrix'].includes(quesType)){
+    if(['dropdown', 'location', 'matrix'].indexOf(quesType) > -1){
       return true;
     }else{
       return false;

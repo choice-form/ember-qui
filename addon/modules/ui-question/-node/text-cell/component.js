@@ -13,22 +13,30 @@ export default Component.extend({
   'data-render-id': computed.oneWay('node.renderId'),
 
   /**
-   * 'noValidation','count','int','phone','float','email','date','dateRange','time','timeRange','postCode','url'
+   * 'noValidation','','int','phone','float','email','date','dateRange','time','timeRange','postCode','url'
    */
-  RuleforInput: ['int', 'phone', 'float', 'email', 'date', 'dateRange', 'time', 'timeRange', 'postCode', 'url'],
+
+  isTextArea: computed('option.inputRule', function () {
+    const inputRule = get(this, 'option.inputRule');
+    if(['noValidation', 'count'].indexOf(inputRule) > -1) {
+      return true;
+    } else {
+      return false;
+    }
+  }),
 
   type: computed('option.inputRule', function () {
     const celType = ['int', 'phone', 'postCode'];
     const numberType = ['float'];
     const urlType = ['url', 'email'];
     const inputRule = get(this, 'option.inputRule');
-    if (celType.includes(inputRule)){
+    if (celType.indexOf(inputRule) > -1) {
       return 'tel';
     }
-    if (numberType.includes(inputRule)){
+    if (numberType.indexOf(inputRule) > -1) {
       return 'number';
     }
-    if (urlType.includes(inputRule)){
+    if (urlType.indexOf(inputRule) > -1) {
       return 'url';
     }
     return 'text';
