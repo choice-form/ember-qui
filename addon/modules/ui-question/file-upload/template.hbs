@@ -1,0 +1,12 @@
+<input
+  type='file'
+  id={{option.uuid}}
+    onclick={{action 'handleOptionClick'}}
+>
+{{svg}}
+<span>{{option.text}}</span>
+{{img}}
+
+{{#if option.selected}}
+  <img src={{option.value}}/>
+{{/if}}
