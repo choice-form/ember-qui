@@ -1,4 +1,4 @@
-import Component from 'ember-component';
+ import Component from 'ember-component';
 import layout from './template';
 import computed from 'ember-computed';
 import get, {getProperties} from 'ember-metal/get'
@@ -26,7 +26,7 @@ export default Component.extend({
 
   isSpecialComponent : computed('node.quesType', function() {
     const quesType = get(this, 'node.quesType');
-    if(['dropdown', 'location', 'matrix'].indexOf(quesType) > -1){
+    if(['dropdown', 'location', 'matrix', 'intro-page'].indexOf(quesType) > -1){
       return true;
     }else{
       return false;

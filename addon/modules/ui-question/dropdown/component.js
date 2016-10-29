@@ -13,12 +13,9 @@ export default Component.extend({
   'data-render-id': computed.oneWay('node.renderId'),
 
 
-  svg: computed('node.value', function () {
-    const isValue = get(this, 'node.value');
-    return htmlSafe(`<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="16px" height="16px" viewBox="0 0 16 16">
+  svg: htmlSafe(`<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="16px" height="16px" viewBox="0 0 16 16">
         <use xlink:href="#arrows-small-down"></use>
-      </svg>`);
-  }),
+      </svg>`),
 
   didRender(){
     const input = this.element.getElementsByClassName('dropdown-list')[0];
