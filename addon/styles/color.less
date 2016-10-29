@@ -3,10 +3,34 @@
 @contrast: #CA2027;
 @neutrals: gray;
 
+html.desktop {
+  body {
+    background-image: url("/images/sample-2-blur.jpg");
+  }
+  article {
+    background-color: @secondary;
+    box-shadow: 0 4px 4px 0 fade(@primary, 30%);
+  }
+  .cell {
+    & .ui-radio,
+    & .ui-checkbox {
+      & label {
+        &:before {
+          background-color: @primary;
+        }
+      }
+    }
+    & input:not(.ui-menu) {
+      &:hover {
+        box-shadow: inset 0 0 0 3px fade(@primary, 10%);
+      }
+    }
+  }
+}
 
-html.mobile.portrait,
+html.tablet.portrait,
 html.mobile.landscape,
-html.tablet.portrait {
+html.mobile.portrait {
   body {
     background-color: fade(@primary, 10%);
   }
@@ -14,11 +38,16 @@ html.tablet.portrait {
     background-color: @secondary;
     box-shadow: 0 4px 4px 0 fade(@primary, 30%);
   }
+  article.one-by-one {
+    & .page-header {
+      background-color: @secondary;
+      box-shadow: 0 4px 4px 0 fade(@primary, 30%);
+    }
+  }
 }
 
 html.mobile.portrait {
   .submit-actions {
-    margin-bottom: 2rem;
     & button {
       &:only-of-type,
       &:nth-of-type(2) {
@@ -72,8 +101,11 @@ input:not(.ui-menu) {
   }
 }
 
-button:active {
-  background-color: fade(@primary, 30%);
+button {
+  background-color: transparent;
+  &:active {
+    background-color: fade(@primary, 30%);
+  }
 }
 
 ::selection {

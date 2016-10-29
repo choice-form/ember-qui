@@ -5,11 +5,11 @@ import faker from 'faker';
 export default Route.extend({
   model() {
     return {
-      title:faker.address.streetAddress(true),
-      summary:faker.lorem.paragraph(),
+      title: faker.lorem.words(),
+      summary: faker.lorem.paragraph(),
       description: faker.lorem.paragraph(),
-      images:[1,2].map(function () {
-        return faker.image.image(360, 360, true)
+      images: [1].map(function () {
+        return '/images/sample-3.jpg'
       }),
 
       handleEvents: {

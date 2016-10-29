@@ -1,6 +1,65 @@
 html.desktop {
+  body {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
   article {
     min-width: 480px;
+  }
+  .cell {
+    & .ui-radio,
+    & .ui-checkbox {
+      & label {
+        &:hover:before {
+          opacity: .1;
+        }
+        &:before {
+          content: "";
+          position: absolute;
+          left: -.5rem;
+          right: -.5rem;
+          top: -.5rem;
+          bottom: -.5rem;
+          opacity: 0;
+          border-radius: 3px;
+          pointer-events: none;
+          transition: opacity 200ms ease;
+        }
+      }
+    }
+  }
+}
+
+html.desktop,
+html.tablet.landscape {
+  section {
+    & > div:only-child {
+      &:before {
+        content: "";
+        position: absolute;
+        left: 1rem;
+        right: 1rem;
+        top: 0;
+        height: 1px;
+        background-color: currentColor;
+      }
+    }
+  }
+}
+
+html.desktop,
+html.tablet,
+html.mobile.landscape {
+section {
+    & > div:only-child {
+      position: relative;
+      text-align: center;
+      & > button:only-child {
+        float: none;
+        width: 10rem;
+      }
+    }
   }
 }
 
@@ -23,7 +82,7 @@ html.mobile {
   0%, 50% {
     opacity: 1;
   }
-  25%,100% {
+  25%, 100% {
     opacity: .3;
   }
 }
@@ -53,13 +112,14 @@ html.mobile.portrait {
   font-size: 14px;
   article {
     padding: 0;
+    padding-bottom: 8rem;
+    margin-bottom: -8rem;
   }
   .page-header {
     padding: 1.5rem;
   }
   section {
-    padding-bottom: 8rem;
-    margin-bottom: -8rem;
+
   }
   .wrapper {
     padding: .5rem;
@@ -72,6 +132,7 @@ html.mobile.portrait {
   }
   .submit-actions {
     padding: 2rem 1.5rem;
+    margin: 2rem 0;
     & button {
       font-size: 1.2rem;
       padding: 1.5rem 2rem;
@@ -95,6 +156,16 @@ html.mobile.portrait {
     }
     & span {
       font-size: x-small;
+    }
+  }
+}
+
+html.mobile.portrait,
+html.mobile.landscape,
+html.tablet.portrait {
+  article.one-by-one {
+    & .attachment {
+      padding: 0;
     }
   }
 }

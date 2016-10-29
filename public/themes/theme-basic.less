@@ -20,7 +20,7 @@ article {
 
 .question-header {
   & + .control {
-
+    padding-top: 1.5rem;
   }
 }
 
@@ -31,14 +31,13 @@ article {
     & input[type="checkbox"],
     & input[type="radio"] {
       position: absolute;
-      top: 1rem;
       right: 0;
       bottom: 0;
       overflow: hidden;
       opacity: 0;
       width: 1.5rem;
       height: 1.5rem;
-      margin: auto 0;
+      margin: 0;
       border: none;
     }
     & label {
@@ -60,6 +59,9 @@ article {
       display: block;
       font-size: 1.2rem;
       line-height: 1.5rem;
+    }
+    & + .ui-text {
+      margin-top: 1.5rem;
     }
   }
   & .ui-dropdown,
@@ -105,6 +107,7 @@ article {
       transition: opacity 200ms ease;
     }
     & .ui-menu {
+      cursor: pointer;
       border-style: dashed;
       & ~ svg {
         display: block;
@@ -150,6 +153,5 @@ article {
     outline: 0;
     user-select: none;
     outline-style: none;
-    background-color: transparent;
   }
 }
