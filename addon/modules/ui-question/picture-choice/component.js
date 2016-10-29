@@ -8,13 +8,12 @@ import {htmlSafe} from 'ember-string';
 export default Component.extend({
   layout,
   classNameBindings: ['priority'],
-  priority: computed('node.quesType', 'node.selectType', 'node.showStyle', 'node.textDirection', 'node.pictureSize', function () {
+  priority: computed('node.quesType', 'node.showStyle', 'node.textDirection', 'node.pictureSize', function () {
     const quesType = `ui-${get(this, "node.quesType")}`;
-    const selectType = `ui-${get(this, "node.selectType")}`;
     const showStyle = get(this, "node.showStyle");
     const textDirection = get(this, "node.textDirection");
     const pictureSize = get(this, "node.pictureSize");
-    return `${selectType} ${quesType} ${showStyle} ${textDirection} ${pictureSize}`
+    return `${quesType} ${showStyle} ${textDirection} ${pictureSize}`
   }),
 
   /**
