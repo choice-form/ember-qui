@@ -1,12 +1,11 @@
 <div class='ui-range' data-render-id={{option.renderId}}>
   <input
-    data-color="color8"
     type="range"
     id={{option.uuid}}
     value={{option.value}}
     onchange={{action 'handleOptionInput'}}
   >
-  <span data-color="color6">{{option.value}}</span>
+  <span>{{option.value}}</span>
 
   {{ui-question/-node/label option}}
 </div>

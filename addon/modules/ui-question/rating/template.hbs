@@ -2,7 +2,6 @@
   {{#each graphs as |g|}}
     <div style="display: inline-block">
       <input
-        data-color="color8"
         type="checkbox"
         id={{g.uuid}}
         value={{g.value}}
@@ -11,7 +10,7 @@
       >
 
       <label for={{g.uuid}} value={{g.value}}>
-        <svg data-color={{if checked "color7" "color6"}} xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="16px"
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="16px"
              height="16px" viewBox="0 0 16 16">
           <use xlink:href="#{{g.icon}}" fill=""/>
         </svg>

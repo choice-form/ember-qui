@@ -1,18 +1,17 @@
-<div  class={{concat 'ui-' node.quesType ' ' node.selectType ' ' node.showStyle}}>
-  <input
-    data-color="color8"
-    id={{option.uuid}}
-      type={{node.selectType}}
-    onclick={{action 'handleOptionClick'}}
-      name={{node.uuid}}
-    autofocus={{autofocus}}
-      placeholder={{option.placeholder}}
-    checked={{option.selected}}
-      disabled={{disabled}}
-    required={{required}}
-      tabindex={{tabindex}}
-    value={{option.value}}
-  >
-  {{ui-question/-node/label option}}
-
-</div>
+<input
+  id={{option.uuid}}
+    type={{node.selectType}}
+  onclick={{action 'handleOptionClick'}}
+    name={{node.uuid}}
+  autofocus={{autofocus}}
+    placeholder={{option.placeholder}}
+  checked={{option.selected}}
+    disabled={{disabled}}
+  required={{required}}
+    tabindex={{tabindex}}
+  value={{option.value}}
+>
+<label for={{option.uuid}}>
+  {{image}}
+  <span>{{option.text}}</span>
+</label>

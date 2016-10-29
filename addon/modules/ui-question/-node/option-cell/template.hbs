@@ -2,7 +2,6 @@
 {{#unless (eq option.inputType 'input')}}
   <div class={{concat 'ui-' node.selectType}}>
     <input
-      data-color="color8"
       id={{option.uuid}}
         type={{node.selectType}}
       onclick={{action 'handleOptionClick'}}
