@@ -21,6 +21,11 @@ export default Component.extend({
       </svg>`);
   }),
 
+  returnSvg: htmlSafe(`<svg style="display:block" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="16px" height="16px" viewBox="0 0 16 16">
+        <use xlink:href="#next"></use>
+      </svg>`),
+
+
   actions: {
     /**
      * change事件Input

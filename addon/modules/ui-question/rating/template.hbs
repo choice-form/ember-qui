@@ -6,15 +6,16 @@
 </h4>
 <table class={{concat 'ui-rating ' 'score-' option.count}} data-render-id={{option.renderId}}>
   <thead>
+  <tr>
   {{#each option.marks as |mark|}}
-    <tr>
-      {{mark}}
-    </tr>
+    <td colspan={{option.count}}>{{mark}}</td>
   {{/each}}
+  </tr>
   </thead>
   <tbody>
+  <tr>
   {{#each graphs as |g|}}
-    <tr>
+    <td colspan={{option.count}}>
       <input
         type="checkbox"
         id={{g.uuid}}
@@ -29,7 +30,8 @@
           <use xlink:href="#{{g.icon}}" fill=""/>
         </svg>
       </label>
-    </tr>
+    </td>
   {{/each}}
+  </tr>
   </tbody>
 </table>

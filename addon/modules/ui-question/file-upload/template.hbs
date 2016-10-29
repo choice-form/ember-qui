@@ -7,6 +7,9 @@
 
 {{#if option.selected}}
   <img src={{option.image}}/>
+  <div class="return">
+    {{returnSvg}}
+  </div>
 {{else}}
   {{svg}}
   <span>{{option.text}}</span>
