@@ -19,6 +19,7 @@ Router.map(function() {
   this.route('question-icon', { path: 'icon' });
   this.route('question-picture-choice', { path: 'picture-choice' });
   this.route('question-file-upload', { path: 'file-upload' });
+  this.route('question-location', { path: 'location' });
   this.route('question-intro-page', { path: 'intro-page' });
   this.route('question-single', { path: 'single' });
 

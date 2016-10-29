@@ -1,0 +1,7 @@
+<div class={{concat 'ui- ' node.quesType}}>
+  {{svg}}
+  <span>{{tips}}</span>
+  {{#if (eq svgState 'success')}}
+    <p>{{option.value}}</p>
+  {{/if}}
+</div>
