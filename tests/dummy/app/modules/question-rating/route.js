@@ -11,44 +11,48 @@ export default Route.extend({
       Ember.Object.create({
         selected: '',
         renderId: '4567890-0987',
-        text: '最低10分,最高100分',
+        text: faker.address.streetAddress(true),
+        description: '最少1分，最高5分',
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
         icon: 'checkbox', // 选项的Icon
         value: '5',
-        count: '7',
+        count: '5',
         placeholder: '',
       }),
       Ember.Object.create({
         selected: '',
         renderId: '4567890-0987',
-        text: '最低30分,最高100分',
+        text: faker.address.streetAddress(true),
+        description: '最少1分，最高5分',
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C91",
         icon: 'checkbox', // 选项的Icon
         value: '0',
-        count: '7',
+        count: '6',
         placeholder: '',
       }),
       Ember.Object.create({
         selected: '',
         renderId: '4567890-0987',
-        text: '最低30分,最高80分',
+        text: faker.address.streetAddress(true),
+        description: '最少1分，最高5分',
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C92",
         icon: 'checkbox', // 选项的Icon
         inputType: '', // 'select', 'input', 'select-input',
         inputRule: '', //输入控件初始化规则
         value: '2',
-        count: '7',
+        count: '4',
         placeholder: '',
       }),
       Ember.Object.create({
         selected: '',
         renderId: '4567890-0987',
-        text: '最低30分,最高100分',
+        text: faker.address.streetAddress(true),
+        description: '最少1分，最高5分',
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C91",
         icon: 'checkbox', // 选项的Icon
         inputType: '', // 'select', 'input', 'select-input',
         inputRule: '', //输入控件初始化规则
-        value: '7',
+        value: '1',
         count: '7',
         placeholder: '',
       })

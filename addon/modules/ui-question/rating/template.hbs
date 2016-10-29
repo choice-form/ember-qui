@@ -1,4 +1,10 @@
-<div class='ui-rating' data-render-id={{option.renderId}}>
+<div class={{concat 'ui-rating ' 'score-' option.count}} data-render-id={{option.renderId}}>
+  <h4 class="cell-labels">
+    {{option.text}}
+    {{#if option.description}}
+      <span>{{option.description}}</span>
+    {{/if}}
+  </h4>
   {{#each graphs as |g|}}
     <div class="rating-item">
       <input

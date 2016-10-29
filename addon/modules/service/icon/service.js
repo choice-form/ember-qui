@@ -3,6 +3,7 @@ import inject from 'ember-service/inject';
 import {htmlSafe} from 'ember-string';
 import RSVP from 'rsvp';
 
+
 export default Service.extend({
   ajax: inject(),
   /*
@@ -34,7 +35,8 @@ export default Service.extend({
     if (!this.isURL(url)) {
       return null;
     }
-    return this.get('ajax').request(url).then(res => {
+
+    return $.ajax(url).then(res => {
       const elem = res.children[0];
       this.table[url] = elem.style.display='block';
       return elem;
