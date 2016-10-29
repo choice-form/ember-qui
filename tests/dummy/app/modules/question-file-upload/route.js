@@ -26,7 +26,7 @@ export default Route.extend({
               text: '上传动物图片1',
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'upload', // 选项的Icon
-              image: '',
+              image: '/images/sample-1.jpg',
               inputType: '', // 'select', 'input', 'select-input, ower-input',
               inputRule: '', //输入控件初始化规则
               value: '',
@@ -38,7 +38,7 @@ export default Route.extend({
               text: '上传动物图片2',
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'upload', // 选项的Icon
-              image: '',
+              image: '/images/sample-3.jpg',
               inputType: '', // 'select', 'input', 'select-input, ower-input',
               inputRule: '', //输入控件初始化规则
               value: '',
@@ -50,7 +50,7 @@ export default Route.extend({
               text: '上传动物图片3',
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'upload', // 选项的Icon
-              image: '',
+              image: '/images/sample-2.jpg',
               inputType: '', // 'select', 'input', 'select-input, ower-input',
               inputRule: '', //输入控件初始化规则
               value: '',

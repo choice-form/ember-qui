@@ -17,6 +17,9 @@ export default Route.extend({
         icon: 'checkbox', // 选项的Icon
         value: '5',
         count: '5',
+        marks:[1,2,3,4,5].map(function () {
+          return faker.name.findName();
+        }),
         placeholder: '',
       }),
       Ember.Object.create({
@@ -28,6 +31,9 @@ export default Route.extend({
         icon: 'checkbox', // 选项的Icon
         value: '0',
         count: '6',
+        marks:[1,2,3,4,5,6].map(function () {
+          return faker.name.findName();
+        }),
         placeholder: '',
       }),
       Ember.Object.create({
@@ -41,6 +47,9 @@ export default Route.extend({
         inputRule: '', //输入控件初始化规则
         value: '2',
         count: '4',
+        marks:[1,2,3,4].map(function () {
+          return faker.name.findName();
+        }),
         placeholder: '',
       }),
       Ember.Object.create({
@@ -54,6 +63,9 @@ export default Route.extend({
         inputRule: '', //输入控件初始化规则
         value: '1',
         count: '7',
+        marks:[1,2,3,4,5,6,7].map(function () {
+          return faker.name.findName();
+        }),
         placeholder: '',
       })
     ];
@@ -68,7 +80,7 @@ export default Route.extend({
           }),
           typeName:'分值打分题',
           renderId: '4567890-0987',
-          quesType: 'rating', //select, fill, valuemark
+          quesType: 'rating',
           selectType: '',
           showStyle: '',
           uuid: '002',

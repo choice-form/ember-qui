@@ -14,6 +14,7 @@ export default Component.extend({
     const value = parseInt(get(this, 'option.value'));
     const graph = get(this, 'option.icon');
     const randomId = new Date().getTime();
+
     let array = [];
     for(let i = 0; i < count; i++){
       array[i] = {

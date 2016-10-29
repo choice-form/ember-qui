@@ -1,12 +1,14 @@
 <input
   type='file'
   id={{option.uuid}}
-    onclick={{action 'handleOptionClick'}}
+    onchange={{action 'handleOptionInput'}}
 >
-{{svg}}
-<span>{{option.text}}</span>
-{{img}}
+
 
 {{#if option.selected}}
-  <img src={{option.value}}/>
+  <img src={{option.image}}/>
+{{else}}
+  {{svg}}
+  <span>{{option.text}}</span>
+  {{img}}
 {{/if}}
