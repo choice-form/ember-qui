@@ -59,13 +59,13 @@ module.exports = {
     //       'ui-menu': 10
     //     }
     //   }
-    // },
-    // nodeAssets: {
-    //   ['device.js']: {
-    //     import: {
-    //       include: [{ path: 'device.js' }]
-    //     }
-    //   }
+    },
+    nodeAssets: {
+      fastclick: {
+        import: {
+          include: [{ path: 'lib/fastclick.js' }]
+        }
+      }
     }
   },
 
