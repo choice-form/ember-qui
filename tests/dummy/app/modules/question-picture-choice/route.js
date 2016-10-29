@@ -29,7 +29,7 @@ export default Route.extend({
               text: faker.lorem.sentence(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'radio', // 选项的Icon
-              image: faker.image.image(360, 360, true),
+              image: faker.image.image(640, 360, true),
               inputType: '', // 'select', 'input', 'select-input, ower-input',
               inputRule: '', //输入控件初始化规则
               value: '',
@@ -41,7 +41,7 @@ export default Route.extend({
               text: faker.lorem.sentence(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'radio', // 选项的Icon
-              image: faker.image.image(360, 360, true),
+              image: faker.image.image(640, 360, true),
               inputType: '', // 'select', 'input', 'select-input, ower-input',
               inputRule: '', //输入控件初始化规则
               value: '',
@@ -53,7 +53,7 @@ export default Route.extend({
               text: faker.lorem.paragraph(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'radio', // 选项的Icon
-              image: faker.image.image(360, 360, true),
+              image: faker.image.image(640, 360, true),
               inputType: '', // 'select', 'input', 'select-input, ower-input',
               inputRule: '', //输入控件初始化规则
               value: '',

@@ -11,7 +11,7 @@ export default Route.extend({
       Ember.Object.create({
         selected:false,
         renderId: '4567890-0987',
-        text: faker.name.findName(),
+        text: faker.lorem.sentence(),
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
         icon: 'svg-folder', // 选项的Icon
         inputType: '', // 'select', 'input', 'select-input',
@@ -22,7 +22,7 @@ export default Route.extend({
       Ember.Object.create({
         selected:false,
         renderId: '4567890-0987',
-        text: faker.name.findName(),
+        text: faker.lorem.sentence(),
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C91",
         icon: 'svg-folder', // 选项的Icon
         inputType: '', // 'select', 'input', 'select-input',
@@ -33,7 +33,7 @@ export default Route.extend({
       Ember.Object.create({
         selected:false,
         renderId: '4567890-0987',
-        text: faker.name.findName(),
+        text: faker.lorem.sentence(),
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C92",
         icon: 'svg-folder', // 选项的Icon
         inputType: '', // 'select', 'input', 'select-input',
@@ -44,7 +44,7 @@ export default Route.extend({
       Ember.Object.create({
         selected:false,
         renderId: '4567890-0987',
-        text: faker.name.findName(),
+        text: faker.lorem.sentence(),
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C93",
         icon: 'svg-folder', // 选项的Icon
         inputType: '', // 'select', 'input', 'select-input',
@@ -57,10 +57,10 @@ export default Route.extend({
     return {
       nodes:[
         {
-          title:faker.address.streetAddress(true),
+          title: faker.lorem.words(),
           description: faker.lorem.paragraph(),
-          images:[1].map(function () {
-            return faker.image.image(360, 360, true)
+          images: [1].map(function () {
+            return '/images/sample-1.jpg'
           }),
           typeName:'分值打分题',
           renderId: '4567890-0987',

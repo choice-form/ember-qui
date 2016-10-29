@@ -25,6 +25,15 @@ html.desktop {
         box-shadow: inset 0 0 0 3px fade(@primary, 10%);
       }
     }
+    & .ui-picture-choice {
+      & input:not(:checked) {
+        & + label:hover {
+          & .attachment {
+            box-shadow: 0 0 0 2px fade(@primary, 50%);
+          }
+        }
+      }
+    }
   }
 }
 
@@ -33,6 +42,13 @@ html.mobile.landscape,
 html.mobile.portrait {
   body {
     background-color: fade(@primary, 10%);
+  }
+  .attachment.header {
+    box-shadow: 0 4px 4px 0 fade(@primary, 30%);
+  }
+  .page-header {
+    background-color: @secondary;
+    box-shadow: 0 4px 4px 0 fade(@primary, 30%);
   }
   .wrapper {
     background-color: @secondary;
@@ -72,6 +88,14 @@ body {
   background-color: @secondary;
 }
 
+.attachment.header {
+  background-color: @secondary;
+}
+
+.page-header {
+  border-color: fade(@primary, 50%);
+}
+
 .row {
   &:before {
     color: @contrast;
@@ -92,11 +116,42 @@ input:not(.ui-menu) {
   }
 }
 
-.ui-radio,
-.ui-checkbox {
+input[type="checkbox"]:checked,
+input[type="radio"]:checked {
+  & + label {
+    color: @contrast;
+  }
+}
+
+.ui-dropdown {
+  & .ui-menu {
+    box-shadow: 0 2px 0 0 fade(@primary, 50%);
+  }
+}
+
+.ui-rating {
+  background-color: fade(@primary, 10%);
   & input:checked {
     & + label {
       color: @contrast;
+    }
+  }
+}
+
+.ui-picture-choice {
+  & input:checked {
+    & + label {
+      & .attachment {
+        box-shadow: 0 0 0 2px @contrast;
+      }
+    }
+  }
+  & label {
+    & .attachment {
+      transition: box-shadow 200ms ease;
+      &:before {
+        border-top: 4.5rem solid fade(@secondary, 90%);
+      }
     }
   }
 }

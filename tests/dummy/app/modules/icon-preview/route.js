@@ -65,6 +65,10 @@ export default Route.extend({
         {icon: "checkbox-active"},
         {icon: "radio"},
         {icon: "radio-active"},
+      ],
+      rating: [
+        {icon: "love-favorite"},
+        {icon: "love-favorite-active"},
       ]
     };
   }

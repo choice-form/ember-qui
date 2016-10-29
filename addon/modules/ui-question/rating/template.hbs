@@ -8,14 +8,14 @@
   <thead>
   <tr>
   {{#each option.marks as |mark|}}
-    <td colspan={{option.count}}>{{mark}}</td>
+    <td><span>{{mark}}</span></td>
   {{/each}}
   </tr>
   </thead>
   <tbody>
   <tr>
   {{#each graphs as |g|}}
-    <td colspan={{option.count}}>
+    <td>
       <input
         type="checkbox"
         id={{g.uuid}}
@@ -25,7 +25,7 @@
       >
 
       <label for={{g.uuid}} value={{g.value}}>
-        <svg style="display:block" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="16px"
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="16px"
              height="16px" viewBox="0 0 16 16">
           <use xlink:href="#{{g.icon}}" fill=""/>
         </svg>

@@ -22,6 +22,7 @@ Router.map(function() {
   this.route('question-location', { path: 'location' });
   this.route('question-intro-page', { path: 'intro-page' });
   this.route('question-single', { path: 'single' });
+  this.route('test');
 
 });
 

@@ -11,60 +11,76 @@ export default Route.extend({
       Ember.Object.create({
         selected: '',
         renderId: '4567890-0987',
-        text: faker.address.streetAddress(true),
-        description: '最少1分，最高5分',
+        text: faker.lorem.sentence(),
+        description: 'Rating Labels',
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
-        icon: 'checkbox', // 选项的Icon
+        icon: 'love-favorite', // 选项的Icon
         value: '5',
         count: '5',
         marks:[1,2,3,4,5].map(function () {
-          return faker.name.findName();
+          return faker.random.number();
         }),
         placeholder: '',
       }),
       Ember.Object.create({
         selected: '',
         renderId: '4567890-0987',
-        text: faker.address.streetAddress(true),
-        description: '最少1分，最高5分',
+        text: faker.lorem.sentence(),
+        description: 'Rating Labels',
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C91",
-        icon: 'checkbox', // 选项的Icon
+        icon: 'love-favorite', // 选项的Icon
         value: '0',
         count: '6',
         marks:[1,2,3,4,5,6].map(function () {
-          return faker.name.findName();
+          return faker.random.number();
         }),
         placeholder: '',
       }),
       Ember.Object.create({
         selected: '',
         renderId: '4567890-0987',
-        text: faker.address.streetAddress(true),
-        description: '最少1分，最高5分',
+        text: faker.lorem.sentence(),
+        description: 'Rating Labels',
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C92",
-        icon: 'checkbox', // 选项的Icon
+        icon: 'love-favorite', // 选项的Icon
         inputType: '', // 'select', 'input', 'select-input',
         inputRule: '', //输入控件初始化规则
         value: '2',
         count: '4',
         marks:[1,2,3,4].map(function () {
-          return faker.name.findName();
+          return faker.random.number();
         }),
         placeholder: '',
       }),
       Ember.Object.create({
         selected: '',
         renderId: '4567890-0987',
-        text: faker.address.streetAddress(true),
-        description: '最少1分，最高5分',
+        text: faker.lorem.sentence(),
+        description: 'Rating Labels',
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C91",
-        icon: 'checkbox', // 选项的Icon
+        icon: 'love-favorite', // 选项的Icon
         inputType: '', // 'select', 'input', 'select-input',
         inputRule: '', //输入控件初始化规则
         value: '1',
         count: '7',
         marks:[1,2,3,4,5,6,7].map(function () {
-          return faker.name.findName();
+          return faker.random.number();
+        }),
+        placeholder: '',
+      }),
+      Ember.Object.create({
+        selected: '',
+        renderId: '4567890-0987',
+        text: faker.lorem.sentence(),
+        description: 'Rating Labels',
+        uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C91",
+        icon: 'love-favorite', // 选项的Icon
+        inputType: '', // 'select', 'input', 'select-input',
+        inputRule: '', //输入控件初始化规则
+        value: '1',
+        count: '3',
+        marks:[1,2,3].map(function () {
+          return faker.random.number();
         }),
         placeholder: '',
       })
@@ -73,10 +89,10 @@ export default Route.extend({
     return {
       nodes:[
         {
-          title:faker.address.streetAddress(true),
+          title: faker.lorem.words(),
           description: faker.lorem.paragraph(),
-          images:[1].map(function () {
-            return faker.image.image(360, 360, true)
+          images: [1].map(function () {
+            return '/images/sample-2.jpg'
           }),
           typeName:'分值打分题',
           renderId: '4567890-0987',

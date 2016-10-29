@@ -1,0 +1,355 @@
+article {
+
+}
+
+.row {
+  &:before {
+    height: 2px;
+  }
+}
+
+.attachment.header {
+  padding: 0;
+}
+
+.page-header {
+
+}
+
+.attachment {
+
+}
+
+.control {
+  & > div:not(:first-child) {
+    margin-top: 0;
+  }
+}
+
+.question-header {
+  & + .control {
+    padding-top: 0;
+  }
+}
+
+//---------------------------------------------------------------------------------
+.cell {
+  & .ui-radio,
+  & .ui-checkbox {
+    position: relative;
+    & input[type="checkbox"],
+    & input[type="radio"] {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      overflow: hidden;
+      opacity: 0;
+      width: 1.5rem;
+      height: 1.5rem;
+      margin: 0;
+      border: none;
+    }
+    & label {
+      display: block;
+      padding: 1.5rem 2.5rem 1.5rem 0;
+    }
+    & svg {
+      display: block;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 1.5rem;
+      height: 1.5rem;
+      margin: auto 0;
+    }
+    & span {
+      display: block;
+      font-size: 1.2rem;
+      line-height: 1.5rem;
+    }
+    & + .ui-text {
+      margin-top: 0;
+      margin-bottom: 1.5rem;
+    }
+  }
+  & .ui-dropdown,
+  & .ui-text {
+    position: relative;
+    & textarea,
+    & input {
+      width: 100%;
+      padding: 1rem;
+      outline: none;
+      border-width: 1px;
+      border-style: solid;
+      border-radius: 3px;
+      resize: none;
+      -webkit-appearance: none;
+    }
+    & input:not(.ui-menu) {
+      &:invalid {
+        & + svg {
+          display: block;
+        }
+      }
+      &:focus {
+        & + svg {
+          opacity: 0;
+        }
+      }
+      &:valid {
+        & + svg {
+          display: none;
+        }
+      }
+    }
+    & svg {
+      width: 1rem;
+      height: 1rem;
+      opacity: .2;
+      margin: auto 0;
+      position: absolute;
+      top: 0;
+      right: 1rem;
+      bottom: 0;
+      transition: opacity 200ms ease;
+    }
+  }
+  & .ui-dropdown,
+  & .ui-text {
+    & .ui-menu {
+      cursor: pointer;
+      & ~ svg {
+        display: block;
+      }
+    }
+  }
+  & .ui-text {
+    & .ui-menu {
+      border-style: dashed;
+    }
+  }
+  & .ui-dropdown {
+    & .ui-menu {
+      & ~ svg {
+        opacity: .8;
+      }
+    }
+  }
+  &:not(:first-child) {
+    & .ui-radio,
+    & .ui-checkbox {
+      &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        opacity: .3;
+        background-color: currentColor;
+      }
+    }
+  }
+  &:not(:last-child) {
+    & .ui-dropdown,
+    & .ui-text {
+      margin-bottom: 1.5rem;
+    }
+  }
+}
+
+//---------------------------------------------------------------------------------
+
+.rating {
+  & .cell {
+    &:not(:last-child) {
+      padding-bottom: 1.5rem;
+      & .ui-rating {
+        margin-bottom: 1.5rem;
+        &:before {
+          content: '';
+          position: absolute;
+          bottom: -1.5rem;
+          left: 0;
+          right: 0;
+          height: 1px;
+          opacity: .3;
+          background-color: currentColor;
+        }
+      }
+    }
+    & .ui-rating {
+      margin-top: 1.5rem;
+      position: relative;
+      width: 100%;
+      border-collapse: collapse;
+      border-spacing: 0;
+      border-radius: 3px;
+      & thead {
+        & td {
+          text-align: center;
+          vertical-align: bottom;
+          font-size: small;
+          word-break: break-all;
+          & span {
+            display: inline-block;
+            padding: .2rem;
+          }
+        }
+      }
+      & tbody {
+        margin-bottom: 1rem;
+        & td {
+          position: relative;
+        }
+      }
+      & label {
+        cursor: pointer;
+        float: left;
+        width: 100%;
+        text-align: center;
+        margin-top: .5rem;
+      }
+      & input {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        overflow: hidden;
+        opacity: 0;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        border: none;
+      }
+      & svg {
+        display: inline-block;
+        width: 100%;
+        max-width: 3rem;
+        height: 100%;
+      }
+    }
+    & .score-3 {
+      & td {
+        width: calc(100% / 3);
+      }
+    }
+    & .score-4 {
+      & td {
+        width: calc(100% / 4);
+      }
+    }
+    & .score-5 {
+      & td {
+        width: calc(100% / 5);
+      }
+      & label {
+        padding: 0 .5rem;
+      }
+    }
+    & .score-6 {
+      & td {
+        width: calc(100% / 6);
+      }
+      & label {
+        padding: 0 .3rem;
+      }
+    }
+    & .score-7 {
+      & td {
+        width: calc(100% / 7);
+      }
+      & label {
+        padding: 0 .2rem;
+      }
+    }
+  }
+}
+
+
+//---------------------------------------------------------------------------------
+.picture-choice {
+  .cell {
+    &:not(:last-child) {
+      .ui-picture-choice {
+        padding-bottom: 1.5rem;
+        margin-bottom: 1.5rem;
+        &:before {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          height: 1px;
+          opacity: .3;
+          background-color: currentColor;
+        }
+      }
+    }
+    & .ui-picture-choice {
+      position: relative;
+      & input[type="checkbox"],
+      & input[type="radio"] {
+        position: absolute;
+        right: .5rem;
+        top: .5rem;
+        overflow: hidden;
+        opacity: 0;
+        width: 1.5rem;
+        height: 1.5rem;
+        margin: 0;
+        border: none;
+      }
+      & label {
+        cursor: pointer;
+        display: block;
+        & .attachment {
+          position: relative;
+          padding: 0;
+          &:after,
+          &:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            border-left: 4.5rem solid transparent;
+          }
+        }
+        & span {
+          display: block;
+          margin-top: 1rem;
+        }
+      }
+      & svg {
+        display: block;
+        position: absolute;
+        right: .5rem;
+        top: .5rem;
+        width: 1.5rem;
+        height: 1.5rem;
+        z-index: 2;
+      }
+    }
+  }
+}
+
+
+.submit-actions {
+  & button {
+    display: inline-block;
+    vertical-align: middle;
+    overflow: hidden;
+    padding: 1rem 2rem;
+    color: currentColor;
+    border: 1px solid currentColor;
+    border-radius: 3px;
+    cursor: pointer;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    line-height: 1rem;
+    outline: 0;
+    user-select: none;
+    outline-style: none;
+  }
+}

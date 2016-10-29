@@ -19,12 +19,35 @@ html.desktop {
           position: absolute;
           left: -.5rem;
           right: -.5rem;
-          top: -.5rem;
-          bottom: -.5rem;
+          top: 1rem;
+          bottom: 1rem;
           opacity: 0;
           border-radius: 3px;
           pointer-events: none;
           transition: opacity 200ms ease;
+        }
+      }
+    }
+    & .ui-dropdown {
+      & .ui-menu:hover  {
+        & ~ svg{
+          opacity: 1;
+        }
+      }
+    }
+    .ui-rating {
+      & input:checked {
+        & + label {
+          & svg {
+            opacity: 1;
+          }
+        }
+      }
+      & svg {
+        opacity: .8;
+        transition: opacity 200ms ease;
+        &:hover {
+          opacity: 1;
         }
       }
     }
@@ -33,6 +56,11 @@ html.desktop {
 
 html.desktop,
 html.tablet.landscape {
+  article.one-by-one {
+    & .page-header {
+      border: none;
+    }
+  }
   section {
     & > div:only-child {
       &:before {
@@ -51,7 +79,7 @@ html.tablet.landscape {
 html.desktop,
 html.tablet,
 html.mobile.landscape {
-section {
+  section {
     & > div:only-child {
       position: relative;
       text-align: center;
@@ -66,8 +94,13 @@ section {
 html.tablet,
 html.mobile {
   user-select: none;
-  .ui-radio,
-  .ui-checkbox {
+  & label {
+    & * {
+      pointer-events: none;
+    }
+  }
+  & .ui-radio,
+  & .ui-checkbox {
     & input:checked {
       & + label {
         & span {
@@ -166,6 +199,11 @@ html.tablet.portrait {
   article.one-by-one {
     & .attachment {
       padding: 0;
+    }
+  }
+  .page-header {
+    & h2 {
+      text-align: center;
     }
   }
 }
