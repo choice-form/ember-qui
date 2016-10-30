@@ -12,11 +12,9 @@ export default Component.extend({
     icon: 'round-e-info', // 选项的Icon
   },
 
-  didRender(){
-    if(!get(this, 'node.images') || get(this, 'node.images').length < 1){
-      return ;
-    }
-    setAttachmentPosition();
-
+  didInsertElement(){
+    const row = document.getElementsByClassName('row')[0];
+    const control = row.getElementsByClassName('control')[0];
+    setAttachmentPosition(control);
   }
 }).reopenClass({positionalParams: ['node', 'handleEvents']});
