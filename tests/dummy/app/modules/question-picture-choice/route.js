@@ -307,7 +307,7 @@ export default Route.extend({
               renderId: '4567890-0987',
               text: faker.lorem.sentence(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
-              icon: 'radio', // 选项的Icon
+              icon: 'checkbox', // 选项的Icon
               image: '/images/sample-2.jpg',
               inputType: '', // 'select', 'input', 'select-input, ower-input',
               inputRule: '', //输入控件初始化规则
@@ -319,7 +319,7 @@ export default Route.extend({
               renderId: '4567890-0987',
               text: faker.lorem.paragraph(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
-              icon: 'radio', // 选项的Icon
+              icon: 'checkbox', // 选项的Icon
               image: '/images/sample-3.jpg',
               inputType: '', // 'select', 'input', 'select-input, ower-input',
               inputRule: '', //输入控件初始化规则
@@ -331,7 +331,7 @@ export default Route.extend({
               renderId: '4567890-0987',
               text: faker.lorem.sentence(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
-              icon: 'radio', // 选项的Icon
+              icon: 'checkbox', // 选项的Icon
               image: '/images/sample-3.jpg',
               inputType: '', // 'select', 'input', 'select-input, ower-input',
               inputRule: '', //输入控件初始化规则
@@ -343,7 +343,7 @@ export default Route.extend({
               renderId: '4567890-0987',
               text: faker.lorem.paragraph(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
-              icon: 'radio', // 选项的Icon
+              icon: 'checkbox', // 选项的Icon
               image: '/images/sample-4.jpg',
               inputType: '', // 'select', 'input', 'select-input, ower-input',
               inputRule: '', //输入控件初始化规则
@@ -355,7 +355,7 @@ export default Route.extend({
               renderId: '4567890-0987',
               text: faker.lorem.paragraph(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
-              icon: 'radio', // 选项的Icon
+              icon: 'checkbox', // 选项的Icon
               image: '/images/sample-5.jpg',
               inputType: '', // 'select', 'input', 'select-input, ower-input',
               inputRule: '', //输入控件初始化规则

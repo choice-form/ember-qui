@@ -28,8 +28,9 @@ html.desktop {
     & .ui-picture-choice {
       & input:not(:checked) {
         & + label:hover {
-          & .attachment {
-            box-shadow: 0 0 0 2px fade(@primary, 50%);
+          & .attachment:after {
+            background-color: fade(@secondary, 10%);
+            box-shadow: inset 0 0 0 1px @secondary, inset 0 0 0 2px @primary;
           }
         }
       }
@@ -141,18 +142,21 @@ input[type="radio"]:checked {
 .ui-picture-choice {
   & input:checked {
     & + label {
-      & .attachment {
-        box-shadow: 0 0 0 2px @contrast;
+      & .attachment:after {
+        box-shadow: inset 0 0 0 2px @contrast, inset 0 0 0 4px @secondary;
       }
     }
   }
   & label {
-    & .attachment {
-      transition: box-shadow 200ms ease;
-      &:before {
-        border-top: 4.5rem solid fade(@secondary, 90%);
-      }
+    & .attachment:before {
+      border-top: 4.5rem solid fade(@secondary, 90%);
     }
+  }
+}
+
+.picture-choice.grid.contain {
+  & .attachment {
+    background-color: fade(@primary, 30%);
   }
 }
 
