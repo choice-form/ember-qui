@@ -278,6 +278,7 @@ article {
       & label {
         cursor: pointer;
         display: block;
+        overflow: hidden;
         & .attachment {
           padding: 0;
           margin-bottom: 1rem;
@@ -305,6 +306,18 @@ article {
             display: inline;
             vertical-align: middle;
           }
+        }
+      }
+      &.insert-block {
+        & .attachment {
+          margin-bottom: 0;
+        }
+        & .pic-description {
+          padding: .5rem 1rem;
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          right: 0;
         }
       }
     }

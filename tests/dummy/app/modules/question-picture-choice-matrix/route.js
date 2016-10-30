@@ -9,8 +9,8 @@ export default Route.extend({
     return {
       nodes: [
         {
-          title: 'matrix',
-          description: '不显示文字 empty',
+          title: 'Picture Matrix',
+          description: faker.lorem.paragraph(),
           images: '',
           renderId:'775519',
           typeName: '选择题',
@@ -96,7 +96,7 @@ export default Route.extend({
               placeholder: '',
             })
           ],
-        },
+        }
       ],
 
       handleEvents: {

@@ -9,8 +9,8 @@ export default Route.extend({
     return {
       nodes: [
         {
-          title: '网格 grid',
-          description: '文字在图片上 in-block',
+          title: 'Picture Grid',
+          description: faker.lorem.paragraph(),
           images: '',
           renderId:'775519',
           typeName: '选择题',
@@ -18,7 +18,7 @@ export default Route.extend({
           selectType: 'radio',
           showStyle: 'grid',
           picStyle: '',
-          textDirection:'in-block', //in-block ,out-block, empty
+          textDirection:'', //in-block ,out-block, empty
           pictureSize: 'picture-large',  //picture-large, picture-small
           uuid: faker.date.between('2016-01-01', '2016-12-31'),
           isMust:false,
@@ -99,8 +99,8 @@ export default Route.extend({
           ],
         },
         {
-          title: '网格 grid',
-          description: '文字在图片下 out-block',
+          title: 'Picture Grid Cover',
+          description: faker.lorem.paragraph(),
           images: '',
           renderId:'775519',
           typeName: '选择题',
@@ -189,8 +189,8 @@ export default Route.extend({
           ],
         },
         {
-          title: '网格 grid',
-          description: '不显示文字 empty',
+          title: 'Picture Grid Contain',
+          description: faker.lorem.paragraph(),
           images: '',
           renderId:'775519',
           typeName: '选择题',

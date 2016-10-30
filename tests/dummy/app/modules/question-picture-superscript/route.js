@@ -9,8 +9,8 @@ export default Route.extend({
     return {
       nodes: [
         {
-          title: '垂直排列 vertical',
-          description: '文字在图片上 in-block',
+          title: 'Picture Superscript Vertical',
+          description: faker.lorem.paragraph(),
           images: '',
           renderId:'775519',
           typeName: '选择题',
@@ -99,8 +99,8 @@ export default Route.extend({
           ],
         },
         {
-          title: 'grid vertical',
-          description: 'text in-block',
+          title: 'Picture Superscript Grid',
+          description: faker.lorem.paragraph(),
           images: '',
           renderId:'775519',
           typeName: '选择题',
@@ -189,16 +189,16 @@ export default Route.extend({
           ],
         },
         {
-          title: '9空格 matrix',
-          description: 'text empty',
+          title: 'Picture Superscript Grid Cover',
+          description: faker.lorem.paragraph(),
           images: '',
           renderId:'775519',
           typeName: '选择题',
           quesType: 'picture-choice', //select, fill
           selectType: 'radio',
-          showStyle: 'matrix',
-          picStyle:'superscript',
-          textDirection:'empty', //in-block ,out-block, empty
+          showStyle: 'grid',
+          picStyle: 'cover superscript',
+          textDirection:'out-block', //in-block ,out-block, empty
           pictureSize: 'picture-large',  //picture-large, picture-small
           uuid: faker.date.between('2016-01-01', '2016-12-31'),
           isMust:false,
@@ -277,7 +277,7 @@ export default Route.extend({
               placeholder: '',
             })
           ],
-        },
+        }
       ],
 
       handleEvents: {
