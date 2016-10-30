@@ -11,6 +11,11 @@
     tabindex={{tabindex}}
   value={{option.value}}
 >
-{{#ui-question/-node/label option}}
+
+<label for={{option.uuid}}>
   {{image}}
-{{/ui-question/-node/label}}
+  <div class="pic-description">
+    {{svg}}
+    <span>{{option.text}}</span>
+  </div>
+</label>

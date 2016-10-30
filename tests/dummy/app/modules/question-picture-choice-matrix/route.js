@@ -26,7 +26,7 @@ export default Route.extend({
             Ember.Object.create({
               selected: false,
               renderId: '4567890-0987',
-              text: faker.lorem.sentence(),
+              text: '',
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'radio', // 选项的Icon
               image: '/images/sample-1.jpg',
@@ -38,7 +38,7 @@ export default Route.extend({
             Ember.Object.create({
               selected: false,
               renderId: '4567890-0987',
-              text: faker.lorem.sentence(),
+              text: '',
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'radio', // 选项的Icon
               image: '/images/sample-2.jpg',
@@ -50,7 +50,7 @@ export default Route.extend({
             Ember.Object.create({
               selected: false,
               renderId: '4567890-0987',
-              text: faker.lorem.paragraph(),
+              text: '',
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'radio', // 选项的Icon
               image: '/images/sample-3.jpg',
@@ -62,7 +62,7 @@ export default Route.extend({
             Ember.Object.create({
               selected: false,
               renderId: '4567890-0987',
-              text: faker.lorem.sentence(),
+              text: '',
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'radio', // 选项的Icon
               image: '/images/sample-3.jpg',
@@ -74,7 +74,7 @@ export default Route.extend({
             Ember.Object.create({
               selected: false,
               renderId: '4567890-0987',
-              text: faker.lorem.paragraph(),
+              text: '',
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'radio', // 选项的Icon
               image: '/images/sample-4.jpg',
@@ -86,7 +86,7 @@ export default Route.extend({
             Ember.Object.create({
               selected: false,
               renderId: '4567890-0987',
-              text: faker.lorem.paragraph(),
+              text: '',
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'radio', // 选项的Icon
               image: '/images/sample-5.jpg',

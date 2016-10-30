@@ -3,10 +3,13 @@ import layout from './template';
 import get from 'ember-metal/get';
 import computed from 'ember-computed';
 import {htmlSafe} from 'ember-string';
-
+import inject from 'ember-service/inject';
 
 export default Component.extend({
   layout,
+
+  uiService: inject('service/icon'),
+
   classNameBindings: ['priority'],
   priority: computed('node.quesType', 'node.textDirection', 'node.pictureSize', function () {
     const quesType = `ui-${get(this, "node.quesType")}`;
@@ -23,6 +26,12 @@ export default Component.extend({
     if(image && image.length){
       return htmlSafe(`<div class="attachment"><img src=${image}></div>`);
     }else return '';
+  }),
+
+  svg: computed('option.selected', 'option.icon', function() {
+    return get(this, 'uiService').getOptionSvg(
+      get(this, 'option.selected'), get(this, 'option.icon')
+    );
   }),
 
 
