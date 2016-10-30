@@ -89,6 +89,16 @@ html.mobile.landscape {
       }
     }
   }
+  .picture-choice.grid {
+    & .cell {
+      &:nth-child(odd) {
+        padding-right: .75rem;
+      }
+      &:nth-child(even) {
+        padding-left: .75rem;
+      }
+    }
+  }
 }
 
 html.tablet,
@@ -155,12 +165,24 @@ html.mobile.portrait {
 
   }
   .wrapper {
+    overflow: hidden;
     padding: .5rem;
   }
   .row:last-child {
     padding-bottom: 1rem;
     &:before {
       display: none;
+    }
+  }
+  .picture-choice.grid {
+    margin: 1rem -1rem 0 -1rem;
+    & .cell {
+      &:nth-child(odd) {
+        padding-right: .25rem;
+      }
+      &:nth-child(even) {
+        padding-left: .25rem;
+      }
     }
   }
   .submit-actions {

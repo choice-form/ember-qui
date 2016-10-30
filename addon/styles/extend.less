@@ -1,0 +1,21 @@
+.height-fix() {
+  &:after {
+    display: table;
+    clear: both;
+    content: ' ';
+  }
+}
+
+.border(@top, @right, @bottom, @left, @height, @opacity) {
+  &:before {
+    content: '';
+    position: absolute;
+    top: @top;
+    bottom: @bottom;
+    left: @left;
+    right: @right;
+    height: @height;
+    opacity: @opacity;
+    background-color: currentColor;
+  }
+}

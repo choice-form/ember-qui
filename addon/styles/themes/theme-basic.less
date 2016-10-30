@@ -21,6 +21,7 @@ article {
 }
 
 .control {
+  .height-fix();
   & > div:not(:first-child) {
     margin-top: 0;
   }
@@ -140,16 +141,7 @@ article {
   &:not(:first-child) {
     & .ui-radio,
     & .ui-checkbox {
-      &:before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 1px;
-        opacity: .3;
-        background-color: currentColor;
-      }
+      .border(0, 0, auto, 0, 1px, .3);
     }
   }
   &:not(:last-child) {
@@ -168,16 +160,7 @@ article {
       padding-bottom: 1.5rem;
       & .ui-rating {
         margin-bottom: 1.5rem;
-        &:before {
-          content: '';
-          position: absolute;
-          bottom: -1.5rem;
-          left: 0;
-          right: 0;
-          height: 1px;
-          opacity: .3;
-          background-color: currentColor;
-        }
+        .border(auto, 0, -1.5rem, 0, 1px, .3);
       }
     }
     & .ui-rating {
@@ -270,25 +253,16 @@ article {
 
 //---------------------------------------------------------------------------------
 .picture-choice {
-  .cell {
-    &:not(:last-child) {
-      .ui-picture-choice {
-        padding-bottom: 1.5rem;
-        margin-bottom: 1.5rem;
-        &:before {
-          content: '';
-          position: absolute;
-          bottom: 0;
-          left: 0;
-          right: 0;
-          height: 1px;
-          opacity: .3;
-          background-color: currentColor;
-        }
-      }
-    }
+  display: flex;
+  &:before {
+    display: none;
+  }
+  & .cell {
+    display: flex;
+    flex-direction: column;
     & .ui-picture-choice {
       position: relative;
+      flex-grow: 1;
       & input[type="checkbox"],
       & input[type="radio"] {
         position: absolute;
@@ -314,6 +288,7 @@ article {
             top: 0;
             right: 0;
             border-left: 4.5rem solid transparent;
+            z-index: 1;
           }
         }
         & span {
@@ -330,6 +305,62 @@ article {
         height: 1.5rem;
         z-index: 2;
       }
+    }
+  }
+}
+
+.picture-choice {
+
+}
+
+.picture-choice.vertical {
+  flex-direction: column;
+  & .cell {
+    &:not(:last-child) {
+      .ui-picture-choice {
+        padding-bottom: 1.5rem;
+        margin-bottom: 1.5rem;
+        .border(auto, 0, 0, 0, 1px, .3);
+      }
+    }
+  }
+}
+
+.picture-choice.grid {
+  flex-direction: row;
+  flex-wrap: wrap;
+  & .cell {
+    flex-basis: 50%;
+    &:not(:nth-last-child(-n+2)) {
+      .ui-picture-choice {
+        padding-bottom: 1.5rem;
+        margin-bottom: 1.5rem;
+        .border(auto, 0, 0, 0, 1px, .3);
+      }
+    }
+    & .attachment {
+      position: relative;
+      width: 100%;
+      padding-bottom: 100% !important;
+      background-color: fade(black, 10%);
+      & img {
+        position: absolute;
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+  }
+}
+
+.picture-choice.grid.cover {
+  & .attachment {
+    position: relative;
+    width: 100%;
+    padding-bottom: 100% !important;
+    & img {
+      position: absolute;
+      height: 100%;
+      object-fit: cover;
     }
   }
 }
