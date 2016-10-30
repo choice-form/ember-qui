@@ -12,5 +12,6 @@ export default Component.extend({
 
   didRender(){
 
+
   }
 }).reopenClass({positionalParams: ['node', 'handleEvents']});

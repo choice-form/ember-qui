@@ -9,15 +9,105 @@ export default Route.extend({
     return {
       nodes: [
         {
-          title: '网格 grid',
+          title: '垂直排列 vertical',
           description: '文字在图片上 in-block',
           images: '',
           renderId:'775519',
           typeName: '选择题',
           quesType: 'picture-choice', //select, fill
           selectType: 'radio',
+          showStyle: 'vertical',
+          picStyle:'superscript',
+          textDirection:'in-block', //in-block ,out-block, empty
+          pictureSize: 'picture-large',  //picture-large, picture-small
+          uuid: faker.date.between('2016-01-01', '2016-12-31'),
+          isMust:false,
+          number:'2',
+          options:[
+            Ember.Object.create({
+              selected: false,
+              renderId: '4567890-0987',
+              text: faker.lorem.sentence(),
+              uuid: faker.date.between('2016-01-01', '2016-12-31'),
+              icon: 'radio', // 选项的Icon
+              image: '/images/sample-1.jpg',
+              inputType: '', // 'select', 'input', 'select-input, ower-input',
+              inputRule: '', //输入控件初始化规则
+              value: '',
+              placeholder: '',
+            }),
+            Ember.Object.create({
+              selected: false,
+              renderId: '4567890-0987',
+              text: faker.lorem.sentence(),
+              uuid: faker.date.between('2016-01-01', '2016-12-31'),
+              icon: 'radio', // 选项的Icon
+              image: 'images/sample-2.jpg',
+              inputType: '', // 'select', 'input', 'select-input, ower-input',
+              inputRule: '', //输入控件初始化规则
+              value: '',
+              placeholder: '',
+            }),
+            Ember.Object.create({
+              selected: false,
+              renderId: '4567890-0987',
+              text: faker.lorem.paragraph(),
+              uuid: faker.date.between('2016-01-01', '2016-12-31'),
+              icon: 'radio', // 选项的Icon
+              image: '/images/sample-3.jpg',
+              inputType: '', // 'select', 'input', 'select-input, ower-input',
+              inputRule: '', //输入控件初始化规则
+              value: '',
+              placeholder: '',
+            }),
+            Ember.Object.create({
+              selected: false,
+              renderId: '4567890-0987',
+              text: faker.lorem.sentence(),
+              uuid: faker.date.between('2016-01-01', '2016-12-31'),
+              icon: 'radio', // 选项的Icon
+              image: '/images/sample-3.jpg',
+              inputType: '', // 'select', 'input', 'select-input, ower-input',
+              inputRule: '', //输入控件初始化规则
+              value: '',
+              placeholder: '',
+            }),
+            Ember.Object.create({
+              selected: false,
+              renderId: '4567890-0987',
+              text: faker.lorem.paragraph(),
+              uuid: faker.date.between('2016-01-01', '2016-12-31'),
+              icon: 'radio', // 选项的Icon
+              image: '/images/sample-4.jpg',
+              inputType: '', // 'select', 'input', 'select-input, ower-input',
+              inputRule: '', //输入控件初始化规则
+              value: '',
+              placeholder: '',
+            }),
+            Ember.Object.create({
+              selected: false,
+              renderId: '4567890-0987',
+              text: faker.lorem.paragraph(),
+              uuid: faker.date.between('2016-01-01', '2016-12-31'),
+              icon: 'radio', // 选项的Icon
+              image: '/images/sample-5.jpg',
+              inputType: '', // 'select', 'input', 'select-input, ower-input',
+              inputRule: '', //输入控件初始化规则
+              value: '',
+              placeholder: '',
+            })
+          ],
+        },
+        {
+          title: 'grid vertical',
+          description: 'text in-block',
+          images: '',
+          renderId:'775519',
+          typeName: '选择题',
+          quesType: 'picture-choice', //select, fill
+          selectType: 'radio',
           showStyle: 'grid',
-          picStyle: '',
+          picStyle:'superscript',
           textDirection:'in-block', //in-block ,out-block, empty
           pictureSize: 'picture-large',  //picture-large, picture-small
           uuid: faker.date.between('2016-01-01', '2016-12-31'),
@@ -99,105 +189,15 @@ export default Route.extend({
           ],
         },
         {
-          title: '网格 grid',
-          description: '文字在图片下 out-block',
+          title: '9空格 matrix',
+          description: 'text empty',
           images: '',
           renderId:'775519',
           typeName: '选择题',
           quesType: 'picture-choice', //select, fill
           selectType: 'radio',
-          showStyle: 'grid',
-          picStyle: 'cover',
-          textDirection:'out-block', //in-block ,out-block, empty
-          pictureSize: 'picture-large',  //picture-large, picture-small
-          uuid: faker.date.between('2016-01-01', '2016-12-31'),
-          isMust:false,
-          number:'2',
-          options:[
-            Ember.Object.create({
-              selected: false,
-              renderId: '4567890-0987',
-              text: faker.lorem.sentence(),
-              uuid: faker.date.between('2016-01-01', '2016-12-31'),
-              icon: 'radio', // 选项的Icon
-              image: '/images/sample-1.jpg',
-              inputType: '', // 'select', 'input', 'select-input, ower-input',
-              inputRule: '', //输入控件初始化规则
-              value: '',
-              placeholder: '',
-            }),
-            Ember.Object.create({
-              selected: false,
-              renderId: '4567890-0987',
-              text: faker.lorem.sentence(),
-              uuid: faker.date.between('2016-01-01', '2016-12-31'),
-              icon: 'radio', // 选项的Icon
-              image: '/images/sample-2.jpg',
-              inputType: '', // 'select', 'input', 'select-input, ower-input',
-              inputRule: '', //输入控件初始化规则
-              value: '',
-              placeholder: '',
-            }),
-            Ember.Object.create({
-              selected: false,
-              renderId: '4567890-0987',
-              text: faker.lorem.paragraph(),
-              uuid: faker.date.between('2016-01-01', '2016-12-31'),
-              icon: 'radio', // 选项的Icon
-              image: '/images/sample-3.jpg',
-              inputType: '', // 'select', 'input', 'select-input, ower-input',
-              inputRule: '', //输入控件初始化规则
-              value: '',
-              placeholder: '',
-            }),
-            Ember.Object.create({
-              selected: false,
-              renderId: '4567890-0987',
-              text: faker.lorem.sentence(),
-              uuid: faker.date.between('2016-01-01', '2016-12-31'),
-              icon: 'radio', // 选项的Icon
-              image: '/images/sample-3.jpg',
-              inputType: '', // 'select', 'input', 'select-input, ower-input',
-              inputRule: '', //输入控件初始化规则
-              value: '',
-              placeholder: '',
-            }),
-            Ember.Object.create({
-              selected: false,
-              renderId: '4567890-0987',
-              text: faker.lorem.paragraph(),
-              uuid: faker.date.between('2016-01-01', '2016-12-31'),
-              icon: 'radio', // 选项的Icon
-              image: '/images/sample-4.jpg',
-              inputType: '', // 'select', 'input', 'select-input, ower-input',
-              inputRule: '', //输入控件初始化规则
-              value: '',
-              placeholder: '',
-            }),
-            Ember.Object.create({
-              selected: false,
-              renderId: '4567890-0987',
-              text: faker.lorem.paragraph(),
-              uuid: faker.date.between('2016-01-01', '2016-12-31'),
-              icon: 'radio', // 选项的Icon
-              image: '/images/sample-5.jpg',
-              inputType: '', // 'select', 'input', 'select-input, ower-input',
-              inputRule: '', //输入控件初始化规则
-              value: '',
-              placeholder: '',
-            })
-          ],
-        },
-        {
-          title: '网格 grid',
-          description: '不显示文字 empty',
-          images: '',
-          renderId:'775519',
-          typeName: '选择题',
-          quesType: 'picture-choice', //select, fill
-          selectType: 'radio',
-          showStyle: 'grid',
-          picStyle: 'contain',
+          showStyle: 'matrix',
+          picStyle:'superscript',
           textDirection:'empty', //in-block ,out-block, empty
           pictureSize: 'picture-large',  //picture-large, picture-small
           uuid: faker.date.between('2016-01-01', '2016-12-31'),
