@@ -6,12 +6,8 @@ import setAttachmentPosition from '../../lib/setAttachmentPosition';
 export default Component.extend({
   layout,
 
-  didRender(){
+  didInsertElement(){
     this.element.parentNode.parentNode.remove();
-    if(!get(this, 'node.images') || get(this, 'node.images').length < 1){
-      return ;
-    }
-    setAttachmentPosition();
-
+    setAttachmentPosition(null);
   }
-});
+}).reopenClass({positionalParams: ['node', 'handleEvents']});
