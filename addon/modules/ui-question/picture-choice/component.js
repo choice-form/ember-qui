@@ -22,7 +22,7 @@ export default Component.extend({
   image: computed('option.image', function () {
     const image = get(this, 'option.image');
     if(image && image.length){
-      return htmlSafe(`<div class="attachment"><img src=${image}/></div>`);
+      return htmlSafe(`<div class="attachment"><img src=${image}></div>`);
     }else return '';
   }),
 

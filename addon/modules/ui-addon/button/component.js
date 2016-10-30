@@ -14,6 +14,8 @@ export default Component.extend({
     },
 
     handleNextClick() {
+      const article =  document.getElementsByTagName('article')[0];
+      article.setAttribute('class', 'choiceform ono-by-one');
       get(this, 'handleNextClick')();
     },
   }

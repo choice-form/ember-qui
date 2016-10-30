@@ -26,7 +26,7 @@ export default Component.extend({
 
   isSpecialComponent : computed('node.quesType', function() {
     const quesType = get(this, 'node.quesType');
-    if(['dropdown', 'location', 'matrix', 'intro-page'].indexOf(quesType) > -1){
+    if(['dropdown', 'region', 'location', 'matrix', 'intro-page'].indexOf(quesType) > -1){
       return true;
     }else{
       return false;
