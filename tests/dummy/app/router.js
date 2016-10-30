@@ -23,7 +23,6 @@ Router.map(function() {
   this.route('question-intro-page', { path: 'intro-page' });
   this.route('question-end-page', { path: 'end-page' });
   this.route('question-single', { path: 'single' });
-  this.route('question-picture-choice', { path: 'picture-choice' });
   this.route('question-picture-choice-vertical', { path: 'picture-vertical' });
   this.route('question-picture-choice-grid', { path: 'picture-grid' });
   this.route('question-picture-choice-matrix', { path: 'picture-matrix' });

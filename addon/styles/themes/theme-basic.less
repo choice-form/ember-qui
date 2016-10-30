@@ -279,6 +279,7 @@ article {
         cursor: pointer;
         display: block;
         overflow: hidden;
+        will-change: box-shadow;
         & .attachment {
           padding: 0;
           margin-bottom: 1rem;
@@ -451,6 +452,15 @@ article {
       &.insert-block {
         margin-bottom: 0;
       }
+    }
+  }
+}
+
+//---------------------------------------------------------------------------------
+.location {
+  & .cell {
+    & .ui-location {
+
     }
   }
 }

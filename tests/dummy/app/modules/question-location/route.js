@@ -11,7 +11,7 @@ export default Route.extend({
         {
           title: faker.lorem.sentences(),
           description: faker.lorem.paragraph(),
-          images: ['/images/sample-3.jpg'],
+          images: '',
           renderId:'775519',
           typeName: '定位题',
           quesType: 'location', //select, fill
