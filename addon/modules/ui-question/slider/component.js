@@ -19,7 +19,7 @@ export default Component.extend({
      * change事件
      */
     handleOptionInput(e){
-      set(this, 'option.value',  e.target.value);
+      set(this, 'option.value',  parseInt(e));
       this.handleEvents.handleOptionInput(get(this, 'option'),get(this,'node'));
     },
   },

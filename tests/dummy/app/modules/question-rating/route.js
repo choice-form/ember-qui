@@ -15,7 +15,7 @@ export default Route.extend({
         description: 'Rating Labels',
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
         icon: 'star', // 选项的Icon
-        emoji: ['a1', 'b1'],
+        emoji: [],
         value: '5',
         count: '5',
         marks:[1,2,3,4,5].map(function () {

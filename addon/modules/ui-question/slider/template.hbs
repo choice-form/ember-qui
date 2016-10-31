@@ -1,11 +1,16 @@
 <div class='ui-range' data-render-id={{option.renderId}}>
-  <input
-    type="range"
-    id={{option.uuid}}
-    value={{option.value}}
-    onchange={{action 'handleOptionInput'}}
-  >
+  {{range-slider start=option.value
+                 connect="lower"
+                 min= option.minValue
+                 max=option.maxValue
+                 on-change="handleOptionInput"
+  }}
   <span>{{option.value}}</span>
-
-  {{ui-question/-node/label option}}
+  <div>
+    <span>最低{{option.minValue}}分</span>
+    <span>最高{{option.maxValue}}分</span>
+  </div>
 </div>
+
+
+

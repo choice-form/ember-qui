@@ -16,7 +16,9 @@ export default Route.extend({
         icon: '', // 选项的Icon
         inputType: '', // 'select', 'input', 'select-input',
         inputRule: '', //输入控件初始化规则
-        value: '0',
+        value: 0,
+        minValue:3,
+        maxValue:10,
         placeholder: '',
       }),
       Ember.Object.create({
@@ -27,7 +29,9 @@ export default Route.extend({
         icon: '', // 选项的Icon
         inputType: '', // 'select', 'input', 'select-input',
         inputRule: '', //输入控件初始化规则
-        value: '20',
+        value: 5,
+        minValue:3,
+        maxValue:10,
         placeholder: '',
       }),
       Ember.Object.create({
@@ -38,7 +42,9 @@ export default Route.extend({
         icon: '', // 选项的Icon
         inputType: '', // 'select', 'input', 'select-input',
         inputRule: '', //输入控件初始化规则
-        value: '40',
+        value: 4,
+        minValue:2,
+        maxValue:10,
         placeholder: '',
       }),
       Ember.Object.create({
@@ -49,7 +55,9 @@ export default Route.extend({
         icon: '', // 选项的Icon
         inputType: '', // 'select', 'input', 'select-input',
         inputRule: '', //输入控件初始化规则
-        value: '0',
+        value: 6,
+        minValue:1,
+        maxValue:8,
         placeholder: '',
       }),
       Ember.Object.create({
@@ -60,7 +68,9 @@ export default Route.extend({
         icon: '', // 选项的Icon
         inputType: '', // 'select', 'input', 'select-input',
         inputRule: '', //输入控件初始化规则
-        value: '60',
+        value: 9,
+        minValue:1,
+        maxValue:9,
         placeholder: '',
       }),
     ];
