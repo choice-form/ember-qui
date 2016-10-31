@@ -13,9 +13,20 @@ export default Route.extend({
         {
           title:faker.address.streetAddress(true),
           description: faker.lorem.paragraph(),
-          images:[1].map(function () {
-            return faker.image.image(360, 360, true)
-          }),
+          images: [
+            {
+              natural:'/images/sample-1.jpg',
+              thumbnail:'/images/sample-1-thumbnail.jpg',
+            },
+            {
+              natural:'/images/sample-2.jpg',
+              thumbnail:'/images/sample-2-thumbnail.jpg',
+            },
+            {
+              natural:'/images/sample-3.jpg',
+              thumbnail:'/images/sample-3-thumbnail.jpg',
+            }
+          ],
           typeName:'描述节点',
           renderId: '4567890-0987',
           quesType: 'intro-page', //select, fill, valuemark
