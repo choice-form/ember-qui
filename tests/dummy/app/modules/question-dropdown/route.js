@@ -59,9 +59,20 @@ export default Route.extend({
         {
           title: faker.lorem.words(),
           description: faker.lorem.paragraph(),
-          images: [1].map(function () {
-            return '/images/sample-1.jpg'
-          }),
+          images: [
+            {
+              natural:'/images/sample-1.jpg',
+              thumbnail:'/images/sample-1-thumbnail.jpg',
+            },
+            {
+              natural:'/images/sample-2.jpg',
+              thumbnail:'/images/sample-2-thumbnail.jpg',
+            },
+            {
+              natural:'/images/sample-3.jpg',
+              thumbnail:'/images/sample-3-thumbnail.jpg',
+            }
+          ],
           typeName:'分值打分题',
           renderId: '4567890-0987',
           quesType: 'dropdown', //select, fill, valuemark, graphmark, menu

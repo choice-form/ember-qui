@@ -8,9 +8,12 @@ export default Route.extend({
       title: faker.lorem.words(),
       summary: faker.lorem.paragraph(),
       description: faker.lorem.paragraph(),
-      images: [1].map(function () {
-        return '/images/sample-3.jpg'
-      }),
+      images: [
+        {
+          natural:'/images/sample-1.jpg',
+          thumbnail:'/images/sample-1-thumbnail.jpg',
+        }
+      ],
 
       handleEvents: {
         handleNextClick: () => {

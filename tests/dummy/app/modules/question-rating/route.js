@@ -14,7 +14,12 @@ export default Route.extend({
         text: faker.lorem.sentence(),
         description: 'Rating Labels',
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
+<<<<<<< HEAD
         icon: 'star', // 选项的Icon
+=======
+        emoji: ['a1', 'b1'],
+        icon: 'radio', // 选项的Icon
+>>>>>>> sxx-dev
         value: '5',
         count: '5',
         marks:[1,2,3,4,5].map(function () {
@@ -28,7 +33,12 @@ export default Route.extend({
         text: faker.lorem.sentence(),
         description: 'Rating Labels',
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C91",
+<<<<<<< HEAD
         icon: 'thumbs-up', // 选项的Icon
+=======
+        emoji: ['a2', 'b2'],
+        icon: 'love-favorite', // 选项的Icon
+>>>>>>> sxx-dev
         value: '0',
         count: '6',
         marks:[1,2,3,4,5,6].map(function () {
@@ -42,7 +52,12 @@ export default Route.extend({
         text: faker.lorem.sentence(),
         description: 'Rating Labels',
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C92",
+<<<<<<< HEAD
         icon: 'baloon', // 选项的Icon
+=======
+        emoji: ['a3', 'b3'],
+        icon: 'love-favorite', // 选项的Icon
+>>>>>>> sxx-dev
         inputType: '', // 'select', 'input', 'select-input',
         inputRule: '', //输入控件初始化规则
         value: '2',
@@ -58,6 +73,7 @@ export default Route.extend({
         text: faker.lorem.sentence(),
         description: 'Rating Labels',
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C91",
+        emoji: ['a4', 'b4'],
         icon: 'love-favorite', // 选项的Icon
         inputType: '', // 'select', 'input', 'select-input',
         inputRule: '', //输入控件初始化规则
@@ -74,7 +90,12 @@ export default Route.extend({
         text: faker.lorem.sentence(),
         description: 'Rating Labels',
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C91",
+<<<<<<< HEAD
         icon: 'crown', // 选项的Icon
+=======
+        emoji: ['a5', 'b5'],
+        icon: 'love-favorite', // 选项的Icon
+>>>>>>> sxx-dev
         inputType: '', // 'select', 'input', 'select-input',
         inputRule: '', //输入控件初始化规则
         value: '1',
@@ -91,9 +112,20 @@ export default Route.extend({
         {
           title: faker.lorem.words(),
           description: faker.lorem.paragraph(),
-          images: [1].map(function () {
-            return '/images/sample-2.jpg'
-          }),
+          images: [
+            {
+              natural:'/images/sample-1.jpg',
+              thumbnail:'/images/sample-1-thumbnail.jpg',
+            },
+            {
+              natural:'/images/sample-2.jpg',
+              thumbnail:'/images/sample-2-thumbnail.jpg',
+            },
+            {
+              natural:'/images/sample-3.jpg',
+              thumbnail:'/images/sample-3-thumbnail.jpg',
+            }
+          ],
           typeName:'分值打分题',
           renderId: '4567890-0987',
           quesType: 'rating',

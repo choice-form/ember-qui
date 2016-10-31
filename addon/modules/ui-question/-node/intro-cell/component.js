@@ -16,7 +16,7 @@ export default Component.extend({
     const images = get(this, 'intro.images');
     if( images && images.length ){
       return htmlSafe(images.map(function (item) {
-        return `<img src=${item} />`
+        return `<img src=${item.natural} />`
       }).join(''));
     }else return '';
   }),
