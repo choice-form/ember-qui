@@ -76,7 +76,7 @@ module.exports = {
   included(app) {
     this._super.included.apply(this, arguments);
 
-    app.import(`${app.bowerDirectory}/devicejs/lib/device.js`);
+    app.import(`${app.bowerDirectory}/device.js/lib/device.js`);
     app.import(`./vendor/shims/device.js`);
 
     app.import(`./vendor/mobiscroll/js/mobiscroll.custom-3.0.0-beta6.min.js`);
