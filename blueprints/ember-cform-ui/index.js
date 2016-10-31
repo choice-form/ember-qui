@@ -9,6 +9,7 @@ module.exports = {
 
   afterInstall() {
     return RSVP.all([
+      this.addPackageToProject('fastclick'),
       this.addBowerPackageToProject('devicejs'),
       this.addAddonToProject('ember-cli-node-assets', { blueprintOptions })
     ]);

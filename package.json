@@ -1,6 +1,6 @@
 {
   "name": "@choiceform/ember-cform-ui",
-  "version": "0.0.10",
+  "version": "0.0.12",
   "description": "UI components for q.cform.io",
   "main": "index.js",
   "directories": {
@@ -29,18 +29,14 @@
     "Wester Xi <wester@cform.io>"
   ],
   "dependencies": {
-    "ember-autoresize": "0.5.17",
+    "broccoli-less-single": "^0.6.3",
     "ember-cli-babel": "^5.1.10",
     "ember-cli-htmlbars": "^1.1.0",
-    "ember-cli-less": "1.5.3",
-    "ember-cli-node-assets": "0.1.4",
     "ember-composable-helpers": "1.1.2",
-    "ember-truth-helpers": "1.2.0",
-    "fastclick": "^1.0.6"
+    "ember-truth-helpers": "1.2.0"
   },
   "devDependencies": {
     "broccoli-asset-rev": "^2.5.0",
-    "broccoli-less-single": "^0.6.3",
     "clipboard": "^1.5.15",
     "ember-ajax": "^2.5.2",
     "ember-cli": "^2.9.1",
@@ -50,6 +46,8 @@
     "ember-cli-htmlbars": "^1.1.0",
     "ember-cli-htmlbars-inline-precompile": "^0.3.5",
     "ember-cli-inject-live-reload": "^1.4.1",
+    "ember-cli-less": "1.5.3",
+    "ember-cli-node-assets": "^0.1.4",
     "ember-cli-qunit": "^3.0.2",
     "ember-cli-release": "^1.0.0-beta.2",
     "ember-cli-sri": "^2.1.1",
@@ -61,6 +59,7 @@
     "ember-load-initializers": "^0.5.1",
     "ember-resolver": "^2.1.0",
     "faker": "^3.1.0",
+    "fastclick": "^1.0.6",
     "loader.js": "^4.0.11"
   },
   "keywords": [
