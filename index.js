@@ -2,6 +2,7 @@
 
 const mergeTrees = require('broccoli-merge-trees');
 const LessCompiler = require('broccoli-less-single');
+const AutoPrefixer = require('less-plugin-autoprefix');
 
 module.exports = {
   name: 'ember-cform-ui',
@@ -110,7 +111,9 @@ module.exports = {
     publicTree && trees.push(publicTree);
 
     trees.push(LessCompiler(
-      './public/themes', 'theme-basic.less', 'assets/theme-basic.css'
+      './public/themes', 'theme-basic.less', 'assets/theme-basic.css', {
+        plugins: [new AutoPrefixer({browsers: ["last 2 versions"]})]
+      }
     ));
 
     return mergeTrees(trees, { overwrite: true });
