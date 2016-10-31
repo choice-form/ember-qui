@@ -4,6 +4,7 @@ import get from 'ember-metal/get';
 import computed from 'ember-computed';
 import {htmlSafe} from 'ember-string';
 import inject from 'ember-service/inject';
+import Masonry from 'masonry';
 
 export default Component.extend({
   layout,
@@ -52,6 +53,20 @@ export default Component.extend({
       this.handleEvents.handleOptionInput(get(this, 'option'),get(this,'node'));
     },
   },
+
+  didRender(){
+    const quesType = get(this, 'node.quesType');
+    if(quesType == 'waterfull'){
+      const waterfullBox = this.element.parentNode.parentNode;
+      const newMasonry = new Masonry(waterfullBox);
+    }
+
+
+  },
+
+  willRender(){
+    /*newMasonry.remove();*/
+  }
 
 
 }).reopenClass({positionalParams: ['node','option', 'handleEvents']});
