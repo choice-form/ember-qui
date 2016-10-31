@@ -14,7 +14,7 @@ export default Route.extend({
         text: faker.lorem.sentence(),
         description: 'Rating Labels',
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
-        icon: 'radio', // 选项的Icon
+        icon: 'star', // 选项的Icon
         value: '5',
         count: '5',
         marks:[1,2,3,4,5].map(function () {
@@ -28,7 +28,7 @@ export default Route.extend({
         text: faker.lorem.sentence(),
         description: 'Rating Labels',
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C91",
-        icon: 'love-favorite', // 选项的Icon
+        icon: 'thumbs-up', // 选项的Icon
         value: '0',
         count: '6',
         marks:[1,2,3,4,5,6].map(function () {
@@ -42,7 +42,7 @@ export default Route.extend({
         text: faker.lorem.sentence(),
         description: 'Rating Labels',
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C92",
-        icon: 'love-favorite', // 选项的Icon
+        icon: 'baloon', // 选项的Icon
         inputType: '', // 'select', 'input', 'select-input',
         inputRule: '', //输入控件初始化规则
         value: '2',
@@ -74,7 +74,7 @@ export default Route.extend({
         text: faker.lorem.sentence(),
         description: 'Rating Labels',
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C91",
-        icon: 'love-favorite', // 选项的Icon
+        icon: 'crown', // 选项的Icon
         inputType: '', // 'select', 'input', 'select-input',
         inputRule: '', //输入控件初始化规则
         value: '1',
@@ -134,9 +134,9 @@ export default Route.extend({
         }
       },
 
-      prevButton: '上一题',
+      prevButton: 'Previous',
 
-      nextButton: '下一题',
+      nextButton: 'Next',
     }
   }
 });

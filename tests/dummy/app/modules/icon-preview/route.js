@@ -69,6 +69,14 @@ export default Route.extend({
       rating: [
         {icon: "love-favorite"},
         {icon: "love-favorite-active"},
+        {icon: "star"},
+        {icon: "star-active"},
+        {icon: "thumbs-up"},
+        {icon: "thumbs-up-active"},
+        {icon: "baloon"},
+        {icon: "baloon-active"},
+        {icon: "crown"},
+        {icon: "crown-active"},
       ]
     };
   }
