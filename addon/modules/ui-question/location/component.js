@@ -46,19 +46,25 @@ export default Component.extend({
     handleOptionClick(){
       clickIndex++;
       if(clickIndex == 1){
-        set(this, 'checked', true);
         set(this, 'svgState', 'positioning');
       }
       if(clickIndex == 2){
-        set(this, 'checked', false);
-        set(this, 'svgState', 'location-successful');
+        if(Math.random()*10 > 5){
+          set(this, 'svgState', 'location-successful');
+        }else{
+          set(this, 'svgState', 'location-failed');
+        }
+
       }
       if(clickIndex == 3){
-        set(this, 'checked', false);
-        set(this, 'svgState', 'location-failed');
+        const svgState = get(this, 'svgState');
+        if(svgState == 'location-successful'){
+          set(this, 'svgState', 'location-failed');
+        }else{
+          set(this, 'svgState', 'location-successful');
+        }
       }
       if(clickIndex > 3){
-        set(this, 'checked', false);
         set(this, 'svgState', 'location');
         clickIndex = 0;
       }
