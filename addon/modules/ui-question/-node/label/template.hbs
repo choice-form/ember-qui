@@ -1,5 +1,8 @@
 <label for={{option.uuid}}>
-  {{svg}}
+  <div class="select-container">
+    {{svg}}
+    {{ui-addon/active-line-animation}}
+  </div>
   {{yield}}
   <span>{{option.text}}</span>
 </label>

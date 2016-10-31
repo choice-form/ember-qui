@@ -25,37 +25,14 @@
         >
 
         <label for={{g.uuid}} value={{g.value}}>
-          <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-               width="16px"
-               height="16px" viewBox="0 0 16 16">
-            <use xlink:href="#{{g.icon}}" fill=""/>
-          </svg>
-          <ul class="rating-line-container">
-            <li class="rating-line-wrapper">
-              <span class="rating-line"></span>
-            </li>
-            <li class="rating-line-wrapper">
-              <span class="rating-line"></span>
-            </li>
-            <li class="rating-line-wrapper">
-              <span class="rating-line"></span>
-            </li>
-            <li class="rating-line-wrapper">
-              <span class="rating-line"></span>
-            </li>
-            <li class="rating-line-wrapper">
-              <span class="rating-line"></span>
-            </li>
-            <li class="rating-line-wrapper">
-              <span class="rating-line"></span>
-            </li>
-            <li class="rating-line-wrapper">
-              <span class="rating-line"></span>
-            </li>
-            <li class="rating-line-wrapper">
-              <span class="rating-line"></span>
-            </li>
-          </ul>
+          <div class="select-container">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                 width="16px"
+                 height="16px" viewBox="0 0 16 16">
+              <use xlink:href="#{{g.icon}}" fill=""/>
+            </svg>
+            {{ui-addon/active-line-animation}}
+          </div>
         </label>
       </td>
     {{/each}}
