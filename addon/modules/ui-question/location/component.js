@@ -10,6 +10,8 @@ let clickIndex = 0;
 export default Component.extend({
   layout,
 
+  checked: false,
+
   tagName:'',
 
   //状态，location、positioning、location-successful、location-failed
@@ -44,15 +46,19 @@ export default Component.extend({
     handleOptionClick(){
       clickIndex++;
       if(clickIndex == 1){
+        set(this, 'checked', true);
         set(this, 'svgState', 'positioning');
       }
       if(clickIndex == 2){
+        set(this, 'checked', false);
         set(this, 'svgState', 'location-successful');
       }
       if(clickIndex == 3){
+        set(this, 'checked', false);
         set(this, 'svgState', 'location-failed');
       }
       if(clickIndex > 3){
+        set(this, 'checked', false);
         set(this, 'svgState', 'location');
         clickIndex = 0;
       }

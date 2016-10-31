@@ -1,6 +1,14 @@
-<div class={{concat 'ui-' node.quesType}} onclick={{action 'handleOptionClick'}}>
+<div class={{concat 'ui-' node.quesType}} >
   <div class="location">
-    {{svg}}
+    <input
+      id={{node.uuid}}
+        type="checkbox"
+      checked={{checked}}
+      onclick={{action 'handleOptionClick'}}
+    >
+    <label for={{node.uuid}}>
+      {{svg}}
+    </label>
   </div>
   <span>{{tips}}</span>
   {{#if (eq svgState 'success')}}
