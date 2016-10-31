@@ -1,4 +1,4 @@
-<div class={{concat 'ui-' node.quesType}}>
+<div class={{concat 'ui-' node.quesType}} onclick={{action 'handleOptionClick'}}>
   {{svg}}
   <span>{{tips}}</span>
   {{#if (eq svgState 'success')}}
