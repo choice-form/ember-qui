@@ -14,12 +14,8 @@ export default Route.extend({
         text: faker.lorem.sentence(),
         description: 'Rating Labels',
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
-<<<<<<< HEAD
         icon: 'star', // 选项的Icon
-=======
         emoji: ['a1', 'b1'],
-        icon: 'radio', // 选项的Icon
->>>>>>> sxx-dev
         value: '5',
         count: '5',
         marks:[1,2,3,4,5].map(function () {
@@ -33,12 +29,8 @@ export default Route.extend({
         text: faker.lorem.sentence(),
         description: 'Rating Labels',
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C91",
-<<<<<<< HEAD
         icon: 'thumbs-up', // 选项的Icon
-=======
         emoji: ['a2', 'b2'],
-        icon: 'love-favorite', // 选项的Icon
->>>>>>> sxx-dev
         value: '0',
         count: '6',
         marks:[1,2,3,4,5,6].map(function () {
@@ -52,12 +44,8 @@ export default Route.extend({
         text: faker.lorem.sentence(),
         description: 'Rating Labels',
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C92",
-<<<<<<< HEAD
         icon: 'baloon', // 选项的Icon
-=======
         emoji: ['a3', 'b3'],
-        icon: 'love-favorite', // 选项的Icon
->>>>>>> sxx-dev
         inputType: '', // 'select', 'input', 'select-input',
         inputRule: '', //输入控件初始化规则
         value: '2',
@@ -90,12 +78,8 @@ export default Route.extend({
         text: faker.lorem.sentence(),
         description: 'Rating Labels',
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C91",
-<<<<<<< HEAD
         icon: 'crown', // 选项的Icon
-=======
         emoji: ['a5', 'b5'],
-        icon: 'love-favorite', // 选项的Icon
->>>>>>> sxx-dev
         inputType: '', // 'select', 'input', 'select-input',
         inputRule: '', //输入控件初始化规则
         value: '1',
