@@ -14,7 +14,7 @@ export default Route.extend({
         text: faker.lorem.sentence(),
         description: 'Rating Labels',
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
-        icon: 'love-favorite', // 选项的Icon
+        icon: 'radio', // 选项的Icon
         value: '5',
         count: '5',
         marks:[1,2,3,4,5].map(function () {
