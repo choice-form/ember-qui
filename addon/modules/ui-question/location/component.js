@@ -24,7 +24,7 @@ export default Component.extend({
   svg: computed('svgState', function () {
     const icon = get(this, 'svgState');
 
-    return htmlSafe(`<svg style="display:block" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="16px" height="16px" viewBox="0 0 16 16">
+    return htmlSafe(`<svg class="pin-icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="40px" height="40px" viewBox="0 0 40 40">
         <use xlink:href=#${icon}></use>
       </svg>`);
   }),
@@ -33,15 +33,15 @@ export default Component.extend({
   tips: computed('svgState', function () {
   const state = get(this, 'svgState');
   if(state === 'positioning'){
-    return '正在定位';
+    return 'Positioning...';
   }
   if(state === 'location-successful'){
-    return "定位成功";
+    return "Successful";
   }
   if(state === 'location-failed'){
-    return "定位失败";
+    return "Failed, Please";
   }
-  return "点击图标启动定位";
+  return "Where are you?";
 }),
 
 

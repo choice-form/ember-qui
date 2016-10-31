@@ -1,4 +1,4 @@
-<div class={{concat 'ui-' node.quesType}} >
+<div class={{concat 'ui-' node.quesType}}>
   <div class={{concat "pin " locationState}}>
     <input
       id={{node.uuid}}
@@ -6,11 +6,17 @@
       onclick={{action 'handleOptionClick'}}
     >
     <label for={{node.uuid}}>
-     {{svg}}
+      <div class="select-container">
+        {{svg}}
+        {{ui-addon/active-line-animation}}
+      </div>
     </label>
   </div>
-  <span>{{tips}}</span>
+  <h4>{{tips}}</h4>
   {{#if (eq svgState 'success')}}
     <p>{{node.value}}</p>
+  {{/if}}
+  {{#if (eq svgState 'failed')}}
+    <button>Try again</button>
   {{/if}}
 </div>

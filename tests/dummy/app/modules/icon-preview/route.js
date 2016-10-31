@@ -80,6 +80,7 @@ export default Route.extend({
       ],
       location: [
         {icon: "location"},
+        {icon: "positioning"},
       ]
     };
   }

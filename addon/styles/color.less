@@ -166,6 +166,39 @@ input[type="radio"]:checked {
   }
 }
 
+.ui-location {
+  & label {
+    color: @secondary;
+    background-color: @contrast;
+  }
+  & .pin {
+    &.positioning {
+      & label {
+        background-color: @secondary;
+        & svg {
+          fill: @contrast;
+        }
+      }
+    }
+    &.successful {
+      & label {
+        background-color: @contrast;
+        & svg {
+          fill: @secondary;
+        }
+      }
+    }
+    &.failed {
+      & label {
+        background-color: @secondary;
+        & svg {
+          fill: @primary;
+        }
+      }
+    }
+  }
+}
+
 button {
   background-color: transparent;
   &:active {
