@@ -30,8 +30,10 @@
   ],
   "dependencies": {
     "broccoli-less-single": "^0.6.3",
+    "fastclick": "^1.0.6",
     "ember-cli-babel": "^5.1.10",
     "ember-cli-htmlbars": "^1.1.0",
+    "ember-cli-less": "1.5.3",
     "ember-composable-helpers": "1.1.2",
     "ember-truth-helpers": "1.2.0"
   },
@@ -46,7 +48,6 @@
     "ember-cli-htmlbars": "^1.1.0",
     "ember-cli-htmlbars-inline-precompile": "^0.3.5",
     "ember-cli-inject-live-reload": "^1.4.1",
-    "ember-cli-less": "1.5.3",
     "ember-cli-node-assets": "^0.1.4",
     "ember-cli-qunit": "^3.0.2",
     "ember-cli-release": "^1.0.0-beta.2",
@@ -59,7 +60,6 @@
     "ember-load-initializers": "^0.5.1",
     "ember-resolver": "^2.1.0",
     "faker": "^3.1.0",
-    "fastclick": "^1.0.6",
     "loader.js": "^4.0.11"
   },
   "keywords": [
