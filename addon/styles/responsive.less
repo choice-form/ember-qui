@@ -109,25 +109,6 @@ html.mobile {
       pointer-events: none;
     }
   }
-  & .ui-radio,
-  & .ui-checkbox {
-    & input:checked {
-      & + label {
-        & span {
-          animation: flash 300ms cubic-bezier(0.23, 1, 0.32, 1);
-        }
-      }
-    }
-  }
-}
-
-@keyframes flash {
-  0%, 50% {
-    opacity: 1;
-  }
-  25%, 100% {
-    opacity: .3;
-  }
 }
 
 html.tablet.portrait {
@@ -188,12 +169,12 @@ html.mobile.portrait {
   .picture-choice.matrix {
     margin: 1rem -1rem 0 -1rem;
   }
-  .ui-rating {
-    & .active-line {
-      top: 1rem;
-      height: 2rem;
-    }
+
+  .active-line {
+    top: 1rem;
+    height: 2rem;
   }
+
   .submit-actions {
     padding: 2rem 1.5rem;
     margin: 2rem 0;

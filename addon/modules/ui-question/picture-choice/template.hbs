@@ -15,7 +15,10 @@
 <label for={{option.uuid}}>
   {{image}}
   <div class="pic-description">
-    {{svg}}
+    <div class="select-container">
+      {{svg}}
+      {{ui-addon/active-line-animation}}
+    </div>
     <span>{{option.text}}</span>
   </div>
 </label>
