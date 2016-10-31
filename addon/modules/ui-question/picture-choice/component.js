@@ -55,8 +55,8 @@ export default Component.extend({
   },
 
   didRender(){
-    const quesType = get(this, 'node.quesType');
-    if(quesType == 'waterfull'){
+    const showStyle = get(this, 'node.showStyle');
+    if(showStyle == 'waterfull'){
       const waterfullBox = this.element.parentNode.parentNode;
       const newMasonry = new Masonry(waterfullBox);
     }
