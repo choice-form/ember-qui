@@ -2,7 +2,8 @@
 
 const mergeTrees = require('broccoli-merge-trees');
 const LessCompiler = require('broccoli-less-single');
-const AutoPrefixer = require('less-plugin-autoprefix');
+const LessPluginAutoPrefix = require('less-plugin-autoprefix');
+const autoprefixPlugin = new LessPluginAutoPrefix();
 
 module.exports = {
   name: 'ember-cform-ui',
@@ -61,10 +62,18 @@ module.exports = {
     //     }
     //   }
     },
+    lessOptions: {
+      plugins: [autoprefixPlugin]
+    },
     nodeAssets: {
       fastclick: {
         import: {
           include: [{ path: 'lib/fastclick.js' }]
+        }
+      },
+      ['masonry-layout']: {
+        import: {
+          include: [{ path: 'dist/masonry.pkgd.js' }]
         }
       }
     }
@@ -79,6 +88,8 @@ module.exports = {
 
     app.import(`${app.bowerDirectory}/device.js/lib/device.js`);
     app.import(`./vendor/shims/device.js`);
+
+    app.import(`./vendor/shims/masonry.js`);
 
     app.import(`./vendor/mobiscroll/js/mobiscroll.custom-3.0.0-beta6.min.js`);
     app.import(`./vendor/mobiscroll/_css/mobiscroll.animation-3.0.0-beta6.css`);
@@ -112,7 +123,7 @@ module.exports = {
 
     trees.push(LessCompiler(
       './public/themes', 'theme-basic.less', 'assets/theme-basic.css', {
-        plugins: [new AutoPrefixer({browsers: ["last 2 versions"]})]
+        plugins: [autoprefixPlugin]
       }
     ));
 
