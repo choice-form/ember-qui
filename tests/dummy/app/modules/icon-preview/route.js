@@ -37,7 +37,7 @@ export default Route.extend({
         {icon: "email"},
         {icon: "telephone"},
         {icon: "moblie"},
-        {icon: "location"},
+        {icon: "pin"},
         {icon: "building"},
         {icon: "business"},
         {icon: "language"},
@@ -77,6 +77,9 @@ export default Route.extend({
         {icon: "baloon-active"},
         {icon: "crown"},
         {icon: "crown-active"},
+      ],
+      location: [
+        {icon: "location"},
       ]
     };
   }

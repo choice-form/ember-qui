@@ -11,20 +11,7 @@ export default Route.extend({
         {
           title: faker.lorem.sentences(),
           description: faker.lorem.paragraph(),
-          images: [
-            {
-              natural:'/images/sample-1.jpg',
-              thumbnail:'/images/sample-1-thumbnail.jpg',
-            },
-            {
-              natural:'/images/sample-2.jpg',
-              thumbnail:'/images/sample-2-thumbnail.jpg',
-            },
-            {
-              natural:'/images/sample-3.jpg',
-              thumbnail:'/images/sample-3-thumbnail.jpg',
-            }
-          ],
+          images: '',
           renderId:'775519',
           typeName: '定位题',
           quesType: 'location', //select, fill

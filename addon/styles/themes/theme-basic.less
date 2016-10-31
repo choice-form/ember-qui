@@ -31,6 +31,13 @@ article {
   & + .control {
     padding-top: 0;
   }
+  & + .control.rating {
+    & .cell {
+      &:first-child {
+        padding-top: 1.5rem;
+      }
+    }
+  }
 }
 
 //---------------------------------------------------------------------------------
@@ -175,8 +182,8 @@ article {
       }
     }
     & .ui-rating {
-      margin-top: 1.5rem;
       position: relative;
+      margin-top: 1.5rem;
       width: 100%;
       border-collapse: collapse;
       border-spacing: 0;
@@ -498,11 +505,36 @@ article {
   }
 }
 
+.rating-emoji {
+  display: block;
+  font-size: 3rem;
+  line-height: 3rem;
+}
+
 //---------------------------------------------------------------------------------
 .location {
   & .cell {
     & .ui-location {
-
+      & .location {
+        & input[type="checkbox"] {
+          position: absolute;
+          right: 0;
+          left: 0;
+          top: 0;
+          bottom: 0;
+          overflow: hidden;
+          opacity: 0;
+          width: 1.5rem;
+          height: 1.5rem;
+          margin: 0;
+          border: none;
+        }
+        & label {
+          & svg {
+            display: block;
+          }
+        }
+      }
     }
   }
 }

@@ -1,5 +1,6 @@
 input:checked {
   & + label {
+    & .rating-emoji,
     & svg {
       animation-name: shape;
       animation-delay: 0.1s;
@@ -101,6 +102,7 @@ input:checked {
 
 .select-container {
   pointer-events: none;
+  & .rating-emoji,
   & svg {
     transform: scale(0.85);
     will-change: transform;
