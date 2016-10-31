@@ -5,8 +5,8 @@ import {htmlSafe} from 'ember-string';
 import get from 'ember-metal/get';
 import set from 'ember-metal/set';
 
-//todo: 仅供测试
-let clickIndex = 0;
+
+
 export default Component.extend({
   layout,
 
@@ -14,8 +14,18 @@ export default Component.extend({
 
   tagName:'',
 
+
   //状态，location、positioning、location-successful、location-failed
   svgState : 'location',
+
+  svg: computed('svgState', function () {
+    const icon = get(this, 'svgState');
+
+    return htmlSafe(`<svg style="display:block" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="16px" height="16px" viewBox="0 0 16 16">
+        <use xlink:href=#${icon}></use>
+      </svg>`);
+  }),
+
 
   tips: computed('svgState', function () {
   const state = get(this, 'svgState');
@@ -31,50 +41,26 @@ export default Component.extend({
   return "点击图标启动定位";
 }),
 
-  svg: computed('svgState', function () {
-    const icon = get(this, 'svgState');
 
-    return htmlSafe(`<svg style="display:block" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="16px" height="16px" viewBox="0 0 16 16">
-        <use xlink:href=#${icon}></use>
-      </svg>`);
-  }),
 
   actions: {
     /**
      * click事件
      */
     handleOptionClick(){
-      clickIndex++;
-      if(clickIndex == 1){
-        set(this, 'svgState', 'positioning');
-      }
-      if(clickIndex == 2){
+      //todo: 仅供测试
+      set(this, 'svgState', 'positioning');
+      const that = this;
+      setTimeout(function () {
         if(Math.random()*10 > 5){
-          set(this, 'svgState', 'location-successful');
+          set(that, 'svgState', 'location-successful');
         }else{
-          set(this, 'svgState', 'location-failed');
+          set(that, 'svgState', 'location-failed');
         }
-
-      }
-      if(clickIndex == 3){
-        const svgState = get(this, 'svgState');
-        if(svgState == 'location-successful'){
-          set(this, 'svgState', 'location-failed');
-        }else{
-          set(this, 'svgState', 'location-successful');
-        }
-      }
-      if(clickIndex > 3){
-        set(this, 'svgState', 'location');
-        clickIndex = 0;
-      }
-
-
+      },10000);
 
       //this.handleEvents.handleOptionClick(get(this, 'option'),get(this,'node'));
     },
-
-
   },
 
 }).reopenClass({ positionalParams: ['node','option','handleEvents']});
