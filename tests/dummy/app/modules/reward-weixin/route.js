@@ -16,9 +16,9 @@ export default Route.extend({
       weixinImage: '/images/sample-1.jpg',
       typeName:'验证节点',
       quesType: 'reward',
-      rewardType: 'weixn', //weixin, custom,
+      rewardType: 'weixin', //weixin, custom,
       uuid: '002',
-
+      rewardTime:'2016-11-11 00:00',
       handleEvents: {
         handleOptionClick: (option, node) => {
           console.log(option);

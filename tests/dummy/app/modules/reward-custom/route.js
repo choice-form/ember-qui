@@ -17,6 +17,7 @@ export default Route.extend({
       typeName:'验证节点',
       quesType: 'reward',
       rewardType: 'custom', //weixin, custom,
+      rewardTime:'2016-11-11 00:00',
       uuid: '002',
 
       handleEvents: {

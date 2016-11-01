@@ -38,19 +38,20 @@ export default Component.extend({
   }),
 
 
-  isLoading: false,
+  isLoading: alias("_thisLoading"),
+
+  _thisLoading : true,
 
   didRender(){
     const showStyle = get(this, 'node.showStyle');
     const quesType = get(this, 'node.quesType');
-    if(quesType == "picture-choice"){
-      set(this, 'isLoading', true);
+
+    if(showStyle == 'pinterest'){
       this.control = this.element.getElementsByClassName('control')[0];
       imagesLoaded(this.element, () => {
-        if (showStyle == 'pinterest') {
-          this.newMasonry = new Masonry(this.control);
-        }
-        set(this, 'isLoading', false);
+        set(this, '_thisLoading', false);
+        this.newMasonry = new Masonry(this.control);
+
       });
     }
   },

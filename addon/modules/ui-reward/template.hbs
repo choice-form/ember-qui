@@ -1,26 +1,51 @@
-<header class="reward-header">
-  {{#if node.weixinImage}}
-    <div class="img" style="border-radius: 50%; width:100px; height:100px; overflow:hidden">
-      <img src={{node.weixinImage}}>
-    </div>
-  {{/if}}
-  <h2 class="reward-Name">{{node.rewardName}}</h2>
-  <h4 class="reward-title">{{node.title}}</h4>
-  <span class="reward-description">{{node.description}}</span>
-  {{#if (eq node.rewardType 'custom')}}
-    <div>{{node.rewardVaule}}元</div>
-  {{/if}}
-</header>
+<section>
+  <div class="warapper">
+    <div class="row">
+      <header class="reward-header">
+        {{#if node.weixinImage}}
+          <div class="img" style="border-radius: 50%; width:100px; height:100px; overflow:hidden">
+            <img src={{node.weixinImage}}>
+          </div>
+        {{/if}}
+        <h2 class="reward-Name">{{node.rewardName}}</h2>
+        <h4 class="reward-title">{{node.title}}</h4>
+        <span class="reward-description">{{node.description}}</span>
+        <span>{{node.rewardTime}}</span>
+        {{#if (eq node.rewardType 'weixin')}}
+          <div>{{node.rewardVaule}}元</div>
+        {{/if}}
+      </header>
 
-<div class="control reward">
-  <div class="check-readed">
-    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="16px" height="16px" viewBox="0 0 16 16">
-      <use xlink:href={{concat "#checkbox"}}></use>
-    </svg>
-    我已经阅读了
-    <span>免责申明</span>
-    的内容
+      <div class="control reward">
+
+        <div class="ui-message">
+            <div class="ui-text">
+              {{ui-question/-node/input-cell
+                type='url'
+                value=''
+                placeholder='请输入密码'
+                svgName='int'
+              }}
+            </div>
+            <a class="button message">
+              <span>获取信息</span>
+            </a>
+        </div>
+
+
+        <div class="check-readed">
+          {{ui-addon/svg-item icon='checkbox'}}
+          我已经阅读了
+          <span>免责申明</span>
+          的内容
+        </div>
+      </div>
+
+    </div>
   </div>
-</div>
+</section>
+
+
+
 
 {{ui-question/-node/footer}}
