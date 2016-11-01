@@ -33,6 +33,7 @@ Router.map(function() {
   this.route('question-verification-v-code', { path: 'verification-v-code' });
   this.route('reward-weixin', { path: 'reward-weixin' });
   this.route('reward-custom', { path: 'reward-custom' });
+  this.route('reward-lottery', { path: 'reward-lottery' });
   this.route('test');
 });
 
