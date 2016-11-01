@@ -50,7 +50,9 @@ export default Component.extend({
       this.control = this.element.getElementsByClassName('control')[0];
       imagesLoaded(this.element, () => {
         set(this, '_thisLoading', false);
-        this.newMasonry = new Masonry(this.control);
+        this.newMasonry = new Masonry(this.control,{
+          gutter: 8
+        });
 
       });
     }
