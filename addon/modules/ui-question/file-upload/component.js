@@ -10,24 +10,24 @@ export default Component.extend({
 
   classNameBindings: ['priority'],
   priority: computed('node.quesType', function () {
-    const quesType = `ui-${get(this, "node.quesType")}`;
+    const quesType = `ui-${get(this, "node.quesType")} primary border fade50`;
     return quesType;
   }),
 
-  this_icon :computed('option.selected', 'option.icon', function () {
-  return get(this, 'option.selected') ? 'refresh' : get(this, 'option.icon');
-}),
+  this_icon: computed('option.selected', 'option.icon', function () {
+    return get(this, 'option.selected') ? 'refresh' : get(this, 'option.icon');
+  }),
 
-  uploadState:computed('option.selected', function () {
+  uploadState: computed('option.selected', function () {
     return get(this, 'option.selected') ? ' success' : null;
   }),
 
-  uploadButton:computed('option.selected', function () {
+  uploadButton: computed('option.selected', function () {
     return get(this, 'option.selected') ? ' secondary' : ' contrast';
   }),
 
-  uploadText : computed('option.selected', function () {
-    return get(this, 'option.selected') ? "refresh upload" : "Upload Picture";
+  uploadText: computed('option.selected', function () {
+    return get(this, 'option.selected') ? 'refresh upload' : 'Upload Picture';
   }),
 
   actions: {
