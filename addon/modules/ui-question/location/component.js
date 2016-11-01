@@ -20,20 +20,6 @@ export default Component.extend({
   // '' 'positioning' 'successful' 'failed'
   locationState: '',
 
-  buttonState: computed('svgState', function () {
-    const state = get(this, 'svgState');
-    if (state === 'positioning') {
-      return 'cc';
-    }
-    if (state === 'location-successful') {
-      return "cbc sc";
-    }
-    if (state === 'location-failed') {
-      return "pc";
-    }
-    return "cbc sc";
-  }),
-
   tips: computed('svgState', function () {
     const state = get(this, 'svgState');
     if (state === 'positioning') {

@@ -10,12 +10,12 @@
     </a>
     <div class="upload-thumbnail">
       <div class="progress-bar">
-        <div class="progress-hander cbc" style="width: 50%"></div>
+        <div class="progress" style="width: 50%"></div>
       </div>
       <img src={{option.image}}/>
     </div>
   {{else}}
-    {{ui-addon/svg-item icon="upload-image" size="64px" viewBox="64" class="pff50"}}
+    {{ui-addon/svg-item icon="upload-image" size="64px" viewBox="64" class="upload-image-icon"}}
   {{/if}}
 
   <label class={{concat "button" uploadButton}} for={{option.uuid}}>
