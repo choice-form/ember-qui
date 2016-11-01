@@ -13,14 +13,17 @@ export default Route.extend({
           description: faker.lorem.paragraph(),
           images: [
             {
+              ratio: 0.6666667,
               natural:'/images/sample-1.jpg',
               thumbnail:'/images/sample-1-thumbnail.jpg',
             },
             {
+              ratio: 0.6666667,
               natural:'/images/sample-2.jpg',
               thumbnail:'/images/sample-2-thumbnail.jpg',
             },
             {
+              ratio: 0.6666667,
               natural:'/images/sample-3.jpg',
               thumbnail:'/images/sample-3-thumbnail.jpg',
             }

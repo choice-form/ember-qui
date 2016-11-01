@@ -1,0 +1,81 @@
+.location {
+  & .cell {
+    & .ui-location {
+      & .pin {
+        display: block;
+        padding: 3rem 0;
+        & input[type="checkbox"] {
+          position: absolute;
+          width: 8rem;
+          height: 8rem;
+          right: 0;
+          left: 0;
+          top: 3rem;
+          bottom: 3rem;
+          overflow: hidden;
+          opacity: 0;
+          margin: 0 auto;
+          border: none;
+          &:checked {
+            & + label {
+              & svg {
+
+              }
+            }
+          }
+        }
+        & label {
+          cursor: pointer;
+          margin: 0 auto;
+          display: block;
+          width: 8rem;
+          height: 8rem;
+          border-radius: 50%;
+          transition: background-color 200ms ease;
+          & .select-container {
+            position: absolute;
+            width: 8rem;
+            height: 8rem;
+            z-index: 2;
+            & .active-line-container {
+              margin-top: 1rem;
+            }
+            & .active-line {
+              top: 0;
+              height: 3rem;
+            }
+          }
+          & svg {
+            display: block;
+            position: absolute;
+            width: 5rem;
+            height: 5rem;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+          }
+          & .spinner {
+            display: none;
+          }
+        }
+        &.positioning {
+
+        }
+        &.successful {
+
+        }
+        &.failed {
+          & label {
+
+          }
+        }
+      }
+      & h4 {
+        display: block;
+        text-align: center;
+      }
+    }
+  }
+}

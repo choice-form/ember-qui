@@ -1,0 +1,47 @@
+article {
+
+}
+
+.row {
+  &:before {
+    height: 2px;
+  }
+}
+
+.attachment.header {
+  padding: 0;
+}
+
+.page-header {
+
+}
+
+.attachment {
+
+}
+
+.control {
+  .height-fix();
+  & > div:not(:first-child) {
+    margin-top: 0;
+  }
+}
+
+.question-header {
+  & + .control {
+    padding-top: 0;
+  }
+  & + .control.rating {
+    & .cell {
+      &:first-child {
+        padding-top: 1.5rem;
+      }
+    }
+  }
+  & + .control.file-upload {
+    &:before {
+      left: 1.725rem;
+      right: 1.725rem;
+    }
+  }
+}

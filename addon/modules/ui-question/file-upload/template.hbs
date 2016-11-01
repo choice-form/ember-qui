@@ -1,36 +1,29 @@
-{{#if option.selected}}
-  <img src={{option.image}}/>
-  <div class="upload-footer">
+<div class="upload-item">
+  <input
+    type='file'
+    id={{option.uuid}}
+      onchange={{action 'handleOptionInput'}}
+  >
+  {{#if option.selected}}
+    <img src={{option.image}}/>
     <a class="clear">
       <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="16px" height="16px" viewBox="0 0 16 16">
         <use xlink:href="#trash"></use>
       </svg>
     </a>
-    <a class="upload-again">
-      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="16px"
-           height="16px" viewBox="0 0 16 16">
-        <use xlink:href="#refresh"></use>
-      </svg>
-      <span>Upload again</span>
-    </a>
-  </div>
-{{else}}
-  <div class="upload-item">
+  {{else}}
     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="64px" height="64px" viewBox="0 0 64 64">
       <use xlink:href="#upload-image"></use>
     </svg>
-    <input
-      type='file'
-      id={{option.uuid}}
-        onchange={{action 'handleOptionInput'}}
-    >
-    <label for={{option.uuid}}>
-      {{svg}}
-      <span>Upload Picture</span>
-    </label>
-  </div>
-  {{#if option.text}}
-    <span>{{option.text}}</span>
   {{/if}}
-  {{img}}
+
+  <label for={{option.uuid}}>
+    {{svg}}
+    <span>Upload Picture</span>
+  </label>
+</div>
+
+{{#if option.text}}
+  <span>{{option.text}}</span>
 {{/if}}
+

@@ -11,15 +11,13 @@
   {{/if}}
 </header>
 {{#if header.images}}
-  <figure>
+
+  <figure class="attachment">
     {{#each header.images as |image|}}
-      <div>
-        <div/>
-        <img src={{image.thumbnail}} />
-        <canvas/>
-        <img src={{image.natural}} />
-        <noscript/>
-      </div>
+      {{ui-addon/progressive-image
+        ratio=image.ratio
+        thumbnail=image.thumbnail
+        image=image.natural}}
     {{/each}}
   </figure>
 {{/if}}
