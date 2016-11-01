@@ -62,22 +62,9 @@ export default Route.extend({
 
       nodes: [
         {
-          title: faker.address.streetAddress(true),
+          title: faker.lorem.words(),
           description: faker.lorem.paragraph(),
-          images: [
-            {
-              natural:'/images/sample-1.jpg',
-              thumbnail:'/images/sample-1-thumbnail.jpg',
-            },
-            {
-              natural:'/images/sample-2.jpg',
-              thumbnail:'/images/sample-2-thumbnail.jpg',
-            },
-            {
-              natural:'/images/sample-3.jpg',
-              thumbnail:'/images/sample-3-thumbnail.jpg',
-            }
-          ],
+          images: '',
           renderId:'12213343234',
           typeName: '图标题',
           quesType: 'icon', //select, fill
@@ -118,9 +105,9 @@ export default Route.extend({
         }
       },
 
-      prevButton: '上一题',
+      prevButton: 'Previous',
 
-      nextButton: '下一题',
+      nextButton: 'Next',
     }
   }
 });

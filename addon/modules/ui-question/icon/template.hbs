@@ -7,5 +7,10 @@
       checked={{option.selected}}
     disabled={{disabled}}
   >
-  {{ui-addon/button for=option.uuid text=option.text htmlIcon=svg}}
+  {{#ui-addon/button for=option.uuid text=option.text}}
+    <div class="select-container">
+      {{svg}}
+      {{ui-addon/active-line-animation}}
+    </div>
+  {{/ui-addon/button}}
 </div>
