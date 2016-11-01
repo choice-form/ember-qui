@@ -11,7 +11,7 @@ export default Route.extend({
       Ember.Object.create({
         selected: '',
         renderId: '4567890-0987',
-        text: '最低10分,最高100分',
+        text: faker.lorem.words(),
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
         icon: '', // 选项的Icon
         inputType: '', // 'select', 'input', 'select-input',
@@ -24,7 +24,7 @@ export default Route.extend({
       Ember.Object.create({
         selected: '',
         renderId: '4567890-0987',
-        text: '最低30分,最高100分',
+        text: faker.lorem.words(),
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C91",
         icon: '', // 选项的Icon
         inputType: '', // 'select', 'input', 'select-input',
@@ -37,7 +37,7 @@ export default Route.extend({
       Ember.Object.create({
         selected: '',
         renderId: '4567890-0987',
-        text: '最低30分,最高80分',
+        text: faker.lorem.words(),
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C92",
         icon: '', // 选项的Icon
         inputType: '', // 'select', 'input', 'select-input',
@@ -50,7 +50,7 @@ export default Route.extend({
       Ember.Object.create({
         selected: '',
         renderId: '4567890-0987',
-        text: '最低20分,最高60分',
+        text: faker.lorem.words(),
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C93",
         icon: '', // 选项的Icon
         inputType: '', // 'select', 'input', 'select-input',
@@ -63,7 +63,7 @@ export default Route.extend({
       Ember.Object.create({
         selected: '',
         renderId: '4567890-0987',
-        text: '最低60分,最高100分',
+        text: faker.lorem.words(),
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C94",
         icon: '', // 选项的Icon
         inputType: '', // 'select', 'input', 'select-input',
@@ -79,22 +79,9 @@ export default Route.extend({
 
       nodes:[
         {
-          title:faker.address.streetAddress(true),
+          title: faker.lorem.words(),
           description: faker.lorem.paragraph(),
-          images: [
-            {
-              natural:'/images/sample-1.jpg',
-              thumbnail:'/images/sample-1-thumbnail.jpg',
-            },
-            {
-              natural:'/images/sample-2.jpg',
-              thumbnail:'/images/sample-2-thumbnail.jpg',
-            },
-            {
-              natural:'/images/sample-3.jpg',
-              thumbnail:'/images/sample-3-thumbnail.jpg',
-            }
-          ],
+          images: '',
           typeName:'分值打分题',
           renderId: '4567890-0987',
           quesType: 'slider', //select, fill, slider

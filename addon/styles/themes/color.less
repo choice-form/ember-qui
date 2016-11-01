@@ -290,3 +290,58 @@ button {
   color: @secondary;
   background-color: @primary;
 }
+
+
+//-----------------------------------------------------
+
+.noUi-background {
+  background: @secondary;
+  box-shadow: 0 0 0 1px fade(@secondary, 50%), 0 0 0 1px @primary;
+}
+
+.noUi-connect {
+  background: @contrast;
+}
+
+.noUi-target.noUi-connect {
+  box-shadow: 0 0 0 1px @contrast;
+}
+
+.noUi-handle {
+  border: 1px solid fade(@primary, 50%);
+  background: @secondary;
+  box-shadow: inset 0 0 1px @secondary, inset 0 1px 7px fade(@primary, 10%), 0 3px 6px -3px fade(@primary, 50%);
+}
+
+.noUi-active {
+  box-shadow: inset 0 0 1px @secondary, inset 0 1px 7px fade(@primary, 50%), 0 3px 6px -3px fade(@primary, 50%);
+}
+
+.noUi-handle:after, .noUi-handle:before {
+  background: fade(@primary, 50%);
+}
+
+[disabled] .noUi-connect, [disabled].noUi-connect {
+  background: #B8B8B8
+}
+
+.noUi-pips {
+  color: #999
+}
+
+.noUi-value-sub {
+  color: #ccc;
+}
+
+.noUi-marker {
+  background: #CCC
+}
+
+.noUi-marker-large, .noUi-marker-sub {
+  background: #AAA
+}
+
+.noUi-tooltip {
+  border: 1px solid #D9D9D9;
+  background: #fff;
+}
