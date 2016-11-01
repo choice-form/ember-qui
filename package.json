@@ -1,6 +1,6 @@
 {
   "name": "@choiceform/ember-cform-ui",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "description": "UI components for q.cform.io",
   "main": "index.js",
   "directories": {
@@ -34,10 +34,12 @@
     "ember-cli-htmlbars": "^1.1.0",
     "ember-cli-less": "1.5.3",
     "ember-composable-helpers": "1.1.2",
+    "ember-cli-nouislider": "0.10.0",
     "ember-truth-helpers": "1.2.0",
     "fastclick": "^1.0.6",
     "less-plugin-autoprefix": "^1.5.1",
-    "masonry-layout": "^4.1.1"
+    "masonry-layout": "^4.1.1",
+    "sortablejs": "^1.4.2"
   },
   "devDependencies": {
     "broccoli-asset-rev": "^2.5.0",
@@ -51,7 +53,6 @@
     "ember-cli-htmlbars-inline-precompile": "^0.3.5",
     "ember-cli-inject-live-reload": "^1.4.1",
     "ember-cli-node-assets": "^0.1.4",
-    "ember-cli-nouislider": "0.10.0",
     "ember-cli-qunit": "^3.0.2",
     "ember-cli-release": "^1.0.0-beta.2",
     "ember-cli-sri": "^2.1.1",
