@@ -14,53 +14,6 @@ module.exports = {
         css: {'app': '/assets/bundle.css'},
         js: '/assets/bundle.js',
       },
-    // },
-    // cssModules: {
-    //   plugins: [
-    //     require('postcss-import'),
-    //     require('postcss-extend'),
-    //     require('postcss-fallback'),
-    //     require('postcss-sassy-mixins'),
-    //     require('rucksack-css')({ alias: false, hexRGBA: false, fallbacks: true }),
-    //     require('postcss-cssnext'),
-    //     require('postcss-browser-reporter')
-    //   ],
-    //   virtualModules: {
-    //     'ui-colors': {
-    //       'ui-white': '#fff',
-    //       'ui-purple': '#5940aa',
-    //       'ui-blue': '#1894f2',
-    //       'ui-green': '#2ecc71',
-    //       'ui-tomato': '#e74c3c',
-    //       'ui-golden': '#f1c40f',
-    //       'ui-light': 'color(#bdc3c7 a(24%))',
-    //       'ui-fade-silver': 'color(#bdc3c7 a(48%))',
-    //       'ui-silver': '#bdc3c7',
-    //       'ui-gray': '#919ba2',
-    //       'ui-slate': '#4e5b68',
-    //       'ui-dark-slate': '#34495e'
-    //     },
-    //     'ui-radius': {
-    //       'radius-s': '2px',
-    //       'radius-m': '3px',
-    //       'radius-l': '4px'
-    //     },
-    //     'ui-spacing': {
-    //       'spacing-xs': '6px',
-    //       'spacing-s': '8px',
-    //       'spacing-m': '12px',
-    //       'spacing-l': '24px',
-    //       'spacing-xl': '48px'
-    //     },
-    //     'ui-zindex': {
-    //       'ui-loading': 60,
-    //       'ui-notify': 50,
-    //       'ui-dialog': 40,
-    //       'ui-curtain': 30,
-    //       'ui-dropdown': 20,
-    //       'ui-menu': 10
-    //     }
-    //   }
     },
     lessOptions: {
       plugins: [autoprefixPlugin]
@@ -75,6 +28,11 @@ module.exports = {
         import: {
           include: [{ path: 'dist/masonry.pkgd.js' }]
         }
+      },
+      sortablejs: {
+        import: {
+          include: [{ path: 'Sortable.js' }]
+        }
       }
     }
   },
@@ -88,8 +46,8 @@ module.exports = {
 
     app.import(`${app.bowerDirectory}/device.js/lib/device.js`);
     app.import(`./vendor/shims/device.js`);
-
     app.import(`./vendor/shims/masonry.js`);
+    app.import(`./vendor/shims/sortable.js`);
 
     app.import(`./vendor/mobiscroll/js/mobiscroll.custom-3.0.0-beta6.min.js`);
     app.import(`./vendor/mobiscroll/_css/mobiscroll.animation-3.0.0-beta6.css`);
@@ -121,11 +79,12 @@ module.exports = {
     const publicTree = this._super.treeForPublic.apply(this, arguments);
     publicTree && trees.push(publicTree);
 
-    trees.push(LessCompiler(
+    const themesTree = LessCompiler(
       './public/themes', 'theme-basic.less', 'assets/theme-basic.css', {
         plugins: [autoprefixPlugin]
       }
-    ));
+    );
+    trees.push(themesTree);
 
     return mergeTrees(trees, { overwrite: true });
   }
