@@ -16,7 +16,7 @@ export default Route.extend({
           typeName: '选择题',
           quesType: 'picture-choice', //select, fill
           selectType: 'radio',
-          showStyle: 'waterfull',
+          showStyle: 'pinterest',
           textDirection:'in-block', //in-block ,out-block, empty
           pictureSize: 'picture-large',  //picture-large, picture-small
           uuid: faker.date.between('2016-01-01', '2016-12-31'),
@@ -105,7 +105,7 @@ export default Route.extend({
           typeName: '选择题',
           quesType: 'picture-choice', //select, fill
           selectType: 'radio',
-          showStyle: 'waterfull',
+          showStyle: 'pinterest',
           textDirection:'out-block', //in-block ,out-block, empty
           pictureSize: 'picture-large',  //picture-large, picture-small
           uuid: faker.date.between('2016-01-01', '2016-12-31'),
@@ -194,7 +194,7 @@ export default Route.extend({
           typeName: '选择题',
           quesType: 'picture-choice', //select, fill
           selectType: 'radio',
-          showStyle: 'waterfull',
+          showStyle: 'pinterest',
           textDirection:'empty', //in-block ,out-block, empty
           pictureSize: 'picture-large',  //picture-large, picture-small
           uuid: faker.date.between('2016-01-01', '2016-12-31'),

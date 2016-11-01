@@ -42,11 +42,8 @@ export default Component.extend({
     return 'text';
   }),
 
-  svg: computed('option.inputRule', function () {
-    const icon = `#${get(this, 'option.inputRule')}`;
-    return htmlSafe(`<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="16px" height="16px" viewBox="0 0 16 16">
-        <use xlink:href=${icon}></use>
-      </svg>`);
+  svgName: computed('option.inputRule', function () {
+    return get(this, 'option.inputRule');
   }),
 
 
@@ -71,15 +68,20 @@ export default Component.extend({
     },
   },
 
+  mobiClassName: computed('option.inputRule', function () {
+    const type = get(this, 'option.inputRule');
+    if(['date', 'time', 'timeRange', 'dateRange'].indexOf(type) > -1){
+      return 'ui-menu';
+    }
+    return null;
+  }),
+
   didRender(){
     const mobiService = get(this, 'mobiService');
     const type = get(this, 'option.inputRule');
     const input = this.element.getElementsByTagName('input')[0];
     mobiInit(input, {
       type: type,
-      onInit: () => {
-        input.setAttribute('class', 'ui-menu');
-      }
     });
   }
 

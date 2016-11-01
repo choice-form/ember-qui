@@ -13,10 +13,10 @@
     </label>
   </div>
   <h4>{{tips}}</h4>
-  {{#if (eq svgState 'success')}}
+  {{#if (eq svgState 'location-successful')}}
     <p>{{node.value}}</p>
   {{/if}}
-  {{#if (eq svgState 'failed')}}
+  {{#if (eq svgState 'location-failed')}}
     <button>Try again</button>
   {{/if}}
 </div>

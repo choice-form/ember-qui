@@ -56,9 +56,9 @@ export default Component.extend({
 
   didRender(){
     const showStyle = get(this, 'node.showStyle');
-    if(showStyle == 'waterfull'){
-      const waterfullBox = this.element.parentNode.parentNode;
-      const newMasonry = new Masonry(waterfullBox);
+    if(showStyle == 'pinterest'){
+      const pinterestBox = this.element.parentNode.parentNode;
+      const newMasonry = new Masonry(pinterestBox);
     }
 
 

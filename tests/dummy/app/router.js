@@ -26,8 +26,9 @@ Router.map(function() {
   this.route('question-picture-choice-vertical', { path: 'picture-vertical' });
   this.route('question-picture-choice-grid', { path: 'picture-grid' });
   this.route('question-picture-choice-matrix', { path: 'picture-matrix' });
-  this.route('question-picture-choice-waterfull', { path: 'picture-waterfull' });
+  this.route('question-picture-choice-pinterest', { path: 'picture-pinterest' });
   this.route('question-picture-superscript', { path: 'picture-superscript' });
+  this.route('question-verification', { path: 'verification-message' });
   this.route('test');
 });
 
