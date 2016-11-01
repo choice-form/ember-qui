@@ -59,6 +59,7 @@ export default Route.extend({
         {icon: "gift"},
         {icon: "shapes"},
         {icon: "bell"},
+        {icon: "trash"},
       ],
       basic: [
         {icon: "checkbox"},
@@ -81,6 +82,9 @@ export default Route.extend({
       location: [
         {icon: "location"},
         {icon: "positioning"},
+      ],
+      large: [
+        {icon: "upload-image"},
       ]
     };
   }

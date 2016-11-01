@@ -35,6 +35,18 @@ html.desktop {
         }
       }
     }
+    & .ui-file-upload {
+      &:hover {
+        border: 1px solid @primary;
+        & .clear:hover {
+          color: @primary;
+        }
+        & .upload-again:hover {
+          color: @secondary;
+          background-color: @primary;
+        }
+      }
+    }
   }
 }
 
@@ -195,6 +207,25 @@ input[type="radio"]:checked {
           fill: @primary;
         }
       }
+    }
+  }
+}
+
+& .ui-file-upload {
+  border: 1px solid fade(@primary, 50%);
+  & .upload-item {
+    & > svg {
+      fill: fade(@primary, 50%);
+    }
+  }
+  & .upload-footer {
+    border-top: 1px solid fade(@primary, 50%);
+    & .clear {
+      color: fade(@primary, 50%);
+    }
+    & .upload-again {
+      color: @primary;
+      border: 1px solid fade(@primary, 50%);
     }
   }
 }
