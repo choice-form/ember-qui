@@ -3,7 +3,8 @@
   <div class="upload-footer">
     <a class="clear">{{clearSvg}}</a>
     <a class="upload-again">
-      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="16px" height="16px" viewBox="0 0 16 16">
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="16px"
+           height="16px" viewBox="0 0 16 16">
         <use xlink:href="#refresh"></use>
       </svg>
       <span>Upload again</span>
@@ -22,6 +23,8 @@
       <span>Upload Picture</span>
     </label>
   </div>
-  <span>{{option.text}}</span>
+  {{#if option.text}}
+    <span>{{option.text}}</span>
+  {{/if}}
   {{img}}
 {{/if}}
