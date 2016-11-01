@@ -10,19 +10,15 @@
     </div>
     <img src={{option.image}}/>
     <a class="clear">
-      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="16px" height="16px" viewBox="0 0 16 16">
-        <use xlink:href="#trash"></use>
-      </svg>
+      {{ui-question/-node/svg-item icon="trash"}}
     </a>
   {{else}}
-    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="64px" height="64px" viewBox="0 0 64 64">
-      <use xlink:href="#upload-image"></use>
-    </svg>
+    {{ui-question/-node/svg-item icon="upload-image"}}
   {{/if}}
 
   <label for={{option.uuid}}>
-    {{svg}}
-    <span>Upload Picture</span>
+    {{ui-question/-node/svg-item icon=this_icon}}
+    <span>{{uploadText}}</span>
   </label>
 </div>
 
