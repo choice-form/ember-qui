@@ -22,6 +22,7 @@ export default Route.extend({
       typeName:'抽奖节点',
       quesType: 'lottery',
       isReward:true,
+      buttonText: '前往领取',
       uuid: '002',
       rewardTime:'2016-11-11 00:00',
       handleEvents: {

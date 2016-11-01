@@ -24,6 +24,7 @@ export default Route.extend({
           renderId: '4567890-0987',
           quesType: 'verification',
           verificationType: 'v-code', //message, password, v-code
+          vCodeImage: '',
           uuid: '002',
           isMust:true,
           number:'3',

@@ -44,9 +44,7 @@
             <div class="ui-message">
               <div class="ui-text">
                 {{ui-question/-node/input-cell type='url' value='' placeholder='请输入密码' svgName='int'}}
-                <a class="button message">
-                  <span>获取信息</span>
-                </a>
+                {{ui-addon/button className='message' text='获取信息'}}
               </div>
             </div>
           {{/if}}
@@ -60,11 +58,7 @@
 
 
   {{#if node.isReward}}
-    <div class="ember-view submit-actions">
-      <button>
-        <span>Next</span>
-      </button>
-    </div>
+    {{ui-addon/button className='submit-actions' text=node.buttonText}}
   {{/if}}
 
 </section>
