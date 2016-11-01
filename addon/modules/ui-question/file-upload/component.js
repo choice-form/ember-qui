@@ -21,6 +21,10 @@ export default Component.extend({
       </svg>`);
   }),
 
+  uploadState:computed('option.selected', function () {
+    return get(this, 'option.selected') ? ' success' : null;
+  }),
+
   actions: {
     /**
      * change事件Input
