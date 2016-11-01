@@ -24,6 +24,11 @@ module.exports = {
           include: [{ path: 'lib/fastclick.js' }]
         }
       },
+      imagesloaded: {
+        import: {
+          include: [{ path: 'imagesloaded.pkgd.js' }]
+        }
+      },
       ['masonry-layout']: {
         import: {
           include: [{ path: 'dist/masonry.pkgd.js' }]
@@ -46,6 +51,7 @@ module.exports = {
 
     app.import(`${app.bowerDirectory}/device.js/lib/device.js`);
     app.import(`./vendor/shims/device.js`);
+    app.import(`./vendor/shims/imagesloaded.js`);
     app.import(`./vendor/shims/masonry.js`);
     app.import(`./vendor/shims/sortable.js`);
 

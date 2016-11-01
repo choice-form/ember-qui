@@ -12,6 +12,7 @@ module.exports = {
       this.addBowerPackageToProject('devicejs'),
       this.addBowerPackageToProject('nouislider'),
       this.addPackageToProject('fastclick'),
+      this.addPackageToProject('imagesloaded'),
       this.addPackageToProject('less-plugin-autoprefix'),
       this.addPackageToProject('masonry-layout'),
       this.addPackageToProject('sortablejs'),
