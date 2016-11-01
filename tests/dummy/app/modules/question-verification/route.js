@@ -18,19 +18,11 @@ export default Route.extend({
             {
               natural:'/images/sample-1.jpg',
               thumbnail:'/images/sample-1-thumbnail.jpg',
-            },
-            {
-              natural:'/images/sample-2.jpg',
-              thumbnail:'/images/sample-2-thumbnail.jpg',
-            },
-            {
-              natural:'/images/sample-3.jpg',
-              thumbnail:'/images/sample-3-thumbnail.jpg',
             }
           ],
           typeName:'验证节点',
           renderId: '4567890-0987',
-          quesType: 'verification	',
+          quesType: 'verification',
           verificationType: 'message', //message, password, VCode
           uuid: '002',
           isMust:true,
