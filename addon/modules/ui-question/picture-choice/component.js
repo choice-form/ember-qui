@@ -24,12 +24,12 @@ export default Component.extend({
    */
   image: computed('option.image', function () {
     const image = get(this, 'option.image');
-    if(image && image.length){
+    if (image && image.length) {
       return htmlSafe(`<div class="attachment"><img src=${image}></div>`);
-    }else return '';
+    } else return '';
   }),
 
-  svg: computed('option.selected', 'option.icon', function() {
+  svg: computed('option.selected', 'option.icon', function () {
     return get(this, 'uiService').getOptionSvg(
       get(this, 'option.selected'), get(this, 'option.icon')
     );
@@ -41,7 +41,7 @@ export default Component.extend({
      * click事件
      */
     handleOptionClick(){
-      this.handleEvents.handleOptionClick(get(this, 'option'),get(this,'node'));
+      this.handleEvents.handleOptionClick(get(this, 'option'), get(this, 'node'));
     },
 
     /**
@@ -50,9 +50,9 @@ export default Component.extend({
     handleOptionInput(e){
       const value = e.target.value;
       set(this, 'option.value', value);
-      this.handleEvents.handleOptionInput(get(this, 'option'),get(this,'node'));
+      this.handleEvents.handleOptionInput(get(this, 'option'), get(this, 'node'));
     },
   },
 
 
-}).reopenClass({positionalParams: ['node','option', 'handleEvents']});
+}).reopenClass({positionalParams: ['node', 'option', 'handleEvents']});

@@ -1,21 +1,18 @@
 .progressive-image {
   position: relative;
   overflow: hidden;
-
-  > img {
+  & img {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     opacity: 0;
-    transition: opacity 1s;
-
+    transition: opacity 1s ease;
     &.loaded {
       opacity: 1;
     }
   }
-
-  > .thumbnail {
+  & .thumbnail {
     filter: blur(50px);
   }
 }

@@ -74,6 +74,7 @@
           bottom: 0;
           left: 0;
           right: 0;
+          font-size: smaller;
         }
       }
     }
@@ -227,7 +228,7 @@
 .picture-choice.pinterest {
   padding: 0;
   & .cell {
-    &:not(.insert-block) {
+    & .ui-picture-choice:not(.insert-block) {
       & .pic-description {
         padding: 0 1rem;
       }
@@ -248,5 +249,37 @@
         }
       }
     }
+  }
+}
+
+html.desktop,
+html.tablet,
+html.mobile.landscape {
+  .picture-choice.grid {
+    & .cell {
+      &:nth-child(odd) {
+        padding-right: .75rem;
+      }
+      &:nth-child(even) {
+        padding-left: .75rem;
+      }
+    }
+  }
+}
+
+html.mobile.portrait {
+  .picture-choice.grid {
+    margin: 1rem -1rem 0 -1rem;
+    & .cell {
+      &:nth-child(odd) {
+        padding-right: .25rem;
+      }
+      &:nth-child(even) {
+        padding-left: .25rem;
+      }
+    }
+  }
+  .picture-choice.matrix {
+    margin: 1rem -1rem 0 -1rem;
   }
 }

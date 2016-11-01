@@ -5,9 +5,9 @@
         type="checkbox"
       onclick={{action 'handleOptionClick'}}
     >
-    <label for={{node.uuid}}>
+    <label class={{buttonState}} for={{node.uuid}}>
       <div class="select-container">
-        {{svg}}
+        {{ui-addon/svg-item icon=svgState size="40px" viewBox="40"}}
         {{ui-addon/active-line-animation}}
       </div>
     </label>
@@ -17,6 +17,6 @@
     <p>{{node.value}}</p>
   {{/if}}
   {{#if (eq svgState 'location-failed')}}
-    <button>Try again</button>
+    <a class="button secondary">Try again</a>
   {{/if}}
 </div>

@@ -1,6 +1,7 @@
 .location {
   & .cell {
     & .ui-location {
+      text-align: center;
       & .pin {
         display: block;
         padding: 3rem 0;
@@ -16,13 +17,6 @@
           opacity: 0;
           margin: 0 auto;
           border: none;
-          &:checked {
-            & + label {
-              & svg {
-
-              }
-            }
-          }
         }
         & label {
           cursor: pointer;
@@ -37,44 +31,60 @@
             width: 8rem;
             height: 8rem;
             z-index: 2;
+            color: currentColor;
+            & svg {
+              display: block;
+              position: absolute;
+              width: 5rem;
+              height: 5rem;
+              left: 0;
+              right: 0;
+              top: 0;
+              bottom: 0;
+              margin: auto;
+            }
             & .active-line-container {
               margin-top: 1rem;
+              & .active-line {
+                top: 0;
+                height: 3rem;
+              }
             }
-            & .active-line {
-              top: 0;
-              height: 3rem;
-            }
-          }
-          & svg {
-            display: block;
-            position: absolute;
-            width: 5rem;
-            height: 5rem;
-            left: 0;
-            right: 0;
-            top: 0;
-            bottom: 0;
-            margin: auto;
-          }
-          & .spinner {
-            display: none;
           }
         }
         &.positioning {
 
         }
         &.successful {
-
-        }
-        &.failed {
           & label {
 
           }
+        }
+        &.failed {
+          padding-bottom: 1rem;
         }
       }
       & h4 {
         display: block;
         text-align: center;
+      }
+      & a.button {
+        display: inline-block;
+        margin-top: 1rem;
+      }
+    }
+  }
+}
+
+html.desktop {
+
+}
+
+html.mobile.portrait {
+  .location {
+    & .cell {
+      & .ui-location {
+        padding-bottom: 1.5rem;
       }
     }
   }

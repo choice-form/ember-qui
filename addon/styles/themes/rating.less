@@ -1,3 +1,13 @@
+.question-header {
+  & + .control.rating {
+    & .cell {
+      &:first-child {
+        padding-top: 1.5rem;
+      }
+    }
+  }
+}
+
 .rating {
   & .cell {
     &:not(:last-child) {
@@ -33,13 +43,6 @@
           position: relative;
         }
       }
-      & label {
-        cursor: pointer;
-        float: left;
-        width: 100%;
-        text-align: center;
-        margin: .5rem 0;
-      }
       & input {
         position: absolute;
         right: 0;
@@ -51,19 +54,31 @@
         margin: 0;
         border: none;
       }
-      & .select-container {
-        position: relative;
+      & label {
+        cursor: pointer;
+        float: left;
         width: 100%;
-        height: 100%;
-        max-width: 3rem;
-        margin: 0 auto;
-        & .active-line-container {
-          margin-top: -50%;
-        }
-        & svg {
-          display: block;
+        text-align: center;
+        margin: .5rem 0;
+        & .select-container {
+          position: relative;
           width: 100%;
           height: 100%;
+          max-width: 3rem;
+          margin: 0 auto;
+          & svg {
+            display: block;
+            width: 100%;
+            height: 100%;
+          }
+          & .rating-emoji {
+            display: block;
+            font-size: 3rem;
+            line-height: 3rem;
+          }
+          & .active-line-container {
+            margin-top: -50%;
+          }
         }
       }
     }
@@ -104,8 +119,21 @@
   }
 }
 
-.rating-emoji {
-  display: block;
-  font-size: 3rem;
-  line-height: 3rem;
+html.desktop {
+  & .ui-rating {
+    & input:checked {
+      & + label {
+        & svg {
+          opacity: 1;
+        }
+      }
+    }
+    & svg {
+      opacity: .8;
+      transition: opacity 200ms ease;
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
 }

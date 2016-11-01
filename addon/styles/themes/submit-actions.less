@@ -16,3 +16,28 @@
     outline-style: none;
   }
 }
+
+html.tablet.portrait,
+html.mobile.landscape {
+  & .submit-actions {
+    padding: 2rem 0;
+  }
+}
+
+html.mobile.portrait {
+  & .submit-actions {
+    padding: 2rem 1.5rem;
+    margin: 2rem 0;
+    & button {
+      font-size: 1.2rem;
+      padding: 1.5rem 2rem;
+      &:only-of-type {
+        float: none;
+        width: 100%;
+      }
+      &:nth-of-type(2) {
+        width: 50%;
+      }
+    }
+  }
+}

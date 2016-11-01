@@ -31,30 +31,123 @@ article {
   & + .control {
     padding-top: 0;
   }
-  & + .control.rating {
-    & .cell {
-      &:first-child {
-        padding-top: 1.5rem;
-      }
+}
+
+html.desktop {
+  & body {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+  & article {
+    min-width: 480px;
+  }
+}
+
+html.desktop,
+html.tablet.landscape {
+  article.one-by-one {
+    & .page-header {
+      border: none;
     }
   }
-  & + .control.file-upload {
-    &:before {
-      left: 1.725rem;
-      right: 1.725rem;
+  section {
+    & > div:only-child {
+      &:before {
+        content: "";
+        position: absolute;
+        left: 1rem;
+        right: 1rem;
+        top: 0;
+        height: 1px;
+        background-color: currentColor;
+      }
     }
   }
 }
 
-.button {
-  cursor: pointer;
-  display: block;
-  padding: .5rem;
-  border-radius: 3px;
-  text-align: center;
-  & span,
-  & svg {
-    display: inline-block;
-    vertical-align: middle;
+html.desktop,
+html.tablet,
+html.mobile.landscape {
+  & section {
+    & > div:only-child {
+      position: relative;
+      text-align: center;
+      & > button:only-child {
+        float: none;
+        width: 10rem;
+      }
+    }
+  }
+}
+
+html.tablet.portrait {
+  & article {
+    max-width: 70vw;
+  }
+}
+
+html.mobile.portrait,
+html.mobile.landscape,
+html.tablet.portrait {
+  & article.one-by-one {
+    & .attachment {
+      padding: 0;
+    }
+  }
+  & .page-header {
+    & h2 {
+      text-align: center;
+    }
+  }
+}
+
+html.tablet.portrait,
+html.mobile.landscape {
+  & article {
+    max-width: 70vw;
+  }
+  & .row:last-child {
+    &:before {
+      display: none;
+    }
+  }
+}
+
+html.mobile.portrait {
+  font-size: 14px;
+  & article {
+    padding: 0;
+    padding-bottom: 8rem;
+    margin-bottom: -8rem;
+  }
+  & .page-header {
+    padding: 1.5rem;
+  }
+  & section {
+
+  }
+  & .wrapper {
+    overflow: hidden;
+    padding: .5rem;
+  }
+  & .row:last-child {
+    padding-bottom: 1rem;
+    &:before {
+      display: none;
+    }
+  }
+  & footer {
+    height: 8rem;
+    padding-top: 2rem;
+    margin: 0 1.5rem;
+    border-top-width: 1px;
+    border-top-style: solid;
+    & svg:not(:root) {
+      height: 1rem;
+    }
+    & span {
+      font-size: x-small;
+    }
   }
 }

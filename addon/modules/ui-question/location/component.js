@@ -6,44 +6,47 @@ import get from 'ember-metal/get';
 import set from 'ember-metal/set';
 
 
-
 export default Component.extend({
   layout,
 
   checked: false,
 
-  tagName:'',
+  tagName: '',
 
 
   //状态，location、positioning、location-successful、location-failed
-  svgState : 'location',
+  svgState: 'location',
 
   // '' 'positioning' 'successful' 'failed'
   locationState: '',
 
-  svg: computed('svgState', function () {
-    const icon = get(this, 'svgState');
-
-    return htmlSafe(`<svg class="pin-icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="40px" height="40px" viewBox="0 0 40 40">
-        <use xlink:href=#${icon}></use>
-      </svg>`);
+  buttonState: computed('svgState', function () {
+    const state = get(this, 'svgState');
+    if (state === 'positioning') {
+      return 'cc';
+    }
+    if (state === 'location-successful') {
+      return "cbc sc";
+    }
+    if (state === 'location-failed') {
+      return "pc";
+    }
+    return "cbc sc";
   }),
 
-
   tips: computed('svgState', function () {
-  const state = get(this, 'svgState');
-  if(state === 'positioning'){
-    return 'Positioning...';
-  }
-  if(state === 'location-successful'){
-    return "Successful";
-  }
-  if(state === 'location-failed'){
-    return "Failed, Please";
-  }
-  return "Where are you?";
-}),
-
+    const state = get(this, 'svgState');
+    if (state === 'positioning') {
+      return 'Positioning...';
+    }
+    if (state === 'location-successful') {
+      return "Successful";
+    }
+    if (state === 'location-failed') {
+      return "Failed, Please";
+    }
+    return "Where are you?";
+  }),
 
 
   actions: {
@@ -56,17 +59,17 @@ export default Component.extend({
       set(this, 'locationState', 'positioning');
       const that = this;
       setTimeout(function () {
-        if(Math.random()*10 > 5){
+        if (Math.random() * 10 > 5) {
           set(that, 'svgState', 'location-successful');
           set(that, 'locationState', 'successful');
-        }else{
-          set(that, 'locationState', 'failed');
+        } else {
           set(that, 'svgState', 'location-failed');
+          set(that, 'locationState', 'failed');
         }
-      },2000);
+      }, 2000);
 
       //this.handleEvents.handleOptionClick(get(this, 'option'),get(this,'node'));
     },
   },
 
-}).reopenClass({ positionalParams: ['node','option','handleEvents']});
+}).reopenClass({positionalParams: ['node', 'option', 'handleEvents']});

@@ -1,3 +1,12 @@
+.question-header {
+  & + .control.file-upload {
+    &:before {
+      left: 1.725rem;
+      right: 1.725rem;
+    }
+  }
+}
+
 .file-upload {
   display: flex;
   flex-direction: row;
@@ -98,6 +107,17 @@ html.desktop {
   & .file-upload {
     & input[type="file"] {
       pointer-events: none;
+    }
+  }
+}
+
+html.mobile {
+  & .file-upload {
+    flex-direction: column;
+    & .cell {
+      & label {
+        padding: 1rem .5rem;
+      }
     }
   }
 }

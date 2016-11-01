@@ -4,258 +4,102 @@
 @contrast: #CA2027;
 @neutrals: gray;
 
-.primary {
-  &.color {
-    color: @primary;
-    &.fade80 {
-      color: fade(@primary, 80%);
-    }
-    &.fade50 {
-      color: fade(@primary, 50%);
-    }
-    &.fade30 {
-      color: fade(@primary, 30%);
-    }
-    &.fade10 {
-      color: fade(@primary, 10%);
-    }
-  }
-  &.background-color {
-    background-color: @primary;
-    &.fade80 {
-      background-color: fade(@primary, 80%);
-    }
-    &.fade50 {
-      background-color: fade(@primary, 50%);
-    }
-    &.fade30 {
-      background-color: fade(@primary, 30%);
-    }
-    &.fade10 {
-      background-color: fade(@primary, 10%);
-    }
-  }
-  &.fill {
-    fill: @primary;
-    &.fade80 {
-      fill: fade(@primary, 80%);
-    }
-    &.fade50 {
-      fill: fade(@primary, 50%);
-    }
-    &.fade30 {
-      fill: fade(@primary, 30%);
-    }
-    &.fade10 {
-      fill: fade(@primary, 10%);
-    }
-  }
-  &.border {
-    border-color: @primary;
-    &.fade80 {
-      border-color: fade(@primary, 80%);
-    }
-    &.fade50 {
-      border-color: fade(@primary, 50%);
-    }
-    &.fade30 {
-      border-color: fade(@primary, 30%);
-    }
-    &.fade10 {
-      border-color: fade(@primary, 10%);
-    }
-  }
-}
+.pc { color: @primary;  }
+.pcf80 { color: fade(@primary, 80%); }
+.pcf50 { color: fade(@primary, 50%); }
+.pcf30 { color: fade(@primary, 30%); }
+.pcf10 { color: fade(@primary, 10%); }
 
-.secondary {
-  &.color {
-    color: @secondary;
-    &.fade80 {
-      color: fade(@secondary, 80%);
-    }
-    &.fade50 {
-      color: fade(@secondary, 50%);
-    }
-    &.fade30 {
-      color: fade(@secondary, 30%);
-    }
-    &.fade10 {
-      color: fade(@secondary, 10%);
-    }
-  }
-  &.background-color {
-    background-color: @secondary;
-    &.fade80 {
-      background-color: fade(@secondary, 80%);
-    }
-    &.fade50 {
-      background-color: fade(@secondary, 50%);
-    }
-    &.fade30 {
-      background-color: fade(@secondary, 30%);
-    }
-    &.fade10 {
-      background-color: fade(@secondary, 10%);
-    }
-  }
-  &.fill {
-    fill: @secondary;
-    &.fade80 {
-      fill: fade(@secondary, 80%);
-    }
-    &.fade50 {
-      fill: fade(@secondary, 50%);
-    }
-    &.fade30 {
-      fill: fade(@secondary, 30%);
-    }
-    &.fade10 {
-      fill: fade(@secondary, 10%);
-    }
-  }
-  &.border {
-    border-color: @secondary;
-    &.fade80 {
-      border-color: fade(@secondary, 80%);
-    }
-    &.fade50 {
-      border-color: fade(@secondary, 50%);
-    }
-    &.fade30 {
-      border-color: fade(@secondary, 30%);
-    }
-    &.fade10 {
-      border-color: fade(@secondary, 10%);
-    }
-  }
-}
+.pbc { background-color: @primary;  }
+.pbcf80 { background-color: fade(@primary, 80%); }
+.pbcf50 { background-color: fade(@primary, 50%); }
+.pbcf30 { background-color: fade(@primary, 30%); }
+.pbcf10 { background-color: fade(@primary, 10%); }
 
-.contrast {
-  &.color {
-    color: @contrast;
-    &.fade80 {
-      color: fade(@contrast, 80%);
-    }
-    &.fade50 {
-      color: fade(@contrast, 50%);
-    }
-    &.fade30 {
-      color: fade(@contrast, 30%);
-    }
-    &.fade10 {
-      color: fade(@contrast, 10%);
-    }
-  }
-  &.background-color {
-    background-color: @contrast;
-    &.fade80 {
-      background-color: fade(@contrast, 80%);
-    }
-    &.fade50 {
-      background-color: fade(@contrast, 50%);
-    }
-    &.fade30 {
-      background-color: fade(@contrast, 30%);
-    }
-    &.fade10 {
-      background-color: fade(@contrast, 10%);
-    }
-  }
-  &.fill {
-    fill: @contrast;
-    &.fade80 {
-      fill: fade(@contrast, 80%);
-    }
-    &.fade50 {
-      fill: fade(@contrast, 50%);
-    }
-    &.fade30 {
-      fill: fade(@contrast, 30%);
-    }
-    &.fade10 {
-      fill: fade(@contrast, 10%);
-    }
-  }
-  &.border {
-    border-color: @contrast;
-    &.fade80 {
-      border-color: fade(@contrast, 80%);
-    }
-    &.fade50 {
-      border-color: fade(@contrast, 50%);
-    }
-    &.fade30 {
-      border-color: fade(@contrast, 30%);
-    }
-    &.fade10 {
-      border-color: fade(@contrast, 10%);
-    }
-  }
-}
+.pf { fill: @primary;  }
+.pff80 { fill: fade(@primary, 80%); }
+.pff50 { fill: fade(@primary, 50%); }
+.pff30 { fill: fade(@primary, 30%); }
+.pff10 { fill: fade(@primary, 10%); }
 
-.neutrals {
-  &.color {
-    color: @neutrals;
-    &.fade80 {
-      color: fade(@neutrals, 80%);
-    }
-    &.fade50 {
-      color: fade(@neutrals, 50%);
-    }
-    &.fade30 {
-      color: fade(@neutrals, 30%);
-    }
-    &.fade10 {
-      color: fade(@neutrals, 10%);
-    }
-  }
-  &.background-color {
-    background-color: @neutrals;
-    &.fade80 {
-      background-color: fade(@neutrals, 80%);
-    }
-    &.fade50 {
-      background-color: fade(@neutrals, 50%);
-    }
-    &.fade30 {
-      background-color: fade(@neutrals, 30%);
-    }
-    &.fade10 {
-      background-color: fade(@neutrals, 10%);
-    }
-  }
-  &.fill {
-    fill: @neutrals;
-    &.fade80 {
-      fill: fade(@neutrals, 80%);
-    }
-    &.fade50 {
-      fill: fade(@neutrals, 50%);
-    }
-    &.fade30 {
-      fill: fade(@neutrals, 30%);
-    }
-    &.fade10 {
-      fill: fade(@neutrals, 10%);
-    }
-  }
-  &.border {
-    border-color: @neutrals;
-    &.fade80 {
-      border-color: fade(@neutrals, 80%);
-    }
-    &.fade50 {
-      border-color: fade(@neutrals, 50%);
-    }
-    &.fade30 {
-      border-color: fade(@neutrals, 30%);
-    }
-    &.fade10 {
-      border-color: fade(@neutrals, 10%);
-    }
-  }
-}
+.pb { border-color: @primary;  }
+.pbf80 { border-color: fade(@primary, 80%); }
+.pbf50 { border-color: fade(@primary, 50%); }
+.pbf30 { border-color: fade(@primary, 30%); }
+.pbf10 { border-color: fade(@primary, 10%); }
 
+.sc { color: @secondary;  }
+.scf80 { color: fade(@secondary, 80%); }
+.scf50 { color: fade(@secondary, 50%); }
+.scf30 { color: fade(@secondary, 30%); }
+.scf10 { color: fade(@secondary, 10%); }
+
+.sbc { background-color: @secondary;  }
+.sbcf80 { background-color: fade(@secondary, 80%); }
+.sbcf50 { background-color: fade(@secondary, 50%); }
+.sbcf30 { background-color: fade(@secondary, 30%); }
+.sbcf10 { background-color: fade(@secondary, 10%); }
+
+.sf { fill: @secondary;  }
+.sff80 { fill: fade(@secondary, 80%); }
+.sff50 { fill: fade(@secondary, 50%); }
+.sff30 { fill: fade(@secondary, 30%); }
+.sff10 { fill: fade(@secondary, 10%); }
+
+.sb { border-color: @secondary;  }
+.sbf80 { border-color: fade(@secondary, 80%); }
+.sbf50 { border-color: fade(@secondary, 50%); }
+.sbf30 { border-color: fade(@secondary, 30%); }
+.sbf10 { border-color: fade(@secondary, 10%); }
+
+.cc { color: @contrast;  }
+.ccf80 { color: fade(@contrast, 80%); }
+.ccf50 { color: fade(@contrast, 50%); }
+.ccf30 { color: fade(@contrast, 30%); }
+.ccf10 { color: fade(@contrast, 10%); }
+
+.cbc { background-color: @contrast;  }
+.cbcf80 { background-color: fade(@contrast, 80%); }
+.cbcf50 { background-color: fade(@contrast, 50%); }
+.cbcf30 { background-color: fade(@contrast, 30%); }
+.cbcf10 { background-color: fade(@contrast, 10%); }
+
+.cf { fill: @contrast;  }
+.cff80 { fill: fade(@contrast, 80%); }
+.cff50 { fill: fade(@contrast, 50%); }
+.cff30 { fill: fade(@contrast, 30%); }
+.cff10 { fill: fade(@contrast, 10%); }
+
+.cb { border-color: @contrast;  }
+.cbf80 { border-color: fade(@contrast, 80%); }
+.cbf50 { border-color: fade(@contrast, 50%); }
+.cbf30 { border-color: fade(@contrast, 30%); }
+.cbf10 { border-color: fade(@contrast, 10%); }
+
+
+.nc { color: @neutrals;  }
+.ncf80 { color: fade(@neutrals, 80%); }
+.ncf50 { color: fade(@neutrals, 50%); }
+.ncf30 { color: fade(@neutrals, 30%); }
+.ncf10 { color: fade(@neutrals, 10%); }
+
+.nbc { background-color: @neutrals;  }
+.nbcf80 { background-color: fade(@neutrals, 80%); }
+.nbcf50 { background-color: fade(@neutrals, 50%); }
+.nbcf30 { background-color: fade(@neutrals, 30%); }
+.nbcf10 { background-color: fade(@neutrals, 10%); }
+
+.nf { fill: @neutrals;  }
+.nff80 { fill: fade(@neutrals, 80%); }
+.nff50 { fill: fade(@neutrals, 50%); }
+.nff30 { fill: fade(@neutrals, 30%); }
+.nff10 { fill: fade(@neutrals, 10%); }
+
+.nb { border-color: @neutrals;  }
+.nbf80 { border-color: fade(@neutrals, 80%); }
+.nbf50 { border-color: fade(@neutrals, 50%); }
+.nbf30 { border-color: fade(@neutrals, 30%); }
+.nbf10 { border-color: fade(@neutrals, 10%); }
 
 html.desktop {
   body {
@@ -371,10 +215,12 @@ input:not(.ui-menu) {
   }
 }
 
-input[type="checkbox"]:checked,
-input[type="radio"]:checked {
-  & + label {
-    color: @contrast;
+.picture-choice,
+.choice {
+  & input:checked {
+    & + label {
+      color: @contrast;
+    }
   }
 }
 
@@ -397,7 +243,7 @@ input[type="radio"]:checked {
   & input:checked {
     & + label {
       & .attachment:after {
-        box-shadow: inset 0 0 0 2px @contrast, inset 0 0 0 4px @secondary;
+        box-shadow: inset 0 0 0 1px @secondary, inset 0 0 0 3px @contrast, inset 0 0 0 5px @secondary;
       }
     }
   }
@@ -420,38 +266,7 @@ input[type="radio"]:checked {
   }
 }
 
-.ui-location {
-  & label {
-    color: @secondary;
-    background-color: @contrast;
-  }
-  & .pin {
-    &.positioning {
-      & label {
-        background-color: @secondary;
-        & svg {
-          fill: @contrast;
-        }
-      }
-    }
-    &.successful {
-      & label {
-        background-color: @contrast;
-        & svg {
-          fill: @secondary;
-        }
-      }
-    }
-    &.failed {
-      & label {
-        background-color: @secondary;
-        & svg {
-          fill: @primary;
-        }
-      }
-    }
-  }
-}
+
 
 
 
