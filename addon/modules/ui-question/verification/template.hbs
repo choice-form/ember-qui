@@ -1,26 +1,63 @@
-<div class="ui-text message">
-  {{ui-question/-node/input-cell
-    class='phone'
-    type='tel'
-    value=''
-    placeholder='请填写手机号'
-    svgName='moblie'
-  }}
+{{#if (eq node.verificationType 'message')}}
+  <div class="ui-message">
+    <div class="ui-text phone">
+      {{ui-question/-node/input-cell
+        type='tel'
+        value=''
+        placeholder='请填写手机号'
+        svgName='moblie'
+      }}
+    </div>
 
-  {{ui-question/-node/input-cell
-    class='code'
-    type='tel'
-    value=''
-    placeholder='请填写手机号'
-    svgName='int'
-  }}
+    <div class="ui-text message-code">
+      {{ui-question/-node/input-cell
+        type='tel'
+        value=''
+        placeholder='请填写手机号'
+        svgName='int'
+      }}
+    </div>
 
-  <div class="verificationButton">
-    <span>获取验证码</span>
+    <div class="v-code">
+      <span>获取验证码</span>
+    </div>
+
+    <p>
+      If you do not receive the message in the next 1 minutes,please go through the verification process one more time.
+    </p>
+
   </div>
 
-  <p>
+{{/if}}
 
-  </p>
+{{#if (eq node.verificationType 'password')}}
+  <div class="ui-password">
+    <div class="ui-text">
+      {{ui-question/-node/input-cell
+        type='url'
+        value=''
+        placeholder='请输入密码'
+        svgName='int'
+      }}
+    </div>
+  </div>
+{{/if}}
 
-</div>
+{{#if (eq node.verificationType 'v-code')}}
+  <div class="ui-verificationCode">
+    <div class="ui-text">
+      {{ui-question/-node/input-cell
+        type='url'
+        value=''
+        placeholder='请输入密码'
+        svgName='int'
+      }}
+    </div>
+    <div class="v-code">
+      <img src="" alt="">
+    </div>
+  </div>
+
+{{/if}}
+
+

@@ -30,7 +30,7 @@ export default Component.extend({
 
   isSpecialComponent: computed('node.quesType', function () {
     const quesType = get(this, 'node.quesType');
-    if (['dropdown', 'region', 'location', 'matrix', 'intro-page', 'end-page'].indexOf(quesType) > -1) {
+    if (['dropdown', 'region', 'location', 'matrix', 'intro-page', 'end-page', 'verification'].indexOf(quesType) > -1) {
       return true;
     } else {
       return false;
@@ -38,14 +38,15 @@ export default Component.extend({
   }),
 
 
-  isPinterest: true,
+  isLoading: false,
 
   didRender(){
     const showStyle = get(this, 'node.showStyle');
     const quesType = get(this, 'node.quesType');
     if(quesType == "picture-choice"){
+      set(this, 'isLoading', true);
       this.control = this.element.getElementsByClassName('control')[0];
-      imagesLoaded(this.control, () => {
+      imagesLoaded(this.element, () => {
         if (showStyle == 'pinterest') {
           this.newMasonry = new Masonry(this.control);
         }

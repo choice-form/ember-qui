@@ -1,0 +1,26 @@
+<header class="reward-header">
+  {{#if node.weixinImage}}
+    <div class="img" style="border-radius: 50%; width:100px; height:100px; overflow:hidden">
+      <img src={{node.weixinImage}}>
+    </div>
+  {{/if}}
+  <h2 class="reward-Name">{{node.rewardName}}</h2>
+  <h4 class="reward-title">{{node.title}}</h4>
+  <span class="reward-description">{{node.description}}</span>
+  {{#if (eq node.rewardType 'custom')}}
+    <div>{{node.rewardVaule}}元</div>
+  {{/if}}
+</header>
+
+<div class="control reward">
+  <div class="check-readed">
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="16px" height="16px" viewBox="0 0 16 16">
+      <use xlink:href={{concat "#checkbox"}}></use>
+    </svg>
+    我已经阅读了
+    <span>免责申明</span>
+    的内容
+  </div>
+</div>
+
+{{ui-question/-node/footer}}

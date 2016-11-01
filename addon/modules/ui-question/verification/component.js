@@ -11,4 +11,9 @@ export default Component.extend({
   attributeBindings:['data-render-id'],
   'data-render-id': computed.oneWay('node.renderId'),
 
+
+
+
+
+
 }).reopenClass({ positionalParams: ['node','handleEvents']});

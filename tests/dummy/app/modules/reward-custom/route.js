@@ -7,29 +7,17 @@ import faker from 'faker';
 export default Route.extend({
   model() {
 
-    let options = [];
 
     return {
-      nodes:[
-        {
-          title: faker.lorem.words(),
-          description: faker.lorem.paragraph(),
-          images: [
-            {
-              natural:'/images/sample-1.jpg',
-              thumbnail:'/images/sample-1-thumbnail.jpg',
-            }
-          ],
-          typeName:'验证节点',
-          renderId: '4567890-0987',
-          quesType: 'verification',
-          verificationType: 'message', //message, password, VCode
-          uuid: '002',
-          isMust:true,
-          number:'3',
-          options,
-        }
-      ],
+      rewardName: '通用汽车调查有奖活动',
+      title: faker.lorem.words(),
+      description: faker.lorem.paragraph(),
+      rewardVaule: '1',
+      weixinImage: '',
+      typeName:'验证节点',
+      quesType: 'reward',
+      rewardType: 'custom', //weixin, custom,
+      uuid: '002',
 
       handleEvents: {
         handleOptionClick: (option, node) => {
