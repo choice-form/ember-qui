@@ -22,6 +22,10 @@ export default Component.extend({
     return get(this, 'option.selected') ? ' success' : null;
   }),
 
+  uploadButton:computed('option.selected', function () {
+    return get(this, 'option.selected') ? ' secondary' : ' contrast';
+  }),
+
   uploadText : computed('option.selected', function () {
     return get(this, 'option.selected') ? "refresh upload" : "Upload Picture";
   }),

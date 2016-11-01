@@ -6,7 +6,7 @@ import get from 'ember-metal/get';
 export default Component.extend({
   layout,
   tagName:'',
-  width: '16px',
-  height: '16px',
+  size: '16px',
+  viewBox: '16',
 
 });

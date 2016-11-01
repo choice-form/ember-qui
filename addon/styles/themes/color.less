@@ -1,7 +1,261 @@
 @primary: gray;
+
 @secondary: white;
 @contrast: #CA2027;
 @neutrals: gray;
+
+.primary {
+  &.color {
+    color: @primary;
+    &.fade80 {
+      color: fade(@primary, 80%);
+    }
+    &.fade50 {
+      color: fade(@primary, 50%);
+    }
+    &.fade30 {
+      color: fade(@primary, 30%);
+    }
+    &.fade10 {
+      color: fade(@primary, 10%);
+    }
+  }
+  &.background-color {
+    background-color: @primary;
+    &.fade80 {
+      background-color: fade(@primary, 80%);
+    }
+    &.fade50 {
+      background-color: fade(@primary, 50%);
+    }
+    &.fade30 {
+      background-color: fade(@primary, 30%);
+    }
+    &.fade10 {
+      background-color: fade(@primary, 10%);
+    }
+  }
+  &.fill {
+    fill: @primary;
+    &.fade80 {
+      fill: fade(@primary, 80%);
+    }
+    &.fade50 {
+      fill: fade(@primary, 50%);
+    }
+    &.fade30 {
+      fill: fade(@primary, 30%);
+    }
+    &.fade10 {
+      fill: fade(@primary, 10%);
+    }
+  }
+  &.border {
+    border-color: @primary;
+    &.fade80 {
+      border-color: fade(@primary, 80%);
+    }
+    &.fade50 {
+      border-color: fade(@primary, 50%);
+    }
+    &.fade30 {
+      border-color: fade(@primary, 30%);
+    }
+    &.fade10 {
+      border-color: fade(@primary, 10%);
+    }
+  }
+}
+
+.secondary {
+  &.color {
+    color: @secondary;
+    &.fade80 {
+      color: fade(@secondary, 80%);
+    }
+    &.fade50 {
+      color: fade(@secondary, 50%);
+    }
+    &.fade30 {
+      color: fade(@secondary, 30%);
+    }
+    &.fade10 {
+      color: fade(@secondary, 10%);
+    }
+  }
+  &.background-color {
+    background-color: @secondary;
+    &.fade80 {
+      background-color: fade(@secondary, 80%);
+    }
+    &.fade50 {
+      background-color: fade(@secondary, 50%);
+    }
+    &.fade30 {
+      background-color: fade(@secondary, 30%);
+    }
+    &.fade10 {
+      background-color: fade(@secondary, 10%);
+    }
+  }
+  &.fill {
+    fill: @secondary;
+    &.fade80 {
+      fill: fade(@secondary, 80%);
+    }
+    &.fade50 {
+      fill: fade(@secondary, 50%);
+    }
+    &.fade30 {
+      fill: fade(@secondary, 30%);
+    }
+    &.fade10 {
+      fill: fade(@secondary, 10%);
+    }
+  }
+  &.border {
+    border-color: @secondary;
+    &.fade80 {
+      border-color: fade(@secondary, 80%);
+    }
+    &.fade50 {
+      border-color: fade(@secondary, 50%);
+    }
+    &.fade30 {
+      border-color: fade(@secondary, 30%);
+    }
+    &.fade10 {
+      border-color: fade(@secondary, 10%);
+    }
+  }
+}
+
+.contrast {
+  &.color {
+    color: @contrast;
+    &.fade80 {
+      color: fade(@contrast, 80%);
+    }
+    &.fade50 {
+      color: fade(@contrast, 50%);
+    }
+    &.fade30 {
+      color: fade(@contrast, 30%);
+    }
+    &.fade10 {
+      color: fade(@contrast, 10%);
+    }
+  }
+  &.background-color {
+    background-color: @contrast;
+    &.fade80 {
+      background-color: fade(@contrast, 80%);
+    }
+    &.fade50 {
+      background-color: fade(@contrast, 50%);
+    }
+    &.fade30 {
+      background-color: fade(@contrast, 30%);
+    }
+    &.fade10 {
+      background-color: fade(@contrast, 10%);
+    }
+  }
+  &.fill {
+    fill: @contrast;
+    &.fade80 {
+      fill: fade(@contrast, 80%);
+    }
+    &.fade50 {
+      fill: fade(@contrast, 50%);
+    }
+    &.fade30 {
+      fill: fade(@contrast, 30%);
+    }
+    &.fade10 {
+      fill: fade(@contrast, 10%);
+    }
+  }
+  &.border {
+    border-color: @contrast;
+    &.fade80 {
+      border-color: fade(@contrast, 80%);
+    }
+    &.fade50 {
+      border-color: fade(@contrast, 50%);
+    }
+    &.fade30 {
+      border-color: fade(@contrast, 30%);
+    }
+    &.fade10 {
+      border-color: fade(@contrast, 10%);
+    }
+  }
+}
+
+.neutrals {
+  &.color {
+    color: @neutrals;
+    &.fade80 {
+      color: fade(@neutrals, 80%);
+    }
+    &.fade50 {
+      color: fade(@neutrals, 50%);
+    }
+    &.fade30 {
+      color: fade(@neutrals, 30%);
+    }
+    &.fade10 {
+      color: fade(@neutrals, 10%);
+    }
+  }
+  &.background-color {
+    background-color: @neutrals;
+    &.fade80 {
+      background-color: fade(@neutrals, 80%);
+    }
+    &.fade50 {
+      background-color: fade(@neutrals, 50%);
+    }
+    &.fade30 {
+      background-color: fade(@neutrals, 30%);
+    }
+    &.fade10 {
+      background-color: fade(@neutrals, 10%);
+    }
+  }
+  &.fill {
+    fill: @neutrals;
+    &.fade80 {
+      fill: fade(@neutrals, 80%);
+    }
+    &.fade50 {
+      fill: fade(@neutrals, 50%);
+    }
+    &.fade30 {
+      fill: fade(@neutrals, 30%);
+    }
+    &.fade10 {
+      fill: fade(@neutrals, 10%);
+    }
+  }
+  &.border {
+    border-color: @neutrals;
+    &.fade80 {
+      border-color: fade(@neutrals, 80%);
+    }
+    &.fade50 {
+      border-color: fade(@neutrals, 50%);
+    }
+    &.fade30 {
+      border-color: fade(@neutrals, 30%);
+    }
+    &.fade10 {
+      border-color: fade(@neutrals, 10%);
+    }
+  }
+}
+
 
 html.desktop {
   body {
@@ -32,18 +286,6 @@ html.desktop {
             background-color: fade(@secondary, 10%);
             box-shadow: inset 0 0 0 1px @secondary, inset 0 0 0 2px @primary;
           }
-        }
-      }
-    }
-    & .ui-file-upload {
-      &:hover {
-        border: 1px solid @primary;
-        & .clear:hover {
-          color: @primary;
-        }
-        & .upload-again:hover {
-          color: @secondary;
-          background-color: @primary;
         }
       }
     }
@@ -211,24 +453,103 @@ input[type="radio"]:checked {
   }
 }
 
-& .ui-file-upload {
-  border: 1px solid fade(@primary, 50%);
-  & .upload-item {
-    & > svg {
-      fill: fade(@primary, 50%);
-    }
-  }
-  & .upload-footer {
-    border-top: 1px solid fade(@primary, 50%);
-    & .clear {
-      color: fade(@primary, 50%);
-    }
-    & .upload-again {
-      color: @primary;
+.file-upload {
+  & .cell {
+    & .ui-file-upload {
       border: 1px solid fade(@primary, 50%);
+      & .upload-item {
+        & > svg {
+          fill: fade(@primary, 50%);
+        }
+        & label {
+
+        }
+        &.success {
+          & label {
+
+          }
+          & a.clear {
+
+          }
+        }
+      }
     }
   }
 }
+
+html.desktop {
+  .icon-button {
+    &.primary:hover {
+      color: @primary;
+    }
+    &.contrast:hover {
+      color: @contrast;
+    }
+  }
+  .button {
+    &.primary:hover {
+
+    }
+    &.secondary:hover {
+      color: @secondary;
+      background-color: @primary;
+    }
+    &.contrast:hover {
+      background-color: @primary;
+    }
+  }
+}
+
+html.tablet,
+html.mobile {
+  .icon-button {
+    &.primary:active {
+      color: @primary;
+    }
+    &.contrast:active {
+      color: @contrast;
+    }
+  }
+  .button {
+    &.primary:active {
+
+    }
+    &.secondary:active {
+      color: @secondary;
+      background-color: @primary;
+    }
+    &.contrast:active {
+      background-color: @primary;
+    }
+  }
+}
+
+.icon-button {
+  transition: color 200ms ease;
+  &.primary {
+    color: fade(@primary, 50%);
+  }
+  &.contrast {
+    color: fade(@contrast, 50%);
+  }
+}
+
+.button {
+  transition: background-color 200ms ease, color 200ms ease, border 200ms ease;
+  &.primary {
+    color: @secondary;
+    background-color: @primary;
+  }
+  &.secondary {
+    color: @primary;
+    border: 1px solid @primary;
+  }
+  &.contrast {
+    color: @secondary;
+    background-color: @contrast;
+  }
+}
+
 
 button {
   background-color: transparent;
