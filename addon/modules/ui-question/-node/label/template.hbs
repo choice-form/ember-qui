@@ -1,8 +1,10 @@
-<label for={{option.uuid}}>
-  <div class="select-container">
-    {{svg}}
-    {{ui-addon/active-line-animation circle=true}}
-  </div>
-  {{yield}}
-  <span>{{option.text}}</span>
-</label>
+{{#if hasBlock}}
+  {{yield svg}}
+{{else}}
+    <div class="select-container">
+      {{svg}}
+      {{ui-addon/active-line-animation circle=true}}
+    </div>
+    {{yield}}
+    <span>{{option.text}}</span>
+{{/if}}

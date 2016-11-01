@@ -1,10 +1,10 @@
 import Component from 'ember-component';
 import layout from './template';
 import get from 'ember-metal/get';
+import set from 'ember-metal/set';
 import computed from 'ember-computed';
 import {htmlSafe} from 'ember-string';
 import inject from 'ember-service/inject';
-import Masonry from 'masonry';
 
 export default Component.extend({
   layout,
@@ -53,20 +53,6 @@ export default Component.extend({
       this.handleEvents.handleOptionInput(get(this, 'option'),get(this,'node'));
     },
   },
-
-  didRender(){
-    const showStyle = get(this, 'node.showStyle');
-    if(showStyle == 'pinterest'){
-      const pinterestBox = this.element.parentNode.parentNode;
-      const newMasonry = new Masonry(pinterestBox);
-    }
-
-
-  },
-
-  willRender(){
-    /*newMasonry.remove();*/
-  }
 
 
 }).reopenClass({positionalParams: ['node','option', 'handleEvents']});

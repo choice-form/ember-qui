@@ -1,12 +1,14 @@
 import Component from 'ember-component';
 import layout from './template';
-import computed from 'ember-computed';
+import computed, { alias } from 'ember-computed';
 import get from 'ember-metal/get';
 import inject from 'ember-service/inject';
 
 export default Component.extend({
   layout,
-  tagName: '',
+  tagName:'label',
+  attributeBindings: ['for'],
+  for: alias('option.uuid'),
 
   uiService: inject('service/icon'),
 

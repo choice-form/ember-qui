@@ -1,11 +1,26 @@
+<div class="ui-text message">
+  {{ui-question/-node/input-cell
+    class='phone'
+    type='tel'
+    value=''
+    placeholder='请填写手机号'
+    svgName='moblie'
+  }}
 
-<div class="message">
-  <input
-    type={{type}}
-      required
-    value={{option.value}}
-      placeholder={{option.placeholder}}
-    onchange={{action 'handleOptionInput'}}
-  >
-  {{svg}}
+  {{ui-question/-node/input-cell
+    class='code'
+    type='tel'
+    value=''
+    placeholder='请填写手机号'
+    svgName='int'
+  }}
+
+  <div class="verificationButton">
+    <span>获取验证码</span>
+  </div>
+
+  <p>
+
+  </p>
+
 </div>
