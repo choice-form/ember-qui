@@ -9,15 +9,15 @@ export default Route.extend({
     return {
       nodes: [
         {
-          title: '瀑布流 waterfull',
-          description: '文字在图片上 in-block',
+          title: 'Picture Pinterest insert-block',
+          description: faker.lorem.paragraph(),
           images: '',
           renderId:'775519',
           typeName: '选择题',
           quesType: 'picture-choice', //select, fill
           selectType: 'radio',
           showStyle: 'pinterest',
-          textDirection:'in-block', //in-block ,out-block, empty
+          textDirection:'insert-block', //in-block ,out-block, empty
           pictureSize: 'picture-large',  //picture-large, picture-small
           uuid: faker.date.between('2016-01-01', '2016-12-31'),
           isMust:false,
@@ -29,7 +29,7 @@ export default Route.extend({
               text: faker.lorem.sentence(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'radio', // 选项的Icon
-              image: '/images/sample-1.jpg',
+              image: '/images/sample-pinterest/sample-pinterest-1.jpg',
               inputType: '', // 'select', 'input', 'select-input, ower-input',
               inputRule: '', //输入控件初始化规则
               value: '',
@@ -41,7 +41,7 @@ export default Route.extend({
               text: faker.lorem.sentence(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'radio', // 选项的Icon
-              image: '/images/sample-2.jpg',
+              image: '/images/sample-pinterest/sample-pinterest-2.jpg',
               inputType: '', // 'select', 'input', 'select-input, ower-input',
               inputRule: '', //输入控件初始化规则
               value: '',
@@ -53,7 +53,7 @@ export default Route.extend({
               text: faker.lorem.paragraph(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'radio', // 选项的Icon
-              image: '/images/sample-3.jpg',
+              image: '/images/sample-pinterest/sample-pinterest-3.jpg',
               inputType: '', // 'select', 'input', 'select-input, ower-input',
               inputRule: '', //输入控件初始化规则
               value: '',
@@ -65,7 +65,7 @@ export default Route.extend({
               text: faker.lorem.sentence(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'radio', // 选项的Icon
-              image: '/images/sample-3.jpg',
+              image: '/images/sample-pinterest/sample-pinterest-4.jpg',
               inputType: '', // 'select', 'input', 'select-input, ower-input',
               inputRule: '', //输入控件初始化规则
               value: '',
@@ -77,7 +77,7 @@ export default Route.extend({
               text: faker.lorem.paragraph(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'radio', // 选项的Icon
-              image: '/images/sample-4.jpg',
+              image: '/images/sample-pinterest/sample-pinterest-5.jpg',
               inputType: '', // 'select', 'input', 'select-input, ower-input',
               inputRule: '', //输入控件初始化规则
               value: '',
@@ -89,7 +89,7 @@ export default Route.extend({
               text: faker.lorem.paragraph(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'radio', // 选项的Icon
-              image: '/images/sample-5.jpg',
+              image: '/images/sample-pinterest/sample-pinterest-6.jpg',
               inputType: '', // 'select', 'input', 'select-input, ower-input',
               inputRule: '', //输入控件初始化规则
               value: '',
@@ -98,8 +98,8 @@ export default Route.extend({
           ],
         },
         {
-          title: '瀑布流 waterfull',
-          description: '文字在图片下 out-block',
+          title: 'Picture Pinterest',
+          description: faker.lorem.paragraph(),
           images: '',
           renderId:'775519',
           typeName: '选择题',
@@ -118,7 +118,7 @@ export default Route.extend({
               text: faker.lorem.sentence(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'radio', // 选项的Icon
-              image: '/images/sample-1.jpg',
+              image: '/images/sample-pinterest/sample-pinterest-7.jpg',
               inputType: '', // 'select', 'input', 'select-input, ower-input',
               inputRule: '', //输入控件初始化规则
               value: '',
@@ -130,7 +130,7 @@ export default Route.extend({
               text: faker.lorem.sentence(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'radio', // 选项的Icon
-              image: '/images/sample-2.jpg',
+              image: '/images/sample-pinterest/sample-pinterest-8.jpg',
               inputType: '', // 'select', 'input', 'select-input, ower-input',
               inputRule: '', //输入控件初始化规则
               value: '',
@@ -142,7 +142,7 @@ export default Route.extend({
               text: faker.lorem.paragraph(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'radio', // 选项的Icon
-              image: '/images/sample-3.jpg',
+              image: '/images/sample-pinterest/sample-pinterest-9.jpg',
               inputType: '', // 'select', 'input', 'select-input, ower-input',
               inputRule: '', //输入控件初始化规则
               value: '',
@@ -154,7 +154,7 @@ export default Route.extend({
               text: faker.lorem.sentence(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'radio', // 选项的Icon
-              image: '/images/sample-3.jpg',
+              image: '/images/sample-pinterest/sample-pinterest-10.jpg',
               inputType: '', // 'select', 'input', 'select-input, ower-input',
               inputRule: '', //输入控件初始化规则
               value: '',
@@ -166,7 +166,7 @@ export default Route.extend({
               text: faker.lorem.paragraph(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'radio', // 选项的Icon
-              image: '/images/sample-4.jpg',
+              image: '/images/sample-pinterest/sample-pinterest-11.jpg',
               inputType: '', // 'select', 'input', 'select-input, ower-input',
               inputRule: '', //输入控件初始化规则
               value: '',
@@ -178,105 +178,15 @@ export default Route.extend({
               text: faker.lorem.paragraph(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'radio', // 选项的Icon
-              image: '/images/sample-5.jpg',
+              image: '/images/sample-pinterest/sample-pinterest-12.jpg',
               inputType: '', // 'select', 'input', 'select-input, ower-input',
               inputRule: '', //输入控件初始化规则
               value: '',
               placeholder: '',
             })
           ],
-        },
-        {
-          title: '瀑布流 waterfull',
-          description: '不显示文字 empty',
-          images: '',
-          renderId:'775519',
-          typeName: '选择题',
-          quesType: 'picture-choice', //select, fill
-          selectType: 'radio',
-          showStyle: 'pinterest',
-          textDirection:'empty', //in-block ,out-block, empty
-          pictureSize: 'picture-large',  //picture-large, picture-small
-          uuid: faker.date.between('2016-01-01', '2016-12-31'),
-          isMust:false,
-          number:'2',
-          options:[
-            Ember.Object.create({
-              selected: false,
-              renderId: '4567890-0987',
-              text: faker.lorem.sentence(),
-              uuid: faker.date.between('2016-01-01', '2016-12-31'),
-              icon: 'radio', // 选项的Icon
-              image: '/images/sample-1.jpg',
-              inputType: '', // 'select', 'input', 'select-input, ower-input',
-              inputRule: '', //输入控件初始化规则
-              value: '',
-              placeholder: '',
-            }),
-            Ember.Object.create({
-              selected: false,
-              renderId: '4567890-0987',
-              text: faker.lorem.sentence(),
-              uuid: faker.date.between('2016-01-01', '2016-12-31'),
-              icon: 'radio', // 选项的Icon
-              image: '/images/sample-2.jpg',
-              inputType: '', // 'select', 'input', 'select-input, ower-input',
-              inputRule: '', //输入控件初始化规则
-              value: '',
-              placeholder: '',
-            }),
-            Ember.Object.create({
-              selected: false,
-              renderId: '4567890-0987',
-              text: faker.lorem.paragraph(),
-              uuid: faker.date.between('2016-01-01', '2016-12-31'),
-              icon: 'radio', // 选项的Icon
-              image: '/images/sample-3.jpg',
-              inputType: '', // 'select', 'input', 'select-input, ower-input',
-              inputRule: '', //输入控件初始化规则
-              value: '',
-              placeholder: '',
-            }),
-            Ember.Object.create({
-              selected: false,
-              renderId: '4567890-0987',
-              text: faker.lorem.sentence(),
-              uuid: faker.date.between('2016-01-01', '2016-12-31'),
-              icon: 'radio', // 选项的Icon
-              image: '/images/sample-3.jpg',
-              inputType: '', // 'select', 'input', 'select-input, ower-input',
-              inputRule: '', //输入控件初始化规则
-              value: '',
-              placeholder: '',
-            }),
-            Ember.Object.create({
-              selected: false,
-              renderId: '4567890-0987',
-              text: faker.lorem.paragraph(),
-              uuid: faker.date.between('2016-01-01', '2016-12-31'),
-              icon: 'radio', // 选项的Icon
-              image: '/images/sample-4.jpg',
-              inputType: '', // 'select', 'input', 'select-input, ower-input',
-              inputRule: '', //输入控件初始化规则
-              value: '',
-              placeholder: '',
-            }),
-            Ember.Object.create({
-              selected: false,
-              renderId: '4567890-0987',
-              text: faker.lorem.paragraph(),
-              uuid: faker.date.between('2016-01-01', '2016-12-31'),
-              icon: 'radio', // 选项的Icon
-              image: '/images/sample-5.jpg',
-              inputType: '', // 'select', 'input', 'select-input, ower-input',
-              inputRule: '', //输入控件初始化规则
-              value: '',
-              placeholder: '',
-            })
-          ],
-        },
+        }
       ],
-
       handleEvents: {
         handleOptionClick: (option, node) => {
           console.log(option);
