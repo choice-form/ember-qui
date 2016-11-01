@@ -14,23 +14,12 @@ export default Component.extend({
     return quesType;
   }),
 
-  uploadIcon: computed('option.icon', function () {
-    const icon = get(this, 'option.icon');
-    return htmlSafe(`<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="64px" height="64px" viewBox="0 0 64 64">
-        <use xlink:href="#upload-image"></use>
-      </svg>`);
-  }),
-
   svg: computed('option.icon', function () {
     const icon = get(this, 'option.icon');
     return htmlSafe(`<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="16px" height="16px" viewBox="0 0 16 16">
         <use xlink:href="#${icon}"></use>
       </svg>`);
   }),
-
-  clearSvg: htmlSafe(`<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="16px" height="16px" viewBox="0 0 16 16">
-        <use xlink:href="#trash"></use>
-      </svg>`),
 
   actions: {
     /**
