@@ -82,7 +82,6 @@ export default Route.extend({
           console.log(option);
           console.log(node);
           if (option.toggleProperty('selected')) {
-
             options.forEach((opt) => {
               if (opt != option) {
                 set(opt, 'selected', false);

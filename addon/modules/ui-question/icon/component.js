@@ -18,6 +18,7 @@ export default Component.extend({
     },
   },
 
+
   svg:null,
 
   didReceiveAttrs(){

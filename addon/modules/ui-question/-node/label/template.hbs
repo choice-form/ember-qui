@@ -1,15 +1,26 @@
-{{#if (or emoji option.icon)}}
+{{#unless (or leftIcon rightIcon)}}
   <div class="select-container">
     {{#if emoji}}
-      <span class={{emojiClass}}>{{emoji}}</span>
+      <div class="emoji-wrapper">
+        <span class={{emojiClass}}>{{emoji}}</span>
+      </div>
     {{else}}
-      {{svg}}
+      <div class="svg-wrapper">
+        {{svg}}
+      </div>
     {{/if}}
     {{ui-addon/active-line-animation circle=true}}
   </div>
+{{/unless}}
+
+
+{{component leftIcon icon=icon size=size viewBox=viewBox class=class}}
+
+{{yield}}
+
+{{#if text}}
+<span>{{text}}</span>
 {{/if}}
 
-{{#if option.text}}
-  <span>{{option.text}}</span>
-{{/if}}
+{{component rightIcon icon=icon size=size viewBox=viewBox class=class}}
 

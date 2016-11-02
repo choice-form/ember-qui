@@ -8,7 +8,10 @@ export default Component.extend({
   layout,
   tagName:'label',
   attributeBindings: ['for'],
-  for: alias('option.uuid'),
+  for: alias('uuid'),
+
+  classNameBindings: ['class_name'],
+  class_name: alias('className'),
 
   uiService: inject('service/icon'),
 
@@ -16,5 +19,9 @@ export default Component.extend({
     return get(this, 'uiService').getOptionSvg(
       get(this, 'option.selected'), get(this, 'option.icon')
     );
-  })
+  }),
+
+  size: '16px',
+  viewBox: '16',
+
 }).reopenClass({positionalParams: ['option']});

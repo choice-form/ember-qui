@@ -17,9 +17,7 @@
   {{else}}
     {{ui-addon/svg-item icon="upload-image" size="64px" viewBox="64" class="upload-image-icon"}}
   {{/if}}
-
-  {{ui-addon/button className=uploadButton for=option.uuid leftIcon=this_icon text=uploadText}}
-
+  {{ui-question/-node/label uuid=option.uuid className=(concat 'button ' uploadButton) leftIcon='ui-addon/svg-item' icon=this_icon text=uploadText}}
 </div>
 
 {{#unless option.selected}}
