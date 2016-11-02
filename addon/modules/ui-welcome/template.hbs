@@ -1,7 +1,4 @@
 {{ui-question/-node/intro-cell intro}}
 <section>
-  {{ui-addon/button
-    nextButton=intro.nextButton
-    handleNextClick=intro.handleEvents.handleNextClick
-  }}
+  {{ui-question/-node/label tagName='button' handleClick=intro.handleEvents.handleNextClick text=intro.nextButton}}
 </section>
