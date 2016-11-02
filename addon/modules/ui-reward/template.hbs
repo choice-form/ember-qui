@@ -19,7 +19,9 @@
       {{/if}}
 
       <div class="reward">
-        <h2>{{node.rewardName}}</h2>
+        {{#if node.rewardName}}
+          <h2>{{node.rewardName}}</h2>
+        {{/if}}
         <div class="reward-contents">
           <h2>{{node.title}}</h2>
           <span class="reward-description">{{node.description}}</span>
