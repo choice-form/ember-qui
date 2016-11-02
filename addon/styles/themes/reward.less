@@ -1,10 +1,64 @@
-.reward-header {
-  & .reward-description {
+.reward-container {
+  &:before {
+    display: none;
+  }
+  & .row {
+    padding-top: 0;
+    &:before {
+      display: none;
+    }
+    & .wechat-profile {
+      padding-top: 4rem;
+      text-align: center;
+      & img {
+        width: 5rem;
+        height: 5rem;
+        border-radius: 50%;
+        overflow: hidden;
+      }
+      & span {
+        display: block;
+        margin-top: .5rem;
+      }
+    }
+    & .reward-header {
+      padding: 1rem;
+      text-align: center;
+      & .reward-contents {
+        padding: 2rem 0;
+        & h2 {
+          margin-bottom: 1rem;
+        }
+        & .reward-description {
 
+        }
+        & .current-time {
+          display: block;
+          margin-top: 1rem;
+          font-size: smaller;
+        }
+      }
+      & .currency {
+        margin: 3rem 0 1rem 0;
+        & label {
+          display: inline-block;
+          font-size: large;
+          font-weight: bold;
+          padding: 1rem 4rem;
+          border-radius: 3px;
+          & svg,
+          & span {
+            display: inline-block;
+            vertical-align: middle;
+          }
+        }
+      }
+    }
   }
 }
 
 .reward {
+  text-align: left;
   & .ui-qrcode {
     & p {
 
@@ -16,6 +70,29 @@
   & .ui-message {
     & .ui-text {
 
+    }
+  }
+  & .reward-description {
+    margin-bottom: 1rem;
+  }
+  & .disclaimer {
+    font-size: small;
+  }
+}
+
+
+
+html.mobile.portrait {
+  & .reward,
+  & .reward-header {
+    padding: 2rem 1.5rem;
+    & .reward-contents {
+      padding-top: 0;
+    }
+  }
+  & .reward {
+    & .disclaimer {
+      font-size: x-small;
     }
   }
 }

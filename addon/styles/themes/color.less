@@ -46,11 +46,9 @@ html.mobile.portrait {
   & .attachment.header {
     box-shadow: 0 4px 4px 0 fade(@primary, 30%);
   }
+  & .reward-header,
+  & .wrapper,
   & .page-header {
-    background-color: @secondary;
-    box-shadow: 0 4px 4px 0 fade(@primary, 30%);
-  }
-  & .wrapper {
     background-color: @secondary;
     box-shadow: 0 4px 4px 0 fade(@primary, 30%);
   }
@@ -59,6 +57,9 @@ html.mobile.portrait {
       background-color: @secondary;
       box-shadow: 0 4px 4px 0 fade(@primary, 30%);
     }
+  }
+  & .wechat-profile {
+    background-color: @secondary;
   }
 }
 
@@ -209,6 +210,21 @@ input {
 .icon {
   & .labels {
     border-top: 2px solid fade(@primary, 10%);
+  }
+}
+
+.reward-container {
+  & .reward-contents {
+    border-bottom: 1px solid fade(@primary, 50%);
+  }
+  & .currency label {
+    color: @contrast;
+    border: 2px solid @contrast;
+  }
+}
+.reward {
+  & .disclaimer {
+    color: fade(@primary, 50%);
   }
 }
 

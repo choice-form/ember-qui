@@ -1,10 +1,11 @@
 <section>
-  <div class="warapper">
+  <div class="warapper reward-container">
     <div class="row">
 
       {{#if (eq node.rewardType 'weixin')}}
         <div class="wechat-profile">
           <img src={{node.weixinImage}}>
+          <span>{{node.weixinID}}</span>
         </div>
       {{else}}
         <figure class="attachment">
@@ -19,11 +20,18 @@
 
       <header class="reward-header">
         <h2>{{node.rewardName}}</h2>
-        <h4>{{node.title}}</h4>
-        <span class="reward-description">{{node.description}}</span>
-        <span>{{node.rewardTime}}</span>
+        <div class="reward-contents">
+          <h2>{{node.title}}</h2>
+          <span class="reward-description">{{node.description}}</span>
+          <span class="current-time">{{node.rewardTime}}</span>
+        </div>
         {{#if (eq node.rewardType 'weixin')}}
-          <div>{{node.rewardVaule}}元</div>
+
+
+          <div class="currency">
+            <input type="checkbox" id={{node.uuid}}>
+            {{ui-question/-node/label svg=svg text=node.rewardVaule leftIcon="ui-addon/svg-item" icon=node.icon for=node.uuid}}
+          </div>
         {{/if}}
       </header>
 
@@ -50,7 +58,6 @@
             </div>
           {{/if}}
         {{/unless}}
-
         {{ui-addon/disclaimer}}
       </div>
 
@@ -62,5 +69,3 @@
   {{/if}}
 
 </section>
-
-{{ui-question/-node/footer}}

@@ -7,16 +7,18 @@ export default Route.extend({
 
 
     return {
-      rewardName: '通用汽车调查有奖活动',
+      rewardName: '',
       title: faker.lorem.words(),
       description: faker.lorem.paragraph(),
-      rewardVaule: '1',
-      weixinImage: '/images/sample-1.jpg',
-      typeName:'验证节点',
+      rewardVaule: ['$', faker.finance.mask()],
+      weixinImage: faker.image.avatar(),
+      weixinID: faker.name.findName(),
+      icon: 'gift',
+      typeName: '验证节点',
       quesType: 'reward',
       rewardType: 'weixin', //weixin, custom,
       uuid: '002',
-      rewardTime:'2016-11-11 00:00',
+      rewardTime: faker.date.past(),
       handleEvents: {
         handleOptionClick: (option, node) => {
         },
