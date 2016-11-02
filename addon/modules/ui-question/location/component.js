@@ -1,7 +1,6 @@
 import Component from 'ember-component';
 import computed from 'ember-computed';
 import layout from './template';
-import {htmlSafe} from 'ember-string';
 import get from 'ember-metal/get';
 import set from 'ember-metal/set';
 

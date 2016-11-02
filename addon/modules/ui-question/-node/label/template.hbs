@@ -1,10 +1,15 @@
-{{#if hasBlock}}
-  {{yield svg}}
-{{else}}
-    <div class="select-container">
+{{#if (or emoji option.icon)}}
+  <div class="select-container">
+    {{#if emoji}}
+      <span class={{emojiClass}}>{{emoji}}</span>
+    {{else}}
       {{svg}}
-      {{ui-addon/active-line-animation circle=true}}
-    </div>
-    {{yield}}
-    <span>{{option.text}}</span>
+    {{/if}}
+    {{ui-addon/active-line-animation circle=true}}
+  </div>
 {{/if}}
+
+{{#if option.text}}
+  <span>{{option.text}}</span>
+{{/if}}
+

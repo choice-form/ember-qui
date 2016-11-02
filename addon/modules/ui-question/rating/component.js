@@ -33,8 +33,6 @@ export default Component.extend({
         emoji && emoji.length == 2 && (array[i].emoji = emoji[0]);
       }
     }
-
-    console.log(array);
     return array;
   }),
 

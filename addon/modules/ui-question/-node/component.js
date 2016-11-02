@@ -44,7 +44,6 @@ export default Component.extend({
 
   didRender(){
     const showStyle = get(this, 'node.showStyle');
-    const quesType = get(this, 'node.quesType');
 
     if(showStyle == 'pinterest'){
       this.control = this.element.getElementsByClassName('control')[0];

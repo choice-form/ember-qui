@@ -1,6 +1,5 @@
 import Route from 'ember-route';
 import set from 'ember-metal/set';
-import Ember from 'ember';
 import faker from 'faker';
 
 /*eslint-disable no-console */

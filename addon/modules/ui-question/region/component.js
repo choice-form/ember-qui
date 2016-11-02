@@ -8,7 +8,7 @@ import {mobiInitTreeList} from '../../lib/mobile-factory'
 
 export default Component.extend({
   layout,
-  classNames:['ui-dropdown'],
+  classNames:['ui-region'],
   attributeBindings:['data-render-id'],
   'data-render-id': computed.oneWay('node.renderId'),
 
@@ -155,9 +155,9 @@ export default Component.extend({
 
   didRender(){
     const input = this.element.getElementsByClassName('region-list')[0];
-    const options = get(this, 'node.options');
     mobiInitTreeList(input, {
       placeholder: get(this, 'node.placeholder'),
+      /* eslint-disable no-unused-vars*/
       onSet: (event, inst)=>{
         //列表的索引值
         const indexs = event.valueText.split(' ');

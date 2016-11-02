@@ -3,7 +3,6 @@ import layout from './template';
 import computed from 'ember-computed';
 import get from 'ember-metal/get';
 import set from 'ember-metal/set';
-import {htmlSafe} from 'ember-string';
 import mobiInit from '../../../lib/mobile-factory'
 
 export default Component.extend({
@@ -53,7 +52,6 @@ export default Component.extend({
      */
     handleOptionInput(e){
       const value = e.currentTarget.value;
-      console.log(value);
       set(this, 'option.value', value);
       this.handleEvents.handleOptionInput(get(this, 'option'), get(this, 'node'));
     },
@@ -77,7 +75,6 @@ export default Component.extend({
   }),
 
   didRender(){
-    const mobiService = get(this, 'mobiService');
     const type = get(this, 'option.inputRule');
     const input = this.element.getElementsByTagName('input')[0];
     mobiInit(input, {
