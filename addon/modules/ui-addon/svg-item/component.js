@@ -7,4 +7,5 @@ export default Component.extend({
   tagName:'',
   size: '16px',
   viewBox: '16',
+
 });

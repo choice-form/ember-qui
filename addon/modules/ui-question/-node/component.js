@@ -8,7 +8,7 @@ import imagesLoaded from 'imagesloaded';
 
 export default Component.extend({
   layout,
-  tagName: 'row',
+  classNames:['row'],
   attributeBindings: ['data-render-id'],
   'data-render-id': alias('node.renderId'),
 

@@ -11,7 +11,7 @@ export default Route.extend({
         text: faker.address.streetAddress(true),
         renderId: '4567890-0987',
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
-        icon: 'svg-folder', // 选项的Icon
+        icon: 'menu', // 选项的Icon
         sort: 1,
         inputType: '', // 'select', 'input', 'select-input, ower-input',
         inputRule: '', //输入控件初始化规则
@@ -22,7 +22,7 @@ export default Route.extend({
         text: faker.address.streetAddress(true),
         renderId: '4567890-0987',
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
-        icon: 'svg-folder', // 选项的Icon
+        icon: 'menu', // 选项的Icon
         sort: 2,
         inputType: '', // 'select', 'input', 'select-input, ower-input',
         inputRule: '', //输入控件初始化规则
@@ -33,7 +33,7 @@ export default Route.extend({
         text: faker.address.streetAddress(true),
         renderId: '4567890-0987',
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
-        icon: 'svg-folder', // 选项的Icon
+        icon: 'menu', // 选项的Icon
         sort: 3,
         inputType: '', // 'select', 'input', 'select-input, ower-input',
         inputRule: '', //输入控件初始化规则
@@ -44,7 +44,7 @@ export default Route.extend({
         text: faker.address.streetAddress(true),
         renderId: '4567890-0987',
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
-        icon: 'svg-folder', // 选项的Icon
+        icon: 'menu', // 选项的Icon
         sort: 4,
         inputType: '', // 'select', 'input', 'select-input, ower-input',
         inputRule: '', //输入控件初始化规则
@@ -55,7 +55,7 @@ export default Route.extend({
         text: faker.address.streetAddress(true),
         renderId: '4567890-0987',
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
-        icon: 'svg-folder', // 选项的Icon
+        icon: 'menu', // 选项的Icon
         sort: 5,
         inputType: '', // 'select', 'input', 'select-input, ower-input',
         inputRule: '', //输入控件初始化规则
@@ -66,7 +66,7 @@ export default Route.extend({
         text: faker.address.streetAddress(true),
         renderId: '4567890-0987',
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
-        icon: 'svg-folder', // 选项的Icon
+        icon: 'menu', // 选项的Icon
         sort: 6,
         inputType: '', // 'select', 'input', 'select-input, ower-input',
         inputRule: '', //输入控件初始化规则
@@ -77,7 +77,7 @@ export default Route.extend({
         text: faker.address.streetAddress(true),
         renderId: '4567890-0987',
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
-        icon: 'svg-folder', // 选项的Icon
+        icon: 'menu', // 选项的Icon
         sort: 7,
         inputType: '', // 'select', 'input', 'select-input, ower-input',
         inputRule: '', //输入控件初始化规则
