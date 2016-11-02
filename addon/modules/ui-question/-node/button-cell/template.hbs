@@ -1,6 +1,6 @@
 {{#if prevButton}}
-  {{ui-addon/button className='prevButton' handerClick=(action 'handlePrevClick') text=prevButton}}
+  {{ui-question/-node/label tagName='button' class='prevButton' handleClick=(action 'handlePrevClick') text=prevButton}}
 {{/if}}
 {{#if nextButton}}
-  {{ui-addon/button className='nextButton' handerClick=(action 'handleNextClick') text=prevButton}}
+  {{ui-question/-node/label tagName='button' class='nextButton' handleClick=(action 'handleNextClick') text=prevButton}}
 {{/if}}

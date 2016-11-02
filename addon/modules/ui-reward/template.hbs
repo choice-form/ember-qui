@@ -43,7 +43,9 @@
             <div class="ui-message">
               <div class="ui-text">
                 {{ui-question/-node/input-cell type='url' value='' placeholder='Please enter a password' svgName='int'}}
-                {{ui-addon/button className='message' text='Get Password'}}
+
+                {{ui-question/-node/label tagName='button' text="获取验证码"}}
+
               </div>
             </div>
           {{/if}}
@@ -56,7 +58,7 @@
   </div>
 
   {{#if node.isReward}}
-    {{ui-addon/button className='submit-actions' text=node.buttonText}}
+    {{ui-question/-node/label tagName='button' text=node.buttonText}}
   {{/if}}
 
 </section>

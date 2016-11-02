@@ -1,4 +1,4 @@
-{{#unless (or leftIcon rightIcon)}}
+{{#if (or emoji svg)}}
   <div class="select-container">
     {{#if emoji}}
       <div class="emoji-wrapper">
@@ -11,7 +11,7 @@
     {{/if}}
     {{ui-addon/active-line-animation circle=true}}
   </div>
-{{/unless}}
+{{/if}}
 
 
 {{component leftIcon icon=icon size=size viewBox=viewBox iconClass=iconClass}}
