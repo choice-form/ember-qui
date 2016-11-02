@@ -1,10 +1,13 @@
-{{#if prevButton}}
-  <button onclick={{action 'handlePrevClick'}}>
-    <span>{{prevButton}}</span>
-  </button>
-{{/if}}
-{{#if nextButton}}
-  <button onclick={{action 'handleNextClick'}}>
-    <span>{{nextButton}}</span>
-  </button>
-{{/if}}
+<label class={{concat 'button ' className}} onclick={{handerClick}} for={{for}}>
+  {{yield}}
+  {{#if leftIcon}}
+    {{ui-addon/svg-item size=size viewbox=viewbox icon=leftIcon}}
+  {{/if}}
+  {{htmlIcon}}
+  {{#if text}}
+    <span>{{text}}</span>
+  {{/if}}
+  {{#if rightIcon}}
+    {{ui-addon/svg-item size=size viewbox=viewbox icon=rightIcon}}
+  {{/if}}
+</label>

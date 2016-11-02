@@ -1,0 +1,34 @@
+.height-fix() {
+  &:after {
+    display: table;
+    clear: both;
+    content: ' ';
+  }
+}
+
+.border(@top, @right, @bottom, @left, @height, @opacity) {
+  &:before {
+    content: '';
+    position: absolute;
+    top: @top;
+    bottom: @bottom;
+    left: @left;
+    right: @right;
+    height: @height;
+    opacity: @opacity;
+    background-color: currentColor;
+  }
+}
+
+.button {
+  cursor: pointer;
+  display: block;
+  padding: .5rem;
+  border-radius: 3px;
+  text-align: center;
+  & span,
+  & svg {
+    display: inline-block;
+    vertical-align: middle;
+  }
+}

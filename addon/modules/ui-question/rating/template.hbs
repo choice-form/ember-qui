@@ -7,31 +7,39 @@
 <table class={{concat 'ui-rating ' 'score-' option.count}} data-render-id={{option.renderId}}>
   <thead>
   <tr>
-  {{#each option.marks as |mark|}}
-    <td><span>{{mark}}</span></td>
-  {{/each}}
+    {{#each option.marks as |mark|}}
+      <td><span>{{mark}}</span></td>
+    {{/each}}
   </tr>
   </thead>
   <tbody>
   <tr>
-  {{#each graphs as |g|}}
-    <td>
-      <input
-        type="checkbox"
-        id={{g.uuid}}
-          value={{g.value}}
-        onclick={{action 'handleOptionClick'}}
-          checked={{g.checked}}
-      >
+    {{#each graphs as |g|}}
+      <td>
+        <input
+          type="checkbox"
+          id={{g.uuid}}
+            value={{g.value}}
+          onclick={{action 'handleOptionClick'}}
+            checked={{g.checked}}
+        >
 
-      <label for={{g.uuid}} value={{g.value}}>
-        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="16px"
-             height="16px" viewBox="0 0 16 16">
-          <use xlink:href="#{{g.icon}}" fill=""/>
-        </svg>
-      </label>
-    </td>
-  {{/each}}
+        <label for={{g.uuid}} value={{g.value}}>
+          <div class="select-container">
+            {{#if g.emoji}}
+              <span class="rating-emoji">{{g.emoji}}</span>
+
+            {{else}}
+              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 64 64">
+                <use xlink:href="#{{g.icon}}"/>
+              </svg>
+            {{/if}}
+
+            {{ui-addon/active-line-animation}}
+          </div>
+        </label>
+      </td>
+    {{/each}}
   </tr>
   </tbody>
 </table>

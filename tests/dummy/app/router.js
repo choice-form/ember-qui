@@ -17,13 +17,24 @@ Router.map(function() {
   this.route('question-ranking', { path: 'ranking' });
   this.route('question-dropdown', { path: 'dropdown' });
   this.route('question-icon', { path: 'icon' });
-  this.route('question-picture-choice', { path: 'picture-choice' });
   this.route('question-file-upload', { path: 'file-upload' });
   this.route('question-location', { path: 'location' });
+  this.route('question-region', { path: 'region' });
   this.route('question-intro-page', { path: 'intro-page' });
+  this.route('question-end-page', { path: 'end-page' });
   this.route('question-single', { path: 'single' });
+  this.route('question-picture-choice-vertical', { path: 'picture-vertical' });
+  this.route('question-picture-choice-grid', { path: 'picture-grid' });
+  this.route('question-picture-choice-matrix', { path: 'picture-matrix' });
+  this.route('question-picture-choice-pinterest', { path: 'picture-pinterest' });
+  this.route('question-picture-superscript', { path: 'picture-superscript' });
+  this.route('question-verification-message', { path: 'verification-message' });
+  this.route('question-verification-password', { path: 'verification-password' });
+  this.route('question-verification-v-code', { path: 'verification-v-code' });
+  this.route('reward-weixin', { path: 'reward-weixin' });
+  this.route('reward-custom', { path: 'reward-custom' });
+  this.route('reward-lottery', { path: 'reward-lottery' });
   this.route('test');
-
 });
 
 export default Router;

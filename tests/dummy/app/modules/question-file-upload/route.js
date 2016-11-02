@@ -23,10 +23,10 @@ export default Route.extend({
             Ember.Object.create({
               selected: false,
               renderId: faker.date.between('2016-01-01', '2016-12-31'),
-              text: '上传动物图片1',
+              text: 'Submit your photograph. You need to submit at least one photograph with the front view of face.',
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'upload', // 选项的Icon
-              image: '/images/sample-1.jpg',
+              image: '/images/sample-pinterest/sample-pinterest-4.jpg',
               inputType: '', // 'select', 'input', 'select-input, ower-input',
               inputRule: '', //输入控件初始化规则
               value: '',
@@ -35,10 +35,10 @@ export default Route.extend({
             Ember.Object.create({
               selected: false,
               renderId: faker.date.between('2016-01-01', '2016-12-31'),
-              text: '上传动物图片2',
+              text: 'Submit your photograph.',
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'upload', // 选项的Icon
-              image: '/images/sample-3.jpg',
+              image: '/images/sample-pinterest/sample-pinterest-5.jpg',
               inputType: '', // 'select', 'input', 'select-input, ower-input',
               inputRule: '', //输入控件初始化规则
               value: '',
@@ -47,10 +47,10 @@ export default Route.extend({
             Ember.Object.create({
               selected: false,
               renderId: faker.date.between('2016-01-01', '2016-12-31'),
-              text: '上传动物图片3',
+              text: '',
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'upload', // 选项的Icon
-              image: '/images/sample-2.jpg',
+              image: '/images/sample-pinterest/sample-pinterest-6.jpg',
               inputType: '', // 'select', 'input', 'select-input, ower-input',
               inputRule: '', //输入控件初始化规则
               value: '',

@@ -11,56 +11,66 @@ export default Route.extend({
       Ember.Object.create({
         selected: '',
         renderId: '4567890-0987',
-        text: '最低10分,最高100分',
+        text: faker.lorem.words(),
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
         icon: '', // 选项的Icon
         inputType: '', // 'select', 'input', 'select-input',
         inputRule: '', //输入控件初始化规则
-        value: '0',
+        value: 0,
+        minValue:3,
+        maxValue:10,
         placeholder: '',
       }),
       Ember.Object.create({
         selected: '',
         renderId: '4567890-0987',
-        text: '最低30分,最高100分',
+        text: faker.lorem.words(),
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C91",
         icon: '', // 选项的Icon
         inputType: '', // 'select', 'input', 'select-input',
         inputRule: '', //输入控件初始化规则
-        value: '20',
+        value: 5,
+        minValue:3,
+        maxValue:10,
         placeholder: '',
       }),
       Ember.Object.create({
         selected: '',
         renderId: '4567890-0987',
-        text: '最低30分,最高80分',
+        text: faker.lorem.words(),
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C92",
         icon: '', // 选项的Icon
         inputType: '', // 'select', 'input', 'select-input',
         inputRule: '', //输入控件初始化规则
-        value: '40',
+        value: 4,
+        minValue:2,
+        maxValue:10,
         placeholder: '',
       }),
       Ember.Object.create({
         selected: '',
         renderId: '4567890-0987',
-        text: '最低20分,最高60分',
+        text: faker.lorem.words(),
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C93",
         icon: '', // 选项的Icon
         inputType: '', // 'select', 'input', 'select-input',
         inputRule: '', //输入控件初始化规则
-        value: '0',
+        value: 6,
+        minValue:1,
+        maxValue:8,
         placeholder: '',
       }),
       Ember.Object.create({
         selected: '',
         renderId: '4567890-0987',
-        text: '最低60分,最高100分',
+        text: faker.lorem.words(),
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C94",
         icon: '', // 选项的Icon
         inputType: '', // 'select', 'input', 'select-input',
         inputRule: '', //输入控件初始化规则
-        value: '60',
+        value: 9,
+        minValue:1,
+        maxValue:9,
         placeholder: '',
       }),
     ];
@@ -69,11 +79,9 @@ export default Route.extend({
 
       nodes:[
         {
-          title:faker.address.streetAddress(true),
+          title: faker.lorem.words(),
           description: faker.lorem.paragraph(),
-          images:[1].map(function () {
-            return faker.image.image(360, 360, true)
-          }),
+          images: '',
           typeName:'分值打分题',
           renderId: '4567890-0987',
           quesType: 'slider', //select, fill, slider

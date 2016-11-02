@@ -1,0 +1,69 @@
+<section>
+  <div class="warapper">
+    <div class="row">
+
+      {{#if (eq node.rewardType 'weixin')}}
+        <div class="img" style="border-radius: 50%; width:100px; height:100px; overflow:hidden">
+          <img src={{node.weixinImage}}>
+        </div>
+      {{else}}
+        <figure class="attachment">
+          {{#each node.images as |image|}}
+            {{ui-addon/progressive-image
+              ratio=image.ratio
+              thumbnail=image.thumbnail
+              image=image.natural}}
+          {{/each}}
+        </figure>
+      {{/if}}
+
+      <header class="reward-header">
+        <h2 class="reward-Name">{{node.rewardName}}</h2>
+        <h4 class="reward-title">{{node.title}}</h4>
+        <span class="reward-description">{{node.description}}</span>
+        <span>{{node.rewardTime}}</span>
+        {{#if (eq node.rewardType 'weixin')}}
+          <div>{{node.rewardVaule}}元</div>
+        {{/if}}
+      </header>
+
+      <div class="control reward">
+        {{#unless (eq node.quesType 'lottery')}}
+          {{#if node.RewardToQrcode}}
+            <div class="ui-qrcode">
+              <p>通过截屏进行保存</p>
+              <div class="qrcode-item">
+                <img src={{node.qrImage}}>
+              </div>
+              <p>{{node.qrCode}}</p>
+            </div>
+          {{/if}}
+
+
+          {{#if node.RewardToMessage}}
+            <div class="ui-message">
+              <div class="ui-text">
+                {{ui-question/-node/input-cell type='url' value='' placeholder='请输入密码' svgName='int'}}
+                {{ui-addon/button className='message' text='获取信息'}}
+              </div>
+            </div>
+          {{/if}}
+        {{/unless}}
+
+        {{ui-addon/exception-clause}}
+      </div>
+
+    </div>
+  </div>
+
+
+  {{#if node.isReward}}
+    {{ui-addon/button className='submit-actions' text=node.buttonText}}
+  {{/if}}
+
+</section>
+
+
+
+
+{{ui-question/-node/footer}}

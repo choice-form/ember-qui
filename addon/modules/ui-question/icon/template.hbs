@@ -1,6 +1,16 @@
-<div class='ui-icon-list' data-render-id={{option.renderId}} onclick={{action 'handleOptionClick'}}>
-{{svg}}
-  {{#if option.text}}
-    <span>{{option.text}}</span>
-  {{/if}}
+
+<div class='ui-icon-list' data-render-id={{option.renderId}}>
+  <input
+    id={{option.uuid}}
+      type='checkbox'
+    onclick={{action 'handleOptionClick'}}
+      checked={{option.selected}}
+    disabled={{disabled}}
+  >
+  {{#ui-addon/button for=option.uuid text=option.text}}
+    <div class="select-container">
+      {{svg}}
+      {{ui-addon/active-line-animation}}
+    </div>
+  {{/ui-addon/button}}
 </div>

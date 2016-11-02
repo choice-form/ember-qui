@@ -1,18 +1,23 @@
-<div class="row" data-render-id={{node.renderId}}>
-  {{ui-question/-node/header headerData}}
-  <div class={{concat "control " node.quesType}}>
-    {{#if isSpecialComponent}}
-      <div class='cell'>
-        {{component componentName node handleEvents}}
-      </div>
-    {{else}}
-      {{#each node.options as |option|}}
+{{ui-question/-node/header headerData}}
+<div class={{concat "control " node.quesType " " node.showStyle " " node.picStyle}}>
+  {{#if isSpecialComponent}}
+    <div class='cell'>
+      {{component componentName node handleEvents}}
+    </div>
+  {{else}}
+    {{#each node.options as |option|}}
       <div class='cell'>
         {{component componentName node option handleEvents}}
       </div>
-      {{/each}}
-    {{/if}}
-  </div>
+    {{/each}}
+  {{/if}}
 </div>
+
+{{#if (and (eq node.showStyle 'pinterest') isLoading)}}
+  <div>
+    loading............
+  </div>
+{{/if}}
+
 
 {{!--{{component 'ui-question/-node/option-cell' node option handleEvents}}--}}

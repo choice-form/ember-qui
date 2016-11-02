@@ -9,9 +9,10 @@ export default Component.extend({
   layout,
   tagName:'',
 
-  graphs: computed('option.count', 'option.value', 'option.icon', function () {
+  graphs: computed('option.count', 'option.value', 'option.icon', 'option.emoji', function () {
     const count = parseInt(get(this, 'option.count'));
     const value = parseInt(get(this, 'option.value'));
+    const emoji = get(this, 'option.emoji');
     const graph = get(this, 'option.icon');
     const randomId = new Date().getTime();
 
@@ -25,12 +26,15 @@ export default Component.extend({
       if(i < value ){
         array[i].icon = graph + '-active';
         array[i].checked = true;
+        emoji && emoji.length == 2 && (array[i].emoji = emoji[1]);
       }else{
         array[i].icon = graph;
         array[i].checked = false;
+        emoji && emoji.length == 2 && (array[i].emoji = emoji[0]);
       }
     }
 
+    console.log(array);
     return array;
   }),
 

@@ -1,0 +1,24 @@
+<ul class='region-list' style="display:none">
+  {{#each regions as |region|}}
+    <li value={{region.Value}}>{{region.Meaning}}
+      <ul>
+        {{#each region.cities as |city|}}
+          <li value={{city.Value}}>{{city.Meaning}}
+            <ul>
+              {{#each city.counties as |country|}}
+                <li value={{country.Value}}>{{country.Meaning}}</li>
+              {{/each}}
+            </ul>
+          </li>
+        {{/each}}
+      </ul>
+
+    </li>
+
+  {{/each}}
+</ul>
+
+
+
+
+{{svg}}

@@ -1,7 +1,22 @@
-<div class={{concat 'ui- ' node.quesType}}>
-  {{svg}}
-  <span>{{tips}}</span>
-  {{#if (eq svgState 'success')}}
+<div class={{concat 'ui-' node.quesType}}>
+  <div class={{concat "pin " locationState}}>
+    <input
+      id={{node.uuid}}
+        type="checkbox"
+      onclick={{action 'handleOptionClick'}}
+    >
+    <label for={{node.uuid}}>
+      <div class="select-container">
+        {{ui-addon/svg-item icon=svgState size="40px" viewBox="40"}}
+        {{ui-addon/active-line-animation}}
+      </div>
+    </label>
+  </div>
+  <h4>{{tips}}</h4>
+  {{#if (eq svgState 'location-successful')}}
     <p>{{node.value}}</p>
+  {{/if}}
+  {{#if (eq svgState 'location-failed')}}
+    <a class="button secondary">Try again</a>
   {{/if}}
 </div>

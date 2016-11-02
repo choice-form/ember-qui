@@ -37,7 +37,7 @@ export default Route.extend({
         {icon: "email"},
         {icon: "telephone"},
         {icon: "moblie"},
-        {icon: "location"},
+        {icon: "pin"},
         {icon: "building"},
         {icon: "business"},
         {icon: "language"},
@@ -59,6 +59,7 @@ export default Route.extend({
         {icon: "gift"},
         {icon: "shapes"},
         {icon: "bell"},
+        {icon: "trash"},
       ],
       basic: [
         {icon: "checkbox"},
@@ -69,6 +70,21 @@ export default Route.extend({
       rating: [
         {icon: "love-favorite"},
         {icon: "love-favorite-active"},
+        {icon: "star"},
+        {icon: "star-active"},
+        {icon: "thumbs-up"},
+        {icon: "thumbs-up-active"},
+        {icon: "baloon"},
+        {icon: "baloon-active"},
+        {icon: "crown"},
+        {icon: "crown-active"},
+      ],
+      location: [
+        {icon: "location"},
+        {icon: "positioning"},
+      ],
+      large: [
+        {icon: "upload-image"},
       ]
     };
   }

@@ -10,4 +10,14 @@
     <pre class="description">{{header.description}}</pre>
   {{/if}}
 </header>
-{{{this_images}}}
+{{#if header.images}}
+
+  <figure class="attachment">
+    {{#each header.images as |image|}}
+      {{ui-addon/progressive-image
+        ratio=image.ratio
+        thumbnail=image.thumbnail
+        image=image.natural}}
+    {{/each}}
+  </figure>
+{{/if}}

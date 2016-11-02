@@ -8,13 +8,14 @@
   ></textarea>
 
 {{else}}
-  <input
-    type={{type}}
-    required
-    value={{option.value}}
-    placeholder={{option.placeholder}}
-    onchange={{action 'handleOptionInput'}}
-  >
+
+  {{ui-question/-node/input-cell
+    className=mobiClassName
+    type=type
+  value=option.value
+  placeholder=option.placeholder
+    handleOptionInput=(action 'handleOptionInput')
+    svgName=svgName
+  }}
 {{/if}}
-{{svg}}
 {{errorMessage}}

@@ -11,9 +11,13 @@ export default Route.extend({
         {
           title: faker.lorem.words(),
           description: faker.lorem.paragraph(),
-          images: [1].map(function () {
-            return '/images/sample-2.jpg'
-          }),
+          images: [
+            {
+              ratio: 0.6666667,
+              natural:'/images/sample-1.jpg',
+              thumbnail:'/images/sample-1-thumbnail.jpg',
+            }
+          ],
           renderId:'12213343234',
           typeName: '选择题',
           quesType: 'choice', //select, fill
@@ -72,7 +76,20 @@ export default Route.extend({
         {
           title: faker.lorem.sentences(),
           description: faker.lorem.paragraph(),
-          images: '',
+          images: [
+            {
+              natural:'/images/sample-1.jpg',
+              thumbnail:'/images/sample-1-thumbnail.jpg',
+            },
+            {
+              natural:'/images/sample-2.jpg',
+              thumbnail:'/images/sample-2-thumbnail.jpg',
+            },
+            {
+              natural:'/images/sample-3.jpg',
+              thumbnail:'/images/sample-3-thumbnail.jpg',
+            }
+          ],
           renderId:'775519',
           typeName: '选择题',
           quesType: 'choice', //select, fill

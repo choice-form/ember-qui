@@ -12,9 +12,20 @@ export default Route.extend({
         title:faker.address.streetAddress(true),
         summary:faker.lorem.paragraph(),
         description: faker.lorem.paragraph(),
-        images:[1].map(function () {
-          return '/images/sample-4.jpg'
-        }),
+        images: [
+          {
+            natural:'/images/sample-1.jpg',
+            thumbnail:'/images/sample-1-thumbnail.jpg',
+          },
+          {
+            natural:'/images/sample-2.jpg',
+            thumbnail:'/images/sample-2-thumbnail.jpg',
+          },
+          {
+            natural:'/images/sample-3.jpg',
+            thumbnail:'/images/sample-3-thumbnail.jpg',
+          }
+        ],
 
         handleEvents: {
           handleNextClick: () => {
@@ -29,9 +40,20 @@ export default Route.extend({
         {
           title:faker.address.streetAddress(true),
           description: faker.lorem.paragraph(),
-          images:[1].map(function () {
-            return '/images/sample-5.jpg'
-          }),
+          images: [
+            {
+              natural:'/images/sample-1.jpg',
+              thumbnail:'/images/sample-1-thumbnail.jpg',
+            },
+            {
+              natural:'/images/sample-2.jpg',
+              thumbnail:'/images/sample-2-thumbnail.jpg',
+            },
+            {
+              natural:'/images/sample-3.jpg',
+              thumbnail:'/images/sample-3-thumbnail.jpg',
+            }
+          ],
           typeName:'分值打分题',
           renderId: '4567890-0987',
           quesType: 'dropdown', //select, fill, valuemark, graphmark, menu
@@ -92,9 +114,12 @@ export default Route.extend({
         {
           title:faker.address.streetAddress(true),
           description: faker.lorem.paragraph(),
-          images:[1].map(function () {
-            return '/images/sample-1.jpg'
-          }),
+          images: [
+            {
+              natural:'/images/sample-1.jpg',
+              thumbnail:'/images/sample-1-thumbnail.jpg',
+            }
+          ],
           typeName:'选择题',
           renderId: '4567890-0987',
           quesType: 'short-text', //select, fill
