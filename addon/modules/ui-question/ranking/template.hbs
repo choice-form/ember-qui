@@ -1,4 +1,4 @@
-<div class='ui-ranking' data-render-id={{option.renderId}}>
+<div class={{concat "ui-ranking" (if option.isSort ' sort')}} data-render-id={{option.renderId}}>
   <span>{{option.sort}}</span>
   {{ui-question/-node/label
     uuid=option.uuid

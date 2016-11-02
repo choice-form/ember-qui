@@ -8,6 +8,7 @@ export default Route.extend({
   model() {
     let options = [
       Ember.Object.create({
+        isSort: true,
         text: faker.address.streetAddress(true),
         renderId: '4567890-0987',
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
@@ -19,6 +20,7 @@ export default Route.extend({
         placeholder: '',
       }),
       Ember.Object.create({
+        isSort: true,
         text: faker.address.streetAddress(true),
         renderId: '4567890-0987',
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
@@ -30,6 +32,7 @@ export default Route.extend({
         placeholder: '',
       }),
       Ember.Object.create({
+        isSort: true,
         text: faker.address.streetAddress(true),
         renderId: '4567890-0987',
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
@@ -41,6 +44,7 @@ export default Route.extend({
         placeholder: '',
       }),
       Ember.Object.create({
+        isSort: false,
         text: faker.address.streetAddress(true),
         renderId: '4567890-0987',
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
@@ -52,6 +56,7 @@ export default Route.extend({
         placeholder: '',
       }),
       Ember.Object.create({
+        isSort: false,
         text: faker.address.streetAddress(true),
         renderId: '4567890-0987',
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
@@ -63,6 +68,7 @@ export default Route.extend({
         placeholder: '',
       }),
       Ember.Object.create({
+        isSort: false,
         text: faker.address.streetAddress(true),
         renderId: '4567890-0987',
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
@@ -74,6 +80,7 @@ export default Route.extend({
         placeholder: '',
       }),
       Ember.Object.create({
+        isSort: false,
         text: faker.address.streetAddress(true),
         renderId: '4567890-0987',
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
