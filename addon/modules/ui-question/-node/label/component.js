@@ -6,12 +6,10 @@ import inject from 'ember-service/inject';
 
 export default Component.extend({
   layout,
-  tagName:'label',
+  tagName: 'label',
+
   attributeBindings: ['for'],
   for: alias('uuid'),
-
-  classNameBindings: ['class_name'],
-  class_name: alias('className'),
 
   uiService: inject('service/icon'),
 

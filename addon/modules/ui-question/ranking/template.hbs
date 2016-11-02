@@ -1,6 +1,10 @@
 <div class='ui-ranking' data-render-id={{option.renderId}}>
-  {{#ui-question/-node/label option classname="janise" as |a| }}
-    {{a}}
-    <span>{{option.sort}}</span>
-  {{/ui-question/-node/label}}
+  <span>{{option.sort}}</span>
+  {{ui-question/-node/label
+    uuid=option.uuid
+    text=option.text
+    rightIcon="ui-addon/svg-item" icon=option.icon
+  }}
 </div>
+
+
