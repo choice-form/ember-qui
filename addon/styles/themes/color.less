@@ -111,10 +111,12 @@ input {
   }
 }
 
-input:not(.ui-menu) {
-  &:focus {
-    border-color: @contrast;
-    box-shadow: inset 0 0 0 3px fade(@contrast, 10%);
+.ui-text {
+  & input:not(.ui-menu) {
+    &:focus {
+      border-color: @contrast;
+      box-shadow: inset 0 0 0 3px fade(@contrast, 10%) !important;
+    }
   }
 }
 
@@ -201,6 +203,12 @@ input:not(.ui-menu) {
   }
   & .progress {
     background-color: @contrast;
+  }
+}
+
+.icon {
+  & .labels {
+    border-top: 2px solid fade(@primary, 10%);
   }
 }
 

@@ -46,6 +46,7 @@
         }
       }
       & label {
+        cursor: pointer;
         display: flex;
         flex-direction: column;
         flex-grow: 2;
@@ -74,10 +75,45 @@
             margin-top: 0;
           }
         }
+        & .labels {
+          padding-top: .5rem;
+          text-align: center;
+          & svg {
+            display: inline-block;
+          }
+          & span {
+            display: block;
+            font-size: smaller;
+          }
+        }
+      }
+    }
+  }
+}
 
-        & span {
-          font-size: smaller;
-          margin-top: auto;
+html.desktop {
+  & .ui-icon-list {
+    & input:checked {
+      & + label {
+        & .svg-wrapper {
+          & svg {
+            opacity: 1;
+          }
+        }
+      }
+    }
+    & label {
+      & .svg-wrapper {
+        & svg {
+          opacity: .8;
+          transition: opacity 200ms ease;
+        }
+      }
+      &:hover {
+        & .svg-wrapper {
+          & svg {
+            opacity: 1;
+          }
         }
       }
     }
