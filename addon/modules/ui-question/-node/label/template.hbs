@@ -1,26 +1,42 @@
-{{#if (or emoji svg)}}
+{{#if (or emoji svg svgicon)}}
+
   <div class="select-container">
+
     {{#if emoji}}
       <div class="emoji-wrapper">
         <span class={{emojiClass}}>{{emoji}}</span>
       </div>
     {{else}}
+
       <div class="svg-wrapper">
-        {{svg}}
+
+        {{#if svgIcon}}
+          {{component "ui-addon/svg-item" icon=svgIcon size=size viewBox=viewBox iconClass=iconClass}}
+        {{else}}
+          {{svg}}
+        {{/if}}
+
       </div>
     {{/if}}
-    {{ui-addon/active-line-animation}}
+
+    {{ui-addon/active-line-animation circle=true}}
   </div>
+
 {{/if}}
 
 
-{{component leftIcon icon=icon size=size viewBox=viewBox iconClass=iconClass}}
+{{#if leftIcon}}
+  {{component "ui-addon/svg-item" icon=leftIcon size=size viewBox=viewBox iconClass=iconClass}}
+{{/if}}
 
 {{yield}}
 
 {{#if text}}
-<span>{{text}}</span>
+  <span>{{text}}</span>
 {{/if}}
 
-{{component rightIcon icon=icon size=size viewBox=viewBox iconClass=iconClass}}
+
+{{#if rightIcon}}
+  {{component "ui-addon/svg-item" icon=rightIcon size=size viewBox=viewBox iconClass=iconClass}}
+{{/if}}
 
