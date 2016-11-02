@@ -9,7 +9,7 @@ export default Route.extend({
     return {
       nodes: [
         {
-          title: faker.lorem.words(),
+          title: faker.finance.accountName(),
           description: faker.lorem.paragraph(),
           images: [
             {
@@ -74,20 +74,13 @@ export default Route.extend({
           ],
         },
         {
-          title: faker.lorem.sentences(),
+          title: faker.finance.accountName(),
           description: faker.lorem.paragraph(),
           images: [
             {
-              natural:'/images/sample-1.jpg',
-              thumbnail:'/images/sample-1-thumbnail.jpg',
-            },
-            {
+              ratio: 0.6666667,
               natural:'/images/sample-2.jpg',
               thumbnail:'/images/sample-2-thumbnail.jpg',
-            },
-            {
-              natural:'/images/sample-3.jpg',
-              thumbnail:'/images/sample-3-thumbnail.jpg',
             }
           ],
           renderId:'775519',

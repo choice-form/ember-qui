@@ -6,12 +6,13 @@
     & input[type="radio"] {
       position: absolute;
       right: 0;
+      top: 0;
       bottom: 0;
       overflow: hidden;
       opacity: 0;
       width: 1.5rem;
       height: 1.5rem;
-      margin: 0;
+      margin: auto 0;
       border: none;
     }
     & label {
@@ -127,10 +128,26 @@
   }
 }
 
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 html.desktop {
   & .cell {
     & .ui-radio,
     & .ui-checkbox {
+      & input:focus {
+        & + label:before {
+          opacity: .1;
+        }
+      }
+      & input:checked {
+        & + label:before {
+          opacity: 0;
+        }
+      }
       & label {
         &:hover:before {
           opacity: .1;

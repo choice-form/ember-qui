@@ -17,7 +17,7 @@ export default Component.extend({
       num ++ ;
       const article =  document.getElementsByTagName('article')[0];
       if(num%2 == 0){
-        article.setAttribute('class', 'choiceform ono-by-one');
+        article.setAttribute('class', 'choiceform one-by-one');
       }else{
         article.setAttribute('class', 'choiceform');
       }
