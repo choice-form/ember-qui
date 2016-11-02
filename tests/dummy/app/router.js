@@ -35,6 +35,7 @@ Router.map(function() {
   this.route('reward-custom', { path: 'reward-custom' });
   this.route('reward-lottery', { path: 'reward-lottery' });
   this.route('test');
+  this.route('quick-link');
 });
 
 export default Router;
