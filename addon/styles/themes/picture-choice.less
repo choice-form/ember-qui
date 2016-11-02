@@ -250,6 +250,100 @@
   }
 }
 
+.picture-choice.thumbnail {
+  flex-direction: column;
+  &.superscript {
+    & .cell {
+      & .ui-picture-choice {
+        & input {
+          left: auto;
+          right: 60%;
+          margin-right: .5rem;
+        }
+        & label {
+          & .thumbnail {
+            & .attachment {
+              &:before {
+                right: -1px;
+              }
+            }
+          }
+          & .pic-description {
+            & .select-container {
+              right: 60%;
+              margin-right: .5rem;
+            }
+          }
+        }
+      }
+      & .ui-picture-choice.pic-s {
+        & input {
+          right: 75%;
+        }
+        & label {
+          & .pic-description {
+            & .select-container {
+              right: 75%;
+            }
+          }
+        }
+      }
+    }
+  }
+  & .cell {
+    &:not(:last-child) {
+      & .ui-picture-choice {
+        padding-bottom: 1.5rem;
+        margin-bottom: 1.5rem;
+        .border(auto, 0, 0, 0, 1px, .3);
+      }
+    }
+    & .ui-picture-choice {
+      & input {
+        left: 0;
+        top: 0;
+        width: 40%;
+        height: 100%;
+      }
+      & label {
+        display: flex;
+        & .thumbnail {
+          width: 40%;
+          flex-shrink: 0;
+          & .attachment {
+            margin-bottom: 0;
+            padding-bottom: 100%;
+            & img {
+              position: absolute;
+              height: 100%;
+              object-fit: cover;
+            }
+          }
+        }
+        & .pic-description {
+          margin-left: 1.5rem;
+        }
+      }
+      &.pic-s {
+        & .thumbnail {
+          width: 25%;
+        }
+      }
+    }
+  }
+  &:not(.superscript) {
+    & .cell {
+      & .ui-picture-choice {
+        &.pic-s {
+          & input {
+            width: 25%;
+          }
+        }
+      }
+    }
+  }
+}
+
 html.desktop,
 html.tablet,
 html.mobile.landscape {

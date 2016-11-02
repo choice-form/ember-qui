@@ -13,7 +13,14 @@
 >
 
 <label for={{option.uuid}}>
-  {{image}}
+
+  {{#if node.thumbnail}}
+    <div class="thumbnail">
+      {{image}}
+    </div>
+  {{else}}
+    {{image}}
+  {{/if}}
   <div class="pic-description">
     <div class="select-container">
       {{svg}}

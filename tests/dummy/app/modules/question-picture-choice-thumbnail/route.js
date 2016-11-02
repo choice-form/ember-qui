@@ -9,7 +9,7 @@ export default Route.extend({
     return {
       nodes: [
         {
-          title: 'Picture Vertical insert-block',
+          title: 'Picture Vertical Large',
           description: faker.lorem.paragraph(),
           images: '',
           renderId:'775519',
@@ -18,10 +18,11 @@ export default Route.extend({
           selectType: 'radio',
           showStyle: 'thumbnail',
           textDirection:'', //in-block ,out-block, empty
-          pictureSize: 'picture-large',  //picture-large, picture-small
+          pictureSize: '',  //picture-large, picture-small
           uuid: faker.date.between('2016-01-01', '2016-12-31'),
           isMust:false,
           number:'2',
+          thumbnail: true,
           options:[
             Ember.Object.create({
               selected: false,
@@ -98,7 +99,97 @@ export default Route.extend({
           ],
         },
         {
-          title: 'Picture thumbnail',
+          title: 'Picture Vertical Large superscript',
+          description: faker.lorem.paragraph(),
+          images: '',
+          renderId:'775519',
+          typeName: '选择题',
+          quesType: 'picture-choice', //select, fill
+          selectType: 'radio',
+          showStyle: 'thumbnail superscript',
+          textDirection:'', //in-block ,out-block, empty
+          pictureSize: '',  //picture-large, picture-small
+          uuid: faker.date.between('2016-01-01', '2016-12-31'),
+          isMust:false,
+          number:'2',
+          thumbnail: true,
+          options:[
+            Ember.Object.create({
+              selected: false,
+              renderId: '4567890-0987',
+              text: faker.lorem.sentence(),
+              uuid: faker.date.between('2016-01-01', '2016-12-31'),
+              icon: 'radio', // 选项的Icon
+              image: '/images/sample-wide/sample-wide-1.jpeg',
+              inputType: '', // 'select', 'input', 'select-input, ower-input',
+              inputRule: '', //输入控件初始化规则
+              value: '',
+              placeholder: '',
+            }),
+            Ember.Object.create({
+              selected: false,
+              renderId: '4567890-0987',
+              text: faker.lorem.sentence(),
+              uuid: faker.date.between('2016-01-01', '2016-12-31'),
+              icon: 'radio', // 选项的Icon
+              image: '/images/sample-wide/sample-wide-2.jpeg',
+              inputType: '', // 'select', 'input', 'select-input, ower-input',
+              inputRule: '', //输入控件初始化规则
+              value: '',
+              placeholder: '',
+            }),
+            Ember.Object.create({
+              selected: false,
+              renderId: '4567890-0987',
+              text: faker.lorem.paragraph(),
+              uuid: faker.date.between('2016-01-01', '2016-12-31'),
+              icon: 'radio', // 选项的Icon
+              image: '/images/sample-wide/sample-wide-3.jpeg',
+              inputType: '', // 'select', 'input', 'select-input, ower-input',
+              inputRule: '', //输入控件初始化规则
+              value: '',
+              placeholder: '',
+            }),
+            Ember.Object.create({
+              selected: false,
+              renderId: '4567890-0987',
+              text: faker.lorem.sentence(),
+              uuid: faker.date.between('2016-01-01', '2016-12-31'),
+              icon: 'radio', // 选项的Icon
+              image: '/images/sample-wide/sample-wide-4.jpeg',
+              inputType: '', // 'select', 'input', 'select-input, ower-input',
+              inputRule: '', //输入控件初始化规则
+              value: '',
+              placeholder: '',
+            }),
+            Ember.Object.create({
+              selected: false,
+              renderId: '4567890-0987',
+              text: faker.lorem.paragraph(),
+              uuid: faker.date.between('2016-01-01', '2016-12-31'),
+              icon: 'radio', // 选项的Icon
+              image: '/images/sample-wide/sample-wide-5.jpeg',
+              inputType: '', // 'select', 'input', 'select-input, ower-input',
+              inputRule: '', //输入控件初始化规则
+              value: '',
+              placeholder: '',
+            }),
+            Ember.Object.create({
+              selected: false,
+              renderId: '4567890-0987',
+              text: faker.lorem.paragraph(),
+              uuid: faker.date.between('2016-01-01', '2016-12-31'),
+              icon: 'radio', // 选项的Icon
+              image: '/images/sample-wide/sample-wide-6.jpeg',
+              inputType: '', // 'select', 'input', 'select-input, ower-input',
+              inputRule: '', //输入控件初始化规则
+              value: '',
+              placeholder: '',
+            })
+          ],
+        },
+        {
+          title: 'Picture thumbnail Small',
           description: faker.lorem.paragraph(),
           images: '',
           renderId:'775519',
@@ -107,10 +198,101 @@ export default Route.extend({
           selectType: 'radio',
           showStyle: 'thumbnail',
           textDirection:'', //in-block ,out-block, empty
-          pictureSize: 'picture-small',  //picture-large, picture-small
+          pictureSize: 'pic-s',  //picture-large, picture-small
           uuid: faker.date.between('2016-01-01', '2016-12-31'),
           isMust:false,
           number:'2',
+          thumbnail: true,
+          options:[
+            Ember.Object.create({
+              selected: false,
+              renderId: '4567890-0987',
+              text: faker.lorem.sentence(),
+              uuid: faker.date.between('2016-01-01', '2016-12-31'),
+              icon: 'radio', // 选项的Icon
+              image: '/images/sample-wide/sample-wide-1.jpeg',
+              inputType: '', // 'select', 'input', 'select-input, ower-input',
+              inputRule: '', //输入控件初始化规则
+              value: '',
+              placeholder: '',
+            }),
+            Ember.Object.create({
+              selected: false,
+              renderId: '4567890-0987',
+              text: faker.lorem.sentence(),
+              uuid: faker.date.between('2016-01-01', '2016-12-31'),
+              icon: 'radio', // 选项的Icon
+              image: '/images/sample-wide/sample-wide-2.jpeg',
+              inputType: '', // 'select', 'input', 'select-input, ower-input',
+              inputRule: '', //输入控件初始化规则
+              value: '',
+              placeholder: '',
+            }),
+            Ember.Object.create({
+              selected: false,
+              renderId: '4567890-0987',
+              text: faker.lorem.paragraph(),
+              uuid: faker.date.between('2016-01-01', '2016-12-31'),
+              icon: 'radio', // 选项的Icon
+              image: '/images/sample-wide/sample-wide-3.jpeg',
+              inputType: '', // 'select', 'input', 'select-input, ower-input',
+              inputRule: '', //输入控件初始化规则
+              value: '',
+              placeholder: '',
+            }),
+            Ember.Object.create({
+              selected: false,
+              renderId: '4567890-0987',
+              text: faker.lorem.sentence(),
+              uuid: faker.date.between('2016-01-01', '2016-12-31'),
+              icon: 'radio', // 选项的Icon
+              image: '/images/sample-wide/sample-wide-4.jpeg',
+              inputType: '', // 'select', 'input', 'select-input, ower-input',
+              inputRule: '', //输入控件初始化规则
+              value: '',
+              placeholder: '',
+            }),
+            Ember.Object.create({
+              selected: false,
+              renderId: '4567890-0987',
+              text: faker.lorem.paragraph(),
+              uuid: faker.date.between('2016-01-01', '2016-12-31'),
+              icon: 'radio', // 选项的Icon
+              image: '/images/sample-wide/sample-wide-5.jpeg',
+              inputType: '', // 'select', 'input', 'select-input, ower-input',
+              inputRule: '', //输入控件初始化规则
+              value: '',
+              placeholder: '',
+            }),
+            Ember.Object.create({
+              selected: false,
+              renderId: '4567890-0987',
+              text: faker.lorem.paragraph(),
+              uuid: faker.date.between('2016-01-01', '2016-12-31'),
+              icon: 'radio', // 选项的Icon
+              image: '/images/sample-wide/sample-wide-6.jpeg',
+              inputType: '', // 'select', 'input', 'select-input, ower-input',
+              inputRule: '', //输入控件初始化规则
+              value: '',
+              placeholder: '',
+            })
+          ],
+        },
+        {
+          title: 'Picture thumbnail Small superscript',
+          description: faker.lorem.paragraph(),
+          images: '',
+          renderId:'775519',
+          typeName: '选择题',
+          quesType: 'picture-choice', //select, fill
+          selectType: 'radio',
+          showStyle: 'thumbnail superscript',
+          textDirection:'', //in-block ,out-block, empty
+          pictureSize: 'pic-s',  //picture-large, picture-small
+          uuid: faker.date.between('2016-01-01', '2016-12-31'),
+          isMust:false,
+          number:'2',
+          thumbnail: true,
           options:[
             Ember.Object.create({
               selected: false,
