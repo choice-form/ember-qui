@@ -30,7 +30,7 @@
 
           <div class="currency">
             <input type="checkbox" id={{node.uuid}}>
-            {{ui-question/-node/label svg=svg text=node.rewardVaule leftIcon="ui-addon/svg-item" icon=node.icon for=node.uuid}}
+            {{ui-addon/label svg=svg text=node.rewardVaule leftIcon="ui-addon/svg-item" icon=node.icon for=node.uuid}}
           </div>
         {{/if}}
       </header>
@@ -52,7 +52,7 @@
               <div class="ui-text">
                 {{ui-question/-node/input-cell type='url' value='' placeholder='Please enter a password' svgName='int'}}
 
-                {{ui-question/-node/label tagName='button' text="获取验证码"}}
+                {{ui-addon/label tagName='button' text="获取验证码"}}
 
               </div>
             </div>
@@ -65,7 +65,7 @@
   </div>
 
   {{#if node.isReward}}
-    {{ui-question/-node/label tagName='button' text=node.buttonText}}
+    {{ui-addon/label tagName='button' text=node.buttonText}}
   {{/if}}
 
 </section>
