@@ -82,6 +82,9 @@ export default Route.extend({
       location: [
         {icon: "location"},
         {icon: "positioning"},
+        {icon: "location-successful"},
+        {icon: "location-failed"},
+        {icon: "map-location"},
       ],
       large: [
         {icon: "upload-image"},

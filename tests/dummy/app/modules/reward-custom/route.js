@@ -10,7 +10,7 @@ export default Route.extend({
 
 
     return {
-      rewardName: '通用汽车调查有奖活动',
+      rewardName: faker.lorem.words(),
       images: [
         {
           ratio: 0.6666667,
@@ -30,7 +30,7 @@ export default Route.extend({
       RewardToMessage: true,
       RewardToQrcode: true,
       qrImage: "https://csvfx-files.b0.upaiyun.com/UploadFiles/style-copy/img/_QRcode-01.png",
-      qrCode: '123456789',
+      qrCode: faker.lorem.words(),
       handleEvents: {
         handleOptionClick: (option, node) => {
 

@@ -19,9 +19,6 @@ html.desktop {
         background-color: @primary;
       }
     }
-    & input:not(.ui-menu):hover {
-      box-shadow: inset 0 0 0 3px fade(@primary, 10%);
-    }
     & .ui-picture-choice {
       & input:not(:checked) {
         & + label:hover {
@@ -31,6 +28,11 @@ html.desktop {
           }
         }
       }
+    }
+  }
+  & .ui-text {
+    & input:not(.ui-menu):hover {
+      box-shadow: inset 0 0 0 3px fade(@primary, 10%);
     }
   }
 }

@@ -1,4 +1,4 @@
-& .cell {
+.cell {
   & .ui-radio,
   & .ui-checkbox {
     position: relative;
@@ -49,67 +49,6 @@
       margin-bottom: 1.5rem;
     }
   }
-  & .ui-dropdown,
-  & .ui-text {
-    position: relative;
-    & textarea,
-    & input {
-      width: 100%;
-      padding: 1rem;
-      outline: none;
-      border-width: 1px;
-      border-style: solid;
-      border-radius: 3px;
-      resize: none;
-      appearance: none;
-      &:not(.ui-menu) {
-        &:invalid {
-          & + svg {
-            display: block;
-          }
-        }
-        &:focus {
-          & + svg {
-            opacity: 0;
-          }
-        }
-        &:valid {
-          & + svg {
-            display: none;
-          }
-        }
-      }
-    }
-    & svg {
-      width: 1rem;
-      height: 1rem;
-      opacity: .2;
-      margin: auto 0;
-      position: absolute;
-      top: 0;
-      right: 1rem;
-      bottom: 0;
-      transition: opacity 200ms ease;
-    }
-    & .ui-menu {
-      cursor: pointer;
-      & ~ svg {
-        display: block;
-      }
-    }
-  }
-  & .ui-text {
-    & .ui-menu {
-      border-style: dashed;
-    }
-  }
-  & .ui-dropdown {
-    & .ui-menu {
-      & ~ svg {
-        opacity: .8;
-      }
-    }
-  }
   &:not(:first-child) {
     & .ui-radio,
     & .ui-checkbox {
@@ -120,6 +59,70 @@
     & .ui-dropdown,
     & .ui-text {
       margin-bottom: 1.5rem;
+    }
+  }
+}
+
+.ui-dropdown,
+.ui-text {
+  position: relative;
+  & textarea,
+  & input {
+    width: 100%;
+    padding: 1rem;
+    outline: none;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 3px;
+    resize: none;
+    appearance: none;
+    &:not(.ui-menu) {
+      &:invalid {
+        & + svg {
+          display: block;
+        }
+      }
+      &:focus {
+        & + svg {
+          opacity: 0;
+        }
+      }
+      &:valid {
+        & + svg {
+          display: none;
+        }
+      }
+    }
+  }
+  & svg {
+    width: 1rem;
+    height: 1rem;
+    opacity: .2;
+    margin: auto 0;
+    position: absolute;
+    top: 0;
+    right: 1rem;
+    bottom: 0;
+    transition: opacity 200ms ease;
+  }
+  & .ui-menu {
+    cursor: pointer;
+    & ~ svg {
+      display: block;
+    }
+  }
+}
+
+.ui-text {
+  & .ui-menu {
+    border-style: dashed;
+  }
+}
+
+.ui-dropdown {
+  & .ui-menu {
+    & ~ svg {
+      opacity: .8;
     }
   }
 }
@@ -146,11 +149,11 @@ html.desktop {
         }
       }
     }
-    & .ui-dropdown {
-      & .ui-menu:hover {
-        & ~ svg {
-          opacity: 1;
-        }
+  }
+  & .ui-dropdown {
+    & .ui-menu:hover {
+      & ~ svg {
+        opacity: 1;
       }
     }
   }
