@@ -1,6 +1,5 @@
 import Component from 'ember-component';
 import layout from './template';
-import setAttachmentPosition from '../../lib/setAttachmentPosition';
 
 export default Component.extend({
   layout,

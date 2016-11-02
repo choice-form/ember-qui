@@ -2,7 +2,7 @@ import Service from 'ember-service';
 import inject from 'ember-service/inject';
 import {htmlSafe} from 'ember-string';
 import RSVP from 'rsvp';
-
+import $ from 'jquery';
 
 export default Service.extend({
   ajax: inject(),

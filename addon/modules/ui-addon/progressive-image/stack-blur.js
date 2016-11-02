@@ -140,7 +140,7 @@ export function stackBlurCanvasRGBA(id, top_x, top_y, width, height, radius) {
       pr, pg, pb, pa, rbs;
 
   var div = radius + radius + 1;
-  var w4 = width << 2;
+  // var w4 = width << 2;
   var widthMinus1 = width - 1;
   var heightMinus1 = height - 1;
   var radiusPlus1 = radius + 1;
@@ -395,7 +395,7 @@ export function stackBlurCanvasRGB(id, top_x, top_y, width, height, radius) {
       pr, pg, pb, rbs;
 
   var div = radius + radius + 1;
-  var w4 = width << 2;
+  // var w4 = width << 2;
   var widthMinus1 = width - 1;
   var heightMinus1 = height - 1;
   var radiusPlus1 = radius + 1;
