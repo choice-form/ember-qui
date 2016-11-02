@@ -46,7 +46,7 @@ html.mobile.portrait {
   & .attachment.header {
     box-shadow: 0 4px 4px 0 fade(@primary, 30%);
   }
-  & .reward-header,
+  & .reward,
   & .wrapper,
   & .page-header {
     background-color: @secondary;
@@ -214,17 +214,45 @@ input {
 }
 
 .reward-container {
-  & .reward-contents {
-    border-bottom: 1px solid fade(@primary, 50%);
-  }
-  & .currency label {
-    color: @contrast;
-    border: 2px solid @contrast;
+  & .reward {
+    & > h2 {
+      color: @contrast;
+      border-bottom: 1px solid fade(@primary, 50%);
+    }
+    & .reward-contents {
+      border-bottom: 1px solid fade(@primary, 50%);
+      & .current-time {
+        color: fade(@primary, 50%);
+      }
+    }
+    & .currency {
+      & input {
+        &:checked {
+          & + label {
+            color: @secondary;
+            background-color: @contrast;
+          }
+        }
+      }
+      & label {
+        color: @contrast;
+        border: 2px solid @contrast;
+      }
+    }
   }
 }
-.reward {
+.reward-additional {
   & .disclaimer {
     color: fade(@primary, 50%);
+  }
+  .disclaimer-contents {
+    border-top: 1px solid fade(@primary, 50%);
+  }
+}
+
+.verification {
+  & .captcha {
+    border: 1px solid @primary;
   }
 }
 

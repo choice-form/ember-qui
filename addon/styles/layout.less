@@ -57,12 +57,6 @@ section {
   & label {
     position: relative;
   }
-  & textarea,
-  & input {
-    color: currentColor;
-    border-color: currentColor;
-    background-color: transparent;
-  }
   & .ui-radio,
   & .ui-checkbox {
     & label {
@@ -83,6 +77,9 @@ section {
 .ui-text {
   & textarea,
   & input {
+    color: currentColor;
+    border-color: currentColor;
+    background-color: transparent;
     font-size: 1rem;
     line-height: 1rem;
     padding: .5rem;
@@ -103,7 +100,6 @@ section {
   overflow: hidden;
   & button {
     font-size: 1rem;
-    padding: .5rem 1rem;
     border: 1px solid currentColor;
     &:only-of-type,
     &:nth-of-type(2) {
@@ -113,6 +109,7 @@ section {
 }
 
 footer {
+  position: relative;
   height: 12rem;
   padding-top: 4rem;
   text-align: center;

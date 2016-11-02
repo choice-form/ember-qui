@@ -208,8 +208,6 @@ export default Route.extend({
         }
       },
 
-      prevButton: 'Previous',
-
       nextButton: 'Next',
     }
   }

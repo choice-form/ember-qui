@@ -1,26 +1,32 @@
 .submit-actions {
   & button {
-    display: inline-block;
-    vertical-align: middle;
-    overflow: hidden;
-    padding: 1rem 2rem;
-    color: currentColor;
-    border: 1px solid currentColor;
-    border-radius: 3px;
-    cursor: pointer;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    line-height: 1rem;
-    outline: 0;
-    user-select: none;
-    outline-style: none;
+    min-width: 10rem;
+  }
+  & .nextButton {
+    & span {
+      & + svg {
+        margin: 0 -1rem 0 .5rem;
+      }
+    }
+  }
+}
+
+html.desktop {
+  & .reward-container {
+    & + .submit-actions {
+      text-align: center;
+      & button {
+        float: none;
+        display: inline-block;
+      }
+    }
   }
 }
 
 html.tablet.portrait,
 html.mobile.landscape {
   & .submit-actions {
-    padding: 2rem 0;
+
   }
 }
 

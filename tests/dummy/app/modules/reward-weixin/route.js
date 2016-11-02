@@ -8,12 +8,12 @@ export default Route.extend({
 
     return {
       rewardName: '',
-      title: faker.lorem.words(),
+      title: faker.finance.accountName(),
       description: faker.lorem.paragraph(),
       rewardVaule: ['$', faker.finance.mask()],
       weixinImage: faker.image.avatar(),
       weixinID: faker.name.findName(),
-      icon: 'gift',
+      icon: 'present-gift',
       typeName: '验证节点',
       quesType: 'reward',
       rewardType: 'weixin', //weixin, custom,

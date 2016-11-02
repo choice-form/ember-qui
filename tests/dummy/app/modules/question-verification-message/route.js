@@ -13,12 +13,7 @@ export default Route.extend({
         {
           title: faker.lorem.words(),
           description: faker.lorem.paragraph(),
-          images: [
-            {
-              natural:'/images/sample-1.jpg',
-              thumbnail:'/images/sample-1-thumbnail.jpg',
-            }
-          ],
+          images: '',
           typeName:'验证节点',
           renderId: '4567890-0987',
           quesType: 'verification',

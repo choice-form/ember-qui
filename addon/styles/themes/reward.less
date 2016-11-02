@@ -21,9 +21,17 @@
         margin-top: .5rem;
       }
     }
-    & .reward-header {
+    & .reward {
       padding: 1rem;
       text-align: center;
+      & > h2 {
+        padding: 3rem 0 4rem 0;
+        margin-bottom: 2rem;
+        & + .reward-contents {
+          border: none;
+          padding-bottom: 0;
+        }
+      }
       & .reward-contents {
         padding: 2rem 0;
         & h2 {
@@ -39,58 +47,112 @@
         }
       }
       & .currency {
+        position: relative;
         margin: 3rem 0 1rem 0;
+        padding-bottom: 2rem;
+        & input {
+          pointer-events: none;
+          position: absolute;
+          right: 0;
+          left: 0;
+          top: 0;
+          bottom: 0;
+          width: 100%;
+          height: 100%;
+          overflow: hidden;
+          opacity: 0;
+          border: none;
+          &:checked {
+            & + label {
+              animation-name: shape;
+              animation-duration: 0.6s;
+              animation-fill-mode: forwards;
+              animation-iteration-count: 1;
+              animation-timing-function: cubic-bezier(0.5, 0, 0, 0.8);
+            }
+          }
+        }
         & label {
+          cursor: pointer;
           display: inline-block;
           font-size: large;
           font-weight: bold;
-          padding: 1rem 4rem;
-          border-radius: 3px;
-          & svg,
-          & span {
-            display: inline-block;
-            vertical-align: middle;
+          padding: 2rem;
+          border-radius: 50%;
+          transition: background-color 200ms ease;
+          & .select-container {
+            & .svg-wrapper {
+              margin: auto;
+              position: relative;
+              width: 40px;
+              height: 40px;
+              & svg {
+                display: block;
+              }
+            }
           }
+        }
+        & h3 {
+          position: absolute;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          animation-name: shape;
+          animation-duration: 0.85s;
+          animation-fill-mode: forwards;
+          animation-iteration-count: 1;
+          animation-timing-function: cubic-bezier(0.5, 0, 0, 0.8);
+        }
+      }
+      & .ui-qrcode {
+        margin-bottom: 1rem;
+        & p {
+          font-size: small;
+        }
+        & .qrcode-item {
+          padding: 2rem;
+          & img {
+            max-width: 15rem;
+          }
+        }
+      }
+      & .ui-message {
+        display: flex;
+        & .ui-text {
+          flex-grow: 2;
+          margin-right: 1rem;
         }
       }
     }
   }
 }
 
-.reward {
+.reward-additional {
+  padding: 1rem;
   text-align: left;
-  & .ui-qrcode {
-    & p {
-
-    }
-    & .qrcode-item {
-
-    }
-  }
-  & .ui-message {
-    & .ui-text {
-
-    }
-  }
   & .reward-description {
     margin-bottom: 1rem;
   }
   & .disclaimer {
     font-size: small;
   }
+  .disclaimer-contents {
+    padding-top: 1rem;
+    margin-top: 2rem !important;
+    font-size: .8rem;
+  }
 }
 
 
-
 html.mobile.portrait {
-  & .reward,
-  & .reward-header {
+  & .reward-additional,
+  & .reward {
     padding: 2rem 1.5rem;
     & .reward-contents {
       padding-top: 0;
     }
   }
-  & .reward {
+  & .reward-additional {
     & .disclaimer {
       font-size: x-small;
     }

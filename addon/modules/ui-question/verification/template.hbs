@@ -1,64 +1,39 @@
 {{#if (eq node.verificationType 'message')}}
-  <div class="ui-message">
-    <div class="ui-text phone">
-      {{ui-question/-node/input-cell
-        type='tel'
-        value=''
-        placeholder='请填写手机号'
-        svgName='moblie'
-      }}
-    </div>
-
-    <div class="ui-text message-code">
-      {{ui-question/-node/input-cell
-        type='tel'
-        value=''
-        placeholder='请填写手机号'
-        svgName='int'
-      }}
-    </div>
-
-    {{ui-addon/label tagName='button' text="获取验证码"}}
-
-    <p>
-      If you do not receive the message in the next 1 minutes,please go through the verification process one more time.
-    </p>
-
+  {{ui-addon/svg-item icon="sms" size="64px" viewBox="40"}}
+  <div class="ui-text">
+    {{ui-question/-node/input-cell type='tel' value='' placeholder='Please enter a cellphone number' svgName='int'}}
   </div>
-
+  <div class="get-verification">
+    <div class="ui-text">
+      {{ui-question/-node/input-cell type='num' value='' placeholder='Please enter verification code' svgName='int'}}
+    </div>
+    {{ui-addon/label tagName='button' text='Get verification code' class="button contrast"}}
+  </div>
+  <p>If you do not receive the message in the next 1 minutes,please go through the verification process one more time.</p>
 {{/if}}
 
 {{#if (eq node.verificationType 'password')}}
-  <div class="ui-password">
-    <div class="ui-text">
-      {{ui-question/-node/input-cell
-        type='url'
-        value=''
-        placeholder='请输入密码'
-        svgName='int'
-      }}
-    </div>
+  {{ui-addon/svg-item icon="password" size="64px" viewBox="40"}}
+  <div class="ui-text">
+    {{ui-question/-node/input-cell type='password' value='' placeholder='Please enter a password' svgName='int'}}
   </div>
 {{/if}}
 
 {{#if (eq node.verificationType 'v-code')}}
-  <div class="ui-verificationCode">
+  {{ui-addon/svg-item icon="captcha" size="64px" viewBox="40"}}
+  <div class="get-verification">
     <div class="ui-text">
-      {{ui-question/-node/input-cell
-        type='url'
-        value=''
-        placeholder='请输入验证码'
-        svgName='int'
-      }}
-    </div>
-
-    <button>
-      {{#if node.vCodeImage}}
-        <img src="" alt="">
-      {{else}}
-        <span>获取验证码</span>
+      {{ui-question/-node/input-cell type='url' value='' placeholder='Please enter a password' svgName='int'}}
+      {{#if captcha}}
+        <div class="captcha">
+          <img src="/images/captcha-code.png" alt="">
+        </div>
       {{/if}}
-    </button>
+    </div>
+    {{#if captcha}}
+      {{ui-addon/label tagName='button' leftIcon='refresh' class="button primary"}}
+    {{else}}
+      {{ui-addon/label tagName='button' text='Get captcha code' class="button contrast" handleClick=(action 'captchaClick')}}
+    {{/if}}
   </div>
-
 {{/if}}

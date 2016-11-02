@@ -8,7 +8,7 @@
           <span>{{node.weixinID}}</span>
         </div>
       {{else}}
-        <figure class="attachment">
+        <figure class="attachment header">
           {{#each node.images as |image|}}
             {{ui-addon/progressive-image
               ratio=image.ratio
@@ -18,7 +18,7 @@
         </figure>
       {{/if}}
 
-      <header class="reward-header">
+      <div class="reward">
         <h2>{{node.rewardName}}</h2>
         <div class="reward-contents">
           <h2>{{node.title}}</h2>
@@ -26,24 +26,21 @@
           <span class="current-time">{{node.rewardTime}}</span>
         </div>
         {{#if (eq node.rewardType 'weixin')}}
-
-
           <div class="currency">
-            <input type="checkbox" id={{node.uuid}}>
-            {{ui-addon/label svg=svg text=node.rewardVaule leftIcon=node.icon for=node.uuid}}
+            <input type="checkbox" id={{node.uuid}} onclick={{action 'handleClick'}}>
+            {{ui-addon/label svgIcon=node.icon for=node.uuid size="40px" viewBox="40"}}
+            {{#if currency}}
+              <h3>{{node.rewardVaule}}</h3>
+            {{/if}}
           </div>
         {{/if}}
-      </header>
-
-      <div class="control reward">
         {{#unless (eq node.quesType 'lottery')}}
           {{#if node.RewardToQrcode}}
             <div class="ui-qrcode">
-              <p>Capture the screen and save it, you can't share it publicly.</p>
               <div class="qrcode-item">
                 <img src={{node.qrImage}}>
               </div>
-              <p>{{node.qrCode}}</p>
+              <p>Capture the screen and save it, you can't share it publicly. <span>{{node.qrCode}}</span></p>
             </div>
           {{/if}}
 
@@ -51,21 +48,22 @@
             <div class="ui-message">
               <div class="ui-text">
                 {{ui-question/-node/input-cell type='url' value='' placeholder='Please enter a password' svgName='int'}}
-
-                {{ui-addon/label tagName='button' text="获取验证码"}}
-
               </div>
+              {{ui-addon/label tagName='button' text="Get verification code" class="button contrast"}}
             </div>
           {{/if}}
         {{/unless}}
+      </div>
+
+      <div class="reward-additional">
         {{ui-addon/disclaimer}}
       </div>
 
     </div>
   </div>
-
   {{#if node.isReward}}
-    {{ui-addon/label tagName='button' text=node.buttonText}}
+    <div class="submit-actions">
+      {{ui-addon/label tagName='button' text=node.buttonText class="button contrast" leftIcon='gift'}}
+    </div>
   {{/if}}
-
 </section>

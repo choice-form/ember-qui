@@ -85,6 +85,10 @@ export default Route.extend({
         {icon: "location-successful"},
         {icon: "location-failed"},
         {icon: "map-location"},
+        {icon: "present-gift"},
+        {icon: "sms"},
+        {icon: "password"},
+        {icon: "captcha"},
       ],
       large: [
         {icon: "upload-image"},

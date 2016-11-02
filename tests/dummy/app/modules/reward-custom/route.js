@@ -10,7 +10,7 @@ export default Route.extend({
 
 
     return {
-      rewardName: faker.lorem.words(),
+      rewardName: faker.finance.accountName(),
       images: [
         {
           ratio: 0.6666667,
@@ -18,7 +18,7 @@ export default Route.extend({
           thumbnail:'/images/sample-1-thumbnail.jpg',
         }
       ],
-      title: faker.lorem.words(),
+      title: faker.finance.accountName(),
       description: faker.lorem.paragraph(),
       rewardVaule: '1',
       weixinImage: '',
@@ -29,7 +29,7 @@ export default Route.extend({
       uuid: '002',
       RewardToMessage: true,
       RewardToQrcode: true,
-      qrImage: "https://csvfx-files.b0.upaiyun.com/UploadFiles/style-copy/img/_QRcode-01.png",
+      qrImage: "/images/qrcode.png",
       qrCode: faker.lorem.words(),
       handleEvents: {
         handleOptionClick: (option, node) => {

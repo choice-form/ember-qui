@@ -7,7 +7,7 @@ export default Route.extend({
 
 
     return {
-      rewardName: '通用汽车调查有奖活动',
+      rewardName: faker.finance.accountName(),
       images: [
         {
           ratio: 0.6666667,
@@ -15,8 +15,8 @@ export default Route.extend({
           thumbnail:'/images/sample-1-thumbnail.jpg',
         }
       ],
-      title: '恭喜你!',
-      description: '获得某某某奖励!',
+      title: faker.finance.accountName(),
+      description: faker.lorem.paragraph(),
       typeName:'抽奖节点',
       quesType: 'lottery',
       isReward:true,
