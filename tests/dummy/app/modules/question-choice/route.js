@@ -4,6 +4,8 @@ import Ember from 'ember';
 import faker from 'faker';
 
 /*eslint-disable no-console */
+
+
 export default Route.extend({
   model() {
     return {
@@ -159,6 +161,9 @@ export default Route.extend({
               placeholder: 'input float',
             }),
             Ember.Object.create({
+              /**
+               * @prop {bool} - 是否选中
+               */
               selected: true,
               renderId: '4567890-0912',
               text: '',
