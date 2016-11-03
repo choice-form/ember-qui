@@ -48,27 +48,33 @@ export default Component.extend({
 
   actions: {
     /**
-     * change事件Input
+     * onInput
      */
+
     handleOptionInput(e){
       const value = e.currentTarget.value;
-      set(this, 'option.value', value);
-      this.handleEvents.handleOptionInput(get(this, 'option'), get(this, 'node'));
+      this.handleEvents.handleOptionInput(value, get(this, 'option'), get(this, 'node'));
     },
 
 
     /**
-     * textareaAutoResize事件forTextarea
+     * handleOptionInputForTextarea
      */
-    textareaAutoResize(e){
+
+    handleOptionInputForTextarea(e){
+      const value = e.currentTarget.value;
+      this.handleEvents.handleOptionInput(value, get(this, 'option'), get(this, 'node'));
+
+      const inputRule = get(this, 'option.inputRule');
       e.currentTarget.style.height = '74px';
       e.currentTarget.style.height = e.currentTarget.scrollHeight + 2 + 'px';
+
     },
   },
 
   mobiClassName: computed('option.inputRule', function () {
     const type = get(this, 'option.inputRule');
-    if(['date', 'time', 'timeRange', 'dateRange'].indexOf(type) > -1){
+    if (['date', 'time', 'timeRange', 'dateRange'].indexOf(type) > -1) {
       return 'ui-menu';
     }
     return null;

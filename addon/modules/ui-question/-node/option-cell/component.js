@@ -19,13 +19,6 @@ export default Component.extend({
       this.handleEvents.handleOptionClick(get(this, 'option'),get(this,'node'));
     },
 
-    /**
-     * change事件
-     */
-    handleOptionInput(){
-      this.handleEvents.handleOptionInput(get(this, 'option'),get(this,'node'));
-    },
-
   },
 
   didInsertElement() {
