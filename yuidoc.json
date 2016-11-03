@@ -1,0 +1,20 @@
+{
+  "name": "@choiceform/ember-cform-ui",
+  "description": "UI components for q.cform.io",
+  "version": "0.0.14",
+  "options": {
+    "paths": [
+      "_doc"
+    ],
+    "enabledEnvironments": [
+      "development",
+      "test"
+    ],
+    "exclude": "vendor",
+    "outdir": "./docs",
+    "linkNatives": true,
+    "quite": true,
+    "parseOnly": false,
+    "lint": false
+  }
+}
