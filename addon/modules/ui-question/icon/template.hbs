@@ -1,15 +1,1 @@
-<div class='ui-icon-list' data-render-id={{option.renderId}}>
-  <input
-    id={{option.uuid}}
-      type='checkbox'
-    onclick={{action 'handleOptionClick'}}
-      checked={{option.selected}}
-    disabled={{disabled}}
-  >
-  {{#ui-addon/label uuid=option.uuid svg=svg}}
-    <div class="labels">
-      {{ui-addon/svg-item icon=node.selectType}}
-      <span>{{option.text}}</span>
-    </div>
-  {{/ui-addon/label}}
-</div>
+{{ui-question/-node/icon-cell node option svg=svg handleOptionClick=(action 'handleOptionClick')}}
