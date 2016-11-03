@@ -20,7 +20,6 @@ export default Component.extend({
   }),
 
   click(){
-
     this.handleClick && this.handleClick();
   },
 

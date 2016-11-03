@@ -3,6 +3,14 @@ import layout from './template';
 
 export default Component.extend({
   layout,
-  tagName:'',
+  tagName: '',
 
-}).reopenClass({ positionalParams: ['intro'] });
+
+  actions: {
+    handleNextClick(){
+      this.intro.handleEvents.handleNextClick('111');
+    }
+  }
+
+
+}).reopenClass({positionalParams: ['intro']});

@@ -16,7 +16,7 @@ export default Component.extend({
   //状态，location、positioning、location-successful、location-failed
   svgState: 'location',
 
-  // '' 'positioning' 'successful' 'failed'
+  // 'positioning' 'successful' 'failed'
   locationState: '',
 
   tips: computed('svgState', function () {

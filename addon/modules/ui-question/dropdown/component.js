@@ -34,7 +34,7 @@ export default Component.extend({
         //设置当前题目的value值
         set(this, 'node.value', text);
 
-        this.handleEvents.handleOptionInput(option, get(this,'node'));
+        this.handleEvents.handleOptionInput(index,option, get(this,'node'));
       },
       onInit: () => {
         const mobiInput = input.previousElementSibling

@@ -198,7 +198,7 @@ export default Route.extend({
           selectType: 'radio',
           showStyle: 'grid',
           picStyle: 'contain',
-          textDirection:'empty', //in-block ,out-block, empty
+          textDirection:'in-block', //in-block ,out-block, empty
           pictureSize: 'picture-large',  //picture-large, picture-small
           uuid: faker.date.between('2016-01-01', '2016-12-31'),
           isMust:false,

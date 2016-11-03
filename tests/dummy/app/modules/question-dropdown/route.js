@@ -76,8 +76,6 @@ export default Route.extend({
           typeName:'分值打分题',
           renderId: '4567890-0987',
           quesType: 'dropdown', //select, fill, valuemark, graphmark, menu
-          selectType: '',
-          showStyle: '',
           uuid: '002',
           isMust:true,
           number:'3',

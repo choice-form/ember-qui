@@ -10,14 +10,15 @@ export default Route.extend({
       description: faker.lorem.paragraph(),
       images: [
         {
+          ratio: 0.6666667,
           natural:'/images/sample-1.jpg',
           thumbnail:'/images/sample-1-thumbnail.jpg',
         }
       ],
 
       handleEvents: {
-        handleNextClick: () => {
-          console.log('点击了下一题');
+        handleNextClick: (foo) => {
+          console.log(foo);
         }
       },
 

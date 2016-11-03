@@ -17,6 +17,7 @@ export default Route.extend({
           quesType: 'picture-choice', //select, fill
           selectType: 'radio',
           showStyle: 'pinterest',
+          picStyle:'superscript',
           textDirection:'insert-block', //in-block ,out-block, empty
           pictureSize: 'picture-large',  //picture-large, picture-small
           uuid: faker.date.between('2016-01-01', '2016-12-31'),

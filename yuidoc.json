@@ -4,7 +4,8 @@
   "version": "0.0.14",
   "options": {
     "paths": [
-      "addon"
+      "addon",
+      "_doc"
     ],
     "enabledEnvironments": [
       "development",
