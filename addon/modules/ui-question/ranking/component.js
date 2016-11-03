@@ -3,7 +3,12 @@ import layout from './template';
 import get from 'ember-metal/get';
 import set from 'ember-metal/set';
 import computed from 'ember-computed';
-import sortable from 'sortable';
+import Sortable from 'sortable';
+/**
+ * 排序题
+ *
+ * @class 问卷 - 排序
+ */
 
 export default Component.extend({
   layout,
@@ -16,14 +21,18 @@ export default Component.extend({
 
   actions: {
     /**
-     * click事件
+     * Click 事件
+     *
+     * @method handleOptionClick
      */
     handleOptionClick(){
       this.handleEvents.handleOptionClick(get(this, 'option'),get(this,'node'));
     },
 
     /**
-     * change事件
+     * Change 事件
+     *
+     * @method handleOptionInput
      */
     handleOptionInput(e){
       const value = e.target.value;
@@ -33,7 +42,12 @@ export default Component.extend({
   },
 
   didRender(){
-    this.sortTable = new sortable(this.element, {
+    /**
+     * Sortable 实例,用于排序`
+     *
+     * @type {Sortable}
+     */
+    this.sortTable = new Sortable(this.element, {
       handle: '.sort-list',
       scroll: true,
       scrollSensitivity: 240,
@@ -47,4 +61,18 @@ export default Component.extend({
     this.sortTable.destroy();
   }
 
+  /**
+   * 问卷节点,通过它获取 options
+   *
+   * @property {Object} node - 问卷节点
+   * @required
+   */
+
+  /**
+   * 模板使用属性
+   *
+   * @property {Object} option - 选项
+   * @property {String} option.icon - 图标
+   * @property {String} option.text - 文字
+   */
 }).reopenClass({ positionalParams: ['node', 'handleEvents']});
