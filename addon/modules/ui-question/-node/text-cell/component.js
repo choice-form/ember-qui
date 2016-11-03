@@ -2,7 +2,6 @@ import Component from 'ember-component';
 import layout from './template';
 import computed from 'ember-computed';
 import get from 'ember-metal/get';
-import set from 'ember-metal/set';
 import mobiInit from '../../../lib/mobile-factory'
 
 export default Component.extend({
@@ -65,7 +64,6 @@ export default Component.extend({
       const value = e.currentTarget.value;
       this.handleEvents.handleOptionInput(value, get(this, 'option'), get(this, 'node'));
 
-      const inputRule = get(this, 'option.inputRule');
       e.currentTarget.style.height = '74px';
       e.currentTarget.style.height = e.currentTarget.scrollHeight + 2 + 'px';
 

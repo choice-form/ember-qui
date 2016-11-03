@@ -39,13 +39,12 @@ export default Component.extend({
       scrollSensitivity: 240,
       animation: 250,
       sort: true,
-      onEnd: (event)=> {
-
-      },
-      onStart: (event)=> {
-
-      }
+      ghostClass: "ghost",
     });
+  },
+
+  didDestroyElement(){
+    this.sortTable.destroy();
   }
 
 }).reopenClass({ positionalParams: ['node', 'handleEvents']});
