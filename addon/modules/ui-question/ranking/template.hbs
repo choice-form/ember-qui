@@ -1,10 +1,10 @@
-<div class={{concat "ui-ranking" (if option.isSort ' sort')}} data-render-id={{option.renderId}}>
-  <span>{{option.sort}}</span>
-  {{ui-addon/label
-    uuid=option.uuid
-    text=option.text
-    rightIcon=option.icon
-  }}
-</div>
-
-
+{{#each node.options as |option|}}
+  <div class={{concat 'sort-list' (if option.sortNo ' sort')}}>
+    <span>{{option.sortNo}}</span>
+    {{ui-addon/label
+      uuid=option.uuid
+      text=option.text
+      rightIcon=option.icon
+    }}
+  </div>
+{{/each}}

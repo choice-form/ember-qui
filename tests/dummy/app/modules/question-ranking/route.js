@@ -8,84 +8,77 @@ export default Route.extend({
   model() {
     let options = [
       Ember.Object.create({
-        isSort: true,
         text: faker.address.streetAddress(true),
         renderId: '4567890-0987',
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
         icon: 'menu', // 选项的Icon
-        sort: 1,
+        sortNo: 1,
         inputType: '', // 'select', 'input', 'select-input, ower-input',
         inputRule: '', //输入控件初始化规则
         value: '',
         placeholder: '',
       }),
       Ember.Object.create({
-        isSort: true,
         text: faker.address.streetAddress(true),
         renderId: '4567890-0987',
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
         icon: 'menu', // 选项的Icon
-        sort: 2,
+        sortNo: 2,
         inputType: '', // 'select', 'input', 'select-input, ower-input',
         inputRule: '', //输入控件初始化规则
         value: '',
         placeholder: '',
       }),
       Ember.Object.create({
-        isSort: true,
         text: faker.address.streetAddress(true),
         renderId: '4567890-0987',
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
         icon: 'menu', // 选项的Icon
-        sort: 3,
+        sortNo: 3,
         inputType: '', // 'select', 'input', 'select-input, ower-input',
         inputRule: '', //输入控件初始化规则
         value: '',
         placeholder: '',
       }),
       Ember.Object.create({
-        isSort: false,
         text: faker.address.streetAddress(true),
         renderId: '4567890-0987',
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
         icon: 'menu', // 选项的Icon
-        sort: 4,
+        sortNo: 4,
         inputType: '', // 'select', 'input', 'select-input, ower-input',
         inputRule: '', //输入控件初始化规则
         value: '',
         placeholder: '',
       }),
       Ember.Object.create({
-        isSort: false,
         text: faker.address.streetAddress(true),
         renderId: '4567890-0987',
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
         icon: 'menu', // 选项的Icon
-        sort: 5,
+        sortNo: 5,
         inputType: '', // 'select', 'input', 'select-input, ower-input',
         inputRule: '', //输入控件初始化规则
         value: '',
         placeholder: '',
       }),
       Ember.Object.create({
-        isSort: false,
         text: faker.address.streetAddress(true),
         renderId: '4567890-0987',
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
         icon: 'menu', // 选项的Icon
-        sort: 6,
+        sortNo: '',
         inputType: '', // 'select', 'input', 'select-input, ower-input',
         inputRule: '', //输入控件初始化规则
         value: '',
         placeholder: '',
       }),
       Ember.Object.create({
-        isSort: false,
         text: faker.address.streetAddress(true),
         renderId: '4567890-0987',
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
         icon: 'menu', // 选项的Icon
-        sort: 7,
+        sortNo: '',
         inputType: '', // 'select', 'input', 'select-input, ower-input',
         inputRule: '', //输入控件初始化规则
         value: '',
