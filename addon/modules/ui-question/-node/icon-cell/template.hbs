@@ -1,12 +1,13 @@
 <div class='ui-icon-list' data-render-id={{option.renderId}}>
   <input
-    id={{option.uuid}}
+    name={{node.renderId}}
+    id={{option.renderId}}
       type={{node.selectType}}
     onclick={{handleOptionClick}}
       checked={{option.selected}}
     disabled={{disabled}}
   >
-  {{#ui-addon/label uuid=option.uuid svg=svg svgIcon=svgIcon}}
+  {{#ui-addon/label uuid=option.renderId svg=svg svgIcon=svgIcon}}
     <div class="labels">
       {{ui-addon/svg-item icon=node.selectType}}
       <span>{{option.text}}</span>

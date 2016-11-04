@@ -18,7 +18,7 @@ export default Route.extend({
         emoji: ['☹️', '😍'],
         value: '5',
         count: '5',
-        marks:[1,2,3,4,5].map(function () {
+        marks: [1, 2, 3, 4, 5].map(function () {
           return faker.random.number();
         }),
         placeholder: '',
@@ -32,7 +32,7 @@ export default Route.extend({
         icon: 'thumbs-up', // 选项的Icon
         value: '0',
         count: '6',
-        marks:[1,2,3,4,5,6].map(function () {
+        marks: [1, 2, 3, 4, 5, 6].map(function () {
           return faker.random.number();
         }),
         placeholder: '',
@@ -48,7 +48,7 @@ export default Route.extend({
         inputRule: '', //输入控件初始化规则
         value: '2',
         count: '4',
-        marks:[1,2,3,4].map(function () {
+        marks: [1, 2, 3, 4].map(function () {
           return faker.random.number();
         }),
         placeholder: '',
@@ -64,7 +64,7 @@ export default Route.extend({
         inputRule: '', //输入控件初始化规则
         value: '1',
         count: '7',
-        marks:[1,2,3,4,5,6,7].map(function () {
+        marks: [1, 2, 3, 4, 5, 6, 7].map(function () {
           return faker.random.number();
         }),
         placeholder: '',
@@ -80,7 +80,7 @@ export default Route.extend({
         inputRule: '', //输入控件初始化规则
         value: '1',
         count: '3',
-        marks:[1,2,3].map(function () {
+        marks: [1, 2, 3].map(function () {
           return faker.random.number();
         }),
         placeholder: '',
@@ -88,50 +88,33 @@ export default Route.extend({
     ];
 
     return {
-      nodes:[
+      nodes: [
         {
           title: faker.lorem.words(),
           description: faker.lorem.paragraph(),
           images: '',
-          typeName:'分值打分题',
+          typeName: '分值打分题',
           renderId: '4567890-0987',
           quesType: 'rating',
           selectType: '',
           showStyle: '',
           uuid: '002',
-          isMust:true,
-          number:'4',
+          isMust: true,
+          number: '4',
 
           options,
         }
       ],
 
       handleEvents: {
-        handleOptionClick: (option, node) => {
+        handleOptionInput(data, option, question){
+          console.log(data);
           console.log(option);
-          console.log(node);
-          if (option.toggleProperty('selected')) {
-
-            options.forEach((opt) => {
-              if (opt != option) {
-                set(opt, 'selected', false);
-              }
-            })
-          }
+          console.log(question);
+          set(option, 'value', data);
+          return true;
         },
 
-        handleOptionInput: (option, node) => {
-          console.log(option);
-          console.log(node);
-        },
-
-        handlePrevClick: () => {
-          console.log('点击了上一题');
-        },
-
-        handleNextClick: () => {
-          console.log('点击了下一题');
-        }
       },
 
       prevButton: 'Previous',

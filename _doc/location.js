@@ -43,14 +43,16 @@
  */
 
 
+
 /**
- * 选项点击时的回调方法
+ * 输入问题数据回调方法
  *
- * @method handleOptionClick
- * @param {object} option 关联的选项
+ * @method handleQuestionInput
+ * @param {object|string} dynamic 输入的数据
  * @param {object} question 关联的问题
- * @returns {Promise} Promise
- handleOptionClick(option, question){
+ * @returns {boolean} 回调任务执行结果 true：正常 false：无法执行
+
+ handleQuestionInput(dynamic, question){
         return true;
       },
  */

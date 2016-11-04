@@ -15,7 +15,6 @@ export default Component.extend({
       if (inputType === 'input')return;
       this.handleEvents.handleOptionClick(get(this, 'option'),get(this,'node'));
     },
-
   },
 
   didInsertElement() {

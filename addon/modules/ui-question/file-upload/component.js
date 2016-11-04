@@ -2,7 +2,6 @@ import Component from 'ember-component';
 import computed from 'ember-computed';
 import layout from './template';
 import get from 'ember-metal/get';
-import set from 'ember-metal/set';
 
 export default Component.extend({
   layout,
@@ -13,31 +12,41 @@ export default Component.extend({
     return quesType;
   }),
 
-  this_icon: computed('option.selected', 'option.icon', function () {
-    return get(this, 'option.selected') ? 'refresh' : get(this, 'option.icon');
+  this_icon: computed('option.value', 'option.icon', function () {
+    return get(this, 'option.value') ? 'refresh' : get(this, 'option.icon');
   }),
 
-  uploadState: computed('option.selected', function () {
-    return get(this, 'option.selected') ? ' success' : null;
+  uploadState: computed('option.value', function () {
+    return get(this, 'option.value') ? ' success' : null;
   }),
 
-  uploadButton: computed('option.selected', function () {
-    return get(this, 'option.selected') ? ' secondary' : ' contrast';
+  uploadButton: computed('option.value', function () {
+    return get(this, 'option.value') ? ' secondary' : ' contrast';
   }),
 
-  uploadText: computed('option.selected', function () {
-    return get(this, 'option.selected') ? 'refresh upload' : 'Upload Picture';
+  uploadText: computed('option.value', function () {
+    return get(this, 'option.value') ? 'refresh upload' : 'Upload Picture';
   }),
 
   actions: {
     /**
-     * change事件Input
+     * onclick事件
      */
+    handleOptionClick(e){
+      //如果不能上传图片,就阻止input的默认事件
+      !this.handleEvents.handleOptionClick(get(this, 'option'), get(this, 'node'))
+        &&  e.preventDefault();
+    },
+
+    /**
+     *
+     */
+    /*eslint-disable no-console */
     handleOptionInput(e){
-      const value = e.currentTarget.value;
-      set(this, 'option.value', value);
-      set(this, 'option.selected', true);
-      this.handleEvents.handleOptionInput(get(this, 'option'), get(this, 'node'));
+      const data = e.currentTarget.files;
+      this.handleEvents.handleOptionInput(data, get(this, 'option'), get(this, 'node')).then((res)=>{
+        console.log(res);
+      });
     },
   },
 

@@ -1,7 +1,6 @@
 import Component from 'ember-component';
 import layout from './template';
 import get from 'ember-metal/get';
-import set from 'ember-metal/set';
 import computed from 'ember-computed';
 import {htmlSafe} from 'ember-string';
 import {mobiInitTreeList} from '../../lib/mobile-factory'
@@ -25,29 +24,9 @@ export default Component.extend({
 
       /* eslint-disable no-unused-vars*/
       onSet: (event, inst)=>{
-        //列表的索引值
-        const indexs = event.valueText.split(' ');
-        const indexLength = indexs.length;
 
-        let value = '';
-        const region = get(this, "node.regions");
-        if(indexLength  < 2 ){
-          value =  `${region[indexs[0]].Meaning}`;
-        }else if(indexLength  <= 2 ){
-          value = `${region[indexs[0]].Meaning}-${region[indexs[0]].cities[indexs[1]].Meaning}`;
-        }else {
-          value = `${region[indexs[0]].Meaning}-${region[indexs[0]].cities[indexs[1]].Meaning}-${region[indexs[0]].cities[indexs[1]].counties[indexs[2]].Meaning}`;
-        }
-
-        //设置当前题目的value值
-        set(this, 'node.value', value);
-
-        //设置mobileScroll生成的input的值
-        input.previousElementSibling.value = value;
-
-        this.handleEvents.handleOptionInput('', get(this,'node'));
-
-
+        this.handleEvents.handleQuestionInput(event.valueText, get(this,'node'));
+        input.previousElementSibling.value = get(this, 'node.value');
       },
       onInit: () => {
         const mobiInput = input.previousElementSibling;

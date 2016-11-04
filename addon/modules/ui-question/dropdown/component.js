@@ -1,7 +1,6 @@
 import Component from 'ember-component';
 import layout from './template';
 import get from 'ember-metal/get';
-import set from 'ember-metal/set';
 import computed from 'ember-computed';
 import {htmlSafe} from 'ember-string';
 import {mobiInitTreeList} from '../../lib/mobile-factory'
@@ -19,22 +18,14 @@ export default Component.extend({
 
   didRender(){
     const input = this.element.getElementsByClassName('dropdown-list')[0];
-    const options = get(this, 'node.options');
     mobiInitTreeList(input, {
       placeholder: get(this, 'node.placeholder'),
       onSet: (e)=>{
-        //列表的索引值
-        const index = parseInt(e.valueText);
-        //当前选项
-        const option = options[index];
-        //根据索引值，获取其文字内容
-        const text = option.text;
-        //设置mobileScroll生成的input的值
-        input.previousElementSibling.value = text;
-        //设置当前题目的value值
-        set(this, 'node.value', text);
+        //调用click事件 修改value的值
+        this.handleEvents.handleQuestionInput({value:e.valueText}, get(this,'node'));
 
-        this.handleEvents.handleOptionInput(index,option, get(this,'node'));
+        //设置mobileScroll生成的input的值
+        input.previousElementSibling.value = get(this, 'node.value');
       },
       onInit: () => {
         const mobiInput = input.previousElementSibling

@@ -1,9 +1,10 @@
+/* eslint-disable */
 import Route from 'ember-route';
 import set from 'ember-metal/set';
+import get from 'ember-metal/get';
 import Ember from 'ember';
 import faker from 'faker';
 
-/*eslint-disable no-console */
 export default Route.extend({
   model() {
     let options = [
@@ -54,19 +55,6 @@ export default Route.extend({
             })
           }
         },
-
-        handleOptionInput: (option, node) => {
-          console.log(option);
-          console.log(node);
-        },
-
-        handlePrevClick: () => {
-          console.log('点击了上一题');
-        },
-
-        handleNextClick: () => {
-          console.log('点击了下一题');
-        }
       },
 
       prevButton: 'Previous',

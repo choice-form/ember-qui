@@ -34,6 +34,9 @@ export default Component.extend({
       animation: 250,
       sort: true,
       ghostClass: "ghost",
+      onEnd: (e)=> {
+        this.handleEvents.handleOptionDrop(e.oldIndex, e.newIndex, get(this,'node'));
+      },
     });
   },
 

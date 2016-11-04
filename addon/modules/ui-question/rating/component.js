@@ -2,7 +2,6 @@ import Component from 'ember-component';
 import layout from './template';
 import computed from 'ember-computed';
 import get from 'ember-metal/get';
-import set from 'ember-metal/set';
 
 
 export default Component.extend({
@@ -38,20 +37,13 @@ export default Component.extend({
 
   actions: {
     /**
-     * click事件
+     * handleOptionInput事件
      */
-    handleOptionClick(e){
+    handleOptionInput(e){
       const value = e.target.value;
       const checked = e.target.checked;
-      set(this, 'option.value', checked ? value : value -1);
-      this.handleEvents.handleOptionClick(get(this, 'option'),get(this,'node'));
-    },
-
-    /**
-     * change事件
-     */
-    handleOptionInput(){
-      this.handleEvents.handleOptionInput(get(this, 'option'),get(this,'node'));
+      const data = checked ? value : value -1;
+      this.handleEvents.handleOptionInput(data, get(this, 'option'),get(this,'node'));
     },
   },
 

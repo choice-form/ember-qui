@@ -2,9 +2,10 @@
   <input
     type='file'
     id={{option.uuid}}
+      onclick={{action 'handleOptionClick'}}
       onchange={{action 'handleOptionInput'}}
   >
-  {{#if option.selected}}
+  {{#if option.value}}
     <a class="clear icon-button primary">
       {{ui-addon/svg-item icon="trash"}}
     </a>
@@ -12,7 +13,7 @@
       <div class="progress-bar">
         <div class="progress" style="width: 50%"></div>
       </div>
-      <img src={{option.image}}/>
+      <img src={{option.value}}/>
     </div>
   {{else}}
     {{ui-addon/svg-item icon="upload-image" size="64px" viewBox="64" iconClass="upload-image-icon"}}
@@ -20,7 +21,7 @@
   {{ui-addon/label class=(concat 'button ' uploadButton) uuid=option.uuid  leftIcon=this_icon text=uploadText}}
 </div>
 
-{{#unless option.selected}}
+{{#unless option.value}}
   {{#if option.text}}
     <span>{{option.text}}</span>
   {{/if}}

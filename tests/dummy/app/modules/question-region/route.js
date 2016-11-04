@@ -1,6 +1,7 @@
 /* eslint-disable */
 import Route from 'ember-route';
 import set from 'ember-metal/set';
+import get from 'ember-metal/get';
 import faker from 'faker';
 
 export default Route.extend({
@@ -9,34 +10,34 @@ export default Route.extend({
     let options = [];
 
     return {
-      nodes:[
+      nodes: [
         {
           title: faker.lorem.words(),
           description: faker.lorem.paragraph(),
           images: '',
-          typeName:'地域题',
+          typeName: '地域题',
           renderId: '4567890-0987',
           quesType: 'region',
           selectType: '',
           showStyle: '',
           uuid: '002',
-          isMust:true,
-          number:'3',
-          value:'上海市-上海市-徐汇区',
-          placeholder:'选择你所在的城市',
-          regions : [
+          isMust: true,
+          number: '3',
+          value: '上海市-上海市-徐汇区',
+          placeholder: '选择你所在的城市',
+          regions: [
             {
               Meaning: '北京',
               Value: 110000,
-              cities:[
+              cities: [
                 {
                   Meaning: '北京',
                   Value: 110100,
-                  counties:[
+                  counties: [
                     {
                       Meaning: '曹阳区',
                       Value: 110101,
-                      id:110101,
+                      id: 110101,
                     },
                     {
                       Meaning: '东城区',
@@ -55,15 +56,15 @@ export default Route.extend({
             {
               Meaning: '河南',
               Value: 410000,
-              cities:[
+              cities: [
                 {
                   Meaning: '郑州市',
                   Value: 410100,
-                  counties:[
+                  counties: [
                     {
                       Meaning: '市辖区',
                       Value: 410101,
-                      id:410101,
+                      id: 410101,
                     },
                     {
                       Meaning: '中原区',
@@ -80,11 +81,11 @@ export default Route.extend({
                 {
                   Meaning: '开封市',
                   Value: 410200,
-                  counties:[
+                  counties: [
                     {
                       Meaning: '鼓楼区',
                       Value: 410201,
-                      id:410201,
+                      id: 410201,
                     },
                     {
                       Meaning: '南关区',
@@ -108,15 +109,15 @@ export default Route.extend({
             {
               Meaning: '浙江',
               Value: 510000,
-              cities:[
+              cities: [
                 {
                   Meaning: '杭州市',
                   Value: 510100,
-                  counties:[
+                  counties: [
                     {
                       Meaning: '市辖区',
                       Value: 510101,
-                      id:510101,
+                      id: 510101,
                     },
                     {
                       Meaning: '杭州1',
@@ -133,11 +134,11 @@ export default Route.extend({
                 {
                   Meaning: '宁波市',
                   Value: 510200,
-                  counties:[
+                  counties: [
                     {
                       Meaning: '宁波1',
                       Value: 510201,
-                      id:510201,
+                      id: 510201,
                     },
                     {
                       Meaning: '宁波2',
@@ -159,43 +160,40 @@ export default Route.extend({
               ]
             }
           ],
-          grade:2,//treeList的数量
+          grade: 2,//treeList的数量
           options,
         }
       ],
 
       handleEvents: {
-        handleOptionClick: (option, node) => {
-          console.log(option);
-          console.log(node);
-          if (option.toggleProperty('selected')) {
+        handleQuestionInput(dynamic, question){
+          console.log(dynamic);
+          console.log(question);
 
-            options.forEach((opt) => {
-              if (opt != option) {
-                set(opt, 'selected', false);
-              }
-            })
+          //列表的索引值
+          const indexs = dynamic.split(' ');
+          const indexLength = indexs.length;
+
+          let value = '';
+          const region = get(question, "regions");
+          if(indexLength  < 2 ){
+            value =  `${region[indexs[0]].Meaning}`;
+          }else if(indexLength  <= 2 ){
+            value = `${region[indexs[0]].Meaning}-${region[indexs[0]].cities[indexs[1]].Meaning}`;
+          }else {
+            value = `${region[indexs[0]].Meaning}-${region[indexs[0]].cities[indexs[1]].Meaning}-${region[indexs[0]].cities[indexs[1]].counties[indexs[2]].Meaning}`;
           }
-        },
 
-        handleOptionInput: (option, node) => {
-          console.log(option);
-          console.log(node);
-        },
+          //设置当前题目的value值
+          set(question, 'value', value);
 
-        handlePrevClick: () => {
-          console.log('点击了上一题');
+          return true;
         },
-
-        handleNextClick: () => {
-          console.log('点击了下一题');
-        }
       },
 
       prevButton: '上一题',
 
       nextButton: '下一题',
-
     }
   }
 });

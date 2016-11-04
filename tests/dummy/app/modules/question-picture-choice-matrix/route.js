@@ -201,19 +201,6 @@ export default Route.extend({
             })
           }
         },
-
-        handleOptionInput: (option, node) => {
-          console.log(option);
-          console.log(node);
-        },
-
-        handlePrevClick: () => {
-          console.log('点击了上一题');
-        },
-
-        handleNextClick: () => {
-          console.log('点击了下一题');
-        }
       },
 
       prevButton: 'Previous',

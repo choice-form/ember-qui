@@ -51,7 +51,7 @@ export default Route.extend({
       }),
       Ember.Object.create({
         selected: true,
-        renderId: '4567890-0912',
+        renderId: '4567890-091s',
         text: faker.lorem.words(),
         uuid: faker.date.between('2016-01-01', '2016-12-31'),
         icon: 'https://csvfx-files.b0.upaiyun.com/uploadfiles/UploadSvg/c00007b6-fcee-44c6-823f-090240994396.svg',
