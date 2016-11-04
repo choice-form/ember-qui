@@ -26,31 +26,19 @@ export default Route.extend({
       ],
 
       handleEvents: {
-        handleOptionClick: (option, node) => {
+        handleOptionClick(option, question){
           console.log(option);
-          console.log(node);
-          if (option.toggleProperty('selected')) {
+          console.log(question);
 
-            options.forEach((opt) => {
-              if (opt != option) {
-                set(opt, 'selected', false);
-              }
-            })
-          }
+          return true;
         },
 
-        handleOptionInput: (option, node) => {
-          console.log(option);
-          console.log(node);
-        },
+        handleQuestionInput(dynamic, question){
+          console.log(dynamic);
+          console.log(question);
 
-        handlePrevClick: () => {
-          console.log('点击了上一题');
+          return true;
         },
-
-        handleNextClick: () => {
-          console.log('点击了下一题');
-        }
       },
 
       prevButton: '上一题',

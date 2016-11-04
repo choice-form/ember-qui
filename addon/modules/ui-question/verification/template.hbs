@@ -1,13 +1,13 @@
 {{#if (eq node.verificationType 'message')}}
   {{ui-addon/svg-item icon="sms" size="64px" viewBox="40"}}
   <div class="ui-text">
-    {{ui-question/-node/input-cell type='tel' value='' placeholder='Please enter a cellphone number' svgName='int'}}
+    {{ui-question/-node/input-cell handleOptionInput=(action "handleOptionInput_Message") type='tel' value='' placeholder='Please enter a cellphone number' svgName='int'}}
   </div>
   <div class="get-verification">
     <div class="ui-text">
       {{ui-question/-node/input-cell type='num' value='' placeholder='Please enter verification code' svgName='int'}}
     </div>
-    {{ui-addon/label tagName='button' text='Get verification code' class="button contrast"}}
+    {{ui-addon/label tagName='button' handleClick=(action 'handleOptionClick_Message') text='Get verification code' class="button contrast"}}
   </div>
   <p>If you do not receive the message in the next 1 minutes,please go through the verification process one more time.</p>
 {{/if}}
@@ -15,7 +15,7 @@
 {{#if (eq node.verificationType 'password')}}
   {{ui-addon/svg-item icon="password" size="64px" viewBox="40"}}
   <div class="ui-text">
-    {{ui-question/-node/input-cell type='password' value='' placeholder='Please enter a password' svgName='int'}}
+    {{ui-question/-node/input-cell handleOptionInput=(action "handleOptionInput_Password") type='password' value='' placeholder='Please enter a password' svgName='int'}}
   </div>
 {{/if}}
 
@@ -24,16 +24,16 @@
   <div class="get-verification">
     <div class="ui-text">
       {{ui-question/-node/input-cell type='url' value='' placeholder='Please enter a password' svgName='int'}}
-      {{#if captcha}}
+      {{#if node.verifyCode}}
         <div class="captcha">
-          <img src="/images/captcha-code.png" alt="">
+          <img src={{node.verifyCode}} alt="">
         </div>
       {{/if}}
     </div>
     {{#if captcha}}
-      {{ui-addon/label tagName='button' leftIcon='refresh' class="button primary"}}
+      {{ui-addon/label tagName='button' leftIcon=(if node.verifyCode "refresh" "") text=(if node.verifyCode "refresh" "Get captcha code") class="button contrast" handleClick=(action 'handleOptionClick_verifyCode')}}
     {{else}}
-      {{ui-addon/label tagName='button' text='Get captcha code' class="button contrast" handleClick=(action 'captchaClick')}}
+      {{ui-addon/label tagName='button' leftIcon='refresh' class="button primary" text=countDown}}
     {{/if}}
   </div>
 {{/if}}

@@ -1,56 +1,45 @@
+/* eslint-disable */
 import Route from 'ember-route';
 import set from 'ember-metal/set';
 import faker from 'faker';
 
-/*eslint-disable no-console */
 export default Route.extend({
   model() {
 
     let options = [];
 
     return {
-      nodes:[
+      nodes: [
         {
           title: faker.lorem.words(),
           description: faker.lorem.paragraph(),
           images: '',
-          typeName:'验证节点',
+          typeName: '验证节点',
           renderId: '4567890-0987',
           quesType: 'verification',
           verificationType: 'message', //message, password, v-code
           uuid: '002',
-          isMust:true,
-          number:'3',
+          isMust: true,
+          number: '3',
           options,
         }
       ],
 
       handleEvents: {
-        handleOptionClick: (option, node) => {
+        handleOptionClick(option, question){
           console.log(option);
-          console.log(node);
-          if (option.toggleProperty('selected')) {
+          console.log(question);
 
-            options.forEach((opt) => {
-              if (opt != option) {
-                set(opt, 'selected', false);
-              }
-            })
-          }
+          return true;
         },
 
-        handleOptionInput: (option, node) => {
-          console.log(option);
-          console.log(node);
+        handleQuestionInput(dynamic, question){
+          console.log(dynamic);
+          console.log(question);
+
+          return true;
         },
 
-        handlePrevClick: () => {
-          console.log('点击了上一题');
-        },
-
-        handleNextClick: () => {
-          console.log('点击了下一题');
-        }
       },
 
       prevButton: '上一题',
