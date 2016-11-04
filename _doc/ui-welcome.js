@@ -1,7 +1,7 @@
 /**
  * 开始页面
  *
- * @class welcome-page(开始页面)
+ * @class -welcome-page(开始页面)
  */
 
 /**
@@ -49,7 +49,12 @@
 
 
 /**
- * handleNextClick 下一题按钮,事件
+ * 点击后一题回调方法
  *
  * @method handleNextClick
+ * @returns {Promise} 会解析处理结果的Promise
+
+ handleNextClick(){
+    return new Promise();
+  }
  */

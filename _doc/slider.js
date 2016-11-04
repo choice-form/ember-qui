@@ -1,7 +1,7 @@
 /**
- * 下拉菜单
+ * 滑竿打分题
  *
- * @class dropdown(下拉菜单题)
+ * @class slider(滑竿打分题)
  */
 
 
@@ -18,8 +18,6 @@
  * @property {String} node.isMust - 当前节点,是否为必选, 'true' or 'false'
  * @property {String} node.uuid - 当前题目节点的唯一ID
  * @property {String} node.number - 当前节点的索引值
- * @property {String} node.value - 下拉菜单所选择的值
- * @property {String} node.placeholder - placeholder
  * @example
  ```javascript
  node:{
@@ -33,13 +31,11 @@
         }
       ],
       renderId:'12213343234',
-      typeName: '下拉菜单',
-      quesType: 'dropdown',
+      typeName: '滑竿打分题',
+      quesType: 'slider',
       uuid: '001',
       isMust:true,
       number:'1',
-      value:'1234567899',
-      placeholder:'请下拉选择',
  }
  ```
  */
@@ -50,23 +46,34 @@
  * ioption,当前题目选项
  *
  * @property {Object} option
- * @property {Bool} option.selected - 选项是否被选择
  * @property {String} option.renderId - 当前选项的渲染ID,用于单页的滚动
  * @property {String} option.text - 选项文字
  * @property {String} option.uuid - 选项ID值
  * @property {String} option.icon - 选项Icon
+ * @property {String} option.inputType - 其他选项类型, 'select', 'input', 'select-input
+ * @property {String} option.inputRule - 备注的input类型, 如下: 'noValidation','','int','phone','float','email','date','dateRange','time','timeRange','postCode','url'
+ * @property {Number} option.value - input,textarea,mobileScroll等其他控件使用的Value
+ * @property {Number} option.minValue - 设置滑竿的最小值
+ * @property {Number} option.maxValue - 设置滑竿的最大值
+ * @property {Number} option.step - 这是滑竿的步进值
 
  * @example
  ```javascript
  option:{
-    selected:false,
-    renderId: '4567890-0987',
-    text: faker.lorem.sentence(),
-    uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
-    icon: 'arrows-small-down', // 选项的Icon
+       renderId: '4567890-0987',
+        text: faker.lorem.words(),
+        uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C93",
+        icon: '', // 选项的Icon
+        inputType: 'input', //其他选项, 'input',
+        inputRule: 'time', //输入控件初始化规则, 具体有哪些规则,请查看@class: ui-question
+        value: 6, //当前的分值
+        minValue:1, //最小分值
+        maxValue:8, //最大分值
+        step: 2, //步进值
    }
  ```
  */
+
 
 /**
  * 选项输入回调方法

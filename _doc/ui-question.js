@@ -1,7 +1,7 @@
 /**
  * ui-question
  *
- * @class ui-question(question页面)
+ * @class -ui-question(question页面)
  */
 
 /**
@@ -76,26 +76,85 @@
  ```
  */
 
-/**
- * handleOptionClick onclick,事件
- *
- * @method handleOptionClick
- */
 
-/**
- * handleOptionInput oninput,事件
- *
- * @method handleOptionInput
- */
 
-/**
- * handlePrevClick 上一题按钮,事件
- *
- * @method handlePrevClick
- */
 
-/**
- * handleNextClick 下一题按钮,事件
- *
- * @method handleNextClick
+  /**
+   * 选项点击时的回调方法
+   *
+   * @method handleOptionClick
+   * @param {object} option 关联的选项
+   * @param {object} question 关联的问题
+   * @returns {boolean} 回调任务执行结果 true：正常 false：无法执行
+      handleOptionClick(option, question){
+        return true;
+      },
+  */
+
+
+  /**
+   * 选项输入回调方法
+   *
+   * @method handleOptionInput
+   * @param {number|object} data 输入数数据，简单输入框传字符值，复杂输入框自由传对象，如上传文件的传文件对象
+   * @param {object} option 关联的选项
+   * @param {object} question 关联的问题
+   * @returns {boolean|Promise} 回调任务执行结果 true：正常 false：无法执行
+   *                            文件上传场合返回Promise
+      handleOptionInput(data, option, question){
+        return true;
+      },
+   */
+
+
+  /**
+   * 选项拖拽结束回调方法
+   *
+   * @method handleOptionDrop
+   * @param {number} startIndex 原始索引值
+   * @param {number} endIndex 结束索引值
+   * @param {number} question 关联的问题
+   * @returns {boolean} 回调任务执行结果 true：正常 false：无法执行
+
+      handleOptionDrop(startIndex, endIndex, question){
+        return true;
+      },
+   */
+
+
+  /**
+   * 输入问题数据回调方法
+   *
+   * @method handleQuestionInput
+   * @param {object|string} dynamic 输入的数据
+   * @param {object} question 关联的问题
+   * @returns {boolean} 回调任务执行结果 true：正常 false：无法执行
+
+      handleQuestionInput(dynamic, question){
+        return true;
+      },
+   */
+
+
+  /**
+   * 点击前一题回调方法
+   *
+   *
+   * @returns {boolean} 回调任务执行结果 true：正常 false：无法执行
+
+    handlePrevClick(){
+      return true;
+    },
+   */
+
+
+  /**
+   * 点击后一题回调方法
+   *
+   * @method handleNextClick
+   * @returns {Promise} 会解析处理结果的Promise
+
+  handleNextClick(){
+    return new Promise();
+  }
  */

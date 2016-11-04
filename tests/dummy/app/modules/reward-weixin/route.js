@@ -7,10 +7,9 @@ export default Route.extend({
 
 
     return {
-      rewardName: '',
-      title: faker.finance.accountName(),
-      description: faker.lorem.paragraph(),
-      rewardVaule: ['$', faker.finance.mask()],
+      title: `title${faker.finance.accountName()}`,
+      description: `description${faker.lorem.paragraph()}`,
+      rewardVaule: `$${faker.finance.mask()}`,
       weixinImage: faker.image.avatar(),
       weixinID: faker.name.findName(),
       icon: 'present-gift',

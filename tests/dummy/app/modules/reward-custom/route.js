@@ -1,7 +1,6 @@
 /* eslint-disable */
 
 import Route from 'ember-route';
-import set from 'ember-metal/set';
 import faker from 'faker';
 
 
@@ -10,7 +9,7 @@ export default Route.extend({
 
 
     return {
-      rewardName: faker.finance.accountName(),
+      rewardName: `Reward Name : ${faker.finance.accountName()}`,
       images: [
         {
           ratio: 0.6666667,

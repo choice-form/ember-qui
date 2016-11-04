@@ -7,7 +7,7 @@ import {htmlSafe} from 'ember-string';
 /**
  * 问卷头部内容
  *
- * @class question-header
+ * @class -question-header(问卷头部)
  */
 
 export default Component.extend({

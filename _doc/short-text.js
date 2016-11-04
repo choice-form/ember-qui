@@ -1,7 +1,7 @@
 /**
- * 下拉菜单
+ * 填空题
  *
- * @class dropdown(下拉菜单题)
+ * @class short-text(填空题)
  */
 
 
@@ -18,8 +18,6 @@
  * @property {String} node.isMust - 当前节点,是否为必选, 'true' or 'false'
  * @property {String} node.uuid - 当前题目节点的唯一ID
  * @property {String} node.number - 当前节点的索引值
- * @property {String} node.value - 下拉菜单所选择的值
- * @property {String} node.placeholder - placeholder
  * @example
  ```javascript
  node:{
@@ -33,13 +31,11 @@
         }
       ],
       renderId:'12213343234',
-      typeName: '下拉菜单',
-      quesType: 'dropdown',
+      typeName: '填空题',
+      quesType: 'short-text',
       uuid: '001',
       isMust:true,
       number:'1',
-      value:'1234567899',
-      placeholder:'请下拉选择',
  }
  ```
  */
@@ -50,23 +46,29 @@
  * ioption,当前题目选项
  *
  * @property {Object} option
- * @property {Bool} option.selected - 选项是否被选择
  * @property {String} option.renderId - 当前选项的渲染ID,用于单页的滚动
- * @property {String} option.text - 选项文字
  * @property {String} option.uuid - 选项ID值
  * @property {String} option.icon - 选项Icon
+ * @property {String} option.inputType - 输入类型, 'input', 填空题只有'input'
+ * @property {String} option.inputRule -的input验证规则, 如下: 'noValidation','','int','phone','float','email','date','dateRange','time','timeRange','postCode','url'
+ * @property {String} option.value - input,textarea,mobileScroll等其他控件使用的Value
+ * @property {String} option.placeholder - input,textarea的 placeholder值
 
  * @example
  ```javascript
  option:{
-    selected:false,
-    renderId: '4567890-0987',
-    text: faker.lorem.sentence(),
-    uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
-    icon: 'arrows-small-down', // 选项的Icon
+      renderId: '4567890-0987',
+      text:'',
+      uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C903",
+      icon: '', // 选项的Icon
+      inputType: 'input',
+      inputRule: 'url', //输入控件初始化规则
+      value: '',
+      placeholder: 'url',
    }
  ```
  */
+
 
 /**
  * 选项输入回调方法

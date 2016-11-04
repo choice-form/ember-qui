@@ -10,10 +10,6 @@ export default Component.extend({
   tagName:'',
 
   actions: {
-    /**
-     * 选中事件，如果其他选项是'input'类型？则，直接return
-     * @for welcome-page
-     */
     handleOptionClick(){
       const inputType = get(this, 'option.inputType');
       if (inputType === 'input')return;
