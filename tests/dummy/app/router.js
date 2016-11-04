@@ -32,7 +32,7 @@ Router.map(function() {
   this.route('question-picture-choice-thumbnail', { path: 'picture-thumbnail' });
   this.route('question-verification-message', { path: 'verification-message' });
   this.route('question-verification-password', { path: 'verification-password' });
-  this.route('question-verification-v-code', { path: 'verification-v-code' });
+  this.route('question-verification-verifycode', { path: 'verification-verifycode' });
   this.route('reward-weixin', { path: 'reward-weixin' });
   this.route('reward-custom', { path: 'reward-custom' });
   this.route('reward-lottery', { path: 'reward-lottery' });

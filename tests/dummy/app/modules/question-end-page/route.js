@@ -33,7 +33,7 @@ export default Route.extend({
           selectType: '',
           showStyle: '',
           uuid: '002',
-          isReward: true,
+          hasReward: true,
           isMust:true,
           number:'3',
           value:'123123',

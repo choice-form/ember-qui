@@ -18,7 +18,9 @@
  * @property {String} node.isMust - 当前节点,是否为必选, 'true' or 'false'
  * @property {String} node.uuid - 当前题目节点的唯一ID
  * @property {String} node.number - 当前节点的索引值
+ * @property {Array} node.regions - 地域字典
  * @property {String} node.value - 定位所得到的值
+ * @property {String} node.grade - treelist树杈的数量
  * @property {String} node.placeholder - placeholder
  * @example
  ```javascript
@@ -35,11 +37,11 @@
     typeName:'地域题',
     renderId: '4567890-0987',
     quesType: 'region',
-    selectType: '',
-    showStyle: '',
     uuid: '002',
     isMust:true,
     number:'3',
+    grade: 2,
+    regions: [],
     value:'上海市-上海市-徐汇区',
     placeholder:'选择你所在的城市',
  }

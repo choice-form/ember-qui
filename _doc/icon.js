@@ -59,7 +59,7 @@
       renderId: '4567890-0987',
       text: faker.lorem.words(),
       uuid: faker.date.between('2016-01-01', '2016-12-31'),
-      icon: 'alert-circle-?',
+      icon: 'http://uadbacform.ad,jpg',
    }
  ```
  */

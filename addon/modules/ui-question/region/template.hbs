@@ -1,7 +1,7 @@
 {{ui-addon/svg-item icon="map-location" size="64px" viewBox="40" iconClass="region-pin-icon"}}
 <div class="ui-dropdown">
   <ul class='region-list' style="display:none">
-    {{#each regions as |region|}}
+    {{#each node.regions as |region|}}
       <li value={{region.Value}}>{{region.Meaning}}
         <ul>
           {{#each region.cities as |city|}}

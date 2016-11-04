@@ -82,8 +82,8 @@
       rewardType: 'custom',
       rewardTime: '2016-11-11 00:00',
       uuid: '002',
-      RewardToMessage: true,
-      RewardToQrcode: true,
+      rewardToMessage: true,
+      rewardToQrcode: true,
       qrImage: "/images/qrcode.png",
       qrCode: faker.lorem.words(),
  }
@@ -92,7 +92,7 @@
 
 
 /**
- * 选项点击时的回调方法
+ * 选项点击时的回调方法 (自定义奖励)
  *
  * @method handleOptionClick
  * @param {object} option 关联的选项
@@ -102,3 +102,25 @@
         return true;
       },
  */
+
+/**
+ * 输入问题数据回调方法 (自定义奖励)
+ *
+ * @method handleQuestionInput
+ * @param {object|string} dynamic 输入的数据
+ * @param {object} question 关联的问题
+ * @returns {boolean} 回调任务执行结果 true：正常 false：无法执行
+ * @example
+ ```javascript
+ dynamic: {
+  phoneNumber: '1725107121',
+  code:'1213' //手机短信, 验证码 , 密码
+  }
+
+ handleQuestionInput(dynamic, question){
+        return true;
+      },
+ ```
+ */
+
+

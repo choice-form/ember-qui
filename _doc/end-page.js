@@ -15,6 +15,7 @@
  * @property {String} node.renderId - 页面渲染的ID号,单页滚动时候需要
  * @property {String} node.typeName - 选项类型名称
  * @property {String} node.quesType - 当前的题型
+ * @property {Bool} node.hasReward - 是否有奖励
  * @property {String} node.uuid - 当前题目节点的唯一ID
  * @property {String} node.number - 当前节点的索引值
  * @example
@@ -31,6 +32,7 @@
       ],
       renderId:'12213343234',
       typeName: '结束节点',
+      hasReward: true,
       quesType: 'end-page',
       uuid: '001',
       number:'1',

@@ -26,8 +26,8 @@ export default Route.extend({
       rewardType: 'custom', //weixin, custom,
       rewardTime: '2016-11-11 00:00',
       uuid: '002',
-      RewardToMessage: true,
-      RewardToQrcode: true,
+      rewardToMessage: true,
+      rewardToQrcode: true,
       qrImage: "/images/qrcode.png",
       qrCode: faker.lorem.words(),
       handleEvents: {

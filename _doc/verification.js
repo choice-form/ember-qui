@@ -15,7 +15,8 @@
  * @property {String} node.renderId - 页面渲染的ID号,单页滚动时候需要
  * @property {String} node.typeName - 选项类型名称
  * @property {String} node.quesType - 当前的题型: verification
- * @property {String} node.verificationType - 验证类型: message, password, v-code
+ * @property {String} node.verificationType - 验证类型: message, password, verifyCode
+ * @property {String} node.verifyImage - 验证码图片URL
  * @property {String} node.isMust - 当前节点,是否为必选, 'true' or 'false'
  * @property {String} node.uuid - 当前题目节点的唯一ID
  * @property {String} node.number - 当前节点的索引值
@@ -34,7 +35,8 @@
       typeName:'验证节点',
       renderId: '4567890-0987',
       quesType: 'verification',
-      verificationType: 'message', //message, password, v-code
+      verificationType: 'message', //message, password, verifyCode
+      verifyImage: 'http://131kauqad.jpg',
       uuid: '002',
       isMust:true,
       number:'3',
@@ -55,3 +57,25 @@
         return true;
       },
  */
+
+
+/**
+ * 输入问题数据回调方法
+ *
+ * @method handleQuestionInput
+ * @param {object|string} dynamic 输入的数据
+ * @param {object} question 关联的问题
+ * @returns {boolean} 回调任务执行结果 true：正常 false：无法执行
+ * @example
+ ```javascript
+ dynamic: {
+  phoneNumber: '1725107121',
+  code:'1213' //手机短信, 验证码 , 密码
+  }
+
+ handleQuestionInput(dynamic, question){
+        return true;
+      },
+ ```
+ */
+

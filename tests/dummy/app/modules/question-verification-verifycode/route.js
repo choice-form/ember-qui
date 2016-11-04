@@ -17,7 +17,7 @@ export default Route.extend({
           typeName:'验证节点',
           renderId: '4567890-0987',
           quesType: 'verification',
-          verificationType: 'v-code', //message, password, v-code
+          verificationType: 'verifyCode', //message, password, verifyCode
           vCodeImage: '',
           uuid: '002',
           isMust:true,

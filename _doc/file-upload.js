@@ -68,6 +68,19 @@
 
 
 /**
+ * 选项点击时的回调方法
+ *
+ * @method handleOptionClick
+ * @param {object} option 关联的选项
+ * @param {object} question 关联的问题
+ * @returns {boolean} 回调任务执行结果 true：正常 false：无法执行
+ handleOptionClick(option, question){
+        return true;
+      },
+ */
+
+
+/**
  * 选项输入回调方法
  *
  * @method handleOptionInput
@@ -76,7 +89,11 @@
  * @param {object} question 关联的问题
  * @returns {boolean|Promise} 回调任务执行结果 true：正常 false：无法执行
  *                            文件上传场合返回Promise
+ * @example
+ ```javascript
+ data : e.file
  handleOptionInput(data, option, question){
         return true;
       },
+ ```
  */

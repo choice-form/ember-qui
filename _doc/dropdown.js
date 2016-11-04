@@ -68,16 +68,17 @@
  ```
  */
 
+
+
 /**
- * 选项输入回调方法
+ * 输入问题数据回调方法
  *
- * @method handleOptionInput
- * @param {number|object} data 输入数数据，简单输入框传字符值，复杂输入框自由传对象，如上传文件的传文件对象
- * @param {object} option 关联的选项
+ * @method handleQuestionInput
+ * @param {object|string} dynamic 输入的数据
  * @param {object} question 关联的问题
- * @returns {boolean|Promise} 回调任务执行结果 true：正常 false：无法执行
- *                            文件上传场合返回Promise
- handleOptionInput(data, option, question){
+ * @returns {boolean} 回调任务执行结果 true：正常 false：无法执行
+
+ handleQuestionInput(dynamic, question){
         return true;
       },
  */
