@@ -65,7 +65,7 @@
   </div>
   {{#if node.isReward}}
     <div class="submit-actions">
-      {{ui-addon/label tagName='button' text=node.buttonText class="button contrast" leftIcon='gift'}}
+      {{ui-addon/label tagName='button' handleClick=(action 'handleNextClick')  text=node.buttonText class="button contrast" leftIcon='gift'}}
     </div>
   {{/if}}
 </section>
