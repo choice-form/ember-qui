@@ -7,37 +7,48 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.route('faker');
-  this.route('icon-preview', {path:'icon-preview'});
-  this.route('welcome', {path: 'welcome'});
-  this.route('question-choice', { path: 'choice' });
-  this.route('question-short-text', { path: 'short-text' });
-  this.route('question-slider', { path: 'slider' });
-  this.route('question-rating', { path: 'rating' });
-  this.route('question-ranking', { path: 'ranking' });
-  this.route('question-dropdown', { path: 'dropdown' });
-  this.route('question-icon', { path: 'icon' });
-  this.route('question-gender', { path: 'gender' });
-  this.route('question-file-upload', { path: 'file-upload' });
-  this.route('question-location', { path: 'location' });
-  this.route('question-region', { path: 'region' });
-  this.route('question-intro-page', { path: 'intro-page' });
-  this.route('question-end-page', { path: 'end-page' });
-  this.route('question-single', { path: 'single' });
-  this.route('question-picture-choice-vertical', { path: 'picture-vertical' });
-  this.route('question-picture-choice-grid', { path: 'picture-grid' });
-  this.route('question-picture-choice-matrix', { path: 'picture-matrix' });
-  this.route('question-picture-choice-pinterest', { path: 'picture-pinterest' });
-  this.route('question-picture-superscript', { path: 'picture-superscript' });
-  this.route('question-picture-choice-thumbnail', { path: 'picture-thumbnail' });
-  this.route('question-verification-message', { path: 'verification-message' });
-  this.route('question-verification-password', { path: 'verification-password' });
-  this.route('question-verification-verifycode', { path: 'verification-verifycode' });
-  this.route('reward-weixin', { path: 'reward-weixin' });
-  this.route('reward-custom', { path: 'reward-custom' });
-  this.route('reward-lottery', { path: 'reward-lottery' });
-  this.route('test');
-  this.route('quick-link');
+  this.route('quick-link', {path:'q'});
+  this.route('single');
+  this.route('contact-information', function() {
+    this.route('gender');
+  });
+  this.route('welcome');
+  this.route('question', function() {
+    this.route('choice');
+    this.route('end-page');
+    this.route('file-upload');
+    this.route('icon');
+    this.route('intro-page');
+    this.route('location');
+    this.route('dropdown');
+    this.route('ranking');
+    this.route('rating');
+    this.route('region');
+    this.route('short-text');
+    this.route('slider');
+    this.route('picture-choice', function() {
+      this.route('grid');
+      this.route('matrix');
+      this.route('pinterest');
+      this.route('superscript');
+      this.route('thumbnail');
+      this.route('vertical');
+    });
+    this.route('verification', function() {
+      this.route('captcha');
+      this.route('password');
+      this.route('sms');
+    });
+  });
+  this.route('reward', function() {
+    this.route('custom');
+    this.route('random');
+    this.route('wechat');
+  });
+  this.route('icon-preview', {path:'icp'});
+  this.route('temp', function() {
+    this.route('faker');
+  });
 });
 
 export default Router;
