@@ -1,4 +1,7 @@
-{{ui-question/-node/intro-cell intro}}
-<section>
-  {{ui-addon/label tagName='button' handleClick=(action 'handleNextClick') text=intro.nextButton}}
+<section class={{concat 'welcome ' intro.style}}>
+  {{ui-question/-node/intro-cell intro}}
 </section>
+{{ui-question/-node/button-cell
+  nextButton=intro.nextButton
+  handleNextClick=intro.handleEvents.handleNextClick
+}}

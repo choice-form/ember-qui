@@ -16,7 +16,7 @@
   justify-content: center;
   & .cell {
     display: flex;
-    padding: 2rem .725rem 0 .725rem;
+    padding: 1rem .725rem 0 .725rem;
 
     flex-basis: 33.333%;
     @media (max-width: 767px) {
@@ -36,7 +36,7 @@
       text-align: center;
       border-width: 1px;
       border-style: solid;
-      border-radius: 3px;
+      border-radius: @radius-m;
       & .upload-item {
         position: relative;
         display: flex;
@@ -109,9 +109,11 @@ html.desktop {
   }
 }
 
+html.tablet.portrait,
 html.mobile {
   & .file-upload {
     flex-direction: column;
+    padding: 1rem;
     & .cell {
       & label {
         padding: 1rem .5rem;

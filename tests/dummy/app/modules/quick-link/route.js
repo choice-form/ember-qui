@@ -8,9 +8,13 @@ export default Route.extend({
         {href: "/temp/faker", label: "faker"},
       ],
       page: [
-        {href: "/welcome", label: "welcome"},
         {href: "/single", label: "single"},
         {href: "/contact-information/gender", label: "gender"},
+      ],
+      welcome: [
+        {href: "/welcome/cover", label: "cover"},
+        {href: "/welcome/full-screen-cover", label: "full-screen-cover"},
+        {href: "/welcome/no-cover", label: "no-cover"},
       ],
       question: [
         {href: "/question/choice", label: "choice"},

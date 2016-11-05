@@ -1,3 +1,13 @@
+.question-header {
+  & + .control.choice {
+    padding-top: 0;
+  }
+}
+
+.choice {
+  padding-top: 0;
+}
+
 .cell {
   & .ui-radio,
   & .ui-checkbox {
@@ -12,11 +22,16 @@
     & label {
       display: block;
       padding: 1.5rem 2.5rem 1.5rem 0;
+      cursor: pointer;
+      vertical-align: middle;
+      white-space: normal;
+      word-wrap: break-word;
       & .select-container {
-        .absolute(0, 0, 0, auto);
         width: 1.5rem;
         height: 1.5rem;
         margin: auto 0;
+
+        .absolute(0, 0, 0, auto);
         & svg {
           display: block;
           width: 1.5rem;
@@ -60,15 +75,24 @@
   position: relative;
   & textarea,
   & input {
+    font-size: 1rem;
+    line-height: 1rem;
     width: 100%;
     padding: 1rem;
     resize: none;
-    border-width: 1px;
-    border-style: solid;
-    border-radius: 3px;
+    color: currentColor;
+    border: 1px solid currentColor;
+    border-radius: @radius-m;
     outline: none;
+    background-color: transparent;
 
     appearance: none;
+    @media (max-width: 479px) {
+      width: 100%;
+    }
+    &::-webkit-input-placeholder {
+      line-height: normal;
+    }
     &:not(.ui-menu) {
       &:invalid {
         & + svg {
@@ -88,12 +112,13 @@
     }
   }
   & svg {
-    .absolute(0, 1rem, 0, auto);
     width: 1rem;
     height: 1rem;
     margin: auto 0;
     transition: opacity 200ms ease;
     opacity: .2;
+
+    .absolute(0, 1rem, 0, auto);
   }
   & .ui-menu {
     cursor: pointer;
@@ -143,12 +168,13 @@ html.desktop {
           opacity: .1;
         }
         &:before {
-          .absolute(1rem, -.5rem, 1rem, -.5rem);
           content: '';
           transition: opacity 200ms ease;
           pointer-events: none;
           opacity: 0;
-          border-radius: 3px;
+          border-radius: @radius-m;
+
+          .absolute(1rem, -.5rem, 1rem, -.5rem);
         }
       }
     }

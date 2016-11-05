@@ -35,6 +35,13 @@
   {{/each}}
 </ul>
 
+<h2>Welcome</h2>
+<ul>
+  {{#each model.welcome as |item|}}
+    <li><a class="button secondary" href={{item.href}}>{{item.label}}</a></li>
+  {{/each}}
+</ul>
+
 <h2>Question</h2>
 <ul>
   {{#each model.question as |item|}}

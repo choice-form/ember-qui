@@ -8,32 +8,10 @@ export default Route.extend({
   model() {
     let options = [
       Ember.Object.create({
-        text: faker.finance.accountName(),
+        text: faker.lorem.paragraph(),
         renderId: '4567890-0987',
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
-        icon: 'menu', // 选项的Icon
-        sortNo: 1,
-        inputType: '', // 'select', 'input', 'select-input, ower-input',
-        inputRule: '', //输入控件初始化规则
-        value: '',
-        placeholder: '',
-      }),
-      Ember.Object.create({
-        text: faker.finance.accountName(),
-        renderId: '4567890-0987',
-        uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
-        icon: 'menu', // 选项的Icon
-        sortNo: 2,
-        inputType: '', // 'select', 'input', 'select-input, ower-input',
-        inputRule: '', //输入控件初始化规则
-        value: '',
-        placeholder: '',
-      }),
-      Ember.Object.create({
-        text: faker.finance.accountName(),
-        renderId: '4567890-0987',
-        uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
-        icon: 'menu', // 选项的Icon
+        icon: 'ranking', // 选项的Icon
         sortNo: '',
         inputType: '', // 'select', 'input', 'select-input, ower-input',
         inputRule: '', //输入控件初始化规则
@@ -44,7 +22,7 @@ export default Route.extend({
         text: faker.finance.accountName(),
         renderId: '4567890-0987',
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
-        icon: 'menu', // 选项的Icon
+        icon: 'ranking', // 选项的Icon
         sortNo: '',
         inputType: '', // 'select', 'input', 'select-input, ower-input',
         inputRule: '', //输入控件初始化规则
@@ -55,7 +33,7 @@ export default Route.extend({
         text: faker.finance.accountName(),
         renderId: '4567890-0987',
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
-        icon: 'menu', // 选项的Icon
+        icon: 'ranking', // 选项的Icon
         sortNo: '',
         inputType: '', // 'select', 'input', 'select-input, ower-input',
         inputRule: '', //输入控件初始化规则
@@ -66,7 +44,7 @@ export default Route.extend({
         text: faker.finance.accountName(),
         renderId: '4567890-0987',
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
-        icon: 'menu', // 选项的Icon
+        icon: 'ranking', // 选项的Icon
         sortNo: '',
         inputType: '', // 'select', 'input', 'select-input, ower-input',
         inputRule: '', //输入控件初始化规则
@@ -77,7 +55,29 @@ export default Route.extend({
         text: faker.finance.accountName(),
         renderId: '4567890-0987',
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
-        icon: 'menu', // 选项的Icon
+        icon: 'ranking', // 选项的Icon
+        sortNo: '',
+        inputType: '', // 'select', 'input', 'select-input, ower-input',
+        inputRule: '', //输入控件初始化规则
+        value: '',
+        placeholder: '',
+      }),
+      Ember.Object.create({
+        text: faker.finance.accountName(),
+        renderId: '4567890-0987',
+        uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
+        icon: 'ranking', // 选项的Icon
+        sortNo: '',
+        inputType: '', // 'select', 'input', 'select-input, ower-input',
+        inputRule: '', //输入控件初始化规则
+        value: '',
+        placeholder: '',
+      }),
+      Ember.Object.create({
+        text: faker.finance.accountName(),
+        renderId: '4567890-0987',
+        uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
+        icon: 'ranking', // 选项的Icon
         sortNo: '',
         inputType: '', // 'select', 'input', 'select-input, ower-input',
         inputRule: '', //输入控件初始化规则

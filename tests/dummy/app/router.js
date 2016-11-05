@@ -12,7 +12,11 @@ Router.map(function() {
   this.route('contact-information', function() {
     this.route('gender');
   });
-  this.route('welcome');
+  this.route('welcome', function() {
+    this.route('cover');
+    this.route('full-screen-cover');
+    this.route('no-cover');
+  });
   this.route('question', function() {
     this.route('choice');
     this.route('end-page');

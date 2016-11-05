@@ -13,25 +13,28 @@ export default Route.extend({
           title: 'Picture Grid',
           description: faker.lorem.paragraph(),
           images: '',
-          renderId:'775519',
+          renderId: '775519',
           typeName: '选择题',
           quesType: 'picture-choice', //select, fill
           selectType: 'radio',
           showStyle: 'grid',
           picStyle: '',
-          textDirection:'', //in-block ,out-block, empty
+          textDirection: '', //in-block ,out-block, empty
           pictureSize: 'picture-large',  //picture-large, picture-small
           uuid: faker.date.between('2016-01-01', '2016-12-31'),
-          isMust:false,
-          number:'2',
-          options:[
+          isMust: false,
+          number: '2',
+          options: [
             Ember.Object.create({
               selected: false,
               renderId: '4567890-0987',
               text: faker.lorem.sentence(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'radio', // 选项的Icon
-              image: '/images/sample-random/sample-random-1.jpeg',
+              image: (function () {
+                const num = parseInt(Math.random() * 40);
+                return `/images/sample-random/sample-random-${num}.jpeg`;
+              })(),
               inputType: '', // 'select', 'input', 'select-input, ower-input',
               inputRule: '', //输入控件初始化规则
               value: '',
@@ -43,7 +46,10 @@ export default Route.extend({
               text: faker.lorem.sentence(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'radio', // 选项的Icon
-              image: '/images/sample-random/sample-random-2.jpeg',
+              image: (function () {
+                const num = parseInt(Math.random() * 40);
+                return `/images/sample-random/sample-random-${num}.jpeg`;
+              })(),
               inputType: '', // 'select', 'input', 'select-input, ower-input',
               inputRule: '', //输入控件初始化规则
               value: '',
@@ -55,7 +61,10 @@ export default Route.extend({
               text: faker.lorem.paragraph(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'radio', // 选项的Icon
-              image: '/images/sample-random/sample-random-3.jpeg',
+              image: (function () {
+                const num = parseInt(Math.random() * 40);
+                return `/images/sample-random/sample-random-${num}.jpeg`;
+              })(),
               inputType: '', // 'select', 'input', 'select-input, ower-input',
               inputRule: '', //输入控件初始化规则
               value: '',
@@ -67,7 +76,10 @@ export default Route.extend({
               text: faker.lorem.sentence(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'radio', // 选项的Icon
-              image: '/images/sample-random/sample-random-4.jpeg',
+              image: (function () {
+                const num = parseInt(Math.random() * 40);
+                return `/images/sample-random/sample-random-${num}.jpeg`;
+              })(),
               inputType: '', // 'select', 'input', 'select-input, ower-input',
               inputRule: '', //输入控件初始化规则
               value: '',
@@ -79,25 +91,28 @@ export default Route.extend({
           title: 'Picture Grid insert-block',
           description: faker.lorem.paragraph(),
           images: '',
-          renderId:'775519',
+          renderId: '775519',
           typeName: '选择题',
           quesType: 'picture-choice', //select, fill
           selectType: 'radio',
           showStyle: 'grid',
           picStyle: '',
-          textDirection:'insert-block', //in-block ,out-block, empty
+          textDirection: 'insert-block', //in-block ,out-block, empty
           pictureSize: 'picture-large',  //picture-large, picture-small
           uuid: faker.date.between('2016-01-01', '2016-12-31'),
-          isMust:false,
-          number:'2',
-          options:[
+          isMust: false,
+          number: '2',
+          options: [
             Ember.Object.create({
               selected: false,
               renderId: '4567890-0987',
               text: faker.lorem.sentence(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'radio', // 选项的Icon
-              image: '/images/sample-random/sample-random-1.jpeg',
+              image: (function () {
+                const num = parseInt(Math.random() * 40);
+                return `/images/sample-random/sample-random-${num}.jpeg`;
+              })(),
               inputType: '', // 'select', 'input', 'select-input, ower-input',
               inputRule: '', //输入控件初始化规则
               value: '',
@@ -109,7 +124,10 @@ export default Route.extend({
               text: faker.lorem.sentence(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'radio', // 选项的Icon
-              image: '/images/sample-random/sample-random-2.jpeg',
+              image: (function () {
+                const num = parseInt(Math.random() * 40);
+                return `/images/sample-random/sample-random-${num}.jpeg`;
+              })(),
               inputType: '', // 'select', 'input', 'select-input, ower-input',
               inputRule: '', //输入控件初始化规则
               value: '',
@@ -121,7 +139,10 @@ export default Route.extend({
               text: faker.lorem.paragraph(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'radio', // 选项的Icon
-              image: '/images/sample-random/sample-random-3.jpeg',
+              image: (function () {
+                const num = parseInt(Math.random() * 40);
+                return `/images/sample-random/sample-random-${num}.jpeg`;
+              })(),
               inputType: '', // 'select', 'input', 'select-input, ower-input',
               inputRule: '', //输入控件初始化规则
               value: '',
@@ -133,7 +154,10 @@ export default Route.extend({
               text: faker.lorem.sentence(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'radio', // 选项的Icon
-              image: '/images/sample-random/sample-random-4.jpeg',
+              image: (function () {
+                const num = parseInt(Math.random() * 40);
+                return `/images/sample-random/sample-random-${num}.jpeg`;
+              })(),
               inputType: '', // 'select', 'input', 'select-input, ower-input',
               inputRule: '', //输入控件初始化规则
               value: '',
@@ -145,25 +169,28 @@ export default Route.extend({
           title: 'Picture Grid superscript',
           description: faker.lorem.paragraph(),
           images: '',
-          renderId:'775519',
+          renderId: '775519',
           typeName: '选择题',
           quesType: 'picture-choice', //select, fill
           selectType: 'radio',
           showStyle: 'grid',
           picStyle: 'superscript',
-          textDirection:'', //in-block ,out-block, empty
+          textDirection: '', //in-block ,out-block, empty
           pictureSize: 'picture-large',  //picture-large, picture-small
           uuid: faker.date.between('2016-01-01', '2016-12-31'),
-          isMust:false,
-          number:'2',
-          options:[
+          isMust: false,
+          number: '2',
+          options: [
             Ember.Object.create({
               selected: false,
               renderId: '4567890-0987',
               text: faker.lorem.sentence(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'radio', // 选项的Icon
-              image: '/images/sample-random/sample-random-1.jpeg',
+              image: (function () {
+                const num = parseInt(Math.random() * 40);
+                return `/images/sample-random/sample-random-${num}.jpeg`;
+              })(),
               inputType: '', // 'select', 'input', 'select-input, ower-input',
               inputRule: '', //输入控件初始化规则
               value: '',
@@ -175,7 +202,10 @@ export default Route.extend({
               text: faker.lorem.sentence(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'radio', // 选项的Icon
-              image: '/images/sample-random/sample-random-2.jpeg',
+              image: (function () {
+                const num = parseInt(Math.random() * 40);
+                return `/images/sample-random/sample-random-${num}.jpeg`;
+              })(),
               inputType: '', // 'select', 'input', 'select-input, ower-input',
               inputRule: '', //输入控件初始化规则
               value: '',
@@ -187,7 +217,10 @@ export default Route.extend({
               text: faker.lorem.paragraph(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'radio', // 选项的Icon
-              image: '/images/sample-random/sample-random-3.jpeg',
+              image: (function () {
+                const num = parseInt(Math.random() * 40);
+                return `/images/sample-random/sample-random-${num}.jpeg`;
+              })(),
               inputType: '', // 'select', 'input', 'select-input, ower-input',
               inputRule: '', //输入控件初始化规则
               value: '',
@@ -199,7 +232,10 @@ export default Route.extend({
               text: faker.lorem.sentence(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'radio', // 选项的Icon
-              image: '/images/sample-random/sample-random-4.jpeg',
+              image: (function () {
+                const num = parseInt(Math.random() * 40);
+                return `/images/sample-random/sample-random-${num}.jpeg`;
+              })(),
               inputType: '', // 'select', 'input', 'select-input, ower-input',
               inputRule: '', //输入控件初始化规则
               value: '',
@@ -211,25 +247,28 @@ export default Route.extend({
           title: 'Picture Grid superscript insert-block',
           description: faker.lorem.paragraph(),
           images: '',
-          renderId:'775519',
+          renderId: '775519',
           typeName: '选择题',
           quesType: 'picture-choice', //select, fill
           selectType: 'radio',
           showStyle: 'grid',
           picStyle: 'superscript',
-          textDirection:'insert-block', //in-block ,out-block, empty
+          textDirection: 'insert-block', //in-block ,out-block, empty
           pictureSize: 'picture-large',  //picture-large, picture-small
           uuid: faker.date.between('2016-01-01', '2016-12-31'),
-          isMust:false,
-          number:'2',
-          options:[
+          isMust: false,
+          number: '2',
+          options: [
             Ember.Object.create({
               selected: false,
               renderId: '4567890-0987',
               text: faker.lorem.sentence(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'radio', // 选项的Icon
-              image: '/images/sample-random/sample-random-1.jpeg',
+              image: (function () {
+                const num = parseInt(Math.random() * 40);
+                return `/images/sample-random/sample-random-${num}.jpeg`;
+              })(),
               inputType: '', // 'select', 'input', 'select-input, ower-input',
               inputRule: '', //输入控件初始化规则
               value: '',
@@ -241,7 +280,10 @@ export default Route.extend({
               text: faker.lorem.sentence(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'radio', // 选项的Icon
-              image: '/images/sample-random/sample-random-2.jpeg',
+              image: (function () {
+                const num = parseInt(Math.random() * 40);
+                return `/images/sample-random/sample-random-${num}.jpeg`;
+              })(),
               inputType: '', // 'select', 'input', 'select-input, ower-input',
               inputRule: '', //输入控件初始化规则
               value: '',
@@ -253,7 +295,10 @@ export default Route.extend({
               text: faker.lorem.paragraph(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'radio', // 选项的Icon
-              image: '/images/sample-random/sample-random-3.jpeg',
+              image: (function () {
+                const num = parseInt(Math.random() * 40);
+                return `/images/sample-random/sample-random-${num}.jpeg`;
+              })(),
               inputType: '', // 'select', 'input', 'select-input, ower-input',
               inputRule: '', //输入控件初始化规则
               value: '',
@@ -265,7 +310,10 @@ export default Route.extend({
               text: faker.lorem.sentence(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'radio', // 选项的Icon
-              image: '/images/sample-random/sample-random-4.jpeg',
+              image: (function () {
+                const num = parseInt(Math.random() * 40);
+                return `/images/sample-random/sample-random-${num}.jpeg`;
+              })(),
               inputType: '', // 'select', 'input', 'select-input, ower-input',
               inputRule: '', //输入控件初始化规则
               value: '',
@@ -277,18 +325,18 @@ export default Route.extend({
           title: 'Picture Grid Cover',
           description: faker.lorem.paragraph(),
           images: '',
-          renderId:'775519',
+          renderId: '775519',
           typeName: '选择题',
           quesType: 'picture-choice', //select, fill
           selectType: 'radio',
           showStyle: 'grid',
           picStyle: 'cover',
-          textDirection:'out-block', //in-block ,out-block, empty
+          textDirection: 'out-block', //in-block ,out-block, empty
           pictureSize: 'picture-large',  //picture-large, picture-small
           uuid: faker.date.between('2016-01-01', '2016-12-31'),
-          isMust:false,
-          number:'2',
-          options:[
+          isMust: false,
+          number: '2',
+          options: [
             Ember.Object.create({
               selected: false,
               renderId: '4567890-0987',
@@ -367,18 +415,18 @@ export default Route.extend({
           title: 'Picture Grid Contain',
           description: faker.lorem.paragraph(),
           images: '',
-          renderId:'775519',
+          renderId: '775519',
           typeName: '选择题',
           quesType: 'picture-choice', //select, fill
           selectType: 'radio',
           showStyle: 'grid',
           picStyle: 'contain',
-          textDirection:'in-block', //in-block ,out-block, empty
+          textDirection: 'in-block', //in-block ,out-block, empty
           pictureSize: 'picture-large',  //picture-large, picture-small
           uuid: faker.date.between('2016-01-01', '2016-12-31'),
-          isMust:false,
-          number:'2',
-          options:[
+          isMust: false,
+          number: '2',
+          options: [
             Ember.Object.create({
               selected: false,
               renderId: '4567890-0987',

@@ -9,32 +9,25 @@ export default Route.extend({
     let options = [];
 
     return {
-      nodes:[
+      nodes: [
         {
-          title:faker.address.streetAddress(true),
+          title: faker.finance.accountName(),
           description: faker.lorem.paragraph(),
           images: [
             {
-              natural:'/images/sample-1.jpg',
-              thumbnail:'/images/sample-1-thumbnail.jpg',
-            },
-            {
-              natural:'/images/sample-2.jpg',
-              thumbnail:'/images/sample-2-thumbnail.jpg',
-            },
-            {
-              natural:'/images/sample-3.jpg',
-              thumbnail:'/images/sample-3-thumbnail.jpg',
+              ratio: 0.6666667,
+              natural:'/images/welcome/welcome-1.jpg',
+              thumbnail:'/images/welcome/welcome-1-thumbnail.jpg',
             }
           ],
-          typeName:'描述节点',
+          typeName: '描述节点',
           renderId: '4567890-0987',
           quesType: 'intro-page', //select, fill, valuemark
           selectType: '',
           showStyle: '',
           uuid: faker.date.between('2016-01-01', '2016-12-31'),
-          isMust:false,
-          number:'4',
+          isMust: false,
+          number: '4',
           options,
         }
       ],

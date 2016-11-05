@@ -1,10 +1,10 @@
 {{#each node.options as |option|}}
   <div class={{concat 'ranking-rank' (if option.sortNo ' complete')}}>
-    <span>{{option.sortNo}}</span>
+    <div class="ranking-number"></div>
     {{ui-addon/label
       uuid=option.uuid
       text=option.text
-      rightIcon=option.icon
+      svgIcon=option.icon
     }}
   </div>
 {{/each}}

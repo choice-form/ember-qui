@@ -5,14 +5,15 @@ import faker from 'faker';
 export default Route.extend({
   model() {
     return {
-      title: faker.lorem.words(),
+      title: faker.finance.accountName(),
       summary: faker.lorem.paragraph(),
-      description: faker.lorem.paragraph(),
+      description: '',
+      style: 'full-screen-cover',
       images: [
         {
-          ratio: 0.6666667,
-          natural:'/images/sample-1.jpg',
-          thumbnail:'/images/sample-1-thumbnail.jpg',
+          ratio: 1.50,
+          natural:'/images/welcome/welcome-2.jpg',
+          thumbnail:'/images/welcome/welcome-2-thumbnail.jpg',
         }
       ],
 

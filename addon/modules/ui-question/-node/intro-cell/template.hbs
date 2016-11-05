@@ -1,7 +1,12 @@
 {{#if intro.images}}
-  <div class="attachment header">
-    {{images}}
-  </div>
+  <figure class="attachment header">
+    {{#each intro.images as |image|}}
+      {{ui-addon/progressive-image
+        ratio=image.ratio
+        thumbnail=image.thumbnail
+        image=image.natural}}
+    {{/each}}
+  </figure>
 {{/if}}
 <header class="page-header">
   <h2 class="page-title">{{intro.title}}</h2>

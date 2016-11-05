@@ -1,3 +1,4 @@
+.ranking-rank.complete .ranking-number,
 input:checked {
   & + label {
     & .rating-emoji,
@@ -10,14 +11,17 @@ input:checked {
 
       animation-fill-mode: forwards;
     }
-    & .active-line {
-      animation-name: line;
-      animation-duration: .65s;
-      animation-timing-function: cubic-bezier(.5, 0, 0, .8);
-      animation-delay: .05s;
-      animation-iteration-count: 1;
+    & .active-line-container {
+      display: block;
+      & .active-line {
+        animation-name: line;
+        animation-duration: .65s;
+        animation-timing-function: cubic-bezier(.5, 0, 0, .8);
+        animation-delay: .05s;
+        animation-iteration-count: 1;
 
-      animation-fill-mode: forwards;
+        animation-fill-mode: forwards;
+      }
     }
   }
 }
@@ -109,27 +113,29 @@ input:checked {
   & svg {
     will-change: transform;
   }
-  & .active-line-container {
-    position: absolute;
-    z-index: 3;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    margin-left: 50%;
-    & .active-line {
-      position: absolute;
-      top: .5rem;
-      left: 0;
-      width: 1px;
-      height: 2.5rem;
-      transform: scaleY(0);
-      transform-origin: center bottom;
-      border-radius: 50%;
-      background-color: currentColor;
+}
 
-      will-change: transform;
-    }
+.active-line-container {
+  display: none;
+  position: absolute;
+  z-index: 3;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin-left: 50%;
+  & .active-line {
+    position: absolute;
+    top: .5rem;
+    left: 0;
+    width: 1px;
+    height: 2.5rem;
+    transform: scaleY(0);
+    transform-origin: center bottom;
+    border-radius: 50%;
+    background-color: currentColor;
+
+    will-change: transform;
   }
 }
 

@@ -8,13 +8,10 @@
       {{ui-question/-node node question.handleEvents}}
     {{/each}}
   </div>
-
-  {{ui-question/-node/button-cell
-    prevButton=question.prevButton
-    nextButton=question.nextButton
-    handlePrevClick=question.handleEvents.handlePrevClick
-    handleNextClick=question.handleEvents.handleNextClick
-  }}
-
-
 </section>
+{{ui-question/-node/button-cell
+  prevButton=question.prevButton
+  nextButton=question.nextButton
+  handlePrevClick=question.handleEvents.handlePrevClick
+  handleNextClick=question.handleEvents.handleNextClick
+}}
