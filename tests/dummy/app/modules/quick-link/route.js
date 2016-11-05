@@ -40,9 +40,9 @@ export default Route.extend({
         {href: "/question/verification/sms", label: "sms"},
       ],
       reward: [
-        {href: "/question/reward/custom", label: "custom"},
-        {href: "/question/reward/random", label: "random"},
-        {href: "/question/reward/wechat", label: "wechat"},
+        {href: "/reward/custom", label: "custom"},
+        {href: "/reward/random", label: "random"},
+        {href: "/reward/wechat", label: "wechat"},
       ]
     };
   }
