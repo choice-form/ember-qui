@@ -34,7 +34,7 @@ export default Route.extend({
         renderId: '4567890-0987',
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
         icon: 'menu', // 选项的Icon
-        sortNo: 3,
+        sortNo: '',
         inputType: '', // 'select', 'input', 'select-input, ower-input',
         inputRule: '', //输入控件初始化规则
         value: '',
@@ -45,7 +45,7 @@ export default Route.extend({
         renderId: '4567890-0987',
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
         icon: 'menu', // 选项的Icon
-        sortNo: 4,
+        sortNo: '',
         inputType: '', // 'select', 'input', 'select-input, ower-input',
         inputRule: '', //输入控件初始化规则
         value: '',
@@ -56,7 +56,7 @@ export default Route.extend({
         renderId: '4567890-0987',
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
         icon: 'menu', // 选项的Icon
-        sortNo: "5",
+        sortNo: '',
         inputType: '', // 'select', 'input', 'select-input, ower-input',
         inputRule: '', //输入控件初始化规则
         value: '',
@@ -115,6 +115,9 @@ export default Route.extend({
           console.log(startIndex);
           console.log(endIndex);
           console.log(question);
+
+          const startOption = question.options[parseInt(startIndex)];
+          set(startOption, 'sortNo', parseInt(endIndex));
 
           return true;
         },
