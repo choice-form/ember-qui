@@ -63,9 +63,13 @@
 
     </div>
   </div>
-  {{#if node.isReward}}
-    <div class="submit-actions">
-      {{ui-addon/label tagName='button' handleClick=(action 'handleNextClick')  text=node.buttonText class="button contrast" leftIcon='gift'}}
-    </div>
-  {{/if}}
 </section>
+{{#if node.isReward}}
+  {{ui-question/-node/button-cell
+    class="button-cell-reward"
+    nextButton=node.buttonText
+    handleNextClick=node.handleEvents.handleNextClick
+    leftIcon="gift"
+  }}
+{{/if}}
+

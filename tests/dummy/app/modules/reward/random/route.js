@@ -25,7 +25,7 @@ export default Route.extend({
       quesType: 'random',
       rewardType: '', //wechat, custom,
       isReward:true,
-      buttonText: '前往领取',
+      buttonText: 'Go to...',
       uuid: '002',
       rewardTime:'2016-11-11 00:00',
 
@@ -40,9 +40,9 @@ export default Route.extend({
         }
       },
 
-      prevButton: '上一题',
+      prevButton: '',
 
-      nextButton: '下一题',
+      nextButton: '',
 
     }
   }
