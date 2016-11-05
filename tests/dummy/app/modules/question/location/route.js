@@ -11,44 +11,23 @@ export default Route.extend({
           title: faker.lorem.sentences(),
           description: faker.lorem.paragraph(),
           images: '',
-          renderId:'775519',
+          renderId: '775519',
           typeName: '定位题',
           quesType: 'location', //select, fill
-          value:'上海市徐汇区龙华中路600号',
+          value: '',
           selectType: '',
           uuid: faker.date.between('2016-01-01', '2016-12-31'),
-          isMust:true,
-          number:'1',
-          options:[],
+          isMust: true,
+          number: '1',
+          options: [],
         },
       ],
 
       handleEvents: {
-        handleOptionClick: (option, node) => {
-          console.log(option);
-          console.log(node);
-          if (option.toggleProperty('selected')) {
-
-            node.options.forEach((opt) => {
-              if (opt != option) {
-                set(opt, 'selected', false);
-              }
-            })
-          }
+        handleQuestionInput(dynamic, question){
+          set(question, 'value', dynamic.value);
+          return true;
         },
-
-        handleOptionInput: (option, node) => {
-          console.log(option);
-          console.log(node);
-        },
-
-        handlePrevClick: () => {
-          console.log('点击了上一题');
-        },
-
-        handleNextClick: () => {
-          console.log('点击了下一题');
-        }
       },
 
       prevButton: 'Previous',

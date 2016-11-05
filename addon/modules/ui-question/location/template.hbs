@@ -17,6 +17,6 @@
     <p>{{node.value}}</p>
   {{/if}}
   {{#if (eq svgState 'location-failed')}}
-    <a class="button secondary">Try again</a>
+    <a class="button secondary" onclick={{action 'handleOptionClick'}}>Try again</a>
   {{/if}}
 </div>

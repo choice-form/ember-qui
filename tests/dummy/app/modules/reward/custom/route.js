@@ -20,7 +20,6 @@ export default Route.extend({
       title: faker.finance.accountName(),
       description: faker.lorem.paragraph(),
       rewardVaule: '1',
-      weixinImage: '',
       typeName: '验证节点',
       quesType: 'reward',
       rewardType: 'custom', //wechat, custom,
