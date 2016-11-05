@@ -17,7 +17,7 @@ export default Route.extend({
           typeName: '验证节点',
           renderId: '4567890-0987',
           quesType: 'verification',
-          verificationType: 'message', //message, password, v-code
+          verificationType: 'sms', //sms, password, captcha
           uuid: '002',
           isMust: true,
           number: '3',

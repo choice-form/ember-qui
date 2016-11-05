@@ -6,9 +6,9 @@
 
 
 /**
- * node for weixn(微信奖励)
+ * node for wechat(微信奖励)
  *
- * @property {object} node - weixin
+ * @property {object} node - wechat
  * @property {String} node.title - 节点标题
  * @property {String} node.description - 节点描述
  * @property {String} node.renderId - 页面渲染的ID号,单页滚动时候需要
@@ -17,9 +17,9 @@
  * @property {String} node.uuid - 当前题目节点的唯一ID
  *
  * @property {String} node.icon - 当前的题型所用的icon, 如: present-gift
- * @property {String} node.rewardType - 奖励类型, weixin
- * @property {String} node.weixinImage - 微信头像
- * @property {String} node.weixinID - 微信ID号
+ * @property {String} node.rewardType - 奖励类型, wechat
+ * @property {String} node.wechatImage - 微信头像
+ * @property {String} node.wechatID - 微信ID号
  * @property {String} node.rewardVaule - 中奖金额
  * @property {String} node.rewardTime - 中奖时间
  * @property {String} node.rewardPeopleName - 中奖人的名称
@@ -29,12 +29,12 @@
         title: `title${faker.finance.accountName()}`,
         description: `description${faker.lorem.paragraph()}`,
         rewardVaule: "$29", //中奖金额
-        weixinImage: faker.image.avatar(),//头像
-        weixinID: faker.name.findName(), //微信号
+        wechatImage: faker.image.avatar(),//头像
+        wechatID: faker.name.findName(), //微信号
         icon: 'present-gift',
         typeName: '验证节点',
         quesType: 'reward',
-        rewardType: 'weixin', //weixin, custom,
+        rewardType: 'wechat', //wechat, custom,
         uuid: '002',
         rewardTime: "2016-11-11 11:11",
  }

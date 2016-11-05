@@ -1,12 +1,12 @@
 /**
  * 奖励抽奖页面
  *
- * @class lottery(奖励抽奖页面)
+ * @class random(奖励抽奖页面)
  */
 
 
 /**
- * node for lottery(奖励抽奖页面)
+ * node for random(奖励抽奖页面)
  *
  * @property {object} node
  * @property {String} node.title - 节点标题
@@ -14,7 +14,7 @@
  * @property {Array} node.images - 图片列表
  * @property {String} node.renderId - 页面渲染的ID号,单页滚动时候需要
  * @property {String} node.typeName - 选项类型名称: 抽奖节点
- * @property {String} node.quesType - 当前的题型: lottery
+ * @property {String} node.quesType - 当前的题型: random
  * @property {String} node.uuid - 当前题目节点的唯一ID
  *
  * @property {String} node.rewardName - 奖励名称
@@ -35,7 +35,7 @@
       title: faker.finance.accountName(),
       description: faker.lorem.paragraph(),
       typeName:'抽奖节点',
-      quesType: 'lottery',
+      quesType: 'random',
       isReward:true,
       buttonText: '前往领取',
       uuid: '002',

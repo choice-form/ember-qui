@@ -15,7 +15,7 @@
  * @property {String} node.renderId - 页面渲染的ID号,单页滚动时候需要
  * @property {String} node.typeName - 选项类型名称
  * @property {String} node.quesType - 当前的题型: verification
- * @property {String} node.verificationType - 验证类型: message, password, verifyCode
+ * @property {String} node.verificationType - 验证类型: sms, password, captcha
  * @property {String} node.verifyImage - image base64
  * @property {String} node.isMust - 当前节点,是否为必选, 'true' or 'false'
  * @property {String} node.uuid - 当前题目节点的唯一ID
@@ -36,7 +36,7 @@
       typeName:'验证节点',
       renderId: '4567890-0987',
       quesType: 'verification',
-      verificationType: 'message', //message, password, verifyCode
+      verificationType: 'sms', // 验证类型: sms, password, captcha
       verifyImage: 'base64',
       uuid: '002',
       isMust:true,

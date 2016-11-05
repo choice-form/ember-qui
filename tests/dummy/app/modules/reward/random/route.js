@@ -18,7 +18,7 @@ export default Route.extend({
       title: faker.finance.accountName(),
       description: faker.lorem.paragraph(),
       typeName:'抽奖节点',
-      quesType: 'lottery',
+      quesType: 'random',
       isReward:true,
       buttonText: '前往领取',
       uuid: '002',

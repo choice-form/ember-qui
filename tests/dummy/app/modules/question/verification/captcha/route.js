@@ -21,12 +21,12 @@ export default Route.extend({
           typeName:'验证节点',
           renderId: '4567890-0987',
           quesType: 'verification',
-          verificationType: 'verifyCode', //message, password, verifyCode
+          verificationType: 'captcha', //sms, password, captcha
           vCodeImage: '',
           uuid: '002',
           isMust:true,
           number:'3',
-          verifyCode:'',
+          captcha:'',
           options,
         }
       ],
@@ -36,7 +36,7 @@ export default Route.extend({
           console.log(option);
           console.log(question);
           //获取到验证码
-          set(question, 'verifyCode', imageBase64);
+          set(question, 'captcha', imageBase64);
           return true;
         },
 

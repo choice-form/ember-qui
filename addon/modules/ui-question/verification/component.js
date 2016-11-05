@@ -22,20 +22,17 @@ export default Component.extend({
 
 
   actions: {
-    captchaClick() {
-      set(this, 'captcha', true)
-    },
 
     /**
      * Message验证
      */
-    handleOptionInput_Message(e){
+    handleOptionInput_SMS(e){
       const value = e.currentTarget.value;
       set(this, 'phoneNumber', value);
       //this.handleEvents.handleQuestionInput({phoneNumber: value}, get(this, 'node'));
     },
 
-    handleOptionClick_Message(){
+    handleOptionClick_SMS(){
       //给接口发送手机号码
       this.handleEvents.handleOptionClick(get(this, 'phoneNumber'), get(this, 'node'));
     },
@@ -49,9 +46,9 @@ export default Component.extend({
     },
 
     /**
-     * verifycode验证
+     * captcha验证
      */
-    handleOptionClick_verifyCode(){
+    handleOptionClick_captcha(){
       set(this, 'captcha', false);
       let t1 = setInterval(()=> {
         countTime--;

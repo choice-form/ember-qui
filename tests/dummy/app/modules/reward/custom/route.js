@@ -23,7 +23,7 @@ export default Route.extend({
       weixinImage: '',
       typeName: '验证节点',
       quesType: 'reward',
-      rewardType: 'custom', //weixin, custom,
+      rewardType: 'custom', //wechat, custom,
       rewardTime: '2016-11-11 00:00',
       uuid: '002',
       rewardToMessage: true,
