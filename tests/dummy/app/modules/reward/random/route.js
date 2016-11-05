@@ -18,26 +18,25 @@ export default Route.extend({
       title: faker.finance.accountName(),
       description: faker.lorem.paragraph(),
       typeName:'抽奖节点',
+      rewardVaule: `$${faker.finance.mask()}`,
+      wechatImage: faker.image.avatar(),
+      wechatID: faker.name.findName(),
+      icon: 'present-gift',
       quesType: 'random',
+      rewardType: '', //wechat, custom,
       isReward:true,
       buttonText: '前往领取',
       uuid: '002',
       rewardTime:'2016-11-11 00:00',
+
       handleEvents: {
-        handleOptionClick: (option, node) => {
-        },
 
-        handleOptionInput: (option, node) => {
-          console.log(option);
-          console.log(node);
-        },
 
-        handlePrevClick: () => {
-          console.log('点击了上一题');
-        },
-
-        handleNextClick: () => {
-          console.log('点击了下一题');
+        handleNextClick: (question) => {
+          set(question, 'quesType', 'reward');
+          set(question, 'rewardType', 'wechat');
+          set(question, 'isReward', false);
+          console.log('前往领取奖励');
         }
       },
 
