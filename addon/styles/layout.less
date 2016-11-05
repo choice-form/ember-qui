@@ -1,10 +1,10 @@
 article {
-  margin: 0 auto;
   max-width: 960px;
-  padding: 2rem;
   min-height: 100vh;
-  padding-bottom: 12rem;
+  margin: 0 auto;
   margin-bottom: -12rem;
+  padding: 2rem;
+  padding-bottom: 12rem;
   transform: translateZ(0);
 }
 
@@ -12,20 +12,19 @@ section {
   min-height: 100%;
 }
 
-.wrapper {
 
-}
 
 .row {
   position: relative;
   padding: 2rem 0;
+
   .border(auto, 1rem, 0, 1rem, 1px, 1);
 }
 
 .page-header {
   padding: 1rem 1rem 2rem 1rem;
-  border-bottom-style: solid;
   border-bottom-width: 1px;
+  border-bottom-style: solid;
   & h2 {
     margin-bottom: 1rem;
   }
@@ -40,6 +39,7 @@ section {
   & + .control {
     margin-top: 1rem;
     padding-top: 2rem;
+
     .border(0, 1rem, auto, 1rem, 1px, .2);
   }
 }
@@ -60,8 +60,8 @@ section {
   & .ui-radio,
   & .ui-checkbox {
     & label {
-      word-wrap: break-word;
       white-space: normal;
+      word-wrap: break-word;
     }
     & + div {
       margin-top: 1rem;
@@ -77,14 +77,14 @@ section {
 .ui-text {
   & textarea,
   & input {
-    color: currentColor;
-    border-color: currentColor;
-    background-color: transparent;
     font-size: 1rem;
     line-height: 1rem;
-    padding: .5rem;
-    border-radius: 0;
     min-width: 50%;
+    padding: .5rem;
+    color: currentColor;
+    border-color: currentColor;
+    border-radius: 0;
+    background-color: transparent;
     @media (max-width: 479px) {
       width: 100%;
     }
@@ -95,9 +95,9 @@ section {
 }
 
 .submit-actions {
+  overflow: hidden;
   margin-top: 1rem;
   padding: 2rem 1rem;
-  overflow: hidden;
   & button {
     font-size: 1rem;
     border: 1px solid currentColor;
@@ -119,17 +119,18 @@ footer {
     margin-top: .5rem;
   }
   & span {
-    display: block;
     font-size: small;
+    display: block;
   }
   a {
-    color: currentColor;
     text-decoration: underline;
+    color: currentColor;
   }
 }
 
-svg:not(:root)  {
+svg:not(:root) {
   display: none;
   overflow: visible;
+
   fill: currentColor;
 }

@@ -7,11 +7,13 @@
 .icon {
   display: flex;
   flex-direction: row;
+
   flex-wrap: wrap;
   justify-content: center;
   & .cell {
     display: flex;
     flex-direction: column;
+
     flex-basis: 25%;
     @media (max-width: 767px) {
       flex-basis: 33.3%;
@@ -20,6 +22,7 @@
       position: relative;
       display: flex;
       flex-direction: column;
+
       align-self: center;
       flex-grow: 2;
       & input {
@@ -27,15 +30,15 @@
         right: 0;
         bottom: 0;
         overflow: hidden;
-        opacity: 0;
         width: 100%;
         height: 100%;
         margin: 0;
+        opacity: 0;
         border: none;
         &:checked {
           & + label {
-            color: @contrast;
             transition: color 200ms ease;
+            color: @contrast;
             & .svg-wrapper {
               & svg {
                 & path {
@@ -47,28 +50,29 @@
         }
       }
       & label {
-        cursor: pointer;
         display: flex;
         flex-direction: column;
-        flex-grow: 2;
         padding: 1rem;
+        cursor: pointer;
+
+        flex-grow: 2;
         & .select-container {
-          align-self: center;
           margin-bottom: .5rem;
+
+          align-self: center;
           & .svg-wrapper {
             position: relative;
             width: 64px;
             height: 64px;
             & svg {
               position: absolute;
-              left: 0;
+              top: 0;
               right: 0;
               bottom: 0;
-              top: 0;
+              left: 0;
               margin: auto;
               & path {
                 fill: @primary;
-
               }
             }
           }
@@ -83,8 +87,8 @@
             display: inline-block;
           }
           & span {
-            display: block;
             font-size: smaller;
+            display: block;
           }
         }
       }
@@ -106,8 +110,8 @@ html.desktop {
     & label {
       & .svg-wrapper {
         & svg {
-          opacity: .8;
           transition: opacity 200ms ease;
+          opacity: .8;
         }
       }
       &:hover {

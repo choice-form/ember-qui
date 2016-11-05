@@ -1,5 +1,7 @@
 /* Top Level Global Styles */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -18,10 +20,11 @@ html {
 }
 
 body {
-  margin: 0;
   font-size: 1rem;
   line-height: normal;
+  margin: 0;
   /* Partially Supported Styles */
+
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -35,7 +38,19 @@ body {
 }
 
 /* Reset Common HTML Tags */
-h1, h2, h3, h4, h5, h6, p, pre, blockquote, dl, ol, ul, figure {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+pre,
+blockquote,
+dl,
+ol,
+ul,
+figure {
   margin: 0;
 }
 
@@ -44,31 +59,35 @@ pre {
   word-wrap: break-word;
 }
 
-ul, ol {
+ul,
+ol {
   padding: 0;
   list-style: none;
 }
 
 a {
-  outline: none;
   text-decoration: none;
+  outline: none;
 }
 
-input[type="radio"],
-input[type="checkbox"] {
+input[type='radio'],
+input[type='checkbox'] {
   margin: 0;
 }
 
 /* 如果发现某些标签的字体继承缺失，补在这条规则里来覆盖 */
-input, textarea, keygen, select, button, pre {
+input,
+textarea,
+keygen,
+select,
+button,
+pre {
   font-family: inherit;
 }
 
 img {
   display: inline-block;
-  vertical-align: middle;
   width: 100%;
   max-width: 100%;
+  vertical-align: middle;
 }
-
-

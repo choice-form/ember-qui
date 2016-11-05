@@ -8,24 +8,24 @@
 
 .border(@top, @right, @bottom, @left, @height, @opacity) {
   &:before {
-    content: '';
     position: absolute;
     top: @top;
+    right: @right;
     bottom: @bottom;
     left: @left;
-    right: @right;
     height: @height;
+    content: '';
     opacity: @opacity;
     background-color: currentColor;
   }
 }
 
 .button {
-  cursor: pointer;
   display: inline-block;
   padding: 1rem;
-  border-radius: 3px;
+  cursor: pointer;
   text-align: center;
+  border-radius: 3px;
   & span,
   & svg {
     display: inline-block;
@@ -35,13 +35,13 @@
 
 button {
   font-size: 1rem;
+  line-height: 1rem;
   overflow: hidden;
-  border: none;
   cursor: pointer;
+  user-select: none;
   white-space: nowrap;
   text-overflow: ellipsis;
-  line-height: 1rem;
+  border: none;
   outline: 0;
-  user-select: none;
   outline-style: none;
 }

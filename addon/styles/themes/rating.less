@@ -14,26 +14,27 @@
       padding-bottom: 1.5rem;
       & .ui-rating {
         margin-bottom: 1.5rem;
+
         .border(auto, 0, -1.5rem, 0, 1px, .3);
       }
     }
     & .ui-rating {
       position: relative;
-      margin-top: 1.5rem;
       width: 100%;
-      border-collapse: collapse;
+      margin-top: 1.5rem;
       border-spacing: 0;
+      border-collapse: collapse;
       border-radius: 3px;
       & thead {
         & td {
+          font-size: small;
           text-align: center;
           vertical-align: bottom;
-          font-size: small;
           word-break: break-all;
           & span {
             display: inline-block;
-            padding: .2rem;
             margin-top: .5rem;
+            padding: .2rem;
           }
         }
       }
@@ -48,23 +49,23 @@
         right: 0;
         bottom: 0;
         overflow: hidden;
-        opacity: 0;
         width: 100%;
         height: 100%;
         margin: 0;
+        opacity: 0;
         border: none;
       }
       & label {
-        cursor: pointer;
         float: left;
         width: 100%;
-        text-align: center;
         margin: .5rem 0;
+        cursor: pointer;
+        text-align: center;
         & .select-container {
           position: relative;
           width: 100%;
-          height: 100%;
           max-width: 3rem;
+          height: 100%;
           margin: 0 auto;
           & svg {
             display: block;
@@ -72,9 +73,9 @@
             height: 100%;
           }
           & .rating-emoji {
-            display: block;
             font-size: 3rem;
             line-height: 3rem;
+            display: block;
           }
           & .active-line-container {
             margin-top: -50%;
@@ -129,8 +130,8 @@ html.desktop {
       }
     }
     & svg {
-      opacity: .8;
       transition: opacity 200ms ease;
+      opacity: .8;
       &:hover {
         opacity: 1;
       }

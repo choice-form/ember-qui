@@ -22,17 +22,19 @@
       & .range-slider {
         display: flex;
         & h4 {
+          line-height: 1rem;
           display: block;
           min-width: 2rem;
           margin-right: 1rem;
-          line-height: 1rem;
+
           align-self: flex-end;
         }
         & .noUi-connect {
+          margin-left: auto;
+
           flex-basis: auto;
           flex-grow: 2;
           align-self: flex-end;
-          margin-left: auto;
         }
       }
     }
@@ -40,6 +42,7 @@
       & .ui-range {
         margin-top: 1.5rem;
         padding-top: 1.5rem;
+
         .border(0, 0, auto, 0, 1px, .3);
       }
     }
@@ -64,4 +67,3 @@ html.mobile {
 .noUi-handle {
   cursor: pointer;
 }
-

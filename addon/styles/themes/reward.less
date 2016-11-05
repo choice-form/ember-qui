@@ -11,10 +11,10 @@
       padding-top: 4rem;
       text-align: center;
       & img {
+        overflow: hidden;
         width: 5rem;
         height: 5rem;
         border-radius: 50%;
-        overflow: hidden;
       }
       & span {
         display: block;
@@ -25,11 +25,11 @@
       padding: 1rem;
       text-align: center;
       & > h2 {
-        padding: 3rem 0 4rem 0;
         margin-bottom: 2rem;
+        padding: 3rem 0 4rem 0;
         & + .reward-contents {
-          border: none;
           padding-bottom: 0;
+          border: none;
         }
       }
       & .reward-contents {
@@ -37,13 +37,11 @@
         & h2 {
           margin-bottom: 1rem;
         }
-        & .reward-description {
 
-        }
         & .current-time {
+          font-size: smaller;
           display: block;
           margin-top: 1rem;
-          font-size: smaller;
         }
       }
       & .currency {
@@ -51,41 +49,42 @@
         margin: 3rem 0 1rem 0;
         padding-bottom: 2rem;
         & input {
-          pointer-events: none;
           position: absolute;
-          right: 0;
-          left: 0;
           top: 0;
+          right: 0;
           bottom: 0;
+          left: 0;
+          overflow: hidden;
           width: 100%;
           height: 100%;
-          overflow: hidden;
+          pointer-events: none;
           opacity: 0;
           border: none;
           &:checked {
             & + label {
               animation-name: shape;
-              animation-duration: 0.6s;
-              animation-fill-mode: forwards;
+              animation-duration: .6s;
+              animation-timing-function: cubic-bezier(.5, 0, 0, .8);
               animation-iteration-count: 1;
-              animation-timing-function: cubic-bezier(0.5, 0, 0, 0.8);
+
+              animation-fill-mode: forwards;
             }
           }
         }
         & label {
-          cursor: pointer;
-          display: inline-block;
           font-size: large;
           font-weight: bold;
+          display: inline-block;
           padding: 2rem;
-          border-radius: 50%;
+          cursor: pointer;
           transition: background-color 200ms ease;
+          border-radius: 50%;
           & .select-container {
             & .svg-wrapper {
-              margin: auto;
               position: relative;
               width: 40px;
               height: 40px;
+              margin: auto;
               & svg {
                 display: block;
               }
@@ -94,14 +93,15 @@
         }
         & h3 {
           position: absolute;
-          left: 0;
           right: 0;
           bottom: 0;
+          left: 0;
           animation-name: shape;
-          animation-duration: 0.85s;
-          animation-fill-mode: forwards;
+          animation-duration: .85s;
+          animation-timing-function: cubic-bezier(.5, 0, 0, .8);
           animation-iteration-count: 1;
-          animation-timing-function: cubic-bezier(0.5, 0, 0, 0.8);
+
+          animation-fill-mode: forwards;
         }
       }
       & .ui-qrcode {
@@ -119,8 +119,9 @@
       & .ui-message {
         display: flex;
         & .ui-text {
-          flex-grow: 2;
           margin-right: 1rem;
+
+          flex-grow: 2;
         }
       }
     }
@@ -137,9 +138,9 @@
     font-size: small;
   }
   .disclaimer-contents {
-    padding-top: 1rem;
-    margin-top: 2rem !important;
     font-size: .8rem;
+    margin-top: 2rem !important;
+    padding-top: 1rem;
   }
 }
 
