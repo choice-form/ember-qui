@@ -3,7 +3,7 @@ import computed from 'ember-computed';
 import layout from './template';
 import get from 'ember-metal/get';
 import set from 'ember-metal/set';
-
+import {getLocation, joinAddress} from '../../lib/bMapApi';
 
 export default Component.extend({
   layout,
@@ -39,22 +39,19 @@ export default Component.extend({
      * click事件
      */
     handleOptionClick(){
-      //todo: 仅供测试
       set(this, 'svgState', 'positioning');
       set(this, 'locationState', 'positioning');
-      const that = this;
-      setTimeout(function () {
-        if (Math.random() * 10 > 5) {
-          set(that, 'svgState', 'location-successful');
-          set(that, 'locationState', 'successful');
-        } else {
-          set(that, 'svgState', 'location-failed');
-          set(that, 'locationState', 'failed');
-        }
-      }, 2000);
-
-      //this.handleEvents.handleOptionClick(get(this, 'option'),get(this,'node'));
+      getLocation()
+        .then((position) => {
+          const resultText = joinAddress(position.address, '-', true);
+          this.handleEvents.handleQuestionInput({value: resultText}, get(this,'node'));
+          set(this, 'svgState', 'location-successful');
+          set(this, 'locationState', 'successful');
+        }).catch(()=> {
+        set(this, 'svgState', 'location-failed');
+        set(this, 'locationState', 'failed');
+      });
     },
   },
 
-}).reopenClass({positionalParams: ['node', 'option', 'handleEvents']});
+}).reopenClass({positionalParams: ['node', 'handleEvents']});
