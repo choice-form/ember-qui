@@ -1,5 +1,5 @@
 {{#each node.options as |option|}}
-  <div class={{concat 'sort-list' (if option.sortNo ' sort')}}>
+  <div class={{concat 'ranking-rank' (if option.sortNo ' complete')}}>
     <span>{{option.sortNo}}</span>
     {{ui-addon/label
       uuid=option.uuid

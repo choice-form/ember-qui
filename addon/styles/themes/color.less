@@ -144,24 +144,38 @@ input {
     }
   }
 }
-
-.ui-picture-choice {
-  & input:checked {
-    & + label {
-      & .attachment:after {
-        box-shadow: inset 0 0 0 2px @contrast, inset 0 0 0 4px @secondary;
+.picture-choice {
+  & .ui-picture-choice {
+    & input:checked {
+      & + label {
+        & .attachment:after {
+          box-shadow: inset 0 0 0 2px @contrast, inset 0 0 0 4px @secondary;
+        }
+      }
+    }
+    & label {
+      & .attachment:before {
+        border-top: 4.5rem solid fade(@secondary, 90%);
+      }
+    }
+    &.insert-block {
+      & .pic-description {
+        color: @secondary;
+        background-color: fade(@primary, 50%);
       }
     }
   }
-  & label {
-    & .attachment:before {
-      border-top: 4.5rem solid fade(@secondary, 90%);
-    }
-  }
-  &.insert-block {
-    & .pic-description {
-      color: @secondary;
-      background-color: fade(@primary, 50%);
+  &.superscript {
+    & .ui-picture-choice {
+      &.insert-block {
+        & .pic-description {
+          color: inherit;
+          & > span {
+            color: @secondary;
+            background-color: fade(@primary, 50%);
+          }
+        }
+      }
     }
   }
 }

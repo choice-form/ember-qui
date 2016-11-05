@@ -6,17 +6,10 @@
         display: block;
         padding: 3rem 0;
         & input[type='checkbox'] {
-          position: absolute;
-          top: 3rem;
-          right: 0;
-          bottom: 3rem;
-          left: 0;
-          overflow: hidden;
-          width: 8rem;
-          height: 8rem;
           margin: 0 auto;
-          opacity: 0;
-          border: none;
+
+          .absolute(3rem, 0, 3rem, 0);
+          .input(8rem, 8rem);
         }
         & label {
           display: block;

@@ -5,7 +5,6 @@ import faker from 'faker';
 
 /*eslint-disable no-console */
 
-
 export default Route.extend({
   model() {
     return {

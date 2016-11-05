@@ -4,6 +4,7 @@ import Ember from 'ember';
 import faker from 'faker';
 
 /*eslint-disable no-console */
+
 export default Route.extend({
   model() {
     return {
@@ -30,7 +31,7 @@ export default Route.extend({
               text: faker.lorem.sentence(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'radio', // 选项的Icon
-              image: '/images/sample-1.jpg',
+              image: '/images/sample-random/sample-random-1.jpeg',
               inputType: '', // 'select', 'input', 'select-input, ower-input',
               inputRule: '', //输入控件初始化规则
               value: '',
@@ -42,7 +43,7 @@ export default Route.extend({
               text: faker.lorem.sentence(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'radio', // 选项的Icon
-              image: '/images/sample-2.jpg',
+              image: '/images/sample-random/sample-random-2.jpeg',
               inputType: '', // 'select', 'input', 'select-input, ower-input',
               inputRule: '', //输入控件初始化规则
               value: '',
@@ -54,7 +55,7 @@ export default Route.extend({
               text: faker.lorem.paragraph(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'radio', // 选项的Icon
-              image: '/images/sample-3.jpg',
+              image: '/images/sample-random/sample-random-3.jpeg',
               inputType: '', // 'select', 'input', 'select-input, ower-input',
               inputRule: '', //输入控件初始化规则
               value: '',
@@ -66,7 +67,49 @@ export default Route.extend({
               text: faker.lorem.sentence(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'radio', // 选项的Icon
-              image: '/images/sample-3.jpg',
+              image: '/images/sample-random/sample-random-4.jpeg',
+              inputType: '', // 'select', 'input', 'select-input, ower-input',
+              inputRule: '', //输入控件初始化规则
+              value: '',
+              placeholder: '',
+            })
+          ],
+        },
+        {
+          title: 'Picture Grid insert-block',
+          description: faker.lorem.paragraph(),
+          images: '',
+          renderId:'775519',
+          typeName: '选择题',
+          quesType: 'picture-choice', //select, fill
+          selectType: 'radio',
+          showStyle: 'grid',
+          picStyle: '',
+          textDirection:'insert-block', //in-block ,out-block, empty
+          pictureSize: 'picture-large',  //picture-large, picture-small
+          uuid: faker.date.between('2016-01-01', '2016-12-31'),
+          isMust:false,
+          number:'2',
+          options:[
+            Ember.Object.create({
+              selected: false,
+              renderId: '4567890-0987',
+              text: faker.lorem.sentence(),
+              uuid: faker.date.between('2016-01-01', '2016-12-31'),
+              icon: 'radio', // 选项的Icon
+              image: '/images/sample-random/sample-random-1.jpeg',
+              inputType: '', // 'select', 'input', 'select-input, ower-input',
+              inputRule: '', //输入控件初始化规则
+              value: '',
+              placeholder: '',
+            }),
+            Ember.Object.create({
+              selected: false,
+              renderId: '4567890-0987',
+              text: faker.lorem.sentence(),
+              uuid: faker.date.between('2016-01-01', '2016-12-31'),
+              icon: 'radio', // 选项的Icon
+              image: '/images/sample-random/sample-random-2.jpeg',
               inputType: '', // 'select', 'input', 'select-input, ower-input',
               inputRule: '', //输入控件初始化规则
               value: '',
@@ -78,7 +121,61 @@ export default Route.extend({
               text: faker.lorem.paragraph(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'radio', // 选项的Icon
-              image: '/images/sample-4.jpg',
+              image: '/images/sample-random/sample-random-3.jpeg',
+              inputType: '', // 'select', 'input', 'select-input, ower-input',
+              inputRule: '', //输入控件初始化规则
+              value: '',
+              placeholder: '',
+            }),
+            Ember.Object.create({
+              selected: false,
+              renderId: '4567890-0987',
+              text: faker.lorem.sentence(),
+              uuid: faker.date.between('2016-01-01', '2016-12-31'),
+              icon: 'radio', // 选项的Icon
+              image: '/images/sample-random/sample-random-4.jpeg',
+              inputType: '', // 'select', 'input', 'select-input, ower-input',
+              inputRule: '', //输入控件初始化规则
+              value: '',
+              placeholder: '',
+            })
+          ],
+        },
+        {
+          title: 'Picture Grid superscript',
+          description: faker.lorem.paragraph(),
+          images: '',
+          renderId:'775519',
+          typeName: '选择题',
+          quesType: 'picture-choice', //select, fill
+          selectType: 'radio',
+          showStyle: 'grid',
+          picStyle: 'superscript',
+          textDirection:'', //in-block ,out-block, empty
+          pictureSize: 'picture-large',  //picture-large, picture-small
+          uuid: faker.date.between('2016-01-01', '2016-12-31'),
+          isMust:false,
+          number:'2',
+          options:[
+            Ember.Object.create({
+              selected: false,
+              renderId: '4567890-0987',
+              text: faker.lorem.sentence(),
+              uuid: faker.date.between('2016-01-01', '2016-12-31'),
+              icon: 'radio', // 选项的Icon
+              image: '/images/sample-random/sample-random-1.jpeg',
+              inputType: '', // 'select', 'input', 'select-input, ower-input',
+              inputRule: '', //输入控件初始化规则
+              value: '',
+              placeholder: '',
+            }),
+            Ember.Object.create({
+              selected: false,
+              renderId: '4567890-0987',
+              text: faker.lorem.sentence(),
+              uuid: faker.date.between('2016-01-01', '2016-12-31'),
+              icon: 'radio', // 选项的Icon
+              image: '/images/sample-random/sample-random-2.jpeg',
               inputType: '', // 'select', 'input', 'select-input, ower-input',
               inputRule: '', //输入控件初始化规则
               value: '',
@@ -90,7 +187,85 @@ export default Route.extend({
               text: faker.lorem.paragraph(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'radio', // 选项的Icon
-              image: '/images/sample-5.jpg',
+              image: '/images/sample-random/sample-random-3.jpeg',
+              inputType: '', // 'select', 'input', 'select-input, ower-input',
+              inputRule: '', //输入控件初始化规则
+              value: '',
+              placeholder: '',
+            }),
+            Ember.Object.create({
+              selected: false,
+              renderId: '4567890-0987',
+              text: faker.lorem.sentence(),
+              uuid: faker.date.between('2016-01-01', '2016-12-31'),
+              icon: 'radio', // 选项的Icon
+              image: '/images/sample-random/sample-random-4.jpeg',
+              inputType: '', // 'select', 'input', 'select-input, ower-input',
+              inputRule: '', //输入控件初始化规则
+              value: '',
+              placeholder: '',
+            })
+          ],
+        },
+        {
+          title: 'Picture Grid superscript insert-block',
+          description: faker.lorem.paragraph(),
+          images: '',
+          renderId:'775519',
+          typeName: '选择题',
+          quesType: 'picture-choice', //select, fill
+          selectType: 'radio',
+          showStyle: 'grid',
+          picStyle: 'superscript',
+          textDirection:'insert-block', //in-block ,out-block, empty
+          pictureSize: 'picture-large',  //picture-large, picture-small
+          uuid: faker.date.between('2016-01-01', '2016-12-31'),
+          isMust:false,
+          number:'2',
+          options:[
+            Ember.Object.create({
+              selected: false,
+              renderId: '4567890-0987',
+              text: faker.lorem.sentence(),
+              uuid: faker.date.between('2016-01-01', '2016-12-31'),
+              icon: 'radio', // 选项的Icon
+              image: '/images/sample-random/sample-random-1.jpeg',
+              inputType: '', // 'select', 'input', 'select-input, ower-input',
+              inputRule: '', //输入控件初始化规则
+              value: '',
+              placeholder: '',
+            }),
+            Ember.Object.create({
+              selected: false,
+              renderId: '4567890-0987',
+              text: faker.lorem.sentence(),
+              uuid: faker.date.between('2016-01-01', '2016-12-31'),
+              icon: 'radio', // 选项的Icon
+              image: '/images/sample-random/sample-random-2.jpeg',
+              inputType: '', // 'select', 'input', 'select-input, ower-input',
+              inputRule: '', //输入控件初始化规则
+              value: '',
+              placeholder: '',
+            }),
+            Ember.Object.create({
+              selected: false,
+              renderId: '4567890-0987',
+              text: faker.lorem.paragraph(),
+              uuid: faker.date.between('2016-01-01', '2016-12-31'),
+              icon: 'radio', // 选项的Icon
+              image: '/images/sample-random/sample-random-3.jpeg',
+              inputType: '', // 'select', 'input', 'select-input, ower-input',
+              inputRule: '', //输入控件初始化规则
+              value: '',
+              placeholder: '',
+            }),
+            Ember.Object.create({
+              selected: false,
+              renderId: '4567890-0987',
+              text: faker.lorem.sentence(),
+              uuid: faker.date.between('2016-01-01', '2016-12-31'),
+              icon: 'radio', // 选项的Icon
+              image: '/images/sample-random/sample-random-4.jpeg',
               inputType: '', // 'select', 'input', 'select-input, ower-input',
               inputRule: '', //输入控件初始化规则
               value: '',
@@ -120,7 +295,7 @@ export default Route.extend({
               text: faker.lorem.sentence(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'radio', // 选项的Icon
-              image: '/images/sample-1.jpg',
+              image: '/images/sample-random/sample-random-7.jpeg',
               inputType: '', // 'select', 'input', 'select-input, ower-input',
               inputRule: '', //输入控件初始化规则
               value: '',
@@ -132,7 +307,7 @@ export default Route.extend({
               text: faker.lorem.sentence(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'radio', // 选项的Icon
-              image: '/images/sample-2.jpg',
+              image: '/images/sample-random/sample-random-8.jpeg',
               inputType: '', // 'select', 'input', 'select-input, ower-input',
               inputRule: '', //输入控件初始化规则
               value: '',
@@ -144,7 +319,7 @@ export default Route.extend({
               text: faker.lorem.paragraph(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'radio', // 选项的Icon
-              image: '/images/sample-3.jpg',
+              image: '/images/sample-random/sample-random-9.jpeg',
               inputType: '', // 'select', 'input', 'select-input, ower-input',
               inputRule: '', //输入控件初始化规则
               value: '',
@@ -156,7 +331,7 @@ export default Route.extend({
               text: faker.lorem.sentence(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'radio', // 选项的Icon
-              image: '/images/sample-3.jpg',
+              image: '/images/sample-random/sample-random-10.jpeg',
               inputType: '', // 'select', 'input', 'select-input, ower-input',
               inputRule: '', //输入控件初始化规则
               value: '',
@@ -168,7 +343,7 @@ export default Route.extend({
               text: faker.lorem.paragraph(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'radio', // 选项的Icon
-              image: '/images/sample-4.jpg',
+              image: '/images/sample-random/sample-random-11.jpeg',
               inputType: '', // 'select', 'input', 'select-input, ower-input',
               inputRule: '', //输入控件初始化规则
               value: '',
@@ -180,7 +355,7 @@ export default Route.extend({
               text: faker.lorem.paragraph(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'radio', // 选项的Icon
-              image: '/images/sample-5.jpg',
+              image: '/images/sample-random/sample-random-12.jpeg',
               inputType: '', // 'select', 'input', 'select-input, ower-input',
               inputRule: '', //输入控件初始化规则
               value: '',
@@ -210,7 +385,7 @@ export default Route.extend({
               text: faker.lorem.sentence(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'checkbox', // 选项的Icon
-              image: '/images/sample-1.jpg',
+              image: '/images/sample-random/sample-random-13.jpeg',
               inputType: '', // 'select', 'input', 'select-input, ower-input',
               inputRule: '', //输入控件初始化规则
               value: '',
@@ -234,7 +409,7 @@ export default Route.extend({
               text: faker.lorem.paragraph(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'checkbox', // 选项的Icon
-              image: '/images/sample-3.jpg',
+              image: '/images/sample-random/sample-random-14.jpeg',
               inputType: '', // 'select', 'input', 'select-input, ower-input',
               inputRule: '', //输入控件初始化规则
               value: '',
@@ -246,7 +421,7 @@ export default Route.extend({
               text: faker.lorem.sentence(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'checkbox', // 选项的Icon
-              image: '/images/sample-3.jpg',
+              image: '/images/sample-random/sample-random-15.jpeg',
               inputType: '', // 'select', 'input', 'select-input, ower-input',
               inputRule: '', //输入控件初始化规则
               value: '',
@@ -258,19 +433,7 @@ export default Route.extend({
               text: faker.lorem.paragraph(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'checkbox', // 选项的Icon
-              image: '/images/sample-4.jpg',
-              inputType: '', // 'select', 'input', 'select-input, ower-input',
-              inputRule: '', //输入控件初始化规则
-              value: '',
-              placeholder: '',
-            }),
-            Ember.Object.create({
-              selected: false,
-              renderId: '4567890-0987',
-              text: faker.lorem.paragraph(),
-              uuid: faker.date.between('2016-01-01', '2016-12-31'),
-              icon: 'checkbox', // 选项的Icon
-              image: '/images/sample-5.jpg',
+              image: '/images/sample-random/sample-random-16.jpeg',
               inputType: '', // 'select', 'input', 'select-input, ower-input',
               inputRule: '', //输入控件初始化规则
               value: '',

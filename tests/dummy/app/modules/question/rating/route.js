@@ -90,7 +90,7 @@ export default Route.extend({
     return {
       nodes: [
         {
-          title: faker.lorem.words(),
+          title: faker.finance.accountName(),
           description: faker.lorem.paragraph(),
           images: '',
           typeName: '分值打分题',

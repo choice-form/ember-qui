@@ -28,7 +28,7 @@ export default Component.extend({
 
   didRender(){
     this.sortTable = new Sortable(this.element, {
-      handle: '.sort-list',
+      handle: '.ranking-rank',
       scroll: true,
       scrollSensitivity: 240,
       animation: 250,

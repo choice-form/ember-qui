@@ -8,7 +8,7 @@ export default Route.extend({
   model() {
     let options = [
       Ember.Object.create({
-        text: faker.address.streetAddress(true),
+        text: faker.finance.accountName(),
         renderId: '4567890-0987',
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
         icon: 'menu', // 选项的Icon
@@ -19,7 +19,7 @@ export default Route.extend({
         placeholder: '',
       }),
       Ember.Object.create({
-        text: faker.address.streetAddress(true),
+        text: faker.finance.accountName(),
         renderId: '4567890-0987',
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
         icon: 'menu', // 选项的Icon
@@ -30,7 +30,7 @@ export default Route.extend({
         placeholder: '',
       }),
       Ember.Object.create({
-        text: faker.address.streetAddress(true),
+        text: faker.finance.accountName(),
         renderId: '4567890-0987',
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
         icon: 'menu', // 选项的Icon
@@ -41,7 +41,7 @@ export default Route.extend({
         placeholder: '',
       }),
       Ember.Object.create({
-        text: faker.address.streetAddress(true),
+        text: faker.finance.accountName(),
         renderId: '4567890-0987',
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
         icon: 'menu', // 选项的Icon
@@ -52,7 +52,7 @@ export default Route.extend({
         placeholder: '',
       }),
       Ember.Object.create({
-        text: faker.address.streetAddress(true),
+        text: faker.finance.accountName(),
         renderId: '4567890-0987',
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
         icon: 'menu', // 选项的Icon
@@ -63,7 +63,7 @@ export default Route.extend({
         placeholder: '',
       }),
       Ember.Object.create({
-        text: faker.address.streetAddress(true),
+        text: faker.finance.accountName(),
         renderId: '4567890-0987',
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
         icon: 'menu', // 选项的Icon
@@ -74,7 +74,7 @@ export default Route.extend({
         placeholder: '',
       }),
       Ember.Object.create({
-        text: faker.address.streetAddress(true),
+        text: faker.finance.accountName(),
         renderId: '4567890-0987',
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
         icon: 'menu', // 选项的Icon
@@ -89,23 +89,13 @@ export default Route.extend({
     return {
       nodes: [
         {
-          title: faker.address.streetAddress(true),
+          title: faker.finance.accountName(),
           description: faker.lorem.paragraph(),
           images: [
             {
-              ratio:0.667,
+              ratio: 0.667,
               natural: '/images/sample-1.jpg',
               thumbnail: '/images/sample-1-thumbnail.jpg',
-            },
-            {
-              ratio:0.667,
-              natural: '/images/sample-2.jpg',
-              thumbnail: '/images/sample-2-thumbnail.jpg',
-            },
-            {
-              ratio:0.667,
-              natural: '/images/sample-3.jpg',
-              thumbnail: '/images/sample-3-thumbnail.jpg',
             }
           ],
           typeName: '排序题',
@@ -130,9 +120,9 @@ export default Route.extend({
         },
       },
 
-      prevButton: '上一题',
+      prevButton: 'Previous',
 
-      nextButton: '下一题',
+      nextButton: 'Next',
     }
   }
 });
