@@ -8,6 +8,7 @@ export default Route.extend({
       title: faker.finance.accountName(),
       summary: faker.lorem.paragraph(),
       description: '',
+      renderId: faker.date.between('2016-01-01', '2016-12-31'),
       style: 'full-screen-cover',
       images: [
         {

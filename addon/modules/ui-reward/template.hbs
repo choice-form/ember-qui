@@ -1,14 +1,8 @@
 <section>
   <div class="warapper reward-container">
     <div class="row">
-
-      {{#if (eq node.rewardType 'wechat')}}
-        <div class="wechat-profile">
-          <img src={{node.wechatImage}}>
-          <span>{{node.wechatID}}</span>
-        </div>
-      {{else}}
-        <figure class="attachment header">
+      {{#unless (eq node.rewardType 'wechat')}}
+        <figure class="attachment">
           {{#each node.images as |image|}}
             {{ui-addon/progressive-image
               ratio=image.ratio
@@ -16,17 +10,29 @@
               image=image.natural}}
           {{/each}}
         </figure>
-      {{/if}}
+      {{/unless}}
 
-      <div class="reward">
+      <header class="reward-header">
+        {{#if (eq node.rewardType 'wechat')}}
+            <div class="wechat-profile">
+              <img src={{node.wechatImage}}>
+              <span>{{node.wechatID}}</span>
+            </div>
+        {{/if}}
+
         {{#if node.rewardName}}
           <h2>{{node.rewardName}}</h2>
         {{/if}}
+
         <div class="reward-contents">
           <h2>{{node.title}}</h2>
           <span class="reward-description">{{node.description}}</span>
           <span class="current-time">{{node.rewardTime}}</span>
         </div>
+      </header>
+
+      <div class="control reward">
+
         {{#if (eq node.rewardType 'wechat')}}
           <div class="currency">
             <input type="checkbox" id={{node.uuid}} onclick={{action 'handleClick'}}>
@@ -36,6 +42,7 @@
             {{/if}}
           </div>
         {{/if}}
+
         {{#unless (eq node.quesType 'random')}}
           {{#if node.rewardToQrcode}}
             <div class="ui-qrcode">
@@ -55,10 +62,11 @@
             </div>
           {{/if}}
         {{/unless}}
-      </div>
 
-      <div class="reward-additional">
-        {{ui-addon/disclaimer}}
+        <div class="reward-additional">
+          {{ui-addon/disclaimer}}
+        </div>
+
       </div>
 
     </div>
