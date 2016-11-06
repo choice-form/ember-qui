@@ -20,7 +20,7 @@ export default Route.extend({
       }),
       Ember.Object.create({
         text: faker.finance.accountName(),
-        renderId: '4567890-0987',
+        renderId: '4567890-0989',
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
         icon: 'ranking', // 选项的Icon
         sortNo: '',
@@ -31,7 +31,7 @@ export default Route.extend({
       }),
       Ember.Object.create({
         text: faker.finance.accountName(),
-        renderId: '4567890-0987',
+        renderId: '4567890-0911',
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
         icon: 'ranking', // 选项的Icon
         sortNo: '',
@@ -42,7 +42,7 @@ export default Route.extend({
       }),
       Ember.Object.create({
         text: faker.finance.accountName(),
-        renderId: '4567890-0987',
+        renderId: '4567890-0912',
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
         icon: 'ranking', // 选项的Icon
         sortNo: '',
@@ -53,7 +53,7 @@ export default Route.extend({
       }),
       Ember.Object.create({
         text: faker.finance.accountName(),
-        renderId: '4567890-0987',
+        renderId: '4567890-0913',
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
         icon: 'ranking', // 选项的Icon
         sortNo: '',
@@ -64,7 +64,7 @@ export default Route.extend({
       }),
       Ember.Object.create({
         text: faker.finance.accountName(),
-        renderId: '4567890-0987',
+        renderId: '4567890-0914',
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
         icon: 'ranking', // 选项的Icon
         sortNo: '',
@@ -75,7 +75,7 @@ export default Route.extend({
       }),
       Ember.Object.create({
         text: faker.finance.accountName(),
-        renderId: '4567890-0987',
+        renderId: '4567890-0915',
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
         icon: 'ranking', // 选项的Icon
         sortNo: '',
@@ -99,7 +99,7 @@ export default Route.extend({
             }
           ],
           typeName: '排序题',
-          renderId: '4567890-0987',
+          renderId: '4567yy0-0987',
           quesType: 'ranking',
           selectType: '',
           showStyle: '',
@@ -114,11 +114,10 @@ export default Route.extend({
         handleOptionDrop(startIndex, endIndex, question){
           console.log(startIndex);
           console.log(endIndex);
-          console.log(question);
 
           const startOption = question.options[parseInt(startIndex)];
-          set(startOption, 'sortNo', parseInt(endIndex));
-
+          set(startOption, 'sortNo', parseInt(endIndex)+1);
+          console.log(startOption);
           return true;
         },
       },
