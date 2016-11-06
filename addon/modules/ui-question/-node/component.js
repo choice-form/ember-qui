@@ -56,7 +56,9 @@ export default Component.extend({
 
 
   willDestroy(){
-    this.newMasonry.remove(this.control);
+    if(get(this, 'node.showStyle') == 'pinterest'){
+      this.newMasonry.remove(this.control);
+    }
   }
 
 
