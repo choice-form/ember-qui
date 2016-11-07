@@ -76,8 +76,8 @@ export default Route.extend({
         description: 'Rating Labels',
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C91",
         icon: 'crown', // 选项的Icon
-        inputType: '', // 'select', 'input', 'select-input',
-        inputRule: '', //输入控件初始化规则
+        inputType: 'input', // 'select', 'input', 'select-input',
+        inputRule: 'timeRange', //输入控件初始化规则
         value: '1',
         count: '3',
         marks: [1, 2, 3].map(function () {

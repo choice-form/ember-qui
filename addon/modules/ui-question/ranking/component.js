@@ -4,6 +4,8 @@ import get from 'ember-metal/get';
 import set from 'ember-metal/set';
 import computed from 'ember-computed';
 import Sortable from 'sortable';
+import $ from 'jquery';
+
 export default Component.extend({
   layout,
 
@@ -26,13 +28,19 @@ export default Component.extend({
     },
   },
 
-  didRender(){
+  didInsertElement(){
+
+      const prewDo = this.element.parentNode;
+      let uiTextItems = this.element.getElementsByClassName('ui-text');
+      $(prewDo).append(uiTextItems);
+
     this.sortTable = new Sortable(this.element, {
       handle: '.ranking-rank',
       scroll: true,
       scrollSensitivity: 240,
       animation: 250,
       sort: true,
+      filter: ".ui-text",
       ghostClass: "ghost",
       onEnd: (e)=> {
         this.handleEvents.handleOptionDrop(e.oldIndex, e.newIndex, get(this,'node'));

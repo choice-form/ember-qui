@@ -68,8 +68,8 @@ export default Route.extend({
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
         icon: 'ranking', // 选项的Icon
         sortNo: '',
-        inputType: '', // 'select', 'input', 'select-input, ower-input',
-        inputRule: '', //输入控件初始化规则
+        inputType: 'input', // 'select', 'input', 'select-input, ower-input',
+        inputRule: 'timeRange', //输入控件初始化规则
         value: '',
         placeholder: '',
       }),
@@ -79,8 +79,8 @@ export default Route.extend({
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
         icon: 'ranking', // 选项的Icon
         sortNo: '',
-        inputType: '', // 'select', 'input', 'select-input, ower-input',
-        inputRule: '', //输入控件初始化规则
+        inputType: 'input', // 'select', 'input', 'select-input, ower-input',
+        inputRule: 'time', //输入控件初始化规则
         value: '',
         placeholder: '',
       })
@@ -111,13 +111,27 @@ export default Route.extend({
 
       handleEvents: {
 
+        handleOptionInput(data, option, question){
+          console.log(data);
+          console.log(option);
+          console.log(question);
+
+          return true;
+        },
+
+
         handleOptionDrop(startIndex, endIndex, question){
           console.log(startIndex);
           console.log(endIndex);
 
-          const startOption = question.options[parseInt(startIndex)];
-          set(startOption, 'sortNo', parseInt(endIndex)+1);
-          console.log(startOption);
+          question.options.forEach((opt, index) => {
+            if(index == startIndex){
+              set(opt, 'sortNo', parseInt(startIndex)+1)
+            }
+            if(index == endIndex){
+              set(opt, 'sortNo', parseInt(endIndex)+1)
+            }
+          });
           return true;
         },
       },

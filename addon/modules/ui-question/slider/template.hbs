@@ -1,22 +1,23 @@
-<div class='ui-range' data-render-id={{option.renderId}}>
-  <h4 class="cell-labels">
-    {{option.text}}
-  </h4>
-  <div class="range-value">
-    <span>Min value: {{option.minValue}}</span>
-    <span>Max value: {{option.maxValue}}</span>
+{{#if (eq option.inputType "input")}}
+  {{ui-question/-node/text-cell node option handleEvents}}
+{{else}}
+  <div class='ui-range' data-render-id={{option.renderId}}>
+    <h4 class="cell-labels">
+      {{option.text}}
+    </h4>
+    <div class="range-value">
+      <span>Min value: {{option.minValue}}</span>
+      <span>Max value: {{option.maxValue}}</span>
+    </div>
+    <div class="range-slider">
+      <h4>{{option.value}}</h4>
+      {{range-slider start=option.value
+                     connect="lower"
+                     step=option.step
+                     min=option.minValue
+                     max=option.maxValue
+                     on-slide="handleOptionInput"
+      }}
+    </div>
   </div>
-  <div class="range-slider">
-    <h4>{{option.value}}</h4>
-    {{range-slider start=option.value
-                   connect="lower"
-                   step=option.step
-                   min=option.minValue
-                   max=option.maxValue
-                   on-update="handleOptionInput"
-    }}
-  </div>
-</div>
-
-
-
+{{/if}}

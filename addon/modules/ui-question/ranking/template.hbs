@@ -1,3 +1,7 @@
 {{#each node.options as |option|}}
-  {{ui-question/ranking/ranking-item option sortNo=option.sortNo}}
+  {{#if (eq option.inputType "input")}}
+    {{ui-question/-node/text-cell node option handleEvents}}
+  {{else}}
+    {{ui-question/ranking/ranking-item option sortNo=option.sortNo}}
+  {{/if}}
 {{/each}}

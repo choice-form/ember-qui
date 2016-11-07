@@ -1,45 +1,50 @@
-<h4 class="cell-labels">
-  {{option.text}}
-  {{#if option.description}}
-    <span>{{option.description}}</span>
-  {{/if}}
-</h4>
-<table class={{concat 'ui-rating ' 'score-' option.count}} data-render-id={{option.renderId}}>
-  <thead>
-  <tr>
-    {{#each option.marks as |mark|}}
-      <td><span>{{mark}}</span></td>
-    {{/each}}
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    {{#each graphs as |g|}}
-      <td>
-        <input
-          type="checkbox"
-          id={{g.uuid}}
-            value={{g.value}}
-          onclick={{action 'handleOptionInput'}}
-            checked={{g.checked}}
-        >
+{{#if (eq option.inputType "input")}}
+  {{ui-question/-node/text-cell node option handleEvents}}
+{{else}}
+  <h4 class="cell-labels">
+    {{option.text}}
+    {{#if option.description}}
+      <span>{{option.description}}</span>
+    {{/if}}
+  </h4>
+  <table class={{concat 'ui-rating ' 'score-' option.count}} data-render-id={{option.renderId}}>
+    <thead>
+    <tr>
+      {{#each option.marks as |mark|}}
+        <td><span>{{mark}}</span></td>
+      {{/each}}
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      {{#each graphs as |g|}}
+        <td>
+          <input
+            type="checkbox"
+            id={{g.uuid}}
+              value={{g.value}}
+            onclick={{action 'handleOptionInput'}}
+              checked={{g.checked}}
+          >
 
-        <label for={{g.uuid}} >
-          <div class="select-container">
-            {{#if g.emoji}}
-              <span class="rating-emoji">{{g.emoji}}</span>
+          <label for={{g.uuid}}>
+            <div class="select-container">
+              {{#if g.emoji}}
+                <span class="rating-emoji">{{g.emoji}}</span>
 
-            {{else}}
-              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 64 64">
-                <use xlink:href="#{{g.icon}}"/>
-              </svg>
-            {{/if}}
+              {{else}}
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                     viewBox="0 0 64 64">
+                  <use xlink:href="#{{g.icon}}"/>
+                </svg>
+              {{/if}}
 
-            {{ui-addon/active-line-animation}}
-          </div>
-        </label>
-      </td>
-    {{/each}}
-  </tr>
-  </tbody>
-</table>
+              {{ui-addon/active-line-animation}}
+            </div>
+          </label>
+        </td>
+      {{/each}}
+    </tr>
+    </tbody>
+  </table>
+{{/if}}

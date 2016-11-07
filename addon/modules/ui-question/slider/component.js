@@ -16,5 +16,4 @@ export default Component.extend({
     },
   },
 
-
 }).reopenClass({ positionalParams: ['node','option','handleEvents']});

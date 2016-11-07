@@ -70,8 +70,8 @@ export default Route.extend({
         text: faker.lorem.words(),
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C94",
         icon: '', // 选项的Icon
-        inputType: '', // 'select', 'input', 'select-input',
-        inputRule: '', //输入控件初始化规则
+        inputType: 'input', // 'select', 'input', 'select-input',
+        inputRule: 'time', //输入控件初始化规则
         value: 1,
         minValue: 1,
         maxValue: 9,
