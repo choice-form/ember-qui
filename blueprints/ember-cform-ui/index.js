@@ -16,6 +16,7 @@ module.exports = {
       this.addPackageToProject('less-plugin-autoprefix'),
       this.addPackageToProject('masonry-layout'),
       this.addPackageToProject('sortablejs'),
+      this.addPackageToProject('slick-carousel'),
       this.addAddonsToProject({
         packages: [
           { name: 'ember-cli-less', target: '^1.5.3' }

@@ -3,7 +3,9 @@ import layout from './template';
 import get from 'ember-metal/get';
 import set from 'ember-metal/set';
 import computed from 'ember-computed';
-import Sortable from 'sortable';
+
+import $ from 'jquery';
+
 
 export default Component.extend({
   layout,
@@ -29,6 +31,18 @@ export default Component.extend({
   },
 
   didInsertElement(){
+    $(".flickity-column").slick({
+      slidesToShow: 3,
+      slidesToScroll: 1,
+      autoplay: true,
+      autoplaySpeed: 2000,
+    });
+    /*this.slick = new Slick('.flickity-column', {
+      slidesToShow: 3,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 2000,
+    });*/
 
   },
 
