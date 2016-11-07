@@ -18,7 +18,6 @@ export default Component.extend({
   actions: {
 
     handleOptionClick(option){
-      console.log(option);
       this.handleEvents.handleOptionClick(option,get(this,'node'));
     },
 
@@ -44,7 +43,6 @@ export default Component.extend({
       slidesToShow: 3,
       slidesToScroll: 1,
       asNavFor: flickityColumn,
-
     });
 
   },

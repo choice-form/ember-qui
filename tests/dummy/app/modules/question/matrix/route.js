@@ -148,6 +148,18 @@ export default Route.extend({
                 renderId:Math.random(1000),
               },
             ],
+          ],
+          otherOptions:[
+            {
+              selected:false,
+              inputType: 'input', // 'select', 'input', 'select-input, ower-input',
+              inputRule: 'date', //输入控件初始化规则
+            },
+            {
+              selected:false,
+              inputType: 'input', // 'select', 'input', 'select-input, ower-input',
+              inputRule: 'dateRange', //输入控件初始化规则
+            }
           ]
         },
       ],

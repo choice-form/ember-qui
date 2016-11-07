@@ -31,3 +31,7 @@
     {{/each}}
   </div>
 </div>
+
+{{#each node.otherOptions as |option|}}
+  {{ui-question/-node/text-cell node option handleEvents}}
+{{/each}}

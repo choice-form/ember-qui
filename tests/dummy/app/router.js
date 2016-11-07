@@ -31,6 +31,7 @@ Router.map(function() {
     this.route('short-text');
     this.route('slider');
     this.route('matrix');
+    this.route('weight');
     this.route('picture-choice', function() {
       this.route('grid');
       this.route('matrix');

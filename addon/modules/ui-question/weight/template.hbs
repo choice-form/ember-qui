@@ -1,0 +1,21 @@
+<div class="weighr-header">
+  <div class="Weight-chart">
+    {{#each node.options as |option|}}
+      <div style="width:{{option.value}}%; background-color: {{option.color}}; height:12px"></div>
+    {{/each}}
+  </div>
+</div>
+
+{{#each node.options as |option|}}
+  <div class='weight-item' data-render-id={{option.renderId}}>
+    <h4 class="cell-labels">
+      {{option.text}}
+    </h4>
+    <div class="weight-slider">
+      {{range-slider start=option.value
+                     connect="lower"
+                     on-slide=(action "handleOptionInput" option)
+      }}
+    </div>
+  </div>
+{{/each}}
