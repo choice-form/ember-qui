@@ -1,0 +1,33 @@
+<div class="fix-header-position">
+  <ul class="fix header">
+    {{#each node.optionsX as |option|}}
+      <li class="fix-header-column">{{option.text}}</li>
+    {{/each}}
+  </ul>
+</div>
+
+<div class="matrix-content">
+  <ul class="fix-column">
+    {{#each node.optionsY as |option|}}
+      <li>{{option.text}}</li>
+    {{/each}}
+  </ul>
+  <div class="flickity-column">
+    {{#each node.matrix as |subMatrix|}}
+      <ul class="column">
+        {{#each subMatrix as |option|}}
+            <input
+              name={{node.renderId}}
+                id={{option.renderId}}
+              type="checkbox"
+                onclick={{action 'handleOptionClick' option}}
+              checked={{option.selected}}
+                disabled={{disabled}}
+              required
+            >
+          {{ui-addon/label uuid=option.renderId svgIcon=(if option.selected 'checkbox-active' 'checkbox')}}
+        {{/each}}
+      </ul>
+    {{/each}}
+  </div>
+</div>

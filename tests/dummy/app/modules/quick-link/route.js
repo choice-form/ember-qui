@@ -29,6 +29,7 @@ export default Route.extend({
         {href: "/question/region", label: "region"},
         {href: "/question/short-text", label: "short-text"},
         {href: "/question/slider", label: "slider"},
+        {href: "/question/matrix", label: "matrix"},
       ],
       picture: [
         {href: "/question/picture-choice/grid", label: "grid"},
