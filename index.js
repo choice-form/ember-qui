@@ -29,7 +29,7 @@ module.exports = {
           include: [{ path: 'imagesloaded.pkgd.js' }]
         }
       },
-      ['masonry-layout']: {
+      'masonry-layout': {
         import: {
           include: [{ path: 'dist/masonry.pkgd.js' }]
         }
@@ -38,6 +38,11 @@ module.exports = {
         import: {
           include: [{ path: 'Sortable.js' }]
         }
+      },
+      'slick-carousel': {
+        srcDir: 'slick',
+        import: ['slick.js', 'slick.css', 'slick-theme.css'],
+        public: ['ajax-loader.gif', 'fonts/*']
       }
     }
   },
