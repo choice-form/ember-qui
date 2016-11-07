@@ -19,6 +19,7 @@ export default Route.extend({
         value: 5,
         minValue: 3,
         maxValue: 10,
+        step:2,
         placeholder: '',
       }),
       Ember.Object.create({
@@ -32,6 +33,7 @@ export default Route.extend({
         value: 5,
         minValue: 3,
         maxValue: 10,
+        step:2,
         placeholder: '',
       }),
       Ember.Object.create({
@@ -42,9 +44,10 @@ export default Route.extend({
         icon: '', // 选项的Icon
         inputType: '', // 'select', 'input', 'select-input',
         inputRule: '', //输入控件初始化规则
-        value: 4,
+        value: 2,
         minValue: 2,
         maxValue: 10,
+        step:4,
         placeholder: '',
       }),
       Ember.Object.create({
@@ -55,9 +58,10 @@ export default Route.extend({
         icon: '', // 选项的Icon
         inputType: '', // 'select', 'input', 'select-input',
         inputRule: '', //输入控件初始化规则
-        value: 6,
+        value: 1,
         minValue: 1,
         maxValue: 8,
+        step:2,
         placeholder: '',
       }),
       Ember.Object.create({
@@ -68,9 +72,10 @@ export default Route.extend({
         icon: '', // 选项的Icon
         inputType: '', // 'select', 'input', 'select-input',
         inputRule: '', //输入控件初始化规则
-        value: 9,
+        value: 1,
         minValue: 1,
         maxValue: 9,
+        step:1,
         placeholder: '',
       }),
     ];
@@ -82,7 +87,7 @@ export default Route.extend({
           title: faker.lorem.words(),
           description: faker.lorem.paragraph(),
           images: '',
-          typeName: '分值打分题',
+          typeName: '滑竿打分',
           renderId: '4567890-0987',
           quesType: 'slider', //select, fill, slider
           selectType: '',
