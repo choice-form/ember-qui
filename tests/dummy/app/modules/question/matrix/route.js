@@ -52,10 +52,7 @@ export default Route.extend({
             },
             {
               text: `行4${faker.address.country()}`,
-            },
-            {
-              text: `行5${faker.address.country()}`,
-            },
+            }
           ],
           matrix:[
             [
@@ -75,10 +72,7 @@ export default Route.extend({
                 selected:false,
                 renderId:Math.random(1000),
               },
-              {
-                selected:false,
-                renderId:Math.random(1000),
-              }
+
             ],
             [
               {
@@ -97,10 +91,7 @@ export default Route.extend({
                 selected:false,
                 renderId:Math.random(1000),
               },
-              {
-                selected:false,
-                renderId:Math.random(1000),
-              }
+
             ],
             [
               {
@@ -119,10 +110,7 @@ export default Route.extend({
                 selected:false,
                 renderId:Math.random(1000),
               },
-              {
-                selected:false,
-                renderId:Math.random(1000),
-              }
+
             ],
             [
               {
@@ -141,10 +129,24 @@ export default Route.extend({
                 selected:false,
                 renderId:Math.random(1000),
               },
+            ],
+            [
               {
                 selected:false,
                 renderId:Math.random(1000),
-              }
+              },
+              {
+                selected:false,
+                renderId:Math.random(1000),
+              },
+              {
+                selected:false,
+                renderId:Math.random(1000),
+              },
+              {
+                selected:false,
+                renderId:Math.random(1000),
+              },
             ],
           ]
         },
