@@ -17,13 +17,13 @@
     {{ui-addon/label option uuid=option.uuid text=option.text}}
   </div>
 {{else}}
-  {{ui-question/-node/text-cell node option handleEvents}}
+  {{ui-component/ui-text node option handleEvents}}
 {{/unless}}
 
 
 {{!--选择选项再弹出输入框--}}
 {{#if (and (eq option.inputType "select-input") option.selected)}}
-  {{ui-question/-node/text-cell node option handleEvents}}
+  {{ui-component/ui-text node option handleEvents}}
 {{/if}}
 
 {{errorMessage}}

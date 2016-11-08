@@ -1,0 +1,32 @@
+{{#if icon}}
+  {{ui-component/ui-icon icon=icon size="64px" viewBox="40"}}
+{{/if}}
+
+
+{{#unless (eq verificationType 'captcha')}}
+  {{ui-component/ui-input handleInput=(action "handleOptionInput")
+                          type=(if (eq verificationType "password") 'password' 'tel')
+                          placeholder=(if (eq verificationType "password") 'Please enter a password' 'Please enter a cellphone number')
+                          icon='int'}}
+{{/unless}}
+
+
+{{#unless (eq verificationType 'password')}}
+  <div class="get-verification">
+    {{ui-component/ui-input type='url' value='' handleInput=(action "handleOptionInput")
+                            placeholder=(if (eq verificationType "captcha") 'Please enter a password' 'Please enter verification code')
+                            icon='int'}}
+    {{#if node.captcha}}
+      <div class="captcha">
+        <img src={{node.captcha}} alt="">
+      </div>
+    {{/if}}
+
+    {{#if getInfoButton}}
+      {{ui-component/ui-button text=buttonText className="button contrast"
+                               handleClick=(action 'handleOptionClick_captcha')}}
+    {{else}}
+      {{ui-component/ui-button leftIcon='refresh' className="button primary" text=countDown}}
+    {{/if}}
+  </div>
+{{/unless}}

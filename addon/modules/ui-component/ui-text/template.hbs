@@ -1,0 +1,23 @@
+{{#if isTextArea}}
+
+  <textarea
+    value={{value}}
+    placeholder={{placeholder}}
+    oninput={{action 'handleOptionInputForTextarea'}}
+  ></textarea>
+
+{{else}}
+
+  <input
+    class={{className}}
+      type={{type}}
+    value={{value}}
+      required
+    placeholder={{placeholder}}
+      oninput={{action 'handleOptionInput'}}
+    onchange={{action 'handleOptionInput'}}
+  >
+  {{ui-component/ui-icon icon=icon size=size viewbox=viewbox}}
+{{/if}}
+
+{{errorMessage}}

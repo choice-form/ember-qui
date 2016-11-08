@@ -1,0 +1,14 @@
+{{#if leftIcon}}
+  {{component "ui-component/ui-icon" icon=leftIcon size=size viewBox=viewBox iconClass=iconClass}}
+{{/if}}
+
+{{yield}}
+
+{{#if text}}
+  <span>{{text}}</span>
+{{/if}}
+
+
+{{#if rightIcon}}
+  {{component "ui-component/ui-icon" icon=rightIcon size=size viewBox=viewBox iconClass=iconClass}}
+{{/if}}
