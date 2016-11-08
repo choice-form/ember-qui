@@ -13,10 +13,10 @@
       <h4>{{option.value}}</h4>
       {{range-slider start=option.value
                      connect="lower"
-                     step=option.step
+
                      min=option.minValue
                      max=option.maxValue
-                     on-slide="handleOptionInput"
+                     on-change="handleOptionInput"
       }}
     </div>
   </div>

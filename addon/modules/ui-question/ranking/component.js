@@ -2,8 +2,10 @@ import Component from 'ember-component';
 import layout from './template';
 import get from 'ember-metal/get';
 import set from 'ember-metal/set';
-import computed from 'ember-computed';
+import computed, {alias} from 'ember-computed';
 import Sortable from 'sortable';
+import {later} from 'ember-runloop';
+
 import $ from 'jquery';
 
 export default Component.extend({
@@ -15,7 +17,13 @@ export default Component.extend({
   attributeBindings:['data-render-id'],
   'data-render-id': computed.oneWay('node.renderId'),
 
+  options: alias('node.options'),
+
   actions: {
+
+    test(index) {
+      this.handleEvents.handleOptionDrop(index, 3, get(this, 'node'));
+    },
 
     handleOptionClick(){
       this.handleEvents.handleOptionClick(get(this, 'option'),get(this,'node'));
@@ -28,12 +36,8 @@ export default Component.extend({
     },
   },
 
+
   didInsertElement(){
-
-      const prewDo = this.element.parentNode;
-      let uiTextItems = this.element.getElementsByClassName('ui-text');
-      $(prewDo).append(uiTextItems);
-
     this.sortTable = new Sortable(this.element, {
       handle: '.ranking-rank',
       scroll: true,
@@ -42,14 +46,34 @@ export default Component.extend({
       sort: true,
       filter: ".ui-text",
       ghostClass: "ghost",
-      onEnd: (e)=> {
-        this.handleEvents.handleOptionDrop(e.oldIndex, e.newIndex, get(this,'node'));
+      onEnd: (event)=> {
+        const {oldIndex, target} = event;
+        let {newIndex} = event;
+        // 第一次拖动位于原位置,sortable不知道,手动设置为oldIndex初始位置
+        if (newIndex === undefined) {
+          newIndex = oldIndex;
+        }
+        /*this.recoverList = (list, newIndex, oldIndex)=>{
+          if (newIndex == oldIndex) {
+            return;
+          }
+          const {children} = list;
+          const newItem = children[newIndex];
+          const oldItem = oldIndex < newIndex
+            ? children[oldIndex] : children[oldIndex + 1];
+          list.insertBefore(newItem, oldItem);
+        };
+        this.recoverList(target, newIndex, oldIndex);*/
+
+        this.handleEvents.handleOptionDrop(oldIndex, newIndex, get(this,'node'));
+
+        console.log(newIndex);
       },
     });
   },
 
   didDestroyElement(){
     this.sortTable.destroy();
-  }
+  },
 
 }).reopenClass({ positionalParams: ['node', 'handleEvents']});

@@ -1,8 +1,8 @@
+/* eslint-disable */
 import Route from 'ember-route';
 import set from 'ember-metal/set';
 import faker from 'faker';
 
-/*eslint-disable no-console */
 export default Route.extend({
   model() {
 

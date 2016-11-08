@@ -1,7 +1,10 @@
-{{#each node.options as |option|}}
-  {{#if (eq option.inputType "input")}}
-    {{ui-question/-node/text-cell node option handleEvents}}
-  {{else}}
-    {{ui-question/ranking/ranking-item option sortNo=option.sortNo}}
-  {{/if}}
+{{#each options as |option index|}}
+    <div class="ranking-rank {{option.sortStateClass}}" onclick={{action "test" index}}>
+      <div class="ranking-number">{{option.sortNo}}</div>
+      {{ui-addon/label
+        uuid=option.uuid
+        text=option.text
+        svgIcon=option.icon
+      }}
+    </div>
 {{/each}}
