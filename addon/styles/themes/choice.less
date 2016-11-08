@@ -32,10 +32,12 @@
         margin: auto 0;
 
         .absolute(0, 0, 0, auto);
-        & svg:not(.fave-svg) {
-          display: block;
-          width: 1.5rem;
-          height: 1.5rem;
+        & .svg-wrapper {
+          & svg {
+            display: block;
+            width: 1.5rem;
+            height: 1.5rem;
+          }
         }
       }
       & span {

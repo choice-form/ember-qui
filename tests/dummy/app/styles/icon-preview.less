@@ -1,3 +1,7 @@
+.icon-preview-container {
+  padding: 1rem 2rem 10rem 2rem;
+}
+
 .ip-title {
   font-size: 36px;
   color: black;
@@ -11,6 +15,11 @@
   padding: 24px 0;
   margin-top: 24px;
   border-top: 1px solid black;
+  & svg {
+    display: block;
+    fill: fade(black, 50%);
+    align-self: center;
+  }
 }
 
 .ip-wrapper {
@@ -31,11 +40,6 @@
     & svg {
       fill: black;
     }
-  }
-  & svg {
-    display: block;
-    fill: fade(black, 50%);
-    align-self: center;
   }
 }
 

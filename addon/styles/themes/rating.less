@@ -52,18 +52,17 @@
           max-width: 3rem;
           height: 100%;
           margin: 0 auto;
-          & svg:not(.fave-svg) {
-            display: block;
-            width: 100%;
-            height: 100%;
+          & .svg-wrapper {
+            & svg {
+              display: block;
+              width: 100%;
+              height: 100%;
+            }
           }
           & .rating-emoji {
             font-size: 3rem;
             line-height: 3rem;
             display: block;
-          }
-          & .active-line-container {
-            margin-top: -50%;
           }
         }
       }
@@ -109,16 +108,20 @@ html.desktop {
   & .ui-rating {
     & input:checked {
       & + label {
-        & svg:not(.fave-svg) {
-          opacity: 1;
+        & .svg-wrapper {
+          & svg {
+            opacity: 1;
+          }
         }
       }
     }
-    & svg:not(.fave-svg) {
-      transition: opacity 200ms ease;
-      opacity: .8;
-      &:hover {
-        opacity: 1;
+    & .svg-wrapper {
+      & svg {
+        transition: opacity 200ms ease;
+        opacity: .8;
+        &:hover {
+          opacity: 1;
+        }
       }
     }
   }
