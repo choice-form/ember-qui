@@ -1,7 +1,8 @@
-<div class="weighr-header">
-  <div class="Weight-chart">
+<div class="weight-header">
+  <h4>test</h4>
+  <div class="weight-chart">
     {{#each node.options as |option|}}
-      {{html-safe (concat "<div style='width:" option.value "%;" "background:" option.color ";height:20px'></div>")}}
+      {{html-safe (concat "<div style='flex-basis:" option.value "%;" "background:" option.color "'></div>")}}
     {{/each}}
   </div>
 </div>
