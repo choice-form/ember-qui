@@ -5,36 +5,38 @@
 }
 
 .verification {
-  & .ui-verification {
-    & > svg {
-      display: block;
-      margin: 0 auto 2rem auto;
-      opacity: .5;
-    }
-    & .ui-text {
-      & + .get-verification {
-        margin-top: 1.5rem;
-      }
-    }
-    & .get-verification {
-      display: flex;
-      & .ui-text {
-        margin-right: 1rem;
 
-        flex-grow: 2;
-      }
-      & button {
-        min-width: 5rem;
-      }
-      & + p {
-        margin-top: 1rem;
-      }
+}
+
+.ui-verification {
+  & > svg {
+    display: block;
+    margin: 0 auto 2rem auto;
+    opacity: .5;
+  }
+  & .ui-text {
+    & + .get-verification {
+      margin-top: 1.5rem;
     }
-    & .captcha {
-      overflow: hidden;
-      max-width: 25rem;
+  }
+  & .get-verification {
+    display: flex;
+    & .ui-text {
+      margin-right: 1rem;
+
+      flex-grow: 2;
+    }
+    & button {
+      min-width: 5rem;
+    }
+    & + p {
       margin-top: 1rem;
-      border-radius: @radius-m;
     }
+  }
+  & .captcha {
+    overflow: hidden;
+    max-width: 25rem;
+    margin-top: 1rem;
+    border-radius: @radius-m;
   }
 }

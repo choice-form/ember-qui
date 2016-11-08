@@ -1,4 +1,10 @@
 .welcome {
+  & .row {
+    padding-bottom: 0;
+    &:before {
+      display: none;
+    }
+  }
   & .page-header {
     padding: 3rem 0;
     border-width: 2px;
@@ -40,6 +46,9 @@
 html.tablet.portrait,
 html.mobile {
   .welcome {
+    & .row {
+      padding-bottom: 0;
+    }
     &.full-screen-cover {
       padding: 0;
       & .page-header {

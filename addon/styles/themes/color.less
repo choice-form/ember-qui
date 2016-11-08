@@ -52,8 +52,8 @@ html.mobile.portrait {
     box-shadow: 0 4px 4px 0 fade(@primary, 30%);
   }
   & .reward,
-  & .wrapper,
-  & .page-header {
+  & .reward-header,
+  & .wrapper {
     background-color: @secondary;
     box-shadow: 0 4px 4px 0 fade(@primary, 30%);
   }
@@ -229,7 +229,7 @@ input {
 }
 
 .reward-container {
-  & .reward {
+  & .reward-header {
     & > h2 {
       color: @contrast;
       border-bottom: 1px solid fade(@primary, 50%);
@@ -240,19 +240,19 @@ input {
         color: fade(@primary, 50%);
       }
     }
-    & .currency {
-      & input {
-        &:checked {
-          & + label {
-            color: @secondary;
-            background-color: @contrast;
-          }
+  }
+  & .currency {
+    & input {
+      &:checked {
+        & + label {
+          color: @secondary;
+          background-color: @contrast;
         }
       }
-      & label {
-        color: @contrast;
-        border: 2px solid @contrast;
-      }
+    }
+    & label {
+      color: @contrast;
+      border: 2px solid @contrast;
     }
   }
 }

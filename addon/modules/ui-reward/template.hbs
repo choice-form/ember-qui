@@ -1,8 +1,8 @@
 <section>
-  <div class="warapper reward-container">
-    <div class="row">
+  <div class="warapper">
+    <div class="row reward-container">
       {{#unless (eq node.rewardType 'wechat')}}
-        <figure class="attachment">
+        <figure class="attachment header">
           {{#each node.images as |image|}}
             {{ui-addon/progressive-image
               ratio=image.ratio
@@ -54,19 +54,21 @@
           {{/if}}
 
           {{#if node.rewardToMessage}}
-            <div class="ui-message">
-              <div class="ui-text">
-                {{ui-question/-node/input-cell type='url' value='' placeholder='Please enter a password' svgName='int'}}
+            <div class="ui-verification">
+              <div class="get-verification">
+                <div class="ui-text">
+                  {{ui-question/-node/input-cell type='url' value='' placeholder='Please enter a password' svgName='int'}}
+                </div>
+                {{ui-addon/label tagName='button' text="Get captcha code" class="button contrast"}}
               </div>
-              {{ui-addon/label tagName='button' text="Get verification code" class="button contrast"}}
             </div>
           {{/if}}
         {{/unless}}
 
-        <div class="reward-additional">
-          {{ui-addon/disclaimer}}
-        </div>
+      </div>
 
+      <div class="reward-additional">
+        {{ui-addon/disclaimer}}
       </div>
 
     </div>
