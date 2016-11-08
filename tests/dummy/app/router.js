@@ -54,6 +54,7 @@ Router.map(function() {
   this.route('icon-preview', {path:'icp'});
   this.route('temp', function() {
     this.route('faker');
+    this.route('test');
   });
 });
 
