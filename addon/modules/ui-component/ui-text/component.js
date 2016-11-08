@@ -1,8 +1,8 @@
 import Component from 'ember-component';
 import layout from './template';
-import computed from 'ember-computed';
+import computed,{alias} from 'ember-computed';
 import get from 'ember-metal/get';
-import mobiInit from '../../../lib/mobile-factory'
+import mobiInit from '../../lib/mobile-factory'
 
 export default Component.extend({
   layout,
@@ -40,8 +40,24 @@ export default Component.extend({
     return 'text';
   }),
 
-  svgName: computed('option.inputRule', function () {
-    return get(this, 'option.inputRule');
+
+
+  size: '16px',
+
+  viewBox: '16',
+
+  icon: alias('option.inputRule'),
+
+  value:alias('option.value'),
+
+  placeholder:alias('option.placeholder'),
+
+  className: computed('option.inputRule', function () {
+    const type = get(this, 'option.inputRule');
+    if (['date', 'time', 'timeRange', 'dateRange'].indexOf(type) > -1) {
+      return 'ui-menu';
+    }
+    return null;
   }),
 
 
@@ -70,13 +86,6 @@ export default Component.extend({
     },
   },
 
-  mobiClassName: computed('option.inputRule', function () {
-    const type = get(this, 'option.inputRule');
-    if (['date', 'time', 'timeRange', 'dateRange'].indexOf(type) > -1) {
-      return 'ui-menu';
-    }
-    return null;
-  }),
 
   didRender(){
     const type = get(this, 'option.inputRule');

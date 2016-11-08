@@ -15,7 +15,7 @@ export default Component.extend({
   phoneNumber: '',
 
   //验证按钮的切换
-  captcha: true,
+  captchaButton: true,
 
   //倒计时
   countDown: '30秒',
@@ -28,8 +28,8 @@ export default Component.extend({
      */
     handleOptionInput_SMS(e){
       const value = e.currentTarget.value;
-      set(this, 'phoneNumber', value);
-      //this.handleEvents.handleQuestionInput({phoneNumber: value}, get(this, 'node'));
+      //set(this, 'phoneNumber', value);
+      this.handleEvents.handleQuestionInput({phoneNumber: value}, get(this, 'node'));
     },
 
     handleOptionClick_SMS(){
@@ -49,14 +49,14 @@ export default Component.extend({
      * captcha验证
      */
     handleOptionClick_captcha(){
-      set(this, 'captcha', false);
+      set(this, 'captchaButton', false);
       let t1 = setInterval(()=> {
         countTime--;
         set(this, 'countDown', `${countTime}秒`);
         if (countTime <= 0) {
           countTime= 30;
           set(this, 'countDown', `${countTime}秒`);
-          set(this, 'captcha', true);
+          set(this, 'captchaButton', true);
           clearInterval(t1);
         }
       }, 1000);
@@ -65,6 +65,7 @@ export default Component.extend({
       this.handleEvents.handleOptionClick('', get(this, 'node'));
     },
   }
+
 
 
 }).reopenClass({positionalParams: ['node', 'handleEvents']});
