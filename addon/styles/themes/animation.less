@@ -2,7 +2,7 @@
 input:checked {
   & + label {
     & .rating-emoji,
-    & svg {
+    & svg:not(.fave-svg) {
       animation-name: shape;
       animation-duration: .85s;
       animation-timing-function: cubic-bezier(.5, 0, 0, .8);
@@ -11,61 +11,13 @@ input:checked {
 
       animation-fill-mode: forwards;
     }
-    & .active-line-container {
+    & .fave {
       display: block;
-      & .active-line {
-        animation-name: line;
-        animation-duration: .65s;
-        animation-timing-function: cubic-bezier(.5, 0, 0, .8);
-        animation-delay: .05s;
-        animation-iteration-count: 1;
-
-        animation-fill-mode: forwards;
-      }
+      animation: fave .65s steps(10);
+      animation-delay: .05s;
+      animation-iteration-count: 1;
+      animation-fill-mode: forwards;
     }
-  }
-}
-
-.active-line-wrapper {
-  position: absolute;
-  &:nth-child(1) {
-    top: 0;
-    left: 0;
-  }
-  &:nth-child(2) {
-    top: .8rem;
-    left: 2.2rem;
-    transform: rotate(45deg);
-  }
-  &:nth-child(3) {
-    top: 3rem;
-    left: 3rem;
-    transform: rotate(90deg);
-  }
-  &:nth-child(4) {
-    top: 5.2rem;
-    left: 2.2rem;
-    transform: rotate(135deg);
-  }
-  &:nth-child(5) {
-    top: 6rem;
-    left: 0;
-    transform: rotate(180deg);
-  }
-  &:nth-child(6) {
-    top: 5.2rem;
-    left: -2.2rem;
-    transform: rotate(-135deg);
-  }
-  &:nth-child(7) {
-    top: 3rem;
-    left: -3rem;
-    transform: rotate(-90deg);
-  }
-  &:nth-child(8) {
-    top: .8rem;
-    left: -2.2rem;
-    transform: rotate(-45deg);
   }
 }
 
@@ -87,27 +39,8 @@ input:checked {
   }
 }
 
-@keyframes line {
-  from {
-    transform: scaleY(0);
-    transform-origin: center bottom;
-  }
-  50% {
-    transform: scaleY(.3);
-    animation-timing-function: cubic-bezier(0, .65, 0, .55);
-  }
-  90% {
-    opacity: 1;
-  }
-  to {
-    transform: scaleY(0);
-    transform-origin: center top;
-    animation-timing-function: cubic-bezier(0, .65, 0, .55);
-    opacity: 0;
-  }
-}
-
 .select-container {
+  position: relative;
   pointer-events: none;
   & .rating-emoji,
   & svg {
@@ -115,33 +48,49 @@ input:checked {
   }
 }
 
-.active-line-container {
-  display: none;
-  position: absolute;
-  z-index: 3;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  margin-left: 50%;
-  & .active-line {
-    position: absolute;
-    top: .5rem;
-    left: 0;
-    width: 1px;
-    height: 2.5rem;
-    transform: scaleY(0);
-    transform-origin: center bottom;
-    border-radius: 50%;
-    background-color: currentColor;
-
-    will-change: transform;
+html.mobile.portrait {
+  & .fave {
+    width: 40px;
+    height: 40px;
+    background-size: 400px 40px;
+  }
+  .ranking-rank.complete .ranking-number,
+  input:checked {
+    & + label {
+      & .fave {
+        animation: fave-mobile .65s steps(10);
+      }
+    }
   }
 }
 
-html.mobile.portrait {
-  & .active-line {
-    top: 1rem;
-    height: 2rem;
+.fave {
+  .absolute(0, 0, 0, 0);
+  margin: auto 0 auto 50%;
+  transform: translateX(-50%);
+  overflow: hidden;
+  width: 60px;
+  height: 60px;
+  background-position: 0 0;
+  background-image: url(/images/fave.png);
+  background-repeat: no-repeat;
+  background-color: fade(@contrast, 20%);
+}
+
+@keyframes fave {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -600px 0;
+  }
+}
+
+@keyframes fave-mobile {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -400px 0;
   }
 }
