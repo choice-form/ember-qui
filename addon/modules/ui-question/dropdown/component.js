@@ -7,32 +7,5 @@ import {mobiInitTreeList} from '../../lib/mobile-factory'
 
 export default Component.extend({
   layout,
-  classNames:['ui-dropdown'],
-  attributeBindings:['data-render-id'],
-  'data-render-id': computed.oneWay('node.renderId'),
-
-
-  svg: htmlSafe(`<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="16px" height="16px" viewBox="0 0 16 16">
-        <use xlink:href="#arrows-small-down"></use>
-      </svg>`),
-
-  didRender(){
-    const input = this.element.getElementsByClassName('dropdown-list')[0];
-    mobiInitTreeList(input, {
-      placeholder: get(this, 'node.placeholder'),
-      onSet: (e)=>{
-        //调用click事件 修改value的值
-        this.handleEvents.handleQuestionInput({value:e.valueText}, get(this,'node'));
-
-        //设置mobileScroll生成的input的值
-        input.previousElementSibling.value = get(this, 'node.value');
-      },
-      onInit: () => {
-        const mobiInput = input.previousElementSibling
-        mobiInput.value = get(this, 'node.value');
-        //设置input的class名称
-        mobiInput.setAttribute('class', 'ui-menu');
-      }
-    });
-  }
+  tagName: '',
 }).reopenClass({ positionalParams: ['node','handleEvents']});

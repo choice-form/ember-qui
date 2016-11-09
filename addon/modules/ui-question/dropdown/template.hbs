@@ -1,7 +1,1 @@
-<ul class='dropdown-list' style="display:none">
-  {{#each node.options as |q|}}
-    <li value={{q.text}} data-selected={{q.selected}}>{{q.text}}</li>
-  {{/each}}
-</ul>
-
-{{svg}}
+{{ui-component/ui-dropdown node handleEvents}}
