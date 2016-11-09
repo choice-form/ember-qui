@@ -8,7 +8,6 @@ export default Component.extend({
 
   actions:{
     handleOptionClick(){
-      console.log('janiseshengTest');
       const inputType = get(this, 'option.inputType');
       if (inputType === 'input')return;
       this.handleEvents.handleOptionClick(get(this, 'option'),get(this,'node'));

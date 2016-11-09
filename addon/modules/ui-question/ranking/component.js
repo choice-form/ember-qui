@@ -4,9 +4,6 @@ import get from 'ember-metal/get';
 import set from 'ember-metal/set';
 import computed, {alias} from 'ember-computed';
 import Sortable from 'sortable';
-import {later} from 'ember-runloop';
-
-import $ from 'jquery';
 
 export default Component.extend({
   layout,
@@ -47,7 +44,7 @@ export default Component.extend({
       filter: ".ui-text",
       ghostClass: "ghost",
       onEnd: (event)=> {
-        const {oldIndex, target} = event;
+        const {oldIndex} = event;
         let {newIndex} = event;
         // 第一次拖动位于原位置,sortable不知道,手动设置为oldIndex初始位置
         if (newIndex === undefined) {
@@ -67,7 +64,6 @@ export default Component.extend({
 
         this.handleEvents.handleOptionDrop(oldIndex, newIndex, get(this,'node'));
 
-        console.log(newIndex);
       },
     });
   },
