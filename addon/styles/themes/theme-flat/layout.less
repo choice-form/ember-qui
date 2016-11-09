@@ -1,4 +1,5 @@
-article {position: relative;
+article {
+  position: relative;
   max-width: 960px;
   margin: 0 auto;
 }
@@ -11,23 +12,14 @@ section {
 
 .row {
   position: relative;
-  &:not(:first-child) {
+  &:not(:first-child,:only-child) {
     padding: 2rem 0;
   }
-  &:first-child {
+  &:first-child:not(:only-child) {
     padding-bottom: 2rem;
   }
 
   .border(auto, 1rem, 0, 1rem, 2px, 1);
-}
-
-.page-header {
-  padding: 3rem;
-  border-bottom-width: 1px;
-  border-bottom-style: solid;
-  & h2 {
-    margin-bottom: 1rem;
-  }
 }
 
 .attachment.header {
@@ -39,6 +31,7 @@ section {
 }
 
 .header {
+  position: relative;
   padding: 1rem;
   & h2 {
     margin-bottom: 1rem;
@@ -111,12 +104,6 @@ html.tablet.portrait {
   & section {
     padding: 0 0 12rem 0;
   }
-  & .row:last-child {
-    padding-bottom: 1rem;
-    &:before {
-      display: none;
-    }
-  }
 }
 
 
@@ -125,17 +112,7 @@ html.mobile {
   & section {
     padding: 0 0 12rem 0;
   }
-  & .page-header {
-    padding: 1.5rem;
-    border: none;
-  }
   & .wrapper {
     overflow: hidden;
-  }
-  & .row:last-child {
-    padding-bottom: 1rem;
-    &:before {
-      display: none;
-    }
   }
 }

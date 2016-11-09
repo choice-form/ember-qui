@@ -56,12 +56,7 @@ html.mobile.portrait {
     background-color: @secondary;
     box-shadow: 0 4px 4px 0 fade(@primary, 30%);
   }
-  & article.one-by-one {
-    & .header {
-      background-color: @secondary;
-      box-shadow: 0 4px 4px 0 fade(@primary, 30%);
-    }
-  }
+
   & .wechat-profile {
     background-color: @secondary;
   }
@@ -97,10 +92,6 @@ body {
 
 .attachment.header {
   background-color: @secondary;
-}
-
-.header {
-  border-color: fade(@primary, 50%);
 }
 
 .row {
@@ -327,7 +318,7 @@ input {
     &:before {
       background: linear-gradient(to bottom,fade(@primary, 0%) 0, @primary 100%);
     }
-    & .page-header {
+    & .header {
       color: @secondary;
       border-color: @secondary;
     }

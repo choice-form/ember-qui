@@ -6,8 +6,7 @@ export default Route.extend({
   model() {
     return {
       title: faker.finance.accountName(),
-      summary: faker.lorem.paragraph(),
-      description: '',
+      description: faker.lorem.paragraph(),
       renderId: faker.date.between('2016-01-01', '2016-12-31'),
       images: '',
       defaultImage: '/images/sample-1-thumbnail.jpg',
