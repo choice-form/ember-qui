@@ -19,11 +19,9 @@ export default Component.extend({
     );
   }),
 
-  click(){
-    this.handleClick && this.handleClick();
-  },
-
   size: '16px',
   viewBox: '16',
+
+
 
 }).reopenClass({positionalParams: ['option']});

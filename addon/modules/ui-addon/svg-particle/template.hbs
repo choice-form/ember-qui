@@ -1,6 +1,6 @@
-<svg class="particle-animation" style="display: none">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="60px" height="60px" viewBox="0 0 60 60">
   <g id="svg-particle" transform='translate(30, 30)'>
-    <g id='line'>
+    <g id={{uuid}}>
       <rect width="29" height="1" x="0" y="0" rx="15" ry="15" fill-opacity="0">
         <animate
           id="x"
@@ -53,13 +53,14 @@
       </rect>
     </g>
     <g>
-      <use transform='rotate(45)' xlink:href="#line"></use>
-      <use transform='rotate(90)' xlink:href="#line"></use>
-      <use transform='rotate(135)' xlink:href="#line"></use>
-      <use transform='rotate(180)' xlink:href="#line"></use>
-      <use transform='rotate(225)' xlink:href="#line"></use>
-      <use transform='rotate(270)' xlink:href="#line"></use>
-      <use transform='rotate(315)' xlink:href="#line"></use>
+      <use transform='rotate(45)'  xlink:href="#{{uuid}}"></use>
+      <use transform='rotate(90)'  xlink:href="#{{uuid}}"></use>
+      <use transform='rotate(135)' xlink:href="#{{uuid}}"></use>
+      <use transform='rotate(180)' xlink:href="#{{uuid}}"></use>
+      <use transform='rotate(225)' xlink:href="#{{uuid}}"></use>
+      <use transform='rotate(270)' xlink:href="#{{uuid}}"></use>
+      <use transform='rotate(315)' xlink:href="#{{uuid}}"></use>
     </g>
   </g>
 </svg>
+

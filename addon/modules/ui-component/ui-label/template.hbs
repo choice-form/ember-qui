@@ -17,10 +17,14 @@
     </div>
   {{/if}}
 
-  <div class="svg-particle">
-    {{ui-addon/svg-item icon=(if option.selected "svg-particle" "") size="60px" viewBox="60"}}
-  </div>
+
+  {{#if option.selected}}
+    {{ui-addon/svg-particle uuid=(concat option.uuid '123')}}
+  {{/if}}
+
+
 </div>
+
 
 {{#if text}}
   <span>{{text}}</span>
