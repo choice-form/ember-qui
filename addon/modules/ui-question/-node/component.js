@@ -9,6 +9,17 @@ import imagesLoaded from 'imagesloaded';
 export default Component.extend({
   layout,
   classNames:['row'],
+
+  classNameBindings: ['classname'],
+  classname:computed('node.quesType', function () {
+    const quesType = get(this, 'node.quesType');
+    if(quesType){
+      return `${quesType}-container`
+    }else{
+      return ""
+    }
+  }),
+
   attributeBindings: ['data-render-id'],
   'data-render-id': alias('node.renderId'),
 
@@ -17,7 +28,7 @@ export default Component.extend({
    */
   headerData: computed('node', function () {
     const question = get(this, 'node');
-    return getProperties(question, ['title', 'description', 'images', 'isMust', 'number']);
+    return getProperties(question, ['title', 'description', 'images', 'isMust', 'number', 'quesType']);
   }),
 
   /**

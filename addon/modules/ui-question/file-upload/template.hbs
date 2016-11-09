@@ -7,7 +7,7 @@
   >
   {{#if option.value}}
     <a class="clear icon-button primary">
-      {{ui-component/ui-icon icon="trash"}}
+      {{ui-addon/svg-item icon="trash"}}
     </a>
     <div class="upload-thumbnail">
       <div class="progress-bar">
@@ -16,7 +16,7 @@
       <img src={{option.value}}/>
     </div>
   {{else}}
-    {{ui-component/ui-icon icon="upload-image" size="64px" viewBox="64" iconClass="upload-image-icon"}}
+    {{ui-addon/svg-item icon="upload-image" size="64px" viewBox="64" iconClass="upload-image-icon"}}
   {{/if}}
   {{ui-addon/label class=(concat 'button ' uploadButton) uuid=option.uuid  leftIcon=this_icon text=uploadText}}
 </div>

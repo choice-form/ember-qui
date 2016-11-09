@@ -11,7 +11,7 @@
       <div class="svg-wrapper">
 
         {{#if svgIcon}}
-          {{component "ui-component/ui-icon" icon=svgIcon size=size viewBox=viewBox iconClass=iconClass}}
+          {{component "ui-addon/svg-item" icon=svgIcon size=size viewBox=viewBox iconClass=iconClass}}
         {{else}}
           {{svg}}
         {{/if}}
@@ -20,7 +20,7 @@
     {{/if}}
 
     <div class="svg-particle">
-      {{ui-component/ui-icon icon="svg-particle" size="60px" viewBox="60"}}
+      {{ui-addon/svg-item icon="svg-particle" size="60px" viewBox="60"}}
     </div>
 
   </div>
@@ -28,7 +28,7 @@
 {{/if}}
 
 {{#if leftIcon}}
-  {{component "ui-component/ui-icon" icon=leftIcon size=size viewBox=viewBox iconClass=iconClass}}
+  {{component "ui-addon/svg-item" icon=leftIcon size=size viewBox=viewBox iconClass=iconClass}}
 {{/if}}
 
 {{yield}}
@@ -39,6 +39,6 @@
 
 
 {{#if rightIcon}}
-  {{component "ui-component/ui-icon" icon=rightIcon size=size viewBox=viewBox iconClass=iconClass}}
+  {{component "ui-addon/svg-item" icon=rightIcon size=size viewBox=viewBox iconClass=iconClass}}
 {{/if}}
 
