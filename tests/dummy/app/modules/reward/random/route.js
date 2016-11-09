@@ -33,9 +33,6 @@ export default Route.extend({
 
 
         handleNextClick: (question) => {
-          set(question, 'quesType', 'reward');
-          set(question, 'rewardType', 'wechat');
-          set(question, 'isReward', false);
           console.log('前往领取奖励');
         }
       },
@@ -43,7 +40,6 @@ export default Route.extend({
       prevButton: '',
 
       nextButton: '',
-
     }
   }
 });

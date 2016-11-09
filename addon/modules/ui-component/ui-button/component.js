@@ -4,7 +4,7 @@ import layout from './template';
 export default Component.extend({
   layout,
   tagName: 'button',
-  classNames: ['ui-button'],
+  classNames: ['ui-button', 'button'],
   classNameBindings: ['className'],
   className: "",
 

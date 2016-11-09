@@ -1,6 +1,6 @@
 {{!--如果输入类型是input，则，使用其他选项备注组件--}}
 {{#unless (eq option.inputType 'input')}}
-  <div class={{concat 'ui-' node.selectType}}>
+  <div class={{concat 'ui-choice ' node.selectType}}>
     <input
       id={{option.uuid}}
         type={{node.selectType}}
@@ -14,7 +14,7 @@
         tabindex={{tabindex}}
       value={{option.value}}
     >
-    {{ui-addon/label option uuid=option.uuid text=option.text}}
+    {{ui-component/ui-label option uuid=option.uuid text=option.text}}
   </div>
 {{else}}
   {{ui-component/ui-text node option handleEvents}}

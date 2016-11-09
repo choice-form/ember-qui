@@ -14,6 +14,5 @@ export default Component.extend({
     handleNextClick(){
       this.node.handleEvents.handleNextClick(get(this,'node'));
     }
-
   }
 }).reopenClass({ positionalParams: ['node'] });

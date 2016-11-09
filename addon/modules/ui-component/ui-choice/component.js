@@ -1,12 +1,9 @@
 import Component from 'ember-component';
 import layout from './template';
 import get from 'ember-metal/get';
-import inject from 'ember-service/inject';
-
 
 export default Component.extend({
   layout,
-  uiService: inject('service/icon'),
   tagName:'',
 
   actions: {
@@ -17,6 +14,4 @@ export default Component.extend({
     },
   },
 
-  didInsertElement() {
-  }
 }).reopenClass({positionalParams: ['node', 'option', 'handleEvents']});

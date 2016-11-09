@@ -36,7 +36,7 @@
         {{#if (eq node.rewardType 'wechat')}}
           <div class="currency">
             <input type="checkbox" id={{node.uuid}} onclick={{action 'handleClick'}}>
-            {{ui-addon/label svgIcon=node.icon for=node.uuid size="40px" viewBox="40"}}
+            {{ui-component/ui-label svgIcon=node.icon for=node.uuid size="40px" viewBox="40"}}
             {{#if currency}}
               <h3>{{node.rewardVaule}}</h3>
             {{/if}}
@@ -59,7 +59,7 @@
                 <div class="ui-text">
                   {{ui-component/ui-text type='url' value='' placeholder='Please enter a password' svgName='int'}}
                 </div>
-                {{ui-addon/label tagName='button' text="Get captcha code" class="button contrast"}}
+                {{ui-component/ui-button text="Get captcha code" className="contrast"}}
               </div>
             </div>
           {{/if}}
@@ -78,7 +78,7 @@
   {{ui-question/-node/button-cell
     class="button-cell-reward"
     nextButton=node.buttonText
-    handleNextClick=node.handleEvents.handleNextClick
+    handleNextClick=(action 'handleNextClick')
     leftIcon="gift"
   }}
 {{/if}}
