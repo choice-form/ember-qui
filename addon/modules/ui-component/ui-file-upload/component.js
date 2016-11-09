@@ -28,26 +28,24 @@ export default Component.extend({
     return get(this, 'option.value') ? 'refresh upload' : 'Upload Picture';
   }),
 
-  actions: {
-    /**
-     * onclick事件
-     */
-    handleOptionClick(e){
-      //如果不能上传图片,就阻止input的默认事件
-      !this.handleEvents.handleOptionClick(get(this, 'option'), get(this, 'node'))
-        &&  e.preventDefault();
-    },
+  /**
+   * onclick事件
+   */
+  handleOptionClick(e){
+    //如果不能上传图片,就阻止input的默认事件
+    !this.handleEvents.handleOptionClick(get(this, 'option'), get(this, 'node'))
+    &&  e.preventDefault();
+  },
 
-    /**
-     *
-     */
-    /*eslint-disable no-console */
-    handleOptionInput(e){
-      const data = e.currentTarget.files;
-      this.handleEvents.handleOptionInput(data, get(this, 'option'), get(this, 'node')).then((res)=>{
-        console.log(res);
-      });
-    },
+  /**
+   *
+   */
+  /*eslint-disable no-console */
+  handleOptionInput(e){
+    const data = e.currentTarget.files;
+    this.handleEvents.handleOptionInput(data, get(this, 'option'), get(this, 'node')).then((res)=>{
+      console.log(res);
+    });
   },
 
 }).reopenClass({positionalParams: ['node', 'option', 'handleEvents']});

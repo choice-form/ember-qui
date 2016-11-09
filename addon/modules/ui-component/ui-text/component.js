@@ -61,29 +61,27 @@ export default Component.extend({
   }),
 
 
-  actions: {
-    /**
-     * onInput
-     */
+  /**
+   * onInput
+   */
 
-    handleOptionInput(e){
-      const value = e.currentTarget.value;
-      this.handleEvents.handleOptionInput(value, get(this, 'option'), get(this, 'node'));
-    },
+  handleOptionInput(e){
+    const value = e.currentTarget.value;
+    this.handleEvents.handleOptionInput(value, get(this, 'option'), get(this, 'node'));
+  },
 
 
-    /**
-     * handleOptionInputForTextarea
-     */
+  /**
+   * handleOptionInputForTextarea
+   */
 
-    handleOptionInputForTextarea(e){
-      const value = e.currentTarget.value;
-      this.handleEvents.handleOptionInput(value, get(this, 'option'), get(this, 'node'));
+  handleOptionInputForTextarea(e){
+    const value = e.currentTarget.value;
+    this.handleEvents.handleOptionInput(value, get(this, 'option'), get(this, 'node'));
 
-      e.currentTarget.style.height = '74px';
-      e.currentTarget.style.height = e.currentTarget.scrollHeight + 2 + 'px';
+    e.currentTarget.style.height = '74px';
+    e.currentTarget.style.height = e.currentTarget.scrollHeight + 2 + 'px';
 
-    },
   },
 
 

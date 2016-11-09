@@ -8,4 +8,6 @@ import {mobiInitTreeList} from '../../lib/mobile-factory'
 export default Component.extend({
   layout,
   tagName: '',
+
+
 }).reopenClass({ positionalParams: ['node','handleEvents']});

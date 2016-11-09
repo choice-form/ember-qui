@@ -6,12 +6,10 @@ export default Component.extend({
   layout,
   tagName:'',
 
-  actions: {
-    handleOptionClick(){
-      const inputType = get(this, 'option.inputType');
-      if (inputType === 'input')return;
-      this.handleEvents.handleOptionClick(get(this, 'option'),get(this,'node'));
-    },
+  handleOptionClick(){
+    const inputType = get(this, 'option.inputType');
+    if (inputType === 'input')return;
+    this.handleEvents.handleOptionClick(get(this, 'option'),get(this,'node'));
   },
 
 }).reopenClass({positionalParams: ['node', 'option', 'handleEvents']});

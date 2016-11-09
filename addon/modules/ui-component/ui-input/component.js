@@ -3,7 +3,8 @@ import layout from './template';
 
 export default Component.extend({
   layout,
-  tagName:'',
+
+  classNames:['ui-text'],
 
   size: '16px',
   viewBox: '16',
