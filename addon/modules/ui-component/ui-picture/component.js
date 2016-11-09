@@ -10,13 +10,6 @@ export default Component.extend({
 
   uiService: inject('service/icon'),
   classNames:['ui-picture'],
-  classNameBindings: ['priority'],
-  priority: computed('node.textDirection', 'node.pictureSize', function () {
-
-    const textDirection = get(this, "node.textDirection");
-    const pictureSize = get(this, "node.pictureSize");
-    return `${textDirection} ${pictureSize}`
-  }),
 
   /**
    * 设置选项的image
@@ -29,16 +22,4 @@ export default Component.extend({
     );
   }),
 
-
-  actions: {
-    /**
-     * click事件
-     */
-    handleOptionClick(){
-      this.handleEvents.handleOptionClick(get(this, 'option'), get(this, 'node'));
-    },
-
-  },
-
-
-}).reopenClass({positionalParams: ['node', 'option', 'handleEvents']});
+}).reopenClass({positionalParams: ['node', 'option']});

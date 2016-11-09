@@ -1,7 +1,7 @@
 <input
   id={{option.uuid}}
     type={{node.selectType}}
-  onclick={{action 'handleOptionClick'}}
+  onclick={{action handleOptionClick}}
     name={{node.uuid}}
   autofocus={{autofocus}}
     placeholder={{option.placeholder}}
@@ -28,7 +28,7 @@
         {{svg}}
       </div>
       {{#if option.selected}}
-        {{ui-addon/svg-particle uuid=(concat option.uuid 'particle') values="0;18" dur="0.45s"}}
+        {{ui-addon/svg-particle values="0;18" dur="0.45s"}}
       {{/if}}
     </div>
     <span>{{option.text}}</span>

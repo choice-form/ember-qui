@@ -41,36 +41,13 @@ export default Component.extend({
 
   isSpecialComponent: computed('node.quesType', function () {
     const quesType = get(this, 'node.quesType');
-    if (['dropdown', 'region', 'location', 'matrix', 'intro-page', 'end-page', 'verification', 'ranking', 'weight'].indexOf(quesType) > -1) {
+    if (['dropdown', 'region', 'location', 'matrix', 'intro-page', 'end-page', 'verification', 'ranking', 'weight', 'picture-choice'].indexOf(quesType) > -1) {
       return true;
     } else {
       return false;
     }
   }),
 
-
-  isLoading: alias("_thisLoading"),
-
-  _thisLoading : true,
-
-  didRender(){
-    const showStyle = get(this, 'node.showStyle');
-
-    if(showStyle == 'pinterest'){
-      this.control = this.element.getElementsByClassName('control')[0];
-      imagesLoaded(this.element, () => {
-        set(this, '_thisLoading', false);
-        this.newMasonry = new Masonry(this.control);
-      });
-    }
-  },
-
-
-  willDestroy(){
-    if(get(this, 'node.showStyle') == 'pinterest'){
-      this.newMasonry.remove(this.control);
-    }
-  }
 
 
 }).reopenClass({positionalParams: ['node', 'handleEvents']});

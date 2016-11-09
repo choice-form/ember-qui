@@ -1,1 +1,8 @@
-{{ui-component/ui-picture node option handleEvents}}
+{{#each node.options as |option|}}
+  {{ui-component/ui-picture node option handleOptionClick=(action "handleOptionClick" option)}}
+{{/each}}
+{{#if (and (eq node.showStyle 'pinterest') isLoading)}}
+  <div>
+    loading............
+  </div>
+{{/if}}
