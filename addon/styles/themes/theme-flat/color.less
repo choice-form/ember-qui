@@ -13,8 +13,7 @@ html.desktop {
     box-shadow: 0 4px 4px 0 fade(@primary, 30%);
   }
   & .cell {
-    & .ui-radio,
-    & .ui-checkbox {
+    & .ui-choice {
       & label:before {
         background-color: @primary;
       }
@@ -142,13 +141,16 @@ input {
 }
 
 .ui-rating {
-  background-color: fade(@primary, 10%);
-  & input:checked {
-    & + label {
-      color: @contrast;
+  & table {
+    background-color: fade(@primary, 10%);
+    & input:checked {
+      & + label {
+        color: @contrast;
+      }
     }
   }
 }
+
 .picture-choice {
   & .ui-picture-choice {
     & input:checked {

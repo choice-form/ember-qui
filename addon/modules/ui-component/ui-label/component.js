@@ -22,6 +22,4 @@ export default Component.extend({
   size: '16px',
   viewBox: '16',
 
-
-
 }).reopenClass({positionalParams: ['option']});

@@ -1,16 +1,9 @@
-.question-header {
-  & + .control.choice {
-    padding-top: 0;
-  }
-}
-
 .choice {
   padding-top: 0;
 }
 
 .cell {
-  & .ui-radio,
-  & .ui-checkbox {
+  & .ui-choice {
     position: relative;
     & input[type='checkbox'],
     & input[type='radio'] {
@@ -52,8 +45,7 @@
     }
   }
   &:not(:first-child) {
-    & .ui-radio,
-    & .ui-checkbox {
+    & .ui-choice {
       .border(0, 0, auto, 0, 1px, .3);
     }
   }
@@ -146,8 +138,7 @@ input[type=number]::-webkit-outer-spin-button {
 
 html.desktop {
   & .cell {
-    & .ui-radio,
-    & .ui-checkbox {
+    & .ui-choice {
       & input:focus {
         & + label:before {
           opacity: .1;

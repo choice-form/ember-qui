@@ -9,12 +9,49 @@
       }
     }
     & .ui-rating {
-      position: relative;
-      width: 100%;
-      margin-top: 1.5rem;
-      border-spacing: 0;
-      border-collapse: collapse;
-      border-radius: @radius-m;
+
+      & table {
+        position: relative;
+        margin-top: 1.5rem;
+        border-spacing: 0;
+        border-collapse: collapse;
+        border-radius: @radius-m;
+        width: 100%;
+        &.score-3 {
+          & td {
+            width: calc(100% / 3);
+          }
+        }
+        &.score-4 {
+          & td {
+            width: calc(100% / 4);
+          }
+        }
+        &.score-5 {
+          & td {
+            width: calc(100% / 5);
+          }
+          & label {
+            padding: 0 .5rem;
+          }
+        }
+        &.score-6 {
+          & td {
+            width: calc(100% / 6);
+          }
+          & label {
+            padding: 0 .3rem;
+          }
+        }
+        &.score-7 {
+          & td {
+            width: calc(100% / 7);
+          }
+          & label {
+            padding: 0 .2rem;
+          }
+        }
+      }
       & thead {
         & td {
           font-size: small;
@@ -65,40 +102,6 @@
             display: block;
           }
         }
-      }
-    }
-    & .score-3 {
-      & td {
-        width: calc(100% / 3);
-      }
-    }
-    & .score-4 {
-      & td {
-        width: calc(100% / 4);
-      }
-    }
-    & .score-5 {
-      & td {
-        width: calc(100% / 5);
-      }
-      & label {
-        padding: 0 .5rem;
-      }
-    }
-    & .score-6 {
-      & td {
-        width: calc(100% / 6);
-      }
-      & label {
-        padding: 0 .3rem;
-      }
-    }
-    & .score-7 {
-      & td {
-        width: calc(100% / 7);
-      }
-      & label {
-        padding: 0 .2rem;
       }
     }
   }
