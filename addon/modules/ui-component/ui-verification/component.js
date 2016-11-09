@@ -22,7 +22,7 @@ export default Component.extend({
   getInfoButton: true,
 
   //倒计时
-  countDown: '30秒',
+  countDown: '30 sec',
 
   buttonText:computed('node.verificationType', 'getInfoButton', function () {
     const verificationType = get(this, 'node.verificationType');
@@ -75,10 +75,10 @@ export default Component.extend({
       set(this, 'getInfoButton', false);
       let t1 = setInterval(()=> {
         countTime--;
-        set(this, 'countDown', `${countTime}秒`);
+        set(this, 'countDown', `${countTime} sec`);
         if (countTime <= 0) {
           countTime= 30;
-          set(this, 'countDown', `${countTime}秒`);
+          set(this, 'countDown', `${countTime} sec`);
           set(this, 'getInfoButton', true);
           clearInterval(t1);
         }

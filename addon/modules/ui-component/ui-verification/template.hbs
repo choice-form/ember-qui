@@ -16,17 +16,18 @@
     {{ui-component/ui-input type='url' value='' handleOptionInput=(action "handleOptionInput")
                             placeholder=(if (eq verificationType "captcha") 'Please enter a password' 'Please enter verification code')
                             icon='int'}}
-    {{#if node.captcha}}
-      <div class="captcha">
-        <img src={{node.captcha}} alt="">
-      </div>
-    {{/if}}
 
     {{#if getInfoButton}}
       {{ui-component/ui-button text=buttonText className="button contrast"
                                handleClick=(action 'handleOptionClick_captcha')}}
     {{else}}
-      {{ui-component/ui-button leftIcon='refresh' className="button primary" text=countDown}}
+      {{ui-component/ui-button leftIcon='refresh' className="button primary refresh" text=countDown}}
+    {{/if}}
+
+    {{#if node.captcha}}
+      <div class="captcha">
+        <div class="captcha-wrapper"><img src={{node.captcha}} alt=""></div>
+      </div>
     {{/if}}
   </div>
 {{/unless}}
