@@ -3,7 +3,8 @@ import layout from './template';
 import get from 'ember-metal/get';
 import set from 'ember-metal/set';
 import computed,{alias} from 'ember-computed';
-
+import Masonry from 'masonry';
+import imagesLoaded from 'imagesloaded';
 
 export default Component.extend({
   layout,
@@ -27,7 +28,6 @@ export default Component.extend({
      * click事件
      */
     handleOptionClick(option){
-      console.log(option);
       this.handleEvents.handleOptionClick(option, get(this, 'node'));
     },
   },

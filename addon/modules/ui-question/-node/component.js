@@ -2,9 +2,6 @@ import Component from 'ember-component';
 import layout from './template';
 import computed, {alias} from 'ember-computed';
 import get, {getProperties} from 'ember-metal/get'
-import set from 'ember-metal/set'
-import Masonry from 'masonry';
-import imagesLoaded from 'imagesloaded';
 
 export default Component.extend({
   layout,
