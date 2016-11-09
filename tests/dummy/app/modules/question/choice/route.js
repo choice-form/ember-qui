@@ -13,11 +13,11 @@ export default Route.extend({
           title: faker.finance.accountName(),
           description: faker.lorem.paragraph(),
           images: [
-            {
+         /*   {
               ratio: 0.6666667,
               natural:'/images/sample-1.jpg',
               thumbnail:'/images/sample-1-thumbnail.jpg',
-            }
+            }*/
           ],
           renderId:'12213343234',
           typeName: '选择题',

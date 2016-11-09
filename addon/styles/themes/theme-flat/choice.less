@@ -1,3 +1,9 @@
+.header {
+  & + .control.choice {
+    padding-top: 0;
+  }
+}
+
 .choice {
   padding-top: 0;
 }
@@ -53,6 +59,13 @@
     & .ui-dropdown,
     & .ui-text {
       margin-bottom: 1.5rem;
+    }
+  }
+  &:last-child {
+    & .ui-choice {
+      & + .ui-text {
+        margin-bottom: 0;
+      }
     }
   }
 }
