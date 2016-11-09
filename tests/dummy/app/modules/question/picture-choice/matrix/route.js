@@ -29,7 +29,13 @@ export default Route.extend({
               text: '',
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'radio', // 选项的Icon
-              image: '/images/porsche/thumbnail/thumbnail-1.png',
+              image: (function () {
+                const num = parseInt(Math.random() * 40);
+                return {
+                  ratio: 0.6666667,
+                  natural: `/images/sample-random/sample-random-${num}.jpeg`,
+                  thumbnail:`/images/sample-random/sample-random-${num}.jpeg`,
+                }})(),
               inputType: '', // 'select', 'input', 'select-input, ower-input',
               inputRule: '', //输入控件初始化规则
               value: '',
@@ -41,7 +47,13 @@ export default Route.extend({
               text: '',
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'radio', // 选项的Icon
-              image: '/images/porsche/thumbnail/thumbnail-2.png',
+              image: (function () {
+                const num = parseInt(Math.random() * 40);
+                return {
+                  ratio: 0.6666667,
+                  natural: `/images/sample-random/sample-random-${num}.jpeg`,
+                  thumbnail:`/images/sample-random/sample-random-${num}.jpeg`,
+                }})(),
               inputType: '', // 'select', 'input', 'select-input, ower-input',
               inputRule: '', //输入控件初始化规则
               value: '',
@@ -53,7 +65,13 @@ export default Route.extend({
               text: '',
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'radio', // 选项的Icon
-              image: '/images/porsche/thumbnail/thumbnail-3.png',
+              image: (function () {
+                const num = parseInt(Math.random() * 40);
+                return {
+                  ratio: 0.6666667,
+                  natural: `/images/sample-random/sample-random-${num}.jpeg`,
+                  thumbnail:`/images/sample-random/sample-random-${num}.jpeg`,
+                }})(),
               inputType: '', // 'select', 'input', 'select-input, ower-input',
               inputRule: '', //输入控件初始化规则
               value: '',
@@ -65,7 +83,13 @@ export default Route.extend({
               text: '',
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'radio', // 选项的Icon
-              image: '/images/porsche/thumbnail/thumbnail-4.png',
+              image: (function () {
+                const num = parseInt(Math.random() * 40);
+                return {
+                  ratio: 0.6666667,
+                  natural: `/images/sample-random/sample-random-${num}.jpeg`,
+                  thumbnail:`/images/sample-random/sample-random-${num}.jpeg`,
+                }})(),
               inputType: '', // 'select', 'input', 'select-input, ower-input',
               inputRule: '', //输入控件初始化规则
               value: '',
@@ -77,7 +101,13 @@ export default Route.extend({
               text: '',
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'radio', // 选项的Icon
-              image: '/images/porsche/thumbnail/thumbnail-5.png',
+              image: (function () {
+                const num = parseInt(Math.random() * 40);
+                return {
+                  ratio: 0.6666667,
+                  natural: `/images/sample-random/sample-random-${num}.jpeg`,
+                  thumbnail:`/images/sample-random/sample-random-${num}.jpeg`,
+                }})(),
               inputType: '', // 'select', 'input', 'select-input, ower-input',
               inputRule: '', //输入控件初始化规则
               value: '',
@@ -89,7 +119,13 @@ export default Route.extend({
               text: '',
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'radio', // 选项的Icon
-              image: '/images/porsche/thumbnail/thumbnail-6.png',
+              image: (function () {
+                const num = parseInt(Math.random() * 40);
+                return {
+                  ratio: 0.6666667,
+                  natural: `/images/sample-random/sample-random-${num}.jpeg`,
+                  thumbnail:`/images/sample-random/sample-random-${num}.jpeg`,
+                }})(),
               inputType: '', // 'select', 'input', 'select-input, ower-input',
               inputRule: '', //输入控件初始化规则
               value: '',
@@ -118,7 +154,13 @@ export default Route.extend({
               text: '',
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'radio', // 选项的Icon
-              image: '/images/sample-1.jpg',
+              image: (function () {
+                const num = parseInt(Math.random() * 40);
+                return {
+                  ratio: 0.6666667,
+                  natural: `/images/sample-random/sample-random-${num}.jpeg`,
+                  thumbnail:`/images/sample-random/sample-random-${num}.jpeg`,
+                }})(),
               inputType: '', // 'select', 'input', 'select-input, ower-input',
               inputRule: '', //输入控件初始化规则
               value: '',
@@ -130,7 +172,13 @@ export default Route.extend({
               text: '',
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'radio', // 选项的Icon
-              image: '/images/sample-2.jpg',
+              image: (function () {
+                const num = parseInt(Math.random() * 40);
+                return {
+                  ratio: 0.6666667,
+                  natural: `/images/sample-random/sample-random-${num}.jpeg`,
+                  thumbnail:`/images/sample-random/sample-random-${num}.jpeg`,
+                }})(),
               inputType: '', // 'select', 'input', 'select-input, ower-input',
               inputRule: '', //输入控件初始化规则
               value: '',
@@ -142,7 +190,13 @@ export default Route.extend({
               text: '',
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'radio', // 选项的Icon
-              image: '/images/sample-3.jpg',
+              image: (function () {
+                const num = parseInt(Math.random() * 40);
+                return {
+                  ratio: 0.6666667,
+                  natural: `/images/sample-random/sample-random-${num}.jpeg`,
+                  thumbnail:`/images/sample-random/sample-random-${num}.jpeg`,
+                }})(),
               inputType: '', // 'select', 'input', 'select-input, ower-input',
               inputRule: '', //输入控件初始化规则
               value: '',
@@ -154,7 +208,13 @@ export default Route.extend({
               text: '',
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'radio', // 选项的Icon
-              image: '/images/sample-3.jpg',
+              image: (function () {
+                const num = parseInt(Math.random() * 40);
+                return {
+                  ratio: 0.6666667,
+                  natural: `/images/sample-random/sample-random-${num}.jpeg`,
+                  thumbnail:`/images/sample-random/sample-random-${num}.jpeg`,
+                }})(),
               inputType: '', // 'select', 'input', 'select-input, ower-input',
               inputRule: '', //输入控件初始化规则
               value: '',
@@ -166,7 +226,13 @@ export default Route.extend({
               text: '',
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'radio', // 选项的Icon
-              image: '/images/sample-4.jpg',
+              image: (function () {
+                const num = parseInt(Math.random() * 40);
+                return {
+                  ratio: 0.6666667,
+                  natural: `/images/sample-random/sample-random-${num}.jpeg`,
+                  thumbnail:`/images/sample-random/sample-random-${num}.jpeg`,
+                }})(),
               inputType: '', // 'select', 'input', 'select-input, ower-input',
               inputRule: '', //输入控件初始化规则
               value: '',
@@ -178,7 +244,13 @@ export default Route.extend({
               text: '',
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'radio', // 选项的Icon
-              image: '/images/sample-5.jpg',
+              image: (function () {
+                const num = parseInt(Math.random() * 40);
+                return {
+                  ratio: 0.6666667,
+                  natural: `/images/sample-random/sample-random-${num}.jpeg`,
+                  thumbnail:`/images/sample-random/sample-random-${num}.jpeg`,
+                }})(),
               inputType: '', // 'select', 'input', 'select-input, ower-input',
               inputRule: '', //输入控件初始化规则
               value: '',

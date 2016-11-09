@@ -1,7 +1,7 @@
 import Component from 'ember-component';
 import layout from './template';
 import get from 'ember-metal/get';
-import computed from 'ember-computed';
+import computed,{alias} from 'ember-computed';
 import {htmlSafe} from 'ember-string';
 import inject from 'ember-service/inject';
 
@@ -21,12 +21,7 @@ export default Component.extend({
   /**
    * 设置选项的image
    */
-  image: computed('option.image', function () {
-    const image = get(this, 'option.image');
-    if (image && image.length) {
-      return htmlSafe(`<div class="attachment"><img src=${image}></div>`);
-    } else return '';
-  }),
+  image: alias("option.image"),
 
   svg: computed('option.selected', 'option.icon', function () {
     return get(this, 'uiService').getOptionSvg(

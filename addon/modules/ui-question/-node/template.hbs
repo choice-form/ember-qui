@@ -1,14 +1,10 @@
 {{ui-component/ui-header headerData}}
 <div class={{concat "control " node.quesType " " node.showStyle " " node.picStyle}}>
   {{#if isSpecialComponent}}
-    <div class='cell'>
-      {{component componentName node handleEvents}}
-    </div>
+    {{component componentName node handleEvents}}
   {{else}}
     {{#each node.options as |option|}}
-      <div class='cell'>
-        {{component componentName node option handleEvents}}
-      </div>
+      {{component componentName node option handleEvents}}
     {{/each}}
   {{/if}}
 </div>
