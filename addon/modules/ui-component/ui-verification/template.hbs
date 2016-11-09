@@ -4,7 +4,7 @@
 
 
 {{#unless (eq verificationType 'captcha')}}
-  {{ui-component/ui-input handleInput=(action "handleOptionInput")
+  {{ui-component/ui-input handleOptionInput=(action "handleOptionInput")
                           type=(if (eq verificationType "password") 'password' 'tel')
                           placeholder=(if (eq verificationType "password") 'Please enter a password' 'Please enter a cellphone number')
                           icon='int'}}
@@ -13,7 +13,7 @@
 
 {{#unless (eq verificationType 'password')}}
   <div class="get-verification">
-    {{ui-component/ui-input type='url' value='' handleInput=(action "handleOptionInput")
+    {{ui-component/ui-input type='url' value='' handleOptionInput=(action "handleOptionInput")
                             placeholder=(if (eq verificationType "captcha") 'Please enter a password' 'Please enter verification code')
                             icon='int'}}
     {{#if node.captcha}}

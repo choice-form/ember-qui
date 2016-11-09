@@ -21,7 +21,7 @@ export default Component.extend({
 
       /* eslint-disable no-unused-vars*/
       onSet: (event, inst)=>{
-
+        this.dropDownOnSet && this.dropDownOnSet();
         this.handleEvents.handleQuestionInput(event.valueText, get(this,'node'));
         input.previousElementSibling.value = get(this, 'node.value');
       },
