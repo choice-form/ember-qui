@@ -14,7 +14,7 @@ export default Component.extend({
   classname:computed('node.quesType', function () {
     const quesType = get(this, 'node.quesType');
     if(quesType){
-      return `${quesType}-wrapper`
+      return `data-${quesType}`
     }else{
       return ""
     }
