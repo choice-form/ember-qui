@@ -24,6 +24,11 @@ export default Component.extend({
   //倒计时
   countDown: '30 sec',
 
+  captchaClass:computed('node.verificationType', function () {
+    const verificationType = get(this, 'node.verificationType');
+    return  verificationType == 'captcha' ? " captcha" : "";
+  }),
+
   buttonText:computed('node.verificationType', 'getInfoButton', function () {
     const verificationType = get(this, 'node.verificationType');
     const getInfoButton = get(this,'getInfoButton');

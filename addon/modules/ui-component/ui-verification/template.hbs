@@ -12,7 +12,7 @@
 
 
 {{#unless (eq verificationType 'password')}}
-  <div class="get-verification">
+  <div class={{concat "get-verification" captchaClass}}>
     {{ui-component/ui-input type='url' value='' handleOptionInput=(action "handleOptionInput")
                             placeholder=(if (eq verificationType "captcha") 'Please enter a password' 'Please enter verification code')
                             icon='int'}}
