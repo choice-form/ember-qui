@@ -3,67 +3,65 @@
   &:before {
     display: none;
   }
-  & .cell {
-    & .ui-picture {
+}
+
+.ui-picture {
+  position: relative;
+
+  flex-grow: 1;
+  & input {
+    margin: 0;
+
+    .absolute(.5rem, .5rem, auto, auto);
+    .input(1.5rem, 1.5rem);
+  }
+  & label {
+    display: block;
+    cursor: pointer;
+
+    will-change: box-shadow;
+    & .attachment {
       position: relative;
+      margin-bottom: 1rem;
+      padding: 0;
+      user-select: none;
+      &:after {
+        z-index: 2;
+        content: '';
+        transition: box-shadow 200ms ease, background-color 200ms ease;
 
-      flex-grow: 1;
-      & input[type='checkbox'],
-      & input[type='radio'] {
-        margin: 0;
-
-        .absolute(.5rem, .5rem, auto, auto);
-        .input(1.5rem, 1.5rem);
+        .absolute(0, 0, 0, 0);
       }
-      & label {
-        display: block;
-        cursor: pointer;
-
-        will-change: box-shadow;
-        & .attachment {
-          position: relative;
-          margin-bottom: 1rem;
-          padding: 0;
-          user-select: none;
-          &:after {
-            z-index: 2;
-            content: '';
-            transition: box-shadow 200ms ease, background-color 200ms ease;
-
-            .absolute(0, 0, 0, 0);
-          }
-        }
-        & .pic-description {
-          position: relative;
-          & .select-container {
-            position: relative;
-            display: inline-block;
-            vertical-align: middle;
-            & .svg-wrapper {
-              & svg {
-                display: block;
-                width: 1rem;
-                height: 1rem;
-              }
-            }
-          }
-          & span {
-            display: inline;
-            vertical-align: middle;
+    }
+    & .pic-description {
+      position: relative;
+      & .effect-container {
+        position: relative;
+        display: inline-block;
+        vertical-align: middle;
+        & .svg-wrapper {
+          & svg {
+            display: block;
+            width: 1rem;
+            height: 1rem;
           }
         }
       }
-      &.insert-block {
-        & .attachment {
-          margin-bottom: 0;
-        }
-        & .pic-description {
-          font-size: smaller;
-          padding: .5rem 1rem;
-
-          .absolute(auto, 0, 0, 0);
-        }
+      & span {
+        display: inline;
+        vertical-align: middle;
       }
+    }
+  }
+  &.insert-block {
+    & .attachment {
+      margin-bottom: 0;
+    }
+    & .pic-description {
+      font-size: smaller;
+      padding: .5rem 1rem;
+
+      .absolute(auto, 0, 0, 0);
     }
   }
 }
@@ -83,7 +81,7 @@
         }
         & .pic-description {
           position: static;
-          & .select-container {
+          & .effect-container {
             z-index: 2;
             width: 1.5rem;
             height: 1.5rem;
@@ -272,7 +270,7 @@
         }
         & label {
           & .pic-description {
-            & .select-container {
+            & .effect-container {
               right: 60%;
               margin-right: .5rem;
             }
@@ -285,7 +283,7 @@
         }
         & label {
           & .pic-description {
-            & .select-container {
+            & .effect-container {
               right: 75%;
             }
           }

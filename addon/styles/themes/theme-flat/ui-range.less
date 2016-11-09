@@ -1,0 +1,78 @@
+.data-slider {
+  & .slider {
+
+  }
+}
+
+.ui-range {
+  position: relative;
+  & .range-title {
+    margin-bottom: .5rem;
+  }
+  & .range-value {
+    font-size: smaller;
+    margin-bottom: 1rem;
+    & span:last-of-type {
+      float: right;
+      text-align: right;
+    }
+  }
+  & .range-slider {
+    display: flex;
+    & h4 {
+      line-height: 1rem;
+      display: block;
+      min-width: 2rem;
+      margin-right: 1rem;
+
+      align-self: flex-end;
+    }
+    & .noUi-connect {
+      margin-left: auto;
+
+      flex-basis: auto;
+      flex-grow: 2;
+      align-self: flex-end;
+    }
+  }
+  &:not(:first-child) {
+    padding-top: 1.5rem;
+
+    .border(0, 0, auto, 0, 1px, .3);
+  }
+  &:not(:last-child) {
+    padding-bottom: 1.5rem;
+  }
+  & + .ui-text {
+    margin-top: 1rem;
+  }
+}
+
+.weight-header {
+  margin-bottom: 1.5rem;
+  & h4 {
+    margin-bottom: 1rem;
+  }
+  & .weight-chart {
+    overflow: hidden;
+    display: flex;
+    border-radius: @radius-m;
+    & div {
+      height: 1rem;
+      transition: flex-basis 200ms ease;
+    }
+  }
+}
+
+.noUi-target {
+  border: none;
+  border-radius: @radius-s;
+}
+
+.noUi-origin {
+  border-radius: 1px;
+}
+
+.noUi-handle {
+  cursor: pointer;
+}

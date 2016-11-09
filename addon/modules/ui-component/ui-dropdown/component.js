@@ -6,7 +6,7 @@ import {mobiInitTreeList} from '../../lib/mobile-factory'
 
 export default Component.extend({
   layout,
-  classNames:['ui-dropdown'],
+  classNames:['ui-text dropdown'],
   attributeBindings:['data-render-id'],
   'data-render-id': computed.oneWay('node.renderId'),
 

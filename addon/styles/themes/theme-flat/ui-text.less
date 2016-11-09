@@ -1,0 +1,107 @@
+.ui-text {
+  position: relative;
+  & textarea,
+  & input {
+    font-size: 1rem;
+    line-height: 1rem;
+    width: 100%;
+    padding: 1rem;
+    resize: none;
+    color: currentColor;
+    border: 1px solid currentColor;
+    border-radius: @radius-m;
+    outline: none;
+    background-color: transparent;
+
+    appearance: none;
+    &::-webkit-input-placeholder {
+      line-height: normal;
+    }
+    &:not(.ui-menu) {
+      &:invalid {
+        & + svg {
+          display: block;
+        }
+      }
+      &:focus {
+        & + svg {
+          opacity: 0;
+        }
+      }
+      &:valid {
+        & + svg {
+          display: none;
+        }
+      }
+    }
+    &.ui-menu {
+      cursor: pointer;
+      & ~ svg {
+        display: block;
+      }
+    }
+  }
+  & svg {
+    width: 1rem;
+    height: 1rem;
+    margin: auto 0;
+    transition: opacity 200ms ease;
+    opacity: .2;
+
+    .absolute(0, 1rem, 0, auto);
+  }
+  &:not(:last-child) {
+    margin-bottom: 1.5rem;
+  }
+  &.dropdown {
+    & .ui-menu {
+      & ~ svg {
+        opacity: .8;
+      }
+    }
+    &:before {
+      border-radius: 0 0 @radius-m @radius-m;
+      transition: opacity 200ms ease;
+    }
+
+    .border(100%, 2px, auto, 2px, 2px, .5);
+  }
+  &:not(.dropdown) {
+    & .ui-menu {
+      border-style: dashed;
+    }
+  }
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  margin: 0;
+
+  -webkit-appearance: none;
+}
+
+html.desktop {
+  & .ui-text {
+    &:not(.dropdown) {
+      &:hover {
+        & .ui-menu {
+          & ~ svg {
+            opacity: .6;
+          }
+        }
+      }
+    }
+    &.dropdown {
+      &:hover {
+        & .ui-menu {
+          & ~ svg {
+            opacity: 1;
+          }
+        }
+        &:before {
+          opacity: .6;
+        }
+      }
+    }
+  }
+}

@@ -1,25 +1,15 @@
-.data-verification {
-  & .verification {
-
-  }
-}
-
 .ui-verification {
   & > svg {
     display: block;
     margin: 0 auto 2rem auto;
     opacity: .5;
   }
-  & .ui-text {
-    & + .get-verification {
-      margin-top: 1.5rem;
-    }
-  }
   & .get-verification {
     display: flex;
+
     flex-wrap: nowrap;
     & .ui-text {
-      margin-right: 1rem;
+      margin: 0 1rem 0 0;
 
       flex-grow: 2;
     }
@@ -34,11 +24,11 @@
     }
   }
   & .captcha-wrapper {
+    width: 100%;
     margin-top: 1rem;
     padding: .5rem;
-    width: 100%;
-    border-radius: @radius-m;
     border: 1px solid currentColor;
+    border-radius: @radius-m;
     & .captcha-canvas {
       overflow: hidden;
       max-width: 8rem;

@@ -9,7 +9,7 @@ import imagesLoaded from 'imagesloaded';
 export default Component.extend({
   layout,
 
-  classNames:['picture-lists'],
+  tagName: '',
 
   isLoading: alias("_thisLoading"),
 
