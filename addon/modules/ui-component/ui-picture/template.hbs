@@ -25,9 +25,9 @@
       <div class="svg-wrapper">
         {{svg}}
       </div>
-      <div class="svg-particle">
-        {{ui-addon/svg-item icon="svg-particle" size="60px" viewBox="60"}}
-      </div>
+      {{#if option.selected}}
+        {{ui-addon/svg-particle uuid=(concat option.uuid 'particle') values="0;18" dur="0.45s"}}
+      {{/if}}
     </div>
     <span>{{option.text}}</span>
   </div>

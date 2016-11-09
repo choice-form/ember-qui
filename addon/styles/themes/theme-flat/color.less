@@ -18,7 +18,7 @@ html.desktop {
         background-color: @primary;
       }
     }
-    & .ui-picture-choice {
+    & .ui-picture {
       & input:not(:checked) {
         & + label:hover {
           & .attachment:after {
@@ -57,7 +57,7 @@ html.mobile.portrait {
     box-shadow: 0 4px 4px 0 fade(@primary, 30%);
   }
   & article.one-by-one {
-    & .page-header {
+    & .header {
       background-color: @secondary;
       box-shadow: 0 4px 4px 0 fade(@primary, 30%);
     }
@@ -99,7 +99,7 @@ body {
   background-color: @secondary;
 }
 
-.page-header {
+.header {
   border-color: fade(@primary, 50%);
 }
 
@@ -152,7 +152,7 @@ input {
 }
 
 .picture-choice {
-  & .ui-picture-choice {
+  & .ui-picture {
     & input:checked {
       & + label {
         & .attachment:after {
@@ -173,7 +173,7 @@ input {
     }
   }
   &.superscript {
-    & .ui-picture-choice {
+    & .ui-picture {
       &.insert-block {
         & .pic-description {
           color: inherit;

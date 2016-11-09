@@ -11,11 +11,11 @@ export default Component.extend({
   uiService: inject('service/icon'),
   classNames:['ui-picture'],
   classNameBindings: ['priority'],
-  priority: computed('node.quesType', 'node.textDirection', 'node.pictureSize', function () {
-    const quesType = `${get(this, "node.quesType")}`;
+  priority: computed('node.textDirection', 'node.pictureSize', function () {
+
     const textDirection = get(this, "node.textDirection");
     const pictureSize = get(this, "node.pictureSize");
-    return `${quesType} ${textDirection} ${pictureSize}`
+    return `${textDirection} ${pictureSize}`
   }),
 
   /**

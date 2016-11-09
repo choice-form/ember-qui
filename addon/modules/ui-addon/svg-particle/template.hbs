@@ -5,10 +5,10 @@
         <animate
           id="x"
           attributeName="x"
-          values="0;29"
+          values={{values}}
           keySplines="0.5 0 0 0.8"
           keyTimes="0;1"
-          dur=".65s"
+          dur={{dur}}
           begin="0.08s"
           repeatCount="1"
           fill="freeze">
@@ -18,10 +18,10 @@
           attributeName="width"
           values="0;8.7;0"
           keySplines="
-              0.165 0.84 0.44 1
-              0.165 0.84 0.44 1"
+              0.895 0.03 0.685 0.22
+              0.895 0.03 0.685 0.22"
           keyTimes="0;0.325;1"
-          dur=".65s"
+          dur={{dur}}
           begin="x.begin"
           repeatCount="1"
           fill="freeze">
@@ -31,7 +31,7 @@
           attributeName="fill-opacity"
           values="0;1;1;0"
           keyTimes="0;0.05;0.8;1"
-          dur=".65s"
+          dur={{dur}}
           begin="x.begin"
           repeatCount="1"
           fill="freeze">
