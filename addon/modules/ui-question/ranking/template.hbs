@@ -1,10 +1,7 @@
 {{#each options as |option index|}}
     <div class="ranking-rank {{option.sortStateClass}}" onclick={{action "test" index}}>
       <div class="ranking-number">{{option.sortNo}}</div>
-      {{ui-component/ui-label
-        uuid=option.uuid
-        text=option.text
-        svgIcon=option.icon
+      {{ui-component/ui-label option svgIcon=option.icon
       }}
     </div>
 {{/each}}
