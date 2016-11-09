@@ -22,6 +22,7 @@ export default Route.extend({
           isMust:true,
           number:'3',
           options,
+          declarative: faker.lorem.paragraph(),
         }
       ],
 

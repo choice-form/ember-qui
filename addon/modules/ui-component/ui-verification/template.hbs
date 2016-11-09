@@ -25,9 +25,13 @@
     {{/if}}
 
     {{#if node.captcha}}
-      <div class="captcha">
-        <div class="captcha-wrapper"><img src={{node.captcha}} alt=""></div>
+      <div class="captcha-wrapper">
+        <div class="captcha-canvas"><img src={{node.captcha}} alt=""></div>
       </div>
     {{/if}}
   </div>
 {{/unless}}
+
+{{#if node.declarative}}
+  <p>{{node.declarative}}</p>
+{{/if}}
