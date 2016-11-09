@@ -1,5 +1,5 @@
 <div class="weight-header">
-  <h4>test</h4>
+  <h4>weight charts</h4>
   <div class="weight-chart">
     {{#each node.options as |option|}}
       {{html-safe (concat "<div style='flex-basis:" option.value "%;" "background:" option.color "'></div>")}}
@@ -8,15 +8,5 @@
 </div>
 
 {{#each node.options as |option|}}
-  <div class='weight-item' data-render-id={{option.renderId}}>
-    <h4 class="cell-labels">
-      {{option.text}}
-    </h4>
-    <div class="weight-slider">
-      {{range-slider start=option.value
-                     connect="lower"
-                     on-change=(action "handleOptionInput" option)
-      }}
-    </div>
-  </div>
+  {{ui-component/ui-range node option handleEvents maxValue=100}}
 {{/each}}

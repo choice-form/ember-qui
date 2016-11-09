@@ -1,37 +1,5 @@
 {{#if (eq option.inputType "input")}}
   {{ui-component/ui-text node option handleEvents}}
 {{else}}
-  <h4 class="cell-labels">
-    {{option.text}}
-    {{#if option.description}}
-      <span>{{option.description}}</span>
-    {{/if}}
-  </h4>
-  <table class={{concat 'ui-rating ' 'score-' option.count}} data-render-id={{option.renderId}}>
-    <thead>
-    <tr>
-      {{#each option.marks as |mark|}}
-        <td><span>{{mark}}</span></td>
-      {{/each}}
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-      {{#each graphs as |g|}}
-        <td>
-          <input
-            type="checkbox"
-            id={{g.uuid}}
-              value={{g.value}}
-            onclick={{action 'handleOptionInput'}}
-              checked={{g.checked}}
-          >
-
-        {{ui-component/ui-label uuid=g.uuid emoji=g.emoji emojiClass="rating-emoji" svgIcon=g.icon viewBox="64"}}
-
-        </td>
-      {{/each}}
-    </tr>
-    </tbody>
-  </table>
+  {{ui-component/ui-rating node option handleEvents}}
 {{/if}}

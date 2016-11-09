@@ -1,0 +1,24 @@
+{{#if option.text}}
+  <h4 class="range-title">
+    {{option.text}}
+  </h4>
+{{/if}}
+
+{{#if (or option.minValue option.maxValue)}}
+  <div class="range-value">
+    <span>Min value: {{option.minValue}}</span>
+    <span>Max value: {{option.maxValue}}</span>
+  </div>
+{{/if}}
+
+<div class="range-slider">
+  {{#if option.value}}
+    <h4>{{option.value}}</h4>
+  {{/if}}
+  {{range-slider start=option.value
+                 connect="lower"
+                 min=minValue
+                 max=maxValue
+                 on-change="handleOptionInput"
+  }}
+</div>

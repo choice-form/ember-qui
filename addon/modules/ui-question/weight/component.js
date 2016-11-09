@@ -6,8 +6,6 @@ import {htmlSafe} from 'ember-string';
 
 export default Component.extend({
   layout,
-  classNameBindings: ['classname'],
-  classNames:['ui-weight'],
 
   attributeBindings:['data-render-id'],
   'data-render-id': computed.oneWay('node.renderId'),
@@ -18,6 +16,7 @@ export default Component.extend({
      * change事件
      */
     handleOptionInput(option, e){
+      console.log('weighr slider');
       this.handleEvents.handleOptionInput( parseInt(e), option, get(this,'node'));
     },
   },
