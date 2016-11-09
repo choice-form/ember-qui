@@ -1,0 +1,26 @@
+.svg-particle {
+  overflow: hidden;
+  width: 60px;
+  height: 60px;
+  margin: auto 0 auto 50%;
+  transform: translateX(-50%);
+  background-color: fade(@contrast, 10%);
+
+  .absolute(0, 0, 0, 0);
+  & svg {
+    display: block;
+
+    fill: currentColor;
+  }
+}
+
+html.mobile {
+  .svg-particle {
+    width: 40px;
+    height: 40px;
+    & svg {
+      width: 40px;
+      height: 40px;
+    }
+  }
+}

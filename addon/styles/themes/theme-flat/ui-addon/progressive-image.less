@@ -1,0 +1,18 @@
+.progressive-image {
+  position: relative;
+  overflow: hidden;
+  & img,
+  & canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+  & img {
+    transition: opacity 1s ease;
+    opacity: 0;
+    &.loaded {
+      opacity: 1;
+    }
+  }
+}

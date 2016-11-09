@@ -1,0 +1,141 @@
+article {position: relative;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+section {
+  min-height: 100vh;
+  margin-bottom: -12rem;
+  padding: 2rem 2rem 12rem 2rem;
+}
+
+.row {
+  position: relative;
+  &:not(:first-child) {
+    padding: 2rem 0;
+  }
+  &:first-child {
+    padding-bottom: 2rem;
+  }
+
+  .border(auto, 1rem, 0, 1rem, 2px, 1);
+}
+
+.page-header {
+  padding: 3rem;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  & h2 {
+    margin-bottom: 1rem;
+  }
+}
+
+.attachment.header {
+  padding: 0;
+}
+
+.attachment {
+  padding: 1rem;
+}
+
+.question-header {
+  padding: 1rem;
+  & h2 {
+    margin-bottom: 1rem;
+    word-wrap: break-word;
+  }
+  & + .control {
+    margin-top: 1rem;
+    padding-top: 2rem;
+
+    .border(0, 1rem, auto, 1rem, 1px, .2);
+  }
+}
+
+.control {
+  position: relative;
+  padding: 1rem;
+
+  .height-fix();
+  & label {
+    position: relative;
+  }
+}
+
+
+
+svg:not(:root) {
+  display: none;
+  overflow: visible;
+
+  fill: currentColor;
+}
+
+html.desktop {
+  & body {
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+  }
+  & article {
+    min-width: 480px;
+  }
+}
+
+html.desktop,
+html.tablet.landscape {
+  article.one-by-one {
+
+  }
+}
+
+html.mobile.portrait,
+html.mobile.landscape,
+html.tablet.portrait {
+  //& article.one-by-one {
+  //  & .attachment {
+  //    padding: 0;
+  //  }
+  //}
+  & .page-header {
+    & h2 {
+      text-align: center;
+    }
+  }
+}
+
+html.tablet.portrait {
+  & article {
+    max-width: 70vw;
+  }
+  & section {
+    padding: 0 0 12rem 0;
+  }
+  & .row:last-child {
+    padding-bottom: 1rem;
+    &:before {
+      display: none;
+    }
+  }
+}
+
+
+html.mobile {
+  font-size: 14px;
+  & section {
+    padding: 0 0 12rem 0;
+  }
+  & .page-header {
+    padding: 1.5rem;
+    border: none;
+  }
+  & .wrapper {
+    overflow: hidden;
+  }
+  & .row:last-child {
+    padding-bottom: 1rem;
+    &:before {
+      display: none;
+    }
+  }
+}

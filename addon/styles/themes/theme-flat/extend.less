@@ -1,0 +1,67 @@
+.height-fix() {
+  &:after {
+    display: table;
+    clear: both;
+    content: ' ';
+  }
+}
+
+.border(@top, @right, @bottom, @left, @height, @opacity) {
+  &:before {
+    position: absolute;
+    top: @top;
+    right: @right;
+    bottom: @bottom;
+    left: @left;
+    height: @height;
+    content: '';
+    opacity: @opacity;
+    background-color: currentColor;
+  }
+}
+
+.absolute(@top, @right, @bottom, @left) {
+  position: absolute;
+  top: @top;
+  right: @right;
+  bottom: @bottom;
+  left: @left;
+}
+
+.input(@width,@height) {
+  width: @width;
+  height: @height;
+  overflow: hidden;
+  opacity: 0;
+  border: none;
+}
+
+@radius-s: 2px;
+@radius-m: 3px;
+@radius-l: 4px;
+
+.button {
+  display: inline-block;
+  padding: 1rem;
+  cursor: pointer;
+  text-align: center;
+  border-radius: @radius-m;
+  & span,
+  & svg {
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
+
+button {
+  font-size: 1rem;
+  line-height: 1rem;
+  overflow: hidden;
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  border: none;
+  outline: 0;
+  outline-style: none;
+}

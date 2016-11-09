@@ -1,0 +1,128 @@
+.rating {
+  & .cell {
+    &:not(:last-child) {
+      padding-bottom: 1.5rem;
+      & .ui-rating {
+        margin-bottom: 1.5rem;
+
+        .border(auto, 0, -1.5rem, 0, 1px, .3);
+      }
+    }
+    & .ui-rating {
+      position: relative;
+      width: 100%;
+      margin-top: 1.5rem;
+      border-spacing: 0;
+      border-collapse: collapse;
+      border-radius: @radius-m;
+      & thead {
+        & td {
+          font-size: small;
+          text-align: center;
+          vertical-align: bottom;
+          word-break: break-all;
+          & span {
+            display: inline-block;
+            margin-top: .5rem;
+            padding: .2rem;
+          }
+        }
+      }
+      & tbody {
+        margin-bottom: 1rem;
+        & td {
+          position: relative;
+        }
+      }
+      & input {
+        margin: 0;
+
+        .absolute(auto, 0, 0, auto);
+        .input(100%, 100%);
+      }
+      & label {
+        float: left;
+        width: 100%;
+        margin: .5rem 0;
+        cursor: pointer;
+        text-align: center;
+        & .select-container {
+          position: relative;
+          width: 100%;
+          max-width: 3rem;
+          height: 100%;
+          margin: 0 auto;
+          & .svg-wrapper {
+            & svg {
+              display: block;
+              width: 100%;
+              height: 100%;
+            }
+          }
+          & .rating-emoji {
+            font-size: 3rem;
+            line-height: 3rem;
+            display: block;
+          }
+        }
+      }
+    }
+    & .score-3 {
+      & td {
+        width: calc(100% / 3);
+      }
+    }
+    & .score-4 {
+      & td {
+        width: calc(100% / 4);
+      }
+    }
+    & .score-5 {
+      & td {
+        width: calc(100% / 5);
+      }
+      & label {
+        padding: 0 .5rem;
+      }
+    }
+    & .score-6 {
+      & td {
+        width: calc(100% / 6);
+      }
+      & label {
+        padding: 0 .3rem;
+      }
+    }
+    & .score-7 {
+      & td {
+        width: calc(100% / 7);
+      }
+      & label {
+        padding: 0 .2rem;
+      }
+    }
+  }
+}
+
+html.desktop {
+  & .ui-rating {
+    & input:checked {
+      & + label {
+        & .svg-wrapper {
+          & svg {
+            opacity: 1;
+          }
+        }
+      }
+    }
+    & .svg-wrapper {
+      & svg {
+        transition: opacity 200ms ease;
+        opacity: .8;
+        &:hover {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
