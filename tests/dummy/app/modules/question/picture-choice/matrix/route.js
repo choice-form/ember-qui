@@ -18,7 +18,7 @@ export default Route.extend({
           selectType: 'radio',
           showStyle: 'matrix contain',
           textDirection:'', //in-block ,out-block, empty
-          pictureSize: 'picture-large',  //picture-large, picture-small
+          pictureSize: '',  //picture-large, picture-small
           uuid: faker.date.between('2016-01-01', '2016-12-31'),
           isMust:false,
           number:'2',
@@ -143,7 +143,7 @@ export default Route.extend({
           selectType: 'radio',
           showStyle: 'matrix',
           textDirection:'empty', //in-block ,out-block, empty
-          pictureSize: 'picture-large',  //picture-large, picture-small
+          pictureSize: '',  //picture-large, picture-small
           uuid: faker.date.between('2016-01-01', '2016-12-31'),
           isMust:false,
           number:'2',

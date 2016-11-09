@@ -16,11 +16,11 @@ export default Route.extend({
           renderId: '775519',
           typeName: '选择题',
           quesType: 'picture-choice', //select, fill
-          selectType: 'radio',
+          selectType: 'checkbox',
           showStyle: 'grid',
           picStyle: '',
           textDirection: '', //in-block ,out-block, empty
-          pictureSize: 'picture-large',  //picture-large, picture-small
+          pictureSize: '',  //picture-large, picture-small
           uuid: faker.date.between('2016-01-01', '2016-12-31'),
           isMust: false,
           number: '2',
@@ -113,7 +113,7 @@ export default Route.extend({
           showStyle: 'grid',
           picStyle: '',
           textDirection: 'insert-block', //in-block ,out-block, empty
-          pictureSize: 'picture-large',  //picture-large, picture-small
+          pictureSize: '',  //picture-large, picture-small
           uuid: faker.date.between('2016-01-01', '2016-12-31'),
           isMust: false,
           number: '2',
@@ -203,7 +203,7 @@ export default Route.extend({
           showStyle: 'grid',
           picStyle: 'superscript',
           textDirection: '', //in-block ,out-block, empty
-          pictureSize: 'picture-large',  //picture-large, picture-small
+          pictureSize: '',  //picture-large, picture-small
           uuid: faker.date.between('2016-01-01', '2016-12-31'),
           isMust: false,
           number: '2',
@@ -293,7 +293,7 @@ export default Route.extend({
           showStyle: 'grid',
           picStyle: 'superscript',
           textDirection: 'insert-block', //in-block ,out-block, empty
-          pictureSize: 'picture-large',  //picture-large, picture-small
+          pictureSize: '',  //picture-large, picture-small
           uuid: faker.date.between('2016-01-01', '2016-12-31'),
           isMust: false,
           number: '2',
@@ -383,7 +383,7 @@ export default Route.extend({
           showStyle: 'grid',
           picStyle: 'cover',
           textDirection: 'out-block', //in-block ,out-block, empty
-          pictureSize: 'picture-large',  //picture-large, picture-small
+          pictureSize: '',  //picture-large, picture-small
           uuid: faker.date.between('2016-01-01', '2016-12-31'),
           isMust: false,
           number: '2',
@@ -509,7 +509,7 @@ export default Route.extend({
           showStyle: 'grid',
           picStyle: 'contain',
           textDirection: 'in-block', //in-block ,out-block, empty
-          pictureSize: 'picture-large',  //picture-large, picture-small
+          pictureSize: '',  //picture-large, picture-small
           uuid: faker.date.between('2016-01-01', '2016-12-31'),
           isMust: false,
           number: '2',

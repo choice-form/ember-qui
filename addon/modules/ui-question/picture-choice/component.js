@@ -10,14 +10,6 @@ export default Component.extend({
   layout,
 
   classNames:['picture-lists'],
-  classNameBindings: ['priority'],
-  priority: computed('node.textDirection', 'node.pictureSize', function () {
-
-    const textDirection = get(this, "node.textDirection");
-    const pictureSize = get(this, "node.pictureSize");
-    return `${textDirection} ${pictureSize}`
-  }),
-
 
   isLoading: alias("_thisLoading"),
 

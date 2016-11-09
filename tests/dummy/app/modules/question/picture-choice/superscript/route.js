@@ -19,7 +19,7 @@ export default Route.extend({
           showStyle: 'vertical',
           picStyle:'superscript',
           textDirection:'in-block', //in-block ,out-block, empty
-          pictureSize: 'picture-large',  //picture-large, picture-small
+          pictureSize: '',  //picture-large, picture-small
           uuid: faker.date.between('2016-01-01', '2016-12-31'),
           isMust:false,
           number:'2',
@@ -145,7 +145,7 @@ export default Route.extend({
           showStyle: 'grid',
           picStyle:'superscript',
           textDirection:'in-block', //in-block ,out-block, empty
-          pictureSize: 'picture-large',  //picture-large, picture-small
+          pictureSize: '',  //picture-large, picture-small
           uuid: faker.date.between('2016-01-01', '2016-12-31'),
           isMust:false,
           number:'2',
@@ -271,7 +271,7 @@ export default Route.extend({
           showStyle: 'grid',
           picStyle: 'cover superscript',
           textDirection:'out-block', //in-block ,out-block, empty
-          pictureSize: 'picture-large',  //picture-large, picture-small
+          pictureSize: '',  //picture-large, picture-small
           uuid: faker.date.between('2016-01-01', '2016-12-31'),
           isMust:false,
           number:'2',
