@@ -17,17 +17,17 @@
     </thead>
     <tbody>
     <tr>
-      {{#each graphs as |g|}}
+      {{#each graphs as |option|}}
         <td>
           <input
             type="checkbox"
-            id={{g.uuid}}
-              value={{g.value}}
+            id={{option.uuid}}
+              value={{option.value}}
             onclick={{action 'handleOptionInput'}}
-              checked={{g.checked}}
+              checked={{option.checked}}
           >
 
-        {{ui-component/ui-label uuid=g.uuid emoji=g.emoji emojiClass="rating-emoji" svgIcon=g.icon viewBox="64"}}
+        {{ui-component/ui-label option selected=option.checked emojiClass="rating-emoji" svgIcon=option.icon viewBox="64"}}
 
         </td>
       {{/each}}
