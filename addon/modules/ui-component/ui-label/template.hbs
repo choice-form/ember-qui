@@ -1,44 +1,27 @@
-{{#if (or emoji svg svgIcon)}}
-
-  <div class="select-container">
-
-    {{#if emoji}}
-      <div class="emoji-wrapper">
-        <span class={{emojiClass}}>{{emoji}}</span>
-      </div>
-    {{else}}
-
-      <div class="svg-wrapper">
-
-        {{#if svgIcon}}
-          {{component "ui-addon/svg-item" icon=svgIcon size=size viewBox=viewBox iconClass=iconClass}}
-        {{else}}
-          {{svg}}
-        {{/if}}
-
-      </div>
-    {{/if}}
-
-    <div class="svg-particle">
-      {{ui-addon/svg-item icon="svg-particle" size="60px" viewBox="60"}}
-    </div>
-
-  </div>
-
-{{/if}}
-
-{{#if leftIcon}}
-  {{component "ui-addon/svg-item" icon=leftIcon size=size viewBox=viewBox iconClass=iconClass}}
-{{/if}}
-
 {{yield}}
+
+<div class="select-container">
+
+  {{#if emoji}}
+    <div class="emoji-wrapper">
+      <span class={{emojiClass}}>{{emoji}}</span>
+    </div>
+  {{else}}
+
+    <div class="svg-wrapper">
+      {{#if svgIcon}}
+        {{component "ui-addon/svg-item" icon=svgIcon size=size viewBox=viewBox iconClass=iconClass}}
+      {{else}}
+        {{svg}}
+      {{/if}}
+    </div>
+  {{/if}}
+
+  <div class="svg-particle">
+    {{ui-addon/svg-item icon=(if option.selected "svg-particle" "") size="60px" viewBox="60"}}
+  </div>
+</div>
 
 {{#if text}}
   <span>{{text}}</span>
 {{/if}}
-
-
-{{#if rightIcon}}
-  {{component "ui-addon/svg-item" icon=rightIcon size=size viewBox=viewBox iconClass=iconClass}}
-{{/if}}
-
