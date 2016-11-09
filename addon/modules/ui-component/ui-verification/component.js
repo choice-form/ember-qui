@@ -61,12 +61,6 @@ export default Component.extend({
       this.handleEvents.handleOptionClick(get(this, 'phoneNumber'), get(this, 'node'));
     },
 
-    /**
-     * password验证
-     */
-    handleOptionInput_Password(e){
-
-    },
 
     /**
      * captcha验证
