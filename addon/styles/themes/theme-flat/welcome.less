@@ -1,14 +1,11 @@
 .data-welcome {
-  &:before {
-    display: none;
-  }
-  & .attachment {
-    padding: 0;
-  }
   & .header {
-    padding: 3rem 0;
+    padding: 3rem 1rem;
 
-    .border(auto, 0, 0, 0, 2px, .5);
+    .border(auto, 1rem, 0, 1rem, 2px, .5);
+    & h2 {
+      text-align: center;
+    }
   }
 }
 
@@ -22,6 +19,7 @@
     .absolute(25%, 0, 0, 0);
   }
   & .attachment {
+    padding: 0;
     & .progressive-image {
       height: 100vh;
       & img {
@@ -33,9 +31,8 @@
   }
   & .header {
     z-index: 2;
-    padding: 3rem;
 
-    .absolute(auto, 0, 12rem, 0);
+    .absolute(auto, 2rem, 12rem, 2rem);
   }
   & + .submit-actions {
     z-index: 2;
@@ -48,7 +45,7 @@ html.tablet.portrait,
 html.mobile {
   & .data-welcome {
     & .header {
-      padding: 1rem;
+      padding: 2rem 1.5rem;
       &:before {
         display: none;
       }
@@ -61,9 +58,6 @@ html.mobile {
       box-shadow: none;
 
       .absolute(auto, 0, 8.2rem, 0);
-    }
-    & + .submit-actions {
-      padding: 2rem 1rem;
     }
   }
 }

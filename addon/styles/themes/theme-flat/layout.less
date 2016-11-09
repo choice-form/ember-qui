@@ -12,14 +12,15 @@ section {
 
 .row {
   position: relative;
-  &:not(:first-child,:only-child) {
+  &:not(:first-child):not(:only-child) {
     padding: 2rem 0;
   }
   &:first-child:not(:only-child) {
     padding-bottom: 2rem;
   }
-
-  .border(auto, 1rem, 0, 1rem, 2px, 1);
+  &:not(:last-child) {
+    .border(auto, 1rem, 0, 1rem, 2px, 1);
+  }
 }
 
 .attachment.header {
@@ -91,9 +92,7 @@ html.tablet.portrait {
   //  }
   //}
   & .page-header {
-    & h2 {
-      text-align: center;
-    }
+
   }
 }
 
