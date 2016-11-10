@@ -3,8 +3,6 @@ import set from 'ember-metal/set';
 import Ember from 'ember';
 import faker from 'faker';
 
-/*eslint-disable no-console */
-
 export default Route.extend({
   model() {
     return {
@@ -15,6 +13,7 @@ export default Route.extend({
           images: [
             {
               ratio: 0.6666667,
+              objectFit: '10px 10px',
               natural:'/images/sample-1.jpg',
               thumbnail:'/images/sample-1-thumbnail.jpg',
             }

@@ -1,14 +1,14 @@
-
-  {{#if (and header.images imageTop)}}
-    <figure class="attachment">
-      {{#each header.images as |image|}}
-        {{ui-addon/progressive-image
-          ratio=image.ratio
-          thumbnail=image.thumbnail
-          image=image.natural}}
-      {{/each}}
-    </figure>
-  {{/if}}
+{{#if (and header.images imageTop)}}
+  <figure class="attachment">
+    {{#each header.images as |image|}}
+      {{ui-addon/progressive-image
+        ratio=image.ratio
+        objectFit=image.objectFit
+        thumbnail=image.thumbnail
+        image=image.natural}}
+    {{/each}}
+  </figure>
+{{/if}}
 
 <header class="header">
   {{#if (or header.isMust header.number)}}
@@ -26,13 +26,14 @@
   {{/if}}
 </header>
 
-  {{#if (and header.images (not imageTop))}}
-    <figure class="attachment">
-      {{#each header.images as |image|}}
-        {{ui-addon/progressive-image
-          ratio=image.ratio
-          thumbnail=image.thumbnail
-          image=image.natural}}
-      {{/each}}
-    </figure>
-  {{/if}}
+{{#if (and header.images (not imageTop))}}
+  <figure class="attachment">
+    {{#each header.images as |image|}}
+      {{ui-addon/progressive-image
+        ratio=image.ratio
+        objectFit=image.objectFit
+        thumbnail=image.thumbnail
+        image=image.natural}}
+    {{/each}}
+  </figure>
+{{/if}}
