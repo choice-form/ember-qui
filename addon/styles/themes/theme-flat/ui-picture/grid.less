@@ -1,12 +1,5 @@
 .picture-layout.grid {
-  flex-direction: row;
-
-  flex-wrap: wrap;
   & .ui-picture {
-    display: flex;
-    flex-direction: column;
-
-    flex-basis: 50%;
     &:not(:nth-last-child(-n+2)) {
       margin-bottom: 1.5rem;
       padding-bottom: 1.5rem;
@@ -23,6 +16,24 @@
       float: left;
     }
   }
+}
+
+@supports (display: flex) {
+  .picture-layout.grid {
+    flex-direction: row;
+
+    flex-wrap: wrap;
+    & .ui-picture {
+      display: flex;
+      flex-direction: column;
+
+      flex-basis: 50%;
+    }
+  }
+}
+
+@supports (display: flex) {
+
 }
 
 html.desktop,

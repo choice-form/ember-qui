@@ -1,17 +1,6 @@
 .picture-layout.matrix {
-  flex-direction: row;
-
-  flex-wrap: wrap;
   & .ui-picture {
-    flex-basis: 33.333%;
     & label {
-      & .attachment {
-        & img {
-          height: 100%;
-
-          object-fit: cover;
-        }
-      }
       & .pic-description {
         text-align: center;
       }
@@ -23,13 +12,19 @@
   &.insert-block {
     margin-bottom: 0;
   }
-  &.contain {
-    & label {
-      & .attachment {
-        & img {
-          object-fit: contain;
-        }
-      }
+}
+
+@supports not(display: flex) {
+
+}
+
+@supports (display: flex) {
+  .picture-layout.matrix {
+    flex-direction: row;
+
+    flex-wrap: wrap;
+    & .ui-picture {
+      flex-basis: 33.333%;
     }
   }
 }

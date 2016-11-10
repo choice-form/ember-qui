@@ -12,7 +12,6 @@
 }
 
 .picture-layout {
-  display: flex;
   &.insert-block {
     & .attachment {
       margin-bottom: 0;
@@ -87,6 +86,12 @@
 @supports not(display: flex) {
   .picture-layout {
     display: block;
+  }
+}
+
+@supports (display: flex) {
+  .picture-layout {
+    display: flex;
   }
 }
 
