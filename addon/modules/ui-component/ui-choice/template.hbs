@@ -14,7 +14,11 @@
         tabindex={{tabindex}}
       value={{option.value}}
     >
-    {{ui-component/ui-label option}}
+    {{ui-component/ui-label selected=option.selected
+                            for=option.uuid
+                            text=option.text
+                            icon=(if option.selected (concat option.icon '-active') option.icon)
+    }}
   </div>
 {{else}}
   {{ui-component/ui-text node option handleEvents}}

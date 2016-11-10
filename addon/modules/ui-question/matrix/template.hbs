@@ -25,7 +25,9 @@
                 disabled={{disabled}}
               required
             >
-          {{ui-component/ui-label selected=option.selected for=option.renderId svgIcon=(if option.selected 'checkbox-active' 'checkbox')}}
+          {{ui-component/ui-label selected=option.selected
+                                  for=option.renderId
+                                  icon=(if option.selected 'checkbox-active' 'checkbox')}}
         {{/each}}
       </div>
     {{/each}}

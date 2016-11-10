@@ -5,4 +5,5 @@ export default Component.extend({
   layout,
   tagName: '',
 
+
 }).reopenClass({ positionalParams: ['node','handleEvents']});

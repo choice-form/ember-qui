@@ -6,12 +6,12 @@ import {mobiInitTreeList} from '../../lib/mobile-factory'
 
 export default Component.extend({
   layout,
-  classNames:['ui-text dropdown'],
+  classNames:['ui-dropdown ui-text dropdown'],
   attributeBindings:['data-render-id'],
   'data-render-id': computed.oneWay('node.renderId'),
 
 
-  listIcon: 'arrows-small-down',
+  icon: 'arrows-small-down',
 
   didRender(){
     const input = this.element.getElementsByClassName('dropdown-list')[0];

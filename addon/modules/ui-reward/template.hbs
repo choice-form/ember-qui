@@ -36,7 +36,10 @@
         {{#if (eq node.rewardType 'wechat')}}
           <div class="currency">
             <input type="checkbox" id={{node.uuid}} onclick={{action 'handleClick'}}>
-            {{ui-component/ui-label svgIcon=node.icon for=node.uuid size="40px" viewBox="40"}}
+            {{ui-component/ui-label icon=node.icon
+                                    for=node.uuid
+                                    size="40px"
+                                    viewBox="40"}}
             {{#if currency}}
               <h3>{{node.rewardVaule}}</h3>
             {{/if}}

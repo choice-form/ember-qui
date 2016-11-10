@@ -27,7 +27,14 @@
               checked={{option.checked}}
           >
 
-        {{ui-component/ui-label option selected=option.checked emojiClass="rating-emoji" svgIcon=option.icon viewBox="64"}}
+        {{ui-component/ui-label for=option.uuid
+                                emoji=option.emoji
+                                selected=option.checked
+                                text=option.text
+                                emojiClass="rating-emoji"
+                                icon=option.icon
+                                viewBox="64"
+        }}
 
         </td>
       {{/each}}
