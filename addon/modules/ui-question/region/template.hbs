@@ -1,12 +1,12 @@
 {{#ui-component/ui-dropdown node handleEvents titleIcon="map-location"}}
   {{#each node.regions as |region|}}
-    <li value={{region.Value}}>{{region.Meaning}}
+    <li>{{region.Meaning}}
       <ul>
         {{#each region.cities as |city|}}
-          <li value={{city.Value}}>{{city.Meaning}}
+          <li>{{city.Meaning}}
             <ul>
               {{#each city.counties as |country|}}
-                <li value={{country.Value}}>{{country.Meaning}}</li>
+                <li>{{country.Meaning}}</li>
               {{/each}}
             </ul>
           </li>

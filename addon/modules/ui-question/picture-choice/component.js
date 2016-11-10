@@ -20,14 +20,6 @@ export default Component.extend({
   }),
 
 
-
-
-
-
-
-
-
-
   isLoading: alias("_thisLoading"),
 
   _thisLoading : true,
@@ -46,7 +38,7 @@ export default Component.extend({
 
     if(showStyle == 'pinterest'){
       imagesLoaded(this.element, () => {
-        set(this, '_thisLoading', false);
+        //set(this, '_thisLoading', false);
         this.newMasonry = new Masonry(this.element);
       });
     }

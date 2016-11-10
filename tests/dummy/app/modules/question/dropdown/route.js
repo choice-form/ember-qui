@@ -90,6 +90,8 @@ export default Route.extend({
         handleQuestionInput(dynamic, question){
           console.log(dynamic);
           console.log(question);
+          const value = question.options[parseInt(dynamic)].text;
+          set(question,'value',value);
           return true;
         },
       },
