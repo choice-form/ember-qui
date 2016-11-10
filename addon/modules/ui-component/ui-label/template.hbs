@@ -9,8 +9,8 @@
   {{else}}
 
     <div class="svg-wrapper">
-      {{#if svgIcon}}
-        {{component "ui-addon/svg-item" icon=svgIcon size=size viewBox=viewBox iconClass=iconClass}}
+      {{#if icon}}
+        {{component "ui-addon/svg-item" icon=icon size=size viewBox=viewBox iconClass=iconClass}}
       {{else}}
         {{svg}}
       {{/if}}

@@ -3,8 +3,8 @@
     <input
       type='file'
       id={{option.uuid}}
-        onclick={{action handleOptionClick}}
-      onchange={{action handleOptionInput}}
+        onclick={{handleOptionClick}}
+      onchange={{handleOptionInput}}
     >
     {{#if option.value}}
       <a class="clear icon-button primary">

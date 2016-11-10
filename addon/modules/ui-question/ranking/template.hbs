@@ -1,6 +1,8 @@
 {{#each options as |option index|}}
     <div class="ranking-rank">
       <div class="ranking-number">{{option.sortNo}}</div>
-      {{ui-component/ui-label option svgIcon=option.icon}}
+      {{ui-component/ui-label text=option.text
+                              icon=option.icon
+      }}
     </div>
 {{/each}}
