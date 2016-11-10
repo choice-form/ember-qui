@@ -1,18 +1,9 @@
 .icon {
   display: flex;
   flex-direction: row;
+
   flex-wrap: wrap;
   justify-content: center;
-  & .cell {
-    display: flex;
-    flex-direction: column;
-
-    flex-basis: 25%;
-    @media (max-width: 767px) {
-      flex-basis: 33.3%;
-    }
-
-  }
 }
 
 .ui-icon {
@@ -20,8 +11,11 @@
   display: flex;
   flex-direction: column;
 
-  align-self: center;
-  flex-grow: 2;
+  align-self: stretch;
+  flex-basis: 25%;
+  @media (max-width: 767px) {
+    flex-basis: 33.3%;
+  }
   & input {
     margin: 0;
 
@@ -49,19 +43,16 @@
         width: 64px;
         height: 64px;
         & svg {
-          position: absolute;
-          top: 0;
-          right: 0;
-          bottom: 0;
-          left: 0;
           margin: auto;
+
+          .absolute(0, 0, 0, 0);
         }
       }
     }
     & .labels {
       padding-top: .5rem;
       text-align: center;
-      & svg:not(.fave-svg) {
+      & svg {
         display: inline-block;
       }
       & span {
@@ -73,7 +64,7 @@
 }
 
 html.desktop {
-  & .ui-icon-list {
+  & .ui-icon {
     & input:checked {
       & + label {
         & .svg-wrapper {
