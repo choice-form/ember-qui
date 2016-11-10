@@ -37,12 +37,14 @@ export default Component.extend({
       slidesToShow: 3,
       slidesToScroll: 1,
       asNavFor: fixHeader,
+      dots:true,
     });
     $(fixHeader).slick({
       infinite:false,
       slidesToShow: 3,
       slidesToScroll: 1,
       asNavFor: flickityColumn,
+      arrows:false,
     });
 
   },

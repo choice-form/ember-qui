@@ -1,9 +1,9 @@
 <div class="fix-header-position">
-  <ul class="fix-header">
+  <div class="fix-header">
     {{#each node.optionsX as |option|}}
-      <li class="fix-header-column">{{option.text}}</li>
+      <div class="fix-header-column">{{option.text}}</div>
     {{/each}}
-  </ul>
+  </div>
 </div>
 
 <div class="matrix-content">
@@ -14,7 +14,7 @@
   </ul>
   <div class="flickity-column">
     {{#each node.matrix as |subMatrix|}}
-      <ul class="column">
+      <div class="column">
         {{#each subMatrix as |option|}}
             <input
               name={{node.renderId}}
@@ -27,7 +27,7 @@
             >
           {{ui-component/ui-label selected=option.selected for=option.renderId svgIcon=(if option.selected 'checkbox-active' 'checkbox')}}
         {{/each}}
-      </ul>
+      </div>
     {{/each}}
   </div>
 </div>
