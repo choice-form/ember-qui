@@ -8,8 +8,15 @@ import imagesLoaded from 'imagesloaded';
 
 export default Component.extend({
   layout,
-
-  tagName: '',
+classNames:['picture-layout'],
+  classNameBindings: ['class_names'],
+  class_names: computed('node.showStyle', 'node.picStyle', 'node.textDirection', 'node.pictureSize', function () {
+    const showStyle = get(this, 'node.showStyle');
+    const picStyle = get(this, 'node.picStyle');
+    const textDirection = get(this, "node.textDirection");
+    const pictureSize = get(this, "node.pictureSize");
+    return `${showStyle} ${picStyle} ${textDirection} ${pictureSize}`
+  }),
 
   isLoading: alias("_thisLoading"),
 

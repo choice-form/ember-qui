@@ -6,11 +6,6 @@ import get from 'ember-metal/get';
 export default Component.extend({
   layout,
   classNames:['ui-file-upload'],
-  classNameBindings: ['priority'],
-  priority: computed('node.quesType', function () {
-    const quesType = `${get(this, "node.quesType")} primary border fade50`;
-    return quesType;
-  }),
 
   this_icon: computed('option.value', 'option.icon', function () {
     return get(this, 'option.value') ? 'refresh' : get(this, 'option.icon');

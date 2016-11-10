@@ -9,14 +9,6 @@ export default Component.extend({
 
   uiService: inject('service/icon'),
   classNames: ['ui-picture'],
-  classNameBindings: ['class_names'],
-  class_names: computed('node.showStyle', 'node.picStyle', 'node.textDirection', 'node.pictureSize', function () {
-    const showStyle = get(this, 'node.showStyle');
-    const picStyle = get(this, 'node.picStyle');
-    const textDirection = get(this, "node.textDirection");
-    const pictureSize = get(this, "node.pictureSize");
-    return `${showStyle} ${picStyle} ${textDirection} ${pictureSize}`
-  }),
 
   /**
    * 设置选项的image
