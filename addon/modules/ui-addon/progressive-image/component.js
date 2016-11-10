@@ -27,7 +27,7 @@ export default Component.extend({
     const margin = ratio / 2 * 100;
     const type = get(this, 'objectFit');
 
-    // 横向比例
+    // 纵向比例
     if (ratio > 1) {
       switch (type) {
       case 'cover': return `margin: ${-margin}% 0; width: 100%;`;
@@ -36,10 +36,10 @@ export default Component.extend({
       }
     }
 
-    // 纵向比例
+    // 横向比例
     if (ratio < 1) {
       switch (type) {
-      case 'cover': return `margin: 0 ${-margin}%; height: 100%;`;
+      case 'cover': return `margin-top: 50%; transform: translateY(-50%);`;
       case 'contain': return `width: 100%`;
       default: return false;
       }
