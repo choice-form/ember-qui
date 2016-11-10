@@ -16,7 +16,33 @@ export default Component.extend({
     return htmlSafe(`<div style="padding-top: ${paddingTop}%;"></div>`);
   }),
 
-  objectFit: '0 0',
+  objectFit: null,
+  adaptiveStyle: computed('ratio', 'objectFit', function() {
+    const ratio = +get(this, 'ratio');
+    const margin = ratio / 2 * 100;
+    const type = get(this, 'objectFit');
+
+    // 横向比例
+    if (ratio > 1) {
+      switch (type) {
+      case 'cover': return `margin: ${-margin}% 0; width: 100%;`;
+      case 'contain': return `margin: auto; height: 100%`;
+      default: return false;
+      }
+    }
+
+    // 纵向比例
+    if (ratio < 1) {
+      switch (type) {
+      case 'cover': return `margin: 0 ${-margin}%; height: 100%;`;
+      case 'contain': return `width: 100%`;
+      default: return false;
+      }
+    }
+
+    // 正方形
+    return false;
+  }),
 
   didInsertElement() {
     this._super(...arguments);
@@ -24,10 +50,12 @@ export default Component.extend({
     const canvas = document.createElement('canvas');
     canvas.id = 'stack-blur-canvas';
 
+    const adaptiveStyle = get(this, 'adaptiveStyle');
+
     const thumbnail = new Image();
     thumbnail.classList.add('thumbnail');
     thumbnail.src = get(this, 'thumbnail');
-    thumbnail.style.margin = get(this, 'objectFit');
+    if (adaptiveStyle) thumbnail.style = adaptiveStyle;
     thumbnail.onload = () => {
       thumbnail.classList.add('loaded');
       stackBlurImage(thumbnail, 'stack-blur-canvas', 5);
@@ -38,7 +66,7 @@ export default Component.extend({
     const image = new Image();
     image.classList.add('image');
     image.src = get(this, 'image');
-    image.style.margin = get(this, 'objectFit');
+    if (adaptiveStyle) image.style = adaptiveStyle;
     image.onload = () => {
       image.classList.add('loaded');
       later(this, 'teardownStackBlueEffect', canvas, thumbnail, 1000);

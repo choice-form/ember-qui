@@ -12,8 +12,8 @@ export default Route.extend({
           description: faker.lorem.paragraph(),
           images: [
             {
-              ratio: 0.6666667,
-              objectFit: '10px 10px',
+              ratio: 0.5625,
+              objectFit: 'contain',
               natural:'/images/sample-1.jpg',
               thumbnail:'/images/sample-1-thumbnail.jpg',
             }
