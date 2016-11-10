@@ -1,4 +1,4 @@
-.question-header {
+.header {
   & + .control.file-upload {
     &:before {
       right: 1.725rem;
@@ -112,10 +112,18 @@ html.desktop {
 
 html.tablet.portrait,
 html.mobile {
+  & .header {
+    & + .control.file-upload {
+      padding-top: 0;
+      &:before {
+        display: none;
+      }
+    }
+  }
   & .file-upload {
     flex-direction: column;
-    padding: 1rem;
-    & .cell {
+    & .upload-item-wrapper {
+      padding: 1rem;
       & label {
         padding: 1rem .5rem;
       }
