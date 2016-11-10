@@ -1,0 +1,17 @@
+.picture-layout.full {
+  flex-direction: column;
+  & .ui-picture {
+    &:not(:last-child) {
+      margin-bottom: 1.5rem;
+      padding-bottom: 1.5rem;
+
+      .border(auto, 0, 0, 0, 1px, .3);
+    }
+  }
+}
+
+html.mobile {
+  & .picture-layout.full {
+    padding: 0 .5rem;
+  }
+}

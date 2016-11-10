@@ -38,7 +38,7 @@ Router.map(function() {
       this.route('pinterest');
       this.route('superscript');
       this.route('thumbnail');
-      this.route('vertical');
+      this.route('full');
     });
     this.route('verification', function() {
       this.route('captcha');

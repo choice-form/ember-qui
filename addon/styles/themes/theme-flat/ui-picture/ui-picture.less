@@ -1,0 +1,142 @@
+@import "full";
+@import "grid";
+@import "matrix";
+@import "thumbnail";
+@import "pinterest";
+
+.picture-choice {
+  padding: 2rem .5rem 1rem .5rem;
+  &:before {
+    display: none;
+  }
+}
+
+.picture-layout {
+  display: flex;
+  &.insert-block {
+    & .attachment {
+      margin-bottom: 0;
+    }
+    & .pic-description {
+      font-size: smaller;
+      padding: .5rem 1rem;
+
+      .absolute(auto, 0, 0, 0);
+    }
+  }
+  &.superscript {
+    & .ui-picture {
+      &:nth-child(odd) {
+        & input {
+          .absolute(.5rem, 1.25rem, auto, auto);
+        }
+      }
+      &:nth-child(even) {
+        & input {
+          .absolute(.5rem, .5rem, auto, auto);
+        }
+      }
+      & label {
+        & .attachment {
+          &:before {
+            z-index: 1;
+            content: '';
+            border-left: 4.5rem solid transparent;
+
+            .absolute(0, -1px, auto, auto);
+          }
+        }
+        & .pic-description {
+          position: static;
+          & .effect-container {
+            z-index: 2;
+            width: 1.5rem;
+            height: 1.5rem;
+
+            .absolute(.5rem, .5rem, auto, auto);
+            & .active-line-container {
+              margin-top: -150%;
+            }
+            & .active-line {
+              top: 1rem;
+              height: 2rem;
+            }
+            & .svg-wrapper {
+              & svg {
+                display: block;
+                width: 1.5rem;
+                height: 1.5rem;
+                margin: 0;
+              }
+            }
+          }
+        }
+      }
+    }
+    &.insert-block {
+      & .pic-description {
+        padding: 0;
+        & > span {
+          font-size: smaller;
+          padding: .5rem 1rem;
+
+          .absolute(auto, 0, 0, 0);
+        }
+      }
+    }
+  }
+}
+
+.ui-picture {
+  position: relative;
+  & input {
+    margin: 0;
+
+    .absolute(0, auto, auto, 0);
+    .input(1.5rem, 1.5rem);
+  }
+  & label {
+    display: block;
+    cursor: pointer;
+
+    will-change: box-shadow;
+    & .attachment {
+      position: relative;
+      margin-bottom: 1rem;
+      padding: 0;
+      user-select: none;
+      &:after {
+        z-index: 2;
+        content: '';
+        transition: box-shadow 200ms ease, background-color 200ms ease;
+
+        .absolute(0, 0, 0, 0);
+      }
+    }
+    & .pic-description {
+      position: relative;
+      & .effect-container {
+        position: relative;
+        display: inline-block;
+        vertical-align: middle;
+        & .svg-wrapper {
+          & svg {
+            display: block;
+            width: 1rem;
+            height: 1rem;
+          }
+        }
+      }
+      & span {
+        display: inline;
+        vertical-align: middle;
+      }
+    }
+  }
+}
+
+html.mobile {
+  & .picture-choice {
+    padding-top: 0;
+  }
+}

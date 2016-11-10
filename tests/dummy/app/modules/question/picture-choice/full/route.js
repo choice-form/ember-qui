@@ -9,14 +9,14 @@ export default Route.extend({
     return {
       nodes: [
         {
-          title: 'Picture Vertical insert-block',
+          title: 'Picture Full insert-block',
           description: faker.lorem.paragraph(),
           images: '',
           renderId:'775519',
           typeName: '选择题',
           quesType: 'picture-choice', //select, fill
           selectType: 'radio',
-          showStyle: 'vertical',
+          showStyle: 'full',
           textDirection:'insert-block', //in-block ,out-block, empty
           pictureSize: 'picture-large',  //picture-large, picture-small
           uuid: faker.date.between('2016-01-01', '2016-12-31'),
@@ -29,13 +29,11 @@ export default Route.extend({
               text: faker.lorem.sentence(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'radio', // 选项的Icon
-              image: (function () {
-                const num = parseInt(Math.random() * 40);
-                return {
-                  ratio: 0.6666667,
-                  natural: `/images/sample-random/sample-random-${num}.jpeg`,
-                  thumbnail:`/images/sample-random/sample-random-${num}.jpeg`,
-                }})(),
+              image: {
+                ratio: 0.636,
+                natural:'/images/sample-random/sample-random-1.jpeg',
+                thumbnail:'/images/sample-random/sample-random-thumbnail-1.jpeg',
+              },
               inputType: '', // 'select', 'input', 'select-input, ower-input',
               inputRule: '', //输入控件初始化规则
               value: '',
@@ -47,13 +45,11 @@ export default Route.extend({
               text: faker.lorem.sentence(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'radio', // 选项的Icon
-              image: (function () {
-                const num = parseInt(Math.random() * 40);
-                return {
-                  ratio: 0.6666667,
-                  natural: `/images/sample-random/sample-random-${num}.jpeg`,
-                  thumbnail:`/images/sample-random/sample-random-${num}.jpeg`,
-                }})(),
+              image: {
+                ratio: 0.745,
+                natural:'/images/sample-random/sample-random-2.jpeg',
+                thumbnail:'/images/sample-random/sample-random-thumbnail-2.jpeg',
+              },
               inputType: '', // 'select', 'input', 'select-input, ower-input',
               inputRule: '', //输入控件初始化规则
               value: '',
@@ -65,13 +61,11 @@ export default Route.extend({
               text: faker.lorem.paragraph(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'radio', // 选项的Icon
-              image: (function () {
-                const num = parseInt(Math.random() * 40);
-                return {
-                  ratio: 0.6666667,
-                  natural: `/images/sample-random/sample-random-${num}.jpeg`,
-                  thumbnail:`/images/sample-random/sample-random-${num}.jpeg`,
-                }})(),
+              image: {
+                ratio: 0.663,
+                natural:'/images/sample-random/sample-random-3.jpeg',
+                thumbnail:'/images/sample-random/sample-random-thumbnail-3.jpeg',
+              },
               inputType: '', // 'select', 'input', 'select-input, ower-input',
               inputRule: '', //输入控件初始化规则
               value: '',
@@ -83,13 +77,11 @@ export default Route.extend({
               text: faker.lorem.sentence(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'radio', // 选项的Icon
-              image: (function () {
-                const num = parseInt(Math.random() * 40);
-                return {
-                  ratio: 0.6666667,
-                  natural: `/images/sample-random/sample-random-${num}.jpeg`,
-                  thumbnail:`/images/sample-random/sample-random-${num}.jpeg`,
-                }})(),
+              image: {
+                ratio: 0.666,
+                natural:'/images/sample-random/sample-random-4.jpeg',
+                thumbnail:'/images/sample-random/sample-random-thumbnail-4.jpeg',
+              },
               inputType: '', // 'select', 'input', 'select-input, ower-input',
               inputRule: '', //输入控件初始化规则
               value: '',
@@ -101,13 +93,11 @@ export default Route.extend({
               text: faker.lorem.paragraph(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'radio', // 选项的Icon
-              image: (function () {
-                const num = parseInt(Math.random() * 40);
-                return {
-                  ratio: 0.6666667,
-                  natural: `/images/sample-random/sample-random-${num}.jpeg`,
-                  thumbnail:`/images/sample-random/sample-random-${num}.jpeg`,
-                }})(),
+              image: {
+                ratio: 1.499,
+                natural:'/images/sample-random/sample-random-21.jpeg',
+                thumbnail:'/images/sample-random/sample-random-thumbnail-21.jpeg',
+              },
               inputType: '', // 'select', 'input', 'select-input, ower-input',
               inputRule: '', //输入控件初始化规则
               value: '',
@@ -119,13 +109,11 @@ export default Route.extend({
               text: faker.lorem.paragraph(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'radio', // 选项的Icon
-              image: (function () {
-                const num = parseInt(Math.random() * 40);
-                return {
-                  ratio: 0.6666667,
-                  natural: `/images/sample-random/sample-random-${num}.jpeg`,
-                  thumbnail:`/images/sample-random/sample-random-${num}.jpeg`,
-                }})(),
+              image: {
+                ratio: 1,
+                natural:'/images/sample-random/sample-random-32.jpeg',
+                thumbnail:'/images/sample-random/sample-random-thumbnail-32.jpeg',
+              },
               inputType: '', // 'select', 'input', 'select-input, ower-input',
               inputRule: '', //输入控件初始化规则
               value: '',
@@ -134,14 +122,14 @@ export default Route.extend({
           ],
         },
         {
-          title: 'Picture Vertical',
+          title: 'Picture Full',
           description: faker.lorem.paragraph(),
           images: '',
           renderId:'775519',
           typeName: '选择题',
           quesType: 'picture-choice', //select, fill
           selectType: 'radio',
-          showStyle: 'vertical',
+          showStyle: 'full',
           textDirection:'', //in-block ,out-block, empty
           pictureSize: 'picture-large',  //picture-large, picture-small
           uuid: faker.date.between('2016-01-01', '2016-12-31'),
@@ -154,13 +142,11 @@ export default Route.extend({
               text: faker.lorem.sentence(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'radio', // 选项的Icon
-              image: (function () {
-                const num = parseInt(Math.random() * 40);
-                return {
-                  ratio: 0.6666667,
-                  natural: `/images/sample-random/sample-random-${num}.jpeg`,
-                  thumbnail:`/images/sample-random/sample-random-${num}.jpeg`,
-                }})(),
+              image: {
+                ratio: 0.636,
+                natural:'/images/sample-random/sample-random-1.jpeg',
+                thumbnail:'/images/sample-random/sample-random-thumbnail-1.jpeg',
+              },
               inputType: '', // 'select', 'input', 'select-input, ower-input',
               inputRule: '', //输入控件初始化规则
               value: '',
@@ -172,13 +158,11 @@ export default Route.extend({
               text: faker.lorem.sentence(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'radio', // 选项的Icon
-              image: (function () {
-                const num = parseInt(Math.random() * 40);
-                return {
-                  ratio: 0.6666667,
-                  natural: `/images/sample-random/sample-random-${num}.jpeg`,
-                  thumbnail:`/images/sample-random/sample-random-${num}.jpeg`,
-                }})(),
+              image: {
+                ratio: 0.745,
+                natural:'/images/sample-random/sample-random-2.jpeg',
+                thumbnail:'/images/sample-random/sample-random-thumbnail-2.jpeg',
+              },
               inputType: '', // 'select', 'input', 'select-input, ower-input',
               inputRule: '', //输入控件初始化规则
               value: '',
@@ -190,13 +174,11 @@ export default Route.extend({
               text: faker.lorem.paragraph(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'radio', // 选项的Icon
-              image: (function () {
-                const num = parseInt(Math.random() * 40);
-                return {
-                  ratio: 0.6666667,
-                  natural: `/images/sample-random/sample-random-${num}.jpeg`,
-                  thumbnail:`/images/sample-random/sample-random-${num}.jpeg`,
-                }})(),
+              image: {
+                ratio: 0.663,
+                natural:'/images/sample-random/sample-random-3.jpeg',
+                thumbnail:'/images/sample-random/sample-random-thumbnail-3.jpeg',
+              },
               inputType: '', // 'select', 'input', 'select-input, ower-input',
               inputRule: '', //输入控件初始化规则
               value: '',
@@ -208,13 +190,11 @@ export default Route.extend({
               text: faker.lorem.sentence(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'radio', // 选项的Icon
-              image: (function () {
-                const num = parseInt(Math.random() * 40);
-                return {
-                  ratio: 0.6666667,
-                  natural: `/images/sample-random/sample-random-${num}.jpeg`,
-                  thumbnail:`/images/sample-random/sample-random-${num}.jpeg`,
-                }})(),
+              image: {
+                ratio: 0.666,
+                natural:'/images/sample-random/sample-random-4.jpeg',
+                thumbnail:'/images/sample-random/sample-random-thumbnail-4.jpeg',
+              },
               inputType: '', // 'select', 'input', 'select-input, ower-input',
               inputRule: '', //输入控件初始化规则
               value: '',
@@ -226,13 +206,11 @@ export default Route.extend({
               text: faker.lorem.paragraph(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'radio', // 选项的Icon
-              image: (function () {
-                const num = parseInt(Math.random() * 40);
-                return {
-                  ratio: 0.6666667,
-                  natural: `/images/sample-random/sample-random-${num}.jpeg`,
-                  thumbnail:`/images/sample-random/sample-random-${num}.jpeg`,
-                }})(),
+              image: {
+                ratio: 1.499,
+                natural:'/images/sample-random/sample-random-21.jpeg',
+                thumbnail:'/images/sample-random/sample-random-thumbnail-21.jpeg',
+              },
               inputType: '', // 'select', 'input', 'select-input, ower-input',
               inputRule: '', //输入控件初始化规则
               value: '',
@@ -244,13 +222,11 @@ export default Route.extend({
               text: faker.lorem.paragraph(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'radio', // 选项的Icon
-              image: (function () {
-                const num = parseInt(Math.random() * 40);
-                return {
-                  ratio: 0.6666667,
-                  natural: `/images/sample-random/sample-random-${num}.jpeg`,
-                  thumbnail:`/images/sample-random/sample-random-${num}.jpeg`,
-                }})(),
+              image: {
+                ratio: 1,
+                natural:'/images/sample-random/sample-random-32.jpeg',
+                thumbnail:'/images/sample-random/sample-random-thumbnail-32.jpeg',
+              },
               inputType: '', // 'select', 'input', 'select-input, ower-input',
               inputRule: '', //输入控件初始化规则
               value: '',

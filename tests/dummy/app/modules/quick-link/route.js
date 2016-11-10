@@ -39,7 +39,7 @@ export default Route.extend({
         {href: "/question/picture-choice/pinterest", label: "pinterest"},
         {href: "/question/picture-choice/superscript", label: "superscript"},
         {href: "/question/picture-choice/thumbnail", label: "thumbnail"},
-        {href: "/question/picture-choice/vertical", label: "vertical"},
+        {href: "/question/picture-choice/full", label: "full"},
       ],
       verification: [
         {href: "/question/verification/captcha", label: "captcha"},

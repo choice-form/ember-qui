@@ -22,15 +22,12 @@ html.desktop {
       box-shadow: inset 0 0 0 3px fade(@primary, 10%);
     }
   }
-  & .cell {
-
-    & .ui-picture {
-      & input:not(:checked) {
-        & + label:hover {
-          & .attachment:after {
-            background-color: fade(@secondary, 10%);
-            box-shadow: inset 0 0 0 1px @secondary, inset 0 0 0 2px @primary;
-          }
+  & .ui-picture {
+    & input:not(:checked) {
+      & + label:hover {
+        & .attachment:after {
+          background-color: fade(@secondary, 10%);
+          box-shadow: inset 0 0 0 1px @secondary, inset 0 0 0 2px @primary;
         }
       }
     }
@@ -138,7 +135,13 @@ input {
   }
 }
 
-.picture-choice {
+.picture-layout {
+  &.insert-block {
+    & .pic-description {
+      color: @secondary;
+      background-color: fade(@primary, 50%);
+    }
+  }
   & .ui-picture {
     & input:checked {
       & + label {
@@ -152,31 +155,22 @@ input {
         border-top: 4.5rem solid fade(@secondary, 90%);
       }
     }
-    &.insert-block {
-      & .pic-description {
-        color: @secondary;
-        background-color: fade(@primary, 50%);
-      }
+  }
+  &.grid.contain {
+    & .attachment {
+      background-color: fade(@primary, 30%);
     }
   }
   &.superscript {
-    & .ui-picture {
-      &.insert-block {
-        & .pic-description {
-          color: inherit;
-          & > span {
-            color: @secondary;
-            background-color: fade(@primary, 50%);
-          }
+    &.insert-block {
+      & .pic-description {
+        color: inherit;
+        & > span {
+          color: @secondary;
+          background-color: fade(@primary, 50%);
         }
       }
     }
-  }
-}
-
-.picture-choice.grid.contain {
-  & .attachment {
-    background-color: fade(@primary, 30%);
   }
 }
 
