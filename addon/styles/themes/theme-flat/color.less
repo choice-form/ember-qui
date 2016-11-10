@@ -164,10 +164,8 @@ input {
       }
     }
   }
-  &.grid.contain {
-    & .attachment {
-      background-color: fade(@primary, 30%);
-    }
+  & .object-fit {
+    background-color: fade(@primary, 30%);
   }
   &.superscript {
     &.insert-block {
@@ -311,6 +309,10 @@ input {
       border-color: @secondary;
     }
   }
+}
+
+.full-screen-loading {
+  background-color: @secondary;
 }
 
 

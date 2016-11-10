@@ -2,7 +2,10 @@
   {{ui-component/ui-picture node option handleOptionClick=(action "handleOptionClick" option)}}
 {{/each}}
 {{#if (and (eq node.showStyle 'pinterest') isLoading)}}
-  <div>
-    loading............
+  <div class="full-screen-loading">
+    <div class="loading-wrapper">
+      {{ui-addon/svg-item icon="positioning" size="40px" viewBox="40"}}
+      <span>loading...</span>
+    </div>
   </div>
 {{/if}}

@@ -212,9 +212,9 @@ export default Route.extend({
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'radio', // 选项的Icon
               image: {
-                ratio: 1.5,
-                natural:'/images/sample-random/sample-random-1.5-37.jpeg',
-                thumbnail:'/images/sample-random/sample-random-1.5-37-thumbnail.jpeg',
+                ratio: 0.666,
+                natural:'/images/sample-random/sample-random-0.666-16.jpeg',
+                thumbnail:'/images/sample-random/sample-random-0.666-16-thumbnail.jpeg',
               },
               inputType: '', // 'select', 'input', 'select-input, ower-input',
               inputRule: '', //输入控件初始化规则
@@ -540,9 +540,9 @@ export default Route.extend({
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'checkbox', // 选项的Icon
               image: {
-                ratio: 1.335,
-                natural:'/images/sample-random/sample-random-1.335-27.jpeg',
-                thumbnail:'/images/sample-random/sample-random-1.335-27-thumbnail.jpeg',
+                ratio: 1.164,
+                natural:'/images/sample-random/sample-random-1.164-23.jpeg',
+                thumbnail:'/images/sample-random/sample-random-1.164-23-thumbnail.jpeg',
               },
               inputType: '', // 'select', 'input', 'select-input, ower-input',
               inputRule: '', //输入控件初始化规则
