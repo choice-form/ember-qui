@@ -58,7 +58,7 @@ export default Component.extend({
     const adaptiveStyle = get(this, 'adaptiveStyle');
 
     const thumbnail = new Image();
-    thumbnail.classList.add('thumbnail');
+    thumbnail.classList.add('thumbnail', 'object-fit');
     thumbnail.src = get(this, 'thumbnail');
     if (adaptiveStyle) thumbnail.style = adaptiveStyle;
     thumbnail.onload = () => {
@@ -69,7 +69,7 @@ export default Component.extend({
     this.element.appendChild(canvas);
 
     const image = new Image();
-    image.classList.add('image');
+    image.classList.add('image', 'object-fit');
     image.src = get(this, 'image');
     if (adaptiveStyle) image.style = adaptiveStyle;
     image.onload = () => {
