@@ -4,8 +4,8 @@ import layout from './template';
 export default Component.extend({
   layout,
 
-  didInsertElement(){
+  didRender(){
      // 先删除control节点
-    this.element.parentNode.parentNode.remove();
+    this.element.parentNode.remove();
   }
 }).reopenClass({positionalParams: ['node', 'handleEvents']});
