@@ -24,8 +24,7 @@ export default Component.extend({
 
   adaptiveStyle: computed('ratio', 'objectFit', function() {
     const ratio = +get(this, 'ratio');
-    const margin = ratio / 2 * 100;
-    const width = 100 - ratio * 100;
+    const width = 100 / ratio;
     const type = get(this, 'objectFit');
 
     // 纵向比例
@@ -40,7 +39,7 @@ export default Component.extend({
     // 横向比例
     if (ratio < 1) {
       switch (type) {
-      case 'cover': return `margin: 0 ${-margin}%; width: inherit; height: 100%;`;
+      case 'cover': return `margin-left: 50%; transform: translate(-50%, 0); width: inherit; height: 100%;`;
       case 'contain': return `margin: auto; width: 100%`;
       default: return false;
       }
