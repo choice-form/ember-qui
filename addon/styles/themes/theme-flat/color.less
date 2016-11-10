@@ -271,25 +271,23 @@ input {
   }
 }
 
-.icon {
-  & .ui-icon-list {
-    & input:checked {
-      & + label {
-        color: @contrast;
-        & .svg-wrapper {
-          & svg {
-            & path {
-              fill: @contrast;
-            }
+.ui-icon {
+  & input:checked {
+    & + label {
+      color: @contrast;
+      & .svg-wrapper {
+        & svg {
+          & path {
+            fill: @contrast;
           }
         }
       }
     }
-    & label {
-      & svg {
-        & path {
-          fill: @primary;
-        }
+  }
+  & label {
+    & svg {
+      & path {
+        fill: @primary;
       }
     }
   }

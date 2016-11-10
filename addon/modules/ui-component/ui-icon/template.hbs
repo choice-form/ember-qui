@@ -8,10 +8,22 @@
     disabled={{disabled}}
     required
   >
-  {{#ui-component/ui-label option for=option.renderId svg=svg svgIcon=svgIcon}}
+
+  <label for={{option.renderId}}>
+    <div class="effect-container">
+      <div class="svg-wrapper">
+        {{svg}}
+      </div>
+      {{#if option.selected}}
+        {{ui-addon/svg-particle values="0;18" dur="0.45s"}}
+      {{/if}}
+    </div>
     <div class="labels">
-      {{ui-addon/svg-item icon=node.selectType}}
+      <div class="svg-wrapper">
+        {{ui-addon/svg-item icon=node.selectType}}
+      </div>
       <span>{{option.text}}</span>
     </div>
-  {{/ui-component/ui-label}}
+  </label>
 </div>
+
