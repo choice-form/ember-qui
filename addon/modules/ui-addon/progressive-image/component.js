@@ -25,13 +25,14 @@ export default Component.extend({
   adaptiveStyle: computed('ratio', 'objectFit', function() {
     const ratio = +get(this, 'ratio');
     const margin = ratio / 2 * 100;
+    const width = 100 - ratio * 100;
     const type = get(this, 'objectFit');
 
     // 纵向比例
     if (ratio > 1) {
       switch (type) {
       case 'cover': return `margin-top: 50%; transform: translate(0, -50%);`;
-      case 'contain': return `margin: auto; height: 100%`;
+      case 'contain': return `margin: auto; width: ${width}%; height: 100%`;
       default: return false;
       }
     }
@@ -39,7 +40,7 @@ export default Component.extend({
     // 横向比例
     if (ratio < 1) {
       switch (type) {
-      case 'cover': return `margin: 0 ${-margin}%; height: 100%;`;
+      case 'cover': return `margin: 0 ${-margin}%; width: inherit; height: 100%;`;
       case 'contain': return `margin: auto; width: 100%`;
       default: return false;
       }
