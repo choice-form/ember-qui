@@ -160,7 +160,7 @@ export default Route.extend({
               ]
             }
           ],
-          grade: 2,//treeList的数量
+          grade: 3,//treeList的数量
           options,
         }
       ],
