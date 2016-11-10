@@ -16,7 +16,7 @@
         }
       }
     }
-    & .ui-picture.pic-s {
+    &.pic-s {
       & input {
         right: 75%;
       }
@@ -40,7 +40,9 @@
       display: flex;
       & .attachment {
         width: 40%;
+        margin-bottom: 0;
 
+        align-self: flex-start;
         flex-shrink: 0;
         & img {
           height: 100%;
@@ -52,16 +54,20 @@
         margin-left: 1.5rem;
       }
     }
-    &.pic-s {
-      & .thumbnail {
-        width: 25%;
-      }
-    }
   }
   &:not(.superscript) {
     & .ui-picture {
       &.pic-s {
         & input {
+          width: 25%;
+        }
+      }
+    }
+  }
+  &.pic-s {
+    & .ui-picture {
+      & label {
+        & .attachment {
           width: 25%;
         }
       }
