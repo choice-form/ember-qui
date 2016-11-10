@@ -4,6 +4,7 @@ import get from 'ember-metal/get';
 import set from 'ember-metal/set';
 import computed, {alias} from 'ember-computed';
 import Sortable from 'sortable';
+import {later} from 'ember-runloop';
 
 export default Component.extend({
   layout,
@@ -28,7 +29,15 @@ export default Component.extend({
 
 
   didInsertElement(){
+    //初始化
+    const options = get(this, 'options');
+    options.forEach((item,index)=>{
+      if(item.sortNo > 0){
+        this.element.getElementsByClassName('ranking-rank ')[index].setAttribute('class','ranking-rank component');
+      }
+    });
 
+    //sortable事件
     this.sortTable = new Sortable(this.element, {
       handle: '.ranking-rank',
       scroll: true,
@@ -43,9 +52,17 @@ export default Component.extend({
         if (newIndex === undefined) {
           newIndex = oldIndex;
         }
+        const indexArray = this.handleEvents.handleOptionDrop(oldIndex, newIndex, get(this,'node'));
 
-        const sotNo = this.handleEvents.handleOptionDrop(oldIndex, newIndex, get(this,'node'));
-        console.log(sotNo);
+        indexArray.forEach((index)=>{
+          const sortNo = parseInt(index) + 1;
+          const thisNode = this.element.getElementsByClassName('ranking-rank ')[index];
+          thisNode.getElementsByClassName('ranking-number')[0].innerHTML=sortNo;
+          thisNode.setAttribute('class','ranking-rank component event');
+          later(()=>{
+            thisNode.setAttribute('class','ranking-rank component');
+          },1000);
+        });
       },
     });
   },
@@ -53,5 +70,6 @@ export default Component.extend({
   didDestroyElement(){
     this.sortTable.destroy();
   },
+
 
 }).reopenClass({ positionalParams: ['node', 'handleEvents']});

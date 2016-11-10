@@ -6,7 +6,8 @@ import Ember from 'ember';
 import faker from 'faker';
 import {later} from 'ember-runloop';
 
-let testOptions = [1, 2, 3, 4, 5, 6, 7] ;
+
+
 export default Route.extend({
   model() {
     return {
@@ -34,7 +35,7 @@ export default Route.extend({
               renderId: '4567890-0987',
               uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
               icon: 'ranking', // 选项的Icon
-              sortNo: '',
+              sortNo: '1',
               inputType: '', // 'select', 'input', 'select-input, ower-input',
               inputRule: '', //输入控件初始化规则
               sortStateClass: '',
@@ -44,7 +45,7 @@ export default Route.extend({
               renderId: '4567890-0989',
               uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
               icon: 'ranking', // 选项的Icon
-              sortNo: '',
+              sortNo: '2',
               inputType: '', // 'select', 'input', 'select-input, ower-input',
               inputRule: '', //输入控件初始化规则
               sortStateClass: '',
@@ -54,7 +55,7 @@ export default Route.extend({
               renderId: '4567890-0911',
               uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
               icon: 'ranking', // 选项的Icon
-              sortNo: '',
+              sortNo: '3',
               inputType: '', // 'select', 'input', 'select-input, ower-input',
               inputRule: '', //输入控件初始化规则
               sortStateClass: '',
@@ -113,12 +114,9 @@ export default Route.extend({
 
           return true;
         },
-
-
         handleOptionDrop(oldIndex, newIndex, question){
-          const newArray = Ember.A(testOptions.filter((option, index)=> index != oldIndex));
-           _options = newArray.insertAt(newIndex, _options[oldIndex]);
-
+          console.log(oldIndex);
+          console.log(newIndex);
           return [newIndex];
         },
       },
