@@ -27,7 +27,7 @@ export default Component.extend({
     const margin = ratio / 2 * 100;
     const type = get(this, 'objectFit');
 
-    // 横向比例
+    // 纵向比例
     if (ratio > 1) {
       switch (type) {
       case 'cover': return `margin-top: 50%; transform: translate(0, -50%);`;
@@ -36,7 +36,7 @@ export default Component.extend({
       }
     }
 
-    // 纵向比例
+    // 横向比例
     if (ratio < 1) {
       switch (type) {
       case 'cover': return `margin: 0 ${-margin}%; height: 100%;`;
@@ -61,6 +61,7 @@ export default Component.extend({
     thumbnail.classList.add('thumbnail');
     thumbnail.src = get(this, 'thumbnail');
     if (adaptiveStyle) thumbnail.style = adaptiveStyle;
+    if (adaptiveStyle) thumbnail.classList.add('object-fit');
     thumbnail.onload = () => {
       thumbnail.classList.add('loaded');
       stackBlurImage(thumbnail, 'stack-blur-canvas', 5);
@@ -72,6 +73,7 @@ export default Component.extend({
     image.classList.add('image');
     image.src = get(this, 'image');
     if (adaptiveStyle) image.style = adaptiveStyle;
+    if (adaptiveStyle) image.classList.add('object-fit');
     image.onload = () => {
       image.classList.add('loaded');
       later(this, 'teardownStackBlueEffect', canvas, thumbnail, 1000);
