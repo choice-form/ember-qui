@@ -10,6 +10,7 @@ export default Component.extend({
   layout,
   tagName: 'div',
   classNames: ['progressive-image'],
+  classNameBindings: ['objectFit:object-fit'],
 
   objectFit: null,
 
@@ -31,7 +32,7 @@ export default Component.extend({
     if (ratio > 1) {
       switch (type) {
       case 'cover': return `margin-top: 50%; transform: translate(0, -50%);`;
-      case 'contain': return `margin: auto; width: ${width}%; height: 100%`;
+      case 'contain': return `margin: auto; width: ${width}%; height: 100%;`;
       default: return false;
       }
     }
@@ -40,7 +41,7 @@ export default Component.extend({
     if (ratio < 1) {
       switch (type) {
       case 'cover': return `margin-left: 50%; transform: translate(-50%, 0); width: inherit; height: 100%;`;
-      case 'contain': return `margin: auto; width: 100%`;
+      case 'contain': return `margin: auto; width: 100%;`;
       default: return false;
       }
     }
@@ -61,7 +62,6 @@ export default Component.extend({
     thumbnail.classList.add('thumbnail');
     thumbnail.src = get(this, 'thumbnail');
     if (adaptiveStyle) thumbnail.style = adaptiveStyle;
-    if (adaptiveStyle) thumbnail.classList.add('object-fit');
     thumbnail.onload = () => {
       thumbnail.classList.add('loaded');
       stackBlurImage(thumbnail, 'stack-blur-canvas', 5);
@@ -73,7 +73,6 @@ export default Component.extend({
     image.classList.add('image');
     image.src = get(this, 'image');
     if (adaptiveStyle) image.style = adaptiveStyle;
-    if (adaptiveStyle) image.classList.add('object-fit');
     image.onload = () => {
       image.classList.add('loaded');
       later(this, 'teardownStackBlueEffect', canvas, thumbnail, 1000);
