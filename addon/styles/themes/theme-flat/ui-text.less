@@ -59,12 +59,6 @@
         opacity: .8;
       }
     }
-    &:before {
-      border-radius: 0 0 @radius-m @radius-m;
-      transition: opacity 200ms ease;
-    }
-
-    .border(100%, 2px, auto, 2px, 2px, .5);
   }
   &:not(.dropdown) {
     & .ui-menu {
@@ -92,14 +86,14 @@ html.desktop {
       }
     }
     &.dropdown {
+      & .ui-menu {
+        transition: box-shadow 200ms ease;
+      }
       &:hover {
         & .ui-menu {
           & ~ svg {
             opacity: 1;
           }
-        }
-        &:before {
-          opacity: .6;
         }
       }
     }
