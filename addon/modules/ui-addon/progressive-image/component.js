@@ -11,12 +11,17 @@ export default Component.extend({
   tagName: 'div',
   classNames: ['progressive-image'],
 
-  paddingElement: computed('ratio', function() {
-    const paddingTop = get(this, 'ratio') * 100;
-    return htmlSafe(`<div style="padding-top: ${paddingTop}%;"></div>`);
+  objectFit: null,
+
+  paddingElement: computed('ratio', 'objectFit', function() {
+    if (get(this, 'objectFit')) {
+      return htmlSafe(`<div style="padding-top: 100%;"></div>`);
+    } else {
+      const paddingTop = get(this, 'ratio') * 100;
+      return htmlSafe(`<div style="padding-top: ${paddingTop}%;"></div>`);
+    }
   }),
 
-  objectFit: null,
   adaptiveStyle: computed('ratio', 'objectFit', function() {
     const ratio = +get(this, 'ratio');
     const margin = ratio / 2 * 100;
