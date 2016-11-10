@@ -1,67 +1,40 @@
-.rating {
-
-}
-
 .ui-rating {
   position: relative;
-  & table {
+  & .rating-wrapper {
     position: relative;
+    width: 100%;
     margin-top: 1.5rem;
     border-spacing: 0;
     border-collapse: collapse;
     border-radius: @radius-m;
-    width: 100%;
-    &.score-3 {
-      & td {
-        width: calc(100% / 3);
-      }
-    }
-    &.score-4 {
-      & td {
-        width: calc(100% / 4);
-      }
-    }
     &.score-5 {
-      & td {
-        width: calc(100% / 5);
-      }
       & label {
         padding: 0 .5rem;
       }
     }
     &.score-6 {
-      & td {
-        width: calc(100% / 6);
-      }
       & label {
         padding: 0 .3rem;
       }
     }
     &.score-7 {
-      & td {
-        width: calc(100% / 7);
-      }
       & label {
         padding: 0 .2rem;
       }
     }
   }
-  & thead {
-    & td {
-      font-size: small;
-      text-align: center;
-      vertical-align: bottom;
-      word-break: break-all;
-      & span {
-        display: inline-block;
-        margin-top: .5rem;
-        padding: .2rem;
-      }
+  & .rating-labels {
+    font-size: small;
+    text-align: center;
+    vertical-align: bottom;
+    word-break: break-all;
+    & li {
+      margin-top: .5rem;
+      padding: .2rem;
     }
   }
-  & tbody {
-    margin-bottom: 1rem;
-    & td {
+  & .rating-shape {
+    & li {
       position: relative;
     }
   }
@@ -104,6 +77,88 @@
   }
   &:not(:last-child) {
     padding-bottom: 1.5rem;
+  }
+}
+
+@supports not(display: flex) {
+  .ui-rating {
+    & .rating-wrapper {
+      & li {
+        float: left;
+      }
+      &.score-3 {
+        & li {
+          width: calc(100% / 3);
+        }
+      }
+      &.score-4 {
+        & li {
+          width: calc(100% / 4);
+        }
+      }
+      &.score-5 {
+        & li {
+          width: calc(100% / 5);
+        }
+      }
+      &.score-6 {
+        & li {
+          width: calc(100% / 6);
+        }
+      }
+      &.score-7 {
+        & li {
+          width: calc(100% / 7);
+        }
+      }
+    }
+    & .rating-labels {
+      .height-fix();
+    }
+    & .rating-shape {
+      .height-fix();
+    }
+  }
+}
+
+@supports(display: flex) {
+  .ui-rating {
+    & .rating-wrapper {
+      &.score-3 {
+        & li {
+          flex-basis: calc(100% / 3);
+        }
+      }
+      &.score-4 {
+        & li {
+          flex-basis: calc(100% / 4);
+        }
+      }
+      &.score-5 {
+        & li {
+          flex-basis: calc(100% / 5);
+        }
+      }
+      &.score-6 {
+        & li {
+          flex-basis: calc(100% / 6);
+        }
+      }
+      &.score-7 {
+        & li {
+          flex-basis: calc(100% / 7);
+        }
+      }
+      & .rating-labels {
+        display: flex;
+        & li {
+          align-self: flex-end;
+        }
+      }
+      & .rating-shape {
+        display: flex;
+      }
+    }
   }
 }
 

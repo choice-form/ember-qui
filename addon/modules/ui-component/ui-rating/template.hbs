@@ -7,18 +7,15 @@
       <span>{{option.description}}</span>
     {{/if}}
   </h4>
-  <table class={{concat 'score-' option.count}} data-render-id={{option.renderId}}>
-    <thead>
-    <tr>
+  <div class={{concat 'rating-wrapper score-' option.count}} data-render-id={{option.renderId}}>
+    <ul class="rating-labels">
       {{#each option.marks as |mark|}}
-        <td><span>{{mark}}</span></td>
+        <li>{{mark}}</li>
       {{/each}}
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
+    </ul>
+    <ul class="rating-shape">
       {{#each graphs as |option|}}
-        <td>
+        <li>
           <input
             type="checkbox"
             id={{option.uuid}}
@@ -27,18 +24,17 @@
               checked={{option.checked}}
           >
 
-        {{ui-component/ui-label for=option.uuid
-                                emoji=option.emoji
-                                selected=option.checked
-                                text=option.text
-                                emojiClass="rating-emoji"
-                                icon=option.icon
-                                viewBox="64"
-        }}
+          {{ui-component/ui-label for=option.uuid
+                                  emoji=option.emoji
+                                  selected=option.checked
+                                  text=option.text
+                                  emojiClass="rating-emoji"
+                                  icon=option.icon
+                                  viewBox="64"
+          }}
 
-        </td>
+        </li>
       {{/each}}
-    </tr>
-    </tbody>
-  </table>
+    </ul>
+  </div>
 {{/if}}
