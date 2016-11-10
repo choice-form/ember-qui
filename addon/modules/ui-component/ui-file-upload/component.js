@@ -7,7 +7,7 @@ export default Component.extend({
   layout,
   classNames:['ui-file-upload'],
 
-  this_icon: computed('option.value', 'option.icon', function () {
+  uploadIcon: computed('option.value', 'option.icon', function () {
     return get(this, 'option.value') ? 'refresh' : get(this, 'option.icon');
   }),
 

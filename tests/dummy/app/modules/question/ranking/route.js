@@ -6,6 +6,7 @@ import Ember from 'ember';
 import faker from 'faker';
 import {later} from 'ember-runloop';
 
+let testOptions = [1, 2, 3, 4, 5, 6, 7] ;
 export default Route.extend({
   model() {
     return {
@@ -114,31 +115,11 @@ export default Route.extend({
         },
 
 
-        handleOptionDrop(startIndex, endIndex, question){
-          // console.log(startIndex,endIndex);
-          const options = get(question, 'options');
-          const array = Ember.A(options.filter((option, index) => index != startIndex));
+        handleOptionDrop(oldIndex, newIndex, question){
+          const newArray = Ember.A(testOptions.filter((option, index)=> index != oldIndex));
+           _options = newArray.insertAt(newIndex, _options[oldIndex]);
 
-          //array.insertAt(endIndex, options[startIndex]);
-          set(question, 'options', array);
-
-/*          question.options.forEach((opt, index) => {
-            if(index == startIndex){
-              set(opt, 'sortNo', parseInt(startIndex)+1);
-              set(opt, 'sortStateClass', 'complete event');
-              later(()=>{
-                set(opt, 'sortStateClass', 'complete');
-              }, 2000);
-            }
-            if(index == endIndex){
-              set(opt, 'sortNo', parseInt(endIndex)+1);
-              set(opt, 'sortStateClass', 'complete event');
-              later(()=>{
-                set(opt, 'sortStateClass', 'complete');
-              }, 2000);
-            }
-          });*/
-          return true;
+          return [newIndex];
         },
       },
 

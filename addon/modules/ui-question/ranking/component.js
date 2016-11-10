@@ -14,14 +14,7 @@ export default Component.extend({
   attributeBindings:['data-render-id'],
   'data-render-id': computed.oneWay('node.renderId'),
 
-  _options: alias('node.options'),
-
   actions: {
-
-    test(index) {
-      this.handleEvents.handleOptionDrop(index, 3, get(this, 'node'));
-    },
-
     handleOptionClick(){
       this.handleEvents.handleOptionClick(get(this, 'option'),get(this,'node'));
     },
@@ -35,6 +28,7 @@ export default Component.extend({
 
 
   didInsertElement(){
+
     this.sortTable = new Sortable(this.element, {
       handle: '.ranking-rank',
       scroll: true,
@@ -46,24 +40,12 @@ export default Component.extend({
       onEnd: (event)=> {
         const {oldIndex} = event;
         let {newIndex} = event;
-        // 第一次拖动位于原位置,sortable不知道,手动设置为oldIndex初始位置
         if (newIndex === undefined) {
           newIndex = oldIndex;
         }
-        /*this.recoverList = (list, newIndex, oldIndex)=>{
-          if (newIndex == oldIndex) {
-            return;
-          }
-          const {children} = list;
-          const newItem = children[newIndex];
-          const oldItem = oldIndex < newIndex
-            ? children[oldIndex] : children[oldIndex + 1];
-          list.insertBefore(newItem, oldItem);
-        };
-        this.recoverList(target, newIndex, oldIndex);*/
 
-        this.handleEvents.handleOptionDrop(oldIndex, newIndex, get(this,'node'));
-
+        const sotNo = this.handleEvents.handleOptionDrop(oldIndex, newIndex, get(this,'node'));
+        console.log(sotNo);
       },
     });
   },

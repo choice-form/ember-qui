@@ -1,7 +1,7 @@
 {{ui-component/ui-header headerData}}
 <div class={{concat "control " node.quesType}}>
   {{#if isSpecialComponent}}
-    {{component componentName node handleEvents}}
+    {{component componentName node handleEvents options=(unbound node.options)}}
   {{else}}
     {{#each node.options as |option|}}
       {{component componentName node option handleEvents}}
