@@ -14,22 +14,21 @@
       .border(auto, 0, 0, 0, 1px, .3);
     }
   }
-  &.cover {
+  &.object-fit {
     & .attachment {
       & img {
-        height: 100%;
-
-        object-fit: cover;
+        width: inherit;
+        max-width: inherit;
       }
     }
   }
-  &.contain {
-    & .attachment {
-      & img {
-        height: 100%;
+}
 
-        object-fit: contain;
-      }
+@supports not(display: flex) {
+  .picture-layout.grid {
+    & .ui-picture {
+      width: 50%;
+      float: left;
     }
   }
 }

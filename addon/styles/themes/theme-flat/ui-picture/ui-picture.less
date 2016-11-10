@@ -87,6 +87,12 @@
   }
 }
 
+@supports not(display: flex) {
+  .picture-layout {
+    display: block;
+  }
+}
+
 .ui-picture {
   position: relative;
   & input {

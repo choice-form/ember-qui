@@ -346,7 +346,8 @@ export default Route.extend({
           quesType: 'picture-choice', //select, fill
           selectType: 'radio',
           showStyle: 'grid',
-          picStyle: 'cover',
+          picStyle: '',
+          objectFit: 'cover',
           textDirection: 'out-block', //in-block ,out-block, empty
           pictureSize: '',  //picture-large, picture-small
           uuid: faker.date.between('2016-01-01', '2016-12-31'),
@@ -360,7 +361,7 @@ export default Route.extend({
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'radio', // 选项的Icon
               image: {
-                ratio: 1,
+                ratio: 0.636,
                 natural:'/images/sample-random/sample-random-1.jpeg',
                 thumbnail:'/images/sample-random/sample-random-thumbnail-1.jpeg',
               },
@@ -376,7 +377,7 @@ export default Route.extend({
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'radio', // 选项的Icon
               image: {
-                ratio: 1,
+                ratio: 1.499,
                 natural:'/images/sample-random/sample-random-21.jpeg',
                 thumbnail:'/images/sample-random/sample-random-thumbnail-21.jpeg',
               },
@@ -392,7 +393,7 @@ export default Route.extend({
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'radio', // 选项的Icon
               image: {
-                ratio: 1,
+                ratio: 0.636,
                 natural:'/images/sample-random/sample-random-1.jpeg',
                 thumbnail:'/images/sample-random/sample-random-thumbnail-1.jpeg',
               },
@@ -408,7 +409,7 @@ export default Route.extend({
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'radio', // 选项的Icon
               image: {
-                ratio: 1,
+                ratio: 0.636,
                 natural:'/images/sample-random/sample-random-1.jpeg',
                 thumbnail:'/images/sample-random/sample-random-thumbnail-1.jpeg',
               },
@@ -440,7 +441,7 @@ export default Route.extend({
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'radio', // 选项的Icon
               image: {
-                ratio: 1,
+                ratio: 0.636,
                 natural:'/images/sample-random/sample-random-1.jpeg',
                 thumbnail:'/images/sample-random/sample-random-thumbnail-1.jpeg',
               },
@@ -460,7 +461,8 @@ export default Route.extend({
           quesType: 'picture-choice', //select, fill
           selectType: 'radio',
           showStyle: 'grid',
-          picStyle: 'contain',
+          picStyle: '',
+          objectFit: 'contain',
           textDirection: 'in-block', //in-block ,out-block, empty
           pictureSize: '',  //picture-large, picture-small
           uuid: faker.date.between('2016-01-01', '2016-12-31'),
@@ -474,7 +476,7 @@ export default Route.extend({
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'checkbox', // 选项的Icon
               image: {
-                ratio: 1,
+                ratio: 0.636,
                 natural:'/images/sample-random/sample-random-1.jpeg',
                 thumbnail:'/images/sample-random/sample-random-thumbnail-1.jpeg',
               },

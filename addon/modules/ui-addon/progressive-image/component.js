@@ -27,20 +27,20 @@ export default Component.extend({
     const margin = ratio / 2 * 100;
     const type = get(this, 'objectFit');
 
-    // 纵向比例
+    // 横向比例
     if (ratio > 1) {
       switch (type) {
-      case 'cover': return `margin: ${-margin}% 0; width: 100%;`;
+      case 'cover': return `margin-top: 50%; transform: translate(0, -50%);`;
       case 'contain': return `margin: auto; height: 100%`;
       default: return false;
       }
     }
 
-    // 横向比例
+    // 纵向比例
     if (ratio < 1) {
       switch (type) {
-      case 'cover': return `margin-top: 50%; transform: translateY(-50%);`;
-      case 'contain': return `width: 100%`;
+      case 'cover': return `margin: 0 ${-margin}%; height: 100%;`;
+      case 'contain': return `margin: auto; width: 100%`;
       default: return false;
       }
     }
@@ -58,7 +58,7 @@ export default Component.extend({
     const adaptiveStyle = get(this, 'adaptiveStyle');
 
     const thumbnail = new Image();
-    thumbnail.classList.add('thumbnail', 'object-fit');
+    thumbnail.classList.add('thumbnail');
     thumbnail.src = get(this, 'thumbnail');
     if (adaptiveStyle) thumbnail.style = adaptiveStyle;
     thumbnail.onload = () => {
@@ -69,7 +69,7 @@ export default Component.extend({
     this.element.appendChild(canvas);
 
     const image = new Image();
-    image.classList.add('image', 'object-fit');
+    image.classList.add('image');
     image.src = get(this, 'image');
     if (adaptiveStyle) image.style = adaptiveStyle;
     image.onload = () => {
