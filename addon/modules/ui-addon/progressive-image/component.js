@@ -61,7 +61,7 @@ export default Component.extend({
     const thumbnail = new Image();
     thumbnail.classList.add('thumbnail');
     thumbnail.src = get(this, 'thumbnail');
-    if (adaptiveStyle) thumbnail.style = adaptiveStyle;
+    if (adaptiveStyle) thumbnail.setAttribute('style', adaptiveStyle)
     thumbnail.onload = () => {
       thumbnail.classList.add('loaded');
       stackBlurImage(thumbnail, 'stack-blur-canvas', 5);
@@ -72,7 +72,7 @@ export default Component.extend({
     const image = new Image();
     image.classList.add('image');
     image.src = get(this, 'image');
-    if (adaptiveStyle) image.style = adaptiveStyle;
+    if (adaptiveStyle) image.setAttribute('style', adaptiveStyle)
     image.onload = () => {
       image.classList.add('loaded');
       later(this, 'teardownStackBlueEffect', canvas, thumbnail, 1000);
