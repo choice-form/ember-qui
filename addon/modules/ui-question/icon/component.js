@@ -19,8 +19,6 @@ export default Component.extend({
   },
 
 
-  svg:null,
-
   didReceiveAttrs(){
     const iconService = get(this, 'iconService');
     const icon = iconService.getIconByUrl(get(this, 'option.icon'));
