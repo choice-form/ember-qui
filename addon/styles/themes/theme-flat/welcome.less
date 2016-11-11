@@ -24,11 +24,8 @@
   & .attachment {
     padding: 0;
     & .progressive-image {
-      height: 100vh;
-      & img {
-        height: 100vh;
-
-        object-fit: cover;
+      & > div {
+        padding-top: 100vh !important;
       }
     }
   }

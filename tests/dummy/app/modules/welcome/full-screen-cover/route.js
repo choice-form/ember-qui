@@ -11,6 +11,7 @@ export default Route.extend({
       style: 'full-screen-cover',
       images: [
         {
+          objectFit: "cover",
           ratio: 1.50,
           natural:'/images/welcome/welcome-2.jpg',
           thumbnail:'/images/welcome/welcome-2-thumbnail.jpg',
