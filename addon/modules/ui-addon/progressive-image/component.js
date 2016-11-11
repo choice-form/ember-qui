@@ -5,6 +5,16 @@ import get from 'ember-metal/get';
 import { htmlSafe } from 'ember-string';
 import stackBlurImage from './stack-blur';
 import { later } from 'ember-runloop';
+import bowser from 'bowser';
+
+const ie = bowser.msie && bowser.version <= 9;
+const addClassName = (element, className) => {
+  if (ie) {
+    element.classNames += ` ${className}`;
+  } else {
+    element.classList.add(className);
+  }
+}
 
 export default Component.extend({
   layout,
@@ -51,22 +61,22 @@ export default Component.extend({
     const dynamicWidth = get(this, 'dynamicWidth');
 
     const thumbnail = new Image();
-    thumbnail.classList.add('thumbnail');
+    addClassName(thumbnail, 'thumbnail');
     thumbnail.src = get(this, 'thumbnail');
     if (dynamicWidth) thumbnail.setAttribute('style', dynamicWidth);
     thumbnail.onload = () => {
-      thumbnail.classList.add('loaded');
+      addClassName(thumbnail, 'loaded');
       stackBlurImage(thumbnail, 'stack-blur-canvas', 5);
     }
     this.element.appendChild(thumbnail);
     this.element.appendChild(canvas);
 
     const image = new Image();
-    image.classList.add('image');
+    addClassName(image, 'image');
     image.src = get(this, 'image');
     if (dynamicWidth) image.setAttribute('style', dynamicWidth);
     image.onload = () => {
-      image.classList.add('loaded');
+      addClassName(image, 'loaded');
       later(this, 'teardownStackBlueEffect', canvas, thumbnail, 1000);
     };
     this.element.appendChild(image);
