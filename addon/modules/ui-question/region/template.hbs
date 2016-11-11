@@ -1,5 +1,4 @@
-{{#ui-component/ui-dropdown node handleEvents titleIcon="map-location"}}
-
+{{#ui-component/ui-dropdown quesType=node.quesType titleIcon="map-location" icon='arrows-small-down'}}
   {{#each node.regions as |region|}}
     <li>{{region.Meaning}}
       {{#if (or (eq node.grade 2) (eq node.grade 3))}}
