@@ -6,4 +6,19 @@ export default Component.extend({
   tagName:'',
 
 
-}).reopenClass({positionalParams: ['node', 'option']});
+}).reopenClass({positionalParams: ['node', 'option', 'handleEvents']});
+
+/**
+ * ui-choice
+ *
+ * @class ui-choice
+ */
+
+
+/**
+ * @property {Object} node - 问卷的的基本数据
+ */
+
+/**
+ * @property {Object} option - 问卷的选项数据
+ */

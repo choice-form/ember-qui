@@ -4,19 +4,11 @@ import computed from 'ember-computed';
 import get from 'ember-metal/get';
 import {htmlSafe} from 'ember-string';
 
-/**
- * 问卷头部内容
- *
- * @class -question-header(问卷头部)
- */
 
 
 export default Component.extend({
   layout,
   tagName:'',
-  /**
-   * 获取所有的图片
-   */
 
   imageTop:computed('header',function () {
     const header = get(this,'header');
@@ -37,3 +29,30 @@ export default Component.extend({
     }else return '';
   }),
 }).reopenClass({positionalParams: ['header']});
+
+/**
+ * ui-header
+ *
+ * @class ui-header
+ */
+
+
+/**
+ * header
+ *
+ * @property {Object} header
+ * @property {Array} header.images - header的图片
+ * @example
+ ```javascript
+ image:{
+      ratio: image.ratio,
+      thumbnail: image.thumbnail,
+      image: image.natural,
+ }
+ ```
+ * @property {Bool} header.isMust - 是否必选
+ * @property {Number} header.number - 当前是第几题
+ * @property {String} header.title - 问卷标题
+ * @property {String} header.description - 问卷描述
+ */
+
