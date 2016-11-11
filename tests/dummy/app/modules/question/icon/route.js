@@ -68,7 +68,7 @@ export default Route.extend({
           renderId: '12213343234',
           typeName: '图标题',
           quesType: 'icon', //select, fill
-          selectType: 'radio',
+          selectType: 'checkbox',
           showStyle: '',
           uuid: '001',
           isMust: true,

@@ -3,7 +3,7 @@
                        uuid=option.renderId
                        selectType=node.selectType
                        selected= option.selected
-                       icon= node.selectType
+                       icon= (if option.selected (concat node.selectType "-active") node.selectType)
                        text= option.text
                        svg=svg
                        handleOptionClick=(action 'handleOptionClick')}}
