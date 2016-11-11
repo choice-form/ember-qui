@@ -1,6 +1,6 @@
 import Component from 'ember-component';
 import layout from './template';
-import computed from 'ember-computed';
+import computed, { notEmpty } from 'ember-computed';
 import get from 'ember-metal/get';
 import { htmlSafe } from 'ember-string';
 import stackBlurImage from './stack-blur';
@@ -10,9 +10,28 @@ export default Component.extend({
   layout,
   tagName: 'div',
   classNames: ['progressive-image'],
-  classNameBindings: ['objectFit:object-fit'],
+  classNameBindings: [
+    'hasObjectFit:object-fit',
+    'objectFit',
+    'fitRow:fit-row',
+    'fitColumn:fit-column'
+  ],
 
+  ratio: 1,
+  hasObjectFit: notEmpty('objectFit'),
   objectFit: null,
+  fitRow: computed('hasObjectFit', 'ratio', function() {
+    return get(this, 'hasObjectFit') && (+get(this, 'ratio') < 1);
+  }),
+  fitColumn: computed('hasObjectFit', 'ratio', function() {
+    return get(this, 'hasObjectFit') && (+get(this, 'ratio') > 1);
+  }),
+
+  dynamicWidth: computed('ratio', 'objectFit', function() {
+    if (get(this, 'fitColumn') && 'contain' === get(this, 'objectFit')) {
+      return `width: ${100 / get(this, 'ratio')}%;`;
+    } else return false;
+  }),
 
   paddingElement: computed('ratio', 'objectFit', function() {
     if (get(this, 'objectFit')) {
@@ -23,45 +42,18 @@ export default Component.extend({
     }
   }),
 
-  adaptiveStyle: computed('ratio', 'objectFit', function() {
-    const ratio = +get(this, 'ratio');
-    const width = 100 / ratio;
-    const type = get(this, 'objectFit');
-
-    // 纵向比例
-    if (ratio > 1) {
-      switch (type) {
-      case 'cover': return `margin-top: 50%; transform: translate(0, -50%);`;
-      case 'contain': return `margin: auto; width: ${width}%; height: 100%;`;
-      default: return false;
-      }
-    }
-
-    // 横向比例
-    if (ratio < 1) {
-      switch (type) {
-      case 'cover': return `margin-left: 50%; transform: translate(-50%, 0); width: inherit; height: 100%;`;
-      case 'contain': return `margin: auto; width: 100%;`;
-      default: return false;
-      }
-    }
-
-    // 正方形
-    return false;
-  }),
-
   didInsertElement() {
     this._super(...arguments);
 
     const canvas = document.createElement('canvas');
     canvas.id = 'stack-blur-canvas';
 
-    const adaptiveStyle = get(this, 'adaptiveStyle');
+    const dynamicWidth = get(this, 'dynamicWidth');
 
     const thumbnail = new Image();
     thumbnail.classList.add('thumbnail');
     thumbnail.src = get(this, 'thumbnail');
-    if (adaptiveStyle) thumbnail.setAttribute('style', adaptiveStyle)
+    if (dynamicWidth) thumbnail.setAttribute('style', dynamicWidth);
     thumbnail.onload = () => {
       thumbnail.classList.add('loaded');
       stackBlurImage(thumbnail, 'stack-blur-canvas', 5);
@@ -72,7 +64,7 @@ export default Component.extend({
     const image = new Image();
     image.classList.add('image');
     image.src = get(this, 'image');
-    if (adaptiveStyle) image.setAttribute('style', adaptiveStyle)
+    if (dynamicWidth) image.setAttribute('style', dynamicWidth);
     image.onload = () => {
       image.classList.add('loaded');
       later(this, 'teardownStackBlueEffect', canvas, thumbnail, 1000);
