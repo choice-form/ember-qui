@@ -79,7 +79,9 @@
   }
 }
 
-@supports not(display: flex) {
+/*------------------- fix -------------------*/
+
+.file-upload-fix() {
   .file-upload {
     text-align: center;
     & .ui-file-upload {
@@ -103,7 +105,17 @@
   }
 }
 
-@supports (display: flex) {
+html.ie {
+  .file-upload-fix();
+}
+
+@supports not(display: flex) {
+  .file-upload-fix();
+}
+
+/*------------------- supports -------------------*/
+
+.file-upload-supports() {
   .file-upload {
     display: flex;
     flex-direction: row;
@@ -135,6 +147,17 @@
     }
   }
 }
+
+html.internet,
+html.edge {
+  .file-upload-supports();
+}
+
+@supports (display: flex) {
+  .file-upload-supports();
+}
+
+/*------------------- responsive -------------------*/
 
 html.desktop {
   & .file-upload {

@@ -68,18 +68,6 @@
   }
 }
 
-@supports not(display: flex) {
-  .picture-layout {
-    display: block;
-  }
-}
-
-@supports (display: flex) {
-  .picture-layout {
-    display: flex;
-  }
-}
-
 .ui-picture {
   position: relative;
   & input {
@@ -127,6 +115,41 @@
     }
   }
 }
+
+/*------------------- fix -------------------*/
+
+.picture-fix() {
+  .picture-layout {
+    display: block;
+  }
+}
+
+html.ie {
+  .picture-fix();
+}
+
+@supports not(display: flex) {
+.picture-fix();
+}
+
+/*------------------- supports -------------------*/
+
+.picture-supports() {
+  .picture-layout {
+    display: flex;
+  }
+}
+
+html.edge,
+html.internet {
+  .picture-supports();
+}
+
+@supports (display: flex) {
+.picture-supports();
+}
+
+/*------------------- responsive -------------------*/
 
 html.mobile {
   & .picture-choice {

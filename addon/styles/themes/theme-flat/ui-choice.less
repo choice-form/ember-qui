@@ -43,9 +43,43 @@
       display: block;
     }
   }
-  &:not(:first-child) {
+}
+
+.ui-choice-fix() {
+  .ui-choice {
     .border(0, 0, auto, 0, 1px, .3);
+    &:first-child {
+      &:before {
+        display: none;
+      }
+    }
   }
+}
+
+
+html.ie {
+  .ui-choice-fix();
+}
+
+@supports not(display: flex) {
+  .ui-choice-fix();
+}
+
+.ui-choice-supports() {
+  .ui-choice {
+    &:not(:first-child) {
+      .border(0, 0, auto, 0, 1px, .3);
+    }
+  }
+}
+
+html.internet,
+html.edge {
+  .ui-choice-supports();
+}
+
+@supports (display: flex) {
+  .ui-choice-supports();
 }
 
 html.desktop {

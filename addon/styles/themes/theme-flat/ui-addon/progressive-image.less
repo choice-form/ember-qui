@@ -15,7 +15,7 @@
   }
 }
 
-.picture-cover() {
+.picture-fix() {
   .attachment {
     & .object-fit {
       & img {
@@ -56,7 +56,7 @@
 html.internet,
 html.edge,
 html.ie {
-  .picture-cover();
+  .picture-fix();
   .attachment {
     & img {
       width: 100% !important;
@@ -93,7 +93,7 @@ html.ie {
 }
 
 @supports not(object-fit: cover) {
-.picture-cover();
+  .picture-fix();
 }
 
 @supports (object-fit: cover) {

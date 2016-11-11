@@ -13,7 +13,9 @@
   }
 }
 
-@supports not(display: flex) {
+/*------------------- fix -------------------*/
+
+.submit-actions-fix() {
   .submit-actions {
     & .nextButton {
       float: right;
@@ -21,7 +23,17 @@
   }
 }
 
-@supports (display: flex) {
+html.ie {
+  .submit-actions-fix();
+}
+
+@supports not(display: flex) {
+  .submit-actions-fix();
+}
+
+/*------------------- supports -------------------*/
+
+.submit-actions-supports() {
   .submit-actions {
     display: flex;
     & .nextButton {
@@ -29,6 +41,17 @@
     }
   }
 }
+
+html.internet,
+html.edge {
+  .submit-actions-supports();
+}
+
+@supports (display: flex) {
+  .submit-actions-supports();
+}
+
+/*------------------- responsive -------------------*/
 
 html.tablet.portrait {
   & .submit-actions {

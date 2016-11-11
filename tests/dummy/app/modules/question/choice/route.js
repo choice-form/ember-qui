@@ -10,14 +10,7 @@ export default Route.extend({
         {
           title: faker.finance.accountName(),
           description: faker.lorem.paragraph(),
-          images: [
-            {
-              ratio: 0.5625,
-              objectFit: 'contain',
-              natural:'/images/sample-1.jpg',
-              thumbnail:'/images/sample-1-thumbnail.jpg',
-            }
-          ],
+          images: '',
           renderId:'12213343234',
           typeName: '选择题',
           quesType: 'choice', //select, fill

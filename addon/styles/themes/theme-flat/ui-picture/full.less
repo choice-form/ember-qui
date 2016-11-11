@@ -2,7 +2,9 @@
 
 }
 
-@supports not(display: flex) {
+/*------------------- fix -------------------*/
+
+.picture-full-fix() {
   .picture-layout.full {
     & .ui-picture {
       margin-bottom: 1.5rem;
@@ -13,7 +15,17 @@
   }
 }
 
-@supports (display: flex) {
+html.ie {
+  .picture-full-fix();
+}
+
+@supports not(display: flex) {
+  .picture-full-fix();
+}
+
+/*------------------- supports -------------------*/
+
+.picture-full-supports() {
   .picture-layout.full {
     flex-direction: column;
     & .ui-picture {
@@ -26,6 +38,17 @@
     }
   }
 }
+
+html.internet,
+html.edge {
+  .picture-full-supports();
+}
+
+@supports (display: flex) {
+  .picture-full-supports();
+}
+
+/*------------------- responsive -------------------*/
 
 html.mobile {
   & .picture-layout.full {

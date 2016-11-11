@@ -17,23 +17,6 @@
     &::-webkit-input-placeholder {
       line-height: normal;
     }
-    &:not(.ui-menu) {
-      &:invalid {
-        & + svg {
-          display: block;
-        }
-      }
-      &:focus {
-        & + svg {
-          opacity: 0;
-        }
-      }
-      &:valid {
-        & + svg {
-          display: none;
-        }
-      }
-    }
     &.ui-menu {
       cursor: pointer;
       & ~ svg {
@@ -50,19 +33,11 @@
 
     .absolute(0, 1rem, 0, auto);
   }
-  &:not(:last-child) {
-    margin-bottom: 1.5rem;
-  }
   &.dropdown {
     & .ui-menu {
       & ~ svg {
         opacity: .8;
       }
-    }
-  }
-  &:not(.dropdown) {
-    & .ui-menu {
-      border-style: dashed;
     }
   }
 }
@@ -72,6 +47,91 @@ input[type=number]::-webkit-outer-spin-button {
   margin: 0;
 
   -webkit-appearance: none;
+}
+
+.ui-text-fix() {
+  .ui-text {
+    margin-bottom: 1.5rem;
+    &:last-child {
+      margin-bottom: 0;
+    }
+    & textarea,
+    & input {
+      &:invalid {
+        & + svg {
+          display: block;
+        }
+      }
+      &:focus {
+        & + svg {
+          opacity: 0;
+        }
+      }
+      &:valid {
+        & + svg {
+          display: none;
+        }
+      }
+      &.ui-menu {
+        border-style: dashed;
+      }
+    }
+    &.dropdown {
+      & input {
+        border-style: solid;
+      }
+    }
+  }
+}
+
+html.ie {
+  .ui-text-fix();
+}
+
+@supports not(display: flex) {
+  .ui-text-fix();
+}
+
+.ui-text-supports() {
+  .ui-text {
+    & textarea,
+    & input {
+      &:not(.ui-menu) {
+        &:invalid {
+          & + svg {
+            display: block;
+          }
+        }
+        &:focus {
+          & + svg {
+            opacity: 0;
+          }
+        }
+        &:valid {
+          & + svg {
+            display: none;
+          }
+        }
+      }
+    }
+    &:not(:last-child) {
+      margin-bottom: 1.5rem;
+    }
+    &:not(.dropdown) {
+      & .ui-menu {
+        border-style: dashed;
+      }
+    }
+  }
+}
+
+html.edge,
+html.internet {
+  .ui-text-supports();
+}
+
+@supports (display: flex) {
+  .ui-text-supports();
 }
 
 html.desktop {

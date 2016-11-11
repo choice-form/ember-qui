@@ -5,22 +5,17 @@
     opacity: .5;
   }
   & .get-verification {
-    display: flex;
-
-    flex-wrap: nowrap;
     & .ui-text {
       margin: 0 1rem 0 0;
-
-      flex-grow: 2;
     }
     & button {
       min-width: 5rem;
       &.refresh {
-        flex-basis: 30%;
+
       }
     }
     &.captcha {
-      flex-wrap: wrap;
+
     }
   }
   & .captcha-wrapper {
@@ -38,4 +33,63 @@
   & > p {
     margin-top: 1rem;
   }
+}
+
+.ui-verification-fix() {
+  .ui-verification {
+    & .get-verification {
+      & .ui-text {
+        width: 65%;
+        display: inline-block;
+      }
+      & button {
+        width: 30%;
+        float: right;
+      }
+      & .captcha-wrapper {
+        width: 65%;
+      }
+    }
+    & > p {
+      display: block;
+    }
+  }
+}
+
+html.ie {
+  .ui-verification-fix();
+}
+
+@supports not(display: flex) {
+  .ui-verification-fix();
+}
+
+.ui-verification-supports() {
+  .ui-verification {
+    & .get-verification {
+      display: flex;
+
+      flex-wrap: nowrap;
+      & .ui-text {
+        flex-grow: 2;
+      }
+      & button {
+        &.refresh {
+          flex-basis: 30%;
+        }
+      }
+      &.captcha {
+        flex-wrap: wrap;
+      }
+    }
+  }
+}
+
+html.edge,
+html.internet {
+  .ui-verification-supports()
+}
+
+@supports (display: flex) {
+  .ui-verification-supports()
 }

@@ -34,14 +34,14 @@ export default Component.extend({
 
     $(flickityColumn).slick({
       infinite:false,
-      slidesToShow: 3,
+      slidesToShow: 2,
       slidesToScroll: 1,
       asNavFor: fixHeader,
       dots:true,
     });
     $(fixHeader).slick({
       infinite:false,
-      slidesToShow: 3,
+      slidesToShow: 2,
       slidesToScroll: 1,
       asNavFor: flickityColumn,
       arrows:false,

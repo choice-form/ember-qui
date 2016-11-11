@@ -11,7 +11,9 @@
   }
 }
 
-@supports not(display: flex) {
+/*------------------- fix -------------------*/
+
+.picture-matrix-fix() {
   .picture-layout.matrix {
     & .ui-picture {
       width: 32.8%;
@@ -21,7 +23,17 @@
   }
 }
 
-@supports (display: flex) {
+html.ie {
+  .picture-matrix-fix();
+}
+
+@supports not(display: flex) {
+  .picture-matrix-fix();
+}
+
+/*------------------- supports -------------------*/
+
+.picture-matrix-supports() {
   .picture-layout.matrix {
     flex-direction: row;
 
@@ -33,4 +45,15 @@
       }
     }
   }
+}
+
+/*------------------- responsive -------------------*/
+
+html.internet,
+html.edge {
+  .picture-matrix-supports()
+}
+
+@supports (display: flex) {
+  .picture-matrix-supports();
 }

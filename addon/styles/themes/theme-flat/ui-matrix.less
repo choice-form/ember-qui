@@ -1,0 +1,123 @@
+.ui-matrix {
+  & .matrix-wrapper {
+    margin-bottom: 3rem;
+    & .fix-header {
+      width: 100%;
+      padding-left: 50%;
+      pointer-events: none;
+      border: 1px solid currentColor;
+      border-bottom: none;
+
+      .border(0, 50%, 0, auto, auto, 1);
+      &:before {
+        width: 1px;
+      }
+      & .fix-header-column {
+        position: relative;
+        display: table;
+        width: 100%;
+        padding: 1rem;
+        text-align: center;
+        &:not(:last-child) {
+          .border(0, 0, -1px, auto, auto, .3);
+          &:before {
+            width: 1px;
+          }
+        }
+        & span {
+          display: table-cell;
+          vertical-align: middle;
+        }
+      }
+    }
+    & .matrix-content {
+      & .fix-column {
+        position: relative;
+        float: left;
+        width: 50%;
+        pointer-events: none;
+
+        .border(0, 0, -1px, auto, auto, 1);
+        &:before {
+          width: 1px;
+        }
+        & li {
+          position: relative;
+          display: table;
+          width: 100%;
+          min-height: 3.5rem;
+          padding: 1rem;
+          &:not(:last-child) {
+            .border(auto, 0, -1px, 0, 1px, .3);
+          }
+          & span {
+            display: table-cell;
+            vertical-align: middle;
+          }
+        }
+      }
+      & .flickity-column {
+        border: 1px solid currentColor;
+        & .column {
+          position: relative;
+          outline: none;
+          &:not(:last-child) {
+            .border(0, 0, -1px, auto, auto, .3);
+            &:before {
+              width: 1px;
+            }
+          }
+          &:first-child {
+            & .column-item {
+              &:before {
+                left: -50% !important;
+              }
+            }
+          }
+          &:last-child {
+            & .column-item {
+              &:before {
+                right: -50% !important;
+              }
+            }
+          }
+          & .column-item {
+            position: relative;
+            &:not(:last-child) {
+              .border(auto, 0, 0, 0, 1px, .3);
+            }
+            & input {
+              margin: 0 auto;
+
+              .absolute(0, 0, 0, 0);
+              .input(1.2rem, 1.2rem);
+            }
+            & label {
+              display: block;
+              min-height: 3.5rem;
+              cursor: pointer;
+              text-align: center;
+              & .effect-container {
+                width: 1.2rem;
+                height: 1.2rem;
+                margin: auto;
+
+                .absolute(0, 0, 0, 0);
+                & .svg-wrapper {
+                  & svg {
+                    display: block;
+                    width: 1.2rem;
+                    height: 1.2rem;
+                  }
+                }
+              }
+            }
+          }
+        }
+        & .slick-dots {
+          bottom: -2rem;
+        }
+      }
+    }
+  }
+}

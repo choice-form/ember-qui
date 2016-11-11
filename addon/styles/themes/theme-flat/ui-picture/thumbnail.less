@@ -60,7 +60,9 @@
   }
 }
 
-@supports not(display: flex) {
+/*------------------- fix -------------------*/
+
+.picture-thumbnail-fix() {
   .picture-layout.thumbnail {
     & .ui-picture {
       margin-bottom: 1.5rem;
@@ -90,7 +92,17 @@
   }
 }
 
-@supports (display: flex) {
+html.ie {
+  .picture-thumbnail-fix();
+}
+
+@supports not(display: flex) {
+  .picture-thumbnail-fix();
+}
+
+/*------------------- supports -------------------*/
+
+.picture-thumbnail-supports() {
   .picture-layout.thumbnail {
     flex-direction: column;
     & .ui-picture {
@@ -109,4 +121,13 @@
       }
     }
   }
+}
+
+html.internet,
+html.edge {
+  .picture-thumbnail-supports();
+}
+
+@supports (display: flex) {
+  .picture-thumbnail-supports();
 }

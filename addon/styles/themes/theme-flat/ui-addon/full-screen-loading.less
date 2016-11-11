@@ -16,7 +16,7 @@
   }
 }
 
-@supports not(display: flex) {
+.full-screen-loading-fix() {
   .full-screen-loading {
     & .loading-wrapper {
       margin: auto;
@@ -26,7 +26,15 @@
   }
 }
 
-@supports(display: flex) {
+html.ie {
+  .full-screen-loading-fix();
+}
+
+@supports not(display: flex) {
+  .full-screen-loading-fix();
+}
+
+.full-screen-loading-supports() {
   .full-screen-loading {
     display: flex;
     flex-direction: column;
@@ -35,4 +43,13 @@
       align-self: center;
     }
   }
+}
+
+html.internet,
+html.edge {
+  .full-screen-loading-supports();
+}
+
+@supports(display: flex) {
+  .full-screen-loading-supports();
 }

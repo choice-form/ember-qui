@@ -6,11 +6,11 @@
 
 html.desktop {
   & body {
-    background-image: url('/images/sample-2-blur.jpg');
+    //background-image: url('/images/sample-2-blur.jpg');
   }
   & article {
     background-color: @secondary;
-    box-shadow: 0 4px 4px 0 fade(@primary, 30%);
+    //box-shadow: 0 4px 4px 0 fade(@primary, 30%);
   }
   & .ui-choice {
     & label:before {
@@ -123,12 +123,9 @@ input {
   }
 }
 
-.picture-choice,
-.choice {
-  & input:checked {
-    & + label {
-      color: @contrast;
-    }
+input:checked {
+  & + label {
+    color: @contrast;
   }
 }
 

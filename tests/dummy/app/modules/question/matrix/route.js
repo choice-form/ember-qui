@@ -12,13 +12,7 @@ export default Route.extend({
         {
           title: faker.finance.accountName(),
           description: faker.lorem.paragraph(),
-          images: [
-            {
-              ratio: 0.667,
-              natural: '/images/sample-1.jpg',
-              thumbnail: '/images/sample-1-thumbnail.jpg',
-            }
-          ],
+          images: '',
           typeName: '排序题',
           renderId: '4567yy0-0987',
           quesType: 'matrix',

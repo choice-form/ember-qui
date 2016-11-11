@@ -43,45 +43,66 @@
   }
 }
 
-@supports not(display: flex) {
+/*------------------- fix -------------------*/
+
+.icon-fix() {
   .icon {
     text-align: center;
-  }
-
-  .ui-icon {
-    width: 24.4%;
-    display: inline-block;
-    @media (max-width: 767px) {
-      width: 32.8%;
+    & .ui-icon {
+      width: 24.4%;
+      display: inline-block;
+      @media (max-width: 767px) {
+        width: 32.8%;
+      }
     }
   }
 }
 
-@supports(display: flex) {
+html.ie {
+  .icon-fix();
+}
+
+@supports not(display: flex) {
+  .icon-fix();
+}
+
+/*------------------- supports -------------------*/
+
+.icon-supports() {
   .icon {
     display: flex;
     flex-direction: row;
 
     flex-wrap: wrap;
     justify-content: center;
-  }
-
-  .ui-icon {
-    display: flex;
-    flex-direction: column;
-
-    align-self: stretch;
-    flex-basis: 25%;
-    @media (max-width: 767px) {
-      flex-basis: 33.3%;
-    }
-    & label {
+    & .ui-icon {
       display: flex;
       flex-direction: column;
-      flex-grow: 2;
+
+      align-self: stretch;
+      flex-basis: 25%;
+      @media (max-width: 767px) {
+        flex-basis: 33.3%;
+      }
+      & label {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 2;
+      }
     }
   }
 }
+
+html.internet,
+html.edge {
+  .icon-supports();
+}
+
+@supports(display: flex) {
+  .icon-supports();
+}
+
+/*------------------- responsive -------------------*/
 
 html.desktop {
   & .ui-icon {

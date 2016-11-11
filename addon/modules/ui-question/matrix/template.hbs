@@ -1,36 +1,43 @@
-<div class="fix-header-position">
-  <div class="fix-header">
-    {{#each node.optionsX as |option|}}
-      <div class="fix-header-column">{{option.text}}</div>
-    {{/each}}
+<div class="matrix-wrapper">
+  <div class="fix-header-position">
+    <div class="fix-header">
+      {{#each node.optionsX as |option|}}
+        <div class="fix-header-column">
+          <span>{{option.text}}</span>
+        </div>
+      {{/each}}
+    </div>
   </div>
-</div>
-
-<div class="matrix-content">
-  <ul class="fix-column">
-    {{#each node.optionsY as |option|}}
-      <li>{{option.text}}</li>
-    {{/each}}
-  </ul>
-  <div class="flickity-column">
-    {{#each node.matrix as |subMatrix|}}
-      <div class="column">
-        {{#each subMatrix as |option|}}
-            <input
-              name={{node.renderId}}
-                id={{option.renderId}}
-              type="checkbox"
+  <div class="matrix-content">
+    <ul class="fix-column">
+      {{#each node.optionsY as |option|}}
+        <li>
+          <span>{{option.text}}</span>
+        </li>
+      {{/each}}
+    </ul>
+    <div class="flickity-column">
+      {{#each node.matrix as |subMatrix|}}
+        <div class="column">
+          {{#each subMatrix as |option|}}
+            <div class="column-item">
+              <input
+                name={{node.renderId}}
+                  id={{option.renderId}}
+                type="checkbox"
                 onclick={{action 'handleOptionClick' option}}
-              checked={{option.selected}}
+                  checked={{option.selected}}
                 disabled={{disabled}}
-              required
-            >
-          {{ui-component/ui-label selected=option.selected
-                                  for=option.renderId
-                                  icon=(if option.selected 'checkbox-active' 'checkbox')}}
-        {{/each}}
-      </div>
-    {{/each}}
+                  required
+              >
+              {{ui-component/ui-label selected=option.selected
+                                      for=option.renderId
+                                      icon=(if option.selected 'checkbox-active' 'checkbox')}}
+            </div>
+          {{/each}}
+        </div>
+      {{/each}}
+    </div>
   </div>
 </div>
 
