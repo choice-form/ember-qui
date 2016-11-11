@@ -19,26 +19,11 @@ module.exports = {
       plugins: [autoprefixPlugin]
     },
     nodeAssets: {
-      fastclick: {
-        import: {
-          include: [{ path: 'lib/fastclick.js' }]
-        }
-      },
-      imagesloaded: {
-        import: {
-          include: [{ path: 'imagesloaded.pkgd.js' }]
-        }
-      },
-      'masonry-layout': {
-        import: {
-          include: [{ path: 'dist/masonry.pkgd.js' }]
-        }
-      },
-      sortablejs: {
-        import: {
-          include: [{ path: 'Sortable.js' }]
-        }
-      },
+      bowser: { import: ['bowser.js'] },
+      fastclick: { import: ['lib/fastclick.js'] },
+      imagesloaded: { import: ['imagesloaded.pkgd.js'] },
+      'masonry-layout': { import: ['dist/masonry.pkgd.js'] },
+      sortablejs: { import: ['Sortable.js'] },
       'slick-carousel': {
         srcDir: 'slick',
         import: ['slick.js', 'slick.css', 'slick-theme.css'],
@@ -54,6 +39,7 @@ module.exports = {
   included(app) {
     this._super.included.apply(this, arguments);
 
+    app.import(`./vendor/shims/bowser.js`);
     app.import(`${app.bowerDirectory}/device.js/lib/device.js`);
     app.import(`./vendor/shims/device.js`);
     app.import(`./vendor/shims/imagesloaded.js`);

@@ -11,6 +11,7 @@ module.exports = {
     return RSVP.all([
       this.addBowerPackageToProject('devicejs'),
       this.addBowerPackageToProject('nouislider'),
+      this.addPackageToProject('bowser'),
       this.addPackageToProject('fastclick'),
       this.addPackageToProject('imagesloaded'),
       this.addPackageToProject('less-plugin-autoprefix'),
