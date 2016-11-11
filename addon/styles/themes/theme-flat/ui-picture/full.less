@@ -1,6 +1,10 @@
 .picture-layout.full {
-  & .ui-picture {
-    &:not(:last-child) {
+
+}
+
+@supports not(display: flex) {
+  .picture-layout.full {
+    & .ui-picture {
       margin-bottom: 1.5rem;
       padding-bottom: 1.5rem;
 
@@ -9,13 +13,17 @@
   }
 }
 
-@supports not(display: flex) {
-
-}
-
 @supports (display: flex) {
   .picture-layout.full {
     flex-direction: column;
+    & .ui-picture {
+      &:not(:last-child) {
+        margin-bottom: 1.5rem;
+        padding-bottom: 1.5rem;
+
+        .border(auto, 0, 0, 0, 1px, .3);
+      }
+    }
   }
 }
 

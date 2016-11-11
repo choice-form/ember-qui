@@ -1,19 +1,28 @@
 .picture-layout.grid {
-  & .ui-picture {
-    &:not(:nth-last-child(-n+2)) {
-      margin-bottom: 1.5rem;
-      padding-bottom: 1.5rem;
-
-      .border(auto, 0, 0, 0, 1px, .3);
+  &.superscript {
+    & .ui-picture {
+      &:nth-child(odd) {
+        & input {
+          .absolute(.5rem, 1.25rem, auto, auto);
+        }
+      }
+      &:nth-child(even) {
+        & input {
+          .absolute(.5rem, .5rem, auto, auto);
+        }
+      }
     }
   }
+
 }
 
 @supports not(display: flex) {
   .picture-layout.grid {
     & .ui-picture {
-      width: 50%;
-      float: left;
+      width: 49.6%;
+      display: inline-block;
+      vertical-align: top;
+      margin-bottom: 1.5rem;
     }
   }
 }
@@ -28,12 +37,14 @@
       flex-direction: column;
 
       flex-basis: 50%;
+      &:not(:nth-last-child(-n+2)) {
+        margin-bottom: 1.5rem;
+        padding-bottom: 1.5rem;
+
+        .border(auto, 0, 0, 0, 1px, .3);
+      }
     }
   }
-}
-
-@supports (display: flex) {
-
 }
 
 html.desktop,

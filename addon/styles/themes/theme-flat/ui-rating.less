@@ -70,18 +70,17 @@
       }
     }
   }
-  &:not(:first-child) {
-    padding-top: 1.5rem;
-
-    .border(0, 0, auto, 0, 1px, .3);
-  }
-  &:not(:last-child) {
-    padding-bottom: 1.5rem;
-  }
 }
 
 @supports not(display: flex) {
   .ui-rating {
+    padding: 1.5rem 0;
+    .border(0, 0, auto, 0, 1px, .3);
+    &:first-child {
+      &:before {
+        display: none;
+      }
+    }
     & .rating-wrapper {
       & li {
         float: left;
@@ -158,6 +157,14 @@
       & .rating-shape {
         display: flex;
       }
+    }
+    &:not(:first-child) {
+      padding-top: 1.5rem;
+
+      .border(0, 0, auto, 0, 1px, .3);
+    }
+    &:not(:last-child) {
+      padding-bottom: 1.5rem;
     }
   }
 }
