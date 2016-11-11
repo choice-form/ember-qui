@@ -8,5 +8,7 @@
 </div>
 
 {{#each node.options as |option|}}
-  {{ui-component/ui-range node option handleEvents maxValue=100}}
+  {{ui-component/ui-range text=option.text
+                          value=option.value
+                          handleOptionInput=(action "handleOptionInput" option)}}
 {{/each}}

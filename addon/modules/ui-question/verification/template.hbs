@@ -1,1 +1,12 @@
-{{ui-component/ui-verification node handleEvents}}
+{{ui-component/ui-verification renderId=node.renderId
+                               icon=node.verificationType
+verificationType=node.verificationType
+captchaClass=captchaClass
+buttonText=buttonText
+countDown=countDown
+getInfoButton=getInfoButton
+captcha=node.captcha
+declarative=node.declarative
+handleOptionClick=(action "handleOptionClick")
+handleOptionInput=(action "handleOptionInput")
+}}

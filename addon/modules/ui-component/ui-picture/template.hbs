@@ -1,23 +1,23 @@
 <input
-  id={{option.uuid}}
-    type={{node.selectType}}
-  onclick={{action handleOptionClick}}
-    name={{node.uuid}}
+  id={{uuid}}
+    type={{selectType}}
+  onclick={{handleOptionClick}}
+    name={{uuid}}
   autofocus={{autofocus}}
-    placeholder={{option.placeholder}}
-  checked={{option.selected}}
+    placeholder={{placeholder}}
+  checked={{selected}}
     disabled={{disabled}}
   required={{required}}
     tabindex={{tabindex}}
-  value={{option.value}}
+  value={{value}}
 >
 
-<label for={{option.uuid}}>
+<label for={{uuid}}>
   {{#if image}}
     <figure class="attachment">
       {{ui-addon/progressive-image
         ratio=image.ratio
-        objectFit=node.objectFit
+        objectFit=objectFit
         thumbnail=image.thumbnail
         image=image.natural}}
     </figure>
@@ -25,12 +25,12 @@
   <div class="pic-description">
     <div class="effect-container">
       <div class="svg-wrapper">
-        {{svg}}
+        {{ui-addon/svg-item icon=icon}}
       </div>
-      {{#if option.selected}}
+      {{#if selected}}
         {{ui-addon/svg-particle values="0;18" dur="0.45s"}}
       {{/if}}
     </div>
-    <span>{{option.text}}</span>
+    <span>{{text}}</span>
   </div>
 </label>

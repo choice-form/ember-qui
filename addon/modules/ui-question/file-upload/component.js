@@ -1,10 +1,27 @@
 import Component from 'ember-component';
 import layout from './template';
 import get from 'ember-metal/get';
+import computed from 'ember-computed';
 
 export default Component.extend({
   layout,
   tagName: '',
+
+  icon: computed('option.value', 'option.icon', function () {
+    return get(this, 'option.value') ? 'refresh' : get(this, 'option.icon');
+  }),
+
+  state: computed('option.value', function () {
+    return get(this, 'option.value') ? ' success' : null;
+  }),
+
+  button: computed('option.value', function () {
+    return get(this, 'option.value') ? ' secondary' : ' contrast';
+  }),
+
+  uploadText: computed('option.value', function () {
+    return get(this, 'option.value') ? 'refresh upload' : 'Upload Picture';
+  }),
 
   actions:{
     /**

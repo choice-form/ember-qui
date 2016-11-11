@@ -1,5 +1,9 @@
 {{#if (eq option.inputType "input")}}
   {{ui-component/ui-text node option handleEvents}}
 {{else}}
-  {{ui-component/ui-range node option handleEvents sliderMinValue=option.minValue sliderMaxValue=option.maxValue}}
+  {{ui-component/ui-range text=option.text
+                          minValue=option.minValue
+                          maxValue=option.maxValue
+                          value=option.value
+                          handleOptionInput=(action "handleOptionInput")}}
 {{/if}}

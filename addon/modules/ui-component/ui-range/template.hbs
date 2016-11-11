@@ -1,24 +1,24 @@
-{{#if option.text}}
+{{#if text}}
   <h4 class="range-title">
-    {{option.text}}
+    {{text}}
   </h4>
 {{/if}}
 
-{{#if (or option.minValue option.maxValue)}}
+{{#if (or minValue maxValue)}}
   <div class="range-value">
-    <span>Min value: {{option.minValue}}</span>
-    <span>Max value: {{option.maxValue}}</span>
+    <span>Min value: {{minValue}}</span>
+    <span>Max value: {{maxValue}}</span>
   </div>
 {{/if}}
 
 <div class="range-slider">
-  {{#if option.value}}
-    <h4>{{option.value}}</h4>
+  {{#if value}}
+    <h4>{{value}}</h4>
   {{/if}}
-  {{range-slider start=option.value
+  {{range-slider start=value
                  connect="lower"
-                 min=minValue
-                 max=maxValue
-                 on-change="handleOptionInput"
+                 min=(if minValue minValue 0)
+                 max=(if maxValue minValue 100)
+                 on-change=handleOptionInput
   }}
 </div>

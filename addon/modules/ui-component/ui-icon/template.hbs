@@ -1,29 +1,30 @@
-<div class='ui-icon' data-render-id={{option.renderId}}>
+<div class='ui-icon' data-render-id={{renderId}}>
   <input
-    name={{node.renderId}}
-    id={{option.renderId}}
-      type={{node.selectType}}
+    name={{inputName}}
+    id={{uuid}}
+      type={{selectType}}
     onclick={{handleOptionClick}}
-      checked={{option.selected}}
+      checked={{selected}}
     disabled={{disabled}}
     required
   >
 
-  <label for={{option.renderId}}>
+  <label for={{uuid}}>
     <div class="effect-container">
       <div class="svg-wrapper">
         {{svg}}
       </div>
-      {{#if option.selected}}
+      {{#if selected}}
         {{ui-addon/svg-particle values="0;36" dur="0.65s"}}
       {{/if}}
     </div>
     <div class="labels">
       <div class="svg-wrapper">
-        {{ui-addon/svg-item icon=node.selectType}}
+        {{ui-addon/svg-item icon=icon}}
       </div>
-      <span>{{option.text}}</span>
+      <span>{{text}}</span>
     </div>
   </label>
 </div>
+
 

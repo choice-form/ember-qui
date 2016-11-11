@@ -5,6 +5,7 @@ import set from 'ember-metal/set';
 import computed,{alias} from 'ember-computed';
 import Masonry from 'masonry';
 import imagesLoaded from 'imagesloaded';
+import {later} from 'ember-runloop';
 
 export default Component.extend({
   layout,
@@ -38,8 +39,10 @@ export default Component.extend({
 
     if(showStyle == 'pinterest'){
       imagesLoaded(this.element, () => {
-        //set(this, '_thisLoading', false);
         this.newMasonry = new Masonry(this.element);
+        later(()=>{
+          set(this, '_thisLoading', false);
+        },1000);
       });
     }
   },

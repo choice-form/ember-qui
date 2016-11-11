@@ -7,65 +7,80 @@ import get from 'ember-metal/get';
 let countTime = 30;
 export default Component.extend({
   layout,
-  classNames: ['ui-verification'],
-  attributeBindings: ['data-render-id'],
-  'data-render-id': computed.oneWay('node.renderId'),
+
 
   //用户手机号
   phoneNumber: '',
 
   //验证按钮的切换
-  captchaButton: true,
+  getInfoButton: true,
 
   //倒计时
-  countDown: '30秒',
+  countDown: '30 sec',
 
+
+  captchaClass:computed('node.verificationType', function () {
+    const verificationType = get(this, 'node.verificationType');
+    return  verificationType == 'captcha' ? " captcha" : "";
+  }),
+
+  buttonText:computed('node.verificationType', 'getInfoButton', function () {
+    const verificationType = get(this, 'node.verificationType');
+    const getInfoButton = get(this,'getInfoButton');
+
+    if(getInfoButton){
+      if(verificationType == 'sms' ){
+        return "Get verification code"
+      }
+      if(verificationType == 'captcha' ){
+        return "Get captcha code"
+      }
+    }
+
+  }),
 
   actions: {
 
     /**
      * Message验证
      */
-    handleOptionInput_SMS(e){
+    handleOptionInput(e){
       const value = e.currentTarget.value;
-      //set(this, 'phoneNumber', value);
-      this.handleEvents.handleQuestionInput({phoneNumber: value}, get(this, 'node'));
-    },
+      const verificationType = get(this, 'node.verificationType');
 
-    handleOptionClick_SMS(){
-      //给接口发送手机号码
-      this.handleEvents.handleOptionClick(get(this, 'phoneNumber'), get(this, 'node'));
-    },
-
-    /**
-     * password验证
-     */
-    handleOptionInput_Password(e){
-      const value = e.currentTarget.value;
-      this.handleEvents.handleQuestionInput(value, get(this, 'node'));
+      if(verificationType == 'sms'){
+        set(this, 'phoneNumber', value);
+        this.handleEvents.handleQuestionInput({phoneNumber: value}, get(this, 'node'));
+      }else{
+        this.handleEvents.handleQuestionInput(value, get(this, 'node'));
+      }
     },
 
     /**
      * captcha验证
      */
-    handleOptionClick_captcha(){
-      set(this, 'captchaButton', false);
+    handleOptionClick(){
+      set(this, 'getInfoButton', false);
       let t1 = setInterval(()=> {
         countTime--;
-        set(this, 'countDown', `${countTime}秒`);
+        set(this, 'countDown', `${countTime} sec`);
         if (countTime <= 0) {
           countTime= 30;
-          set(this, 'countDown', `${countTime}秒`);
-          set(this, 'captchaButton', true);
+          set(this, 'countDown', `${countTime} sec`);
+          set(this, 'getInfoButton', true);
           clearInterval(t1);
         }
       }, 1000);
 
-      //请求获取验证码
-      this.handleEvents.handleOptionClick('', get(this, 'node'));
+      const verificationType = get(this, 'node.verificationType');
+      if(verificationType == 'sms'){
+        //给接口发送手机号码
+        this.handleEvents.handleOptionClick(get(this, 'phoneNumber'), get(this, 'node'));
+      }else{
+        this.handleEvents.handleOptionClick('', get(this, 'node'));
+      }
     },
-  }
-
+  },
 
 
 }).reopenClass({positionalParams: ['node', 'handleEvents']});

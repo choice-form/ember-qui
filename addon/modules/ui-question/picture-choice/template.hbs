@@ -1,5 +1,14 @@
 {{#each node.options as |option|}}
-  {{ui-component/ui-picture node option handleOptionClick=(action "handleOptionClick" option)}}
+  {{ui-component/ui-picture uuid=option.uuid
+                            selectType=node.selectType
+                            placeholder=option.placeholder
+                            selected=option.selected
+                            value=option.value
+                            image=option.image
+                            objectFit=node.objectFit
+                            text= option.text
+                            icon=(if option.selected (concat option.icon "-active") option.icon)
+                            handleOptionClick=(action "handleOptionClick" option)}}
 {{/each}}
 {{#if (and (eq node.showStyle 'pinterest') isLoading)}}
   <div class="full-screen-loading">

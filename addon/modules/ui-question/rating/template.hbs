@@ -1,5 +1,13 @@
 {{#if (eq option.inputType "input")}}
   {{ui-component/ui-text node option handleEvents}}
 {{else}}
-  {{ui-component/ui-rating node option handleEvents}}
+  {{ui-component/ui-rating text=option.text
+                           description=option.description
+                           count=option.count
+                           renderId=option.renderId
+                           marks=optin.marks
+                           graphs=graphs
+                           handleOptionInput=(action "handleOptionInput")
+
+  }}
 {{/if}}

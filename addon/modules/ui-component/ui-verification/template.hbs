@@ -4,7 +4,7 @@
 
 
 {{#unless (eq verificationType 'captcha')}}
-  {{ui-component/ui-input handleOptionInput=(action "handleOptionInput")
+  {{ui-component/ui-input handleOptionInput=handleOptionInput
                           type=(if (eq verificationType "password") 'password' 'tel')
                           placeholder=(if (eq verificationType "password") 'Please enter a password' 'Please enter a cellphone number')
                           icon='int'}}
@@ -13,25 +13,25 @@
 
 {{#unless (eq verificationType 'password')}}
   <div class={{concat "get-verification" captchaClass}}>
-    {{ui-component/ui-input type='url' value='' handleOptionInput=(action "handleOptionInput")
+    {{ui-component/ui-input type='url' value='' handleOptionInput=handleOptionInput
                             placeholder=(if (eq verificationType "captcha") 'Please enter a password' 'Please enter verification code')
                             icon='int'}}
 
     {{#if getInfoButton}}
       {{ui-component/ui-button text=buttonText className="button contrast"
-                               handleClick=(action 'handleOptionClick_captcha')}}
+                               handleClick=handleOptionClick}}
     {{else}}
       {{ui-component/ui-button leftIcon='refresh' className="button primary refresh" text=countDown}}
     {{/if}}
 
-    {{#if node.captcha}}
+    {{#if captcha}}
       <div class="captcha-wrapper">
-        <div class="captcha-canvas"><img src={{node.captcha}} alt=""></div>
+        <div class="captcha-canvas"><img src={{captcha}} alt=""></div>
       </div>
     {{/if}}
   </div>
 {{/unless}}
 
-{{#if node.declarative}}
-  <p>{{node.declarative}}</p>
+{{#if declarative}}
+  <p>{{declarative}}</p>
 {{/if}}
