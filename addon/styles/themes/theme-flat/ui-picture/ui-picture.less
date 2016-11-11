@@ -5,7 +5,7 @@
 @import "pinterest";
 
 .picture-choice {
-  padding: 2rem .5rem 1rem .5rem;
+  padding: 2rem 1rem 1rem 1rem;
   &:before {
     display: none;
   }
@@ -66,11 +66,6 @@
       }
     }
   }
-  & .object-fit {
-    & img {
-      max-width: inherit;
-    }
-  }
 }
 
 @supports not(display: flex) {
@@ -82,6 +77,123 @@
 @supports (display: flex) {
   .picture-layout {
     display: flex;
+  }
+}
+
+.picture-cover() {
+  .picture-layout {
+    & .ui-picture {
+      & .attachment {
+        & .object-fit {
+          & img {
+            max-width: inherit;
+          }
+          &.cover {
+            &.fit-row {
+              & img {
+                height: 100%;
+                width: inherit;
+                margin-left: 50%;
+                transform: translateX(-50%);
+              }
+            }
+            &.fit-column {
+              & img {
+                margin-top: 50%;
+                transform: translateY(-50%);
+              }
+            }
+          }
+          &.contain {
+            &.fit-row {
+              & img {
+                margin: auto 0;
+              }
+            }
+            &.fit-column {
+              & img {
+                margin: 0 auto;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+html.internet,
+html.edge,
+html.ie {
+  .picture-cover();
+  .picture-layout {
+    & .ui-picture {
+      & .attachment {
+        & img {
+          width: 100% !important;
+          height: 100% !important;
+        }
+        & .object-fit {
+          &.cover {
+            &.fit-row {
+              & img {
+                width: inherit !important;
+              }
+            }
+            &.fit-column {
+              & img {
+                height: inherit !important;
+              }
+            }
+
+          }
+          &.contain {
+            &.fit-row {
+              & img {
+                height: inherit !important;
+              }
+            }
+            &.fit-column {
+              & img {
+                width: inherit !important;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@supports not(object-fit: cover) {
+  .picture-cover();
+}
+
+@supports (object-fit: cover) {
+  .picture-layout {
+    & .ui-picture {
+      & .attachment {
+        & .object-fit {
+          &.cover {
+            & img {
+              object-fit: cover;
+              height: 100%;
+            }
+          }
+          &.contain {
+            & img {
+              object-fit: contain;
+              height: 100%;
+            }
+            &.fit-column {
+              & img {
+                width: 100% !important;
+              }
+            }
+          }
+        }
+      }
+    }
   }
 }
 
@@ -135,6 +247,6 @@
 
 html.mobile {
   & .picture-choice {
-    padding-top: 0;
+    padding: 0 .5rem 1rem .5rem;
   }
 }

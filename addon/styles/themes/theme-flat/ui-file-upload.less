@@ -8,39 +8,18 @@
 }
 
 .file-upload {
-  display: flex;
-  flex-direction: row;
   margin: 0 -.725rem;
-
-  flex-wrap: wrap;
-  justify-content: center;
   & .ui-file-upload {
-    display: flex;
-    padding: 1rem .725rem 0 .725rem;
-
-    flex-basis: 33.333%;
-    @media (max-width: 767px) {
-      flex-basis: 50%;
-    }
-    @media (max-width: 476px) {
-      width: 100%;
-
-      flex-basis: auto;
-    }
     & .upload-item-wrapper {
-      display: flex;
-      flex-direction: column;
+      padding: 1rem .725rem 0 .725rem;
       width: 100%;
-      padding: .5rem;
       transition: border 200ms ease;
       text-align: center;
-      border-width: 1px;
-      border-style: solid;
-      border-radius: @radius-m;
       & .upload-item {
+        padding: .5rem;
         position: relative;
-        display: flex;
-        flex-direction: column;
+        border: 1px solid currentColor;
+        border-radius: @radius-m;
         & input[type='file'] {
           .absolute(auto, 0, 0, 0);
           .input(100%, 2.6rem);
@@ -77,7 +56,6 @@
           text-align: left;
         }
         &.success {
-          flex-grow: 1;
           & label {
             margin-top: auto;
           }
@@ -94,6 +72,63 @@
             & span {
               vertical-align: middle;
             }
+          }
+        }
+      }
+    }
+  }
+}
+
+@supports not(display: flex) {
+  .file-upload {
+    text-align: center;
+    & .ui-file-upload {
+      width: 32.8%;
+      display: inline-block;
+      vertical-align: top;
+      @media (max-width: 767px) {
+        width: 49%;
+      }
+      @media (max-width: 476px) {
+        width: 100%;
+      }
+      & .upload-item-wrapper {
+        & .upload-item {
+          & label {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}
+
+@supports (display: flex) {
+  .file-upload {
+    display: flex;
+    flex-direction: row;
+
+    flex-wrap: wrap;
+    justify-content: center;
+    & .ui-file-upload {
+      display: flex;
+      flex-basis: 33.333%;
+      @media (max-width: 767px) {
+        flex-basis: 50%;
+      }
+      @media (max-width: 476px) {
+        width: 100%;
+
+        flex-basis: auto;
+      }
+      & .upload-item-wrapper {
+        display: flex;
+        flex-direction: column;
+        & .upload-item {
+          display: flex;
+          flex-direction: column;
+          &.success {
+            flex-grow: 1;
           }
         }
       }

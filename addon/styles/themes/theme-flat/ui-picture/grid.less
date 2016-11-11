@@ -13,10 +13,9 @@
       }
     }
   }
-
 }
 
-@supports not(display: flex) {
+.picture-grid() {
   .picture-layout.grid {
     & .ui-picture {
       width: 49.6%;
@@ -25,6 +24,16 @@
       margin-bottom: 1.5rem;
     }
   }
+}
+
+html.internet,
+html.edge,
+html.ie {
+  .picture-grid();
+}
+
+@supports not(display: flex) {
+  .picture-grid();
 }
 
 @supports (display: flex) {

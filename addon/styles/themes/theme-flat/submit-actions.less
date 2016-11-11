@@ -1,15 +1,30 @@
 .submit-actions {
-  display: flex;
   padding: 4.5rem 3rem;
   & button {
     min-width: 10rem;
   }
   & .nextButton {
-    margin-left: auto;
     & span {
       & + svg {
         margin: 0 -1rem 0 .5rem;
       }
+    }
+  }
+}
+
+@supports not(display: flex) {
+  .submit-actions {
+    & .nextButton {
+      float: right;
+    }
+  }
+}
+
+@supports (display: flex) {
+  .submit-actions {
+    display: flex;
+    & .nextButton {
+      margin-left: auto;
     }
   }
 }
@@ -30,8 +45,10 @@ html.mobile {
       &.prevButton {
         margin-right: 1.5rem;
       }
-      &.nextButton {
-        flex-grow: 2;
+      @supports (display: flex) {
+        &.nextButton {
+          flex-grow: 2;
+        }
       }
     }
   }

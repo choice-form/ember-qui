@@ -1,3 +1,10 @@
+.effect-container {
+  & svg {
+    display: block;
+    fill: currentColor;
+  }
+}
+
 .svg-particle {
   overflow: hidden;
   width: 60px;
@@ -7,9 +14,6 @@
   //background-color: fade(@contrast, 10%);
 
   .absolute(0, 0, 0, 0);
-  & svg {
-    display: block;
-  }
 }
 
 html.mobile {
