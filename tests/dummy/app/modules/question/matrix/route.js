@@ -19,33 +19,33 @@ export default Route.extend({
           uuid: '005',
           optionsX:[
             {
-              text: `列1${faker.name.findName()}`,
+              text: `COLUMN1 ${faker.lorem.sentence()}`,
             },
             {
-              text: `列2${faker.name.findName()}`,
+              text: `COLUMN2 ${faker.lorem.sentence()}`,
             },
             {
-              text: `列3${faker.name.findName()}`,
+              text: `COLUMN3 ${faker.lorem.sentence()}`,
             },
             {
-              text: `列4${faker.name.findName()}`,
+              text: `COLUMN4 ${faker.lorem.sentence()}`,
             },
             {
-              text: `列5${faker.name.findName()}`,
+              text: `COLUMN5 ${faker.lorem.sentence()}`,
             },
           ],
           optionsY:[
             {
-              text: `行1${faker.address.country()}`,
+              text: `ROW1 ${faker.lorem.sentence()}`,
             },
             {
-              text: `行2${faker.address.country()}`,
+              text: `ROW2 ${faker.lorem.sentence()}`,
             },
             {
-              text: `行3${faker.address.country()}`,
+              text: `ROW3 ${faker.lorem.sentence()}`,
             },
             {
-              text: `行4${faker.address.country()}`,
+              text: `ROW4 ${faker.lorem.sentence()}`,
             }
           ],
           matrix:[
