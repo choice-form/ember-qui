@@ -1,7 +1,7 @@
 import Component from 'ember-component';
 import layout from './template';
 import get from 'ember-metal/get';
-import set from 'ember-metal/set';
+import matirxSetHeight from '../../lib/matirxSetHeight';
 import { reads } from 'ember-computed';
 import Swiper from 'swiper';
 
@@ -46,15 +46,33 @@ export default Component.extend({
   },
 
   didInsertElement(){
+    const fixHeader =  this.element.querySelector('.fix-header');
     const columnList = this.element.querySelector('.flickity-column');
 
     this.swiper = new Swiper(columnList, {
-      direction: 'vertical',
-      loop: true
+      slidesPerView: device.desktop() ? 2 : 1,
     });
+
+    this.fixHeader = new Swiper(fixHeader, {
+      slidesPerView: device.desktop() ? 2 : 1,
+    });
+
+    this.fixHeader.params.control = this.swiper;
+    this.swiper.params.control = this.fixHeader;
+
+    matirxSetHeight.call(this);
+
+    if(!device.desktop()) return ;
+
+    window.onresize =()=>{
+      matirxSetHeight.call(this);
+    };
+
+
   },
 
   willDestroyElement(){
     this.swiper.destroy(true, true);
+    this.fixHeader.destroy(true, true);
   }
 }).reopenClass({positionalParams: ['node', 'handleEvents']});

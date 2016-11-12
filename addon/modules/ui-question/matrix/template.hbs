@@ -1,11 +1,13 @@
 <div class="matrix-wrapper">
   <div class="fix-header-position">
-    <div class="fix-header">
-      {{#each node.optionsX as |option|}}
-        <div class="fix-header-column">
-          <span>{{option.text}}</span>
+    <div class="fix-header swiper-container">
+      <div class="swiper-wrapper">
+        {{#each node.optionsX as |option|}}
+          <div class="fix-header-column swiper-slide">
+            <span>{{option.text}}</span>
+          </div>
+        {{/each}}
         </div>
-      {{/each}}
     </div>
   </div>
   <div class="matrix-content">
