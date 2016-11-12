@@ -1,5 +1,6 @@
 import Route from 'ember-route';
 import set from 'ember-metal/set';
+import get from 'ember-metal/get';
 import Ember from 'ember';
 import faker from 'faker';
 
@@ -27,10 +28,10 @@ export default Route.extend({
           options: [
             Ember.Object.create({
               selected: false,
-              renderId: '4567890-0987',
+              renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.sentence(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
-              icon: 'radio', // 选项的Icon
+              icon: 'checkbox', // 选项的Icon
               image: {
                 ratio: 0.58,
                 natural:'/images/sample-random/sample-random-0.58-13.jpeg',
@@ -43,10 +44,10 @@ export default Route.extend({
             }),
             Ember.Object.create({
               selected: false,
-              renderId: '4567890-0987',
+              renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.sentence(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
-              icon: 'radio', // 选项的Icon
+              icon: 'checkbox', // 选项的Icon
               image: {
                 ratio: 0.562,
                 natural:'/images/sample-random/sample-random-0.562-12.jpeg',
@@ -59,10 +60,10 @@ export default Route.extend({
             }),
             Ember.Object.create({
               selected: false,
-              renderId: '4567890-0987',
+              renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.paragraph(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
-              icon: 'radio', // 选项的Icon
+              icon: 'checkbox', // 选项的Icon
               image: {
                 ratio: 0.562,
                 natural:'/images/sample-random/sample-random-0.562-31.jpeg',
@@ -75,10 +76,10 @@ export default Route.extend({
             }),
             Ember.Object.create({
               selected: false,
-              renderId: '4567890-0987',
+              renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.sentence(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
-              icon: 'radio', // 选项的Icon
+              icon: 'checkbox', // 选项的Icon
               image: {
                 ratio: 0.633,
                 natural:'/images/sample-random/sample-random-0.633-9.jpeg',
@@ -98,7 +99,7 @@ export default Route.extend({
           renderId: '775519',
           typeName: '选择题',
           quesType: 'picture-choice', //select, fill
-          selectType: 'radio',
+          selectType: 'checkbox',
           showStyle: 'grid',
           picStyle: '',
           textDirection: 'insert-block', //in-block ,out-block, empty
@@ -109,10 +110,10 @@ export default Route.extend({
           options: [
             Ember.Object.create({
               selected: false,
-              renderId: '4567890-0987',
+              renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.sentence(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
-              icon: 'radio', // 选项的Icon
+              icon: 'checkbox', // 选项的Icon
               image: {
                 ratio: 0.666,
                 natural:'/images/sample-random/sample-random-0.666-4.jpeg',
@@ -125,10 +126,10 @@ export default Route.extend({
             }),
             Ember.Object.create({
               selected: false,
-              renderId: '4567890-0987',
+              renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.sentence(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
-              icon: 'radio', // 选项的Icon
+              icon: 'checkbox', // 选项的Icon
               image: {
                 ratio: 0.666,
                 natural:'/images/sample-random/sample-random-0.666-16.jpeg',
@@ -141,10 +142,10 @@ export default Route.extend({
             }),
             Ember.Object.create({
               selected: false,
-              renderId: '4567890-0987',
+              renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.paragraph(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
-              icon: 'radio', // 选项的Icon
+              icon: 'checkbox', // 选项的Icon
               image: {
                 ratio: 0.666,
                 natural:'/images/sample-random/sample-random-0.666-40.jpeg',
@@ -157,10 +158,10 @@ export default Route.extend({
             }),
             Ember.Object.create({
               selected: false,
-              renderId: '4567890-0987',
+              renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.sentence(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
-              icon: 'radio', // 选项的Icon
+              icon: 'checkbox', // 选项的Icon
               image: {
                 ratio: 0.667,
                 natural:'/images/sample-random/sample-random-0.667-11.jpeg',
@@ -180,7 +181,7 @@ export default Route.extend({
           renderId: '775519',
           typeName: '选择题',
           quesType: 'picture-choice', //select, fill
-          selectType: 'radio',
+          selectType: 'checkbox',
           showStyle: 'grid',
           picStyle: 'superscript',
           textDirection: '', //in-block ,out-block, empty
@@ -191,10 +192,10 @@ export default Route.extend({
           options: [
             Ember.Object.create({
               selected: false,
-              renderId: '4567890-0987',
+              renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.sentence(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
-              icon: 'radio', // 选项的Icon
+              icon: 'checkbox', // 选项的Icon
               image: {
                 ratio: 1.5,
                 natural:'/images/sample-random/sample-random-1.5-29.jpeg',
@@ -207,10 +208,10 @@ export default Route.extend({
             }),
             Ember.Object.create({
               selected: false,
-              renderId: '4567890-0987',
+              renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.sentence(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
-              icon: 'radio', // 选项的Icon
+              icon: 'checkbox', // 选项的Icon
               image: {
                 ratio: 0.666,
                 natural:'/images/sample-random/sample-random-0.666-16.jpeg',
@@ -223,10 +224,10 @@ export default Route.extend({
             }),
             Ember.Object.create({
               selected: false,
-              renderId: '4567890-0987',
+              renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.paragraph(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
-              icon: 'radio', // 选项的Icon
+              icon: 'checkbox', // 选项的Icon
               image: {
                 ratio: 1.164,
                 natural:'/images/sample-random/sample-random-1.164-23.jpeg',
@@ -239,10 +240,10 @@ export default Route.extend({
             }),
             Ember.Object.create({
               selected: false,
-              renderId: '4567890-0987',
+              renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.sentence(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
-              icon: 'radio', // 选项的Icon
+              icon: 'checkbox', // 选项的Icon
               image: {
                 ratio: 1.335,
                 natural:'/images/sample-random/sample-random-1.335-27.jpeg',
@@ -262,7 +263,7 @@ export default Route.extend({
           renderId: '775519',
           typeName: '选择题',
           quesType: 'picture-choice', //select, fill
-          selectType: 'radio',
+          selectType: 'checkbox',
           showStyle: 'grid',
           picStyle: 'superscript',
           textDirection: 'insert-block', //in-block ,out-block, empty
@@ -273,10 +274,10 @@ export default Route.extend({
           options: [
             Ember.Object.create({
               selected: false,
-              renderId: '4567890-0987',
+              renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.sentence(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
-              icon: 'radio', // 选项的Icon
+              icon: 'checkbox', // 选项的Icon
               image: {
                 ratio: 1.335,
                 natural:'/images/sample-random/sample-random-1.335-34.jpeg',
@@ -289,10 +290,10 @@ export default Route.extend({
             }),
             Ember.Object.create({
               selected: false,
-              renderId: '4567890-0987',
+              renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.sentence(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
-              icon: 'radio', // 选项的Icon
+              icon: 'checkbox', // 选项的Icon
               image: {
                 ratio: 1.369,
                 natural:'/images/sample-random/sample-random-1.369-26.jpeg',
@@ -305,10 +306,10 @@ export default Route.extend({
             }),
             Ember.Object.create({
               selected: false,
-              renderId: '4567890-0987',
+              renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.paragraph(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
-              icon: 'radio', // 选项的Icon
+              icon: 'checkbox', // 选项的Icon
               image: {
                 ratio: 1.414,
                 natural:'/images/sample-random/sample-random-1.414-24.jpeg',
@@ -321,10 +322,10 @@ export default Route.extend({
             }),
             Ember.Object.create({
               selected: false,
-              renderId: '4567890-0987',
+              renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.sentence(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
-              icon: 'radio', // 选项的Icon
+              icon: 'checkbox', // 选项的Icon
               image: {
                 ratio: 1.499,
                 natural:'/images/sample-random/sample-random-1.499-38.jpeg',
@@ -344,7 +345,7 @@ export default Route.extend({
           renderId: '775519',
           typeName: '选择题',
           quesType: 'picture-choice', //select, fill
-          selectType: 'radio',
+          selectType: 'checkbox',
           showStyle: 'grid',
           picStyle: '',
           objectFit: 'cover',
@@ -356,10 +357,10 @@ export default Route.extend({
           options: [
             Ember.Object.create({
               selected: false,
-              renderId: '4567890-0987',
+              renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.sentence(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
-              icon: 'radio', // 选项的Icon
+              icon: 'checkbox', // 选项的Icon
               image: {
                 ratio: 0.58,
                 natural:'/images/sample-random/sample-random-0.58-13.jpeg',
@@ -372,10 +373,10 @@ export default Route.extend({
             }),
             Ember.Object.create({
               selected: false,
-              renderId: '4567890-0987',
+              renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.sentence(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
-              icon: 'radio', // 选项的Icon
+              icon: 'checkbox', // 选项的Icon
               image: {
                 ratio: 0.666,
                 natural:'/images/sample-random/sample-random-0.666-4.jpeg',
@@ -388,10 +389,10 @@ export default Route.extend({
             }),
             Ember.Object.create({
               selected: false,
-              renderId: '4567890-0987',
+              renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.paragraph(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
-              icon: 'radio', // 选项的Icon
+              icon: 'checkbox', // 选项的Icon
               image: {
                 ratio: 0.666,
                 natural:'/images/sample-random/sample-random-0.666-40.jpeg',
@@ -404,10 +405,10 @@ export default Route.extend({
             }),
             Ember.Object.create({
               selected: false,
-              renderId: '4567890-0987',
+              renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.sentence(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
-              icon: 'radio', // 选项的Icon
+              icon: 'checkbox', // 选项的Icon
               image: {
                 ratio: 1.5,
                 natural:'/images/sample-random/sample-random-1.5-29.jpeg',
@@ -420,10 +421,10 @@ export default Route.extend({
             }),
             Ember.Object.create({
               selected: false,
-              renderId: '4567890-0987',
+              renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.paragraph(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
-              icon: 'radio', // 选项的Icon
+              icon: 'checkbox', // 选项的Icon
               image: {
                 ratio: 1.164,
                 natural:'/images/sample-random/sample-random-1.164-23.jpeg',
@@ -436,10 +437,10 @@ export default Route.extend({
             }),
             Ember.Object.create({
               selected: false,
-              renderId: '4567890-0987',
+              renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.paragraph(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
-              icon: 'radio', // 选项的Icon
+              icon: 'checkbox', // 选项的Icon
               image: {
                 ratio: 0.667,
                 natural:'/images/sample-random/sample-random-0.667-11.jpeg',
@@ -459,7 +460,7 @@ export default Route.extend({
           renderId: '775519',
           typeName: '选择题',
           quesType: 'picture-choice', //select, fill
-          selectType: 'radio',
+          selectType: 'checkbox',
           showStyle: 'grid',
           picStyle: '',
           objectFit: 'contain',
@@ -471,7 +472,7 @@ export default Route.extend({
           options: [
             Ember.Object.create({
               selected: false,
-              renderId: '4567890-0987',
+              renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.sentence(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'checkbox', // 选项的Icon
@@ -487,7 +488,7 @@ export default Route.extend({
             }),
             Ember.Object.create({
               selected: false,
-              renderId: '4567890-0987',
+              renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.sentence(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'checkbox', // 选项的Icon
@@ -503,7 +504,7 @@ export default Route.extend({
             }),
             Ember.Object.create({
               selected: false,
-              renderId: '4567890-0987',
+              renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.paragraph(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'checkbox', // 选项的Icon
@@ -519,7 +520,7 @@ export default Route.extend({
             }),
             Ember.Object.create({
               selected: false,
-              renderId: '4567890-0987',
+              renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.sentence(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'checkbox', // 选项的Icon
@@ -535,7 +536,7 @@ export default Route.extend({
             }),
             Ember.Object.create({
               selected: false,
-              renderId: '4567890-0987',
+              renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.paragraph(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'checkbox', // 选项的Icon
@@ -557,14 +558,17 @@ export default Route.extend({
         handleOptionClick: (option, node) => {
           console.log(option);
           console.log(node);
-          if (option.toggleProperty('selected')) {
+          const selected = get(option, 'selected')
+
+          set(option, 'selected', !selected);
+/*          if (option.toggleProperty('selected')) {
 
             node.options.forEach((opt) => {
               if (opt != option) {
                 set(opt, 'selected', false);
               }
             })
-          }
+          }*/
         },
 
       },
