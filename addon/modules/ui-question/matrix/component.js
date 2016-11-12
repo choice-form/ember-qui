@@ -49,13 +49,17 @@ export default Component.extend({
     const fixHeader =  this.element.querySelector('.fix-header');
     const columnList = this.element.querySelector('.flickity-column');
 
-    this.swiper = new Swiper(columnList, {
-      slidesPerView: device.desktop() ? 2 : 1,
-    });
-
     this.fixHeader = new Swiper(fixHeader, {
       slidesPerView: device.desktop() ? 2 : 1,
     });
+
+    this.swiper = new Swiper(columnList, {
+      slidesPerView: device.desktop() ? 2 : 1,
+      paginationClickable: true,
+      pagination: '.swiper-pagination',
+    });
+
+
 
     this.fixHeader.params.control = this.swiper;
     this.swiper.params.control = this.fixHeader;
@@ -67,7 +71,6 @@ export default Component.extend({
     window.onresize =()=>{
       matirxSetHeight.call(this);
     };
-
 
   },
 
