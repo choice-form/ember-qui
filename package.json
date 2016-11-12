@@ -42,7 +42,8 @@
     "less-plugin-autoprefix": "^1.5.1",
     "masonry-layout": "^4.1.1",
     "slick-carousel": "^1.6.0",
-    "sortablejs": "^1.4.2"
+    "sortablejs": "^1.4.2",
+    "swiper": "^3.4.0"
   },
   "devDependencies": {
     "broccoli-asset-rev": "^2.5.0",

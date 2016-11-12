@@ -18,6 +18,7 @@ module.exports = {
       this.addPackageToProject('masonry-layout'),
       this.addPackageToProject('sortablejs'),
       this.addPackageToProject('slick-carousel'),
+      this.addPackageToProject('swiper'),
       this.addAddonsToProject({
         packages: [
           { name: 'ember-cli-less', target: '^1.5.3' }

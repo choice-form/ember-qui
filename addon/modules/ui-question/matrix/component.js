@@ -34,7 +34,13 @@ export default Component.extend({
     const flickityColumn = this.element.getElementsByClassName('flickity-column')[0];
     const fixHeader = this.element.getElementsByClassName('fix-header')[0];
 
-    this.colSlick = $(flickityColumn).slick({
+    var mySwiper = new Swiper (flickityColumn, {
+      // Optional parameters
+      direction: 'vertical',
+      loop: true
+    });
+
+    /*this.colSlick = $(flickityColumn).slick({
       infinite: false,
       slidesToShow: 2,
       slidesToScroll: 1,
@@ -49,10 +55,10 @@ export default Component.extend({
       arrows: false,
     });
 
-    /**
+    /!**
      * 设置fixheader的高度
      * @type {any}
-     */
+     *!/
     const fixHeaderColumns = this.element.getElementsByClassName('fix-header-column');
     let maxHeightForHeader = 0;
     for (let i = 0; i < fixHeaderColumns.length; i++) {
@@ -63,10 +69,10 @@ export default Component.extend({
     ;
     $(fixHeaderColumns).css('height', maxHeightForHeader + 'px');
 
-    /**
+    /!**
      * 设置colmun的高度
      * @type {any}
-     */
+     *!/
 
     const fixColumns = this.element.getElementsByClassName('fix-column')[0].getElementsByTagName('li');
     let colHeights = [];
@@ -83,7 +89,7 @@ export default Component.extend({
         columnItems[l].style.height = colHeights[l] + 'px';
       }
     }
-    ;
+    ;*/
   },
 
   didDestroyElement(){

@@ -28,6 +28,10 @@ module.exports = {
         srcDir: 'slick',
         import: ['slick.js', 'slick.css', 'slick-theme.css'],
         public: ['ajax-loader.gif', 'fonts/*']
+      },
+      'swiper': {
+        srcDir: 'dist',
+        import: ['js/swiper.js', 'css/swiper.css'],
       }
     }
   },
