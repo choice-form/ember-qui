@@ -4,7 +4,7 @@
   </h4>
 {{/if}}
 
-{{#if (or minValue maxValue)}}
+{{#if isDescription}}
   <div class="range-value">
     <span>Min value: {{minValue}}</span>
     <span>Max value: {{maxValue}}</span>
@@ -17,8 +17,8 @@
   {{/if}}
   {{range-slider start=value
                  connect="lower"
-                 min=(if minValue minValue 0)
-                 max=(if maxValue minValue 100)
+                 min=minValue
+                 max=maxValue
                  on-change=handleOptionInput
   }}
 </div>
