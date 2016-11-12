@@ -10,6 +10,20 @@
                             icon=(if option.selected (concat option.icon "-active") option.icon)
                             handleOptionClick=(action "handleOptionClick" option)}}
 {{/each}}
+<aside class="thumb-wrapper">
+  <ul class="thumb">
+    <li class="thumb-item">
+      <a style="background-image: url('/images/sample-random/sample-random-0.58-13.jpeg')"></a>
+    </li>
+    <li class="thumb-item">
+      <a style="background-image: url('/images/sample-random/sample-random-0.562-12.jpeg')"></a>
+    </li>
+    <li class="thumb-item">
+      <a style="background-image: url('/images/sample-random/sample-random-0.666-16.jpeg')"></a>
+    </li>
+  </ul>
+</aside>
+
 {{#if (and (eq node.showStyle 'pinterest') isLoading)}}
   <div class="full-screen-loading">
     <div class="loading-wrapper">

@@ -217,22 +217,6 @@ export default Route.extend({
               inputRule: '', //输入控件初始化规则
               value: '',
               placeholder: '',
-            }),
-            Ember.Object.create({
-              selected: false,
-              renderId: '4567890-0987',
-              text: '',
-              uuid: faker.date.between('2016-01-01', '2016-12-31'),
-              icon: 'radio', // 选项的Icon
-              image: {
-                ratio: 0.666,
-                natural:'/images/sample-random/sample-random-0.666-40.jpeg',
-                thumbnail:'/images/sample-random/sample-random-0.666-40-thumbnail.jpeg',
-              },
-              inputType: '', // 'select', 'input', 'select-input, ower-input',
-              inputRule: '', //输入控件初始化规则
-              value: '',
-              placeholder: '',
             })
           ],
         }

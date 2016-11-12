@@ -32,6 +32,14 @@ html.desktop {
       }
     }
   }
+  & .thumb-wrapper {
+    & .thumb-item:hover {
+      & a:after {
+        background-color: fade(@secondary, 10%);
+        box-shadow: inset 0 0 0 1px @secondary, inset 0 0 0 2px @primary;
+      }
+    }
+  }
 
   & .ui-ranking {
     & .ranking-rank:hover {
