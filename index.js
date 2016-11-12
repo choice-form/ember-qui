@@ -24,15 +24,7 @@ module.exports = {
       imagesloaded: { import: ['imagesloaded.pkgd.js'] },
       'masonry-layout': { import: ['dist/masonry.pkgd.js'] },
       sortablejs: { import: ['Sortable.js'] },
-      'slick-carousel': {
-        srcDir: 'slick',
-        import: ['slick.js', 'slick.css', 'slick-theme.css'],
-        public: ['ajax-loader.gif', 'fonts/*']
-      },
-      'swiper': {
-        srcDir: 'dist',
-        import: ['js/swiper.js', 'css/swiper.css'],
-      }
+      swiper: { srcDir: 'dist', import: ['js/swiper.min.js', 'css/swiper.min.css'] }
     }
   },
 
@@ -49,6 +41,7 @@ module.exports = {
     app.import(`./vendor/shims/imagesloaded.js`);
     app.import(`./vendor/shims/masonry.js`);
     app.import(`./vendor/shims/sortable.js`);
+    app.import(`./vendor/shims/swiper.js`);
 
     app.import(`./vendor/mobiscroll/js/mobiscroll.custom-3.0.0-beta6.min.js`);
     app.import(`./vendor/mobiscroll/_css/mobiscroll.animation-3.0.0-beta6.css`);

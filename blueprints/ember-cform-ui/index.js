@@ -17,7 +17,6 @@ module.exports = {
       this.addPackageToProject('less-plugin-autoprefix'),
       this.addPackageToProject('masonry-layout'),
       this.addPackageToProject('sortablejs'),
-      this.addPackageToProject('slick-carousel'),
       this.addPackageToProject('swiper'),
       this.addAddonsToProject({
         packages: [
