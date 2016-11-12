@@ -26,7 +26,7 @@ export default Route.extend({
           options:[
             Ember.Object.create({
               selected: false,
-              renderId: '4567890-0987',
+              renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.sentence(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'radio', // 选项的Icon
@@ -42,7 +42,7 @@ export default Route.extend({
             }),
             Ember.Object.create({
               selected: false,
-              renderId: '4567890-0987',
+              renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.sentence(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'radio', // 选项的Icon
@@ -58,7 +58,7 @@ export default Route.extend({
             }),
             Ember.Object.create({
               selected: false,
-              renderId: '4567890-0987',
+              renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.paragraph(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'radio', // 选项的Icon
@@ -74,7 +74,7 @@ export default Route.extend({
             }),
             Ember.Object.create({
               selected: false,
-              renderId: '4567890-0987',
+              renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.sentence(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'radio', // 选项的Icon
@@ -90,7 +90,7 @@ export default Route.extend({
             }),
             Ember.Object.create({
               selected: false,
-              renderId: '4567890-0987',
+              renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.paragraph(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'radio', // 选项的Icon
@@ -106,7 +106,7 @@ export default Route.extend({
             }),
             Ember.Object.create({
               selected: false,
-              renderId: '4567890-0987',
+              renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.paragraph(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'radio', // 选项的Icon
@@ -140,7 +140,7 @@ export default Route.extend({
           options:[
             Ember.Object.create({
               selected: false,
-              renderId: '4567890-0987',
+              renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.sentence(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'radio', // 选项的Icon
@@ -156,7 +156,7 @@ export default Route.extend({
             }),
             Ember.Object.create({
               selected: false,
-              renderId: '4567890-0987',
+              renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.sentence(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'radio', // 选项的Icon
@@ -172,7 +172,7 @@ export default Route.extend({
             }),
             Ember.Object.create({
               selected: false,
-              renderId: '4567890-0987',
+              renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.paragraph(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'radio', // 选项的Icon
@@ -188,7 +188,7 @@ export default Route.extend({
             }),
             Ember.Object.create({
               selected: false,
-              renderId: '4567890-0987',
+              renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.sentence(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'radio', // 选项的Icon
@@ -204,7 +204,7 @@ export default Route.extend({
             }),
             Ember.Object.create({
               selected: false,
-              renderId: '4567890-0987',
+              renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.paragraph(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'radio', // 选项的Icon
@@ -220,7 +220,7 @@ export default Route.extend({
             }),
             Ember.Object.create({
               selected: false,
-              renderId: '4567890-0987',
+              renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.paragraph(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'radio', // 选项的Icon
@@ -255,7 +255,7 @@ export default Route.extend({
           options:[
             Ember.Object.create({
               selected: false,
-              renderId: '4567890-0987',
+              renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.sentence(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'radio', // 选项的Icon
@@ -271,7 +271,7 @@ export default Route.extend({
             }),
             Ember.Object.create({
               selected: false,
-              renderId: '4567890-0987',
+              renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.sentence(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'radio', // 选项的Icon
@@ -287,7 +287,7 @@ export default Route.extend({
             }),
             Ember.Object.create({
               selected: false,
-              renderId: '4567890-0987',
+              renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.paragraph(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'radio', // 选项的Icon
@@ -303,7 +303,7 @@ export default Route.extend({
             }),
             Ember.Object.create({
               selected: false,
-              renderId: '4567890-0987',
+              renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.sentence(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'radio', // 选项的Icon
@@ -319,7 +319,7 @@ export default Route.extend({
             }),
             Ember.Object.create({
               selected: false,
-              renderId: '4567890-0987',
+              renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.paragraph(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'radio', // 选项的Icon
@@ -335,7 +335,7 @@ export default Route.extend({
             }),
             Ember.Object.create({
               selected: false,
-              renderId: '4567890-0987',
+              renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.paragraph(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'radio', // 选项的Icon
