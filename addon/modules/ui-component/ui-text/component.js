@@ -1,6 +1,6 @@
 import Component from 'ember-component';
 import layout from './template';
-import computed,{alias} from 'ember-computed';
+import computed,{alias, reads} from 'ember-computed';
 import get from 'ember-metal/get';
 import mobiInit from '../../lib/mobile-factory'
 
@@ -8,7 +8,7 @@ export default Component.extend({
   layout,
   classNames: ['ui-text'],
   attributeBindings: ['data-render-id'],
-  'data-render-id': computed.oneWay('node.renderId'),
+  'data-render-id': reads('node.renderId'),
 
   /**
    * 'noValidation','','int','phone','float','email','date','dateRange','time','timeRange','postCode','url'

@@ -2,7 +2,7 @@ import Component from 'ember-component';
 import layout from './template';
 import get from 'ember-metal/get';
 import set from 'ember-metal/set';
-import computed, {alias} from 'ember-computed';
+import {alias, reads} from 'ember-computed';
 import Sortable from 'sortable';
 import {later} from 'ember-runloop';
 
@@ -13,7 +13,7 @@ export default Component.extend({
   classNames:['ui-ranking'],
 
   attributeBindings:['data-render-id'],
-  'data-render-id': computed.oneWay('node.renderId'),
+  'data-render-id': reads('node.renderId'),
 
   actions: {
     handleOptionClick(){
