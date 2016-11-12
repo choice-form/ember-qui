@@ -56,7 +56,6 @@ export default Component.extend({
     this._super(...arguments);
 
     const canvas = document.createElement('canvas');
-    canvas.id = 'stack-blur-canvas';
 
     const dynamicWidth = get(this, 'dynamicWidth');
 
@@ -66,7 +65,7 @@ export default Component.extend({
     if (dynamicWidth) thumbnail.setAttribute('style', dynamicWidth);
     thumbnail.onload = () => {
       addClassName(thumbnail, 'loaded');
-      stackBlurImage(thumbnail, 'stack-blur-canvas', 5);
+      stackBlurImage(thumbnail, canvas, (bowser.firefox || bowser.msie) ? 0 : 100);
     }
     this.element.appendChild(thumbnail);
     this.element.appendChild(canvas);
