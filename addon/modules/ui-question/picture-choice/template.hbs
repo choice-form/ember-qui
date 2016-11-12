@@ -16,7 +16,7 @@
     {{#each node.options as |option|}}
       {{#if option.selected}}
         <li class="thumb-item">
-          <a href={{concat "#" option.renderId}} style={{html-safe (concat "background-image: url('" option.image.thumbnail "')")}}></a>
+          <a href={{concat "#" option.renderId}} style={{html-safe (concat "background-image: url('" option.image.natural "')")}}></a>
         </li>
       {{/if}}
     {{/each}}
