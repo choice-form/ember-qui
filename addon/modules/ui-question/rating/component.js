@@ -37,13 +37,36 @@ export default Component.extend({
 
   actions: {
     /**
-     * handleOptionInput事件
+     * click事件
      */
-    handleOptionInput(e){
+    handleOptionClick(e){
       const value = e.target.value;
       const checked = e.target.checked;
       const data = checked ? value : value -1;
-      this.handleEvents.handleOptionInput(data, get(this, 'option'),get(this,'node'));
+      this.handleEvents.handleOptionClick(data, get(this, 'option'),get(this,'node'));
+    },
+
+    /**
+     * onInput
+     */
+
+    handleOptionInput(e){
+      const value = e.currentTarget.value;
+      this.handleEvents.handleOptionInput(value, get(this, 'option'), get(this, 'node'));
+    },
+
+
+    /**
+     * handleOptionInputForTextarea
+     */
+
+    handleOptionInputForTextarea(e){
+      const value = e.currentTarget.value;
+      this.handleEvents.handleOptionInput(value, get(this, 'option'), get(this, 'node'));
+
+      e.currentTarget.style.height = '74px';
+      e.currentTarget.style.height = e.currentTarget.scrollHeight + 2 + 'px';
+
     },
   },
 

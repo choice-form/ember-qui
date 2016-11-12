@@ -9,10 +9,30 @@ export default Component.extend({
   actions: {
 
     /**
-     * change事件
+     * change / onInput事件
      */
     handleOptionInput(e){
-      this.handleEvents.handleOptionInput( parseInt(e), get(this, 'option'),get(this,'node'));
+      const option = get(this, 'option');
+      let data = '';
+      if(option.inputRule){
+        data =  e.currentTarget.value;
+      }else{
+        data =  parseInt(e);
+      }
+      this.handleEvents.handleOptionInput(data, get(this, 'option'),get(this,'node'));
+    },
+
+    /**
+     * handleOptionInputForTextarea
+     */
+
+    handleOptionInputForTextarea(e){
+      const value = e.currentTarget.value;
+      this.handleEvents.handleOptionInput(value, get(this, 'option'), get(this, 'node'));
+
+      e.currentTarget.style.height = '74px';
+      e.currentTarget.style.height = e.currentTarget.scrollHeight + 2 + 'px';
+
     },
   },
 

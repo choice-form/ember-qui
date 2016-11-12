@@ -1,5 +1,10 @@
 {{#if (eq option.inputType "input")}}
-  {{ui-component/ui-text node option handleEvents}}
+  {{ui-component/ui-text inputRule=option.inputRule
+                         placeholder=option.placeholder
+                         value=option.value
+                         handleOptionInput=(action "handleOptionInput")
+                         handleOptionInputForTextarea=(action "handleOptionInputForTextarea")
+  }}
 {{else}}
   {{ui-component/ui-rating text=option.text
                            description=option.description
@@ -7,7 +12,7 @@
                            renderId=option.renderId
                            marks=optin.marks
                            graphs=graphs
-                           handleOptionInput=(action "handleOptionInput")
+                           handleOptionClick=(action "handleOptionClick")
 
   }}
 {{/if}}

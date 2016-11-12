@@ -73,7 +73,21 @@
  */
 
 /**
- * 选项输入回调方法
+ * 选项点击事件回调方法
+ *
+ * @method handleOptionClick
+ * @param {number|object} data 输入数数据，简单输入框传字符值，复杂输入框自由传对象，如上传文件的传文件对象
+ * @param {object} option 关联的选项
+ * @param {object} question 关联的问题
+ * @returns {boolean|Promise} 回调任务执行结果 true：正常 false：无法执行
+ *                            文件上传场合返回Promise
+ handleOptionClick(data, option, question){
+        return true;
+      },
+ */
+
+/**
+ * 选项输入输入事件回调方法
  *
  * @method handleOptionInput
  * @param {number|object} data 输入数数据，简单输入框传字符值，复杂输入框自由传对象，如上传文件的传文件对象
@@ -85,3 +99,4 @@
         return true;
       },
  */
+

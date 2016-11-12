@@ -19,10 +19,30 @@ export default Component.extend({
       this.handleEvents.handleOptionClick(option, get(this, 'node'));
     },
 
+
+    /**
+     * onInput
+     */
+
     handleOptionInput(e){
-      set(this, 'option.value', e.target.value);
-      this.handleEvents.handleOptionInput(get(this, 'option'), get(this, 'node'));
+      const value = e.currentTarget.value;
+      this.handleEvents.handleOptionInput(value, get(this, 'option'), get(this, 'node'));
     },
+
+
+    /**
+     * handleOptionInputForTextarea
+     */
+
+    handleOptionInputForTextarea(e){
+      const value = e.currentTarget.value;
+      this.handleEvents.handleOptionInput(value, get(this, 'option'), get(this, 'node'));
+
+      e.currentTarget.style.height = '74px';
+      e.currentTarget.style.height = e.currentTarget.scrollHeight + 2 + 'px';
+
+    },
+
   },
 
   didInsertElement(){
