@@ -161,7 +161,7 @@ export default Route.extend({
               uuid: "4ggE6B4F-Duy5-483D-905F-07E420920E12",
               icon: '',
               inputType: 'input',
-              inputRule: 'calendar',
+              inputRule: 'timeRange',
               value: '',
               placeholder: 'input calendar',
             })
@@ -183,9 +183,12 @@ export default Route.extend({
           }
         },
 
-        handleOptionInput: (option, node) => {
+        handleOptionInput(data, option, question){
+          console.log(data);
           console.log(option);
-          console.log(node);
+          console.log(question);
+
+          return true;
         },
 
         handlePrevClick: () => {

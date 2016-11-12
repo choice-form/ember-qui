@@ -21,13 +21,23 @@
     }}
   </div>
 {{else}}
-  {{ui-component/ui-text node option handleEvents}}
+  {{ui-component/ui-text inputRule=option.inputRule
+                         placeholder=option.placeholder
+                         value=option.value
+                         handleOptionInput=handleOptionInput
+                         handleOptionInputForTextarea=handleOptionInputForTextarea
+  }}
 {{/unless}}
 
 
 {{!--选择选项再弹出输入框--}}
 {{#if (and (eq option.inputType "select-input") option.selected)}}
-  {{ui-component/ui-text node option handleEvents}}
+  {{ui-component/ui-text inputRule=option.inputRule
+                         placeholder=option.placeholder
+                         value=option.value
+                         handleOptionInput=handleOptionInput
+                         handleOptionInputForTextarea=handleOptionInputForTextarea
+  }}
 {{/if}}
 
 {{errorMessage}}

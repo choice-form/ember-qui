@@ -14,8 +14,8 @@ export default Component.extend({
    * 'noValidation','','int','phone','float','email','date','dateRange','time','timeRange','postCode','url'
    */
 
-  isTextArea: computed('option.inputRule', function () {
-    const inputRule = get(this, 'option.inputRule');
+  isTextArea: computed('inputRule', function () {
+    const inputRule = get(this, 'inputRule');
     if (['noValidation', 'count'].indexOf(inputRule) > -1) {
       return true;
     } else {
@@ -23,11 +23,11 @@ export default Component.extend({
     }
   }),
 
-  type: computed('option.inputRule', function () {
+  type: computed('inputRule', function () {
     const celType = ['int', 'phone', 'postCode'];
     const numberType = ['float'];
     const urlType = ['url', 'email'];
-    const inputRule = get(this, 'option.inputRule');
+    const inputRule = get(this, 'inputRule');
     if (celType.indexOf(inputRule) > -1) {
       return 'tel';
     }
@@ -46,14 +46,11 @@ export default Component.extend({
 
   viewBox: '16',
 
-  icon: alias('option.inputRule'),
+  icon: alias('inputRule'),
 
-  value:alias('option.value'),
 
-  placeholder:alias('option.placeholder'),
-
-  className: computed('option.inputRule', function () {
-    const type = get(this, 'option.inputRule');
+  className: computed('inputRule', function () {
+    const type = get(this, 'inputRule');
     if (['date', 'time', 'timeRange', 'dateRange'].indexOf(type) > -1) {
       return 'ui-menu';
     }
@@ -61,36 +58,56 @@ export default Component.extend({
   }),
 
 
-  /**
-   * onInput
-   */
-
-  handleOptionInput(e){
-    const value = e.currentTarget.value;
-    this.handleEvents.handleOptionInput(value, get(this, 'option'), get(this, 'node'));
-  },
-
-
-  /**
-   * handleOptionInputForTextarea
-   */
-
-  handleOptionInputForTextarea(e){
-    const value = e.currentTarget.value;
-    this.handleEvents.handleOptionInput(value, get(this, 'option'), get(this, 'node'));
-
-    e.currentTarget.style.height = '74px';
-    e.currentTarget.style.height = e.currentTarget.scrollHeight + 2 + 'px';
-
-  },
-
-
   didRender(){
-    const type = get(this, 'option.inputRule');
+    const type = get(this, 'inputRule');
     const input = this.element.getElementsByTagName('input')[0];
     mobiInit(input, {
       type: type,
     });
   }
 
-}).reopenClass({positionalParams: ['node', 'option', 'handleEvents']});
+});
+
+/**
+ * ui-text
+ *
+ * @class ui-text
+ */
+
+
+/**
+ * @property {String} inputRule - input类型
+ */
+
+/**
+ * @property {String} placeholder - input的placeholder
+ */
+
+/**
+ * @property {value} value - input的绑定的值,可变
+ */
+
+/**
+ * @property {String} icon - 选项svg图标,可以不传
+ */
+
+/**
+ * @property {String} size - svg尺寸,例如:16px
+ */
+
+/**
+ * @property {String} viewbox - viewbox大小
+ */
+
+/**
+ * textarea的input事件
+ *
+ * @method handleOptionInputForTextarea
+ */
+
+
+/**
+ * input的input事件
+ *
+ * @method handleOptionInput
+ */

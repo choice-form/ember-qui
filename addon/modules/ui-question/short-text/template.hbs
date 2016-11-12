@@ -1,1 +1,6 @@
-{{ui-component/ui-text node option handleEvents}}
+{{ui-component/ui-text inputRule=option.inputRule
+                       placeholder=option.placeholder
+                       value=option.value
+                       handleOptionInput=(action "handleOptionInput")
+                       handleOptionInputForTextarea=(action "handleOptionInputForTextarea")
+}}

@@ -7,11 +7,38 @@ export default Component.extend({
   tagName:'',
 
   actions:{
+    /**
+     * onclick
+     */
     handleOptionClick(){
       const inputType = get(this, 'option.inputType');
       if (inputType === 'input')return;
       this.handleEvents.handleOptionClick(get(this, 'option'),get(this,'node'));
     },
+
+    /**
+     * onInput
+     */
+
+    handleOptionInput(e){
+      const value = e.currentTarget.value;
+      this.handleEvents.handleOptionInput(value, get(this, 'option'), get(this, 'node'));
+    },
+
+
+    /**
+     * handleOptionInputForTextarea
+     */
+
+    handleOptionInputForTextarea(e){
+      const value = e.currentTarget.value;
+      this.handleEvents.handleOptionInput(value, get(this, 'option'), get(this, 'node'));
+
+      e.currentTarget.style.height = '74px';
+      e.currentTarget.style.height = e.currentTarget.scrollHeight + 2 + 'px';
+
+    },
+
   }
 
 }).reopenClass({positionalParams: ['node','option', 'handleEvents']});
