@@ -97,7 +97,7 @@ export default Component.extend({
 
     thumbnail.onload = () => {
       addClassName(thumbnail, 'loaded');
-      stackBlurImage(thumbnail, canvas, (bowser.firefox || bowser.msie) ? 0 : 0);
+      stackBlurImage(thumbnail, canvas, (bowser.firefox || bowser.msie) ? 0 : 100);
     }
 
     this.element.appendChild(thumbnail);
