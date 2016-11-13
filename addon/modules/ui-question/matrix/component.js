@@ -7,8 +7,8 @@ export default Component.extend({
   tagName:"",
 
   actions: {
-    handleOptionClick(option, matrixItem){
-      this.handleEvents.handleOptionClick(option, matrixItem,get(this, 'node'));
+    handleOptionClick(option){
+      this.handleEvents.handleOptionClick(option, get(this, 'node'));
     },
 
 

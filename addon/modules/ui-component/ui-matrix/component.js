@@ -1,7 +1,7 @@
 import Component from 'ember-component';
 import layout from './template';
 import matirxSetHeight from '../../lib/matirxSetHeight';
-import computed, { reads } from 'ember-computed';
+import computed, {reads} from 'ember-computed';
 import get from 'ember-metal/get';
 import Swiper from 'swiper';
 
@@ -14,30 +14,37 @@ export default Component.extend({
   attributeBindings: ['data-render-id'],
   'data-render-id': reads('node.renderId'),
 
-  isDesktop:computed(function () {
+  isDesktop: computed(function () {
 
     return device.desktop() ? true : false;
   }),
 
 
   didInsertElement(){
-    const fixHeader =  this.element.querySelector('.fix-header');
+    const fixHeader = this.element.querySelector('.fix-header');
     const columnList = this.element.querySelector('.column-container');
-
+    const matrixThumbnails = $(this.element.querySelector('.matrix-thumbnail-wrapper')).find('ul');
     this.fixHeader = new Swiper(fixHeader, {
       slidesPerView: get(this, 'isDesktop') ? 2 : 1,
-      loop:true,
     });
 
     this.swiper = new Swiper(columnList, {
-      slidesPerView:  get(this, 'isDesktop') ? 2 : 1,
+      slidesPerView: get(this, 'isDesktop') ? 2 : 1,
       paginationClickable: true,
-      loop:true,
       nextButton: '.swiper-button-next',
       prevButton: '.swiper-button-prev',
       pagination: '.swiper-pagination',
+      onInit: (e)=> {
+        matrixThumbnails.removeAttr('class');
+        matrixThumbnails.eq(e.realIndex).addClass('active');
+        console.log(e.realIndex);
+      },
+      onSlideChangeEnd: (e)=> {
+        matrixThumbnails.removeAttr('class');
+        matrixThumbnails.eq(e.realIndex).addClass('active');
+        console.log(e.realIndex);
+      }
     });
-
 
 
     this.fixHeader.params.control = this.swiper;
@@ -45,9 +52,9 @@ export default Component.extend({
 
     matirxSetHeight.call(this);
 
-    if(!device.desktop()) return ;
+    if (!device.desktop()) return;
 
-    window.onresize =()=>{
+    window.onresize = ()=> {
       matirxSetHeight.call(this);
     };
 
@@ -84,9 +91,9 @@ export default Component.extend({
  * @example
  ``` javascript
  {{#each node.optionsX as |option|}}
-  <div class="fix-header-column swiper-slide">
-    <span>{{option.text}}</span>
-  </div>
+ <div class="fix-header-column swiper-slide">
+ <span>{{option.text}}</span>
+ </div>
  {{/each}}
  ```
  */
@@ -96,9 +103,9 @@ export default Component.extend({
  * @example
  ``` javascript
  {{#each node.optionsY as |option| }}
-   <li style={{colHeight}}>
-    <span>{{option.text}}</span>
-   </li>
+ <li style={{colHeight}}>
+ <span>{{option.text}}</span>
+ </li>
  {{/each}}
  ```
  */
@@ -109,23 +116,23 @@ export default Component.extend({
  * @example
  ``` javascript
  {{#each node.matrix as |subMatrix|}}
-   <div class="column swiper-slide">
-     {{#each subMatrix as |option|}}
-       <div class="column-item">
-         <input
-           name={{node.renderId}}
-           id={{option.renderId}}
-           type="checkbox"
-           onclick={{action 'handleOptionClick' option}}
-           checked={{option.selected}}
-           disabled={{disabled}}
-           required>
-           {{ui-component/ui-label selected=option.selected
-                                   for=option.renderId
-                                   icon=(if option.selected 'checkbox-active' 'checkbox')}}
-       </div>
-     {{/each}}
-   </div>
+ <div class="column swiper-slide">
+ {{#each subMatrix as |option|}}
+ <div class="column-item">
+ <input
+ name={{node.renderId}}
+ id={{option.renderId}}
+ type="checkbox"
+ onclick={{action 'handleOptionClick' option}}
+ checked={{option.selected}}
+ disabled={{disabled}}
+ required>
+ {{ui-component/ui-label selected=option.selected
+                         for=option.renderId
+                         icon=(if option.selected 'checkbox-active' 'checkbox')}}
+ </div>
+ {{/each}}
+ </div>
  {{/each}}
  ```
  */
@@ -136,12 +143,12 @@ export default Component.extend({
  * @example
  ``` javascript
  {#each node.otherOptions as |option|}}
-   {{ui-component/ui-text inputRule=option.inputRule
-                          placeholder=option.placeholder
-                          value=option.value
-                          handleOptionInput=(action "handleOptionInput")
-                          handleOptionInputForTextarea=(action "handleOptionInputForTextarea")
-   }}
+ {{ui-component/ui-text inputRule=option.inputRule
+                        placeholder=option.placeholder
+                        value=option.value
+                        handleOptionInput=(action "handleOptionInput")
+                        handleOptionInputForTextarea=(action "handleOptionInputForTextarea")
+ }}
  {{/each}}
  ```
  */
