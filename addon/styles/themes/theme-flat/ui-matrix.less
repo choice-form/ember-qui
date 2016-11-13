@@ -139,9 +139,12 @@
     & ul {
       width: 12px;
       float: left;
-      opacity: .5;
       &.active {
-        opacity: 1;
+        & li {
+          & span {
+            opacity: 1;
+          }
+        }
       }
       & li {
         float: left;
@@ -150,8 +153,13 @@
           display: block;
           width: 4px;
           height: 4px;
+          opacity: .5;
           border-radius: 50%;
-          transition: background-color 200ms ease;
+        }
+        &.active {
+          & span {
+            opacity: 1;
+          }
         }
       }
     }
