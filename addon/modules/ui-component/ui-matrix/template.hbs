@@ -5,9 +5,9 @@
   <div class="matrix-thumbnail">
     <div class="matrix-thumbnail-wrapper">
       <div>
-        {{#each matrix as |matrixItem|}}
-          <ul class={{html-safe (if matrixItem.selected "active")}}>
-            {{#each matrixItem.subMatrix as |option|}}
+        {{#each matrix as |subMatrix|}}
+          <ul>
+            {{#each subMatrix as |option|}}
               <li class={{html-safe (if option.selected "active")}}><span></span></li>
             {{/each}}
           </ul>
@@ -36,15 +36,15 @@
     </ul>
     <div class="column-container swiper-container">
       <div class="swiper-wrapper">
-        {{#each matrix as |matrixItem|}}
+        {{#each matrix as |subMatrix|}}
           <div class="column swiper-slide">
-            {{#each matrixItem.subMatrix as |option|}}
+            {{#each subMatrix as |option|}}
               <div class="column-item">
                 <input
                   name={{name}}
                     id={{option.renderId}}
                   type="checkbox"
-                  onclick={{action handleOptionClick option matrixItem}}
+                  onclick={{action handleOptionClick option}}
                     checked={{option.selected}}
                   disabled={{disabled}}
                     required>
