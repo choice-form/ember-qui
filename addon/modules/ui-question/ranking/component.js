@@ -39,7 +39,7 @@ export default Component.extend({
 
     //sortable事件
     this.sortTable = new Sortable(this.element, {
-      handle: '.ranking-rank',
+      handle: '.effect-container',
       scroll: true,
       scrollSensitivity: 240,
       animation: 250,
