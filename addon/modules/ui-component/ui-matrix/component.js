@@ -26,11 +26,13 @@ export default Component.extend({
 
     this.fixHeader = new Swiper(fixHeader, {
       slidesPerView: get(this, 'isDesktop') ? 2 : 1,
+      loop:true,
     });
 
     this.swiper = new Swiper(columnList, {
       slidesPerView:  get(this, 'isDesktop') ? 2 : 1,
       paginationClickable: true,
+      loop:true,
       nextButton: '.swiper-button-next',
       prevButton: '.swiper-button-prev',
       pagination: '.swiper-pagination',
