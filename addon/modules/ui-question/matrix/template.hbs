@@ -1,1 +1,9 @@
-{{ui-component/ui-matrix node handleEvents}}
+{{ui-component/ui-matrix name= node.renderId
+                         otherOptions=node.otherOptions
+                         matrix=node.matrix
+                         optionsY=node.optionsY
+                         optionsX=node.optionsX
+                         handleOptionClick=(action "handleOptionClick")
+                         handleOptionInput=(action "handleOptionInput")
+                         handleOptionInputForTextarea=(action "handleOptionInputForTextarea")
+}}

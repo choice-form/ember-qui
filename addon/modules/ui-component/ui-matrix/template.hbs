@@ -2,7 +2,7 @@
   <div class="fix-header-position">
     <div class="fix-header swiper-container">
       <div class="swiper-wrapper">
-        {{#each node.optionsX as |option|}}
+        {{#each optionsX as |option|}}
           <div class="fix-header-column swiper-slide">
             <span>{{option.text}}</span>
           </div>
@@ -12,7 +12,7 @@
   </div>
   <div class="matrix-content">
     <ul class="fix-column">
-      {{#each node.optionsY as |option| }}
+      {{#each optionsY as |option| }}
         <li style={{colHeight}}>
           <span>{{option.text}}</span>
         </li>
@@ -20,15 +20,15 @@
     </ul>
     <div class="column-container swiper-container">
       <div class="swiper-wrapper">
-        {{#each node.matrix as |subMatrix|}}
+        {{#each matrix as |subMatrix|}}
           <div class="column swiper-slide">
             {{#each subMatrix as |option|}}
               <div class="column-item">
                 <input
-                  name={{node.renderId}}
+                  name={{name}}
                     id={{option.renderId}}
                   type="checkbox"
-                  onclick={{action 'handleOptionClick' option}}
+                  onclick={{action handleOptionClick option}}
                     checked={{option.selected}}
                   disabled={{disabled}}
                     required>
@@ -45,11 +45,11 @@
   </div>
 </div>
 
-{{#each node.otherOptions as |option|}}
+{{#each otherOptions as |option|}}
   {{ui-component/ui-text inputRule=option.inputRule
                          placeholder=option.placeholder
                          value=option.value
-                         handleOptionInput=(action "handleOptionInput")
-                         handleOptionInputForTextarea=(action "handleOptionInputForTextarea")
+                         handleOptionInput=handleOptionInput
+                         handleOptionInputForTextarea=handleOptionInputForTextarea
   }}
 {{/each}}
