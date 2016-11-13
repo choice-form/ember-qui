@@ -56,6 +56,7 @@ export default Component.extend({
     this.swiper = new Swiper(columnList, {
       slidesPerView: device.desktop() ? 2 : 1,
       paginationClickable: true,
+      loop:false,
       pagination: '.swiper-pagination',
     });
 

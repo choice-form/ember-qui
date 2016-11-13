@@ -1,29 +1,29 @@
 {{!--如果输入类型是input，则，使用其他选项备注组件--}}
-{{#unless (eq option.inputType 'input')}}
-  <div class={{concat 'ui-choice ' node.selectType}}>
+{{#unless (eq inputType 'input')}}
+  <div class={{concat 'ui-choice ' selectType}}>
     <input
-      id={{option.uuid}}
-        type={{node.selectType}}
-      onclick={{action handleOptionClick}}
-        name={{node.uuid}}
+      id={{uuid}}
+        type={{selectType}}
+      onclick={{handleOptionClick}}
+        name={{name}}
       autofocus={{autofocus}}
-        placeholder={{option.placeholder}}
-      checked={{option.selected}}
+        placeholder={{placeholder}}
+      checked={{selected}}
         disabled={{disabled}}
       required={{required}}
         tabindex={{tabindex}}
-      value={{option.value}}
+      value={{value}}
     >
-    {{ui-component/ui-label selected=option.selected
-                            for=option.uuid
-                            text=option.text
-                            icon=(if option.selected (concat option.icon '-active') option.icon)
+    {{ui-component/ui-label selected=selected
+                            for=uuid
+                            text=text
+                            icon=(if selected (concat icon '-active') icon)
     }}
   </div>
 {{else}}
-  {{ui-component/ui-text inputRule=option.inputRule
-                         placeholder=option.placeholder
-                         value=option.value
+  {{ui-component/ui-text inputRule=inputRule
+                         placeholder=placeholder
+                         value=value
                          handleOptionInput=handleOptionInput
                          handleOptionInputForTextarea=handleOptionInputForTextarea
   }}
@@ -31,10 +31,10 @@
 
 
 {{!--选择选项再弹出输入框--}}
-{{#if (and (eq option.inputType "select-input") option.selected)}}
-  {{ui-component/ui-text inputRule=option.inputRule
-                         placeholder=option.placeholder
-                         value=option.value
+{{#if (and (eq inputType "select-input") selected)}}
+  {{ui-component/ui-text inputRule=inputRule
+                         placeholder=placeholder
+                         value=value
                          handleOptionInput=handleOptionInput
                          handleOptionInputForTextarea=handleOptionInputForTextarea
   }}

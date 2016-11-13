@@ -1,4 +1,13 @@
-{{ui-component/ui-choice node option handleEvents
+{{ui-component/ui-choice inputType=option.inputType
+                         selectType=node.selectType
+                         uuid=option.uuid
+                         name=node.uuid
+                         placeholder=option.placeholder
+                         selected=option.selected
+                         value=option.value
+                         text=option.text
+                         icon=option.icon
+                         inputRule=option.inputRule
                          handleOptionClick=(action "handleOptionClick")
                          handleOptionInput=(action "handleOptionInput")
                          handleOptionInputForTextarea=(action "handleOptionInputForTextarea")
