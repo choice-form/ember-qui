@@ -8,9 +8,16 @@ export default Component.extend({
 });
 
 /**
- * ui-dropdown
+ * UiDropdownComponent
  *
- * @class ui-dropdown
+ ``` javascript
+ {{ui-component/ui-dropdown options=node.options
+                           quesType=node.quesType
+                           icon='arrows-small-down'
+}}
+ ```
+ * @class UiDropdownComponent
+ *
  */
 
 

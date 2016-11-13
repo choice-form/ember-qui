@@ -9,7 +9,7 @@ export default Component.extend({
 });
 
 /**
- * ui-choice
+ * UiChoiceComponent
  *
  ``` javascript
  {{ui-component/ui-choice inputType=option.inputType
@@ -27,7 +27,7 @@ export default Component.extend({
 }}
  ```
  *
- * @class ui-choice
+ * @class UiChoiceComponent
  */
 
 

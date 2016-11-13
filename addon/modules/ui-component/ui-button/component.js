@@ -17,9 +17,13 @@ export default Component.extend({
 });
 
 /**
- * ui-button
+ * UiButtonComponent
  *
- * @class ui-button
+ ``` javascript
+ {{ui-component/ui-button className='prevButton secondary' handleClick=(action 'handlePrevClick') text=prevButton}}
+ ```
+ *
+ * @class UiButtonComponent
  */
 
 

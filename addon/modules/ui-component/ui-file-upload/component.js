@@ -8,9 +8,23 @@ export default Component.extend({
 });
 
 /**
- * ui-file-upload
+ * UiFileUploadComponent
  *
- * @class ui-file-upload
+ ``` javascript
+ {{ui-component/ui-file-upload state=state
+                               button=button
+                               icon=icon
+                               uploadText=uploadText
+                               uuid=option.uuid
+                               value=option.value
+                               text=option.text
+                               handleOptionInput=(action "handleOptionInput")
+                               handleOptionClick=(action "handleOptionClick")
+ }}
+ ```
+ *
+ * @class UiFileUploadComponent
+ *
  */
 
 

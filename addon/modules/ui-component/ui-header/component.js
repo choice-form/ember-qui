@@ -31,9 +31,13 @@ export default Component.extend({
 }).reopenClass({positionalParams: ['header']});
 
 /**
- * ui-header
+ * UiHeaderComponent
  *
- * @class ui-header
+ ``` javascript
+ {{ui-component/ui-header intro imageTop=true}}
+ ```
+ *
+ * @class UiHeaderComponent
  */
 
 
