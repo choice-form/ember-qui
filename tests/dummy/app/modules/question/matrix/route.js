@@ -2,7 +2,6 @@
 import Route from 'ember-route';
 import get from 'ember-metal/get';
 import set from 'ember-metal/set';
-import Ember from 'ember';
 import faker from 'faker';
 
 export default Route.extend({
@@ -49,99 +48,116 @@ export default Route.extend({
             }
           ],
           matrix:[
-            [
               {
-                selected:false,
-                renderId:Math.random(1000),
+                selected: false,
+                renderId: Math.random(1000),
+                subMatrix: [
+                  {
+                    selected:false,
+                    renderId:Math.random(1000),
+                  },
+                  {
+                    selected:false,
+                    renderId:Math.random(1000),
+                  },
+                  {
+                    selected:false,
+                    renderId:Math.random(1000),
+                  },
+                  {
+                    selected:false,
+                    renderId:Math.random(1000),
+                  },
+                ]
               },
               {
-                selected:false,
-                renderId:Math.random(1000),
+                selected: false,
+                renderId: Math.random(1000),
+                subMatrix: [
+                  {
+                    selected:false,
+                    renderId:Math.random(1000),
+                  },
+                  {
+                    selected:false,
+                    renderId:Math.random(1000),
+                  },
+                  {
+                    selected:false,
+                    renderId:Math.random(1000),
+                  },
+                  {
+                    selected:false,
+                    renderId:Math.random(1000),
+                  },
+                ]
               },
               {
-                selected:false,
-                renderId:Math.random(1000),
+                selected: false,
+                renderId: Math.random(1000),
+                subMatrix: [
+                  {
+                    selected:false,
+                    renderId:Math.random(1000),
+                  },
+                  {
+                    selected:false,
+                    renderId:Math.random(1000),
+                  },
+                  {
+                    selected:false,
+                    renderId:Math.random(1000),
+                  },
+                  {
+                    selected:false,
+                    renderId:Math.random(1000),
+                  },
+                ]
               },
               {
-                selected:false,
-                renderId:Math.random(1000),
-              },
-
-            ],
-            [
-              {
-                selected:false,
-                renderId:Math.random(1000),
-              },
-              {
-                selected:false,
-                renderId:Math.random(1000),
-              },
-              {
-                selected:false,
-                renderId:Math.random(1000),
-              },
-              {
-                selected:false,
-                renderId:Math.random(1000),
-              },
-
-            ],
-            [
-              {
-                selected:false,
-                renderId:Math.random(1000),
+                selected: false,
+                renderId: Math.random(1000),
+                subMatrix: [
+                  {
+                    selected:false,
+                    renderId:Math.random(1000),
+                  },
+                  {
+                    selected:false,
+                    renderId:Math.random(1000),
+                  },
+                  {
+                    selected:false,
+                    renderId:Math.random(1000),
+                  },
+                  {
+                    selected:false,
+                    renderId:Math.random(1000),
+                  },
+                ]
               },
               {
-                selected:false,
-                renderId:Math.random(1000),
-              },
-              {
-                selected:false,
-                renderId:Math.random(1000),
-              },
-              {
-                selected:false,
-                renderId:Math.random(1000),
-              },
-
-            ],
-            [
-              {
-                selected:false,
-                renderId:Math.random(1000),
-              },
-              {
-                selected:false,
-                renderId:Math.random(1000),
-              },
-              {
-                selected:false,
-                renderId:Math.random(1000),
-              },
-              {
-                selected:false,
-                renderId:Math.random(1000),
-              },
-            ],
-            [
-              {
-                selected:false,
-                renderId:Math.random(1000),
-              },
-              {
-                selected:false,
-                renderId:Math.random(1000),
-              },
-              {
-                selected:false,
-                renderId:Math.random(1000),
-              },
-              {
-                selected:false,
-                renderId:Math.random(1000),
-              },
-            ],
+                selected: false,
+                renderId: Math.random(1000),
+                subMatrix: [
+                  {
+                    selected:false,
+                    renderId:Math.random(1000),
+                  },
+                  {
+                    selected:false,
+                    renderId:Math.random(1000),
+                  },
+                  {
+                    selected:false,
+                    renderId:Math.random(1000),
+                  },
+                  {
+                    selected:false,
+                    renderId:Math.random(1000),
+                  },
+                ]
+              }
           ],
           otherOptions:[
             {
@@ -169,18 +185,19 @@ export default Route.extend({
         },
 
 
-        handleOptionClick: (option, node) => {
+        handleOptionClick: (option, matrixItem, node) => {
           console.log(option);
-          console.log(node);
+          console.log(matrixItem);
           set(option, 'selected', !get(option, 'selected'));
-          /*if (option.toggleProperty('selected')) {
+          let subMatrixIsSelected= false;
+          matrixItem.subMatrix.forEach((item)=>{
+            if(item.selected){
+              subMatrixIsSelected = true;
+              return ;
+            }
+          })
+          set(matrixItem, 'selected', subMatrixIsSelected);
 
-            node.options.forEach((opt) => {
-              if (opt != option) {
-                set(opt, 'selected', false);
-              }
-            })
-          }*/
         },
       },
 
