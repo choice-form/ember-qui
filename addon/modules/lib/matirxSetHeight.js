@@ -6,7 +6,8 @@ function matrixSetHeight() {
    * @type {any}
    */
   const fixHeaderColumns = this.element.getElementsByClassName('fix-header-column');
-  const matrixThumbnailHeight = this.element.getElementsByClassName('matrix-thumbnail')[0].offsetHeight;
+  const matrixThumbnail = this.element.getElementsByClassName('matrix-thumbnail')[0];
+  const matrixThumbnailHeight =  matrixThumbnail.offsetHeight;
   let maxHeightForHeader = 0;
   for (let i = 0; i < fixHeaderColumns.length; i++) {
     if (fixHeaderColumns[i].offsetHeight > maxHeightForHeader) {
@@ -14,6 +15,7 @@ function matrixSetHeight() {
     }
   };
   const maxHeaderHeight = matrixThumbnailHeight > maxHeightForHeader ? matrixThumbnailHeight : maxHeightForHeader;
+  matrixThumbnail.style.height = maxHeaderHeight + 'px';
   $(fixHeaderColumns).css('height', maxHeaderHeight + 'px');
 
 
