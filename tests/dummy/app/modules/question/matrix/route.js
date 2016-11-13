@@ -19,19 +19,19 @@ export default Route.extend({
           uuid: '005',
           optionsX:[
             {
-              text: `COLUMN1 ${faker.lorem.sentence()}`,
+              text: `COLUMN1 ${faker.finance.accountName()}`,
             },
             {
-              text: `COLUMN2 ${faker.lorem.sentence()}`,
+              text: `COLUMN2 ${faker.finance.accountName()}`,
             },
             {
-              text: `COLUMN3 ${faker.lorem.sentence()}`,
+              text: `COLUMN3 ${faker.finance.accountName()}`,
             },
             {
-              text: `COLUMN4 ${faker.lorem.sentence()}`,
+              text: `COLUMN4 ${faker.finance.accountName()}`,
             },
             {
-              text: `COLUMN5 ${faker.lorem.sentence()}`,
+              text: `COLUMN5 ${faker.finance.accountName()}`,
             },
           ],
           optionsY:[

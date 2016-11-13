@@ -304,6 +304,29 @@ input:checked {
   }
 }
 
+.ui-matrix {
+  & .fix-header {
+    &:after {
+      background-color: @secondary;
+    }
+  }
+  & .swiper-pagination-bullet-active {
+    background-color: @contrast;
+  }
+  & .matrix-thumbnail {
+    & ul li {
+      &.active {
+        & span {
+          background-color: @contrast;
+        }
+      }
+      & span {
+        background-color: fade(@primary, 50%);
+      }
+    }
+  }
+}
+
 .welcome {
   &.full-screen-cover {
     &:before {

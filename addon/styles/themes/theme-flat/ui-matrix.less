@@ -18,7 +18,6 @@
       &:after {
         z-index: 1;
         content: '';
-        background-color: @secondary;
 
         .absolute(0, 50%, 0, 0);
       }
@@ -104,13 +103,11 @@
               .input(1.5rem, 1.5rem);
             }
             & label {
-              width: 3.5rem;
-              height: 3.5rem;
-              margin: auto;
+              display: block;
+              min-height: 3.5rem;
               cursor: pointer;
               text-align: center;
-
-              .absolute(0, 0, 0, 0);
+              height: 100%;
               & .effect-container {
                 width: 1.5rem;
                 height: 1.5rem;
@@ -130,9 +127,6 @@
         }
         & .swiper-pagination {
           bottom: -2rem;
-          & .swiper-pagination-bullet-active {
-            background-color: @contrast;
-          }
         }
       }
     }
@@ -148,21 +142,19 @@
   justify-content: center;
   & .matrix-thumbnail-wrapper {
     align-self: center;
+    padding: 8px;
     & ul {
+      width: 12px;
+      float: left;
       & li {
         float: left;
         padding: 4px;
-        &.active {
-          & span {
-            background-color: @contrast;
-          }
-        }
         & span {
           display: block;
           width: 4px;
           height: 4px;
           border-radius: 50%;
-          background-color: fade(@primary, 50%);
+          transition: background-color 200ms ease;
         }
       }
     }
