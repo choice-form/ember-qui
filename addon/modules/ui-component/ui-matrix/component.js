@@ -31,8 +31,8 @@ export default Component.extend({
     this.swiper = new Swiper(columnList, {
       slidesPerView:  get(this, 'isDesktop') ? 2 : 1,
       paginationClickable: true,
-      nextButton: '.swiper-button-next',
-      prevButton: '.swiper-button-prev',
+      nextButton: '.matrix-button-next',
+      prevButton: '.matrix-button-prev',
       pagination: '.swiper-pagination',
     });
 

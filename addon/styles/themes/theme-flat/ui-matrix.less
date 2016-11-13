@@ -28,7 +28,7 @@
         padding: 1rem;
         text-align: center;
         &:not(:last-child) {
-          .border(0, 0, -1px, auto, auto, .3);
+          .border(0, -1px, 0, auto, auto, .3);
           &:before {
             width: 1px;
           }
@@ -40,7 +40,6 @@
       }
     }
     & .matrix-content {
-      position: relative;
       & .fix-column {
         position: relative;
         float: left;
@@ -176,6 +175,11 @@
       }
     }
   }
+  html.desktop {
+    .matrix-thumbnail {
+      width: 30%;
+    }
+  }
 }
 
 html.ie {
@@ -197,6 +201,11 @@ html.ie {
       align-self: center;
     }
   }
+  html.desktop {
+    .matrix-thumbnail {
+      .absolute(0, 70%, auto, 0);
+    }
+  }
 }
 
 html.internet,
@@ -206,4 +215,77 @@ html.edge {
 
 @supports (display: flex) {
   .matrix-thumbnail-supports();
+}
+
+/*------------------- responsive -------------------*/
+
+html.desktop {
+  & .ui-matrix {
+    & .matrix-wrapper {
+      transition: transform 200ms ease;
+      will-change: transform;
+      &:hover {
+        & .matrix-content {
+          & .matrix-button-prev,
+          & .matrix-button-next {
+            visibility: visible;
+            opacity: 1;
+          }
+        }
+      }
+      &:before {
+        position: absolute;
+        content: "";
+        .absolute(0, -3rem, 0, -3rem);
+      }
+      &.zoom {
+        width: 90vw;
+        margin-left: calc(50% + 1.5rem);
+        transform: translateX(-50%);
+      }
+      & .fix-header {
+        padding-left: 30%;
+        .border(0, 70%, 0, auto, auto, 1);
+        &:after {
+          .absolute(0, 70%, 0, 0);
+        }
+      }
+      & .matrix-resize {
+        z-index: 5;
+        cursor: pointer;
+        .absolute(0, auto, auto, 100%);
+        & svg {
+          margin: 1rem;
+          display: block;
+        }
+      }
+      & .matrix-content {
+        & .fix-column {
+          width: 30%;
+        }
+        & .matrix-button-prev,
+        & .matrix-button-next {
+          visibility: hidden;
+          opacity: 0;
+          cursor: pointer;
+          position: absolute;
+          top: calc(50% - 3rem);
+          transition: opacity 500ms ease;
+          & svg {
+            margin: 1rem;
+            display: block;
+          }
+        }
+        & .matrix-button-prev {
+          left: -3rem;
+        }
+        & .matrix-button-next {
+          right: -3rem;
+        }
+        & .swiper-button-disabled {
+          opacity: .5;
+        }
+      }
+    }
+  }
 }
