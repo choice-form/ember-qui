@@ -47,7 +47,7 @@ export default Component.extend({
 
   didInsertElement(){
     const fixHeader =  this.element.querySelector('.fix-header');
-    const columnList = this.element.querySelector('.flickity-column');
+    const columnList = this.element.querySelector('.column-container');
 
     this.fixHeader = new Swiper(fixHeader, {
       slidesPerView: device.desktop() ? 2 : 1,

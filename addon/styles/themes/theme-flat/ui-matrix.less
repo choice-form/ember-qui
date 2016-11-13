@@ -1,16 +1,24 @@
 .ui-matrix {
   & .matrix-wrapper {
     margin-bottom: 3rem;
+    border: 1px solid currentColor;
     & .fix-header {
+      position: relative;
       width: 100%;
       padding-left: 50%;
       pointer-events: none;
-      border: 1px solid currentColor;
-      border-bottom: none;
+      border-bottom: 1px solid currentColor;
 
       .border(0, 50%, 0, auto, auto, 1);
       &:before {
         width: 1px;
+        z-index: 2;
+      }
+      &:after {
+        content: "";
+        .absolute(0, 50%, 0, 0);
+        background-color: @secondary;
+        z-index: 1;
       }
       & .fix-header-column {
         position: relative;
@@ -56,8 +64,7 @@
           }
         }
       }
-      & .flickity-column {
-        border: 1px solid currentColor;
+      & .column-container {
         & .column {
           position: relative;
           outline: none;
@@ -87,15 +94,17 @@
               .border(auto, 0, 0, 0, 1px, .3);
             }
             & input {
-              margin: 0 auto;
+              margin: auto;
 
               .absolute(0, 0, 0, 0);
               .input(1.2rem, 1.2rem);
             }
             & label {
-              display: block;
-              height: 100%;
-              min-height: 3.5rem;
+              margin: auto;
+
+              .absolute(0, 0, 0, 0);
+              width: 3.5rem;
+              height: 3.5rem;
               cursor: pointer;
               text-align: center;
               & .effect-container {
