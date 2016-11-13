@@ -1,34 +1,15 @@
 <div class="matrix-wrapper">
   <div class="matrix-thumbnail">
     <div class="matrix-thumbnail-wrapper">
-      <ul>
-        <li class="active"><span></span></li>
-        <li><span></span></li>
-        <li><span></span></li>
-        <li><span></span></li>
-        <li><span></span></li>
-      </ul>
-      <ul>
-        <li><span></span></li>
-        <li><span></span></li>
-        <li><span></span></li>
-        <li class="active"><span></span></li>
-        <li><span></span></li>
-      </ul>
-      <ul>
-        <li><span></span></li>
-        <li><span></span></li>
-        <li><span></span></li>
-        <li><span></span></li>
-        <li><span></span></li>
-      </ul>
-      <ul>
-        <li><span></span></li>
-        <li><span></span></li>
-        <li><span></span></li>
-        <li><span></span></li>
-        <li><span></span></li>
-      </ul>
+
+      {{#each matrix as |subMatrix|}}
+        <ul>
+          {{#each subMatrix as |option|}}
+            <li class={{html-safe (if option.selected "active")}}><span></span></li>
+          {{/each}}
+        </ul>
+      {{/each}}
+
     </div>
   </div>
   <div class="fix-header-position">

@@ -6,13 +6,15 @@ function matrixSetHeight() {
    * @type {any}
    */
   const fixHeaderColumns = this.element.getElementsByClassName('fix-header-column');
+  const matrixThumbnailHeight = this.element.getElementsByClassName('matrix-thumbnail')[0].offsetHeight;
   let maxHeightForHeader = 0;
   for (let i = 0; i < fixHeaderColumns.length; i++) {
     if (fixHeaderColumns[i].offsetHeight > maxHeightForHeader) {
       maxHeightForHeader = fixHeaderColumns[i].offsetHeight;
     }
   };
-  $(fixHeaderColumns).css('height', maxHeightForHeader + 'px');
+  const maxHeaderHeight = matrixThumbnailHeight > maxHeightForHeader ? matrixThumbnailHeight : maxHeightForHeader;
+  $(fixHeaderColumns).css('height', maxHeaderHeight + 'px');
 
 
 
