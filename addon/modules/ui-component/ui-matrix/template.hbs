@@ -1,15 +1,15 @@
 <div class="matrix-wrapper">
   <div class="matrix-thumbnail">
     <div class="matrix-thumbnail-wrapper">
-
-      {{#each matrix as |subMatrix|}}
-        <ul>
-          {{#each subMatrix as |option|}}
-            <li class={{html-safe (if option.selected "active")}}><span></span></li>
-          {{/each}}
-        </ul>
-      {{/each}}
-
+      <div>
+        {{#each matrix as |subMatrix|}}
+          <ul>
+            {{#each subMatrix as |option|}}
+              <li class={{html-safe (if option.selected "active")}}><span></span></li>
+            {{/each}}
+          </ul>
+        {{/each}}
+      </div>
     </div>
   </div>
   <div class="fix-header-position">
