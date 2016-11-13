@@ -40,11 +40,10 @@ export default Component.extend({
     //sortable事件
     this.sortTable = new Sortable(this.element, {
       handle: '.effect-container',
-      scroll: true,
-      scrollSensitivity: 240,
+      scroll: false,
+      scrollSensitivity: 20,
       animation: 250,
       sort: true,
-      filter: ".ui-text",
       ghostClass: "ghost",
       onEnd: (event)=> {
         const {oldIndex} = event;

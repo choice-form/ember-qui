@@ -1,7 +1,8 @@
 import Component from 'ember-component';
 import layout from './template';
 import matirxSetHeight from '../../lib/matirxSetHeight';
-import { reads } from 'ember-computed';
+import computed, { reads } from 'ember-computed';
+import get from 'ember-metal/get';
 import Swiper from 'swiper';
 
 export default Component.extend({
@@ -13,6 +14,10 @@ export default Component.extend({
   attributeBindings: ['data-render-id'],
   'data-render-id': reads('node.renderId'),
 
+  isDesktop:computed(function () {
+
+    return device.desktop() ? true : false;
+  }),
 
 
   didInsertElement(){
@@ -20,13 +25,14 @@ export default Component.extend({
     const columnList = this.element.querySelector('.column-container');
 
     this.fixHeader = new Swiper(fixHeader, {
-      slidesPerView: device.desktop() ? 2 : 1,
+      slidesPerView: get(this, 'isDesktop') ? 2 : 1,
     });
 
     this.swiper = new Swiper(columnList, {
-      slidesPerView: device.desktop() ? 2 : 1,
+      slidesPerView:  get(this, 'isDesktop') ? 2 : 1,
       paginationClickable: true,
-      loop:false,
+      nextButton: '.swiper-button-next',
+      prevButton: '.swiper-button-prev',
       pagination: '.swiper-pagination',
     });
 
