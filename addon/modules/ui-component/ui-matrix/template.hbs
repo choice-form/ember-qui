@@ -3,7 +3,7 @@
     <div class="matrix-thumbnail-wrapper">
       <div>
         {{#each matrix as |subMatrix|}}
-          <ul>
+          <ul class="">
             {{#each subMatrix as |option|}}
               <li class={{html-safe (if option.selected "active")}}><span></span></li>
             {{/each}}
