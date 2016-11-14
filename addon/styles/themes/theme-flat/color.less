@@ -321,9 +321,17 @@ input:checked {
         }
       }
       & span {
-        background-color: fade(@primary, 50%);
+        background-color: fade(@primary, 30%);
       }
     }
+  }
+  & .swiper-button-disabled {
+    & svg {
+      fill: fade(@primary, 50%);
+    }
+  }
+  & .matrix-thumbnail {
+    background-color: @secondary;
   }
 }
 

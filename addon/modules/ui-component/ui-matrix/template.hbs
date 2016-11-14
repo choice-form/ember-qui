@@ -1,7 +1,4 @@
 <div class="matrix-wrapper">
-  {{#if isDesktop}}
-    <a class="matrix-resize">{{ui-addon/svg-item icon="stretch"}}</a>
-  {{/if}}
   <div class="matrix-thumbnail">
     <div class="matrix-thumbnail-wrapper">
       <div>
@@ -58,6 +55,7 @@
       </div>
       <div class="swiper-pagination"></div>
       {{#if isDesktop}}
+        <a class="matrix-resize">{{ui-addon/svg-item icon="stretch"}}</a>
         <div class="matrix-button-next">{{ui-addon/svg-item icon="arrows-stre-right"}}</div>
         <div class="matrix-button-prev">{{ui-addon/svg-item icon="arrows-stre-left"}}</div>
       {{/if}}
