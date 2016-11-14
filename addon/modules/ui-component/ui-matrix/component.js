@@ -6,6 +6,7 @@ import get from 'ember-metal/get';
 import set from 'ember-metal/set';
 import device from 'device';
 import $ from 'jquery';
+import {later} from 'ember-runloop';
 
 export default Component.extend({
   layout,
@@ -31,10 +32,12 @@ export default Component.extend({
 
     this.swiper = swiperMatrixInit(columnList, matrixThumbnails, {
       slidesPerView: slidesNum,
+    },()=>{
+      matirxSetHeight.call(this);
     });
 
+    this.swiper.update(true);
     this.swiper.params.control = this.fixHeader;
-    matirxSetHeight.call(this);
   },
 
   actions: {
@@ -48,10 +51,14 @@ export default Component.extend({
 
       if (resizeIcon == 'stretch') {
         set(this, 'resizeIcon', 'pinch');
-        this.swiperEffect(fixHeader, columnList, matrixThumbnails, 4);
+        later(()=>{
+          this.swiperEffect(fixHeader, columnList, matrixThumbnails, 4);
+        }, 100);
       } else {
         set(this, 'resizeIcon', 'stretch');
-        this.swiperEffect(fixHeader, columnList, matrixThumbnails, device.desktop() ? 2 : 1);
+        later(()=>{
+          this.swiperEffect(fixHeader, columnList, matrixThumbnails, device.desktop() ? 2 : 1);
+        },100)
       }
     },
   },

@@ -1,13 +1,13 @@
 import Swiper from 'swiper';
 import $ from 'jquery';
 
-
 function matrixSetHeight() {
   /**
    * 设置fixheader的高度
    * @type {any}
    */
   const fixHeaderColumns = this.element.getElementsByClassName('fix-header-column');
+  $(fixHeaderColumns).css('height', 'auto');
   const matrixThumbnail = this.element.getElementsByClassName('matrix-thumbnail')[0];
   const matrixThumbnailHeight =  matrixThumbnail.offsetHeight;
   let maxHeightForHeader = 0;
@@ -48,21 +48,22 @@ export function swiperHeaderInit(element, config) {
   });
 }
 
-export function swiperMatrixInit(element, matrixThumbnails, config) {
+export function swiperMatrixInit(element, matrixThumbnails, config, callBack) {
   return new Swiper(element, {
     paginationClickable: true,
     nextButton: '.matrix-button-next',
     prevButton: '.matrix-button-prev',
     pagination: '.swiper-pagination',
     ...config,
+    runCallbacksOnInit: true,
     onInit: (e)=> {
       matrixThumbnails.removeAttr('class');
       matrixThumbnails.slice(e.realIndex, e.realIndex + config.slidesPerView).addClass('active');
+      callBack && callBack();
     },
     onSlideChangeEnd: (e)=> {
       matrixThumbnails.removeAttr('class');
       matrixThumbnails.slice(e.realIndex, e.realIndex + config.slidesPerView).addClass('active');
-      console.log(e.realIndex, config.slidesPerView);
     },
   });
 }
