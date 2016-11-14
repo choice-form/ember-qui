@@ -48,7 +48,7 @@ export function swiperHeaderInit(element, config) {
   });
 }
 
-export function swiperMatrixInit(element, matrixThumbnails, config, callback) {
+export function swiperMatrixInit(element, matrixThumbnails, config) {
   return new Swiper(element, {
     paginationClickable: true,
     nextButton: '.matrix-button-next',
@@ -57,12 +57,12 @@ export function swiperMatrixInit(element, matrixThumbnails, config, callback) {
     ...config,
     onInit: (e)=> {
       matrixThumbnails.removeAttr('class');
-      matrixThumbnails.eq(e.realIndex).addClass('active');
-      callback && callback();
+      matrixThumbnails.slice(e.realIndex, e.realIndex + config.slidesPerView).addClass('active');
     },
     onSlideChangeEnd: (e)=> {
       matrixThumbnails.removeAttr('class');
-      matrixThumbnails.eq(e.realIndex).addClass('active');
+      matrixThumbnails.slice(e.realIndex, e.realIndex + config.slidesPerView).addClass('active');
+      console.log(e.realIndex, config.slidesPerView);
     },
   });
 }
