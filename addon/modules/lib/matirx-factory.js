@@ -1,4 +1,5 @@
 import Swiper from 'swiper';
+import $ from 'jquery';
 
 
 function matrixSetHeight() {
@@ -14,7 +15,7 @@ function matrixSetHeight() {
     if (fixHeaderColumns[i].offsetHeight > maxHeightForHeader) {
       maxHeightForHeader = fixHeaderColumns[i].offsetHeight;
     }
-  };
+  }
   const maxHeaderHeight = matrixThumbnailHeight > maxHeightForHeader ? matrixThumbnailHeight : maxHeightForHeader;
   matrixThumbnail.style.height = maxHeaderHeight + 'px';
   $(fixHeaderColumns).css('height', maxHeaderHeight + 'px');
@@ -30,7 +31,7 @@ function matrixSetHeight() {
 
   for (let j = 0; j < fixColumns.length; j++) {
     colHeights[j] = fixColumns[j].offsetHeight;
-  };
+  }
 
   const columns = this.element.getElementsByClassName('column');
   for (let k = 0; k < columns.length; k++) {
@@ -38,15 +39,7 @@ function matrixSetHeight() {
     for (var l = 0; l < colHeights.length; l++) {
       columnItems[l].style.height = colHeights[l] + 'px';
     }
-  };
-}
-
-function mobiInit(input, config) {
-  const {type} = config;
-  if (willHandleInputTypes.indexOf(type) < 0){
-    return;
   }
-  mScroll[config.type](input, config);
 }
 
 export function swiperHeaderInit(element, config) {
@@ -65,13 +58,11 @@ export function swiperMatrixInit(element, matrixThumbnails, config, callback) {
     onInit: (e)=> {
       matrixThumbnails.removeAttr('class');
       matrixThumbnails.eq(e.realIndex).addClass('active');
-      console.log(e.realIndex);
       callback && callback();
     },
     onSlideChangeEnd: (e)=> {
       matrixThumbnails.removeAttr('class');
       matrixThumbnails.eq(e.realIndex).addClass('active');
-      console.log(e.realIndex);
     },
   });
 }

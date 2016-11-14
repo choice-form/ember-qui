@@ -4,6 +4,8 @@ import matirxSetHeight, {swiperHeaderInit, swiperMatrixInit} from '../../lib/mat
 import computed, {reads} from 'ember-computed';
 import get from 'ember-metal/get';
 import set from 'ember-metal/set';
+import device from 'device';
+import $ from 'jquery';
 
 export default Component.extend({
   layout,
@@ -36,7 +38,7 @@ export default Component.extend({
   },
 
   actions: {
-    matrixResize: function (e) {
+    matrixResize: function () {
       const resizeIcon = get(this, 'resizeIcon');
       this.swiper.destroy(true, true);
       this.fixHeader.destroy(true, true);
@@ -50,7 +52,7 @@ export default Component.extend({
       } else {
         set(this, 'resizeIcon', 'stretch');
         this.swiperEffect(fixHeader, columnList, matrixThumbnails, device.desktop() ? 2 : 1);
-      };
+      }
     },
   },
 
