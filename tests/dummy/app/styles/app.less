@@ -1,1 +1,29 @@
 @import "icon-preview";
+
+.test {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.layout {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  &:nth-of-type(1) {
+    align-self: flex-start;
+  }
+  .transform {
+    &:nth-of-type(1) {
+      align-self: center;
+      & img {
+        width: 200px;
+      }
+    }
+    &:nth-of-type(2) {
+      font-size: xx-large;
+    }
+    &:nth-of-type(3) {
+      column-count: 2;
+    }
+  }
+}
