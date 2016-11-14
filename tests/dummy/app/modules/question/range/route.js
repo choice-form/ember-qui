@@ -89,7 +89,7 @@ export default Route.extend({
           images: '',
           typeName: '滑竿打分',
           renderId: '4567890-0987',
-          quesType: 'slider', //select, fill, slider
+          quesType: 'range', //select, fill, slider
           selectType: '',
           showStyle: '',
           uuid: '002',

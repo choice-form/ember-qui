@@ -29,7 +29,7 @@ Router.map(function() {
     this.route('rating');
     this.route('region');
     this.route('short-text');
-    this.route('slider');
+    this.route('range');
     this.route('matrix');
     this.route('weight');
     this.route('picture-choice', function() {
