@@ -2,7 +2,7 @@ import Component from 'ember-component';
 import layout from './template';
 import get from 'ember-metal/get';
 import set from 'ember-metal/set';
-import {alias, reads} from 'ember-computed';
+import {reads} from 'ember-computed';
 import Sortable from 'sortable';
 import {later} from 'ember-runloop';
 
@@ -39,7 +39,7 @@ export default Component.extend({
 
     //sortable事件
     this.sortTable = new Sortable(this.element, {
-      handle: '.effect-container',
+      handle: '.ranking-rank',
       scroll: false,
       scrollSensitivity: 20,
       animation: 250,
