@@ -25,7 +25,7 @@
             padding: 1rem;
             text-align: center;
             &:not(:last-child) {
-              .border(0, -1px, 0, auto, auto, .3);
+              .border(1rem, -1px, 1rem, auto, auto, .3);
               &:before {
                 width: 1px;
               }
@@ -125,6 +125,13 @@
         }
         & .swiper-pagination {
           bottom: -2.2rem;
+        }
+      }
+    }
+    &:not(.zoom) {
+      & .swiper-slide-next {
+        &:before {
+          display: none;
         }
       }
     }
@@ -236,9 +243,6 @@ html.edge {
 html.desktop {
   & .ui-matrix {
     & .matrix-wrapper {
-      transition: transform 200ms ease;
-
-      will-change: transform;
       &:hover {
         & .matrix-content {
           & .matrix-resize,
@@ -256,9 +260,11 @@ html.desktop {
         .absolute(0, -3rem, 0, -3rem);
       }
       &.zoom {
-        width: 90vw;
-        margin-left: calc(50% + 1.5rem);
-        transform: translateX(-50%);
+        //width: 90vw;
+        //margin-left: calc(50% + 1.5rem);
+        //transform: translateX(-50%);
+        margin-left: -15vw;
+        margin-right: -15vw;
         will-change: transform;
       }
       & .fix-header {
