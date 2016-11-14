@@ -7,36 +7,49 @@
       background-repeat: {{backgroundRepeat}};
       background-size: {{backgroundSize}};">
 
-      <div class="layout" style="
-        align-self: {{alignSelf}};
-        padding: {{padding}};
-        margin: {{marginT}} {{marginR}} {{marginB}} {{marginL}};">
+      {{#each options as |option|}}
+        <div class="layout" style="
+          align-self: {{option.alignSelf}};
+          padding: {{option.padding}};
+          margin: {{option.marginT}} {{option.marginR}} {{option.marginB}} {{option.marginL}};">
 
-        <div class="transform" style="
-          align-self: {{alignSelf}};
-          margin: {{marginT}} {{marginR}} {{marginB}} {{marginL}};">
+          {{#if option.image}}
+            <div class="transform" style="
+              align-self: {{option.image.alignSelf}};
+              margin: {{option.image.marginT}} {{option.image.marginR}} {{option.image.marginB}} {{option.image.marginL}};">
 
-          <img style="width: {{width}}" src={{img}}>
+              <img style="width: {{option.image.width}}" src={{option.image.img}}>
+            </div>
+          {{/if}}
+
+          {{#if option.text}}
+            {{#each option.text as |text|}}
+
+            {{/each}}
+            <div class="transform" style="
+              align-self: {{text.alignSelf}};
+              margin: {{text.marginT}} {{text.marginR}} {{text.marginB}} {{text.marginL}};">
+
+              <p style="
+                color: {{text.color}};
+                background-color: {{text.backgroundColor}};
+                text-align: {{text.textAlign}};
+                text-transform: {{text.textTransform}};
+                font-family: {{text.fontFamily}};
+                font-size: {{text.fontSize}};
+                font-style: {{text.fontStyle}};
+                font-weight: {{text.fontWeight}};
+                line-height: {{text.lineHeight}};
+                letter-spacing: {{text.letterSpacing}};
+                column-count: {{text.columnCount}};"></p>
+            </div>
+          {{/if}}
+
         </div>
+      {{/each}}
 
-        <div class="transform" style="
-          align-self: {{alignSelf}};
-          margin: {{marginT}} {{marginR}} {{marginB}} {{marginL}};">
 
-          <p style="
-            color: {{color}};
-            background-color: {{backgroundColor}};
-            text-align: {{textAlign}};
-            text-transform: {{textTransform}};
-            font-family: {{fontFamily}};
-            font-size: {{fontSize}};
-            font-style: {{fontStyle}};
-            font-weight: {{fontWeight}};
-            line-height: {{lineHeight}};
-            letter-spacing: {{letterSpacing}};
-            column-count: {{columnCount}};"></p>
-        </div>
-      </div>
+
     </div>
   </div>
 </div>

@@ -30,6 +30,7 @@ Router.map(function() {
     this.route('region');
     this.route('short-text');
     this.route('range');
+    this.route('slide');
     this.route('matrix');
     this.route('weight');
     this.route('picture-choice', function() {
