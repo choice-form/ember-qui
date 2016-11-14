@@ -1,3 +1,4 @@
+import Swiper from 'swiper';
 
 
 function matrixSetHeight() {
@@ -19,7 +20,6 @@ function matrixSetHeight() {
   $(fixHeaderColumns).css('height', maxHeaderHeight + 'px');
 
 
-
   /**
    * 设置colmun的高度
    * @type {any}
@@ -39,6 +39,41 @@ function matrixSetHeight() {
       columnItems[l].style.height = colHeights[l] + 'px';
     }
   };
+}
+
+function mobiInit(input, config) {
+  const {type} = config;
+  if (willHandleInputTypes.indexOf(type) < 0){
+    return;
+  }
+  mScroll[config.type](input, config);
+}
+
+export function swiperHeaderInit(element, config) {
+  return new Swiper(element, {
+    ...config
+  });
+}
+
+export function swiperMatrixInit(element, matrixThumbnails, config, callback) {
+  return new Swiper(element, {
+    paginationClickable: true,
+    nextButton: '.matrix-button-next',
+    prevButton: '.matrix-button-prev',
+    pagination: '.swiper-pagination',
+    ...config,
+    onInit: (e)=> {
+      matrixThumbnails.removeAttr('class');
+      matrixThumbnails.eq(e.realIndex).addClass('active');
+      console.log(e.realIndex);
+      callback && callback();
+    },
+    onSlideChangeEnd: (e)=> {
+      matrixThumbnails.removeAttr('class');
+      matrixThumbnails.eq(e.realIndex).addClass('active');
+      console.log(e.realIndex);
+    },
+  });
 }
 
 export default matrixSetHeight;

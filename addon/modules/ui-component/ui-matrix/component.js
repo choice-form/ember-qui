@@ -1,9 +1,9 @@
 import Component from 'ember-component';
 import layout from './template';
-import matirxSetHeight from '../../lib/matirxSetHeight';
+import matirxSetHeight, {swiperHeaderInit, swiperMatrixInit} from '../../lib/matirx-factory';
 import computed, {reads} from 'ember-computed';
 import get from 'ember-metal/get';
-import Swiper from 'swiper';
+import set from 'ember-metal/set';
 
 export default Component.extend({
   layout,
@@ -19,38 +19,48 @@ export default Component.extend({
     return device.desktop() ? true : false;
   }),
 
+  resizeIcon: 'stretch',
+
+
+  swiperEffect(fixHeader, columnList, matrixThumbnails, slidesNum){
+    this.fixHeader = swiperHeaderInit(fixHeader, {
+      slidesPerView: slidesNum,
+    });
+
+    this.swiper = swiperMatrixInit(columnList, matrixThumbnails, {
+      slidesPerView: slidesNum,
+    });
+
+    this.swiper.params.control = this.fixHeader;
+    matirxSetHeight.call(this);
+  },
+
+  actions: {
+    matrixResize: function (e) {
+      const resizeIcon = get(this, 'resizeIcon');
+      this.swiper.destroy(true, true);
+      this.fixHeader.destroy(true, true);
+      const fixHeader = this.element.querySelector('.fix-header');
+      const columnList = this.element.querySelector('.column-container');
+      const matrixThumbnails = $(this.element.querySelector('.matrix-thumbnail-wrapper')).find('ul');
+
+      if (resizeIcon == 'stretch') {
+        set(this, 'resizeIcon', 'pinch');
+        this.swiperEffect(fixHeader, columnList, matrixThumbnails, 4);
+      } else {
+        set(this, 'resizeIcon', 'stretch');
+        this.swiperEffect(fixHeader, columnList, matrixThumbnails, device.desktop() ? 2 : 1);
+      };
+    },
+  },
+
 
   didInsertElement(){
     const fixHeader = this.element.querySelector('.fix-header');
     const columnList = this.element.querySelector('.column-container');
     const matrixThumbnails = $(this.element.querySelector('.matrix-thumbnail-wrapper')).find('ul');
-    this.fixHeader = new Swiper(fixHeader, {
-      slidesPerView: get(this, 'isDesktop') ? 2 : 1,
-    });
 
-    this.swiper = new Swiper(columnList, {
-      slidesPerView: get(this, 'isDesktop') ? 2 : 1,
-      paginationClickable: true,
-      nextButton: '.matrix-button-next',
-      prevButton: '.matrix-button-prev',
-      pagination: '.swiper-pagination',
-      onInit: (e)=> {
-        matrixThumbnails.removeAttr('class');
-        matrixThumbnails.eq(e.realIndex).addClass('active');
-        console.log(e.realIndex);
-      },
-      onSlideChangeEnd: (e)=> {
-        matrixThumbnails.removeAttr('class');
-        matrixThumbnails.eq(e.realIndex).addClass('active');
-        console.log(e.realIndex);
-      }
-    });
-
-
-    this.fixHeader.params.control = this.swiper;
-    this.swiper.params.control = this.fixHeader;
-
-    matirxSetHeight.call(this);
+    this.swiperEffect(fixHeader, columnList, matrixThumbnails, device.desktop() ? 2 : 1);
 
     if (!device.desktop()) return;
 
