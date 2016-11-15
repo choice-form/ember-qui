@@ -42,7 +42,7 @@ export default Component.extend({
   actions: {
 
     /**
-     * Message验证
+     * click
      */
     handleOptionInput(e){
       const value = e.currentTarget.value;
@@ -52,12 +52,12 @@ export default Component.extend({
         set(this, 'phoneNumber', value);
         this.handleEvents.handleQuestionInput({phoneNumber: value}, get(this, 'node'));
       }else{
-        this.handleEvents.handleQuestionInput(value, get(this, 'node'));
+        this.handleEvents.handleQuestionInput({code: value}, get(this, 'node'));
       }
     },
 
     /**
-     * captcha验证
+     * input
      */
     handleOptionClick(){
       set(this, 'getInfoButton', false);
@@ -72,13 +72,8 @@ export default Component.extend({
         }
       }, 1000);
 
-      const verificationType = get(this, 'node.verificationType');
-      if(verificationType == 'sms'){
-        //给接口发送手机号码
-        this.handleEvents.handleOptionClick(get(this, 'phoneNumber'), get(this, 'node'));
-      }else{
-        this.handleEvents.handleOptionClick('', get(this, 'node'));
-      }
+      //调用model方法
+      this.handleEvents.handleOptionClick('', get(this, 'node'));
     },
   },
 

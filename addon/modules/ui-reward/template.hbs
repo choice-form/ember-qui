@@ -14,10 +14,10 @@
 
       <header class="reward-header">
         {{#if (eq node.rewardType 'wechat')}}
-            <div class="wechat-profile">
-              <img src={{node.wechatImage}}>
-              <span>{{node.wechatID}}</span>
-            </div>
+          <div class="wechat-profile">
+            <img src={{node.wechatImage}}>
+            <span>{{node.wechatID}}</span>
+          </div>
         {{/if}}
 
         {{#if node.rewardName}}
@@ -60,9 +60,17 @@
             <div class="ui-verification">
               <div class="get-verification">
                 <div class="ui-text">
-                  {{ui-component/ui-input type='url' value='' placeholder='Please enter a password' icon='int'}}
+                  {{ui-component/ui-input type='url'
+                                          value=''
+                                          placeholder='Please enter a password'
+                                          icon='int'
+                                          handleOptionInput=(action "handleQuestionInput")}}
                 </div>
-                {{ui-component/ui-button text="Get captcha code" className="contrast"}}
+                {{ui-component/ui-button text=(if getInfoButton "Get captcha code" countDown)
+                                         className="contrast"
+                                         leftIcon=(if getInfoButton '' 'refresh')
+                                         handleClick=(if getInfoButton (action "handleOptionClick") '')
+                }}
               </div>
             </div>
           {{/if}}

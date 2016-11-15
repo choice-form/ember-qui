@@ -16,8 +16,9 @@ export default Route.extend({
           typeName: '选择题',
           quesType: 'picture-choice', //select, fill
           selectType: 'radio',
+          picStyle:'superscript',
           showStyle: 'full',
-          textDirection:'insert-block', //in-block ,out-block, empty
+          textDirection:'insert-block', //insert-block ,out-block, empty
           pictureSize: 'picture-large',  //picture-large, picture-small
           uuid: faker.date.between('2016-01-01', '2016-12-31'),
           isMust:false,

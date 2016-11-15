@@ -1,7 +1,7 @@
 /**
- * 图片上传题
+ * 滑竿打分题
  *
- * @class file-upload(上传题)
+ * @class range(滑竿打分题)
  */
 
 
@@ -31,8 +31,8 @@
         }
       ],
       renderId:'12213343234',
-      typeName: '图片上传题',
-      quesType: 'file-upload',
+      typeName: '滑竿打分题',
+      quesType: 'slider',
       uuid: '001',
       isMust:true,
       number:'1',
@@ -46,39 +46,32 @@
  * ioption,当前题目选项
  *
  * @property {Object} option
- * @property {Bool} option.selected - 选项是否被选择
  * @property {String} option.renderId - 当前选项的渲染ID,用于单页的滚动
  * @property {String} option.text - 选项文字
  * @property {String} option.uuid - 选项ID值
  * @property {String} option.icon - 选项Icon
- * @property {String} option.value - 图片上传之后的,获取远程的图片url
+ * @property {String} option.inputType - 其他选项类型, 'select', 'input', 'select-input
+ * @property {String} option.inputRule - 备注的input类型, 如下: 'noValidation','','int','phone','float','email','date','dateRange','time','timeRange','postCode','url'
+ * @property {Number} option.value - input,textarea,mobileScroll等其他控件使用的Value
+ * @property {Number} option.minValue - 设置滑竿的最小值
+ * @property {Number} option.maxValue - 设置滑竿的最大值
+ * @property {Number} option.step - 这是滑竿的步进值
 
  * @example
  ```javascript
  option:{
-      selected: false,
-      renderId: faker.date.between('2016-01-01', '2016-12-31'),
-      text: 'Submit your photograph. You need to submit at least one photograph with the front view of face.',
-      uuid: faker.date.between('2016-01-01', '2016-12-31'),
-      icon: 'upload', // 选项的Icon
-      value: '/images/sample-pinterest/sample-pinterest-4.jpg',
+       renderId: '4567890-0987',
+        text: faker.lorem.words(),
+        uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C93",
+        icon: '', // 选项的Icon
+        inputType: 'input', //其他选项, 'input',
+        inputRule: 'time', //输入控件初始化规则, 具体有哪些规则,请查看@class: ui-question
+        value: 6, //当前的分值
+        minValue:1, //最小分值
+        maxValue:8, //最大分值
+        step: 2, //步进值
    }
  ```
- */
-
-
-/**
- * 选项点击时的回调方法
- *
- * @method handleOptionClick
- * @param {object} option 关联的选项
- * @param {object} question 关联的问题
- * @returns {boolean} 回调任务执行结果, 如果上传图片到上限,返回:false, 默认:true
- ```javascript
- handleOptionClick(option, question){
-        return true;
-      },
-  ```
  */
 
 
@@ -86,16 +79,7 @@
  * 选项输入回调方法
  *
  * @method handleOptionInput
- * @param {number|object} data 上传文件的传文件对象
+ * @param {number} data 滑竿的数值
  * @param {object} option 关联的选项
  * @param {object} question 关联的问题
- * @returns {boolean|Promise} 回调任务执行结果 true：正常 false：无法执行
- *                            文件上传场合返回Promise
- * @example
- ```javascript
- data : e.file
- handleOptionInput(data, option, question){
-        return true;
-      },
- ```
- */
+*/

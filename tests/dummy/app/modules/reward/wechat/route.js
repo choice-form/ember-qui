@@ -19,13 +19,6 @@ export default Route.extend({
       uuid: '002',
       rewardTime: faker.date.past(),
       handleEvents: {
-        handleOptionClick: (option, node) => {
-        },
-
-        handleOptionInput: (option, node) => {
-          console.log(option);
-          console.log(node);
-        },
 
         handlePrevClick: () => {
           console.log('点击了上一题');

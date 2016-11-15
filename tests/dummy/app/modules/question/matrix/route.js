@@ -16,6 +16,8 @@ export default Route.extend({
           renderId: '4567yy0-0987',
           quesType: 'matrix',
           uuid: '005',
+          isMust: true,
+          number: '7',
           optionsX:[
             {
               text: `COLUMN1 ${faker.finance.accountName()}`,

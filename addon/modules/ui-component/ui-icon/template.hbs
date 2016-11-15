@@ -20,7 +20,7 @@
     </div>
     <div class="labels">
       <div class="svg-wrapper">
-        {{ui-addon/svg-item icon=icon}}
+        {{ui-addon/svg-item icon=(if selected (concat icon '-active') icon)}}
       </div>
       <span>{{text}}</span>
     </div>

@@ -40,10 +40,7 @@ export default Component.extend({
      * click事件
      */
     handleOptionClick(e){
-      const value = e.target.value;
-      const checked = e.target.checked;
-      const data = checked ? value : value -1;
-      this.handleEvents.handleOptionClick(data, get(this, 'option'),get(this,'node'));
+      this.handleEvents.handleOptionInput(e, get(this, 'option'),get(this,'node'));
     },
 
     /**
@@ -51,8 +48,8 @@ export default Component.extend({
      */
 
     handleOptionInput(e){
-      const value = e.currentTarget.value;
-      this.handleEvents.handleOptionInput(value, get(this, 'option'), get(this, 'node'));
+
+      this.handleEvents.handleOptionInput(e, get(this, 'option'), get(this, 'node'));
     },
 
 

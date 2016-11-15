@@ -16,11 +16,10 @@
  * @property {String} node.typeName - 选项类型名称
  * @property {String} node.quesType - 当前的题型: verification
  * @property {String} node.verificationType - 验证类型: sms, password, captcha
- * @property {String} node.verifyImage - image base64
+ * @property {String} node.captcha - 验证码 验证是返回的image base64
  * @property {String} node.isMust - 当前节点,是否为必选, 'true' or 'false'
  * @property {String} node.uuid - 当前题目节点的唯一ID
  * @property {String} node.number - 当前节点的索引值
- * @property {String} node.value - 验证码的值
  * @example
  ```javascript
  node:{
@@ -36,12 +35,11 @@
       typeName:'验证节点',
       renderId: '4567890-0987',
       quesType: 'verification',
-      verificationType: 'sms', // 验证类型: sms, password, captcha
-      verifyImage: 'base64',
+      verificationType: 'captcha', // 验证类型: sms, password, captcha
+      captcha: 'base64',
       uuid: '002',
       isMust:true,
       number:'3',
-      value: 'kigad',
  }
  ```
  */
@@ -55,9 +53,6 @@
  * @param {object} option 关联的选项
  * @param {object} question 关联的问题
  * @returns {boolean} 回调任务执行结果 true：正常 false：无法执行
- handleOptionClick(option, question){
-        return true;
-      },
  */
 
 

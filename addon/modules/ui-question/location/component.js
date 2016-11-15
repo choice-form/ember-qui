@@ -44,7 +44,7 @@ export default Component.extend({
       getLocation()
         .then((position) => {
           const resultText = joinAddress(position.address, '-', true);
-          this.handleEvents.handleQuestionInput({value: resultText}, get(this,'node'));
+          this.handleEvents.handleQuestionInput(resultText, get(this,'node'));
           set(this, 'svgState', 'location-successful');
           set(this, 'locationState', 'successful');
         }).catch(()=> {

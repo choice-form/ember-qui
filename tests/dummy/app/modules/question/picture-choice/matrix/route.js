@@ -16,7 +16,7 @@ export default Route.extend({
           typeName: '选择题',
           quesType: 'picture-choice', //select, fill
           selectType: 'radio',
-          showStyle: 'matrix contain',
+          showStyle: 'matrix',
           textDirection:'', //in-block ,out-block, empty
           pictureSize: '',  //picture-large, picture-small
           objectFit: 'contain',

@@ -72,9 +72,5 @@
  * @param {number} startIndex 原始索引值
  * @param {number} endIndex 结束索引值
  * @param {number} question 关联的问题
- * @returns {boolean} 回调任务执行结果 true：正常 false：无法执行
-
- handleOptionDrop(startIndex, endIndex, question){
-        return true;
-      },
+ * @returns {Array} 返回当前可以标记的序号,如['1','3'];
  */

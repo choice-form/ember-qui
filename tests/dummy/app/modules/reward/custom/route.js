@@ -30,13 +30,19 @@ export default Route.extend({
       qrImage: "/images/qrcode.png",
       qrCode: faker.lorem.words(),
       handleEvents: {
-        handleOptionClick: (option, node) => {
 
+        handleOptionClick(option, question){
+          console.log(option);
+          console.log(question);
+
+          return true;
         },
 
-        handleOptionInput: (option, node) => {
-          console.log(option);
-          console.log(node);
+        handleQuestionInput(dynamic, question){
+          console.log(dynamic);
+          console.log(question);
+
+          return true;
         },
 
         handlePrevClick: () => {

@@ -16,10 +16,10 @@
  * @property {String} node.typeName - 选项类型名称
  * @property {String} node.quesType - 当前的题型
  * @property {String} node.selectType - 选择类型, 是【单选】或【多选】
- * @property {String} node.showStyle - 图片显示类型'vertical,grid,matrix,thumbnail,pinterest'
- * @property {String} node.textDirection - 图片文字的位置 'in-block , out-block, empty'
- * @property {String} node.picType - 是否显示左上角的选择角标 'superscript'
- * @property {String} node.pictureSize: - thumbnail模式使用,控制图片的大小 'picture-large',  //picture-large, picture-small
+ * @property {String} node.showStyle - 图片显示类型'full, grid, matrix, pinterest, thumbnail'
+ * @property {String} node.picStyle - 图片选择的角标位置, 是否显示左上角的选择角标 'superscript'
+ * @property {String} node.textDirection - 图片文字的位置 'insert-block , out-block, empty'
+ * @property {String} node.pictureSize: - thumbnail模式使用,控制图片的大小, 默认大图, 参数为'pic-s' 为小图,
  * @property {String} node.isMust - 当前节点,是否为必选, 'true' or 'false'
  * @property {String} node.uuid - 当前题目节点的唯一ID
  * @property {String} node.number - 当前节点的索引值
@@ -35,8 +35,8 @@
       selectType: 'radio',
       showStyle: 'vertical', //'vertical, grid, matrix, thumbnail, pinterest'
       picStyle:'superscript', //是否显示左上角的选择角标 'superscript'
-      textDirection:'insert-block', //in-block ,out-block, empty
-      pictureSize: 'picture-large',  //picture-large, picture-small
+      textDirection:'insert-block', //insert-block(文字在图片上) ,out-block(默认), empty(文字为空)
+      pictureSize: 'pic-s',  //pic-s 代表小图, 默认为大图
       uuid: faker.date.between('2016-01-01', '2016-12-31'),
       isMust:false,
       number:'2',

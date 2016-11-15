@@ -8,7 +8,7 @@ export default Component.extend({
 
   actions: {
     handleNextClick(){
-      this.intro.handleEvents.handleNextClick('111');
+      this.intro.handleEvents.handleNextClick('go');
     }
   }
 

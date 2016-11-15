@@ -22,7 +22,6 @@
  * @property {String} node.wechatID - 微信ID号
  * @property {String} node.rewardVaule - 中奖金额
  * @property {String} node.rewardTime - 中奖时间
- * @property {String} node.rewardPeopleName - 中奖人的名称
  * @example
  ```javascript
  node:{
@@ -63,7 +62,6 @@
  * @property {String} node.qrImage - 二维码的url地址
  * @property {String} node.qrCode - 中奖二维码的描述
  *
- * @property {String} node.rewardPeopleName - 中奖人的名称
  * @example
  ```javascript
  node:{

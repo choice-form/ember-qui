@@ -107,21 +107,22 @@ export default Route.extend({
       ],
 
       handleEvents: {
-        handleOptionClick(data, option, question){
-          console.log(data);
-          console.log(option);
-          console.log(question);
-          set(option, 'value', data);
-          return true;
-        },
-
         handleOptionInput(data, option, question){
           console.log(data);
           console.log(option);
           console.log(question);
-
+          if(option.inputType){
+            const value = data.currentTarget.value;
+            console.log('这里是选项备注:' + value);
+            return true;
+          }
+          const value = data.currentTarget.value;
+          const checked = data.currentTarget.checked;
+          const newValue = checked ? value : value -1;
+          set(option, 'value', newValue);
           return true;
         },
+
 
       },
 

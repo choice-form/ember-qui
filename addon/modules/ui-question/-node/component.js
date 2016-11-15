@@ -17,6 +17,16 @@ export default Component.extend({
     }
   }),
 
+  quesType: computed('node.quesType', function () {
+    const quesType= get(this, 'node.quesType');
+
+    if(['icon','gender'].indexOf(quesType) > -1){
+      return 'icon';
+    }else{
+      return quesType;
+    }
+  }),
+
   attributeBindings: ['data-render-id'],
   'data-render-id': alias('node.renderId'),
 
