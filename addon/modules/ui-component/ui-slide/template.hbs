@@ -1,0 +1,52 @@
+<div class="swiper-container">
+  <div class="swiper-wrapper">
+    {{#each options as |option|}}
+      <div class="swiper-slide slide-background" style="
+        justify-content: {{justifyContent}};
+        background-image: {{backgroundImage}};
+        background-position: {{backgroundPosition}};
+        background-repeat: {{backgroundRepeat}};
+        background-size: {{backgroundSize}};">
+        <div class="layout" style="
+          align-self: {{option.alignSelf}};
+          padding: {{option.padding}};
+          margin: {{option.marginT}} {{option.marginR}} {{option.marginB}} {{option.marginL}};">
+
+          {{#if option.image}}
+            <div class="transform" style="
+              align-self: {{option.image.alignSelf}};
+              margin: {{option.image.marginT}} {{option.image.marginR}} {{option.image.marginB}} {{option.image.marginL}};">
+
+              <img style="width: {{option.image.width}}" src={{option.image.img}}>
+            </div>
+          {{/if}}
+
+          {{#if option.text}}
+            {{#each option.text as |text|}}
+              <div class="transform" style="
+                align-self: {{text.alignSelf}};
+                margin: {{text.marginT}} {{text.marginR}} {{text.marginB}} {{text.marginL}};">
+
+                <p style="
+                  color: {{text.color}};
+                  background-color: {{text.backgroundColor}};
+                  text-align: {{text.textAlign}};
+                  text-transform: {{text.textTransform}};
+                  font-family: {{text.fontFamily}};
+                  font-size: {{text.fontSize}};
+                  font-style: {{text.fontStyle}};
+                  font-weight: {{text.fontWeight}};
+                  line-height: {{text.lineHeight}};
+                  letter-spacing: {{text.letterSpacing}};
+                  column-count: {{text.columnCount}};">{{text.text}}</p>
+              </div>
+            {{/each}}
+
+          {{/if}}
+
+        </div>
+      </div>
+    {{/each}}
+  </div>
+  <div class="swiper-pagination"></div>
+</div>

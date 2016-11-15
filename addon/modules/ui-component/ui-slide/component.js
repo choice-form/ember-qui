@@ -11,4 +11,13 @@ export default Component.extend({
   classNameBindings: ['className'],
   className: "",
 
+  didInsertElement(){
+    const swiperContainer = this.element.querySelector('.swiper-container')
+    this.swiper = new Swiper(swiperContainer, {
+      paginationClickable: true,
+      pagination: '.swiper-pagination',
+      direction: 'vertical'
+    });
+  }
+
 });
