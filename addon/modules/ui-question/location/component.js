@@ -3,7 +3,7 @@ import computed from 'ember-computed';
 import layout from './template';
 import get from 'ember-metal/get';
 import set from 'ember-metal/set';
-import {getLocation, joinAddress} from '../../lib/bMapApi';
+import {getLocation} from '../../lib/bMapApi';
 
 export default Component.extend({
   layout,
@@ -43,8 +43,7 @@ export default Component.extend({
       set(this, 'locationState', 'positioning');
       getLocation()
         .then((position) => {
-          const resultText = joinAddress(position.address, '-', true);
-          this.handleEvents.handleQuestionInput(resultText, get(this,'node'));
+          this.handleEvents.handleQuestionInput(position, get(this,'node'));
           set(this, 'svgState', 'location-successful');
           set(this, 'locationState', 'successful');
         }).catch(()=> {

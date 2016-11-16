@@ -25,8 +25,9 @@ export default Route.extend({
 
       handleEvents: {
         handleQuestionInput(dynamic, question){
+
           console.log(dynamic);
-          set(question, 'value', dynamic);
+          set(question, 'value', "shanghai");
           return true;
         },
       },
