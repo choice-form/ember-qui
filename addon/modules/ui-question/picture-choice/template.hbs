@@ -1,5 +1,6 @@
 {{#each node.options as |option|}}
-  {{ui-component/ui-picture uuid=(unbound option.uuid)
+  {{ui-component/ui-picture id=(concat (unbound option.renderId) 'cform')
+                            uuid=(unbound option.renderId)
                             selectType=(unbound node.selectType)
                             placeholder=(unbound option.placeholder)
                             selected=option.selected
@@ -15,7 +16,7 @@
     {{#each node.options as |option|}}
       {{#if option.selected}}
         <li class="thumb-item">
-          <a href={{concat "#" option.renderId}} style={{html-safe (concat "background-image: url('" option.image.natural "')")}}></a>
+          <a href={{concat "#" option.renderId "cform"}} style={{html-safe (concat "background-image: url('" option.image.natural "')")}}></a>
         </li>
       {{/if}}
     {{/each}}
