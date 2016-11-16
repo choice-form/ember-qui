@@ -35,7 +35,7 @@ export default Route.extend({
               renderId: '4567890-0987',
               uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
               icon: 'ranking', // 选项的Icon
-              sortNo: '1',
+              sortNo: '',
               inputType: '', // 'select', 'input', 'select-input, ower-input',
               inputRule: '', //输入控件初始化规则
               sortStateClass: '',
@@ -45,7 +45,7 @@ export default Route.extend({
               renderId: '4567890-0989',
               uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
               icon: 'ranking', // 选项的Icon
-              sortNo: '2',
+              sortNo: '',
               inputType: '', // 'select', 'input', 'select-input, ower-input',
               inputRule: '', //输入控件初始化规则
               sortStateClass: '',
@@ -55,7 +55,7 @@ export default Route.extend({
               renderId: '4567890-0911',
               uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
               icon: 'ranking', // 选项的Icon
-              sortNo: '3',
+              sortNo: '',
               inputType: '', // 'select', 'input', 'select-input, ower-input',
               inputRule: '', //输入控件初始化规则
               sortStateClass: '',
@@ -117,7 +117,8 @@ export default Route.extend({
         handleOptionDrop(oldIndex, newIndex, question){
           console.log(oldIndex);
           console.log(newIndex);
-          return [newIndex];
+          const index = newIndex + 1
+          return [index];
         },
       },
 

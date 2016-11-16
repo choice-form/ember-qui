@@ -53,8 +53,10 @@ export default Component.extend({
         }
         const indexArray = this.handleEvents.handleOptionDrop(oldIndex, newIndex, get(this,'node'));
 
-        indexArray.forEach((index)=>{
-          const sortNo = parseInt(index) + 1;
+
+        indexArray.forEach((item)=>{
+          const sortNo = parseInt(item);
+          const index = item -1;
           const thisNode = this.element.getElementsByClassName('ranking-rank ')[index];
           thisNode.getElementsByClassName('ranking-number')[0].innerHTML=sortNo;
           thisNode.setAttribute('class','ranking-rank component event');
