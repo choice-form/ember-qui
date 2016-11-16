@@ -25,6 +25,13 @@ export default Component.extend({
 
   actions:{
     /**
+     * 点击删除按钮
+     */
+    handleOptionRemove(){
+      this.handleEvents.handleOptionInput('', get(this, 'option'), get(this, 'node'));
+    },
+
+    /**
      * onclick事件
      */
     handleOptionClick(e){

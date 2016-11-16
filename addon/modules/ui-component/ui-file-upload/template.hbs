@@ -7,7 +7,7 @@
       onchange={{handleOptionInput}}
     >
     {{#if value}}
-      <a class="clear icon-button primary">
+      <a class="clear icon-button primary" onclick={{handleOptionRemove}}>
         {{ui-addon/svg-item icon="trash"}}
       </a>
       <div class="upload-thumbnail">
