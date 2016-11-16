@@ -40,7 +40,8 @@ export default Component.extend({
      * click事件
      */
     handleOptionClick(e){
-      this.handleEvents.handleOptionInput(e, get(this, 'option'),get(this,'node'));
+
+      this.handleEvents.handleOptionInput(e.currentTarget.value, get(this, 'option'),get(this,'node'));
     },
 
     /**

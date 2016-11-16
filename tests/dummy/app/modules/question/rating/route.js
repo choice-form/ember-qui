@@ -112,11 +112,11 @@ export default Route.extend({
           console.log(option);
           console.log(question);
           if(option.inputType){
-            const value = data.currentTarget.value;
+            const value = data;
             console.log('这里是选项备注:' + value);
             return true;
           }
-          const value = data.currentTarget.value;
+          const value = data;
           const checked = data.currentTarget.checked;
           const newValue = checked ? value : value -1;
           set(option, 'value', newValue);
