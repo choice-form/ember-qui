@@ -41,7 +41,7 @@ export default Service.extend({
 
     return $.ajax(url).then(res => {
       const elem = res.children[0];
-      this.table[url] = elem.style.display='block';
+      this.table[url] = elem;
       return elem;
     });
   },
