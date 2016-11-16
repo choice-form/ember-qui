@@ -1,6 +1,5 @@
 {{#each node.options as |option|}}
-  {{ui-component/ui-picture id=(unbound option.renderId)
-                            uuid=(unbound option.uuid)
+  {{ui-component/ui-picture uuid=(unbound option.uuid)
                             selectType=(unbound node.selectType)
                             placeholder=(unbound option.placeholder)
                             selected=option.selected
