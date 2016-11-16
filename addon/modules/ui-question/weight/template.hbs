@@ -9,9 +9,10 @@
 
 {{#each node.options as |option|}}
   {{ui-component/ui-range text=option.text
-                          value=(concat option.value "%")
+                          unit=node.unit
+                          value=(concat option.value)
                           minValue=0
-                          maxValue=100
+                          maxValue=option.maxValue
                           isDescription=false
                           handleOptionInput=(action "handleOptionInput" option)}}
 {{/each}}

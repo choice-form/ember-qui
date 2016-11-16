@@ -13,7 +13,7 @@
 
 <div class="range-slider">
   {{#if value}}
-    <h4>{{value}}</h4>
+    <h4>{{value}}{{unit}}</h4>
   {{/if}}
   {{range-slider start= (if value value 0)
                  connect="lower"

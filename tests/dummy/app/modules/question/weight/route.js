@@ -14,6 +14,7 @@ export default Route.extend({
         icon: '', // 选项的Icon
         color:'#2DBE60',
         value: 10,
+        maxValue:100,
       }),
       Ember.Object.create({
         text: faker.finance.accountName(),
@@ -22,6 +23,7 @@ export default Route.extend({
         icon: '', // 选项的Icon
         color:'#0FA6F0',
         value: 30,
+        maxValue:100,
       }),
       Ember.Object.create({
         text: faker.finance.accountName(),
@@ -30,6 +32,7 @@ export default Route.extend({
         icon: '', // 选项的Icon
         color:'#ca2027',
         value: 45,
+        maxValue:100,
       }),
       Ember.Object.create({
         text: faker.finance.accountName(),
@@ -38,6 +41,7 @@ export default Route.extend({
         icon: '', // 选项的Icon
         color:'gray',
         value: 70,
+        maxValue:100,
       })
     ];
 
@@ -51,6 +55,7 @@ export default Route.extend({
           renderId: '4567yy0-0987',
           quesType: 'weight',
           uuid: '005',
+          unit:'元',
           options,
         },
       ],
