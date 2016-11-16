@@ -31,7 +31,6 @@ export default Route.extend({
 
       handleEvents: {
 
-
         handleNextClick: (question) => {
           console.log('前往领取奖励');
         }

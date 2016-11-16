@@ -16,8 +16,8 @@ export default Route.extend({
         icon: '', // 选项的Icon
         inputType: '', // 'select', 'input', 'select-input',
         inputRule: '', //输入控件初始化规则
-        value: 5,
-        minValue: 3,
+        value: '',
+        minValue: 0,
         maxValue: 10,
         step:2,
         placeholder: '',
