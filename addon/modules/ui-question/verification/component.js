@@ -40,7 +40,6 @@ export default Component.extend({
   }),
 
   actions: {
-
     /**
      * click
      */
@@ -48,7 +47,8 @@ export default Component.extend({
       const value = e.currentTarget.value;
       const verificationType = get(this, 'node.verificationType');
 
-      if(verificationType == 'sms'){
+      console.log(e.currentTarget);
+      if(e.currentTarget.type == 'tel'){
         set(this, 'phoneNumber', value);
         this.handleEvents.handleQuestionInput({phoneNumber: value}, get(this, 'node'));
       }else{

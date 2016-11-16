@@ -117,8 +117,7 @@ export default Route.extend({
             return true;
           }
           const value = data;
-          const checked = data.currentTarget.checked;
-          const newValue = checked ? value : value -1;
+          const newValue = option.selected ? value : value;
           set(option, 'value', newValue);
           return true;
         },
