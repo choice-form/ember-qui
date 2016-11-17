@@ -8,7 +8,7 @@ export default Component.extend({
   layout,
   classNames: ['ui-text'],
   attributeBindings: ['data-render-id'],
-  'data-render-id': reads('node.renderId'),
+  'data-render-id': reads('renderId'),
 
   /**
    * 'noValidation','','int','phone','float','email','date','dateRange','time','timeRange','postCode','url'

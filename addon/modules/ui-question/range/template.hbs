@@ -2,6 +2,7 @@
   {{ui-component/ui-text inputRule=option.inputRule
                          placeholder=option.placeholder
                          value=option.value
+                         renderId=option.renderId
                          handleOptionInput=(action "handleOptionInput")
                          handleOptionInputForTextarea=(action "handleOptionInputForTextarea")
   }}
@@ -10,5 +11,6 @@
                           minValue=option.minValue
                           maxValue=option.maxValue
                           value=option.value
+                          renderId=option.renderId
                           handleOptionInput=(action "handleOptionInput")}}
 {{/if}}

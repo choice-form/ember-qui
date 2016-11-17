@@ -1,6 +1,7 @@
 {{#if (eq option.inputType "input")}}
   {{ui-component/ui-text inputRule=option.inputRule
                          placeholder=option.placeholder
+                         renderId=option.renderId
                          value=option.value
                          handleOptionInput=(action "handleOptionInput")
                          handleOptionInputForTextarea=(action "handleOptionInputForTextarea")

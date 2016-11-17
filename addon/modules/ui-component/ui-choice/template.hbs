@@ -1,6 +1,6 @@
 {{!--如果输入类型是input，则，使用其他选项备注组件--}}
 {{#unless (eq inputType 'input')}}
-  <div class={{concat 'ui-choice ' selectType}}>
+  <div class={{concat 'ui-choice ' selectType}} data-render-id={{renderId}}>
     <input
       id={{renderId}}
         type={{selectType}}
@@ -23,6 +23,7 @@
 {{else}}
   {{ui-component/ui-text inputRule=inputRule
                          placeholder=placeholder
+                         renderId=renderId
                          value=value
                          handleOptionInput=handleOptionInput
                          handleOptionInputForTextarea=handleOptionInputForTextarea
@@ -34,6 +35,7 @@
 {{#if (and (eq inputType "select-input") selected)}}
   {{ui-component/ui-text inputRule=inputRule
                          placeholder=placeholder
+                         renderId=renderId
                          value=value
                          handleOptionInput=handleOptionInput
                          handleOptionInputForTextarea=handleOptionInputForTextarea

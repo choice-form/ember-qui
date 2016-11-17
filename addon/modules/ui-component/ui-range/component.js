@@ -6,7 +6,7 @@ export default Component.extend({
   layout,
   classNames: ['ui-range'],
   attributeBindings:['data-render-id'],
-  'data-render-id': reads('node.renderId'),
+  'data-render-id': reads('renderId'),
   classNameBindings: ['className'],
   className: "",
 

@@ -10,7 +10,7 @@ export default Route.extend({
     let options = [
       Ember.Object.create({
         selected: false,
-        renderId: '4567890-0987',
+        renderId: faker.date.between('2016-01-01', '2016-12-31'),
         text: faker.lorem.words(),
         uuid: faker.date.between('2016-01-01', '2016-12-31'),
         icon: 'alert-circle-?',

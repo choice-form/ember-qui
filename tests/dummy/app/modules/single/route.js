@@ -55,7 +55,7 @@ export default Route.extend({
             }
           ],
           typeName:'分值打分题',
-          renderId: '4567890-0987',
+          renderId: faker.date.between('2016-01-01', '2016-12-31'),
           quesType: 'dropdown', //select, fill, valuemark, graphmark, menu
           selectType: '',
           showStyle: '',
@@ -67,7 +67,7 @@ export default Route.extend({
           options:[
             Ember.Object.create({
               selected:false,
-              renderId: '4567890-0987',
+              renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.name.findName(),
               uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
               icon: 'svg-folder', // 选项的Icon
@@ -78,7 +78,7 @@ export default Route.extend({
             }),
             Ember.Object.create({
               selected:false,
-              renderId: '4567890-0987',
+              renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.name.findName(),
               uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C91",
               icon: 'svg-folder', // 选项的Icon
@@ -89,7 +89,7 @@ export default Route.extend({
             }),
             Ember.Object.create({
               selected:false,
-              renderId: '4567890-0987',
+              renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.name.findName(),
               uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C92",
               icon: 'svg-folder', // 选项的Icon
@@ -100,7 +100,7 @@ export default Route.extend({
             }),
             Ember.Object.create({
               selected:false,
-              renderId: '4567890-0987',
+              renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.name.findName(),
               uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C93",
               icon: 'svg-folder', // 选项的Icon
@@ -121,7 +121,7 @@ export default Route.extend({
             }
           ],
           typeName:'选择题',
-          renderId: '4567890-0987',
+          renderId: faker.date.between('2016-01-01', '2016-12-31'),
           quesType: 'short-text', //select, fill
           selectType: '',
           showStyle: '',
@@ -131,7 +131,7 @@ export default Route.extend({
           options:[
             Ember.Object.create({
               selected: '',
-              renderId: '4567890-0987',
+              renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text:'',
               uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
               icon: '', // 选项的Icon
@@ -142,7 +142,7 @@ export default Route.extend({
             }),
             Ember.Object.create({
               selected: '',
-              renderId: '4567890-0987',
+              renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: '',
               uuid: "443E6B4F-D705-483D-905F-07E420920E19",
               icon: '',
@@ -153,7 +153,7 @@ export default Route.extend({
             }),
             Ember.Object.create({
               selected: '',
-              renderId: '4567890-0987',
+              renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text:'',
               uuid: "299CA073-8FD0-4C6F-4C07-02B063AC8C91",
               icon: '', // 选项的Icon
@@ -164,7 +164,7 @@ export default Route.extend({
             }),
             Ember.Object.create({
               selected: '',
-              renderId: '4567890-0987',
+              renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: '',
               uuid: "443E6B4F-D705-483D-905F-07E420920E12",
               icon: '',
