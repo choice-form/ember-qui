@@ -17,7 +17,7 @@ export default Route.extend({
           title: faker.lorem.sentences(),
           description: faker.lorem.paragraph(),
           images: '',
-          renderId: '775519',
+          renderId: faker.date.between('2016-01-01', '2016-12-31'),
           typeName: '上传题',
           quesType: 'file-upload', //select, fill
           selectType: '',

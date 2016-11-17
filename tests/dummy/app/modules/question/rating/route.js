@@ -10,7 +10,7 @@ export default Route.extend({
     let options = [
       Ember.Object.create({
         selected: '',
-        renderId: '4567890-0987',
+        renderId: faker.date.between('2016-01-01', '2016-12-31'),
         text: faker.lorem.sentence(),
         description: 'Rating Labels',
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
@@ -25,7 +25,7 @@ export default Route.extend({
       }),
       Ember.Object.create({
         selected: '',
-        renderId: '4567890-0987',
+        renderId: faker.date.between('2016-01-01', '2016-12-31'),
         text: faker.lorem.sentence(),
         description: 'Rating Labels',
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C91",
@@ -39,7 +39,7 @@ export default Route.extend({
       }),
       Ember.Object.create({
         selected: '',
-        renderId: '4567890-0987',
+        renderId: faker.date.between('2016-01-01', '2016-12-31'),
         text: faker.lorem.sentence(),
         description: 'Rating Labels',
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C92",
@@ -55,7 +55,7 @@ export default Route.extend({
       }),
       Ember.Object.create({
         selected: '',
-        renderId: '4567890-0987',
+        renderId: faker.date.between('2016-01-01', '2016-12-31'),
         text: faker.lorem.sentence(),
         description: 'Rating Labels',
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C91",
@@ -71,7 +71,7 @@ export default Route.extend({
       }),
       Ember.Object.create({
         selected: '',
-        renderId: '4567890-0987',
+        renderId: faker.date.between('2016-01-01', '2016-12-31'),
         text: faker.lorem.sentence(),
         description: 'Rating Labels',
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C91",
@@ -94,7 +94,7 @@ export default Route.extend({
           description: faker.lorem.paragraph(),
           images: '',
           typeName: '分值打分题',
-          renderId: '4567890-0987',
+          renderId: faker.date.between('2016-01-01', '2016-12-31'),
           quesType: 'rating',
           selectType: '',
           showStyle: '',

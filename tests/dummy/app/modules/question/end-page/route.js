@@ -21,7 +21,7 @@ export default Route.extend({
             }
           ],
           typeName:'结束',
-          renderId: '4567890-0987',
+          renderId: faker.date.between('2016-01-01', '2016-12-31'),
           quesType: 'end-page',
           selectType: '',
           showStyle: '',

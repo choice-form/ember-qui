@@ -23,7 +23,7 @@ export default Route.extend({
             }
           ],
           typeName: '排序题',
-          renderId: '4567yy0-0987',
+          renderId: faker.date.between('2016-01-01', '2016-12-31'),
           quesType: 'ranking',
           selectType: '',
           showStyle: '',
@@ -32,7 +32,7 @@ export default Route.extend({
           options:[
             Ember.Object.create({
               text: `1-${faker.lorem.paragraph()}`,
-              renderId: '4567890-0987',
+              renderId: faker.date.between('2016-01-01', '2016-12-31'),
               uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
               icon: 'ranking', // 选项的Icon
               sortNo: '',
@@ -42,7 +42,7 @@ export default Route.extend({
             }),
             Ember.Object.create({
               text: `2-${faker.finance.accountName()}`,
-              renderId: '4567890-0989',
+              renderId: faker.date.between('2016-01-01', '2016-12-31'),
               uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
               icon: 'ranking', // 选项的Icon
               sortNo: '',
@@ -52,7 +52,7 @@ export default Route.extend({
             }),
             Ember.Object.create({
               text: `3-${faker.finance.accountName()}`,
-              renderId: '4567890-0911',
+              renderId: faker.date.between('2016-01-01', '2016-12-31'),
               uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
               icon: 'ranking', // 选项的Icon
               sortNo: '',
@@ -62,7 +62,7 @@ export default Route.extend({
             }),
             Ember.Object.create({
               text: `4-${faker.finance.accountName()}`,
-              renderId: '4567890-0912',
+              renderId: faker.date.between('2016-01-01', '2016-12-31'),
               uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
               icon: 'ranking', // 选项的Icon
               sortNo: '',
@@ -72,7 +72,7 @@ export default Route.extend({
             }),
             Ember.Object.create({
               text: `5-${faker.finance.accountName()}`,
-              renderId: '4567890-0913',
+              renderId: faker.date.between('2016-01-01', '2016-12-31'),
               uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
               icon: 'ranking', // 选项的Icon
               sortNo: '',
@@ -82,7 +82,7 @@ export default Route.extend({
             }),
             Ember.Object.create({
               text: `6-${faker.finance.accountName()}`,
-              renderId: '4567890-0914',
+              renderId: faker.date.between('2016-01-01', '2016-12-31'),
               uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
               icon: 'ranking', // 选项的Icon
               sortNo: '',
@@ -92,7 +92,7 @@ export default Route.extend({
             }),
             Ember.Object.create({
               text: `7-${faker.finance.accountName()}`,
-              renderId: '4567890-0915',
+              renderId: faker.date.between('2016-01-01', '2016-12-31'),
               uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
               icon: 'ranking', // 选项的Icon
               sortNo: '',

@@ -8,6 +8,7 @@ export default Route.extend({
 
     return {
       title: `title${faker.finance.accountName()}`,
+      renderId: faker.date.between('2016-01-01', '2016-12-31'),
       description: `description${faker.lorem.paragraph()}`,
       rewardVaule: `$${faker.finance.mask()}`,
       wechatImage: faker.image.avatar(),
@@ -32,7 +33,6 @@ export default Route.extend({
       prevButton: '上一题',
 
       nextButton: '下一题',
-
     }
   }
 });

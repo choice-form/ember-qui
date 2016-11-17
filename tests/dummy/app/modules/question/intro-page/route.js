@@ -21,7 +21,7 @@ export default Route.extend({
             }
           ],
           typeName: '描述节点',
-          renderId: '4567890-0987',
+          renderId: faker.date.between('2016-01-01', '2016-12-31'),
           quesType: 'intro-page', //select, fill, valuemark
           selectType: '',
           showStyle: '',

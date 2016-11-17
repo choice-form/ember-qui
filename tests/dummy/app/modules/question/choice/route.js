@@ -11,7 +11,7 @@ export default Route.extend({
           title: faker.finance.accountName(),
           description: faker.lorem.paragraph(),
           images: '',
-          renderId:'12213343234',
+          renderId: faker.date.between('2016-01-01', '2016-12-31'),
           typeName: '选择题',
           quesType: 'choice', //select, fill
           selectType: 'radio',
@@ -22,7 +22,7 @@ export default Route.extend({
           options:[
             Ember.Object.create({
               selected: false,
-              renderId: '4567890-0987',
+              renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.sentence(),
               uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
               icon: 'radio', // 选项的Icon
@@ -33,7 +33,7 @@ export default Route.extend({
             }),
             Ember.Object.create({
               selected: false,
-              renderId: '4567890-871',
+              renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.sentence(),
               uuid: "443E6B4F-D705-483D-905F-07E420920E19",
               icon: 'radio',
@@ -44,7 +44,7 @@ export default Route.extend({
             }),
             Ember.Object.create({
               selected: false,
-              renderId: '4567890-0981',
+              renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.sentence(),
               uuid: "443E6B4F-D705-483D-905F-07E420920E18",
               icon: 'radio',
@@ -55,7 +55,7 @@ export default Route.extend({
             }),
             Ember.Object.create({
               selected: false,
-              renderId: '4567890-0985',
+              renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.sentence(),
               uuid: "443E6B4F-D705-483D-905F-07E420920E15",
               icon: 'radio',
@@ -76,7 +76,7 @@ export default Route.extend({
               thumbnail:'/images/sample-2-thumbnail.jpg',
             }
           ],
-          renderId:'775519',
+          renderId: faker.date.between('2016-01-01', '2016-12-31'),
           typeName: '选择题',
           quesType: 'choice', //select, fill
           selectType: 'checkbox',
@@ -87,7 +87,7 @@ export default Route.extend({
           options:[
             Ember.Object.create({
               selected: false,
-              renderId: '4567890-0987',
+              renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.sentence(),
               uuid: "po9CA073-8FD0-4C6F-8C07-02B063AC8C90",
               icon: 'checkbox', // 选项的Icon
@@ -98,7 +98,7 @@ export default Route.extend({
             }),
             Ember.Object.create({
               selected: false,
-              renderId: '4567890-871',
+              renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.sentence(),
               uuid: "yb3E6B4F-D705-483D-905F-07E420920E19",
               icon: 'checkbox',
@@ -109,7 +109,7 @@ export default Route.extend({
             }),
             Ember.Object.create({
               selected: false,
-              renderId: '4567890-0981',
+              renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.paragraph(),
               uuid: "4ghE6B4F-D705-483D-905F-07E420920E18",
               icon: 'checkbox',
@@ -120,7 +120,7 @@ export default Route.extend({
             }),
             Ember.Object.create({
               selected: false,
-              renderId: '4567890-0985',
+              renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.sentence(),
               uuid: "4msE6B4F-D705-483D-905F-07E420920E15",
               icon: 'checkbox',
@@ -131,7 +131,7 @@ export default Route.extend({
             }),
             Ember.Object.create({
               selected: true,
-              renderId: '4567890-0988',
+              renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.paragraph(),
               uuid: "4kjE6B4F-D705-483D-905F-07E420920E12",
               icon: 'checkbox',
@@ -142,7 +142,7 @@ export default Route.extend({
             }),
             Ember.Object.create({
               selected: true,
-              renderId: '4567890-0912',
+              renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: '',
               uuid: "4iiE6B4F-D705-483D-919F-07E420920E12",
               icon: '',
@@ -156,7 +156,7 @@ export default Route.extend({
                * @prop {bool} - 是否选中
                */
               selected: true,
-              renderId: '4567890-0912',
+              renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: '',
               uuid: "4ggE6B4F-Duy5-483D-905F-07E420920E12",
               icon: '',

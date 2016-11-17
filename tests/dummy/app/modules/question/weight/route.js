@@ -9,7 +9,7 @@ export default Route.extend({
     let options = [
       Ember.Object.create({
         text: faker.finance.accountName(),
-        renderId: '4567890-0987',
+        renderId: faker.date.between('2016-01-01', '2016-12-31'),
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
         icon: '', // 选项的Icon
         color:'#2DBE60',
@@ -18,7 +18,7 @@ export default Route.extend({
       }),
       Ember.Object.create({
         text: faker.finance.accountName(),
-        renderId: '4567890-0989',
+        renderId: faker.date.between('2016-01-01', '2016-12-31'),
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
         icon: '', // 选项的Icon
         color:'#0FA6F0',
@@ -27,7 +27,7 @@ export default Route.extend({
       }),
       Ember.Object.create({
         text: faker.finance.accountName(),
-        renderId: '4567890-0911',
+        renderId: faker.date.between('2016-01-01', '2016-12-31'),
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
         icon: '', // 选项的Icon
         color:'#ca2027',
@@ -36,7 +36,7 @@ export default Route.extend({
       }),
       Ember.Object.create({
         text: faker.finance.accountName(),
-        renderId: '4567890-0912',
+        renderId: faker.date.between('2016-01-01', '2016-12-31'),
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
         icon: '', // 选项的Icon
         color:'gray',
@@ -52,7 +52,7 @@ export default Route.extend({
           description: faker.lorem.paragraph(),
           images: '',
           typeName: '权重题',
-          renderId: '4567yy0-0987',
+          renderId: faker.date.between('2016-01-01', '2016-12-31'),
           quesType: 'weight',
           uuid: '005',
           unit:'元',

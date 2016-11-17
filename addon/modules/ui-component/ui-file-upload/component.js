@@ -15,7 +15,7 @@ export default Component.extend({
                                button=button
                                icon=icon
                                uploadText=uploadText
-                               uuid=option.uuid
+                               renderId=option.renderId
                                value=option.value
                                text=option.text
                                handleOptionInput=(action "handleOptionInput")
@@ -45,7 +45,7 @@ export default Component.extend({
  */
 
 /**
- * @property {String} uuid - 选项的uuid
+ * @property {String} renderId - 选项的uuid
  */
 
 /**

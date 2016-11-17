@@ -14,7 +14,7 @@ export default Route.extend({
           title: 'Picture Grid',
           description: faker.lorem.paragraph(),
           images: '',
-          renderId: '775519',
+          renderId: faker.date.between('2016-01-01', '2016-12-31'),
           typeName: '选择题',
           quesType: 'picture-choice', //select, fill
           selectType: 'checkbox',
@@ -96,7 +96,7 @@ export default Route.extend({
           title: 'Picture Grid insert-block',
           description: faker.lorem.paragraph(),
           images: '',
-          renderId: '775519',
+          renderId: faker.date.between('2016-01-01', '2016-12-31'),
           typeName: '选择题',
           quesType: 'picture-choice', //select, fill
           selectType: 'checkbox',
@@ -178,7 +178,7 @@ export default Route.extend({
           title: 'Picture Grid superscript',
           description: faker.lorem.paragraph(),
           images: '',
-          renderId: '775519',
+          renderId: faker.date.between('2016-01-01', '2016-12-31'),
           typeName: '选择题',
           quesType: 'picture-choice', //select, fill
           selectType: 'checkbox',
@@ -260,7 +260,7 @@ export default Route.extend({
           title: 'Picture Grid superscript insert-block',
           description: faker.lorem.paragraph(),
           images: '',
-          renderId: '775519',
+          renderId: faker.date.between('2016-01-01', '2016-12-31'),
           typeName: '选择题',
           quesType: 'picture-choice', //select, fill
           selectType: 'checkbox',
@@ -342,7 +342,7 @@ export default Route.extend({
           title: 'Picture Grid Cover',
           description: faker.lorem.paragraph(),
           images: '',
-          renderId: '775519',
+          renderId: faker.date.between('2016-01-01', '2016-12-31'),
           typeName: '选择题',
           quesType: 'picture-choice', //select, fill
           selectType: 'checkbox',
@@ -457,7 +457,7 @@ export default Route.extend({
           title: 'Picture Grid Contain',
           description: faker.lorem.paragraph(),
           images: '',
-          renderId: '775519',
+          renderId: faker.date.between('2016-01-01', '2016-12-31'),
           typeName: '选择题',
           quesType: 'picture-choice', //select, fill
           selectType: 'checkbox',

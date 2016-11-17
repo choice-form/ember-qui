@@ -12,7 +12,7 @@ export default Route.extend({
           title: 'Picture Full insert-block',
           description: faker.lorem.paragraph(),
           images: '',
-          renderId:'775519',
+          renderId: faker.date.between('2016-01-01', '2016-12-31'),
           typeName: '选择题',
           quesType: 'picture-choice', //select, fill
           selectType: 'radio',
@@ -126,7 +126,7 @@ export default Route.extend({
           title: 'Picture Full',
           description: faker.lorem.paragraph(),
           images: '',
-          renderId:'775519',
+          renderId: faker.date.between('2016-01-01', '2016-12-31'),
           typeName: '选择题',
           quesType: 'picture-choice', //select, fill
           selectType: 'radio',

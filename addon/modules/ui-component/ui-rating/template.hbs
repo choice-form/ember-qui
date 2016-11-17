@@ -15,12 +15,12 @@
       <li>
         <input
           type="checkbox"
-          id={{option.uuid}}
+          id={{option.renderId}}
             value={{option.value}}
           onclick={{handleOptionClick}}
             checked={{option.checked}}
         >
-        {{ui-component/ui-label for=option.uuid
+        {{ui-component/ui-label for=option.renderId
                                 emoji=option.emoji
                                 selected=option.checked
                                 text=option.text

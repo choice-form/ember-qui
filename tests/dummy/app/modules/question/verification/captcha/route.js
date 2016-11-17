@@ -19,7 +19,7 @@ export default Route.extend({
           description: faker.lorem.paragraph(),
           images: '',
           typeName:'验证节点',
-          renderId: '4567890-0987',
+          renderId: faker.date.between('2016-01-01', '2016-12-31'),
           quesType: 'verification',
           verificationType: 'captcha', //sms, password, captcha
           uuid: '002',

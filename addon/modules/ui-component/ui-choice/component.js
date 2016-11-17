@@ -14,7 +14,7 @@ export default Component.extend({
  ``` javascript
  {{ui-component/ui-choice inputType=option.inputType
                          selectType=node.selectType
-                         uuid=option.uuid
+                         renderId=option.renderId
                          placeholder=option.placeholder
                          selected=option.selected
                          value=option.value
@@ -36,11 +36,11 @@ export default Component.extend({
  */
 
 /**
- * @property {String} uuid - 选项的唯一ID
+ * @property {String} renderId - 选项的唯一ID
  */
 
 /**
- * @property {String} name - 选项input的name属性  #example: node.uuid
+ * @property {String} name - 选项input的name属性  #example: node.renderId
  */
 
 

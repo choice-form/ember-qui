@@ -16,7 +16,7 @@ export default Route.extend({
           description: faker.lorem.paragraph(),
           images: '',
           typeName: '地域题',
-          renderId: '4567890-0987',
+          renderId: faker.date.between('2016-01-01', '2016-12-31'),
           quesType: 'region',
           selectType: '',
           showStyle: '',

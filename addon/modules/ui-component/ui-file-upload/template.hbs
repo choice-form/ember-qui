@@ -2,7 +2,7 @@
   <div class={{concat "upload-item" state}}>
     <input
       type='file'
-      id={{uuid}}
+      id={{renderId}}
         onclick={{handleOptionClick}}
       onchange={{handleOptionInput}}
     >
@@ -19,7 +19,7 @@
     {{else}}
       {{ui-addon/svg-item icon="upload-image" size="64px" viewBox="64" iconClass="upload-image-icon"}}
     {{/if}}
-    <label class={{concat "button" button}} for={{uuid}}>
+    <label class={{concat "button" button}} for={{renderId}}>
       {{ui-addon/svg-item icon=icon}}
       <span>{{uploadText}}</span>
     </label>

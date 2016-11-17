@@ -13,7 +13,7 @@ export default Route.extend({
           description: faker.lorem.paragraph(),
           images: '',
           typeName: '排序题',
-          renderId: '4567yy0-0987',
+          renderId: faker.date.between('2016-01-01', '2016-12-31'),
           quesType: 'matrix',
           uuid: '005',
           isMust: true,

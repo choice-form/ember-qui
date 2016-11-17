@@ -7,7 +7,7 @@ export default Component.extend({
   values: "0;29",
   dur: "0.55s",
 
-  uuid:computed(function () {
+  renderId:computed(function () {
     return (new Date()).valueOf()* Math.random(100);
   }),
 });

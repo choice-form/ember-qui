@@ -11,7 +11,7 @@ export default Route.extend({
     let options = [
       Ember.Object.create({
         selected:false,
-        renderId: '4567890-0987',
+        renderId: faker.date.between('2016-01-01', '2016-12-31'),
         text: faker.lorem.sentence(),
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
         icon: 'svg-folder', // 选项的Icon
@@ -22,7 +22,7 @@ export default Route.extend({
       }),
       Ember.Object.create({
         selected:false,
-        renderId: '4567890-0987',
+        renderId: faker.date.between('2016-01-01', '2016-12-31'),
         text: faker.lorem.sentence(),
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C91",
         icon: 'svg-folder', // 选项的Icon
@@ -33,7 +33,7 @@ export default Route.extend({
       }),
       Ember.Object.create({
         selected:false,
-        renderId: '4567890-0987',
+        renderId: faker.date.between('2016-01-01', '2016-12-31'),
         text: faker.lorem.sentence(),
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C92",
         icon: 'svg-folder', // 选项的Icon
@@ -44,7 +44,7 @@ export default Route.extend({
       }),
       Ember.Object.create({
         selected:false,
-        renderId: '4567890-0987',
+        renderId: faker.date.between('2016-01-01', '2016-12-31'),
         text: faker.lorem.sentence(),
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C93",
         icon: 'svg-folder', // 选项的Icon
@@ -75,7 +75,7 @@ export default Route.extend({
             }
           ],
           typeName:'分值打分题',
-          renderId: '4567890-0987',
+          renderId: faker.date.between('2016-01-01', '2016-12-31'),
           quesType: 'dropdown', //select, fill, valuemark, graphmark, menu
           uuid: '002',
           isMust:true,

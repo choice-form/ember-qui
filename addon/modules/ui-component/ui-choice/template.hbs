@@ -2,7 +2,7 @@
 {{#unless (eq inputType 'input')}}
   <div class={{concat 'ui-choice ' selectType}}>
     <input
-      id={{uuid}}
+      id={{renderId}}
         type={{selectType}}
       onclick={{handleOptionClick}}
         name={{name}}
@@ -15,7 +15,7 @@
       value={{value}}
     >
     {{ui-component/ui-label selected=selected
-                            for=uuid
+                            for=renderId
                             text=text
                             icon=(if selected (concat icon '-active') icon)
     }}

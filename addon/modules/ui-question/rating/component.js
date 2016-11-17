@@ -18,7 +18,7 @@ export default Component.extend({
     let array = [];
     for(let i = 0; i < count; i++){
       array[i] = {
-        uuid: randomId + i,
+        renderId: randomId + i,
         value: i + 1,
       };
 

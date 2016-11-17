@@ -9,7 +9,7 @@ export default Route.extend({
 
     let options = [
       Ember.Object.create({
-        renderId: '4567890-0987',
+        renderId: faker.date.between('2016-01-01', '2016-12-31'),
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
         alignSelf:'auto',
         padding: '16px',
@@ -28,7 +28,7 @@ export default Route.extend({
         },
       }),
       Ember.Object.create({
-        renderId: '4567890-0987',
+        renderId: faker.date.between('2016-01-01', '2016-12-31'),
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
         alignSelf:'auto',
         padding: '16px',
@@ -78,7 +78,7 @@ export default Route.extend({
         ],
       }),
       Ember.Object.create({
-        renderId: '4567890-0987',
+        renderId: faker.date.between('2016-01-01', '2016-12-31'),
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
         alignSelf:'auto',
         padding: '16px',
@@ -109,7 +109,7 @@ export default Route.extend({
         ],
       }),
       Ember.Object.create({
-        renderId: '4567890-0987',
+        renderId: faker.date.between('2016-01-01', '2016-12-31'),
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
         alignSelf:'auto',
         padding: '16px',
@@ -128,7 +128,7 @@ export default Route.extend({
         },
       }),
       Ember.Object.create({
-        renderId: '4567890-0987',
+        renderId: faker.date.between('2016-01-01', '2016-12-31'),
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
         alignSelf:'auto',
         padding: '16px',
@@ -206,7 +206,7 @@ export default Route.extend({
           description: faker.lorem.paragraph(),
           images: '',
           typeName: '整页滚动',
-          renderId: '4567890-0987' + Math.random(1000),
+          renderId: faker.date.between('2016-01-01', '2016-12-31'),
           quesType: 'slide',
           justifyContent: 'center',
           backgroundImage: '/images/sample-random/sample-random-0.58-13.jpeg',
