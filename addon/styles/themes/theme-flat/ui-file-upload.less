@@ -24,6 +24,20 @@
           .absolute(auto, 0, 0, 0);
           .input(100%, 2.6rem);
         }
+
+        & .progress-bar {
+          position: absolute;
+          top: 0;
+          right: 0;
+          left: 0;
+          height: 2px;
+          & .progress {
+            width: 0;
+            height: 2px;
+            transition: width 3s cubic-bezier(0.29, 1.1, 0.8, 0.99);
+          }
+        }
+
         & > svg {
           display: inline-block;
           margin: 1rem 0;
@@ -33,16 +47,6 @@
         }
         & .upload-thumbnail {
           position: relative;
-          & .upload-progress-bar {
-            position: absolute;
-            top: 0;
-            right: 0;
-            left: 0;
-            height: 2px;
-            & .upload-progress {
-              height: 2px;
-            }
-          }
           & img {
             margin-bottom: .5rem;
           }

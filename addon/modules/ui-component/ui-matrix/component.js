@@ -25,7 +25,11 @@ export default Component.extend({
   resizeIcon: 'stretch',
 
 
-  swiperEffect(fixHeader, columnList, matrixThumbnails, slidesNum){
+  swiperEffect(slidesNum){
+    const fixHeader = this.element.querySelector('.fix-header');
+    const columnList = this.element.querySelector('.column-container');
+    const matrixThumbnails = $(this.element.querySelector('.matrix-thumbnail-wrapper')).find('ul');
+
     this.fixHeader = swiperHeaderInit(fixHeader, {
       slidesPerView: slidesNum,
     });
@@ -44,36 +48,31 @@ export default Component.extend({
       const resizeIcon = get(this, 'resizeIcon');
       this.swiper.destroy(true, true);
       this.fixHeader.destroy(true, true);
-      const fixHeader = this.element.querySelector('.fix-header');
-      const columnList = this.element.querySelector('.column-container');
-      const matrixThumbnails = $(this.element.querySelector('.matrix-thumbnail-wrapper')).find('ul');
+
 
       if (resizeIcon == 'stretch') {
         set(this, 'resizeIcon', 'pinch');
         later(()=>{
-          this.swiperEffect(fixHeader, columnList, matrixThumbnails, 4);
+          this.swiperEffect(4);
         }, 100);
       } else {
         set(this, 'resizeIcon', 'stretch');
         later(()=>{
-          this.swiperEffect(fixHeader, columnList, matrixThumbnails, device.desktop() ? 2 : 1);
+          this.swiperEffect(device.desktop() ? 2 : 1);
         },100)
       }
     },
   },
 
-  testFun(a,b){
-
-    console.log(a,b);
-  },
-
 
   didInsertElement(){
-    const fixHeader = this.element.querySelector('.fix-header');
-    const columnList = this.element.querySelector('.column-container');
-    const matrixThumbnails = $(this.element.querySelector('.matrix-thumbnail-wrapper')).find('ul');
 
-    scheduleOnce('afterRender',this,'swiperEffect', fixHeader, columnList, matrixThumbnails, device.desktop() ? 2 : 1);
+    later(()=>{
+      scheduleOnce('afterRender',this,'swiperEffect', device.desktop() ? 2 : 1);
+    },1000);
+
+
+
     //this.swiperEffect(fixHeader, columnList, matrixThumbnails, device.desktop() ? 2 : 1);
 
 

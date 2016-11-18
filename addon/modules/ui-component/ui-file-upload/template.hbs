@@ -6,14 +6,15 @@
         onclick={{handleOptionClick}}
       onchange={{handleOptionInput}}
     >
+      <div class="progress-bar">
+        <div class="progress" style={{html-safe (concat "width:" progress "%;")}}></div>
+      </div>
+
     {{#if value}}
       <a class="clear icon-button primary" onclick={{handleOptionRemove}}>
         {{ui-addon/svg-item icon="trash"}}
       </a>
       <div class="upload-thumbnail">
-        <div class="upload-progress-bar">
-          <div class="upload-progress" style="width: 50%"></div>
-        </div>
         <img src={{value}}/>
       </div>
     {{else}}
