@@ -8,6 +8,7 @@ const Router = Ember.Router.extend({
 
 Router.map(function() {
   this.route('quick-link', {path:'q'});
+  this.route('notification');
   this.route('single');
   this.route('contact-information', function() {
     this.route('gender');
