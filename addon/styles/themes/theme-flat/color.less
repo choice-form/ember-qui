@@ -211,7 +211,7 @@ input:checked {
   & .upload-image-icon {
     fill: fade(@primary, 50%);
   }
-  & .progress {
+  & .upload-progress {
     background-color: @contrast;
   }
 }
@@ -349,6 +349,18 @@ input:checked {
 
 .full-screen-loading {
   background-color: @secondary;
+}
+
+.progress-bar {
+  background-color: fade(@secondary, 90%);
+  & .progress-wrapper {
+    &:before {
+      background-color: fade(@primary, 30%);
+    }
+    & .progress {
+      background-color: @contrast;
+    }
+  }
 }
 
 

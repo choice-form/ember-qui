@@ -18,6 +18,12 @@
   }
 }
 
+.noscroll {
+  overflow: hidden;
+}
+
+/*------------------- fix -------------------*/
+
 .full-screen-loading-fix() {
   .full-screen-loading {
     & .loading-wrapper {
@@ -35,6 +41,8 @@ html.ie {
 @supports not(display: flex) {
   .full-screen-loading-fix();
 }
+
+/*------------------- supports -------------------*/
 
 .full-screen-loading-supports() {
   .full-screen-loading {
