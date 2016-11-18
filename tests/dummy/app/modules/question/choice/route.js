@@ -1,3 +1,4 @@
+/* eslint-disable */
 import Route from 'ember-route';
 import set from 'ember-metal/set';
 import Ember from 'ember';

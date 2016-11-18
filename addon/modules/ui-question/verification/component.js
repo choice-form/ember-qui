@@ -45,9 +45,7 @@ export default Component.extend({
      */
     handleOptionInput(e){
       const value = e.currentTarget.value;
-      const verificationType = get(this, 'node.verificationType');
 
-      console.log(e.currentTarget);
       if(e.currentTarget.type == 'tel'){
         set(this, 'phoneNumber', value);
         this.handleEvents.handleQuestionInput({phoneNumber: value}, get(this, 'node'));

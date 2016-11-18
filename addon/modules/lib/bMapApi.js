@@ -20,6 +20,7 @@ let geoInstance = function(){
  * 返回能解析当前位置的Promise
  * @returns {Promise}
  */
+/* eslint-disable no-undef */
 export const getLocation = () => {
   return new Promise((resolve, reject) => {
     const geoLocation = geoInstance();

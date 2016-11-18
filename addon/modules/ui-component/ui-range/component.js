@@ -1,6 +1,6 @@
 import Component from 'ember-component';
 import layout from './template';
-import computed,{reads} from 'ember-computed';
+import {reads} from 'ember-computed';
 
 export default Component.extend({
   layout,
