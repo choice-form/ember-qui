@@ -558,19 +558,16 @@ export default Route.extend({
         handleOptionClick: (option, node) => {
           console.log(option);
           console.log(node);
-          const selected = get(option, 'selected');
 
-          set(option, 'selected', !selected);
-
-          return true;
-/*          if (option.toggleProperty('selected')) {
+          if (option.toggleProperty('selected')) {
 
             node.options.forEach((opt) => {
               if (opt != option) {
                 set(opt, 'selected', false);
               }
             })
-          }*/
+          }
+          return true;
         },
 
       },
