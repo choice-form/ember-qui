@@ -3,10 +3,12 @@
        onmouseenter={{action "pause" n}}
          onmouseleave={{action "resume" n}}>
 
-    {{{n.message}}}
+    <div class="notification">
+      {{{n.message}}}
 
-    <a class="notification-close" onclick={{action "close" n}}>
-      {{ui-addon/svg-item icon="simple-remove"}}
-    </a>
+      <a class="notification-close" onclick={{action "close" n}}>
+        {{ui-addon/svg-item icon="simple-remove"}}
+      </a>
+    </div>
   </div>
 {{/each}}

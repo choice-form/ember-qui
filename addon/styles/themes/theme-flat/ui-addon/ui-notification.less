@@ -1,69 +1,75 @@
 .ui-notification {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
   z-index: 10;
+  top: 0;
+  right: 0;
+  left: 0;
   & .instance {
-    position: relative;
-    padding: 1rem;
-    color: @secondary;
-    border-radius: 0 0 3px 3px;
-    background-color: @primary;
-    box-shadow: 0 4px 4px 0 fade(@primary, 30%);
-
-    &.in {
-
-    }
-
-    &.info {
+    & .notification {
+      position: relative;
+      padding: 1rem;
+      color: @secondary;
+      border-radius: 0 0 3px 3px;
       background-color: @primary;
-    }
-
-    &.success {
-      background-color: green;
-    }
-
-    &.warning {
-      background-color: red;
-    }
-
-    &.error {
-      background-color: tomato;
-    }
-    & .notification-close {
-      cursor: pointer;
-      padding: .5rem;
-
-      & svg {
-        display: block;
+      box-shadow: 0 4px 4px 0 fade(@primary, 30%);
+      &.info {
+        background-color: @primary;
       }
-    }
-    & strong {
-
+      &.success {
+        background-color: green;
+      }
+      &.warning {
+        background-color: red;
+      }
+      &.error {
+        background-color: tomato;
+      }
+      & .notification-close {
+        cursor: pointer;
+        & svg {
+          display: block;
+        }
+      }
     }
   }
 }
 
+/*------------------- fix -------------------*/
+
 .ui-notification-fix() {
   .ui-notification {
-    & .instance {
+    & .notification {
       & .notification-close {
-        width: 2rem;
-        height: 2rem;
+        width: 32px;
+        height: 32px;
+        margin: auto 0;
+        padding: 8px;
+
         .absolute(0, .5rem, 0, auto);
       }
     }
   }
 }
 
+html.ie {
+  .ui-notification-fix();
+}
+
+@supports not(display: flex) {
+.ui-notification-fix();
+}
+
+/*------------------- supports -------------------*/
+
 .ui-notification-supports() {
   .ui-notification {
-    & .instance {
+    & .notification {
       display: flex;
+
       align-items: center;
       & .notification-close {
         margin-left: auto;
+        padding: .5rem;
       }
       & strong {
         flex-grow: 2;
@@ -72,6 +78,35 @@
   }
 }
 
-@supports (display: flex) {
+html.internet,
+html.edge {
   .ui-notification-supports();
+}
+
+@supports (display: flex) {
+.ui-notification-supports();
+}
+
+/*------------------- responsive -------------------*/
+
+html.tablet.portrait {
+  & .ui-notification {
+    & .instance {
+      max-width: 80vw;
+    }
+  }
+}
+
+html.tablet.landscape {
+  & .ui-notification {
+    & .instance {
+      padding: 0 2rem;
+    }
+  }
+}
+
+html.mobile {
+  & .ui-notification {
+    padding: 0 .5rem;
+  }
 }
