@@ -70,7 +70,16 @@
   {{/each}}
 </ul>
 
-<h2>Notification</h2>
+<h2>Warning</h2>
 <ul>
-  <li><a class="button secondary" href="notification">notification</a></li>
+  {{#each model.warning as |item|}}
+    <li><a class="button secondary" href={{item.href}}>{{item.label}}</a></li>
+  {{/each}}
+</ul>
+
+<h2>Other</h2>
+<ul>
+  {{#each model.other as |item|}}
+    <li><a class="button secondary" href={{item.href}}>{{item.label}}</a></li>
+  {{/each}}
 </ul>

@@ -82,7 +82,7 @@ export default Route.extend({
         {icon: "crown"},
         {icon: "crown-active"},
       ],
-      location: [
+      large: [
         {icon: "location"},
         {icon: "positioning"},
         {icon: "location-successful"},
@@ -92,10 +92,10 @@ export default Route.extend({
         {icon: "sms"},
         {icon: "password"},
         {icon: "captcha"},
-      ],
-      large: [
+        {icon: "planned"},
+        {icon: "warning"},
         {icon: "upload-image"},
-      ]
+      ],
     };
   }
 });

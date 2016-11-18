@@ -8,7 +8,6 @@ const Router = Ember.Router.extend({
 
 Router.map(function() {
   this.route('quick-link', {path:'q'});
-  this.route('notification');
   this.route('single');
   this.route('contact-information', function() {
     this.route('gender');
@@ -54,6 +53,12 @@ Router.map(function() {
     this.route('wechat');
   });
   this.route('icon-preview', {path:'icp'});
+  this.route('notification');
+  this.route('warning', function() {
+    this.route('complete');
+    this.route('planning');
+    this.route('error');
+  });
   this.route('temp', function() {
     this.route('faker');
     this.route('test');

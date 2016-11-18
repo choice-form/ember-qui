@@ -380,6 +380,21 @@ sup {
   }
 }
 
+.warning {
+  background: linear-gradient(to bottom,fade(@secondary, 70%) 0, @secondary 80%);
+  & .warning-wrapper {
+    color: @secondary;
+    background-color: fade(@primary, 80%);
+    & strong {
+      color: @primary;
+      background-color: @secondary;
+    }
+    &.error {
+      background-color: fade(@contrast, 80%);
+    }
+  }
+}
+
 //-----------------------------------------------------
 
 .icon-button {

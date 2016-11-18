@@ -1,0 +1,8 @@
+<div class={{concat 'warning-wrapper ' level}}>
+  {{ui-addon/svg-item icon=icon size="64px" viewBox="40"}}
+  <p>{{label}}</p>
+  {{#if countDown}}
+    <strong>24:12</strong>
+  {{/if}}
+</div>
+{{yield }}

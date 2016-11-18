@@ -47,9 +47,9 @@
     {{/each}}
   </div>
 
-  <h1 class="ip-title">SVG icon Location</h1>
+  <h1 class="ip-title">SVG icon Large</h1>
   <div class="ip-icon">
-    {{#each model.location as |item|}}
+    {{#each model.large as |item|}}
       <div class="ip-wrapper">
         <div class="ip-container"
              onmouseenter={{action "showHref"}}
@@ -63,21 +63,6 @@
     {{/each}}
   </div>
 
-  <h1 class="ip-title">SVG icon Large</h1>
-  <div class="ip-icon">
-    {{#each model.large as |item|}}
-      <div class="ip-wrapper">
-        <div class="ip-container"
-             onmouseenter={{action "showHref"}}
-               onmouseleave={{action "hideHref"}}
-             onclick={{action "copyHref"}}>
-          <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="64px" height="64px" viewBox="0 0 64 64">
-            <use xlink:href="{{concat "#" item.icon}}"></use>
-          </svg>
-        </div>
-      </div>
-    {{/each}}
-  </div>
   <h1 class="ip-title">SVG Particle Animation</h1>
   <div class="ip-icon">
     {{ui-addon/svg-particle-animation}}

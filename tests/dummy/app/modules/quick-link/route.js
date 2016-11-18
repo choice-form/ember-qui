@@ -51,6 +51,15 @@ export default Route.extend({
         {href: "/reward/custom", label: "custom"},
         {href: "/reward/random", label: "random"},
         {href: "/reward/wechat", label: "wechat"},
+      ],
+      warning: [
+        {href: "/warning/complete", label: "complete"},
+        {href: "/warning/error", label: "error"},
+        {href: "/warning/planning", label: "planning"},
+      ],
+      other: [
+        {href: "/notification", label: "notification"},
+        {href: "/warning", label: "warning"},
       ]
     };
   }
