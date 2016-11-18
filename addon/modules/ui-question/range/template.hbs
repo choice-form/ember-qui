@@ -7,7 +7,9 @@
                          handleOptionInputForTextarea=(action "handleOptionInputForTextarea")
   }}
 {{else}}
-  {{ui-component/ui-range text=option.text
+  {{ui-component/ui-range isDescription=true
+                          text=option.text
+                          unit=node.unit
                           minValue=option.minValue
                           maxValue=option.maxValue
                           value=option.value

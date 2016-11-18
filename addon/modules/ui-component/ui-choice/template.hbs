@@ -33,13 +33,14 @@
 
 {{!--选择选项再弹出输入框--}}
 {{#if (and (eq inputType "select-input") selected)}}
-  {{ui-component/ui-text inputRule=inputRule
-                         placeholder=placeholder
-                         renderId=renderId
-                         value=value
-                         handleOptionInput=handleOptionInput
-                         handleOptionInputForTextarea=handleOptionInputForTextarea
-  }}
+    {{ui-component/ui-text inputRule=inputRule
+                           placeholder=placeholder
+                           renderId=renderId
+                           value=value
+                           handleOptionInput=handleOptionInput
+                           handleOptionInputForTextarea=handleOptionInputForTextarea
+    }}
+
 {{/if}}
 
 {{errorMessage}}

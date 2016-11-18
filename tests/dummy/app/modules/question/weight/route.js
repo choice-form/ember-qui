@@ -13,7 +13,7 @@ export default Route.extend({
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
         icon: '', // 选项的Icon
         color:'#2DBE60',
-        value: 10,
+        value: '',
         maxValue:100,
       }),
       Ember.Object.create({

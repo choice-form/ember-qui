@@ -95,6 +95,7 @@ export default Route.extend({
           uuid: '002',
           isMust: true,
           number: '7',
+          unit: '元',
           options,
         }
       ],

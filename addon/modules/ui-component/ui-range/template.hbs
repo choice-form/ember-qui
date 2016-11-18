@@ -12,9 +12,7 @@
 {{/if}}
 
 <div class="range-slider">
-  {{#if value}}
-    <h4>{{value}}{{unit}}</h4>
-  {{/if}}
+    <h4>{{if value value 0}}{{unit}}</h4>
   {{range-slider start= (if value value 0)
                  connect="lower"
                  min=minValue
