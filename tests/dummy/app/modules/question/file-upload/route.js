@@ -70,12 +70,15 @@ export default Route.extend({
 
         handleOptionInput(data, option, question){
           console.log('data=' + data);
-          console.log(data, option, question);
-          set(option, 'value', imageBase64);
           const result = {
             success: true
           };
-          return RSVP.resolve(result);
+          return new RSVP.Promise((resolve) => {
+            setTimeout(()=>{
+              set(option, 'value', imageBase64);
+              resolve(result);
+            },5000);
+          })
         },
       },
 

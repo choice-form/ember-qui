@@ -226,6 +226,8 @@ export default Route.extend({
         handleOptionClick: (option, node) => {
           console.log(option);
           console.log(node);
+
+
           if (option.toggleProperty('selected')) {
 
             node.options.forEach((opt) => {
@@ -234,6 +236,7 @@ export default Route.extend({
               }
             })
           }
+          return true;
         },
       },
 

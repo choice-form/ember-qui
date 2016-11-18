@@ -11,7 +11,7 @@ export default Component.extend({
   'data-render-id': reads('renderId'),
 
   /**
-   * 'noValidation','','int','phone','float','email','date','dateRange','time','timeRange','postCode','url'
+   * 'noValidation','count','int','float','moblie','email','date','dateRange','time','timeRange','postCode','url'
    */
 
   isTextArea: computed('inputRule', function () {
@@ -24,7 +24,7 @@ export default Component.extend({
   }),
 
   type: computed('inputRule', function () {
-    const celType = ['int', 'phone', 'postCode'];
+    const celType = ['int', 'moblie', 'postCode'];
     const numberType = ['float'];
     const urlType = ['url', 'email'];
     const inputRule = get(this, 'inputRule');
@@ -46,7 +46,20 @@ export default Component.extend({
 
   viewBox: '16',
 
-  icon: alias('inputRule'),
+  icon: computed('inputRule', function () {
+    const type = get(this, 'inputRule');
+    if(['noValidation','count'].indexOf(type) > -1){
+      return 'text';
+    }
+    if(['time','timeRange'].indexOf(type) > -1){
+      return 'time';
+    }
+    if(['date','dateRange'].indexOf(type) > -1){
+      return 'calendar';
+    }
+
+    return type;
+  }),
 
 
   className: computed('inputRule', function () {
