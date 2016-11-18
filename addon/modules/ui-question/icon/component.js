@@ -6,15 +6,16 @@ import set from 'ember-metal/set';
 
 export default Component.extend({
   layout,
-  tagName:'',
-  iconService : inject("service/icon"),
+  tagName: '',
+  iconService: inject("service/icon"),
 
   actions: {
     /**
      * click事件
      */
-    handleOptionClick(){
-      this.handleEvents.handleOptionClick(get(this, 'option'),get(this,'node'));
+    handleOptionClick(e){
+      !this.handleEvents.handleOptionClick(get(this, 'option'), get(this, 'node'))
+      && e.preventDefault();
     },
   },
 
@@ -22,10 +23,10 @@ export default Component.extend({
   didReceiveAttrs(){
     const iconService = get(this, 'iconService');
     const icon = iconService.getIconByUrl(get(this, 'option.icon'));
-    icon.then((res)=>{
+    icon.then((res) => {
         set(this, 'svg', res);
       }
     )
   }
 
-}).reopenClass({ positionalParams: ['node','option','handleEvents']});
+}).reopenClass({positionalParams: ['node', 'option', 'handleEvents']});

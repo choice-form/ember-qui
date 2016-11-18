@@ -171,6 +171,7 @@ export default Route.extend({
           console.log(option);
           console.log(node);
           set(option, 'selected', !get(option, 'selected'));
+          return true;
         },
       },
 

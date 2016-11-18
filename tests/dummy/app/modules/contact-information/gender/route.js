@@ -54,6 +54,8 @@ export default Route.extend({
               }
             })
           }
+
+          return true;
         },
       },
 

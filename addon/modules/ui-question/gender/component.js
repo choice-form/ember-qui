@@ -18,8 +18,9 @@ export default Component.extend({
     /**
      * click事件
      */
-    handleOptionClick(){
-      this.handleEvents.handleOptionClick(get(this, 'option'),get(this,'node'));
+    handleOptionClick(e){
+      !this.handleEvents.handleOptionClick(get(this, 'option'),get(this,'node'))
+      &&  e.preventDefault();
     },
   },
 

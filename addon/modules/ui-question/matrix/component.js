@@ -4,11 +4,13 @@ import get from 'ember-metal/get';
 
 export default Component.extend({
   layout,
-  tagName:"",
+  tagName: "",
 
   actions: {
-    handleOptionClick(option){
-      this.handleEvents.handleOptionClick(option, get(this, 'node'));
+    handleOptionClick(option,e){
+
+      !this.handleEvents.handleOptionClick(option, get(this, 'node'))
+      && e.preventDefault();
     },
 
 
