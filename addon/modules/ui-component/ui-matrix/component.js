@@ -6,7 +6,7 @@ import get from 'ember-metal/get';
 import set from 'ember-metal/set';
 import device from 'device';
 import $ from 'jquery';
-import {later} from 'ember-runloop';
+import {scheduleOnce, later} from 'ember-runloop';
 
 export default Component.extend({
   layout,
@@ -35,7 +35,6 @@ export default Component.extend({
     },()=>{
       matirxSetHeight.call(this);
     });
-
     this.swiper.update(true);
     this.swiper.params.control = this.fixHeader;
   },
@@ -63,13 +62,21 @@ export default Component.extend({
     },
   },
 
+  testFun(a,b){
+
+    console.log(a,b);
+  },
+
 
   didInsertElement(){
     const fixHeader = this.element.querySelector('.fix-header');
     const columnList = this.element.querySelector('.column-container');
     const matrixThumbnails = $(this.element.querySelector('.matrix-thumbnail-wrapper')).find('ul');
 
-    this.swiperEffect(fixHeader, columnList, matrixThumbnails, device.desktop() ? 2 : 1);
+    scheduleOnce('afterRender',this,'swiperEffect', fixHeader, columnList, matrixThumbnails, device.desktop() ? 2 : 1);
+    //this.swiperEffect(fixHeader, columnList, matrixThumbnails, device.desktop() ? 2 : 1);
+
+
 
     if (!device.desktop()) return;
 
