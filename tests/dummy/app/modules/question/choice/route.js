@@ -14,6 +14,8 @@ export default Route.extend({
           images: '',
           renderId: faker.date.between('2016-01-01', '2016-12-31'),
           typeName: '选择题',
+          minSelect:'1',
+          maxSelect:'2',
           quesType: 'choice', //select, fill
           selectType: 'radio',
           showStyle: '',
