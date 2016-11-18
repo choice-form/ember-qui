@@ -59,7 +59,6 @@ export default Route.extend({
       ],
       other: [
         {href: "/notification", label: "notification"},
-        {href: "/warning", label: "warning"},
       ]
     };
   }
