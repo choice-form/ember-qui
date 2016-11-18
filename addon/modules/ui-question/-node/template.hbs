@@ -1,8 +1,8 @@
 {{ui-component/ui-header headerData}}
+{{#if node.typeName}}
+  <sup><span>{{node.typeName}}</span> Least: {{node.minSelect}} - Most: {{node.maxSelect}}</sup>
+{{/if}}
 <div class={{concat "control " quesType}}>
-  {{#if node.typeName}}
-    <p>{{node.typeName}}: 最小选择{{node.minSelect}}, 最多选择{{node.maxSelect}}</p>
-  {{/if}}
   {{#if isSpecialComponent}}
     {{component componentName node handleEvents options=(unbound node.options) matrix=(unbound node.matrix)}}
   {{else}}

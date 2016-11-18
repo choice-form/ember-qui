@@ -1,6 +1,5 @@
 article {
   position: relative;
-
 }
 
 .c-container {
@@ -64,10 +63,20 @@ section {
   }
 }
 
+sup {
+  padding: 1rem;
+  & > span {
+    margin-right: .5rem;
+    padding: 0 .5rem;
+    border-radius: @radius-s;
+  }
+}
+
 svg:not(:root) {
   display: none;
   overflow: visible;
   pointer-events: none;
+
   fill: currentColor;
 }
 
@@ -84,12 +93,7 @@ html.desktop {
   }
 }
 
-html.desktop,
-html.tablet.landscape {
-  article.one-by-one {
 
-  }
-}
 
 html.mobile.portrait,
 html.mobile.landscape,
@@ -99,9 +103,6 @@ html.tablet.portrait {
   //    padding: 0;
   //  }
   //}
-  & .page-header {
-
-  }
 }
 
 html.tablet.portrait {

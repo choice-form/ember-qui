@@ -45,10 +45,12 @@
   }
 }
 
+/*------------------- fix -------------------*/
+
 .ui-choice-fix() {
   .ui-choice {
     .border(0, 0, auto, 0, 1px, .3);
-    &:first-child {
+    &:first-of-type {
       &:before {
         display: none;
       }
@@ -65,9 +67,11 @@ html.ie {
   .ui-choice-fix();
 }
 
+/*------------------- supports -------------------*/
+
 .ui-choice-supports() {
   .ui-choice {
-    &:not(:first-child) {
+    &:not(:first-of-type) {
       .border(0, 0, auto, 0, 1px, .3);
     }
   }
@@ -81,6 +85,8 @@ html.edge {
 @supports (display: flex) {
   .ui-choice-supports();
 }
+
+/*------------------- responsive -------------------*/
 
 html.desktop {
   & .ui-choice {
