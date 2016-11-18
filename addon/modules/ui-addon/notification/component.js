@@ -13,10 +13,10 @@ export default Component.extend({
   classNameBindings: ['positionClassName'],
   localClassNames: ['container'],
 
-  width: 540,
-  style: computed('width', function() {
-    return htmlSafe(`width: ${get(this, 'width')}px`);
-  }),
+  // width: 540,
+  // style: computed('width', function() {
+  //   return htmlSafe(`width: ${get(this, 'width')}px`);
+  // }),
 
   position: 'top',
   positionClassName: computed('position', function() {

@@ -7,6 +7,7 @@ export default Route.extend({
         {icon: "check"},
         {icon: "check-curve"},
         {icon: "check-simple"},
+        {icon: "simple-remove"},
         {icon: "arrows-tail-right"},
         {icon: "triangle-down"},
         {icon: "arrows-small-right"},

@@ -1,0 +1,77 @@
+.ui-notification {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  & .instance {
+    position: relative;
+    padding: 1rem;
+    color: @secondary;
+    border-radius: 0 0 3px 3px;
+    background-color: @primary;
+    box-shadow: 0 4px 4px 0 fade(@primary, 30%);
+
+    &.in {
+
+    }
+
+    &.info {
+      background-color: @primary;
+    }
+
+    &.success {
+      background-color: green;
+    }
+
+    &.warning {
+      background-color: red;
+    }
+
+    &.error {
+      background-color: tomato;
+    }
+    & .notification-close {
+      cursor: pointer;
+      padding: .5rem;
+
+      & svg {
+        display: block;
+      }
+    }
+    & strong {
+
+    }
+  }
+}
+
+.ui-notification-fix() {
+  .ui-notification {
+    & .instance {
+      & .notification-close {
+        width: 2rem;
+        height: 2rem;
+        .absolute(0, .5rem, 0, auto);
+      }
+    }
+  }
+}
+
+.ui-notification-supports() {
+  .ui-notification {
+    & .instance {
+      display: flex;
+      align-items: center;
+      & .notification-close {
+        margin-left: auto;
+      }
+      & strong {
+        flex-grow: 2;
+      }
+    }
+  }
+}
+
+@supports (display: flex) {
+  .ui-notification-supports();
+}
