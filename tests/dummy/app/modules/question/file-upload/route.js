@@ -77,7 +77,7 @@ export default Route.extend({
             setTimeout(()=>{
               set(option, 'value', imageBase64);
               resolve(result);
-            },5000);
+            },2000);
           })
         },
       },

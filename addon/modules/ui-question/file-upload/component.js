@@ -2,6 +2,7 @@ import Component from 'ember-component';
 import layout from './template';
 import get from 'ember-metal/get';
 import computed from 'ember-computed';
+import set from 'ember-metal/set';
 
 export default Component.extend({
   layout,
@@ -22,6 +23,8 @@ export default Component.extend({
   uploadText: computed('option.value', function () {
     return get(this, 'option.value') ? 'refresh upload' : 'Upload Picture';
   }),
+
+  progress: 0,
 
   actions:{
     /**
@@ -46,8 +49,9 @@ export default Component.extend({
     /*eslint-disable no-console */
     handleOptionInput(e){
       const data = e.currentTarget.files;
+      set(this,'progress','99');
       this.handleEvents.handleOptionInput(data, get(this, 'option'), get(this, 'node')).then((res)=>{
-        console.log(res);
+        set(this,'progress','100');
       });
     },
   }
