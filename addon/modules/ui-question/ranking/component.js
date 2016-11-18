@@ -4,7 +4,7 @@ import get from 'ember-metal/get';
 import set from 'ember-metal/set';
 import {reads} from 'ember-computed';
 import Sortable from 'sortable';
-import {later} from 'ember-runloop';
+import {scheduleOnce, later} from 'ember-runloop';
 
 export default Component.extend({
   layout,
@@ -27,8 +27,7 @@ export default Component.extend({
     },
   },
 
-
-  didInsertElement(){
+  renderSortable() {
     //初始化
     const options = get(this, 'options');
     options.forEach((item,index)=>{
@@ -53,7 +52,6 @@ export default Component.extend({
         }
         const indexArray = this.handleEvents.handleOptionDrop(oldIndex, newIndex, get(this,'node'));
 
-
         indexArray.forEach((item)=>{
           const sortNo = parseInt(item);
           const index = item -1;
@@ -64,13 +62,16 @@ export default Component.extend({
             thisNode.setAttribute('class','ranking-rank component');
           },1000);
         });
-      },
+      }
     });
+  },
+
+
+  didInsertElement(){
+    scheduleOnce('afterRender', this, 'renderSortable');
   },
 
   didDestroyElement(){
     this.sortTable.destroy();
-  },
-
-
+  }
 }).reopenClass({ positionalParams: ['node', 'handleEvents']});
