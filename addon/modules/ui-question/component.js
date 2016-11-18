@@ -4,6 +4,7 @@ import imagesLoaded from 'imagesloaded';
 import {scheduleOnce, later} from 'ember-runloop';
 import {alias} from 'ember-computed';
 import set from 'ember-metal/set';
+import $ from 'jquery';
 
 export default Component.extend({
   layout,
@@ -15,10 +16,12 @@ export default Component.extend({
 
 
   removeLoading(){
+    $('body').addClass('noscroll');
     imagesLoaded('body', ()=>{
       later(() => {
         set(this, '_thisLoading', false);
-      }, 3000);
+        $('body').removeClass('noscroll');
+      }, 1000);
     });
   },
 

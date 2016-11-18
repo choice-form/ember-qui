@@ -62,6 +62,7 @@ export function swiperMatrixInit(element, matrixThumbnails, config, callBack) {
       callBack && callBack();
     },
     onSlideChangeEnd: (e)=> {
+      e.update(true);
       matrixThumbnails.removeAttr('class');
       matrixThumbnails.slice(e.realIndex, e.realIndex + config.slidesPerView).addClass('active');
     },
