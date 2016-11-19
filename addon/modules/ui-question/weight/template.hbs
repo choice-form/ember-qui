@@ -8,11 +8,11 @@
 </div>
 
 {{#each node.options as |option|}}
-  {{ui-component/ui-range text=option.text
-                          unit=node.unit
+  {{ui-component/ui-range text=(unbound option.text)
+                          unit=(unbound node.unit)
                           value=(concat option.value)
                           minValue=0
-                          maxValue=option.maxValue
+                          maxValue=(unbound option.maxValue)
                           isDescription=false
                           handleOptionInput=(action "handleOptionInput" option)}}
 {{/each}}

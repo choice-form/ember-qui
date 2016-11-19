@@ -1,8 +1,8 @@
-{{ui-component/ui-matrix name= node.renderId
-                         otherOptions=node.otherOptions
+{{ui-component/ui-matrix name=(unbound node.renderId)
+                         otherOptions=(unbound node.otherOptions)
                          matrix=node.matrix
-                         optionsY=node.optionsY
-                         optionsX=node.optionsX
+                         optionsY=(unbound node.optionsY)
+                         optionsX=(unbound node.optionsX)
                          handleOptionClick=(action "handleOptionClick")
                          handleOptionInput=(action "handleOptionInput")
                          handleOptionInputForTextarea=(action "handleOptionInputForTextarea")

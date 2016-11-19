@@ -1,11 +1,11 @@
-<div class={{concat 'ui-' node.quesType}}>
+<div class={{concat 'ui-' (unbound node.quesType)}}>
   <div class={{concat "pin " locationState}}>
     <input
-      id={{node.renderId}}
+      id={{unbound node.renderId}}
         type="checkbox"
       onclick={{action 'handleOptionClick'}}
     >
-    <label for={{node.renderId}}>
+    <label for={{unbound node.renderId}}>
       <div class="effect-container">
         {{ui-addon/svg-item icon=svgState size="40px" viewBox="40"}}
         {{ui-addon/active-line-animation}}

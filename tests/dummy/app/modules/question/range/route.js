@@ -72,11 +72,11 @@ export default Route.extend({
         icon: '', // 选项的Icon
         inputType: 'input', // 'select', 'input', 'select-input',
         inputRule: 'time', //输入控件初始化规则
-        value: 1,
+        value: '',
         minValue: 1,
         maxValue: 9,
         step:1,
-        placeholder: '',
+        placeholder: '选择时间',
       }),
     ];
 

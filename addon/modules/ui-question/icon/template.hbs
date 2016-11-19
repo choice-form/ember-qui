@@ -1,9 +1,9 @@
-{{ui-component/ui-icon renderId=option.renderId
-                       name=node.renderId
-                       renderId=option.renderId
-                       selectType=node.selectType
+{{ui-component/ui-icon renderId=(unbound option.renderId)
+                       name=(unbound node.renderId)
+                       renderId=(unbound option.renderId)
+                       selectType=(unbound node.selectType)
                        selected= option.selected
-                       icon= node.selectType
-                       text= option.text
+                       icon= (unbound node.selectType)
+                       text= (unbound option.text)
                        svg=svg
                        handleOptionClick=(action 'handleOptionClick')}}

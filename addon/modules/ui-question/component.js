@@ -4,7 +4,7 @@ import imagesLoaded from 'imagesloaded';
 import {scheduleOnce, later} from 'ember-runloop';
 import {alias} from 'ember-computed';
 import set from 'ember-metal/set';
-import {addClass, removeClass} from '../lib/attributeManger';
+import {addClass, removeClass} from '../lib/attributeManage';
 
 export default Component.extend({
   layout,

@@ -1,17 +1,17 @@
 {{#if (eq option.inputType "input")}}
-  {{ui-component/ui-text inputRule=option.inputRule
-                         placeholder=option.placeholder
-                         renderId=option.renderId
+  {{ui-component/ui-text inputRule=(unbound option.inputRule)
+                         placeholder=(unbound option.placeholder)
+                         renderId=(unbound option.renderId)
                          value=option.value
                          handleOptionInput=(action "handleOptionInput")
                          handleOptionInputForTextarea=(action "handleOptionInputForTextarea")
   }}
 {{else}}
-  {{ui-component/ui-rating text=option.text
-                           description=option.description
-                           count=option.count
-                           renderId=option.renderId
-                           marks=option.marks
+  {{ui-component/ui-rating text=(unbound option.text)
+                           description=(unbound option.description)
+                           count=(unbound option.count)
+                           renderId=(unbound option.renderId)
+                           marks=(unbound option.marks)
                            graphs=graphs
                            handleOptionClick=(action "handleOptionClick")
 

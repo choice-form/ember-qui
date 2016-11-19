@@ -1,7 +1,7 @@
-{{ui-component/ui-text inputRule=option.inputRule
-                       placeholder=option.placeholder
+{{ui-component/ui-text inputRule=(unbound option.inputRule)
+                       placeholder=(unbound option.placeholder)
                        value=option.value
-                       renderId=option.renderId
+                       renderId=(unbound option.renderId)
                        handleOptionInput=(action "handleOptionInput")
                        handleOptionInputForTextarea=(action "handleOptionInputForTextarea")
 }}

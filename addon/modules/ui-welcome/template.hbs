@@ -1,10 +1,9 @@
-<section class={{concat 'welcome ' intro.style}}>
+<section class={{concat 'welcome ' (unbound intro.style)}}>
   <div class="wrapper">
-    <div class="row data-welcome" data-render-id={{intro.renderId}}>
+    <div class="row data-welcome" data-render-id={{unbound intro.renderId}}>
       {{ui-component/ui-header intro imageTop=true}}
     </div>
   </div>
-
 </section>
 {{ui-question/-node/button-cell
   nextButton=intro.nextButton
