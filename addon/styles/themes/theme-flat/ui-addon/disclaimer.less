@@ -1,0 +1,41 @@
+.reward-description {
+  margin-bottom: 1rem;
+}
+
+.disclaimer {
+  font-size: small;
+  & a {
+    cursor: pointer;
+    transition: color 200ms ease;
+    text-decoration: underline;
+  }
+}
+
+.disclaimer-contents {
+  font-size: .8rem;
+  position: relative;
+  margin-top: 2rem !important;
+  padding: 1rem 0 0 0;
+  & .disclaimer-close {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto;
+    padding: 24px;
+    cursor: pointer;
+    transition: background-color 200ms ease, color 200ms ease;
+    border-radius: 50%;
+
+    .absolute(auto, 0, -8rem, 0);
+    & svg {
+      display: block;
+    }
+  }
+}
+
+/*------------------- responsive -------------------*/
+
+html.mobile.portrait {
+  & .disclaimer {
+    font-size: x-small;
+  }
+}

@@ -332,6 +332,13 @@ sup {
   background-color: @secondary;
 }
 
+.disclaimer-contents {
+  & .disclaimer-close {
+    background-color: fade(@primary, 50%);
+    box-shadow: 0 4px 4px 0 fade(@primary, 50%);
+  }
+}
+
 /*------------------- ui-component -------------------*/
 
 .icon-button {
@@ -360,7 +367,25 @@ sup {
   }
 }
 
+button {
+  background-color: transparent;
+  &:active {
+    background-color: fade(@primary, 30%);
+  }
+}
+
+::selection {
+  color: @secondary;
+  background-color: @primary;
+}
+
+/*------------------- responsive -------------------*/
+
 html.desktop {
+  & article {
+    background-color: @secondary;
+    //box-shadow: 0 4px 4px 0 fade(@primary, 30%);
+  }
   & .icon-button {
     &.primary:hover {
       color: @primary;
@@ -381,27 +406,6 @@ html.desktop {
     &.contrast:hover {
       background-color: @primary;
     }
-  }
-}
-
-button {
-  background-color: transparent;
-  &:active {
-    background-color: fade(@primary, 30%);
-  }
-}
-
-::selection {
-  color: @secondary;
-  background-color: @primary;
-}
-
-/*------------------- responsive -------------------*/
-
-html.desktop {
-  & article {
-    background-color: @secondary;
-    //box-shadow: 0 4px 4px 0 fade(@primary, 30%);
   }
   & .ui-choice {
     & label:before {
@@ -431,11 +435,19 @@ html.desktop {
       }
     }
   }
-
   & .ui-ranking {
     & .ranking-rank:hover {
       box-shadow: inset 0 0 0 1px @primary, 0 3px 6px 0 fade(@primary, 30%);
     }
+  }
+  & .disclaimer {
+    & a:hover {
+      color: @contrast;
+    }
+  }
+  & .disclaimer-close:hover {
+    color: @secondary;
+    background-color: @primary;
   }
 }
 
@@ -454,7 +466,6 @@ html.mobile.portrait {
     background-color: @secondary;
     box-shadow: 0 4px 4px 0 fade(@primary, 30%);
   }
-
   & .wechat-profile {
     background-color: @secondary;
   }
