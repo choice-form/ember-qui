@@ -6,4 +6,5 @@ export default Component.extend({
   layout,
   tagName: 'div',
   classNames: ['warning'],
+
 }).reopenClass({positionalParams: ['warning']});

@@ -5,32 +5,69 @@
   right: 0;
   left: 0;
   & .instance {
-    & .notification {
-      position: relative;
-      padding: 1rem;
-      color: @secondary;
-      border-radius: 0 0 3px 3px;
-      background-color: @primary;
-      box-shadow: 0 4px 4px 0 fade(@primary, 30%);
-      &.info {
-        background-color: @primary;
-      }
-      &.success {
-        background-color: green;
-      }
-      &.warning {
-        background-color: red;
-      }
-      &.error {
-        background-color: tomato;
-      }
-      & .notification-close {
-        cursor: pointer;
-        & svg {
-          display: block;
-        }
+    animation: notification-hide .45s cubic-bezier(.6, .04, .98, .335);
+
+    animation-fill-mode: forwards;
+    &.in {
+      animation: notification-show .55s cubic-bezier(.86, 0, .07, 1);
+      & .notification {
+        animation: notification-fadein .55s cubic-bezier(.86, 0, .07, 1);
+        opacity: 1;
       }
     }
+    & .notification {
+      position: relative;
+      animation: notification-fadeout .45s cubic-bezier(.6, .04, .98, .335);
+      opacity: 0;
+      border-radius: 0 0 3px 3px;
+
+      animation-fill-mode: forwards;
+      & .notification-close {
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+@keyframes notification-show {
+  0% {
+    transform: translateY(-80px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes notification-hide {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-80px);
+  }
+}
+
+@keyframes notification-fadein {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes notification-fadeout {
+  0% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
   }
 }
 
@@ -39,6 +76,7 @@
 .ui-notification-fix() {
   .ui-notification {
     & .notification {
+      padding: 1rem 3rem 1rem 1rem;
       & .notification-close {
         width: 32px;
         height: 32px;
@@ -46,6 +84,13 @@
         padding: 8px;
 
         .absolute(0, .5rem, 0, auto);
+      }
+      & svg {
+        display: inline-block;
+        vertical-align: middle;
+        &:first-of-type {
+          margin-right: .5rem;
+        }
       }
     }
   }
@@ -64,6 +109,7 @@ html.ie {
 .ui-notification-supports() {
   .ui-notification {
     & .notification {
+      padding: 1rem;
       display: flex;
 
       align-items: center;
@@ -73,6 +119,12 @@ html.ie {
       }
       & strong {
         flex-grow: 2;
+      }
+      & svg {
+        display: block;
+        &:first-of-type {
+          margin-right: .5rem;
+        }
       }
     }
   }

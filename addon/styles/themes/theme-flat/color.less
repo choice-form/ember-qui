@@ -395,6 +395,25 @@ sup {
   }
 }
 
+.ui-notification {
+  & .notification {
+    color: @secondary;
+    box-shadow: 0 4px 4px 0 fade(@primary, 30%);
+  }
+  & .instance {
+    &.info {
+      & .notification {
+        background-color: @primary;
+      }
+    }
+    &.warning {
+      & .notification {
+        background-color: @contrast;
+      }
+    }
+  }
+}
+
 //-----------------------------------------------------
 
 .icon-button {
