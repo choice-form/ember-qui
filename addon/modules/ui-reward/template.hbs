@@ -2,7 +2,7 @@
   <div class="warapper">
     <div class="row reward-container">
       {{#unless (eq node.rewardType 'wechat')}}
-        <figure class="attachment header">
+        <figure class="attachment">
           {{#each node.images as |image|}}
             {{ui-addon/progressive-image
               ratio=image.ratio

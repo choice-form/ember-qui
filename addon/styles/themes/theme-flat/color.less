@@ -1,103 +1,12 @@
 @primary: gray;
-
 @secondary: white;
 @contrast: #ca2027;
 @neutrals: gray;
 
-html.desktop {
-  & body {
-    //background-image: url('/images/sample-2-blur.jpg');
-  }
-  & article {
-    background-color: @secondary;
-    //box-shadow: 0 4px 4px 0 fade(@primary, 30%);
-  }
-  & .ui-choice {
-    & label:before {
-      background-color: @primary;
-    }
-  }
-  & .ui-text {
-    & input:not(.ui-menu):hover {
-      box-shadow: inset 0 0 0 3px fade(@primary, 10%);
-    }
-  }
-  & .ui-picture {
-    & input:not(:checked) {
-      & + label:hover {
-        & .attachment:after {
-          background-color: fade(@secondary, 10%);
-          box-shadow: inset 0 0 0 1px @secondary, inset 0 0 0 2px @primary;
-        }
-      }
-    }
-  }
-  & .thumb-wrapper {
-    & .thumb-item:hover {
-      & a:after {
-        background-color: fade(@secondary, 10%);
-        box-shadow: inset 0 0 0 1px @secondary, inset 0 0 0 2px @primary;
-      }
-    }
-  }
-
-  & .ui-ranking {
-    & .ranking-rank:hover {
-      box-shadow: inset 0 0 0 1px @primary, 0 3px 6px 0 fade(@primary, 30%);
-    }
-  }
-}
-
-html.tablet.portrait,
-html.mobile.landscape,
-html.mobile.portrait {
-  & body {
-    background-color: fade(@primary, 10%);
-  }
-  & .attachment.header {
-    box-shadow: 0 4px 4px 0 fade(@primary, 30%);
-  }
-  & .reward,
-  & .reward-header,
-  & .wrapper {
-    background-color: @secondary;
-    box-shadow: 0 4px 4px 0 fade(@primary, 30%);
-  }
-
-  & .wechat-profile {
-    background-color: @secondary;
-  }
-}
-
-html.mobile.portrait {
-  & .submit-actions {
-    & button {
-      &:only-of-type,
-      &:nth-of-type(2) {
-        color: @secondary;
-        background-color: @contrast;
-        &:active {
-          background-color: fade(@contrast, 80%);
-        }
-      }
-    }
-  }
-  & footer {
-    border-color: fade(@primary, 30%);
-    & svg {
-      fill: @contrast;
-    }
-  }
-}
-
-//-----------------------------------------------------
+/*------------------- layout -------------------*/
 
 body {
   color: @primary;
-  background-color: @secondary;
-}
-
-.attachment.header {
   background-color: @secondary;
 }
 
@@ -111,6 +20,26 @@ textarea,
 input {
   &::-webkit-input-placeholder {
     color: fade(@primary, 50%);
+  }
+}
+
+input:checked {
+  & + label {
+    color: @contrast;
+  }
+}
+
+/*------------------- ui-question -------------------*/
+
+.welcome {
+  &.full-screen-cover {
+    &:before {
+      background: linear-gradient(to bottom,fade(@primary, 0%) 0, @primary 100%);
+    }
+    & .header {
+      color: @secondary;
+      border-color: @secondary;
+    }
   }
 }
 
@@ -131,18 +60,14 @@ input {
   }
 }
 
-input:checked {
-  & + label {
-    color: @contrast;
-  }
-}
-
-.ui-rating {
-  & .rating-wrapper {
-    background-color: fade(@primary, 10%);
-    & input:checked {
-      & + label {
-        color: @contrast;
+.rating {
+  & .ui-rating {
+    & .rating-wrapper {
+      background-color: fade(@primary, 10%);
+      & input:checked {
+        & + label {
+          color: @contrast;
+        }
       }
     }
   }
@@ -217,8 +142,29 @@ input:checked {
 }
 
 .icon {
-  & .labels {
-    border-top: 2px solid fade(@primary, 10%);
+  .ui-icon {
+    & input:checked {
+      & + label {
+        color: @contrast;
+        & .svg-wrapper {
+          & svg {
+            & path {
+              fill: @contrast;
+            }
+          }
+        }
+      }
+    }
+    & label {
+      & svg {
+        & path {
+          fill: @primary;
+        }
+      }
+    }
+    & .labels {
+      border-top: 2px solid fade(@primary, 10%);
+    }
   }
 }
 
@@ -249,107 +195,75 @@ input:checked {
       border: 2px solid @contrast;
     }
   }
-}
-.reward-additional {
-  & .disclaimer {
-    color: fade(@primary, 50%);
-  }
-  .disclaimer-contents {
-    border-top: 1px solid fade(@primary, 50%);
-  }
-}
-
-.ui-ranking {
-  & .ranking-rank {
-    box-shadow: inset 0 0 0 1px fade(@primary, 50%), 0 2px 4px 0 fade(@primary, 30%);
-    &.sortable-chosen.complete,
-    &.sortable-chosen {
-      box-shadow: inset 0 0 0 1px fade(@primary, 50%), 0 4px 8px 0 fade(@primary, 30%);
+  & .reward-additional {
+    & .disclaimer {
+      color: fade(@primary, 50%);
     }
-    &.complete {
-      box-shadow: inset 0 0 0 1px fade(@primary, 50%), 0 1px 3px 0 fade(@primary, 30%);
-      & label {
-        & .effect-container {
-          color: @contrast;
-        }
-      }
-      & .ranking-number {
-        &:before {
-          color: fade(@primary, 50%);
-        }
-      }
+    .disclaimer-contents {
+      border-top: 1px solid fade(@primary, 50%);
     }
   }
 }
 
-.ui-icon {
-  & input:checked {
-    & + label {
-      color: @contrast;
-      & .svg-wrapper {
-        & svg {
-          & path {
-            fill: @contrast;
+.ranking {
+  & .ui-ranking {
+    & .ranking-rank {
+      box-shadow: inset 0 0 0 1px fade(@primary, 50%), 0 2px 4px 0 fade(@primary, 30%);
+      &.sortable-chosen.complete,
+      &.sortable-chosen {
+        box-shadow: inset 0 0 0 1px fade(@primary, 50%), 0 4px 8px 0 fade(@primary, 30%);
+      }
+      &.complete {
+        box-shadow: inset 0 0 0 1px fade(@primary, 50%), 0 1px 3px 0 fade(@primary, 30%);
+        & label {
+          & .effect-container {
+            color: @contrast;
+          }
+        }
+        & .ranking-number {
+          &:before {
+            color: fade(@primary, 50%);
           }
         }
       }
     }
   }
-  & label {
-    & svg {
-      & path {
-        fill: @primary;
-      }
-    }
-  }
 }
 
-.ui-matrix {
-  & .fix-header {
-    &:after {
+.matrix {
+  & .ui-matrix {
+    & .fix-header {
+      &:after {
+        background-color: @secondary;
+      }
+    }
+    & .swiper-pagination-bullet-active {
+      background-color: @contrast;
+    }
+    & .matrix-thumbnail {
+      & ul li {
+        &.active {
+          & span {
+            background-color: @contrast;
+          }
+        }
+        & span {
+          background-color: fade(@primary, 30%);
+        }
+      }
+    }
+    & .swiper-button-disabled {
+      & svg {
+        fill: fade(@primary, 50%);
+      }
+    }
+    & .matrix-thumbnail {
       background-color: @secondary;
     }
   }
-  & .swiper-pagination-bullet-active {
-    background-color: @contrast;
-  }
-  & .matrix-thumbnail {
-    & ul li {
-      &.active {
-        & span {
-          background-color: @contrast;
-        }
-      }
-      & span {
-        background-color: fade(@primary, 30%);
-      }
-    }
-  }
-  & .swiper-button-disabled {
-    & svg {
-      fill: fade(@primary, 50%);
-    }
-  }
-  & .matrix-thumbnail {
-    background-color: @secondary;
-  }
 }
 
-.welcome {
-  &.full-screen-cover {
-    &:before {
-      background: linear-gradient(to bottom,fade(@primary, 0%) 0, @primary 100%);
-    }
-    & .header {
-      color: @secondary;
-      border-color: @secondary;
-    }
-  }
-}
-
-.full-screen-loading {
-  background-color: @secondary;
-}
+/*------------------- ui-addon -------------------*/
 
 .progress-bar {
   background-color: fade(@secondary, 90%);
@@ -414,7 +328,11 @@ sup {
   }
 }
 
-//-----------------------------------------------------
+.full-screen-loading {
+  background-color: @secondary;
+}
+
+/*------------------- ui-component -------------------*/
 
 .icon-button {
   transition: color 200ms ease;
@@ -466,6 +384,82 @@ html.desktop {
   }
 }
 
+button {
+  background-color: transparent;
+  &:active {
+    background-color: fade(@primary, 30%);
+  }
+}
+
+::selection {
+  color: @secondary;
+  background-color: @primary;
+}
+
+/*------------------- responsive -------------------*/
+
+html.desktop {
+  & article {
+    background-color: @secondary;
+    //box-shadow: 0 4px 4px 0 fade(@primary, 30%);
+  }
+  & .ui-choice {
+    & label:before {
+      background-color: @primary;
+    }
+  }
+  & .ui-text {
+    & input:not(.ui-menu):hover {
+      box-shadow: inset 0 0 0 3px fade(@primary, 10%);
+    }
+  }
+  & .ui-picture {
+    & input:not(:checked) {
+      & + label:hover {
+        & .attachment:after {
+          background-color: fade(@secondary, 10%);
+          box-shadow: inset 0 0 0 1px @secondary, inset 0 0 0 2px @primary;
+        }
+      }
+    }
+  }
+  & .thumb-wrapper {
+    & .thumb-item:hover {
+      & a:after {
+        background-color: fade(@secondary, 10%);
+        box-shadow: inset 0 0 0 1px @secondary, inset 0 0 0 2px @primary;
+      }
+    }
+  }
+
+  & .ui-ranking {
+    & .ranking-rank:hover {
+      box-shadow: inset 0 0 0 1px @primary, 0 3px 6px 0 fade(@primary, 30%);
+    }
+  }
+}
+
+html.tablet.portrait,
+html.mobile.landscape,
+html.mobile.portrait {
+  & body {
+    background-color: fade(@primary, 10%);
+  }
+  & .attachment.header {
+    box-shadow: 0 4px 4px 0 fade(@primary, 30%);
+  }
+  & .reward,
+  & .reward-header,
+  & .wrapper {
+    background-color: @secondary;
+    box-shadow: 0 4px 4px 0 fade(@primary, 30%);
+  }
+
+  & .wechat-profile {
+    background-color: @secondary;
+  }
+}
+
 html.tablet,
 html.mobile {
   & .icon-button {
@@ -491,20 +485,28 @@ html.mobile {
   }
 }
 
-button {
-  background-color: transparent;
-  &:active {
-    background-color: fade(@primary, 30%);
+html.mobile.portrait {
+  & .submit-actions {
+    & button {
+      &:only-of-type,
+      &:nth-of-type(2) {
+        color: @secondary;
+        background-color: @contrast;
+        &:active {
+          background-color: fade(@contrast, 80%);
+        }
+      }
+    }
+  }
+  & footer {
+    border-color: fade(@primary, 30%);
+    & svg {
+      fill: @contrast;
+    }
   }
 }
 
-::selection {
-  color: @secondary;
-  background-color: @primary;
-}
-
-
-//-----------------------------------------------------
+/*------------------- nouislider -------------------*/
 
 .noUi-background {
   background: @secondary;
