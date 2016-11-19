@@ -30,7 +30,7 @@ export default Route.extend({
               renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: 'Submit your photograph. You need to submit at least one photograph with the front view of face.',
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
-              icon: 'upload', // 选项的Icon
+              icon: 'camera', // 选项的Icon
               inputType: '', // 'select', 'input', 'select-input, ower-input',
               inputRule: '', //输入控件初始化规则
               value: '',
@@ -41,7 +41,7 @@ export default Route.extend({
               renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: 'Submit your photograph.',
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
-              icon: 'upload', // 选项的Icon
+              icon: 'camera', // 选项的Icon
               inputType: '', // 'select', 'input', 'select-input, ower-input',
               inputRule: '', //输入控件初始化规则
               value: '',
@@ -52,7 +52,7 @@ export default Route.extend({
               renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: '',
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
-              icon: 'upload', // 选项的Icon
+              icon: 'camera', // 选项的Icon
               inputType: '', // 'select', 'input', 'select-input, ower-input',
               inputRule: '', //输入控件初始化规则
               value: '',
