@@ -1,10 +1,10 @@
+/* eslint-disable */
+
 import Route from 'ember-route';
 import set from 'ember-metal/set';
-import get from 'ember-metal/get';
 import Ember from 'ember';
 import faker from 'faker';
 
-/*eslint-disable no-console */
 
 export default Route.extend({
   model() {

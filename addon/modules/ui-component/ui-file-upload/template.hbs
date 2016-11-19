@@ -6,9 +6,12 @@
         onclick={{handleOptionClick}}
       onchange={{handleOptionInput}}
     >
+    {{#unless (eq progress '100')}}
       <div class="upload-progress-bar">
         <div class="upload-progress" style={{html-safe (concat "width:" progress "%;")}}></div>
       </div>
+    {{/unless}}
+
 
     {{#if value}}
       <a class="clear icon-button primary" onclick={{handleOptionRemove}}>

@@ -1,6 +1,6 @@
 import Component from 'ember-component';
 import layout from './template';
-import {addClass} from '../../lib/attributeManage';
+import {addClass} from '../../lib/attribute-manage';
 
 export default Component.extend({
   layout,

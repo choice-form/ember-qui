@@ -1,6 +1,6 @@
 import Component from 'ember-component';
 import layout from './template';
-import computed,{alias, reads} from 'ember-computed';
+import computed,{reads} from 'ember-computed';
 import get from 'ember-metal/get';
 import mobiInit from '../../lib/mobile-factory'
 

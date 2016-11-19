@@ -50,7 +50,7 @@ export default Component.extend({
     handleOptionInput(e){
       const data = e.currentTarget.files;
       set(this,'progress','99');
-      this.handleEvents.handleOptionInput(data, get(this, 'option'), get(this, 'node')).then((res)=>{
+      this.handleEvents.handleOptionInput(data, get(this, 'option'), get(this, 'node')).then(()=>{
         set(this,'progress','100');
       });
     },
