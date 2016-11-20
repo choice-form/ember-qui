@@ -24,9 +24,10 @@ module.exports = {
       imagesloaded: { import: ['imagesloaded.pkgd.js'] },
       'masonry-layout': { import: ['dist/masonry.pkgd.js'] },
       sortablejs: { import: ['Sortable.js'] },
-      swiper: { srcDir: 'dist', import: ['js/swiper.min.js', 'css/swiper.min.css'] }
+      swiper: { srcDir: 'dist', import: ['js/swiper.min.js', 'css/swiper.min.css'] },
     }
   },
+
 
   isDevelopingAddon() {
     return 'development' === process.env.EMBER_ENV;

@@ -3,6 +3,10 @@ import colorAlpha from './color-transform';
 /* eslint-disable no-unused-vars */
 export default function themesColor(primary = 'rgba(128,128,128,1)', secondary = 'rgba(255,255,255,1)', contrast = 'rgba(202,32,39,1)', neutrals = 'rgba(128,128,128,1)') {
 
+  const primaryAlpha01 = colorAlpha(primary, 0.1);
+  const primaryAlpha03 = colorAlpha(primary, 0.3);
+  const primaryAlpha05 = colorAlpha(primary, 0.5);
+
   const style = `
   /*------------------- layout -------------------*/
     body {
@@ -14,7 +18,7 @@ export default function themesColor(primary = 'rgba(128,128,128,1)', secondary =
     }
     textarea::-webkit-input-placeholder,
     input::-webkit-input-placeholder {
-      color: ${colorAlpha(primary, 0.5)};
+      color: ${primaryAlpha05};
     }
     input:checked + label {
       color: ${contrast};
@@ -32,20 +36,20 @@ export default function themesColor(primary = 'rgba(128,128,128,1)', secondary =
       box-shadow: inset 0 0 0 3px ${colorAlpha(contrast, 0.1)} !important;
     }
     .ui-text.dropdown input {
-      box-shadow: 0 2px 0 0 ${colorAlpha(primary, 0.5)};
+      box-shadow: 0 2px 0 0 ${primaryAlpha05};
     }
     .ui-text.dropdown input:hover {
       box-shadow: 0 2px 0 0 ${primary};
     }
     .rating .ui-rating .rating-wrapper {
-      background-color: ${colorAlpha(primary, 0.1)};
+      background-color: ${primaryAlpha01};
     }
     .rating .ui-rating .rating-wrapper input:checked + label {
       color: ${contrast};
     }
     .picture-layout.insert-block .pic-description {
       color: ${secondary};
-      background-color: ${colorAlpha(primary, 0.5)};
+      background-color: ${primaryAlpha05};
     }
     .picture-layout .ui-picture input:checked + label .attachment:after {
       box-shadow: inset 0 0 0 2px ${contrast}, inset 0 0 0 4px ${secondary};
@@ -54,14 +58,14 @@ export default function themesColor(primary = 'rgba(128,128,128,1)', secondary =
       border-top: 4.5rem solid ${colorAlpha(secondary, 0.9)};
     }
     .picture-layout .object-fit {
-      background-color: ${colorAlpha(primary, 0.3)};
+      background-color: ${primaryAlpha03};
     }
     .picture-layout.superscript.insert-block .pic-description {
       color: inherit;
     }
     .picture-layout.superscript.insert-block .pic-description > span {
       color: ${secondary};
-      background-color: ${colorAlpha(primary, 0.5)};
+      background-color: ${primaryAlpha05};
     }
     .location .pin label {
       color: ${secondary};
@@ -76,7 +80,7 @@ export default function themesColor(primary = 'rgba(128,128,128,1)', secondary =
       background-color: ${secondary};
     }
     .file-upload .upload-image-icon {
-      fill: ${colorAlpha(primary, 0.5)}
+      fill: ${primaryAlpha05}
     }
     .file-upload .upload-progress {
       background-color: ${contrast};
@@ -91,17 +95,17 @@ export default function themesColor(primary = 'rgba(128,128,128,1)', secondary =
       fill: ${primary};
     }
     .icon .ui-icon .labels {
-      border-top: 2px solid ${colorAlpha(primary, 0.1)}
+      border-top: 2px solid ${primaryAlpha01}
     }
     .reward-container .reward-header > h2 {
       color: ${contrast};
-      border-bottom: 1px solid ${colorAlpha(primary, 0.5)};
+      border-bottom: 1px solid ${primaryAlpha05};
     }
     .reward-container .reward-header .reward-contents {
-      border-bottom: 1px solid ${colorAlpha(primary, 0.5)};
+      border-bottom: 1px solid ${primaryAlpha05};
     }
     .reward-container .reward-header .reward-contents .current-time {
-      color: ${colorAlpha(primary, 0.5)}
+      color: ${primaryAlpha05}
     }
     .reward-container .currency input:checked + label {
       color: ${secondary};
@@ -112,26 +116,26 @@ export default function themesColor(primary = 'rgba(128,128,128,1)', secondary =
       border: 2px solid ${contrast};
     }
     .reward-container .reward-additional .disclaimer {
-      color: ${colorAlpha(primary, 0.5)}
+      color: ${primaryAlpha05}
     }
     .reward-container .reward-additional .disclaimer-contents {
-      border-top: 1px solid ${colorAlpha(primary, 0.5)}
+      border-top: 1px solid ${primaryAlpha05}
     }
     .ranking .ui-ranking .ranking-rank {
-      box-shadow: inset 0 0 0 1px ${colorAlpha(primary, 0.5)}, 0 2px 4px 0 ${colorAlpha(primary, 0.3)};
+      box-shadow: inset 0 0 0 1px ${primaryAlpha05}, 0 2px 4px 0 ${primaryAlpha03};
     }
     .ranking .ui-ranking .ranking-rank.sortable-chosen.complete,
     .ranking .ui-ranking .ranking-rank.sortable-chosen {
-      box-shadow: inset 0 0 0 1px ${colorAlpha(primary, 0.5)}, 0 4px 8px 0 ${colorAlpha(primary, 0.3)};
+      box-shadow: inset 0 0 0 1px ${primaryAlpha05}, 0 4px 8px 0 ${primaryAlpha03};
     }
     .ranking .ui-ranking .ranking-rank.complete {
-      box-shadow: inset 0 0 0 1px ${colorAlpha(primary, 0.5)}, 0 1px 3px 0 ${colorAlpha(primary, 0.3)};
+      box-shadow: inset 0 0 0 1px ${primaryAlpha05}, 0 1px 3px 0 ${primaryAlpha03};
     }
     .ranking .ui-ranking .ranking-rank.complete label .effect-container {
       color: ${contrast};
     }
     .ranking .ui-ranking .ranking-rank.complete .ranking-number:before {
-      color: ${colorAlpha(primary, 0.5)};
+      color: ${primaryAlpha05};
     }
     .matrix .ui-matrix .fix-header:after {
       background-color: ${secondary};
@@ -143,10 +147,10 @@ export default function themesColor(primary = 'rgba(128,128,128,1)', secondary =
       background-color: ${contrast};
     }
     .matrix .ui-matrix .matrix-thumbnail ul li span {
-      background-color: ${colorAlpha(primary, 0.3)}
+      background-color: ${primaryAlpha03}
     }
     .matrix .ui-matrix .swiper-button-disabled svg {
-      fill: ${colorAlpha(primary, 0.5)};
+      fill: ${primaryAlpha05};
     }
     .matrix .ui-matrix .matrix-thumbnail {
       background-color: ${secondary};
@@ -156,21 +160,21 @@ export default function themesColor(primary = 'rgba(128,128,128,1)', secondary =
       background-color: ${colorAlpha(secondary, 0.9)};
     }
     .progress-bar .progress-wrapper:before {
-      background-color: ${colorAlpha(primary, 0.3)};
+      background-color: ${primaryAlpha03};
     }
     .progress-bar .progress-wrapper .progress {
       background-color: ${contrast};
     }
     .count-down .count-down-wrapper div {
       background-color: ${secondary};
-      box-shadow: inset 0 0 0 1px ${colorAlpha(primary, 0.1)}, 0 4px 4px -2px ${colorAlpha(primary, 0.3)};
+      box-shadow: inset 0 0 0 1px ${primaryAlpha01}, 0 4px 4px -2px ${primaryAlpha03};
     }
     sup {
-      color: ${colorAlpha(primary, 0.5)};
+      color: ${primaryAlpha05};
     }
     sup > span {
       color: ${secondary};
-      background-color: ${colorAlpha(primary, 0.5)};
+      background-color: ${primaryAlpha05};
     }
     .warning {
       background: linear-gradient(to bottom, ${colorAlpha(secondary, 0.7)} 0, ${secondary} 80%);
@@ -188,7 +192,7 @@ export default function themesColor(primary = 'rgba(128,128,128,1)', secondary =
     }
     .ui-notification .notification {
       color: ${secondary};
-      box-shadow: 0 4px 4px 0 ${colorAlpha(primary, 0.3)};
+      box-shadow: 0 4px 4px 0 ${primaryAlpha03};
     }
     .ui-notification .instance.info .notification {
       background-color: ${primary};
@@ -200,15 +204,15 @@ export default function themesColor(primary = 'rgba(128,128,128,1)', secondary =
       background-color: ${secondary};
     }
     .disclaimer-contents .disclaimer-close {
-      background-color: ${colorAlpha(primary, 0.5)};
-      box-shadow: 0 4px 4px 0 ${colorAlpha(primary, 0.5)};
+      background-color: ${primaryAlpha05};
+      box-shadow: 0 4px 4px 0 ${primaryAlpha05};
     }
     /*------------------- ui-component -------------------*/
     .icon-button {
       transition: color 200ms ease;
     }
     .icon-button.primary {
-      color: ${colorAlpha(primary, 0.5)};
+      color: ${primaryAlpha05};
     }
     .icon-button.contrast {
       color: ${colorAlpha(contrast, 0.5)};
@@ -232,7 +236,7 @@ export default function themesColor(primary = 'rgba(128,128,128,1)', secondary =
       background-color: transparent;
     }
     button:active {
-      background-color: ${colorAlpha(primary, 0.3)};
+      background-color: ${primaryAlpha03};
     }
     ::selection {
       color: ${secondary};
@@ -263,7 +267,7 @@ export default function themesColor(primary = 'rgba(128,128,128,1)', secondary =
       background-color: ${primary};
     }
     html.desktop .ui-text input:not(.ui-menu):hover {
-      box-shadow: inset 0 0 0 3px ${colorAlpha(primary, 0.1)};
+      box-shadow: inset 0 0 0 3px ${primaryAlpha01};
     }
     html.desktop .ui-picture input:not(:checked) + label:hover .attachment:after {
       background-color: ${colorAlpha(secondary, 0.1)};
@@ -274,7 +278,7 @@ export default function themesColor(primary = 'rgba(128,128,128,1)', secondary =
       box-shadow: inset 0 0 0 1px ${secondary}, inset 0 0 0 2px ${primary};
     }
     html.desktop .ui-ranking .ranking-rank:hover {
-      box-shadow: inset 0 0 0 1px ${primary}, 0 3px 6px 0 ${colorAlpha(primary, 0.3)};
+      box-shadow: inset 0 0 0 1px ${primary}, 0 3px 6px 0 ${primaryAlpha03};
     }
     html.desktop .disclaimer a:hover {
       color: ${contrast};
@@ -286,12 +290,12 @@ export default function themesColor(primary = 'rgba(128,128,128,1)', secondary =
     html.tablet.portrait body,
     html.mobile.landscape body,
     html.mobile.portrait body {
-      background-color: ${colorAlpha(primary, 0.1)};
+      background-color: ${primaryAlpha01};
     }
     html.tablet.portrait .attachment.header,
     html.mobile.landscape .attachment.header,
     html.mobile.portrait .attachment.header {
-      box-shadow: 0 4px 4px 0 ${colorAlpha(primary, 0.3)};
+      box-shadow: 0 4px 4px 0 ${primaryAlpha03};
     }
     html.tablet.portrait .reward,
     html.mobile.landscape .reward,
@@ -303,7 +307,7 @@ export default function themesColor(primary = 'rgba(128,128,128,1)', secondary =
     html.mobile.landscape .wrapper,
     html.mobile.portrait .wrapper {
       background-color: ${secondary};
-      box-shadow: 0 4px 4px 0 ${colorAlpha(primary, 0.3)};
+      box-shadow: 0 4px 4px 0 ${primaryAlpha03};
     }
     html.tablet.portrait .wechat-profile,
     html.mobile.landscape .wechat-profile,
@@ -342,7 +346,7 @@ export default function themesColor(primary = 'rgba(128,128,128,1)', secondary =
       background-color: ${colorAlpha(contrast, 0.8)};
     }
     html.mobile.portrait footer {
-      border-color: ${colorAlpha(primary, 0.3)};
+      border-color: ${primaryAlpha03};
     }
     html.mobile.portrait footer svg {
       fill: ${contrast};
@@ -359,16 +363,16 @@ export default function themesColor(primary = 'rgba(128,128,128,1)', secondary =
       box-shadow: 0 0 0 1px ${contrast};
     }
     .noUi-handle {
-      border: 1px solid ${colorAlpha(primary, 0.5)};
+      border: 1px solid ${primaryAlpha05};
       background: ${secondary};
-      box-shadow: inset 0 0 1px ${secondary}, inset 0 1px 7px ${colorAlpha(primary, 0.1)}, 0 3px 6px -3px ${colorAlpha(primary, 0.5)};
+      box-shadow: inset 0 0 1px ${secondary}, inset 0 1px 7px ${primaryAlpha01}, 0 3px 6px -3px ${primaryAlpha05};
     }
     .noUi-active {
-      box-shadow: inset 0 0 1px ${secondary}, inset 0 1px 7px ${colorAlpha(primary, 0.5)}, 0 3px 6px -3px ${colorAlpha(primary, 0.5)};
+      box-shadow: inset 0 0 1px ${secondary}, inset 0 1px 7px ${primaryAlpha05}, 0 3px 6px -3px ${primaryAlpha05};
     }
     .noUi-handle:after,
     .noUi-handle:before {
-      background: ${colorAlpha(primary, 0.5)};
+      background: ${primaryAlpha05};
     }
     [disabled] .noUi-connect,
     [disabled].noUi-connect {
