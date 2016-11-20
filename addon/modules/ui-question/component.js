@@ -6,6 +6,7 @@ import {alias} from 'ember-computed';
 import set from 'ember-metal/set';
 import {addClass, removeClass} from '../lib/attribute-manage';
 import mobiScrollStyle from '../lib/color-mobiScroll-manage';
+import themesColor from '../lib/color-theme-manage';
 
 export default Component.extend({
   layout,
@@ -36,6 +37,7 @@ export default Component.extend({
     const contrast= 'rgba(202,32,39,1)';
     const neutrals= 'rgba(128,128,128,1)';
     mobiScrollStyle(primary,secondary,contrast,neutrals);
+    themesColor(primary,secondary,contrast,neutrals);
 
   }
 }).reopenClass({positionalParams: ['question']});

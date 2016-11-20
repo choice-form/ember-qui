@@ -14,15 +14,15 @@ export default Route.extend({
           images: '',
           renderId: faker.date.between('2016-01-01', '2016-12-31'),
           typeName: '选择题',
-          minSelect:'1',
-          maxSelect:'2',
+          minSelect: '1',
+          maxSelect: '2',
           quesType: 'choice', //select, fill
           selectType: 'radio',
           showStyle: '',
           uuid: '001',
-          isMust:true,
-          number:'1',
-          options:[
+          isMust: true,
+          number: '1',
+          options: [
             Ember.Object.create({
               selected: false,
               renderId: faker.date.between('2016-01-01', '2016-12-31'),
@@ -75,8 +75,8 @@ export default Route.extend({
           images: [
             {
               ratio: 0.6666667,
-              natural:'/images/sample-2.jpg',
-              thumbnail:'/images/sample-2-thumbnail.jpg',
+              natural: '/images/sample-2.jpg',
+              thumbnail: '/images/sample-2-thumbnail.jpg',
             }
           ],
           renderId: faker.date.between('2016-01-01', '2016-12-31'),
@@ -85,9 +85,9 @@ export default Route.extend({
           selectType: 'checkbox',
           showStyle: '',
           uuid: '002',
-          isMust:false,
-          number:'2',
-          options:[
+          isMust: false,
+          number: '2',
+          options: [
             Ember.Object.create({
               selected: false,
               renderId: faker.date.between('2016-01-01', '2016-12-31'),
