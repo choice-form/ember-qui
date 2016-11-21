@@ -1,6 +1,6 @@
 {
   "name": "@choiceform/ember-cform-ui",
-  "version": "0.0.21",
+  "version": "0.0.22",
   "description": "UI components for q.cform.io",
   "main": "index.js",
   "directories": {
@@ -41,7 +41,6 @@
     "imagesloaded": "^4.1.1",
     "less-plugin-autoprefix": "^1.5.1",
     "masonry-layout": "^4.1.1",
-    "qr-image": "^3.1.0",
     "sortablejs": "^1.4.2",
     "swiper": "^3.4.0"
   },
@@ -68,6 +67,7 @@
     "ember-disable-prototype-extensions": "^1.1.0",
     "ember-export-application-global": "^1.1.1",
     "ember-load-initializers": "^0.5.1",
+    "ember-qrcode": "0.0.4",
     "ember-resolver": "^2.1.0",
     "faker": "^3.1.0",
     "liquid-fire": "0.26.4",

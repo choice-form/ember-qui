@@ -50,8 +50,7 @@
           {{#if node.rewardToQrcode}}
             <div class="ui-qrcode">
               <div class="qrcode-item">
-                {{QRcode}}
-                <img src={{node.qrImage}}>
+                {{qr-code data=node.qrImage light="#EEEEFF" dark="#330000"}}
               </div>
               <div class="scan-icon">{{ui-addon/svg-item icon="scan"}}</div>
               <p>Capture the screen and save it, you can't share it publicly. <span>{{node.qrCode}}</span></p>
