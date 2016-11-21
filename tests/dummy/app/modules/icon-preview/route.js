@@ -96,6 +96,10 @@ export default Route.extend({
         {icon: "warning"},
         {icon: "upload-image"},
       ],
+      gender: [
+        {icon: "men"},
+        {icon: "women"},
+      ],
     };
   }
 });

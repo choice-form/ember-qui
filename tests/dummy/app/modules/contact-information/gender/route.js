@@ -13,14 +13,14 @@ export default Route.extend({
         renderId: faker.date.between('2016-01-01', '2016-12-31'),
         text: faker.lorem.words(),
         uuid: faker.date.between('2016-01-01', '2016-12-31'),
-        icon: 'alert-circle-?',
+        icon: 'men',
       }),
       Ember.Object.create({
         selected: false,
         renderId: '4567890-871',
         text: faker.lorem.words(),
         uuid: faker.date.between('2016-01-01', '2016-12-31'),
-        icon: 'users',
+        icon: 'women',
       }),
     ];
 

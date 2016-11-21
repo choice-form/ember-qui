@@ -50,7 +50,7 @@
  * @property {String} option.renderId - 当前选项的渲染ID,用于单页的滚动
  * @property {String} option.text - 选项文字
  * @property {String} option.uuid - 选项ID值
- * @property {String} option.icon - 选项Icon , 'icon的名称'
+ * @property {String} option.icon - 选项Icon , 男: men, 女: women
 
  * @example
  ```javascript
@@ -59,7 +59,7 @@
       renderId: '4567890-0987',
       text: faker.lorem.words(),
       uuid: faker.date.between('2016-01-01', '2016-12-31'),
-      icon: 'alert-circle-?',
+      icon: 'men',
    }
  ```
  */
