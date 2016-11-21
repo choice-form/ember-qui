@@ -20,14 +20,14 @@ module.exports = {
     },
     nodeAssets: {
       bowser: { import: ['bowser.js'] },
-      fastclick: { import: ['lib/fastclick.js'] },
+      fastclick: { srcDir: 'lib', import: ['fastclick.js'] },
       imagesloaded: { import: ['imagesloaded.pkgd.js'] },
-      'masonry-layout': { import: ['dist/masonry.pkgd.js'] },
+      'masonry-layout': { srcDir: 'dist', import: ['masonry.pkgd.js'] },
       sortablejs: { import: ['Sortable.js'] },
-      swiper: { srcDir: 'dist', import: ['js/swiper.min.js', 'css/swiper.min.css'] },
+      swiper: { srcDir: 'dist', import: ['css/swiper.min.css',
+                                         'js/swiper.min.js'] }
     }
   },
-
 
   isDevelopingAddon() {
     return 'development' === process.env.EMBER_ENV;

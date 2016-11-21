@@ -7,7 +7,8 @@ const options = {
       import: ['faker.js']
     },
     'clipboard': {
-      import: ['dist/clipboard.js']
+      srcDir: 'dist',
+      import: ['clipboard.js']
     }
   })
 };
