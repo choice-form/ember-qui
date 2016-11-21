@@ -1,7 +1,9 @@
 {{ui-component/ui-header headerData}}
+
 {{#if node.typeName}}
   <sup><span>{{node.typeName}}</span> Least: {{node.minSelect}} - Most: {{node.maxSelect}}</sup>
 {{/if}}
+
 <div class={{concat "control " quesType}}>
   {{#if isSpecialComponent}}
     {{component componentName node handleEvents options=(unbound node.options) matrix=(unbound node.matrix)}}

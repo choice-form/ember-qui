@@ -26,21 +26,23 @@ export default Component.extend({
 
 
   swiperEffect(slidesNum){
-    const fixHeader = this.element.querySelector('.fix-header');
-    const columnList = this.element.querySelector('.column-container');
-    const matrixThumbnails = $(this.element.querySelector('.matrix-thumbnail-wrapper')).find('ul');
+    if (this.element) {
+      const fixHeader = this.element.querySelector('.fix-header');
+      const columnList = this.element.querySelector('.column-container');
+      const matrixThumbnails = $(this.element.querySelector('.matrix-thumbnail-wrapper')).find('ul');
 
-    this.fixHeader = swiperHeaderInit(fixHeader, {
-      slidesPerView: slidesNum,
-    });
+      this.fixHeader = swiperHeaderInit(fixHeader, {
+        slidesPerView: slidesNum,
+      });
 
-    this.swiper = swiperMatrixInit(columnList, matrixThumbnails, {
-      slidesPerView: slidesNum,
-    },()=>{
-      matirxSetHeight.call(this);
-    });
-    this.swiper.update(true);
-    this.swiper.params.control = this.fixHeader;
+      this.swiper = swiperMatrixInit(columnList, matrixThumbnails, {
+        slidesPerView: slidesNum,
+      },()=>{
+        matirxSetHeight.call(this);
+      });
+      this.swiper.update(true);
+      this.swiper.params.control = this.fixHeader;
+    }
   },
 
   actions: {
@@ -86,8 +88,8 @@ export default Component.extend({
   },
 
   willDestroyElement(){
-    this.swiper.destroy(true, true);
-    this.fixHeader.destroy(true, true);
+    this.swiper && this.swiper.destroy(true, true);
+    this.fixHeader && this.fixHeader.destroy(true, true);
   }
 })
 

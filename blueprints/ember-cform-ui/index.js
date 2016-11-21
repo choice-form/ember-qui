@@ -20,7 +20,8 @@ module.exports = {
       this.addPackageToProject('swiper'),
       this.addAddonsToProject({
         packages: [
-          { name: 'ember-cli-less', target: '^1.5.3' }
+          { name: 'ember-cli-less', target: '^1.5.3' },
+          { name: 'ember-in-viewport', target: '^2.1.0' }
         ],
         blueprintOptions
       })

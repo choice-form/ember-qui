@@ -71,7 +71,7 @@ export default Component.extend({
   }),
 
 
-  didRender(){
+  didInsetElement(){
     const type = get(this, 'inputRule');
     const input = this.element.getElementsByTagName('input')[0];
     mobiInit(input, {

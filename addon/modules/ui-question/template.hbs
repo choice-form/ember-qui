@@ -6,7 +6,6 @@
   </div>
 {{/if}}
 
-
 {{#if question.intro}}
   {{ui-component/ui-header intro imageTop=true}}
 {{/if}}
@@ -14,14 +13,18 @@
 <section>
   <div class="wrapper">
     {{#each question.nodes as |node|}}
-      {{ui-question/-node node question.handleEvents}}
+      {{#ui-question/lazy-loader isSingle=true as |viewable|}}
+        {{#if viewable}}
+          {{ui-question/-node node question.handleEvents}}
+        {{/if}}
+      {{/ui-question/lazy-loader}}
     {{/each}}
   </div>
 </section>
+
 {{ui-question/-node/button-cell
   prevButton=question.prevButton
   nextButton=question.nextButton
   handlePrevClick=question.handleEvents.handlePrevClick
   handleNextClick=question.handleEvents.handleNextClick
-  rightIcon="arrows-tail-right"
-}}
+  rightIcon="arrows-tail-right"}}
