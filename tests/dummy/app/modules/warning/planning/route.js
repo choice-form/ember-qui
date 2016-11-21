@@ -10,6 +10,7 @@ export default Route.extend({
       renderId: faker.date.between('2016-01-01', '2016-12-31'),
       warningType: "planned",
       warningLabel: "Has yet to start.",
+      countDown:'24:00',
       images: [
         {
           ratio: 0.6666667,

@@ -7,3 +7,19 @@ export default Component.extend({
   tagName: 'div',
   classNames: ['progress-bar'],
 });
+
+/**
+ * UiProgressBarComponent
+ *
+ ``` javascript
+ {{{ui-addon/progress-bar value='50'}}
+ ```
+ *
+ * @class UiProgressBarComponent
+ */
+
+
+/**
+ * @property {String} value - 进度条的百分值, 默认0， 最大100
+ */
+
