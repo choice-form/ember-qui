@@ -49,8 +49,7 @@ module.exports = {
     app.import(`./vendor/shims/swiper.js`);
 
     app.import(`./vendor/mobiscroll/js/mobiscroll.custom-3.0.0-beta6.min.js`);
-    app.import(`./vendor/mobiscroll/css/mobiscroll.custom-3.0.0-beta6.min.css`);
-    /*
+    // app.import(`./vendor/mobiscroll/css/mobiscroll.custom-3.0.0-beta6.min.css`);
     app.import(`./vendor/mobiscroll/_css/mobiscroll.animation-3.0.0-beta6.css`);
     app.import(`./vendor/mobiscroll/_css/mobiscroll.color-3.0.0-beta6.css`);
     app.import(
@@ -73,7 +72,6 @@ module.exports = {
     app.import(`./vendor/mobiscroll/_css/mobiscroll.numpad-3.0.0-beta6.css`);
     app.import(`./vendor/mobiscroll/_css/mobiscroll.icons-3.0.0-beta6.css`);
     app.import(`./vendor/mobiscroll/_css/mobiscroll.range-3.0.0-beta6.css`);
-    */
     app.import(`./vendor/shims/mobiscroll.js`);
   },
 
