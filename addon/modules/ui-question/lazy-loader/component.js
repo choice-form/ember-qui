@@ -9,6 +9,7 @@ import { scheduleOnce } from 'ember-runloop'
 
 export default Component.extend(InViewportMixin, {
   layout,
+  classNames: ['lazy-loader'],
 
   attributeBindings: [
     'calculatedStyle:style'
