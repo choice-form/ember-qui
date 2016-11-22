@@ -42,9 +42,7 @@ export default Component.extend({
 
 
   willDestroy(){
-    if(get(this, 'node.showStyle') == 'pinterest'){
-      this.newMasonry.remove(this.element);
-    }
+    this.newMasonry && this.newMasonry.remove(this.element);
   }
 
 
