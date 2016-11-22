@@ -463,6 +463,7 @@ export default Route.extend({
           selectType: 'checkbox',
           showStyle: 'grid',
           picStyle: '',
+          background:true,
           objectFit: 'contain',
           textDirection: 'in-block', //in-block ,out-block, empty
           pictureSize: '',  //picture-large, picture-small

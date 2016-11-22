@@ -22,6 +22,7 @@ export default Component.extend({
   tagName: 'div',
   classNames: ['progressive-image'],
   classNameBindings: [
+    'background',
     'hasObjectFit:object-fit',
     'objectFit',
     'fitRow:fit-row',
@@ -29,6 +30,7 @@ export default Component.extend({
   ],
 
   ratio: 1,
+  background: true,
   hasObjectFit: notEmpty('objectFit'),
   objectFit: null,
 
