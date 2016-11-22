@@ -48,7 +48,12 @@ export default ArrayProxyService.extend({
       countdownStyle: computed('autoClear', 'paused', function() {
         const duration = get(this, 'autoClear');
         const animationState = get(this, 'paused') ? 'paused' : 'running';
-        return htmlSafe(`animation-duration: ${duration}ms; -webkit-animation-duration: ${duration}ms; animation-play-state: ${animationState}; -webkit-animation-play-state: ${animationState}`);
+        return htmlSafe(`
+          animation-duration: ${duration}ms;
+          -webkit-animation-duration: ${duration}ms;
+          animation-play-state: ${animationState};
+          -webkit-animation-play-state: ${animationState}
+        `);
       })
     });
     const notification = NotificationFactory.create(options);

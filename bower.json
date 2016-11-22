@@ -2,7 +2,7 @@
   "name": "ember-cform-ui",
   "dependencies": {
     "device.js": "devicejs#^0.2.7",
-    "ember": "2.8.3",
+    "ember": "2.9.1",
     "ember-cli-shims": "~0.1.1",
     "nouislider": "8.5.1",
     "qrcode": "^1.0.2"
