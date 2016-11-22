@@ -30,9 +30,9 @@
   }}
 {{/unless}}
 
-
 {{!--选择选项再弹出输入框--}}
-{{#if (and (eq inputType "select-input") selected)}}
+{{#if (eq inputType "select-input")}}
+  <div style={{html-safe (concat "display:" (if selected "block" "none"))}}>
     {{ui-component/ui-text inputRule=inputRule
                            placeholder=placeholder
                            renderId=renderId
@@ -40,7 +40,9 @@
                            handleOptionInput=handleOptionInput
                            handleOptionInputForTextarea=handleOptionInputForTextarea
     }}
+  </div>
 
 {{/if}}
+
 
 {{errorMessage}}
