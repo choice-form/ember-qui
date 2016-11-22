@@ -32,15 +32,14 @@
 
 {{!--选择选项再弹出输入框--}}
 {{#if (eq inputType "select-input")}}
-  <div style={{html-safe (concat "display:" (if selected "block" "none"))}}>
-    {{ui-component/ui-text inputRule=inputRule
-                           placeholder=placeholder
-                           renderId=renderId
-                           value=value
-                           handleOptionInput=handleOptionInput
-                           handleOptionInputForTextarea=handleOptionInputForTextarea
-    }}
-  </div>
+  {{ui-component/ui-text display=(if selected "block" "none")
+                         inputRule=inputRule
+                         placeholder=placeholder
+                         renderId=renderId
+                         value=value
+                         handleOptionInput=handleOptionInput
+                         handleOptionInputForTextarea=handleOptionInputForTextarea
+  }}
 
 {{/if}}
 

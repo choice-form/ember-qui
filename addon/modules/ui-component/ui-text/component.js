@@ -1,15 +1,20 @@
 import Component from 'ember-component';
 import layout from './template';
-import computed,{reads} from 'ember-computed';
+import computed, {reads} from 'ember-computed';
 import get from 'ember-metal/get';
+import {htmlSafe} from 'ember-string';
 import mobiInit from '../../lib/mobile-factory'
 
 export default Component.extend({
   layout,
   classNames: ['ui-text'],
-  attributeBindings: ['data-render-id'],
+  attributeBindings: ['data-render-id', 'style'],
   'data-render-id': reads('renderId'),
-
+  display: 'block',
+  'style': computed('display', function () {
+    const display = get(this, 'display');
+    return htmlSafe(`display: ${display}`);
+  }),
   /**
    * 'noValidation','count','int','float','moblie','email','date','dateRange','time','timeRange','postCode','url'
    */
@@ -41,20 +46,19 @@ export default Component.extend({
   }),
 
 
-
   size: '16px',
 
   viewBox: '16',
 
   icon: computed('inputRule', function () {
     const type = get(this, 'inputRule');
-    if(['noValidation','count'].indexOf(type) > -1){
+    if (['noValidation', 'count'].indexOf(type) > -1) {
       return 'text';
     }
-    if(['time','timeRange'].indexOf(type) > -1){
+    if (['time', 'timeRange'].indexOf(type) > -1) {
       return 'time';
     }
-    if(['date','dateRange'].indexOf(type) > -1){
+    if (['date', 'dateRange'].indexOf(type) > -1) {
       return 'calendar';
     }
 
