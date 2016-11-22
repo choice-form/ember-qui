@@ -40,7 +40,6 @@ export default Component.extend({
       },()=>{
         matirxSetHeight.call(this);
       });
-      this.swiper.update(true);
       this.swiper.params.control = this.fixHeader;
     }
   },
@@ -69,15 +68,9 @@ export default Component.extend({
 
   didInsertElement(){
 
-    later(()=>{
-      scheduleOnce('afterRender',this,'swiperEffect', device.desktop() ? 2 : 1);
-    },1000);
-
-
+    scheduleOnce('afterRender',this,'swiperEffect', device.desktop() ? 2 : 1);
 
     //this.swiperEffect(fixHeader, columnList, matrixThumbnails, device.desktop() ? 2 : 1);
-
-
 
     if (!device.desktop()) return;
 

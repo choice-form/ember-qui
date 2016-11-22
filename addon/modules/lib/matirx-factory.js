@@ -1,5 +1,6 @@
 import Swiper from 'swiper';
 import $ from 'jquery';
+import device from 'device';
 
 function matrixSetHeight() {
   /**
@@ -50,20 +51,32 @@ export function swiperHeaderInit(element, config) {
 
 export function swiperMatrixInit(element, matrixThumbnails, config, callBack) {
   return new Swiper(element, {
-    paginationClickable: true,
+    virtualTranslate: device.mobile(),
+    touchMoveStopPropagation:true,
     nextButton: '.matrix-button-next',
     prevButton: '.matrix-button-prev',
     pagination: '.swiper-pagination',
     ...config,
     runCallbacksOnInit: true,
-    onInit: (e)=> {
+    onInit: (swiper)=> {
       matrixThumbnails.removeAttr('class');
-      matrixThumbnails.slice(e.realIndex, e.realIndex + config.slidesPerView).addClass('active');
+      matrixThumbnails.slice(swiper.realIndex, swiper.realIndex + config.slidesPerView).addClass('active');
       callBack && callBack();
     },
-    onSlideChangeEnd: (e)=> {
+
+    onSlideNextStart(swiper){
+      console.log(swiper.activeIndex);
+      device.mobile() && (swiper.wrapper[0].style.transform=`translate3d(${swiper.width * -swiper.realIndex}px,0,0)`);
+    },
+
+    onSlidePrevStart(swiper){
+      console.log(swiper.activeIndex);
+      device.mobile() && (swiper.wrapper[0].style.transform=`translate3d(${swiper.width * -swiper.realIndex}px,0,0)`);
+    },
+
+    onSlideChangeEnd: (swiper)=> {
       matrixThumbnails.removeAttr('class');
-      matrixThumbnails.slice(e.realIndex, e.realIndex + config.slidesPerView).addClass('active');
+      matrixThumbnails.slice(swiper.realIndex, swiper.realIndex + config.slidesPerView).addClass('active');
     },
   });
 }
