@@ -101,7 +101,7 @@ export default Component.extend({
     thumbnail.onload = () => {
       addClassName(thumbnail, 'loaded');
       const dimensions = thumbnail.getBoundingClientRect();
-      dimensions.width && stackBlurbImage(thumbnail, canvas, (bowser.firefox || bowser.msie) ? 0 : 100);
+      dimensions.width && stackBlurImage(thumbnail, dimensions, canvas, (bowser.firefox || bowser.msie) ? 0 : 100);
     }
 
     this.element.appendChild(thumbnail);
@@ -126,7 +126,10 @@ export default Component.extend({
   },
 
   teardownStackBlueEffect(canvas, thumbnail) {
-    this.element.removeChild(canvas);
-    this.element.removeChild(thumbnail);
+    if (this.element) {
+      this.element.removeChild(canvas);
+      this.element.removeChild(thumbnail);
+    }
+
   }
 });

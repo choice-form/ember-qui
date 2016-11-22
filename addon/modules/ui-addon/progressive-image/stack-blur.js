@@ -78,11 +78,9 @@ var shg_table = [
   24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24
 ];
 
-export default function stackBlurImage(img, canvas, radius, blurAlphaChannel) {
-  var dimensions = img.getBoundingClientRect();
+export default function stackBlurImage(img, dimensions, canvas, radius, blurAlphaChannel) {
   var w = dimensions.width;
   var h = dimensions.height;
-
   canvas.width = w;
   canvas.height = h;
 
