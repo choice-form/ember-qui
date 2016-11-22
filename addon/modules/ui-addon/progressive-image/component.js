@@ -100,7 +100,8 @@ export default Component.extend({
 
     thumbnail.onload = () => {
       addClassName(thumbnail, 'loaded');
-      stackBlurImage(thumbnail, canvas, (bowser.firefox || bowser.msie) ? 0 : 100);
+      const dimensions = thumbnail.getBoundingClientRect();
+      dimensions.width && stackBlurbImage(thumbnail, canvas, (bowser.firefox || bowser.msie) ? 0 : 100);
     }
 
     this.element.appendChild(thumbnail);
