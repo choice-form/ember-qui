@@ -29,6 +29,49 @@ export default ArrayProxyService.extend({
   },
 
   // create a notification
+  /**
+   * @class UiNotificationComponent(通知栏 --*)
+   */
+
+
+  /**
+   * 通知栏
+   *
+   * @method create
+   * @param {Object} option - 选项
+   ``` javascript
+   this.notification.create({
+      type:'info',  //通知类型， 普通信息:'info', 警告:'warning', 报错: 'error', 成功: 'success'
+      message: '<strong>This is an example info message!!!</strong>', //通知内容文字
+      autoClear: 3000  //设置几秒钟后清除通知栏。 默认3000
+    });
+   ```
+
+   ``` javascript
+    你也可以直接使用以下方法：
+   1、this.notification.info('<strong>This is an info message!!!</strong>', {
+      autoClear: 2000
+    })
+
+   2、this.notification.error('<strong>This is an error message!!!</strong>', {
+      autoClear: 2000
+    })
+
+   3、this.notification.warning('<strong>This is an warning message!!!</strong>', {
+      autoClear: 2000
+    })
+
+   4、this.notification.success('<strong>This is an success message!!!</strong>', {
+      autoClear: 2000
+    })
+
+   ```
+   *
+   * @returns {*|Object}
+   */
+
+
+
   create(options) {
     if (!options.message) {
       throw new Error('Notification needs message');

@@ -1,10 +1,5 @@
-{{#if isLoading}}
-  <div class="full-screen-loading">
-    <div class="loading-wrapper">
-      {{ui-addon/svg-item icon="positioning" size="40px" viewBox="40"}}
-    </div>
-  </div>
-{{/if}}
+
+{{ui-addon/loading isLoading=isLoading}}
 
 {{#if question.intro}}
   {{ui-component/ui-header intro imageTop=true}}

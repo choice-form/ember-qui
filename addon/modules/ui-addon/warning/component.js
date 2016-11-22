@@ -28,7 +28,7 @@ export default Component.extend({
 {{/ui-addon/warning}}
  ```
  *
- * @class UiWarningComponent
+ * @class UiWarningComponent(错误信息页 --*)
  */
 
 

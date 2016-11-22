@@ -1,7 +1,7 @@
 /**
  * 性别题
  *
- * @class gender(性别题)
+ * @class gender(性别题 --*)
  */
 
 

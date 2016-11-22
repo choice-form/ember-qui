@@ -15,7 +15,7 @@ export default Component.extend({
  {{{ui-addon/progress-bar value='50'}}
  ```
  *
- * @class UiProgressBarComponent
+ * @class UiProgressBarComponent(进度条 --*)
  */
 
 

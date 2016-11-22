@@ -16,7 +16,7 @@ export default Component.extend({
  {{ui-addon/count-down value='04:45'}}
  ```
  *
- * @class UiCutDownComponent
+ * @class UiCutDownComponent(倒计时 --*)
  */
 
 
