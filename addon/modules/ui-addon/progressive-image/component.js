@@ -81,6 +81,7 @@ export default Component.extend({
     const canvas = document.createElement('canvas');
 
     addClassName(thumbnail, 'thumbnail');
+    thumbnail.crossOrigin = 'Anonymous';
     thumbnail.src = get(this, 'thumbnail');
 
     if (dynamicWidth) {
