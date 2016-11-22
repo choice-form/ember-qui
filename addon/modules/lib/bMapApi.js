@@ -1,18 +1,8 @@
+import rsvp from 'rsvp';
 
-let mapInstance = function(){
-  const map = new window.BMap.Map();
-  mapInstance = () => {
-    return map;
-  };
-  return map;
-};
-
-let geoInstance = function(){
-  const geoLocation = new window.BMap.Geolocation();
-  geoInstance = () => {
-    return geoLocation;
-  };
-  return geoLocation;
+const cache = {
+  geoLocation: null,
+  map: null
 };
 
 /**
@@ -22,10 +12,13 @@ let geoInstance = function(){
  */
 /* eslint-disable no-undef */
 export const getLocation = () => {
-  return new Promise((resolve, reject) => {
-    const geoLocation = geoInstance();
-    geoLocation.getCurrentPosition((position) => {
-      if (geoLocation.getStatus() == window.BMAP_STATUS_SUCCESS) {
+  if (cache.geoLocation === null) {
+    cache.geoLocation = new window.BMap.Geolocation();
+  }
+
+  return new rsvp.Promise((resolve, reject) => {
+    cache.geoLocation.getCurrentPosition((position) => {
+      if (cache.geoLocation.getStatus() == window.BMAP_STATUS_SUCCESS) {
         resolve(position);
       } else {
         reject(new Error('locating failed'));
@@ -63,9 +56,13 @@ export const joinAddress = (address, splitChar = '-', verbose) => {
  * @return {number}
  */
 export const getDistance = (siteOne, siteTwo) => {
-  const map = mapInstance();
-  const distance =  map.getDistance(new window.BMap.Point(siteOne.longitude, siteOne.latitude),
-    new window.BMap.Point(siteTwo.longitude, siteTwo.latitude));
-  return distance;
+  if (cache.map === null) {
+    cache.map = new window.BMap.Map();
+  }
+
+  return cache.map.getDistance(
+    new window.BMap.Point(siteOne.longitude, siteOne.latitude),
+    new window.BMap.Point(siteTwo.longitude, siteTwo.latitude)
+  );
 };
 

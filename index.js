@@ -3,7 +3,7 @@
 const mergeTrees = require('broccoli-merge-trees');
 const LessCompiler = require('broccoli-less-single');
 const LessPluginAutoPrefix = require('less-plugin-autoprefix');
-const autoprefixPlugin = new LessPluginAutoPrefix();
+const autoPrefixPlugin = new LessPluginAutoPrefix();
 
 module.exports = {
   name: 'ember-cform-ui',
@@ -16,16 +16,20 @@ module.exports = {
       },
     },
     lessOptions: {
-      plugins: [autoprefixPlugin]
+      plugins: [autoPrefixPlugin]
     },
     nodeAssets: {
-      bowser: { import: ['bowser.js'] },
-      fastclick: { srcDir: 'lib', import: ['fastclick.js'] },
-      imagesloaded: { import: ['imagesloaded.pkgd.js'] },
-      'masonry-layout': { srcDir: 'dist', import: ['masonry.pkgd.js'] },
-      sortablejs: { import: ['Sortable.js'] },
-      swiper: { srcDir: 'dist', import: ['css/swiper.min.css',
-                                         'js/swiper.min.js'] }
+      bowser: {import: ['bowser.js']},
+      fastclick: {srcDir: 'lib', import: ['fastclick.js']},
+      imagesloaded: {import: ['imagesloaded.pkgd.js']},
+      'masonry-layout': {srcDir: 'dist', import: ['masonry.pkgd.js']},
+      sortablejs: {import: ['Sortable.js']},
+      swiper: {
+        srcDir: 'dist', import: [
+          'css/swiper.min.css',
+          'js/swiper.min.js'
+        ]
+      }
     }
   },
 
@@ -45,9 +49,12 @@ module.exports = {
     app.import(`./vendor/shims/swiper.js`);
 
     app.import(`./vendor/mobiscroll/js/mobiscroll.custom-3.0.0-beta6.min.js`);
+    app.import(`./vendor/mobiscroll/css/mobiscroll.custom-3.0.0-beta6.min.css`);
+    /*
     app.import(`./vendor/mobiscroll/_css/mobiscroll.animation-3.0.0-beta6.css`);
     app.import(`./vendor/mobiscroll/_css/mobiscroll.color-3.0.0-beta6.css`);
-    app.import(`./vendor/mobiscroll/_css/mobiscroll.mobiscroll-dark-3.0.0-beta6.css`);
+    app.import(
+      `./vendor/mobiscroll/_css/mobiscroll.mobiscroll-dark-3.0.0-beta6.css`);
     app.import(`./vendor/mobiscroll/_css/mobiscroll.rating-3.0.0-beta6.css`);
     app.import(`./vendor/mobiscroll/_css/mobiscroll.progress-3.0.0-beta6.css`);
     app.import(`./vendor/mobiscroll/_css/mobiscroll.listview-3.0.0-beta6.css`);
@@ -58,13 +65,15 @@ module.exports = {
     app.import(`./vendor/mobiscroll/_css/mobiscroll.timer-3.0.0-beta6.css`);
     app.import(`./vendor/mobiscroll/_css/mobiscroll.frame-3.0.0-beta6.css`);
     app.import(`./vendor/mobiscroll/_css/mobiscroll.scroller-3.0.0-beta6.css`);
-    app.import(`./vendor/mobiscroll/_css/mobiscroll.eventcalendar-3.0.0-beta6.css`);
+    app.import(
+      `./vendor/mobiscroll/_css/mobiscroll.eventcalendar-3.0.0-beta6.css`);
     app.import(`./vendor/mobiscroll/_css/mobiscroll.forms-3.0.0-beta6.css`);
     app.import(`./vendor/mobiscroll/_css/mobiscroll.timespan-3.0.0-beta6.css`);
     app.import(`./vendor/mobiscroll/_css/mobiscroll.image-3.0.0-beta6.css`);
     app.import(`./vendor/mobiscroll/_css/mobiscroll.numpad-3.0.0-beta6.css`);
     app.import(`./vendor/mobiscroll/_css/mobiscroll.icons-3.0.0-beta6.css`);
     app.import(`./vendor/mobiscroll/_css/mobiscroll.range-3.0.0-beta6.css`);
+    */
     app.import(`./vendor/shims/mobiscroll.js`);
   },
 
@@ -76,11 +85,11 @@ module.exports = {
 
     const themesTree = LessCompiler(
       './public/themes', 'theme-basic.less', 'assets/theme-basic.css', {
-        plugins: [autoprefixPlugin]
+        plugins: [autoPrefixPlugin]
       }
     );
     trees.push(themesTree);
 
-    return mergeTrees(trees, { overwrite: true });
+    return mergeTrees(trees, {overwrite: true});
   }
 };

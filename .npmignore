@@ -4,6 +4,7 @@
 /tests
 /tmp
 /typings
+/_doc
 **/.gitkeep
 .bowerrc
 .csscomb.json
@@ -20,3 +21,5 @@ CNAME
 ember-cli-build.js
 testem.js
 jsconfig.json
+yarn.lock
+yui*

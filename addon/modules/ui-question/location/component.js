@@ -2,8 +2,8 @@ import Component from 'ember-component';
 import computed from 'ember-computed';
 import layout from './template';
 import get from 'ember-metal/get';
-import set from 'ember-metal/set';
-import {getLocation} from '../../lib/bMapApi';
+import { setProperties } from 'ember-metal/set';
+import { getLocation } from '../../lib/bMapApi';
 
 export default Component.extend({
   layout,
@@ -12,14 +12,13 @@ export default Component.extend({
 
   tagName: '',
 
-
   //状态，location、positioning、location-successful、location-failed
   svgState: 'location',
 
   // 'positioning' 'successful' 'failed'
   locationState: '',
 
-  tips: computed('svgState', function () {
+  tips: computed('svgState', function() {
     const state = get(this, 'svgState');
     if (state === 'positioning') {
       return 'Positioning...';
@@ -33,24 +32,23 @@ export default Component.extend({
     return "Where are you?";
   }),
 
-
   actions: {
     /**
      * click事件
      */
-    handleOptionClick(){
-      set(this, 'svgState', 'positioning');
-      set(this, 'locationState', 'positioning');
+    handleOptionClick() {
+      setProperties(this,
+        { svgState: 'positioning', locationState: 'positioning' });
       getLocation()
         .then((position) => {
-          this.handleEvents.handleQuestionInput(position, get(this,'node'));
-          set(this, 'svgState', 'location-successful');
-          set(this, 'locationState', 'successful');
-        }).catch(()=> {
-        set(this, 'svgState', 'location-failed');
-        set(this, 'locationState', 'failed');
+          this.handleEvents.handleQuestionInput(position, get(this, 'node'));
+          setProperties(this,
+            { svgState: 'location-successful', locationState: 'successful' });
+        }).catch(() => {
+        setProperties(this,
+          { svgState: 'location-failed', locationState: 'failed' });
       });
     },
   },
 
-}).reopenClass({positionalParams: ['node', 'handleEvents']});
+}).reopenClass({ positionalParams: ['node', 'handleEvents'] });
