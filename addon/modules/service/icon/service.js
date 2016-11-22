@@ -39,7 +39,7 @@ export default Service.extend({
       return null;
     }
 
-    return $.ajax(url).then(res => {
+    return  $.ajax(url).then(res => {
       const elem = res.children[0];
       this.table[url] = elem;
       return elem;
