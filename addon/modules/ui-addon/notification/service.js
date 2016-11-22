@@ -67,7 +67,7 @@ export default ArrayProxyService.extend({
 
    ```
    *
-   * @returns {*|Object}
+   * @return {*|Object}
    */
 
 

@@ -72,5 +72,5 @@
  * @param {number} startIndex 原始索引值
  * @param {number} endIndex 结束索引值
  * @param {number} question 关联的问题
- * @returns {Array} 返回当前可以标记的序号,如['1','3'];
+ * @return {Array} 返回当前可以标记的序号,如['1','3'];
  */

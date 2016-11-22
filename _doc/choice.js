@@ -80,7 +80,7 @@
  * @method handleOptionClick
  * @param {object} option 关联的选项
  * @param {object} question 关联的问题
- * @returns {boolean} 回调任务执行结果 true：正常 false：无法执行
+ * @return {boolean} 回调任务执行结果 true：正常 false：无法执行
  handleOptionClick(option, question){
         return true;
       },
@@ -94,7 +94,7 @@
  * @param {number|object} data 输入数数据，简单输入框传字符值，复杂输入框自由传对象，如上传文件的传文件对象
  * @param {object} option 关联的选项
  * @param {object} question 关联的问题
- * @returns {boolean|Promise} 回调任务执行结果 true：正常 false：无法执行
+ * @return {boolean|Promise} 回调任务执行结果 true：正常 false：无法执行
  *                            文件上传场合返回Promise
  handleOptionInput(data, option, question){
         return true;

@@ -45,21 +45,21 @@
  ```
  */
 
-
 /**
- * ioption,当前题目选项
+ * option,当前题目选项
  *
  * @property {Object} option
- * @property {Bool} option.selected - 选项是否被选择
+ * @property {Boolean} option.selected - 选项是否被选择
  * @property {String} option.renderId - 当前选项的渲染ID,用于单页的滚动
  * @property {String} option.text - 选项文字
  * @property {String} option.uuid - 选项ID值
  * @property {String} option.icon - 选项Icon
- * @property {String} option.inputType - 其他选项类型, 'select', 'input', 'select-input
- * @property {String} option.inputRule - 备注的input类型, 如下: 'noValidation','','int','phone','float','email','date','dateRange','time','timeRange','postCode','url'
+ * @property {String} option.inputType - 其他选项类型, 'select', 'input',
+ *   'select-input
+ * @property {String} option.inputRule - 备注的input类型, 如下:
+ *   'noValidation','','int','phone','float','email','date','dateRange','time','timeRange','postCode','url'
  * @property {String} option.value - input,textarea,mobileScroll等其他控件使用的Value
  * @property {String} option.placeholder - input,textarea的 placeholder值
-
  * @example
  ```javascript
  option:{
@@ -76,85 +76,76 @@
  ```
  */
 
-
-
-
-  /**
-   * 选项点击时的回调方法
-   *
-   * @method handleOptionClick
-   * @param {object} option 关联的选项
-   * @param {object} question 关联的问题
-   * @returns {boolean} 回调任务执行结果 true：正常 false：无法执行
-      handleOptionClick(option, question){
+/**
+ * 选项点击时的回调方法
+ *
+ * @method handleOptionClick
+ * @param {object} option 关联的选项
+ * @param {object} question 关联的问题
+ * @return {boolean} 回调任务执行结果 true：正常 false：无法执行
+ handleOptionClick(option, question){
         return true;
       },
-  */
+ */
 
-
-  /**
-   * 选项输入回调方法
-   *
-   * @method handleOptionInput
-   * @param {number|object} data 输入数数据，简单输入框传字符值，复杂输入框自由传对象，如上传文件的传文件对象
-   * @param {object} option 关联的选项
-   * @param {object} question 关联的问题
-   * @returns {boolean|Promise} 回调任务执行结果 true：正常 false：无法执行
-   *                            文件上传场合返回Promise
-      handleOptionInput(data, option, question){
+/**
+ * 选项输入回调方法
+ *
+ * @method handleOptionInput
+ * @param {number|object} data 输入数数据，简单输入框传字符值，复杂输入框自由传对象，如上传文件的传文件对象
+ * @param {object} option 关联的选项
+ * @param {object} question 关联的问题
+ * @return {boolean|Promise} 回调任务执行结果 true：正常 false：无法执行
+ *                            文件上传场合返回Promise
+ handleOptionInput(data, option, question){
         return true;
       },
-   */
+ */
 
+/**
+ * 选项拖拽结束回调方法
+ *
+ * @method handleOptionDrop
+ * @param {number} startIndex 原始索引值
+ * @param {number} endIndex 结束索引值
+ * @param {number} question 关联的问题
+ * @return {boolean} 回调任务执行结果 true：正常 false：无法执行
 
-  /**
-   * 选项拖拽结束回调方法
-   *
-   * @method handleOptionDrop
-   * @param {number} startIndex 原始索引值
-   * @param {number} endIndex 结束索引值
-   * @param {number} question 关联的问题
-   * @returns {boolean} 回调任务执行结果 true：正常 false：无法执行
-
-      handleOptionDrop(startIndex, endIndex, question){
+ handleOptionDrop(startIndex, endIndex, question){
         return true;
       },
-   */
+ */
 
+/**
+ * 输入问题数据回调方法
+ *
+ * @method handleQuestionInput
+ * @param {object|string} dynamic 输入的数据
+ * @param {object} question 关联的问题
+ * @return {boolean} 回调任务执行结果 true：正常 false：无法执行
 
-  /**
-   * 输入问题数据回调方法
-   *
-   * @method handleQuestionInput
-   * @param {object|string} dynamic 输入的数据
-   * @param {object} question 关联的问题
-   * @returns {boolean} 回调任务执行结果 true：正常 false：无法执行
-
-      handleQuestionInput(dynamic, question){
+ handleQuestionInput(dynamic, question){
         return true;
       },
-   */
+ */
 
-
-  /**
-   * 点击前一题回调方法
-   *
-   *
-   * @returns {boolean} 回调任务执行结果 true：正常 false：无法执行
-
-    handlePrevClick(){
+/**
+ * 点击前一题回调方法
+ *
+ * @method handlePrevClick
+ * @return {boolean} 回调任务执行结果 true：正常 false：无法执行
+ handlePrevClick(){
       return true;
     },
-   */
+ */
 
+/**
+ * 点击后一题回调方法
+ *
+ * @method handleNextClick
+ * @return {Promise} 会解析处理结果的Promise
 
-  /**
-   * 点击后一题回调方法
-   *
-   * @method handleNextClick
-   * @returns {Promise} 会解析处理结果的Promise
-
-  handleNextClick(){
+ handleNextClick(){
     return new Promise();
   }
  */

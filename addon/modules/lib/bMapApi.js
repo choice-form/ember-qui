@@ -7,8 +7,9 @@ const cache = {
 
 /**
  * 调用百度地图接口获得当前位置
- * 返回能解析当前位置的Promise
- * @returns {Promise}
+ *
+ * @method getLocation
+ * @return {Promise} 返回能解析当前位置的 Promise
  */
 /* eslint-disable no-undef */
 export const getLocation = () => {
@@ -29,10 +30,12 @@ export const getLocation = () => {
 
 /**
  * 连接地址
+ *
+ * @method joinAddress
  * @param {object} address 百度api得到的address对象
  * @param {string} [splitChar] 分隔符
  * @param {boolean} [verbose] 是否详细
- * @returns {string}
+ * @return {string}
  */
 export const joinAddress = (address, splitChar = '-', verbose) => {
   let resultText = address.province;
@@ -47,6 +50,8 @@ export const joinAddress = (address, splitChar = '-', verbose) => {
 
 /**
  * 获得两点间的距离
+ *
+ * @method getDistance
  * @param {object} siteOne
  *        {
  *          {number} longitude: 经度

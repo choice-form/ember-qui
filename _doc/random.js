@@ -49,7 +49,7 @@
  * 点击后一题回调方法
  *
  * @method handleNextClick
- * @returns {Promise} 会解析处理结果的Promise
+ * @return {Promise} 会解析处理结果的Promise
 
  handleNextClick(){
     return new Promise();

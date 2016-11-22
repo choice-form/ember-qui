@@ -119,7 +119,7 @@
  * @method handleOptionClick
  * @param {object} option 关联的选项
  * @param {object} question 关联的问题
- * @returns {boolean}
+ * @return {boolean}
  ```javascript
  handleOptionClick(option, question){
         return true;
@@ -135,7 +135,7 @@
  * @param {number|object|String} input的值
  * @param {object} option 关联的选项
  * @param {object} question 关联的问题
- * @returns {boolean|Promise}
+ * @return {boolean|Promise}
 
  ```
  */

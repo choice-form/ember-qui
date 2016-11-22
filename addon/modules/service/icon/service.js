@@ -22,7 +22,7 @@ export default Service.extend({
   /**
    * 是否为合理网址格式
    * @param {string} value 需要验证的值
-   * @returns {boolean}
+   * @return {boolean}
    */
   isURL(value) {
     return /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi.test(value);

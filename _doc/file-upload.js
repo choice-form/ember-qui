@@ -73,7 +73,7 @@
  * @method handleOptionClick
  * @param {object} option 关联的选项
  * @param {object} question 关联的问题
- * @returns {boolean} 回调任务执行结果, 如果上传图片到上限,返回:false, 默认:true
+ * @return {boolean} 回调任务执行结果, 如果上传图片到上限,返回:false, 默认:true
  ```javascript
  handleOptionClick(option, question){
         return true;
@@ -89,7 +89,7 @@
  * @param {number|object} data 上传文件的传文件对象
  * @param {object} option 关联的选项
  * @param {object} question 关联的问题
- * @returns {boolean|Promise} 回调任务执行结果 true：正常 false：无法执行
+ * @return {boolean|Promise} 回调任务执行结果 true：正常 false：无法执行
  *                            文件上传场合返回Promise
  * @example
  ```javascript
