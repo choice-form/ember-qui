@@ -1,7 +1,7 @@
 import colorAlpha from './color-transform';
 
 /* eslint-disable no-unused-vars */
-export default function themesColor(primary = 'rgba(128,128,128,1)', secondary = 'rgba(255,255,255,1)', contrast = 'rgba(202,32,39,1)', neutrals = 'rgba(128,128,128,1)') {
+export default function themesColor(primary = 'rgba(128,128,128,1)', secondary = 'rgba(255,255,255,1)', contrast = 'rgba(202,32,39,1)') {
 
   const primaryAlpha01 = colorAlpha(primary, 0.1);
   const primaryAlpha03 = colorAlpha(primary, 0.3);
@@ -254,7 +254,7 @@ export default function themesColor(primary = 'rgba(128,128,128,1)', secondary =
     }
     html.desktop .button.primary:hover {
       color: ${secondary};
-      background-color: ${neutrals};
+      background-color: ${primary};
     }
     html.desktop .button.secondary:hover {
       color: ${secondary};
@@ -325,7 +325,7 @@ export default function themesColor(primary = 'rgba(128,128,128,1)', secondary =
     html.tablet .button.primary:active,
     html.mobile .button.primary:active {
       color: ${secondary};
-      background-color: ${neutrals};
+      background-color: ${primary};
     }
     html.tablet .button.secondary:active,
     html.mobile .button.secondary:active {

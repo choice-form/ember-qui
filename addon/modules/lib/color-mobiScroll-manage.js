@@ -1,7 +1,7 @@
 import colorAlpha from './color-transform';
 
 /* eslint-disable no-unused-vars */
-export default function mobiScrollStyle(primary = 'rgba(128,128,128,1)', secondary = 'rgba(255,255,255,1)', contrast = 'rgba(202,32,39,1)', neutrals = 'rgba(128,128,128,1)') {
+export default function mobiScrollStyle(primary = 'rgba(128,128,128,1)', secondary = 'rgba(255,255,255,1)', contrast = 'rgba(202,32,39,1)') {
 
   const selectedColor = contrast;
   const color = colorAlpha(primary, 0.5);
