@@ -1,6 +1,5 @@
 import Swiper from 'swiper';
 import $ from 'jquery';
-import device from 'device';
 
 function matrixSetHeight() {
   /**
@@ -51,7 +50,6 @@ export function swiperHeaderInit(element, config) {
 
 export function swiperMatrixInit(element, matrixThumbnails, config, callBack) {
   return new Swiper(element, {
-    virtualTranslate: device.mobile(),
     touchMoveStopPropagation:true,
     nextButton: '.matrix-button-next',
     prevButton: '.matrix-button-prev',
@@ -62,16 +60,6 @@ export function swiperMatrixInit(element, matrixThumbnails, config, callBack) {
       matrixThumbnails.removeAttr('class');
       matrixThumbnails.slice(swiper.realIndex, swiper.realIndex + config.slidesPerView).addClass('active');
       callBack && callBack();
-    },
-
-    onSlideNextStart(swiper){
-      console.log(swiper.activeIndex);
-      device.mobile() && (swiper.wrapper[0].style.transform=`translate3d(${swiper.width * -swiper.realIndex}px,0,0)`);
-    },
-
-    onSlidePrevStart(swiper){
-      console.log(swiper.activeIndex);
-      device.mobile() && (swiper.wrapper[0].style.transform=`translate3d(${swiper.width * -swiper.realIndex}px,0,0)`);
     },
 
     onSlideChangeEnd: (swiper)=> {
