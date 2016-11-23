@@ -2,11 +2,12 @@ import Component from 'ember-component';
 import layout from './template';
 import get from 'ember-metal/get';
 import set from 'ember-metal/set';
-import {reads} from 'ember-computed';
+import computed, {reads} from 'ember-computed';
 import Sortable from 'sortable';
 import {scheduleOnce, later} from 'ember-runloop';
 import {addClass, removeClass} from '../../lib/attribute-manage'
 import $ from 'jquery';
+import device from 'device';
 
 export default Component.extend({
   layout,
@@ -18,11 +19,12 @@ export default Component.extend({
   isScrollUp: true,
   isScrollDown: true,
 
-  actions: {
-    testMove(){
-      console.log('testMove');
-    },
 
+  isDesktop: computed(function () {
+    return device.desktop();
+  }),
+
+  actions: {
     handleOptionClick(){
       this.handleEvents.handleOptionClick(get(this, 'option'),get(this,'node'));
     },
@@ -47,7 +49,7 @@ export default Component.extend({
     this.sortTable = new Sortable(this.element, {
       handle: '.handle',
       scroll: false,
-      scrollSensitivity: device.mobile() ? 0 : 64,
+      scrollSensitivity: get(this, 'isDesktop') ? 64 : 0,
       animation: 250,
       sort: true,
       ghostClass: "ghost",
@@ -85,7 +87,7 @@ export default Component.extend({
 
     const scrollAnimate = (num)=>{
       const scrollTop = $('body').scrollTop;
-      const scrollTime = scrollTop * 2 / winowHeight > 0.3 ? 6000 : 4000;
+      const scrollTime = scrollTop * 2 / winowHeight > 0.3 ? 4000 : 2000;
       $('body').animate({scrollTop: num}, scrollTime);
     };
 
@@ -113,14 +115,14 @@ export default Component.extend({
 
   didInsertElement(){
     scheduleOnce('afterRender', this, 'renderSortable');
-    if(device.desktop()) return ;
+    if(get(this, 'isDesktop')) return ;
     this.element.addEventListener('touchmove',this.scrollMovie,false);
     this.element.addEventListener('touchend',this.scrollStop,false);
   },
 
   didDestroyElement(){
     this.sortTable.destroy();
-    if(device.desktop()) return ;
+    if(get(this, 'isDesktop')) return ;
     this.element.removeEventListener('touchmove',this.scrollMovie,false);
     this.element.removeEventListener('touchend',this.scrollStop,false);
 

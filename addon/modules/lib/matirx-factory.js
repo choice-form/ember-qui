@@ -1,4 +1,5 @@
 import Swiper from 'swiper';
+import device from 'device';
 import $ from 'jquery';
 
 function matrixSetHeight() {
@@ -49,6 +50,11 @@ export function swiperHeaderInit(element, config) {
 }
 
 export function swiperMatrixInit(element, matrixThumbnails, config, callBack) {
+
+  const isDesktop = device.desktop();
+  let touchIndex = 1;
+  let startTime = 0;
+  let endTime = 600;
   return new Swiper(element, {
     touchMoveStopPropagation:true,
     nextButton: '.matrix-button-next',
@@ -62,10 +68,45 @@ export function swiperMatrixInit(element, matrixThumbnails, config, callBack) {
       callBack && callBack();
     },
 
-    onSlideChangeEnd: (swiper)=> {
+    onTouchStart(swiper){
+      this.startX = swiper.touches.startX;
+    },
+
+    onTouchEnd(swiper){
+      if(isDesktop) return null;
+
+      //计算时间差， 如果时间差在300毫秒之内不出发动画
+      touchIndex ++;
+      if(touchIndex % 2 == 0){
+        startTime = (new Date()).getTime();
+      }else {
+        endTime = (new Date()).getTime();
+      }
+      const time = endTime - startTime;
+      if(Math.abs(time) < 300) return ;
+      const realIndex = swiper.realIndex;
+      this.endX = swiper.touches.startX;
+      const diff = this.endX - this.startX;
+
+      let offset = 0;
+      if(diff > 20){
+        offset = -1;
+      }else if(diff < -20){
+        offset = 1;
+      }else{
+        offset = 0;
+      }
+      swiper.slideTo(realIndex + offset);
       matrixThumbnails.removeAttr('class');
       matrixThumbnails.slice(swiper.realIndex, swiper.realIndex + config.slidesPerView).addClass('active');
     },
+
+    onSlideChangeEnd: (swiper)=> {
+      if(!isDesktop) return null;
+      matrixThumbnails.removeAttr('class');
+      matrixThumbnails.slice(swiper.realIndex, swiper.realIndex + config.slidesPerView).addClass('active');
+    },
+
   });
 }
 

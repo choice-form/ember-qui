@@ -19,11 +19,10 @@ export default Component.extend({
 
   isDesktop: computed(function () {
 
-    return device.desktop() ? true : false;
+    return device.desktop();
   }),
 
   resizeIcon: 'stretch',
-
 
   swiperEffect(slidesNum){
     if (this.element) {
@@ -40,12 +39,13 @@ export default Component.extend({
       },()=>{
         matirxSetHeight.call(this);
       });
+      !get(this, 'isDesktop') && this.swiper.disableTouchControl();
       this.swiper.params.control = this.fixHeader;
     }
   },
 
   actions: {
-    matrixResize: function () {
+    matrixResize() {
       const resizeIcon = get(this, 'resizeIcon');
       this.swiper.destroy(true, true);
       this.fixHeader.destroy(true, true);
@@ -69,8 +69,6 @@ export default Component.extend({
   didInsertElement(){
 
     scheduleOnce('afterRender',this,'swiperEffect', device.desktop() ? 2 : 1);
-
-    //this.swiperEffect(fixHeader, columnList, matrixThumbnails, device.desktop() ? 2 : 1);
 
     if (!device.desktop()) return;
 
