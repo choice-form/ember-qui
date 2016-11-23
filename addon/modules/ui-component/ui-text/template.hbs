@@ -20,4 +20,6 @@
   {{ui-addon/svg-item icon=icon size=size viewbox=viewbox}}
 {{/if}}
 
-{{errorMessage}}
+{{#if errorMessage}}
+  {{ui-addon/input-error-message errorMessage=errorMessage}}
+{{/if}}

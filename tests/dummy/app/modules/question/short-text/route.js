@@ -54,6 +54,7 @@ export default Route.extend({
       }),
       Ember.Object.create({
         selected: '',
+        errorMessage: '',
         renderId: faker.date.between('2016-01-01', '2016-12-31'),
         text: '',
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90a",
@@ -65,6 +66,7 @@ export default Route.extend({
       }),
       Ember.Object.create({
         selected: '',
+        errorMessage: '请输入正确的手机号',
         renderId: faker.date.between('2016-01-01', '2016-12-31'),
         text: '',
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C907",

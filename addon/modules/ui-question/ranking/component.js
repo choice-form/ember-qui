@@ -19,7 +19,6 @@ export default Component.extend({
   isScrollUp: true,
   isScrollDown: true,
 
-
   isDesktop: computed(function () {
     return device.desktop();
   }),
@@ -65,7 +64,7 @@ export default Component.extend({
           const sortNo = parseInt(item);
           const index = item -1;
           const thisNode = this.element.getElementsByClassName('ranking-rank ')[index];
-          thisNode.getElementsByClassName('ranking-number')[0].innerHTML=sortNo;
+          thisNode.querySelector('.ranking-number').innerHTML=sortNo;
           removeClass(thisNode, 'complete');
           addClass(thisNode, 'complete event');
           later(()=>{

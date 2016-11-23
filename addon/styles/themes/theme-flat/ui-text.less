@@ -40,6 +40,22 @@
       }
     }
   }
+
+  .ui-errorMessage{
+    .absolute(0,0,auto,0);
+    text-align: center;
+    opacity: 0;
+    transform: translate3d(0,20px,0);
+    transition: transform .5s ease;
+    span{
+      display: inline-block;
+      padding: 6px 16px;
+      background-color: rgba(255, 0, 0, 0.43);
+      color: currentColor;
+      border-radius: 48px;
+      font-size: .8rem;
+    }
+  }
 }
 
 input[type=number]::-webkit-inner-spin-button,
