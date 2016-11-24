@@ -66,7 +66,6 @@ export default Route.extend({
       }),
       Ember.Object.create({
         selected: '',
-        errorMessage: '请输入正确的手机号',
         renderId: faker.date.between('2016-01-01', '2016-12-31'),
         text: '',
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C907",
@@ -178,6 +177,10 @@ export default Route.extend({
       handleEvents: {
 
         handleOptionInput(data, option, question){
+
+          data ? set(option, 'errorMessage', '你的输入有误，请重新输入')
+          : set(option, 'errorMessage', '');
+
           console.log(data);
           console.log(option);
           console.log(question);
