@@ -5,13 +5,6 @@ import set from 'ember-metal/set';
 import {later} from 'ember-runloop';
 
 export default Component.extend({
-
+  tagName: '',
   layout,
-
-  didInsertElement(){
-    later(()=>{
-      set(this, 'opacity', 1);
-      set(this, 'translateY', -105);
-    }, 300);
-  },
 });

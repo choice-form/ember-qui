@@ -5,6 +5,7 @@ import layout from './template';
 export default Component.extend({
   layout,
   tagName: 'label',
+  classNames:['ui-label'],
   attributeBindings: ['for'],
 
   size: '16px',

@@ -101,8 +101,13 @@ export default Component.extend({
  */
 
 /**
- * @property {value} value - input的绑定的值,可变
+ * @property {String} value - input的绑定的值,可变
  */
+
+/**
+ * @property {String} errorMessage - input验证错误信息
+ */
+
 
 /**
  * @property {String} icon - 选项svg图标,可以不传
