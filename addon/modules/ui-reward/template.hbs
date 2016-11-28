@@ -47,10 +47,10 @@
         {{/if}}
 
         {{#unless (eq node.quesType 'random')}}
-          {{#if node.rewardToQrcode}}
+          {{#if node.qrImageCode}}
             <div class="ui-qrcode">
               <div class="qrcode-item">
-                {{qr-code data=node.qrImage light="#EEEEFF" dark="#330000"}}
+                {{ui-addon/qr-code data=node.qrImageCode}}
               </div>
               <div class="scan-icon">{{ui-addon/svg-item icon="scan"}}</div>
               <p>Capture the screen and save it, you can't share it publicly. <span>{{node.qrCode}}</span></p>

@@ -2,7 +2,7 @@ import Component from 'ember-component';
 import layout from './template';
 import set from 'ember-metal/set';
 import get from 'ember-metal/get';
-import {reads} from 'ember-computed';
+import computed, {reads} from 'ember-computed';
 
 let countTime = 30;
 export default Component.extend({
@@ -15,6 +15,12 @@ export default Component.extend({
   getInfoButton: true,
 
   handleEvents: reads('node.handleEvents'),
+
+
+  qrImageCode:computed('node.qrImageCode', function () {
+
+
+  }),
 
   actions: {
     handleClick() {
