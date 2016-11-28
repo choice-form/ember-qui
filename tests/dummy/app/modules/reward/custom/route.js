@@ -26,8 +26,8 @@ export default Route.extend({
       rewardTime: '2016-11-11 00:00',
       uuid: '002',
       rewardToMessage: true,
-      qrImageCode: "www.cform.io",
-      qrCode: faker.lorem.words(),
+      qrCode: "www.cform.io",
+      qrDescription: faker.lorem.words(),
       handleEvents: {
 
         handleOptionClick(option, question){

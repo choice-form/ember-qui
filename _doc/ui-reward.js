@@ -58,9 +58,8 @@
  * @property {String} node.rewardTime - 中奖时间
  *
  * @property {Bool} node.RewardToMessage - 是否通过短信发送奖励信息 true,false
- * @property {Bool} node.RewardToQrcode - 是否通过二维码发送奖励 true, false
- * @property {String} node.qrImage - 二维码的url地址
- * @property {String} node.qrCode - 中奖二维码的描述
+ * @property {String} node.qrCode - 二维码的url地址
+ * @property {String} node.qrDescription - 中奖二维码的描述
  *
  * @example
  ```javascript
@@ -81,9 +80,8 @@
       rewardTime: '2016-11-11 00:00',
       uuid: '002',
       rewardToMessage: true,
-      rewardToQrcode: true,
-      qrImage: "/images/qrcode.png",
-      qrCode: faker.lorem.words(),
+      qrCode: "/images/qrcode.png",
+      qrDescription: faker.lorem.words(),
  }
  ```
  */
