@@ -5,6 +5,7 @@
 /tmp
 /typings
 /_doc
+/docs
 **/.gitkeep
 .bowerrc
 .csscomb.json

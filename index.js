@@ -19,16 +19,13 @@ module.exports = {
       plugins: [autoPrefixPlugin]
     },
     nodeAssets: {
-      bowser: {import: ['bowser.js']},
-      fastclick: {srcDir: 'lib', import: ['fastclick.js']},
-      imagesloaded: {import: ['imagesloaded.pkgd.js']},
-      'masonry-layout': {srcDir: 'dist', import: ['masonry.pkgd.js']},
-      sortablejs: {import: ['Sortable.js']},
+      bowser: { import: ['bowser.js'] },
+      fastclick: { srcDir: 'lib', import: ['fastclick.js'] },
+      imagesloaded: { import: ['imagesloaded.pkgd.js'] },
+      'masonry-layout': { srcDir: 'dist', import: ['masonry.pkgd.js'] },
+      sortablejs: { import: ['Sortable.js'] },
       swiper: {
-        srcDir: 'dist', import: [
-          'css/swiper.min.css',
-          'js/swiper.min.js'
-        ]
+        srcDir: 'dist', import: ['css/swiper.min.css', 'js/swiper.min.js']
       }
     }
   },
