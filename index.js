@@ -1,7 +1,6 @@
 'use strict';
 
-const mergeTrees = require('broccoli-merge-trees');
-const LessCompiler = require('broccoli-less-single');
+const fs = require('fs');
 const LessPluginAutoPrefix = require('less-plugin-autoprefix');
 const autoPrefixPlugin = new LessPluginAutoPrefix();
 
@@ -32,6 +31,18 @@ module.exports = {
 
   isDevelopingAddon() {
     return 'development' === process.env.EMBER_ENV;
+  },
+
+  contentFor(type, config, content) {
+    if ('body-footer' === type) {
+      return this.contentForSVGIcons();
+    }
+
+    return '';
+  },
+
+  contentForSVGIcons() {
+    return fs.readFileSync('./icons/index.html', 'utf-8').replace(/\n\r?/g, '');
   },
 
   included(app) {
@@ -72,21 +83,5 @@ module.exports = {
     app.import(`./vendor/mobiscroll/_css/mobiscroll.icons-3.0.0-beta6.css`);
     app.import(`./vendor/mobiscroll/_css/mobiscroll.range-3.0.0-beta6.css`);
     app.import(`./vendor/shims/mobiscroll.js`);
-  },
-
-  treeForPublic(tree) {
-    const trees = [];
-
-    const publicTree = this._super.treeForPublic.apply(this, arguments);
-    publicTree && trees.push(publicTree);
-
-    const themesTree = LessCompiler(
-      './public/themes', 'theme-basic.less', 'assets/theme-basic.css', {
-        plugins: [autoPrefixPlugin]
-      }
-    );
-    trees.push(themesTree);
-
-    return mergeTrees(trees, {overwrite: true});
   }
 };

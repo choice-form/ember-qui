@@ -1,5 +1,4 @@
-var RSVP = require('rsvp');
-var blueprintOptions = { saveDev: true };
+const RSVP = require('rsvp');
 
 module.exports = {
   name: 'ember-cform-ui',
@@ -15,7 +14,6 @@ module.exports = {
       this.addPackageToProject('bowser'),
       this.addPackageToProject('fastclick'),
       this.addPackageToProject('imagesloaded'),
-      this.addPackageToProject('less-plugin-autoprefix'),
       this.addPackageToProject('masonry-layout'),
       this.addPackageToProject('sortablejs'),
       this.addPackageToProject('swiper'),
@@ -24,7 +22,7 @@ module.exports = {
           { name: 'ember-cli-less', target: '^1.5.3' },
           { name: 'ember-in-viewport', target: '^2.1.0' }
         ],
-        blueprintOptions
+        blueprintOptions: { saveDev: true }
       })
     ]);
   }
