@@ -35,14 +35,19 @@ module.exports = {
 
   contentFor(type, config, content) {
     if ('body-footer' === type) {
-      return this.contentForSVGIcons();
+      if ('@choiceform/ember-cform-ui' === config.APP.name) {
+        return this.contentForSVGIcons('./')
+      } else {
+        return this.contentForSVGIcons('./node_modules/@choiceform/ember-cform-ui/');
+      }
     }
 
     return '';
   },
 
-  contentForSVGIcons() {
-    return fs.readFileSync('./icons/index.html', 'utf-8').replace(/\n\r?/g, '');
+  contentForSVGIcons(prefix) {
+    return fs.readFileSync(prefix + 'icons/index.html', 'utf-8')
+      .replace(/\n\r?/g, '');
   },
 
   included(app) {

@@ -15,7 +15,7 @@ module.exports = {
       this.addPackageToProject('fastclick'),
       this.addPackageToProject('imagesloaded'),
       this.addPackageToProject('masonry-layout'),
-      this.addPackageToProject('sortablejs'),
+      this.addPackageToProject('sortablejs', '~1.4.2'),
       this.addPackageToProject('swiper'),
       this.addAddonsToProject({
         packages: [
