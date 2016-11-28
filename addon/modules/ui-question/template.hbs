@@ -1,4 +1,3 @@
-
 {{ui-addon/loading isLoading=isLoading}}
 
 {{#if question.intro}}
@@ -8,12 +7,7 @@
 <section>
   <div class="wrapper">
     {{#each question.nodes as |node|}}
-      {{#ui-question/lazy-loader isSingle=question.lazyLoad as |viewable|}}
-        {{#if viewable}}
-          {{ui-question/-node node question.handleEvents}}
-        {{/if}}
-        <div class="lazy-loader-wrapper"></div>
-      {{/ui-question/lazy-loader}}
+      {{ui-question/-node node question.handleEvents}}
     {{/each}}
   </div>
 </section>
