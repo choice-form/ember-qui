@@ -42,6 +42,8 @@ module.exports = {
     app.import(`./vendor/shims/device.js`);
     app.import(`./vendor/shims/imagesloaded.js`);
     app.import(`./vendor/shims/masonry.js`);
+    app.import(`${app.bowerDirectory}/qrcode/lib/qrcode.js`);
+    app.import(`./vendor/shims/qrcode.js`);
     app.import(`./vendor/shims/sortable.js`);
     app.import(`./vendor/shims/swiper.js`);
 
