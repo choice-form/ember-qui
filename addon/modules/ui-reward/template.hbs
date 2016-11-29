@@ -53,7 +53,7 @@
                 {{ui-addon/qr-code data=node.qrCode}}
               </div>
               <div class="scan-icon">{{ui-addon/svg-item icon="scan"}}</div>
-              <p>Capture the screen and save it, you can't share it publicly. <span>{{node.qrDescription}}</span></p>
+              <p>{{if node.qrDescription node.qrDescription  "Capture the screen and save it, you can't share it publicly."}}</p>
             </div>
           {{/if}}
 
