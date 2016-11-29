@@ -1,14 +1,41 @@
-{{ui-component/ui-choice inputType=(unbound option.inputType)
-                         selectType=(unbound node.selectType)
-                         renderId=(unbound option.renderId)
-                         name=(unbound node.renderId)
+{{#unless (eq (unbound option.inputType) 'input')}}
+  <div class={{concat 'ui-choice ' (unbound node.selectType)}} data-render-id={{unbound option.renderId}}>
+    <input
+      id={{unbound option.renderId}}
+        type={{unbound node.selectType}}
+      onclick={{action "handleOptionClick"}}
+        name={{unbound node.renderId}}
+      autofocus={{autofocus}}
+        placeholder={{unbound option.placeholder}}
+      checked={{option.selected}}
+      required={{required}}
+        tabindex={{tabindex}}
+      value={{option.value}}
+    >
+    {{ui-component/ui-label selected=option.selected
+                            for=(unbound option.renderId)
+                            text=(unbound option.text)
+                            icon=(if option.selected (concat (unbound option.icon) '-active') (unbound option.icon))
+    }}
+  </div>
+{{else}}
+  {{ui-component/ui-text inputRule=(unbound option.inputType)
                          placeholder=(unbound option.placeholder)
-                         selected=option.selected
+                         renderId=(unbound option.renderId)
                          value=option.value
-                         text=(unbound option.text)
-                         icon=(unbound option.icon)
-                         inputRule=(unbound option.inputRule)
-                         handleOptionClick=(action "handleOptionClick")
                          handleOptionInput=(action "handleOptionInput")
                          handleOptionInputForTextarea=(action "handleOptionInputForTextarea")
-}}
+  }}
+{{/unless}}
+
+{{!--选择选项再弹出输入框--}}
+{{#if (eq (unbound option.inputType)"select-input")}}
+  {{ui-component/ui-text display=(if option.selected "block" "none")
+                         inputRule=(unbound option.inputRule)
+                         placeholder=(unbound option.placeholder)
+                         renderId=(unbound option.renderId)
+                         value=option.value
+                         handleOptionInput=(action "handleOptionInput")
+                         handleOptionInputForTextarea=(action "handleOptionInputForTextarea")
+  }}
+{{/if}}
