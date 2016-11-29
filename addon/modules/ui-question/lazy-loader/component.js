@@ -31,7 +31,21 @@ export default Component.extend(InViewportMixin, {
     scheduleOnce('afterRender', this, 'applyContentHeight')
   },
 
-  applyContentHeight() {
+  didScroll(direction) {
+    this._super(...arguments)
+    const { height } = this.element.getBoundingClientRect()
+    if ('down' === direction) {
+      set(this, 'viewportTolerance.bottom', 0)
+      set(this, 'viewportTolerance.top', height)
+    }
+
+    if ('up' === direction) {
+      set(this, 'viewportTolerance.top', 0)
+      set(this, 'viewportTolerance.bottom', height)
+    }
+  },
+
+  applycontentheight() {
     const { height } = this.element.getBoundingClientRect()
     set(this, 'height', 'auto')
     set(this, 'viewportTolerance', {

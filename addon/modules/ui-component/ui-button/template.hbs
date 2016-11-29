@@ -1,5 +1,5 @@
 {{#if leftIcon}}
-  {{component "ui-addon/svg-item" icon=leftIcon size=size viewBox=viewBox iconClass=iconClass}}
+  {{svg-item leftIcon size=size viewBox=viewBox}}
 {{/if}}
 
 {{yield}}
@@ -8,7 +8,6 @@
   <span>{{text}}</span>
 {{/if}}
 
-
 {{#if rightIcon}}
-  {{component "ui-addon/svg-item" icon=rightIcon size=size viewBox=viewBox iconClass=iconClass}}
+  {{svg-item rightIcon size=size viewBox=viewBox}}
 {{/if}}

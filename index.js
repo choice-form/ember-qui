@@ -1,7 +1,6 @@
 'use strict';
 
 const fs = require('fs');
-const path = require('path');
 const LessPluginAutoPrefix = require('less-plugin-autoprefix');
 const autoPrefixPlugin = new LessPluginAutoPrefix();
 
@@ -34,21 +33,21 @@ module.exports = {
     return 'development' === process.env.EMBER_ENV;
   },
 
-  isAddon() {
-    const keywords = this.project.pkg.keywords;
-    return (keywords && keywords.indexOf('ember-addon') !== -1);
-  },
-
   contentFor(type, config, content) {
-    return ('body-footer' === type) ? this.contentForSVGIcons() : '';
+    if ('body-footer' === type) {
+      if ('@choiceform/ember-cform-ui' === config.APP.name) {
+        return this.contentForSVGIcons('./')
+      } else {
+        return this.contentForSVGIcons('./node_modules/@choiceform/ember-cform-ui/');
+      }
+    }
+
+    return '';
   },
 
-  contentForSVGIcons() {
-    const iconPath = this.isAddon()
-          ? path.join(this.project.root, 'icons', 'index.html')
-          : path.join(this.project.nodeModulesPath, 'icons', 'index.html');
-
-    return fs.readFileSync(iconPath, 'utf-8').replace(/\n\r?/g, '');
+  contentForSVGIcons(prefix) {
+    return fs.readFileSync(prefix + 'icons/index.html', 'utf-8')
+      .replace(/\n\r?/g, '');
   },
 
   included(app) {
@@ -68,8 +67,7 @@ module.exports = {
     // app.import(`./vendor/mobiscroll/css/mobiscroll.custom-3.0.0-beta6.min.css`);
     app.import(`./vendor/mobiscroll/_css/mobiscroll.animation-3.0.0-beta6.css`);
     app.import(`./vendor/mobiscroll/_css/mobiscroll.color-3.0.0-beta6.css`);
-    app.import(
-      `./vendor/mobiscroll/_css/mobiscroll.mobiscroll-dark-3.0.0-beta6.css`);
+    app.import(`./vendor/mobiscroll/_css/mobiscroll.mobiscroll-dark-3.0.0-beta6.css`);
     app.import(`./vendor/mobiscroll/_css/mobiscroll.rating-3.0.0-beta6.css`);
     app.import(`./vendor/mobiscroll/_css/mobiscroll.progress-3.0.0-beta6.css`);
     app.import(`./vendor/mobiscroll/_css/mobiscroll.listview-3.0.0-beta6.css`);

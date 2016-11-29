@@ -2,10 +2,10 @@ import Controller from 'ember-controller';
 
 export default Controller.extend({
   init() {
-  /*  this.notification.warning('<strong>This is an example message!!!</strong>', {
-      autoClear: 500000
-    });
-    this._super(...arguments);*/
+    this._super(...arguments);
+    // this.notification.warning('<strong>This is an example message!!!</strong>', {
+    //   autoClear: 500000
+    // });
   },
 
   actions: {
