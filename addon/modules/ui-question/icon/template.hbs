@@ -1,9 +1,27 @@
-{{ui-component/ui-icon renderId=(unbound option.renderId)
-                       name=(unbound node.renderId)
-                       renderId=(unbound option.renderId)
-                       selectType=(unbound node.selectType)
-                       selected= option.selected
-                       icon= (unbound node.selectType)
-                       text= (unbound option.text)
-                       svg=svg
-                       handleOptionClick=(action 'handleOptionClick')}}
+<div class='ui-icon' data-render-id={{option.renderId}}>
+  <input
+      name={{node.renderId}}
+      id={{option.renderId}}
+      type={{node.selectType}}
+      onclick={{action 'handleOptionClick'}}
+      checked={{option.selected}}
+      disabled={{disabled}}
+      required>
+
+  <label for={{option.renderId}}>
+    <div class="effect-container">
+      <div class="svg-wrapper">
+        {{svg}}
+      </div>
+      {{#if option.selected}}
+        {{ui-addon/svg-particle values="0;36" dur="0.65s"}}
+      {{/if}}
+    </div>
+    <div class="labels">
+      <div class="svg-wrapper">
+        {{svg-item (if option.selected (concat node.selectType '-active') node.selectType)}}
+      </div>
+      <span>{{option.text}}</span>
+    </div>
+  </label>
+</div>

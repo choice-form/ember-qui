@@ -10,9 +10,6 @@ export default Component.extend({
   iconService: inject("service/icon"),
 
   actions: {
-    /**
-     * click事件
-     */
     handleOptionClick(e){
       !this.handleEvents.handleOptionClick(get(this, 'option'), get(this, 'node'))
       && e.preventDefault();
@@ -28,5 +25,4 @@ export default Component.extend({
       }
     )
   }
-
 }).reopenClass({positionalParams: ['node', 'option', 'handleEvents']});

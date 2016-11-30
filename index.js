@@ -1,6 +1,7 @@
 'use strict';
 
 const fs = require('fs');
+const path = require('path');
 const LessPluginAutoPrefix = require('less-plugin-autoprefix');
 const autoPrefixPlugin = new LessPluginAutoPrefix();
 
@@ -19,18 +20,26 @@ module.exports = {
     },
     nodeAssets: {
       bowser: { import: ['bowser.js'] },
-      fastclick: { srcDir: 'lib', import: ['fastclick.js'] },
+      fastclick: {
+        srcDir: 'lib',
+        import: ['fastclick.js']
+      },
       imagesloaded: { import: ['imagesloaded.pkgd.js'] },
-      'masonry-layout': { srcDir: 'dist', import: ['masonry.pkgd.js'] },
-      sortablejs: { import: ['Sortable.js'] },
+      'masonry-layout': {
+        srcDir: 'dist',
+        import: [{ path: 'masonry.pkgd.js', outputFile: 'assets/masonry.js' }]
+      },
+      sortablejs: {
+        import: [{ path: 'Sortable.js', outputFile: 'assets/sortable.js' }]
+      },
       swiper: {
         srcDir: 'dist',
-        import: {
-          include: [
-            'css/swiper.min.css',
-            { path: 'js/swiper.min.js', sourceMap: 'js/maps/swiper.min.js.map' }
-          ]
-        }
+        import: [
+          'css/swiper.min.css',
+          { path: 'js/swiper.min.js',
+            outputFile: 'assets/swiper.js',
+            sourceMap: 'js/maps/swiper.min.js.map' }
+        ]
       }
     }
   },
@@ -39,21 +48,27 @@ module.exports = {
     return 'development' === process.env.EMBER_ENV;
   },
 
-  contentFor(type, config, content) {
-    if ('body-footer' === type) {
-      if ('@choiceform/ember-cform-ui' === config.APP.name) {
-        return this.contentForSVGIcons('./')
-      } else {
-        return this.contentForSVGIcons('./node_modules/@choiceform/ember-cform-ui/');
-      }
-    }
+  isAddon() {
+    const keywords = this.project.pkg.keywords;
+    return (keywords && keywords.indexOf('ember-addon') !== -1);
+  },
 
-    return '';
+  contentFor(type, config, content) {
+    return ('body-footer' === type)
+      ? [
+        `<script src="/assets/masonry.js"></script>`,
+        `<script src="/assets/sortable.js"></script>`,
+        `<script src="/assets/swiper.js"></script>`,
+        this.contentForSVGIcons()
+      ].join('\n') : '';
   },
 
   contentForSVGIcons(prefix) {
-    return fs.readFileSync(prefix + 'icons/index.html', 'utf-8')
-      .replace(/\n\r?/g, '');
+    const iconPath = this.isAddon()
+          ? path.join(this.project.root, 'icons', 'index.html')
+          : path.join(this.project.nodeModulesPath, '@choiceform', 'ember-cform-ui', 'icons', 'index.html');
+
+    return fs.readFileSync(iconPath, 'utf-8').replace(/\n\r?/g, '')
   },
 
   included(app) {
@@ -63,11 +78,11 @@ module.exports = {
     app.import(`${app.bowerDirectory}/device.js/lib/device.js`);
     app.import(`./vendor/shims/device.js`);
     app.import(`./vendor/shims/imagesloaded.js`);
-    app.import(`./vendor/shims/masonry.js`);
+    app.import(`./vendor/shims/masonry.js`, { outputFile: 'assets/masonry.js' });
     app.import(`${app.bowerDirectory}/qrcode/lib/qrcode.js`);
     app.import(`./vendor/shims/qrcode.js`);
-    app.import(`./vendor/shims/sortable.js`);
-    app.import(`./vendor/shims/swiper.js`);
+    app.import(`./vendor/shims/sortable.js`, { outputFile: 'assets/sortable.js' });
+    app.import(`./vendor/shims/swiper.js`, { outputFile: 'assets/swiper.js' });
 
     app.import(`./vendor/mobiscroll/js/mobiscroll.custom-3.0.0-beta6.min.js`);
     // app.import(`./vendor/mobiscroll/css/mobiscroll.custom-3.0.0-beta6.min.css`);
