@@ -1,23 +1,19 @@
 {{#if isTextArea}}
-
   <textarea
-    value={{value}}
+      value={{value}}
       placeholder={{placeholder}}
-    oninput={{action handleOptionInputForTextarea}}
-  ></textarea>
-  {{ui-addon/svg-item icon=icon size=size viewbox=viewbox}}
+      oninput={{action handleOptionInputForTextarea}}></textarea>
+  {{svg-item icon size=size viewbox=viewbox}}
 {{else}}
-
   <input
-    class={{className}}
+      class={{className}}
       type={{type}}
-    value={{value}}
+      value={{value}}
       required
-    placeholder={{placeholder}}
+      placeholder={{placeholder}}
       oninput={{handleOptionInput}}
-    onchange={{handleOptionInput}}
-  >
-  {{ui-addon/svg-item icon=icon size=size viewbox=viewbox}}
+      onchange={{handleOptionInput}}>
+  {{svg-item icon size=size viewbox=viewbox}}
 {{/if}}
 
 {{#if errorMessage}}

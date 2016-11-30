@@ -2,7 +2,6 @@ import Component from 'ember-component';
 import layout from './template';
 import computed, { notEmpty, and, not } from 'ember-computed';
 import get from 'ember-metal/get';
-import { isNone } from 'ember-utils';
 import { htmlSafe } from 'ember-string';
 
 export default Component.extend({

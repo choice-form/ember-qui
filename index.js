@@ -24,7 +24,13 @@ module.exports = {
       'masonry-layout': { srcDir: 'dist', import: ['masonry.pkgd.js'] },
       sortablejs: { import: ['Sortable.js'] },
       swiper: {
-        srcDir: 'dist', import: ['css/swiper.min.css', 'js/swiper.min.js']
+        srcDir: 'dist',
+        import: {
+          include: [
+            'css/swiper.min.css',
+            { path: 'js/swiper.min.js', sourceMap: 'js/maps/swiper.min.js.map' }
+          ]
+        }
       }
     }
   },

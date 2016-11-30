@@ -1,88 +1,53 @@
 import Component from 'ember-component';
 import layout from './template';
-import computed, {reads} from 'ember-computed';
+import computed, { reads } from 'ember-computed';
 import get from 'ember-metal/get';
-import {htmlSafe} from 'ember-string';
+import { htmlSafe } from 'ember-string';
 import mobiInit from '../../lib/mobile-factory'
 
 export default Component.extend({
   layout,
   classNames: ['ui-text'],
   attributeBindings: ['data-render-id', 'style'],
+
   'data-render-id': reads('renderId'),
+
   display: 'block',
-  'style': computed('display', function () {
-    const display = get(this, 'display');
-    return htmlSafe(`display: ${display}`);
-  }),
-  /**
-   * 'noValidation','count','int','float','moblie','email','date','dateRange','time','timeRange','postCode','url'
-   */
+  style: computed('display', function () {
+    return htmlSafe(`display: ${get(this, 'display')}`);
+  }).readOnly(),
 
   isTextArea: computed('inputRule', function () {
-    const inputRule = get(this, 'inputRule');
-    if (['noValidation', 'count'].indexOf(inputRule) > -1) {
-      return true;
-    } else {
-      return false;
-    }
-  }),
+    return ['noValidation', 'count'].indexOf(get(this, 'inputRule')) > -1;
+  }).readOnly(),
 
   type: computed('inputRule', function () {
-    const celType = ['int', 'moblie', 'postCode'];
-    const numberType = ['float'];
-    const urlType = ['url', 'email'];
     const inputRule = get(this, 'inputRule');
-    if (celType.indexOf(inputRule) > -1) {
-      return 'tel';
-    }
-    if (numberType.indexOf(inputRule) > -1) {
-      return 'number';
-    }
-    if (urlType.indexOf(inputRule) > -1) {
-      return 'url';
-    }
+
+    if (['int', 'moblie', 'postCode'].indexOf(inputRule) > -1) return 'tel';
+    if (['float'].indexOf(inputRule) > -1) return 'number';
+    if (['url', 'email'].indexOf(inputRule) > -1) return 'url';
     return 'text';
-  }),
-
-
-  size: '16px',
-
-  viewBox: '16',
+  }).readOnly(),
 
   icon: computed('inputRule', function () {
     const type = get(this, 'inputRule');
-    if (['noValidation', 'count'].indexOf(type) > -1) {
-      return 'text';
-    }
-    if (['time', 'timeRange'].indexOf(type) > -1) {
-      return 'time';
-    }
-    if (['date', 'dateRange'].indexOf(type) > -1) {
-      return 'calendar';
-    }
 
+    if (['time', 'timeRange'].indexOf(type) > -1) return 'time';
+    if (['noValidation', 'count'].indexOf(type) > -1) return 'text';
+    if (['date', 'dateRange'].indexOf(type) > -1) return 'calendar';
     return type;
-  }),
-
+  }).readOnly(),
 
   className: computed('inputRule', function () {
-    const type = get(this, 'inputRule');
-    if (['date', 'time', 'timeRange', 'dateRange'].indexOf(type) > -1) {
-      return 'ui-menu';
-    }
-    return null;
-  }),
-
+    return ['date', 'time', 'timeRange', 'dateRange']
+      .indexOf(get(this, 'inputRule')) > -1 ? 'ui-menu' : null;
+  }).readOnly(),
 
   didInsertElement(){
-    const type = get(this, 'inputRule');
     const input = this.element.getElementsByTagName('input')[0];
-    mobiInit(input, {
-      type: type,
-    });
+    mobiInit(input, { type: get(this, 'inputRule') });
   }
-
 });
 
 /**
