@@ -57,7 +57,8 @@ Router.map(function() {
   this.route('warning', function() {
     this.route('complete');
     this.route('planning');
-    this.route('error');
+    // NOTE: wait for https://github.com/emberjs/ember.js/issues/14650
+    // this.route('error');
   });
   this.route('temp', function() {
     this.route('faker');
