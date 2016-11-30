@@ -1,4 +1,4 @@
-{{#if (and header.images imageTop)}}
+{{#if hasTopImages}}
   <figure class="attachment">
     {{#each header.images as |image|}}
       {{ui-addon/progressive-image
@@ -11,22 +11,15 @@
 {{/if}}
 
 <header class="header">
-  {{#if (or header.isMust header.number)}}
-    <div>
-      {{#if header.isMust}}
-        <span class="required-asterisk">*</span>
-      {{/if}}
-      <span class="question-number">{{header.number}}.</span>
-    </div>
+  {{#if header.number}}
+    <div>{{requiredMark}} <span class="question-number">{{header.number}}.</span></div>
   {{/if}}
 
   <h2 class="title">{{header.title}}</h2>
-  {{#if header.description}}
-    <pre class="description">{{header.description}}</pre>
-  {{/if}}
+  {{description}}
 </header>
 
-{{#if (and header.images (not imageTop))}}
+{{#if hasNormalImages}}
   <figure class="attachment">
     {{#each header.images as |image|}}
       {{ui-addon/progressive-image

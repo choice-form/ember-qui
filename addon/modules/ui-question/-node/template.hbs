@@ -1,4 +1,4 @@
-{{ui-component/ui-header headerData}}
+{{ui-component/ui-header header=headerData}}
 
 {{#if node.typeName}}
   <sup><span>{{node.typeName}}</span> Least: {{node.minSelect}} - Most: {{node.maxSelect}}</sup>
@@ -13,5 +13,3 @@
     {{/each}}
   {{/if}}
 </div>
-
-{{!--{{component 'ui-component/ui-choice' node option handleEvents}}--}}

@@ -1,33 +1,36 @@
 import Component from 'ember-component';
 import layout from './template';
-import computed from 'ember-computed';
+import computed, { notEmpty, and, not } from 'ember-computed';
 import get from 'ember-metal/get';
-import {htmlSafe} from 'ember-string';
-
-
+import { isNone } from 'ember-utils';
+import { htmlSafe } from 'ember-string';
 
 export default Component.extend({
   layout,
-  tagName:'',
+  tagName: '',
 
-  imageTop:computed('header',function () {
-    const header = get(this,'header');
-    if(['intro-page','end-page'].indexOf(header.quesType) > -1){
-      return true;
-    }else{
-      return false;
+  imageTop: computed('header', function() {
+    return ['intro-page', 'end-page'].indexOf(get(this, 'header.quesType')) > -1
+  }),
+  imageNormal: not('imageTop').readOnly(),
+
+  hasImages: notEmpty('header.images').readOnly(),
+  hasTopImages: and('hasImages', 'imageTop').readOnly(),
+  hasNormalImages: and('hasImages', 'imageNormal').readOnly(),
+
+  requiredMark: computed('header.isMust', {
+    get() {
+      return get(this, 'header.isMust')
+        ? htmlSafe(`<span class="required-asterisk">*</span>`) : null;
     }
-  }),
+  }).readOnly(),
 
-
-  this_images: computed('header.images', function () {
-    const images = get(this, 'header.images');
-    if( images && images.length ){
-      return htmlSafe(`<div class="attachment">` + images.map(function (item) {
-          return `<img src=${item} />`
-        }).join('') + `</div>`);
-    }else return '';
-  }),
+  description: computed('header.description', {
+    get() {
+      const description = get(this, 'header.description');
+      return description ? htmlSafe(`<pre class="description">${description}</pre>`) : null;
+    }
+  }).readOnly()
 }).reopenClass({positionalParams: ['header']});
 
 /**
@@ -39,7 +42,6 @@ export default Component.extend({
  *
  * @class UiHeaderComponent
  */
-
 
 /**
  * header
@@ -59,4 +61,3 @@ export default Component.extend({
  * @property {String} header.title - 问卷标题
  * @property {String} header.description - 问卷描述
  */
-
