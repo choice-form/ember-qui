@@ -12,7 +12,7 @@ export default Component.extend({
      */
     handleOptionClick(e){
       const inputType = get(this, 'option.inputType');
-      if (inputType === 'input')return;
+      if (inputType === 'input') return;
 
       !this.handleEvents.handleOptionClick(get(this, 'option'),get(this,'node'))
       &&  e.preventDefault();
