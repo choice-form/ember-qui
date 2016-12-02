@@ -1,16 +1,8 @@
 <div class="ui-dropdown ui-text dropdown">
-  <div class="titleIcon">
-    {{svg-item titleIcon size="64px" viewBox="40" iconClass="region-pin-icon"}}
-  </div>
-
   <ul class='dropdown-list' style="display:none">
-    {{#if (or (eq node.quesType "region") isMulitColmun)}}
-      {{yield}}
-    {{else}}
-      {{#each node.options as |q|}}
-        <li data-selected={{q.selected}}>{{q.text}}</li>
-      {{/each}}
-    {{/if}}
+    {{#each node.options as |q|}}
+      <li data-selected={{q.selected}}>{{q.text}}</li>
+    {{/each}}
   </ul>
 
   {{svg-item "arrows-small-down"}}

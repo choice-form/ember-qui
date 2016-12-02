@@ -1,21 +1,29 @@
-{{#ui-component/ui-dropdown quesType=node.quesType titleIcon="map-location" icon='arrows-small-down'}}
-  {{#each (unbound node.regions) as |region|}}
-    <li>{{region.Meaning}}
-      {{#if (or (eq node.grade 2) (eq node.grade 3))}}
-        <ul>
-          {{#each region.cities as |city|}}
-            <li>{{city.Meaning}}
-              {{#if (eq node.grade 3)}}
-                <ul>
-                  {{#each city.counties as |country|}}
-                    <li>{{country.Meaning}}</li>
-                  {{/each}}
-                </ul>
-              {{/if}}
-            </li>
-          {{/each}}
-        </ul>
-      {{/if}}
-    </li>
-  {{/each}}
-{{/ui-component/ui-dropdown}}
+<div class="ui-dropdown ui-text dropdown">
+  <div class="titleIcon">
+    {{svg-item "map-location" size="64px" viewBox="40" iconClass="region-pin-icon"}}
+  </div>
+
+  <ul class="dropdown-list" style="display: none;">
+    {{#each (unbound node.regions) as |region|}}
+      <li>{{region.Meaning}}
+        {{#if (or (eq node.grade 2) (eq node.grade 3))}}
+          <ul>
+            {{#each region.cities as |city|}}
+              <li>{{city.Meaning}}
+                {{#if (eq node.grade 3)}}
+                  <ul>
+                    {{#each city.counties as |country|}}
+                      <li>{{country.Meaning}}</li>
+                    {{/each}}
+                  </ul>
+                {{/if}}
+              </li>
+            {{/each}}
+          </ul>
+        {{/if}}
+      </li>
+    {{/each}}
+  </ul>
+
+  {{svg-item "arrows-small-down"}}
+</div>

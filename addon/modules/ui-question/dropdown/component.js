@@ -16,10 +16,11 @@ export default Component.extend({
     mobiInitTreeList(input, {
       placeholder: get(this, 'node.placeholder'),
 
-      onSet: (event, inst)=>{
+      onSet: event => {
         this.handleEvents.handleQuestionInput(event.valueText, get(this,'node'));
         input.previousElementSibling.value = get(this, 'node.value');
       },
+
       onInit: () => {
         const mobiInput = input.previousElementSibling;
         mobiInput.value = get(this, 'node.value');

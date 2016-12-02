@@ -26,8 +26,6 @@ export default Component.extend({
   }).readOnly(),
 
   tips: computed('svgState', function() {
-    const state = get(this, 'svgState');
-
     switch (get(this, 'svgState')) {
       case 'positioning': return 'Positioning...';
       case 'location-successful': return 'Successful';
