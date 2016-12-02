@@ -7,48 +7,53 @@ import { getLocation } from '../../lib/bMapApi';
 
 export default Component.extend({
   layout,
+  classNameBindings: ['typeClassName'],
+
+  typeClassName: computed(function() {
+    return `ui-${get(this, 'node.quesType')}`
+  }).readOnly(),
 
   checked: false,
 
-  tagName: '',
-
-  //状态，location、positioning、location-successful、location-failed
+  // 状态，location、positioning、location-successful、location-failed
   svgState: 'location',
 
   // 'positioning' 'successful' 'failed'
   locationState: '',
 
+  locationClassName: computed('locationState', function() {
+    return `pin ${get(this, 'locationState')}`;
+  }).readOnly(),
+
   tips: computed('svgState', function() {
     const state = get(this, 'svgState');
-    if (state === 'positioning') {
-      return 'Positioning...';
+
+    switch (get(this, 'svgState')) {
+      case 'positioning': return 'Positioning...';
+      case 'location-successful': return 'Successful';
+      case 'location-failed': return 'Failed, Please';
+      default: return 'Where are you?';
     }
-    if (state === 'location-successful') {
-      return "Successful";
-    }
-    if (state === 'location-failed') {
-      return "Failed, Please";
-    }
-    return "Where are you?";
   }),
 
   actions: {
-    /**
-     * click事件
-     */
     handleOptionClick() {
-      setProperties(this,
-        { svgState: 'positioning', locationState: 'positioning' });
+      setProperties(
+        this, { svgState: 'positioning', locationState: 'positioning' }
+      );
+
       getLocation()
-        .then((position) => {
+        .then(position => {
           this.handleEvents.handleQuestionInput(position, get(this, 'node'));
-          setProperties(this,
-            { svgState: 'location-successful', locationState: 'successful' });
+
+          setProperties(
+            this, { locationState: 'successful', svgState: 'location-successful' }
+          );
         }).catch(() => {
-        setProperties(this,
-          { svgState: 'location-failed', locationState: 'failed' });
+          setProperties(
+            this, { locationState: 'failed', svgState: 'location-failed' }
+          );
       });
     },
-  },
-
+  }
 }).reopenClass({ positionalParams: ['node', 'handleEvents'] });

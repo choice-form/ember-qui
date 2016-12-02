@@ -1,22 +1,21 @@
-<div class={{concat 'ui-' (unbound node.quesType)}}>
-  <div class={{concat "pin " locationState}}>
-    <input
-      id={{unbound node.renderId}}
-        type="checkbox"
-      onclick={{action 'handleOptionClick'}}
-    >
-    <label for={{unbound node.renderId}}>
-      <div class="effect-container">
-        {{ui-addon/svg-item icon=svgState size="40px" viewBox="40"}}
-        {{ui-addon/active-line-animation}}
-      </div>
-    </label>
-  </div>
-  <h4>{{tips}}</h4>
-  {{#if (eq svgState 'location-successful')}}
-    <p>{{node.value}}</p>
-  {{/if}}
-  {{#if (eq svgState 'location-failed')}}
-    <a class="button secondary" onclick={{action 'handleOptionClick'}}>Try again</a>
-  {{/if}}
+<div class={{locationClassName}}>
+  <input type="checkbox"
+         id={{node.renderId}}
+         onclick={{action 'handleOptionClick'}}>
+  <label for={{node.renderId}}>
+    <div class="effect-container">
+      {{svg-item svgState size="40px" viewBox="40"}}
+      {{ui-addon/active-line-animation}}
+    </div>
+  </label>
 </div>
+
+<h4>{{tips}}</h4>
+
+{{#if (eq svgState 'location-successful')}}
+  <p>{{node.value}}</p>
+{{/if}}
+
+{{#if (eq svgState 'location-failed')}}
+  <a class="button secondary" onclick={{action 'handleOptionClick'}}>Try again</a>
+{{/if}}
