@@ -1,1 +1,1 @@
-export { default, svgitem } from 'ember-cform-ui/helpers/svg-item';
+export { default, svgitem } from 'ember-cform-ui/modules/helpers/svg-item';
