@@ -1,12 +1,34 @@
-{{ui-component/ui-file-upload state=state
-                              progress=progress
-                              button=button
-                              icon=icon
-                              uploadText=uploadText
-                              renderId=(unbound option.renderId)
-                              value=option.value
-                              text=(unbound option.text)
-                              handleOptionInput=(action "handleOptionInput")
-                              handleOptionClick=(action "handleOptionClick")
-                              handleOptionRemove=(action "handleOptionRemove")
-}}
+<div class="upload-item-wrapper">
+  <div class={{concat "upload-item" state}}>
+    <input type="file"
+           id={{option.renderId}}
+           onclick={{action 'handleOptionClick'}}
+           onchange={{action 'handleOptionInput'}}>
+
+    {{#unless (eq progress '100')}}
+      <div class="upload-progress-bar">
+        <div class="upload-progress" style={{html-safe (concat "width:" progress "%;")}}></div>
+      </div>
+    {{/unless}}
+
+
+    {{#if option.value}}
+      <a class="clear icon-button primary" onclick={{action 'handleOptionRemove'}}>
+        {{svg-item "trash"}}
+      </a>
+      <div class="upload-thumbnail"><img src={{value}}></div>
+    {{else}}
+      {{svg-item "upload-image" size="64px" viewBox="40" iconClass="upload-image-icon"}}
+    {{/if}}
+
+    <label class={{concat "button" button}} for={{option.renderId}}>
+      {{svg-item icon}}&nbsp;<span>{{uploadText}}</span>
+    </label>
+  </div>
+
+  {{#unless option.value}}
+    {{#if option.text}}
+      <span>{{option.text}}</span>
+    {{/if}}
+  {{/unless}}
+</div>

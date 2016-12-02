@@ -1,12 +1,15 @@
 import Component from 'ember-component';
 import layout from './template';
+import computed, { reads } from 'ember-computed';
 import get from 'ember-metal/get';
-import computed from 'ember-computed';
 import set from 'ember-metal/set';
 
 export default Component.extend({
   layout,
-  tagName: '',
+  classNames:['ui-file-upload'],
+
+  attributeBindings: ['data-render-id'],
+  'data-render-id': reads('option.renderId'),
 
   icon: computed('option.value', 'option.icon', function () {
     return get(this, 'option.value') ? 'refresh' : get(this, 'option.icon');
@@ -27,26 +30,16 @@ export default Component.extend({
   progress: 0,
 
   actions:{
-    /**
-     * 点击删除按钮
-     */
     handleOptionRemove(){
       this.handleEvents.handleOptionInput('', get(this, 'option'), get(this, 'node'));
     },
 
-    /**
-     * onclick事件
-     */
     handleOptionClick(e){
       //如果不能上传图片,就阻止input的默认事件
       !this.handleEvents.handleOptionClick(get(this, 'option'), get(this, 'node'))
       &&  e.preventDefault();
     },
 
-    /**
-     *
-     */
-    /*eslint-disable no-console */
     handleOptionInput(e){
       const data = e.currentTarget.files;
       set(this,'progress','99');
@@ -56,4 +49,4 @@ export default Component.extend({
     },
   }
 
-}).reopenClass({positionalParams: ['node', 'option', 'handleEvents']});
+}).reopenClass({ positionalParams: ['node', 'option', 'handleEvents'] });
