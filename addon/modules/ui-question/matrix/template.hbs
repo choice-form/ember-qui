@@ -1,9 +1,78 @@
-{{ui-component/ui-matrix name=(unbound node.renderId)
-                         otherOptions=(unbound node.otherOptions)
-                         matrix=node.matrix
-                         optionsY=(unbound node.optionsY)
-                         optionsX=(unbound node.optionsX)
-                         handleOptionClick=(action "handleOptionClick")
-                         handleOptionInput=(action "handleOptionInput")
-                         handleOptionInputForTextarea=(action "handleOptionInputForTextarea")
-}}
+<div class={{concat "matrix-wrapper" (if (eq resizeIcon "pinch") " zoom")}}>
+  <div class="matrix-thumbnail">
+    <div class="matrix-thumbnail-wrapper">
+      <div>
+        {{#each node.matrix as |subMatrix|}}
+          <ul>
+            {{#each subMatrix as |option|}}
+              <li class={{if option.selected "active"}}><span></span></li>
+            {{/each}}
+          </ul>
+        {{/each}}
+      </div>
+    </div>
+  </div>
+
+  <div class="fix-header-position">
+    <div class="fix-header swiper-container">
+      <div class="swiper-wrapper">
+        {{#each node.optionsX as |option|}}
+          <div class="fix-header-column swiper-slide">
+            <span>{{option.text}}</span>
+          </div>
+        {{/each}}
+      </div>
+    </div>
+  </div>
+
+  <div class="matrix-content">
+    <ul class="fix-column">
+      {{#each node.optionsY as |option| }}
+        <li style={{colHeight}}>
+          <span>{{option.text}}</span>
+        </li>
+      {{/each}}
+    </ul>
+
+    <div class="column-container swiper-container">
+      <div class="swiper-wrapper">
+        {{#each node.matrix as |subMatrix|}}
+          <div class="column swiper-slide">
+            {{#each subMatrix as |option|}}
+              <div class="column-item">
+                <input
+                    name={{node.renderId}}
+                    id={{option.renderId}}
+                    type="checkbox"
+                    onclick={{action "handleOptionClick" option}}
+                    checked={{option.selected}}
+                    disabled={{disabled}}
+                    required>
+                {{ui-component/ui-label
+                  selected=option.selected
+                  for=option.renderId
+                  icon=(if option.selected "checkbox-active" 'checkbox')}}
+              </div>
+            {{/each}}
+          </div>
+        {{/each}}
+      </div>
+
+      <div class="swiper-pagination"></div>
+      {{#if isDesktop}}
+        <a class="matrix-resize" onclick={{action "matrixResize"}}>{{svg-item resizeIcon}}</a>
+        <div class="matrix-button-next">{{svg-item "arrows-stre-right"}}</div>
+        <div class="matrix-button-prev">{{svg-item "arrows-stre-left"}}</div>
+      {{/if}}
+    </div>
+  </div>
+</div>
+
+{{#each node.otherOptions as |option|}}
+  {{ui-component/ui-text
+    inputRule=option.inputRule
+    placeholder=option.placeholder
+    value=option.value
+    handleOptionInput=(action "handleOptionInput")
+    handleOptionInputForTextarea=(action "handleOptionInputForTextarea")}}
+{{/each}}

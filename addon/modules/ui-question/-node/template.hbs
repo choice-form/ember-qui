@@ -1,7 +1,10 @@
 {{ui-component/ui-header header=headerData}}
 
 {{#if node.typeName}}
-  <sup><span>{{node.typeName}}</span> Least: {{node.minSelect}} - Most: {{node.maxSelect}}</sup>
+  <sup>
+    <span>{{node.typeName}}</span>
+    Least: {{node.minSelect}} - Most: {{node.maxSelect}}
+  </sup>
 {{/if}}
 
 <div class={{concat "control " quesType}}>

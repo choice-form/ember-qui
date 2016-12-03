@@ -13,7 +13,7 @@ export default Component.extend({
     this._super(...arguments);
 
     get(this, 'iconService').getIconByUrl(get(this, 'option.icon'))
-      .then(icon => set(this, 'svg', icon))
+      .then(icon => !this.isDestroyed && set(this, 'svg', icon))
   },
 
   actions: {

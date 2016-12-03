@@ -1,60 +1,36 @@
 import Component from 'ember-component';
 import layout from './template';
-import computed, {alias} from 'ember-computed';
-import get, {getProperties} from 'ember-metal/get'
+import { HEADER_META, SPECIAL_TYPES } from './constants';
+import computed, { reads } from 'ember-computed';
+import get, { getProperties } from 'ember-metal/get'
 
 export default Component.extend({
   layout,
   classNames:['row'],
 
-  classNameBindings: ['classname'],
-  classname:computed('node.quesType', function () {
-    const quesType = get(this, 'node.quesType');
-    if(quesType){
-      return `data-${quesType}`
-    }else{
-      return ""
-    }
-  }),
-
-  quesType: computed('node.quesType', function () {
-    const quesType= get(this, 'node.quesType');
-
-    if(['icon','gender'].indexOf(quesType) > -1){
-      return 'icon';
-    }else{
-      return quesType;
-    }
-  }),
+  classNameBindings: ['typeClassName'],
+  typeClassName: computed('node.quesType', function() {
+    const type = get(this, 'node.quesType');
+    return type ? `data-${type}` : null;
+  }).readOnly(),
 
   attributeBindings: ['data-render-id'],
-  'data-render-id': alias('node.renderId'),
+  'data-render-id': reads('node.renderId'),
 
-  /**
-   * 将header的数据打包到一起
-   */
-  headerData: computed('node', function () {
-    const question = get(this, 'node');
-    return getProperties(question, ['title', 'description', 'images', 'isMust', 'number', 'quesType']);
-  }),
+  quesType: computed('node.quesType', function() {
+    const type = get(this, 'node.quesType');
+    return (['icon', 'gender'].indexOf(type) > -1) ? 'icon' : type;
+  }).readOnly(),
 
-  /**
-   * 根据节点类型的名称，返回所需要加载的component名称
-   */
-  componentName: computed('node.quesType', function () {
-    const optionName = get(this, 'node.quesType');
-    return `ui-question/${optionName}`;
-  }),
+  headerData: computed('node', function() {
+    return getProperties(get(this, 'node'), HEADER_META);
+  }).readOnly(),
 
-  isSpecialComponent: computed('node.quesType', function () {
-    const quesType = get(this, 'node.quesType');
-    if (['slide', 'dropdown', 'region', 'location', 'matrix', 'intro-page', 'end-page', 'verification', 'ranking', 'weight', 'picture-choice'].indexOf(quesType) > -1) {
-      return true;
-    } else {
-      return false;
-    }
-  }),
+  componentName: computed('node.quesType', function() {
+    return `ui-question/${get(this, 'node.quesType')}`;
+  }).readOnly(),
 
-
-
-}).reopenClass({positionalParams: ['node', 'handleEvents']});
+  isSpecialComponent: computed('node.quesType', function() {
+    return SPECIAL_TYPES.indexOf(get(this, 'node.quesType')) > -1;
+  }).readOnly()
+}).reopenClass({ positionalParams: ['node', 'handleEvents'] });

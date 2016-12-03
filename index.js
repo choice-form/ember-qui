@@ -20,14 +20,9 @@ module.exports = {
     },
     nodeAssets: {
       bowser: { import: ['bowser.js'] },
-      fastclick: {
-        srcDir: 'lib',
-        import: ['fastclick.js']
-      },
-      imagesloaded: { import: ['imagesloaded.pkgd.js'] },
+      fastclick: { import: [{ path: 'lib/fastclick.js' }] },
       'masonry-layout': {
-        srcDir: 'dist',
-        import: [{ path: 'masonry.pkgd.js', outputFile: 'assets/masonry.js' }]
+        import: [{ path: 'dist/masonry.pkgd.js', outputFile: 'assets/masonry.js' }]
       },
       sortablejs: {
         import: [{ path: 'Sortable.js', outputFile: 'assets/sortable.js' }]
@@ -56,11 +51,15 @@ module.exports = {
   contentFor(type, config, content) {
     return ('body-footer' === type)
       ? [
-        `<script src="/assets/masonry.js"></script>`,
-        `<script src="/assets/sortable.js"></script>`,
-        `<script src="/assets/swiper.js"></script>`,
+        `<script async src="/assets/masonry.js"></script>`,
+        `<script async src="/assets/mobiscroll.js"></script>`,
+        `<link rel="stylesheet" href="/assets/mobiscroll.css">`,
+        `<script async src="/assets/qrcode.js"></script>`,
+        `<script async src="/assets/sortable.js"></script>`,
+        `<script async src="/assets/swiper.js"></script>`,
         this.contentForSVGIcons()
-      ].join('\n') : '';
+      ].join('\n')
+      : '';
   },
 
   contentForSVGIcons(prefix) {
@@ -77,36 +76,22 @@ module.exports = {
     app.import(`./vendor/shims/bowser.js`);
     app.import(`${app.bowerDirectory}/device.js/lib/device.js`);
     app.import(`./vendor/shims/device.js`);
-    app.import(`./vendor/shims/imagesloaded.js`);
-    app.import(`./vendor/shims/masonry.js`, { outputFile: 'assets/masonry.js' });
-    app.import(`${app.bowerDirectory}/qrcode/lib/qrcode.js`);
-    app.import(`./vendor/shims/qrcode.js`);
-    app.import(`./vendor/shims/sortable.js`, { outputFile: 'assets/sortable.js' });
-    app.import(`./vendor/shims/swiper.js`, { outputFile: 'assets/swiper.js' });
 
-    app.import(`./vendor/mobiscroll/js/mobiscroll.custom-3.0.0-beta6.min.js`);
-    // app.import(`./vendor/mobiscroll/css/mobiscroll.custom-3.0.0-beta6.min.css`);
-    app.import(`./vendor/mobiscroll/_css/mobiscroll.animation-3.0.0-beta6.css`);
-    app.import(`./vendor/mobiscroll/_css/mobiscroll.color-3.0.0-beta6.css`);
-    app.import(`./vendor/mobiscroll/_css/mobiscroll.mobiscroll-dark-3.0.0-beta6.css`);
-    app.import(`./vendor/mobiscroll/_css/mobiscroll.rating-3.0.0-beta6.css`);
-    app.import(`./vendor/mobiscroll/_css/mobiscroll.progress-3.0.0-beta6.css`);
-    app.import(`./vendor/mobiscroll/_css/mobiscroll.listview-3.0.0-beta6.css`);
-    app.import(`./vendor/mobiscroll/_css/mobiscroll.menustrip-3.0.0-beta6.css`);
-    app.import(`./vendor/mobiscroll/_css/mobiscroll.slider-3.0.0-beta6.css`);
-    app.import(`./vendor/mobiscroll/_css/mobiscroll.animation-3.0.0-beta6.css`);
-    app.import(`./vendor/mobiscroll/_css/mobiscroll.calbase-3.0.0-beta6.css`);
-    app.import(`./vendor/mobiscroll/_css/mobiscroll.timer-3.0.0-beta6.css`);
-    app.import(`./vendor/mobiscroll/_css/mobiscroll.frame-3.0.0-beta6.css`);
-    app.import(`./vendor/mobiscroll/_css/mobiscroll.scroller-3.0.0-beta6.css`);
-    app.import(
-      `./vendor/mobiscroll/_css/mobiscroll.eventcalendar-3.0.0-beta6.css`);
-    app.import(`./vendor/mobiscroll/_css/mobiscroll.forms-3.0.0-beta6.css`);
-    app.import(`./vendor/mobiscroll/_css/mobiscroll.timespan-3.0.0-beta6.css`);
-    app.import(`./vendor/mobiscroll/_css/mobiscroll.image-3.0.0-beta6.css`);
-    app.import(`./vendor/mobiscroll/_css/mobiscroll.numpad-3.0.0-beta6.css`);
-    app.import(`./vendor/mobiscroll/_css/mobiscroll.icons-3.0.0-beta6.css`);
-    app.import(`./vendor/mobiscroll/_css/mobiscroll.range-3.0.0-beta6.css`);
-    app.import(`./vendor/shims/mobiscroll.js`);
+    app.import(`./vendor/shims/masonry.js`,
+               { outputFile: 'assets/masonry.js' });
+    app.import(`${app.bowerDirectory}/qrcode/lib/qrcode.js`,
+               { outputFile: 'assets/qrcode.js' });
+    app.import(`./vendor/shims/qrcode.js`,
+               { outputFile: 'assets/qrcode.js' });
+    app.import(`./vendor/shims/sortable.js`,
+               { outputFile: 'assets/sortable.js' });
+    app.import(`./vendor/shims/swiper.js`,
+               { outputFile: 'assets/swiper.js' });
+
+    app.import(`./vendor/mobiscroll/css/mobiscroll.custom-3.0.0-beta6.min.css`,
+               { outputFile: 'assets/mobiscroll.css' });
+    app.import(`./vendor/mobiscroll/js/mobiscroll.custom-3.0.0-beta6.min.js`,
+               { outputFile: 'assets/mobiscroll.js' });
+    app.import(`./vendor/shims/mobiscroll.js`, { outputFile: 'assets/mobiscroll.js' });
   }
 };
