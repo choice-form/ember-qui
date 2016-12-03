@@ -53,8 +53,8 @@ export default Component.extend({
       !success && e.preventDefault();
     },
 
-    handleOptionInput(e){
-      this.handleEvents.handleOptionInput(e, get(this, 'option'), get(this, 'node'));
+    handleOptionInput({ currentTarget: { value }}){
+      this.handleEvents.handleOptionInput(value, get(this, 'option'), get(this, 'node'));
     },
 
     handleOptionInputForTextarea({ currentTarget: target }){
@@ -62,7 +62,7 @@ export default Component.extend({
         target.value, get(this, 'option'), get(this, 'node')
       );
 
-      // e.currentTarget.style.height = '74px';
+      target.style.height = `auto`;
       target.style.height = `${target.scrollHeight + 2}px`;
     },
   }
