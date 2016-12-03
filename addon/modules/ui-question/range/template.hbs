@@ -1,18 +1,28 @@
 {{#if (eq option.inputType "input")}}
-  {{ui-component/ui-text inputRule=(unbound option.inputRule)
-                         placeholder=(unbound option.placeholder)
-                         value=option.value
-                         renderId=(unbound option.renderId)
-                         handleOptionInput=(action "handleOptionInput")
-                         handleOptionInputForTextarea=(action "handleOptionInputForTextarea")
-  }}
+  {{ui-component/ui-text
+    inputRule=(unbound option.inputRule)
+    placeholder=(unbound option.placeholder)
+    value=option.value
+    renderId=(unbound option.renderId)
+    handleOptionInput=(action "handleOptionInput")
+    handleOptionInputForTextarea=(action "handleOptionInputForTextarea")}}
 {{else}}
-  {{ui-component/ui-range isDescription=true
-                          text=(unbound option.text)
-                          unit=(unbound node.unit)
-                          minValue=(unbound option.minValue)
-                          maxValue=(unbound option.maxValue)
-                          value=option.value
-                          renderId=(unbound option.renderId)
-                          handleOptionInput=(action "handleOptionInput")}}
+  {{#if option.text}}
+    <h4 class="range-title">{{option.text}}</h4>
+  {{/if}}
+
+  <div class="range-value">
+    <span>Min value: {{option.minValue}}</span>
+    <span>Max value: {{option.maxValue}}</span>
+  </div>
+
+  <div class="range-slider">
+    <h4>{{if option.value option.value 0}}{{node.unit}}</h4>
+    {{range-slider
+      start=(if option.value option.value 0)
+      connect="lower"
+      min=option.minValue
+      max=option.maxValue
+      on-change=(action "handleOptionInput")}}
+  </div>
 {{/if}}

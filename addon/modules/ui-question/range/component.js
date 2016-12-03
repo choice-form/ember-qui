@@ -1,39 +1,33 @@
 import Component from 'ember-component';
 import layout from './template';
+import { reads } from 'ember-computed';
 import get from 'ember-metal/get';
 
 export default Component.extend({
   layout,
-  tagName:'',
+  classNames: ['ui-range'],
+
+  attributeBindings: ['data-render-id'],
+  'data-render-id': reads('option.renderId'),
 
   actions: {
+    handleOptionInput(valueOrEvent){
+      const value = valueOrEvent.currentTarget
+            ? valueOrEvent.currentTarget.value
+            : window.parseInt(valueOrEvent, 10);
 
-    /**
-     * change / onInput事件
-     */
-    handleOptionInput(e){
-      const option = get(this, 'option');
-      let data = '';
-      if(option.inputRule){
-        data =  e.currentTarget.value;
-      }else{
-        data =  parseInt(e);
-      }
-      this.handleEvents.handleOptionInput(data, get(this, 'option'),get(this,'node'));
+      this.handleEvents.handleOptionInput(
+        value, get(this, 'option'), get(this,'node')
+      );
     },
 
-    /**
-     * handleOptionInputForTextarea
-     */
+    handleOptionInputForTextarea({ currentTarget: target }){
+      this.handleEvents.handleOptionInput(
+        target.value, get(this, 'option'), get(this, 'node')
+      );
 
-    handleOptionInputForTextarea(e){
-      const value = e.currentTarget.value;
-      this.handleEvents.handleOptionInput(value, get(this, 'option'), get(this, 'node'));
-
-      e.currentTarget.style.height = '74px';
-      e.currentTarget.style.height = e.currentTarget.scrollHeight + 2 + 'px';
-
-    },
-  },
-
-}).reopenClass({ positionalParams: ['node','option','handleEvents']});
+      target.style.height = 'auto';
+      target.style.height = target.scrollHeight + 2 + 'px';
+    }
+  }
+}).reopenClass({ positionalParams: ['node', 'option', 'handleEvents'] });

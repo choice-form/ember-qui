@@ -8,11 +8,17 @@
 </div>
 
 {{#each node.options as |option|}}
-  {{ui-component/ui-range text=(unbound option.text)
-                          unit=(unbound node.unit)
-                          value=(concat option.value)
-                          minValue=0
-                          maxValue=(unbound option.maxValue)
-                          isDescription=false
-                          handleOptionInput=(action "handleOptionInput" option)}}
+  {{#if option.text}}
+    <h4 class="range-title">{{option.text}}</h4>
+  {{/if}}
+
+  <div class="range-slider">
+    <h4>{{if option.value option.value 0}}{{node.unit}}</h4>
+    {{range-slider
+      start=(if option.value option.value 0)
+      connect="lower"
+      min=0
+      max=option.maxValue
+      on-change=(action "handleOptionInput" option)}}
+  </div>
 {{/each}}

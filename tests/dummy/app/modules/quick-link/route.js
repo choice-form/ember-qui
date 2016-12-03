@@ -29,7 +29,7 @@ export default Route.extend({
         {href: "/question/region", label: "region"},
         {href: "/question/short-text", label: "short-text"},
         {href: "/question/range", label: "range"},
-        {href: "/question/range", label: "slide"},
+        {href: "/question/slide", label: "slide"},
         {href: "/question/matrix", label: "matrix"},
         {href: "/question/weight", label: "weight"},
 

@@ -63,9 +63,6 @@ export default Route.extend({
       handleEvents: {
 
         handleOptionInput(data, option, question){
-          console.log(data);
-          console.log(option);
-          console.log(question);
           set(option, 'value',  data);
           return true;
         },
