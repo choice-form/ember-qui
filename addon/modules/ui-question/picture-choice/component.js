@@ -4,7 +4,6 @@ import get from 'ember-metal/get';
 import computed from 'ember-computed';
 import Masonry from 'masonry';
 
-
 export default Component.extend({
   layout,
   classNames: ['picture-layout'],
@@ -17,7 +16,6 @@ export default Component.extend({
     const _className = `${showStyle ? showStyle : null}` + ` ${picStyle ? picStyle : null}` + ` ${textDirection ? textDirection : null}` + ` ${pictureSize ? pictureSize : null}`;
     return _className;
   }),
-
 
   actions: {
     /**

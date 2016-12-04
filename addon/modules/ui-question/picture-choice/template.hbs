@@ -1,24 +1,26 @@
 {{#each node.options as |option|}}
-  {{ui-component/ui-picture id=(concat (unbound option.renderId) 'cform')
-                            background=(unbound node.background)
-                            renderId=(unbound option.renderId)
-                            selectType=(unbound node.selectType)
-                            placeholder=(unbound option.placeholder)
-                            selected=option.selected
-                            value=option.value
-                            image=(unbound option.image)
-                            objectFit=(unbound node.objectFit)
-                            text= (unbound option.text)
-                            icon=(if option.selected (concat option.icon "-active") option.icon)
-                            handleOptionClick=(action "handleOptionClick" option)}}
+  {{ui-component/ui-picture
+    id=(concat (unbound option.renderId) 'cform')
+    background=(unbound node.background)
+    renderId=(unbound option.renderId)
+    selectType=(unbound node.selectType)
+    placeholder=(unbound option.placeholder)
+    selected=option.selected
+    value=option.value
+    image=(unbound option.image)
+    objectFit=(unbound node.objectFit)
+    text=(unbound option.text)
+    icon=(if option.selected (concat option.icon "-active") option.icon)
+    handleOptionClick=(action "handleOptionClick" option)}}
 {{/each}}
+
 <aside class="thumb-wrapper">
   <ul class="thumb">
     {{#each node.options as |option|}}
       {{#if option.selected}}
         <li class="thumb-item">
-          <a href={{concat "#" option.renderId "cform"}} style={{html-safe
-            (concat "background-image: url('" option.image.natural "')")}}></a>
+          <a href={{concat "#" option.renderId "cform"}}
+             style={{html-safe (concat "background-image: url('" option.image.natural "')")}}></a>
         </li>
       {{/if}}
     {{/each}}

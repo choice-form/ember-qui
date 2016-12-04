@@ -1,16 +1,15 @@
 <input
-  id={{renderId}}
+    id={{renderId}}
     type={{selectType}}
-  onclick={{handleOptionClick}}
+    onclick={{handleOptionClick}}
     name={{renderId}}
-  autofocus={{autofocus}}
+    autofocus={{autofocus}}
     placeholder={{placeholder}}
-  checked={{selected}}
+    checked={{selected}}
     disabled={{disabled}}
-  required={{required}}
+    required={{required}}
     tabindex={{tabindex}}
-  value={{value}}
->
+    value={{value}}>
 
 <label for={{renderId}}>
   {{#if image}}
@@ -26,7 +25,7 @@
   <div class="pic-description">
     <div class="effect-container">
       <div class="svg-wrapper">
-        {{ui-addon/svg-item icon=icon}}
+        {{svg-item icon}}
       </div>
       {{#if selected}}
         {{svg-particle values="0;18" duration="0.45s"}}
