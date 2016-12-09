@@ -51,12 +51,12 @@ module.exports = {
   contentFor(type, config, content) {
     return ('body-footer' === type)
       ? [
-        `<script async src="/assets/masonry.js"></script>`,
-        `<script async src="/assets/mobiscroll.js"></script>`,
-        `<link rel="stylesheet" href="/assets/mobiscroll.css">`,
-        `<script async src="/assets/qrcode.js"></script>`,
-        `<script async src="/assets/sortable.js"></script>`,
-        `<script async src="/assets/swiper.js"></script>`,
+        `<script async src="/assets/masonry.js?node={{node}}"></script>`,
+        `<script async src="/assets/mobiscroll.js?node={{node}}"></script>`,
+        `<link rel="stylesheet" href="/assets/mobiscroll.css?node={{node}}">`,
+        `<script async src="/assets/qrcode.js?node={{node}}"></script>`,
+        `<script async src="/assets/sortable.js?node={{node}}"></script>`,
+        `<script async src="/assets/swiper.js?node={{node}}"></script>`,
         this.contentForSVGIcons()
       ].join('\n')
       : '';
