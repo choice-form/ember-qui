@@ -21,8 +21,8 @@
     {{range-slider
       start=(if option.value option.value 0)
       connect="lower"
-      min=option.minValue
-      max=option.maxValue
+      min=(numberize option.minValue)
+      max=(numberize option.maxValue)
       on-change=(action "handleOptionInput")}}
   </div>
 {{/if}}
