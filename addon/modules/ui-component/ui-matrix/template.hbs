@@ -56,9 +56,9 @@
       </div>
       <div class="swiper-pagination"></div>
       {{#if isDesktop}}
-        <a class="matrix-resize" onclick={{action "matrixResize"}}>{{ui-addon/svg-item icon=resizeIcon}}</a>
-        <div class="matrix-button-next">{{ui-addon/svg-item icon="arrows-stre-right"}}</div>
-        <div class="matrix-button-prev">{{ui-addon/svg-item icon="arrows-stre-left"}}</div>
+        <a class="matrix-resize" onclick={{action "matrixResize"}}>{{svg-item resizeIcon}}</a>
+        <div class="matrix-button-next">{{svg-item "arrows-stre-right"}}</div>
+        <div class="matrix-button-prev">{{svg-item "arrows-stre-left"}}</div>
       {{/if}}
     </div>
   </div>
