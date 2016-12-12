@@ -29,7 +29,7 @@ export default Route.extend({
               text: faker.lorem.sentence(),
               description: 'Rating Labels',
               uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
-              icon: 'star', // 选项的Icon
+              icon: 'rating-star', // 选项的Icon
               emoji: ['☹️', '😍'],
               value: '5',
               count: '5',
@@ -44,7 +44,7 @@ export default Route.extend({
               text: faker.lorem.sentence(),
               description: 'Rating Labels',
               uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C91",
-              icon: 'thumbs-up', // 选项的Icon
+              icon: 'rating-love', // 选项的Icon
               value: '0',
               count: '6',
               marks: [1, 2, 3, 4, 5, 6].map(function () {
@@ -58,9 +58,7 @@ export default Route.extend({
               text: faker.lorem.sentence(),
               description: 'Rating Labels',
               uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C92",
-              icon: 'baloon', // 选项的Icon
-              inputType: '', // 'select', 'input', 'select-input',
-              inputRule: '', //输入控件初始化规则
+              icon: 'rating-star', // 选项的Icon
               value: '2',
               count: '4',
               marks: [1, 2, 3, 4].map(function () {
@@ -74,9 +72,7 @@ export default Route.extend({
               text: faker.lorem.sentence(),
               description: 'Rating Labels',
               uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C91",
-              icon: 'love-favorite', // 选项的Icon
-              inputType: '', // 'select', 'input', 'select-input',
-              inputRule: '', //输入控件初始化规则
+              icon: 'rating-thumbs-up', // 选项的Icon
               value: '1',
               count: '7',
               marks: [1, 2, 3, 4, 5, 6, 7].map(function () {
@@ -90,7 +86,162 @@ export default Route.extend({
               text: faker.lorem.sentence(),
               description: 'Rating Labels',
               uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C91",
-              icon: 'crown', // 选项的Icon
+              icon: 'rating-thumbs-down', // 选项的Icon
+              value: '1',
+              count: '3',
+              marks: [1, 2, 3].map(function () {
+                return faker.random.number();
+              }),
+              placeholder: '',
+            }),
+            Ember.Object.create({
+              selected: '',
+              renderId: faker.date.between('2016-01-01', '2016-12-31'),
+              text: faker.lorem.sentence(),
+              description: 'Rating Labels',
+              uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C91",
+              icon: 'rating-crown', // 选项的Icon
+              value: '1',
+              count: '3',
+              marks: [1, 2, 3].map(function () {
+                return faker.random.number();
+              }),
+              placeholder: '',
+            }),
+            Ember.Object.create({
+              selected: '',
+              renderId: faker.date.between('2016-01-01', '2016-12-31'),
+              text: faker.lorem.sentence(),
+              description: 'Rating Labels',
+              uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C91",
+              icon: 'rating-flower', // 选项的Icon
+              value: '1',
+              count: '3',
+              marks: [1, 2, 3].map(function () {
+                return faker.random.number();
+              }),
+              placeholder: '',
+            }),
+            Ember.Object.create({
+              selected: '',
+              renderId: faker.date.between('2016-01-01', '2016-12-31'),
+              text: faker.lorem.sentence(),
+              description: 'Rating Labels',
+              uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C91",
+              icon: 'rating-ornament', // 选项的Icon
+              value: '1',
+              count: '3',
+              marks: [1, 2, 3].map(function () {
+                return faker.random.number();
+              }),
+              placeholder: '',
+            }),
+            Ember.Object.create({
+              selected: '',
+              renderId: faker.date.between('2016-01-01', '2016-12-31'),
+              text: faker.lorem.sentence(),
+              description: 'Rating Labels',
+              uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C91",
+              icon: 'rating-bulb', // 选项的Icon
+              value: '1',
+              count: '3',
+              marks: [1, 2, 3].map(function () {
+                return faker.random.number();
+              }),
+              placeholder: '',
+            }),
+            Ember.Object.create({
+              selected: '',
+              renderId: faker.date.between('2016-01-01', '2016-12-31'),
+              text: faker.lorem.sentence(),
+              description: 'Rating Labels',
+              uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C91",
+              icon: 'rating-game', // 选项的Icon
+              value: '1',
+              count: '3',
+              marks: [1, 2, 3].map(function () {
+                return faker.random.number();
+              }),
+              placeholder: '',
+            }),
+            Ember.Object.create({
+              selected: '',
+              renderId: faker.date.between('2016-01-01', '2016-12-31'),
+              text: faker.lorem.sentence(),
+              description: 'Rating Labels',
+              uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C91",
+              icon: 'rating-baby', // 选项的Icon
+              value: '1',
+              count: '3',
+              marks: [1, 2, 3].map(function () {
+                return faker.random.number();
+              }),
+              placeholder: '',
+            }),
+            Ember.Object.create({
+              selected: '',
+              renderId: faker.date.between('2016-01-01', '2016-12-31'),
+              text: faker.lorem.sentence(),
+              description: 'Rating Labels',
+              uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C91",
+              icon: 'rating-medal', // 选项的Icon
+              value: '1',
+              count: '3',
+              marks: [1, 2, 3].map(function () {
+                return faker.random.number();
+              }),
+              placeholder: '',
+            }),
+            Ember.Object.create({
+              selected: '',
+              renderId: faker.date.between('2016-01-01', '2016-12-31'),
+              text: faker.lorem.sentence(),
+              description: 'Rating Labels',
+              uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C91",
+              icon: 'rating-bell', // 选项的Icon
+              value: '1',
+              count: '3',
+              marks: [1, 2, 3].map(function () {
+                return faker.random.number();
+              }),
+              placeholder: '',
+            }),
+
+            Ember.Object.create({
+              selected: '',
+              renderId: faker.date.between('2016-01-01', '2016-12-31'),
+              text: faker.lorem.sentence(),
+              description: 'Rating Labels',
+              uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C91",
+              icon: 'rating-bell', // 选项的Icon
+              value: '1',
+              count: '6',
+              marks: [1, 2, 3].map(function () {
+                return faker.random.number();
+              }),
+              placeholder: '',
+            }),
+            Ember.Object.create({
+              selected: '',
+              renderId: faker.date.between('2016-01-01', '2016-12-31'),
+              text: faker.lorem.sentence(),
+              description: 'Rating Labels',
+              uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C91",
+              icon: 'rating-medal', // 选项的Icon
+              value: '1',
+              count: '3',
+              marks: [1, 2, 3].map(function () {
+                return faker.random.number();
+              }),
+              placeholder: '',
+            }),
+            Ember.Object.create({
+              selected: '',
+              renderId: faker.date.between('2016-01-01', '2016-12-31'),
+              text: faker.lorem.sentence(),
+              description: 'Rating Labels',
+              uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C91",
+              icon: 'rating-bell', // 选项的Icon
               inputType: 'input', // 'select', 'input', 'select-input',
               inputRule: 'timeRange', //输入控件初始化规则
               value: '1',

@@ -49,7 +49,7 @@
  * @property {String} option.renderId - 当前选项的渲染ID,用于单页的滚动
  * @property {String} option.text - 选项文字
  * @property {String} option.uuid - 选项ID值
- * @property {String} option.icon - 选项Icon check, crown, flower, heart, star, delete, like, dislike
+ * @property {String} option.icon - 选项Icon love, star, thumbs-up, thumbs-down, crown, flower, ornament, bulb, game, baby, medal, bell
  * @property {String} option.emoji - emoji表情
  * @property {String} option.count - 图形数量
  * @property {String} option.value - 默认当前已选几个图形
@@ -61,7 +61,7 @@
         text: faker.lorem.sentence(),
         description: 'Rating Labels',
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
-        icon: 'star', // 选项的Icon
+        icon: 'star', // 选项的Icon love, star, thumbs-up, thumbs-down, crown, flower, ornament, bulb, game, baby, medal, bell
         emoji: ['☹️', '😍'],
         value: '5',
         count: '5',
