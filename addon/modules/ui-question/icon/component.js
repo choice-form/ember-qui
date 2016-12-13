@@ -22,4 +22,4 @@ export default Component.extend({
       !success && e.preventDefault();
     },
   }
-}).reopenClass({ positionalParams: ['node', 'option', 'handleEvents'] });
+}).reopenClass({ positionalParams: ['node', 'option', 'handleEvents']});

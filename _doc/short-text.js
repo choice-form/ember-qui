@@ -50,7 +50,7 @@
  * @property {String} option.uuid - 选项ID值
  * @property {String} option.icon - 选项Icon
  * @property {String} option.inputType - 输入类型, 'input', 填空题只有'input'
- * @property {String} option.inputRule -的input验证规则, 如下: 'noValidation','','int','phone','float','email','date','dateRange','time','timeRange','postCode','url'
+ * @property {String} option.inputRule -的input验证规则, 如下: 'noValidation','count','int','moblie','email','date','time','dateRange','timeRange','float','postCode','link'
  * @property {String} option.value - input,textarea,mobileScroll等其他控件使用的Value
  * @property {String} option.placeholder - input,textarea的 placeholder值
 
@@ -62,9 +62,9 @@
       uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C903",
       icon: '', // 选项的Icon
       inputType: 'input',
-      inputRule: 'url', //输入控件初始化规则
+      inputRule: 'link', //输入控件初始化规则
       value: '',
-      placeholder: 'url',
+      placeholder: 'link',
    }
  ```
  */

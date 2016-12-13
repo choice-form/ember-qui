@@ -17,15 +17,46 @@ export default Route.extend({
       }),
       Ember.Object.create({
         selected: false,
-        renderId: '4567890-871',
+        renderId: faker.date.between('2016-01-01', '2016-12-31'),
         text: faker.lorem.words(),
         uuid: faker.date.between('2016-01-01', '2016-12-31'),
         icon: 'women',
       }),
+      Ember.Object.create({
+        renderId: faker.date.between('2016-01-01', '2016-12-31'),
+        text: faker.lorem.words(),
+        uuid: faker.date.between('2016-01-01', '2016-12-31'),
+        icon: '',
+        inputType: 'input',
+        inputRule: 'float',
+        value: '',
+        placeholder: 'input float',
+      }),
+      Ember.Object.create({
+        selected: false,
+        renderId: faker.date.between('2016-01-01', '2016-12-31'),
+        text: faker.lorem.sentence(),
+        uuid: "4msE6B4F-D705-483D-905F-07E420920E15",
+        icon: 'radio',
+        inputType: 'select-input',
+        inputRule: 'time',
+        value: 'input time',
+        placeholder: '',
+      }),
+      Ember.Object.create({
+        selected: false,
+        renderId: faker.date.between('2016-01-01', '2016-12-31'),
+        text: faker.lorem.sentence(),
+        uuid: "4msE6B4F-D705-483D-905F-07E420920E15",
+        icon: 'radio',
+        inputType: 'select-input',
+        inputRule: 'time',
+        value: 'input time',
+        placeholder: '',
+      }),
     ];
 
     return {
-
       nodes: [
         {
           title: faker.lorem.words(),

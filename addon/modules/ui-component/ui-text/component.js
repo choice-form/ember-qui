@@ -26,7 +26,7 @@ export default Component.extend({
 
     if (['int', 'moblie', 'postCode'].indexOf(inputRule) > -1) return 'tel';
     if (['float'].indexOf(inputRule) > -1) return 'number';
-    if (['url', 'email'].indexOf(inputRule) > -1) return 'url';
+    if (['link', 'email'].indexOf(inputRule) > -1) return 'url';
     return 'text';
   }).readOnly(),
 
@@ -36,6 +36,7 @@ export default Component.extend({
     if (['time', 'timeRange'].indexOf(type) > -1) return 'time';
     if (['noValidation', 'count'].indexOf(type) > -1) return 'text';
     if (['date', 'dateRange'].indexOf(type) > -1) return 'calendar';
+    if (['email', 'postCode'].indexOf(type) > -1) return 'email';
     return type;
   }).readOnly(),
 

@@ -4,5 +4,5 @@ export const HEADER_META = [
 
 export const SPECIAL_TYPES = [
   'slide', 'dropdown', 'region', 'location', 'matrix', 'intro-page', 'end-page',
-  'verification', 'ranking', 'weight', 'picture-choice'
+  'verification', 'ranking', 'weight', 'picture-choice','gender'
 ];
