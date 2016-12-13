@@ -1,6 +1,7 @@
 import mobiscroll from 'mobiscroll'
 
 const mobInfo = {
+  lang: localStorage.getItem("language") || 'zh',
   display: 'bottom', //默认 bottom 其他有 top,modal 等
   mode: 'Scroller', // 默认是Scroller ,其他有Mixed
   theme: '', //默认"android-holo"

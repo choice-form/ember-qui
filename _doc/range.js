@@ -55,6 +55,8 @@
  * @property {Number} option.value - input,textarea,mobileScroll等其他控件使用的Value
  * @property {Number} option.minValue - 设置滑竿的最小值
  * @property {Number} option.maxValue - 设置滑竿的最大值
+ * @property {Number} option.minValueText - 设置打分题的最小描述
+ * @property {Number} option.maxValueText - 设置打分题的最大描述
  * @property {Number} option.step - 这是滑竿的步进值
 
  * @example

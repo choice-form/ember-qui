@@ -12,8 +12,8 @@
   {{/if}}
 
   <div class="range-value">
-    <span>Min value: {{option.minValue}}</span>
-    <span>Max value: {{option.maxValue}}</span>
+    <span>{{option.minValueText}}{{if option.minValueText ':'}} {{option.minValue}}</span>
+    <span>{{option.maxValueText}}{{if option.maxValueText ':'}} {{option.maxValue}}</span>
   </div>
 
   <div class="range-slider">
