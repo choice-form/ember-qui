@@ -77,6 +77,10 @@ export default ArrayProxyService.extend({
       throw new Error('Notification needs message');
     }
 
+    if (options.message === get(this, 'lastObject.message')) {
+      return undefined;
+    }
+
     if (options.html) {
       options.message = htmlSafe(options.message);
     }
