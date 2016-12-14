@@ -16,7 +16,7 @@
       <a class="clear icon-button primary" onclick={{action 'handleOptionRemove'}}>
         {{svg-item "trash"}}
       </a>
-      <div class="upload-thumbnail"><img src={{value}}></div>
+      <div class="upload-thumbnail"><img src={{option.value}}></div>
     {{else}}
       {{svg-item "upload-image" size="64px" viewBox="40" iconClass="upload-image-icon"}}
     {{/if}}
