@@ -33,9 +33,7 @@ export default Route.extend({
               emoji: ['☹️', '😍'],
               value: '5',
               count: '5',
-              marks: [1, 2, 3, 4, 5].map(function () {
-                return faker.random.number();
-              }),
+              marks: '',
               placeholder: '',
             }),
             Ember.Object.create({

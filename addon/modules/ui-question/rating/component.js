@@ -8,10 +8,10 @@ export default Component.extend({
   layout,
   tagName: '',
 
-  description: computed('option.description', {
+  text: computed('option.text', {
     get() {
-      return get(this, 'option.description')
-        ? htmlSafe(`<span>${get(this, 'option.description')}</span>`) : null
+      return get(this, 'option.text')
+        ? htmlSafe(`<span>${get(this, 'option.text')}</span>`) : null
     }
   }).readOnly(),
 

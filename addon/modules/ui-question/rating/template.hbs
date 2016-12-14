@@ -9,15 +9,16 @@
   <div class="ui-rating" data-render-id={{option.renderId}}>
     <h4 class="cell-labels">
       {{text}}
-      {{description}}
     </h4>
 
     <div class={{ratingClassName}}>
-      <ul class="rating-labels">
-        {{#each option.marks as |mark|}}
-          <li>{{mark}}</li>
-        {{/each}}
-      </ul>
+      {{#if option.marks}}
+        <ul class="rating-labels">
+          {{#each option.marks as |mark|}}
+            <li>{{mark}}</li>
+          {{/each}}
+        </ul>
+      {{/if}}
 
       <ul class="rating-shape">
         {{#each graphs as |graph|}}
