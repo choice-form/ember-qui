@@ -19,6 +19,8 @@
   handleNextClick=question.handleEvents.handleNextClick
   rightIcon="arrows-tail-right"}}
 
-{{#if question.logoText}}
+
+{{#if (not question.hideLogo)}}
   {{ui-addon/footer logoText=question.logoText}}
 {{/if}}
+

@@ -67,7 +67,9 @@ export default Route.extend({
 
       nextButton: '下一题',
 
-      logoText:'CSVFX',
+      logoText:'',
+
+      hideLogo: false,
     }
   }
 });
