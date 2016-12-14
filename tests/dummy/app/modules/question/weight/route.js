@@ -22,7 +22,7 @@ export default Route.extend({
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
         icon: '', // 选项的Icon
         color:'#0FA6F0',
-        value: 30,
+        value: '',
         maxValue:100,
       }),
       Ember.Object.create({
@@ -31,7 +31,7 @@ export default Route.extend({
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
         icon: '', // 选项的Icon
         color:'#ca2027',
-        value: 45,
+        value: '',
         maxValue:100,
       }),
       Ember.Object.create({
@@ -40,7 +40,7 @@ export default Route.extend({
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
         icon: '', // 选项的Icon
         color:'gray',
-        value: 70,
+        value: '',
         maxValue:100,
       })
     ];

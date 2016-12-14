@@ -5,6 +5,7 @@ import { reads } from 'ember-computed';
 
 export default Component.extend({
   layout,
+  classNames:['ui-weight'],
   attributeBindings:['data-render-id'],
   'data-render-id': reads('node.renderId'),
 
