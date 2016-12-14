@@ -11,7 +11,13 @@ export default Route.extend({
         {
           title: faker.finance.accountName(),
           description: faker.lorem.paragraph(),
-          images: '',
+          images: [
+            {
+              ratio: 0.6666667,
+              natural: '/images/sample-2.jpg',
+              thumbnail: '/images/sample-2-thumbnail.jpg',
+            }
+          ],
           renderId: faker.date.between('2016-01-01', '2016-12-31'),
           typeName: '选择题',
           minSelect: '1',
@@ -208,6 +214,8 @@ export default Route.extend({
       },
 
       nextButton: 'Next',
+
+      logoText:'GMO',
     }
   }
 });

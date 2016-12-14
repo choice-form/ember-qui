@@ -3,6 +3,9 @@ footer {
   height: 12rem;
   padding-top: 4rem;
   text-align: center;
+  border-top-width: 1px;
+  border-top-style: solid;
+  margin: 0 2rem;
   & svg:not(:root) {
     display: inline-block;
     height: 1.5rem;
@@ -22,11 +25,9 @@ footer {
 
 html.mobile {
   & footer {
-    height: 8rem;
+    height: auto;
     margin: 0 1.5rem;
-    padding-top: 2rem;
-    border-top-width: 1px;
-    border-top-style: solid;
+    padding: 2rem 0;
     & svg:not(:root) {
       height: 1rem;
     }

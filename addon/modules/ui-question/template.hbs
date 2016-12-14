@@ -1,6 +1,3 @@
-{{#if question.intro}}
-  {{ui-component/ui-header header=intro imageTop=true}}
-{{/if}}
 
 <section>
   <div class="wrapper">
@@ -21,3 +18,7 @@
   handlePrevClick=question.handleEvents.handlePrevClick
   handleNextClick=question.handleEvents.handleNextClick
   rightIcon="arrows-tail-right"}}
+
+{{#if question.logoText}}
+  {{ui-addon/footer logoText=question.logoText}}
+{{/if}}
