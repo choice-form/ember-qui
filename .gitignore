@@ -1,3 +1,26 @@
+# compiled output
+/dist
+/docs
+/tmp
+
+# dependencies
+/node_modules
+/bower_components
+
+# misc
+.DS_Store
+.vscodeignore
+/.idea
+/.sass-cache
+/connect.lock
+/coverage/*
+/libpeerconnection.log
+/typings
+jsconfig.json
+npm-debug.log*
+testem.log
+/desgin
+
 
 ### Node template
 # Logs
@@ -118,3 +141,6 @@ Icon\r\r
 Network Trash Folder
 Temporary Items
 .apdisk
+testem.log
+/desgin
+

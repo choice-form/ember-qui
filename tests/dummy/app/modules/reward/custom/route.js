@@ -41,7 +41,7 @@ export default Route.extend({
           console.log(dynamic);
           console.log(question);
 
-          return true;
+          return false;
         },
 
         handlePrevClick: () => {

@@ -22,6 +22,9 @@ export default Component.extend({
 
   }),
 
+  canSendMessage: false,
+
+
   actions: {
     handleClick() {
       set(this, 'currency', true)
@@ -32,13 +35,20 @@ export default Component.extend({
      */
     handleQuestionInput(e){
       const value = e.currentTarget.value;
-      get(this, 'handleEvents').handleQuestionInput({phoneNumber: value}, get(this, 'node'));
+      const bool = get(this, 'handleEvents').handleQuestionInput({phoneNumber: value}, get(this, 'node'))
+      set(this, 'canSendMessage', bool);
+
+
     },
 
     /**
      * click
      */
     handleOptionClick(){
+      const canSendMessage = get(this, 'canSendMessage');
+      if(!canSendMessage){
+        return ;
+      }
       set(this, 'getInfoButton', false);
       let t1 = setInterval(()=> {
         countTime--;

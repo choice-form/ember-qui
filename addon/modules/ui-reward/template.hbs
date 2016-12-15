@@ -62,11 +62,11 @@
               <div class="ui-text">
                 {{ui-component/ui-input type='url'
                                         value=''
-                                        placeholder='Please enter a password'
+                                        placeholder='请输入手机号'
                                         icon='int'
                                         handleOptionInput=(action "handleQuestionInput")}}
               </div>
-              {{ui-component/ui-button text=(if getInfoButton "Get captcha code" countDown)
+              {{ui-component/ui-button text=(if getInfoButton "获取验证码" countDown)
                                        className="contrast"
                                        leftIcon=(if getInfoButton '' 'refresh')
                                        handleClick=(if getInfoButton (action "handleOptionClick") '')
