@@ -1,0 +1,26 @@
+<div class="row reward-container">
+  <figure class="attachment">
+    {{#each node.images as |image|}}
+      {{ui-addon/progressive-image
+        ratio=image.ratio
+        thumbnail=image.thumbnail
+        image=image.natural}}
+    {{/each}}
+  </figure>
+
+  <header class="reward-header">
+
+    {{#if node.rewardName}}
+      <h2>{{node.rewardName}}</h2>
+    {{/if}}
+
+    <div class="reward-contents">
+      <h2>{{node.title}}</h2>
+      <span class="reward-description">{{node.description}}</span>
+      <span class="current-time">{{node.rewardTime}}</span>
+    </div>
+  </header>
+  <div class="reward-additional">
+    {{ui-addon/disclaimer}}
+  </div>
+</div>

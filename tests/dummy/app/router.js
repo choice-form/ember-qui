@@ -33,6 +33,7 @@ Router.map(function() {
     this.route('slide');
     this.route('matrix');
     this.route('weight');
+    this.route('lottery');
     this.route('picture-choice', function() {
       this.route('grid');
       this.route('matrix');

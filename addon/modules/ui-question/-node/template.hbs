@@ -1,6 +1,6 @@
 {{ui-component/ui-header header=headerData}}
 
-{{#if node.typeName}}
+{{#if (or node.minSelect  node.maxSelect)}}
   <sup>
     <span>{{node.typeName}}</span>
     Least: {{node.minSelect}} - Most: {{node.maxSelect}}

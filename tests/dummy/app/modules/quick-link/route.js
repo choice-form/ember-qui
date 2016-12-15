@@ -32,7 +32,7 @@ export default Route.extend({
         {href: "/question/slide", label: "slide"},
         {href: "/question/matrix", label: "matrix"},
         {href: "/question/weight", label: "weight"},
-
+        {href: "/question/lottery", label: "lottery"},
       ],
       picture: [
         {href: "/question/picture-choice/grid", label: "grid"},
