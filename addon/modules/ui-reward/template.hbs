@@ -1,7 +1,7 @@
 <section data-render-id={{node.renderId}}>
   <div class="warapper">
     <div class="row reward-container">
-      {{#unless (eq node.rewardType 'wechat')}}
+      {{#if (eq node.rewardType 'custom')}}
         <figure class="attachment">
           {{#each node.images as |image|}}
             {{ui-addon/progressive-image
@@ -10,7 +10,7 @@
               image=image.natural}}
           {{/each}}
         </figure>
-      {{/unless}}
+      {{/if}}
 
       <header class="reward-header">
         {{#if (eq node.rewardType 'wechat')}}
@@ -46,36 +46,34 @@
           </div>
         {{/if}}
 
-        {{#unless (eq node.quesType 'random')}}
-          {{#if node.qrCode}}
-            <div class="ui-qrcode">
-              <div class="qrcode-item">
-                {{ui-addon/qr-code data=node.qrCode}}
-              </div>
-              <div class="scan-icon">{{svg-item "scan"}}</div>
-              <p>Capture the screen and save it, you can't share it publicly. <span>{{node.qrDescription}}</span></p>
+        {{#if node.qrCode}}
+          <div class="ui-qrcode">
+            <div class="qrcode-item">
+              {{ui-addon/qr-code data=node.qrCode}}
             </div>
-          {{/if}}
+            <div class="scan-icon">{{svg-item "scan"}}</div>
+            <p>Capture the screen and save it, you can't share it publicly. <span>{{node.qrDescription}}</span></p>
+          </div>
+        {{/if}}
 
-          {{#if node.rewardToMessage}}
-            <div class="ui-verification">
-              <div class="get-verification">
-                <div class="ui-text">
-                  {{ui-component/ui-input type='url'
-                                          value=''
-                                          placeholder='Please enter a password'
-                                          icon='int'
-                                          handleOptionInput=(action "handleQuestionInput")}}
-                </div>
-                {{ui-component/ui-button text=(if getInfoButton "Get captcha code" countDown)
-                                         className="contrast"
-                                         leftIcon=(if getInfoButton '' 'refresh')
-                                         handleClick=(if getInfoButton (action "handleOptionClick") '')
-                }}
+        {{#if node.rewardToMessage}}
+          <div class="ui-verification">
+            <div class="get-verification">
+              <div class="ui-text">
+                {{ui-component/ui-input type='url'
+                                        value=''
+                                        placeholder='Please enter a password'
+                                        icon='int'
+                                        handleOptionInput=(action "handleQuestionInput")}}
               </div>
+              {{ui-component/ui-button text=(if getInfoButton "Get captcha code" countDown)
+                                       className="contrast"
+                                       leftIcon=(if getInfoButton '' 'refresh')
+                                       handleClick=(if getInfoButton (action "handleOptionClick") '')
+              }}
             </div>
-          {{/if}}
-        {{/unless}}
+          </div>
+        {{/if}}
 
       </div>
 
@@ -86,11 +84,3 @@
     </div>
   </div>
 </section>
-{{#if node.isReward}}
-  {{ui-question/-node/button-cell
-    class="button-cell-reward"
-    nextButton=node.buttonText
-    handleNextClick=(action 'handleNextClick')
-    leftIcon="gift"
-  }}
-{{/if}}
