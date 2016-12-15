@@ -27,13 +27,7 @@ export default Route.extend({
             },
             {
               text: `COLUMN3 ${faker.finance.accountName()}`,
-            },
-            {
-              text: `COLUMN4 ${faker.finance.accountName()}`,
-            },
-            {
-              text: `COLUMN5 ${faker.finance.accountName()}`,
-            },
+            }
           ],
           optionsY:[
             {
@@ -50,42 +44,6 @@ export default Route.extend({
             }
           ],
           matrix:[
-            [
-              {
-                selected:false,
-                renderId:Math.random(1000),
-              },
-              {
-                selected:false,
-                renderId:Math.random(1000),
-              },
-              {
-                selected:false,
-                renderId:Math.random(1000),
-              },
-              {
-                selected:false,
-                renderId:Math.random(1000),
-              },
-            ],
-            [
-              {
-                selected:false,
-                renderId:Math.random(1000),
-              },
-              {
-                selected:false,
-                renderId:Math.random(1000),
-              },
-              {
-                selected:false,
-                renderId:Math.random(1000),
-              },
-              {
-                selected:false,
-                renderId:Math.random(1000),
-              },
-            ],
             [
               {
                 selected:false,
