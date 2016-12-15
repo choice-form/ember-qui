@@ -33,7 +33,6 @@
       description: faker.lorem.paragraph(),
       renderId: faker.date.between('2016-01-01', '2016-12-31'),
       typeName:'抽奖节点',
-      rewardVaule: `$${faker.finance.mask()}`,
       quesType: 'lottery',
       uuid: '002',
       rewardTime:'2016-11-11 00:00',
