@@ -24,8 +24,7 @@ export default Component.extend({
   type: computed('inputRule', function () {
     const inputRule = get(this, 'inputRule');
 
-    if (['int', 'moblie', 'postCode'].indexOf(inputRule) > -1) return 'tel';
-    if (['float'].indexOf(inputRule) > -1) return 'number';
+    if (['moblie'].indexOf(inputRule) > -1) return 'tel';
     if (['link', 'email'].indexOf(inputRule) > -1) return 'url';
     return 'text';
   }).readOnly(),
