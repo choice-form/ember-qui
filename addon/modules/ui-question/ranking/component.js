@@ -45,6 +45,7 @@ export default Component.extend({
       ghostClass: "ghost",
       onEnd: event => {
         let { oldIndex, newIndex } = event;
+        const newItems = this.element.querySelectorAll('.ranking-rank');
 
         if (newIndex === undefined) {
           newIndex = oldIndex;
@@ -57,7 +58,7 @@ export default Component.extend({
         indexArray.forEach(item => {
           const sortNo = window.parseInt(item, 10);
           const index = item - 1;
-          const rankItem = rankItems[index];
+          const rankItem = newItems[index];
           rankItem.querySelector('.ranking-number').innerHTML = sortNo;
           removeClass(rankItem, 'complete');
           addClass(rankItem, 'complete event');
@@ -115,7 +116,7 @@ export default Component.extend({
     this.element.addEventListener('touchend', this.scrollStop, false);
   },
 
-  didDestroyElement(){
+  willDestroyElement(){
     this.sortable && this.sortable.destroy();
 
     if (device.desktop()) return ;
