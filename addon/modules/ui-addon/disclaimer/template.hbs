@@ -1,15 +1,22 @@
 {{#if description}}
   <div class="reward-description">
-    <h4>Reward Description:</h4>
-    <span>Within 24 hours , your account will be rewarded for, You can be charged after notification.</span>
+    <h4>红包发放说明:</h4>
+    <span>24小时内，红包会发到您的账户。您在收到微信红包通知后即可领取。</span>
   </div>
 {{/if}}
 
 
 <div class="disclaimer">
-    <span>By clicking Submit, you agree to our
-      <a onclick={{action 'isShowException'}}>Terms</a> and that you have read our
-      <a>Data Policy</a>, including our <a>CookieUse</a>.
+  {{#if rewardCount}}
+    <p style="padding-bottom: 12px">总奖励数:{{rewardCount}}份</p>
+  {{/if}}
+  <div class={{concat "check-box" (if checked ' checked')}} onclick={{action 'handleChecked'}}>
+    {{#if checked}}
+      {{svg-item "check"}}
+    {{/if}}
+  </div>
+    <span>我已经阅读了
+      <a onclick={{action 'isShowException'}}>免责条款</a>的内容
     </span>
 </div>
 

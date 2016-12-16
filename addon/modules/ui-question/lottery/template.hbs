@@ -1,16 +1,15 @@
 <div class="row reward-container">
   <header class="reward-header">
-    <h2>{{if node.hasReward '恭喜您' '很遗憾'}}</h2>
+    <h2>{{if node.goal '恭喜您' '很遗憾'}}</h2>
     <div class="reward-contents">
-      <h2>{{if node.hasReward '成功获得奖励一份' '谢谢您的参与'}}</h2>
+      <h2>{{if node.goal '成功获得奖励一份' '谢谢您的参与'}}</h2>
       {{!--<span class="reward-description">{{node.description}}</span>--}}
       <span class="current-time">{{node.rewardTime}}</span>
     </div>
-    <p style="padding-top: 12px">总奖励数:{{node.rewardNumber}}份</p>
   </header>
 
 
   <div class="reward-additional">
-    {{ui-addon/disclaimer description=false}}
+    {{ui-addon/disclaimer description=false rewardCount=node.rewardCount}}
   </div>
 </div>

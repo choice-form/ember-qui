@@ -1,17 +1,6 @@
 <section data-render-id={{node.renderId}}>
   <div class="warapper">
     <div class="row reward-container">
-      {{#if (eq node.rewardType 'custom')}}
-        <figure class="attachment">
-          {{#each node.images as |image|}}
-            {{ui-addon/progressive-image
-              ratio=image.ratio
-              thumbnail=image.thumbnail
-              image=image.natural}}
-          {{/each}}
-        </figure>
-      {{/if}}
-
       <header class="reward-header">
         {{#if (eq node.rewardType 'wechat')}}
           <div class="wechat-profile">
@@ -46,24 +35,36 @@
           </div>
         {{/if}}
 
+        {{#if node.images}}
+          <figure class="attachment">
+            {{#each node.images as |image|}}
+              {{ui-addon/progressive-image
+                ratio=image.ratio
+                thumbnail=image.thumbnail
+                image=image.natural}}
+            {{/each}}
+          </figure>
+        {{/if}}
+
         {{#if node.qrCode}}
           <div class="ui-qrcode">
             <div class="qrcode-item">
               {{ui-addon/qr-code data=node.qrCode}}
+              <span>{{node.qrCode}}</span>
             </div>
             <div class="scan-icon">{{svg-item "scan"}}</div>
-            <p>Capture the screen and save it, you can't share it publicly. <span>{{node.qrDescription}}</span></p>
+            <p>请截屏进行保存<span>{{node.qrDescription}}</span></p>
           </div>
         {{/if}}
 
         {{#if node.rewardToMessage}}
           <div class="ui-verification">
+            <span>通过手机号获取信息</span>
             <div class="get-verification">
               <div class="ui-text">
                 {{ui-component/ui-input type='url'
                                         value=''
                                         placeholder='请输入手机号'
-                                        icon='int'
                                         handleOptionInput=(action "handleQuestionInput")}}
               </div>
               {{ui-component/ui-button text=(if getInfoButton "获取验证码" countDown)

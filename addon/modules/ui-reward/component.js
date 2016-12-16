@@ -3,11 +3,15 @@ import layout from './template';
 import set from 'ember-metal/set';
 import get from 'ember-metal/get';
 import computed, {reads} from 'ember-computed';
+import inject from 'ember-service/inject';
 
 let countTime = 30;
 export default Component.extend({
   layout,
   tagName:'',
+
+  disclaimerService: inject("disclaimer"),
+
 
   //倒计时
   countDown: '30 sec',

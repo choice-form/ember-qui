@@ -199,6 +199,15 @@ input:checked {
     & .disclaimer {
       color: fade(@primary, 50%);
     }
+    & .check-box {
+      border-color: @primary;
+      &.checked {
+        border-color: @contrast;
+      }
+      & svg {
+        fill: @contrast;
+      }
+    }
     .disclaimer-contents {
       border-top: 1px solid fade(@primary, 50%);
     }

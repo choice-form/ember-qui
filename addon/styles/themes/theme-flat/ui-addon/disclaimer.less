@@ -4,6 +4,19 @@
 
 .disclaimer {
   font-size: small;
+  position: relative;
+  padding-left: 24px;
+  .check-box {
+    border:1px solid;
+    position: absolute;
+    .absolute(0, auto,0,0);
+    width: 18px;
+    height: 18px;
+    margin: auto 0;
+    svg {
+      display: block;
+    }
+  }
   & a {
     cursor: pointer;
     transition: color 200ms ease;
