@@ -13,7 +13,7 @@ export default Component.extend({
 
 
   isShowException : false,
-  checked:false,
+  checked:true,
 
   actions:{
     isShowException() {

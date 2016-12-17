@@ -6,10 +6,10 @@
 {{/if}}
 
 
+{{#if rewardCount}}
+  <p style="padding-bottom: 12px; font-size: small">总奖励数:{{rewardCount}}份</p>
+{{/if}}
 <div class="disclaimer">
-  {{#if rewardCount}}
-    <p style="padding-bottom: 12px">总奖励数:{{rewardCount}}份</p>
-  {{/if}}
   <div class={{concat "check-box" (if checked ' checked')}} onclick={{action 'handleChecked'}}>
     {{#if checked}}
       {{svg-item "check"}}
