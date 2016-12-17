@@ -115,9 +115,9 @@ export default Route.extend({
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'checkbox', // 选项的Icon
               image: {
-                ratio: 0.666,
-                natural:'/images/sample-random/sample-random-0.666-4.jpeg',
-                thumbnail:'/images/sample-random/sample-random-0.666-4-thumbnail.jpeg',
+                ratio: 1.5,
+                natural:'/images/sample-random/sample-random-1.5-29.jpeg',
+                thumbnail:'/images/sample-random/sample-random-1.5-29-thumbnail.jpeg',
               },
               inputType: '', // 'select', 'input', 'select-input, ower-input',
               inputRule: '', //输入控件初始化规则
@@ -463,7 +463,7 @@ export default Route.extend({
           selectType: 'checkbox',
           showStyle: 'grid',
           picStyle: '',
-          background:true,
+          background:false,
           objectFit: 'contain',
           textDirection: 'in-block', //in-block ,out-block, empty
           pictureSize: '',  //picture-large, picture-small
