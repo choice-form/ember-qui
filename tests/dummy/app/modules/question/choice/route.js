@@ -216,6 +216,8 @@ export default Route.extend({
       nextButton: 'Next',
 
       logoText:'GMO',
+
+      href:'https://www.cform.io/',
     }
   }
 });
