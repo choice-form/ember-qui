@@ -20,14 +20,14 @@
  * @property {String} node.rewardType - 奖励类型, wechat
  * @property {String} node.wechatImage - 微信头像
  * @property {String} node.wechatID - 微信ID号
- * @property {String} node.rewardVaule - 中奖金额
+ * @property {String} node.rewardValue - 中奖金额
  * @property {String} node.rewardTime - 中奖时间
  * @example
  ```javascript
  node:{
         title: `title${faker.finance.accountName()}`,
         description: `description${faker.lorem.paragraph()}`,
-        rewardVaule: "$29", //中奖金额
+        rewardValue: "$29", //中奖金额
         wechatImage: faker.image.avatar(),//头像
         wechatID: faker.name.findName(), //微信号
         icon: 'present-gift',
