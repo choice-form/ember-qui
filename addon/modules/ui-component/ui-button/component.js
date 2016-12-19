@@ -8,10 +8,6 @@ export default Component.extend({
   classNames: ['ui-button', 'button'],
   classNameBindings: ['className'],
   className: "",
-
-  attributeBindings: ['href'],
-  href :'',
-
   size: '16px',
   viewBox: '16',
 
