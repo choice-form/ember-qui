@@ -16,7 +16,7 @@
   <div class="fix-header-position">
     <div class="fix-header swiper-container">
       <div class="swiper-wrapper">
-        {{#each node.optionsX as |option|}}
+        {{#each node.renderOptionsX as |option|}}
           <div class="fix-header-column swiper-slide">
             <span>{{option.text}}</span>
           </div>
@@ -27,7 +27,7 @@
 
   <div class="matrix-content">
     <ul class="fix-column">
-      {{#each node.optionsY as |option| }}
+      {{#each node.renderOptionsY as |option| }}
         <li style={{colHeight}}>
           <span>{{option.text}}</span>
         </li>
@@ -59,7 +59,7 @@
       </div>
 
       <div class="swiper-pagination"></div>
-      {{#if (and isDesktop (gt (arraylength node.optionsX) 3))}}
+      {{#if (and isDesktop (gt (arraylength node.renderOptionsX) 3))}}
         <a class="matrix-resize" onclick={{action "matrixResize"}}>{{svg-item resizeIcon}}</a>
         <div class="matrix-button-next">{{svg-item "arrows-stre-right"}}</div>
         <div class="matrix-button-prev">{{svg-item "arrows-stre-left"}}</div>

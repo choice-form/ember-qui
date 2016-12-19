@@ -18,7 +18,7 @@ export default Route.extend({
           uuid: '005',
           isMust: true,
           number: '7',
-          optionsX:[
+          renderOptionsX:[
             {
               text: `COLUMN1 ${faker.finance.accountName()}COLUMN1 ${faker.finance.accountName()}COLUMN1 ${faker.finance.accountName()}`,
             },
@@ -29,7 +29,7 @@ export default Route.extend({
               text: `COLUMN3 ${faker.finance.accountName()}`,
             }
           ],
-          optionsY:[
+          renderOptionsY:[
             {
               text: `ROW1 ${faker.lorem.sentence()}ROW1 ${faker.lorem.sentence()}ROW1 ${faker.lorem.sentence()}`,
             },
