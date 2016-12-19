@@ -30,9 +30,6 @@ export default Component.extend({
 
 
   actions: {
-    handleClick() {
-      set(this, 'currency', true)
-    },
 
     /**
      * input
@@ -41,8 +38,6 @@ export default Component.extend({
       const value = e.currentTarget.value;
       const bool = get(this, 'handleEvents').handleQuestionInput({phoneNumber: value}, get(this, 'node'))
       set(this, 'canSendMessage', bool);
-
-
     },
 
     /**

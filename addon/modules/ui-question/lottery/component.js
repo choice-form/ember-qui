@@ -1,16 +1,9 @@
 import Component from 'ember-component';
 import layout from './template';
-import get from 'ember-metal/get';
 import $ from 'jquery';
 
 export default Component.extend({
   layout,
-
-  actions: {
-    handleNextClick(){
-      get(this, 'handleEvents').handleNextClick(get(this,'node'));
-    }
-  },
 
   didInsertElement(){
     const lottery =  $('.lottery');

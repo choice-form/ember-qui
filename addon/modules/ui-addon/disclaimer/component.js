@@ -18,7 +18,7 @@ export default Component.extend({
   actions:{
     isShowException() {
       const isShowException = !get(this,'isShowException');
-      setProperties(this,{isShowException: isShowException, checked:isShowException, 'disclaimerService.disclaimer': isShowException});
+      setProperties(this,{isShowException: isShowException, checked:true, 'disclaimerService.disclaimer': true});
     },
 
     handleChecked(){
