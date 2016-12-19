@@ -20,10 +20,10 @@ export default Route.extend({
           number: '7',
           optionsX:[
             {
-              text: `COLUMN1 ${faker.finance.accountName()}`,
+              text: `COLUMN1 ${faker.finance.accountName()}COLUMN1 ${faker.finance.accountName()}COLUMN1 ${faker.finance.accountName()}`,
             },
             {
-              text: `COLUMN2 ${faker.finance.accountName()}`,
+              text: `COLUMN2 ${faker.finance.accountName()} COLUMN1 ${faker.finance.accountName()}COLUMN1 ${faker.finance.accountName()}COLUMN1 ${faker.finance.accountName()}COLUMN1 ${faker.finance.accountName()}`,
             },
             {
               text: `COLUMN3 ${faker.finance.accountName()}`,
@@ -31,13 +31,13 @@ export default Route.extend({
           ],
           optionsY:[
             {
-              text: `ROW1 ${faker.lorem.sentence()}`,
+              text: `ROW1 ${faker.lorem.sentence()}ROW1 ${faker.lorem.sentence()}ROW1 ${faker.lorem.sentence()}`,
             },
             {
               text: `ROW2 ${faker.lorem.sentence()}`,
             },
             {
-              text: `ROW3 ${faker.lorem.sentence()}`,
+              text: `ROW3 ${faker.lorem.sentence()}ROW1 ${faker.lorem.sentence()}ROW1 ${faker.lorem.sentence()}`,
             },
             {
               text: `ROW4 ${faker.lorem.sentence()}`,
