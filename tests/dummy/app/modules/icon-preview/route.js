@@ -37,7 +37,7 @@ export default Route.extend({
         {icon: "time"},
         {icon: "email"},
         {icon: "telephone"},
-        {icon: "moblie"},
+        {icon: "mobile"},
         {icon: "pin"},
         {icon: "building"},
         {icon: "business"},

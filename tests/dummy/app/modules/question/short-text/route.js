@@ -38,9 +38,9 @@ export default Route.extend({
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C907",
         icon: '', // 选项的Icon
         inputType: 'input', // 'select', 'input', 'select-input',
-        inputRule: 'moblie', //输入控件初始化规则
+        inputRule: 'mobile', //输入控件初始化规则
         value: '',
-        placeholder: 'moblie',
+        placeholder: 'mobile',
       }),
       Ember.Object.create({
         selected: '',
