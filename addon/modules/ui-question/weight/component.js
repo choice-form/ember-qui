@@ -18,6 +18,8 @@ export default Component.extend({
     });
   },
 
+  options:reads('node.options'),
+
   actions: {
     handleOptionUpdate(option, value){
       set(option, 'value', window.parseInt(value, 10));

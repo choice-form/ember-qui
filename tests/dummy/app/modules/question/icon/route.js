@@ -27,7 +27,7 @@ export default Route.extend({
               renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.words(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
-              icon: 'https://csvfx-files.b0.upaiyun.com/uploadfiles/UploadSvg/c0872608-5cb0-44c5-907e-f61b64fef3fc.svg',
+              icon: 'https://csvfx-files.b0.upaiyun.com/uploadfiles/UploadSvg/089ff4a5-bd7e-4493-a991-fec1f251dee2.svg',
             }),
             Ember.Object.create({
               selected: false,
@@ -41,7 +41,7 @@ export default Route.extend({
               renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.words(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
-              icon: 'https://csvfx-files.b0.upaiyun.com/uploadfiles/UploadSvg/16d016f3-cbe9-4e21-9ed0-53d49a67c0bf.svg',
+              icon: 'https://csvfx-files.b0.upaiyun.com/uploadfiles/UploadSvg/089ff4a5-bd7e-4493-a991-fec1f251dee2.svg',
             }),
             Ember.Object.create({
               selected: false,

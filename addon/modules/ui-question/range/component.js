@@ -11,6 +11,8 @@ export default Component.extend({
   attributeBindings: ['data-render-id'],
   'data-render-id': reads('option.renderId'),
 
+  value:reads('option.value'),
+
   actions: {
     handleOptionInput(value){
       this.handleEvents.handleOptionInput(
@@ -19,8 +21,7 @@ export default Component.extend({
     },
 
     handleOptionUpdate(value){
-      const option = get(this, 'option');
-      set(option, 'value', window.parseInt(value, 10));
+      set(this, 'value', window.parseInt(value, 10));
     },
 
     handleOptionInputForTextarea({ currentTarget: target }){

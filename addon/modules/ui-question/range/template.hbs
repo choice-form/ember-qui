@@ -2,7 +2,7 @@
   {{ui-component/ui-text
     inputRule=(unbound option.inputRule)
     placeholder=(unbound option.placeholder)
-    value=option.value
+    value=value
     renderId=(unbound option.renderId)
     handleOptionInput=(action "handleOptionInput")
     handleOptionInputForTextarea=(action "handleOptionInputForTextarea")}}
@@ -17,14 +17,14 @@
   </div>
 
   <div class="range-slider">
-    <h4>{{if option.value option.value 0}}{{node.unit}}</h4>
+    <h4>{{if value value 0}}{{node.unit}}</h4>
     {{range-slider
-      start=(if option.value (numberize option.value) 0)
+      start=(if value (numberize value) 0)
       connect="lower"
       step=(if option.step option.step 1)
       min=(numberize option.minValue)
       max=(numberize option.maxValue)
-      on-update=(action "handleOptionUpdate")
+      on-slide=(action "handleOptionUpdate")
       on-change=(action "handleOptionInput")
     }}
   </div>

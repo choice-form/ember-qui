@@ -1,20 +1,20 @@
 <div class="weight-header">
   <h4>权重指示</h4>
   <div class="weight-chart">
-    {{#each node.options as |option|}}
+    {{#each options as |option|}}
       {{html-safe (concat "<div style='flex-basis:" option.value "%;" "background:" option.color "'></div>")}}
     {{/each}}
   </div>
 </div>
 
-{{#each node.options as |option|}}
+{{#each options as |option|}}
   <div class="ui-range">
     {{#if option.text}}
       <h4 class="range-title">{{option.text}}</h4>
     {{/if}}
 
     <div class="range-slider">
-      <h4>{{if option.value option.value 0}}{{node.unit}}</h4>
+      <h4>{{if option.value option.value 0}}{{node.unit}} {{fillspan option.maxValue option.value}}</h4>
       {{range-slider
         start=(if option.value (numberize option.value) 0)
         connect="lower"
