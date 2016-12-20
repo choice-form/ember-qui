@@ -32,9 +32,9 @@ export default Route.extend({
         icon: '', // 选项的Icon
         inputType: '', // 'select', 'input', 'select-input',
         inputRule: '', //输入控件初始化规则
-        value: 5,
-        minValue: 3,
-        maxValue: 10,
+        value: '5',
+        minValue: '3',
+        maxValue: '10',
         minValueText:'最小小分值',
         maxValueText: '最大大分值',
         step:2,

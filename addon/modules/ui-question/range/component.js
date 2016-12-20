@@ -2,6 +2,7 @@ import Component from 'ember-component';
 import layout from './template';
 import { reads } from 'ember-computed';
 import get from 'ember-metal/get';
+import set from 'ember-metal/set';
 
 export default Component.extend({
   layout,
@@ -11,14 +12,15 @@ export default Component.extend({
   'data-render-id': reads('option.renderId'),
 
   actions: {
-    handleOptionInput(valueOrEvent){
-      const value = valueOrEvent.currentTarget
-            ? valueOrEvent.currentTarget.value
-            : window.parseInt(valueOrEvent, 10);
-
+    handleOptionInput(value){
       this.handleEvents.handleOptionInput(
-        value, get(this, 'option'), get(this,'node')
+        window.parseInt(value, 10), get(this, 'option'), get(this,'node')
       );
+    },
+
+    handleOptionUpdate(value){
+      const option = get(this, 'option');
+      set(option, 'value', window.parseInt(value, 10));
     },
 
     handleOptionInputForTextarea({ currentTarget: target }){

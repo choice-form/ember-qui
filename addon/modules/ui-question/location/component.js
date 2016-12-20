@@ -41,9 +41,15 @@ export default Component.extend({
       );
 
       getLocation()
-        .then(position => {
+        .then((position) => {
+          console.log(position);
+          if(position.accuracy==null){
+            setProperties(
+              this, { locationState: 'failed', svgState: 'location-failed' }
+            );
+            return;
+          }
           this.handleEvents.handleQuestionInput(position, get(this, 'node'));
-
           setProperties(
             this, { locationState: 'successful', svgState: 'location-successful' }
           );

@@ -1,6 +1,7 @@
 import Component from 'ember-component';
 import layout from './template';
 import get from 'ember-metal/get';
+import set from 'ember-metal/set';
 import { reads } from 'ember-computed';
 
 export default Component.extend({
@@ -18,6 +19,10 @@ export default Component.extend({
   },
 
   actions: {
+    handleOptionUpdate(option, value){
+      set(option, 'value', window.parseInt(value, 10));
+    },
+
     handleOptionInput(option, value){
       this.handleEvents.handleOptionInput(
         window.parseInt(value, 10), option, get(this,'node')
