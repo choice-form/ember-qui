@@ -42,7 +42,6 @@ export default Component.extend({
 
       getLocation()
         .then((position) => {
-          console.log(position);
           if(position.accuracy==null){
             setProperties(
               this, { locationState: 'failed', svgState: 'location-failed' }
