@@ -1,6 +1,7 @@
 <div class="upload-item-wrapper">
   <div class={{concat "upload-item" state}}>
     <input type="file"
+           accept={{accept}}
            id={{option.renderId}}
            onclick={{action 'handleOptionClick'}}
            onchange={{action 'handleOptionInput'}}>
