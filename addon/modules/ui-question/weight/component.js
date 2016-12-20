@@ -19,7 +19,11 @@ export default Component.extend({
     });
   },
 
-  options:reads('node.options'),
+  tipValue: {
+    to: function(value) {
+      return window.parseInt(value, 10);
+    }
+  },
 
   actions: {
     handleOptionUpdate(option, value){

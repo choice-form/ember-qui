@@ -14,13 +14,13 @@
     {{/if}}
 
     <div class="range-slider">
-      <h4>{{if option.value option.value 0}}{{node.unit}}</h4>
+      <h4>{{if option.value option.value ' - '}}{{node.unit}}</h4>
       {{range-slider
-        start=(if option.value (numberize option.value) 0)
+        start=(if option.value (numberize displayValue) 0)
         connect="lower"
         min=0
+        tooltips=tipValue
         max=(numberize option.maxValue)
-        on-update=(action "handleOptionUpdate" option)
         on-change=(action "handleOptionInput" option)
       }}
     </div>

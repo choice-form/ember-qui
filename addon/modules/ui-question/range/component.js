@@ -2,7 +2,6 @@ import Component from 'ember-component';
 import layout from './template';
 import { reads } from 'ember-computed';
 import get from 'ember-metal/get';
-import set from 'ember-metal/set';
 
 export default Component.extend({
   layout,
@@ -11,17 +10,17 @@ export default Component.extend({
   attributeBindings: ['data-render-id'],
   'data-render-id': reads('option.renderId'),
 
-  value:reads('option.value'),
+  tipValue: {
+    to: function(value) {
+      return window.parseInt(value, 10);
+    }
+  },
 
   actions: {
     handleOptionInput(value){
       this.handleEvents.handleOptionInput(
         window.parseInt(value, 10), get(this, 'option'), get(this,'node')
       );
-    },
-
-    handleOptionUpdate(value){
-      set(this, 'value', window.parseInt(value, 10));
     },
 
     handleOptionInputForTextarea({ currentTarget: target }){
