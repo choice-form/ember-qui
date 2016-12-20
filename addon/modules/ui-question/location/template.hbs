@@ -16,6 +16,8 @@
   <p>{{node.value}}</p>
 {{/if}}
 
+
 {{#if (eq svgState 'location-failed')}}
-  <a class="button secondary" onclick={{action 'handleOptionClick'}}>Try again</a>
+  <p>请使用GPS定位</p>
+  <a class="button secondary" onclick={{action 'handleOptionClick'}}>请重试</a>
 {{/if}}

@@ -1,7 +1,26 @@
 <section class={{concat 'welcome ' (unbound intro.style)}}>
   <div class="wrapper">
     <div class="row data-welcome" data-render-id={{unbound intro.renderId}}>
-      {{ui-component/ui-header intro imageTop=true}}
+        <figure class="attachment">
+          {{#each intro.images as |image|}}
+            {{ui-addon/progressive-image
+              ratio=image.ratio
+              objectFit=image.objectFit
+              thumbnail=image.thumbnail
+              image=image.natural}}
+          {{/each}}
+        </figure>
+
+      <header class="header">
+        <h2 class="title">{{intro.title}}</h2>
+        {{#if intro.summary}}
+          <p style="margin-bottom: 1rem">{{intro.summary}}</p>
+        {{/if}}
+        {{#if intro.description}}
+          <pre class="description">{{intro.description}}</pre>
+        {{/if}}
+      </header>
+
     </div>
   </div>
 </section>

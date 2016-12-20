@@ -47,17 +47,19 @@
  ```
  */
 
+
 /**
  * 图片显示类型 cover,no-cover、full-screen-cover
+ *
+ * @property {String} style
+ *
+ * @example
  ``` text
  cover: 图片在文字上面 (type 可以为空)
  no-cover: 没有图片 (type 可以为空)
  full-screen-cover: 图片全屏当背景 (type : full-screen-cover)
  ```
- *
- * @property {String} type
  */
-
 
 /**
  * 点击后一题回调方法

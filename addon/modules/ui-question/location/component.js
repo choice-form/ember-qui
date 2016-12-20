@@ -27,10 +27,10 @@ export default Component.extend({
 
   tips: computed('svgState', function() {
     switch (get(this, 'svgState')) {
-      case 'positioning': return 'Positioning...';
-      case 'location-successful': return 'Successful';
-      case 'location-failed': return 'Failed, Please';
-      default: return 'Where are you?';
+      case 'positioning': return '定位中...';
+      case 'location-successful': return '定位成功';
+      case 'location-failed': return '定位失败';
+      default: return '点击图标启动定位';
     }
   }),
 
