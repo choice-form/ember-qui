@@ -14,7 +14,11 @@
     {{/if}}
 
     <div class="range-slider">
-      <h4>{{if option.value option.value ' - '}}{{node.unit}}</h4>
+      <h4 style="position:relative">
+        <span style="opacity: 0;visibility: hidden">{{option.maxValue}}{{node.unit}}</span>
+        <span style="position: absolute;left: 0;bottom: 0;">{{if option.value option.value ' - '}}{{node.unit}}</span>
+      </h4>
+
       {{range-slider
         start=(if option.value (numberize displayValue) 0)
         connect="lower"

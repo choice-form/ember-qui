@@ -18,7 +18,7 @@ export default Route.extend({
         inputRule: '', //输入控件初始化规则
         value: '',
         minValue: 0,
-        maxValue: 100,
+        maxValue: 10000,
         minValueText:'最小分值',
         maxValueText: '最大分值',
         step:'1',
@@ -34,7 +34,7 @@ export default Route.extend({
         inputRule: '', //输入控件初始化规则
         value: '5',
         minValue: '3',
-        maxValue: '10',
+        maxValue: '10000',
         minValueText:'最小小分值',
         maxValueText: '最大大分值',
         step:2,
@@ -64,7 +64,7 @@ export default Route.extend({
         inputRule: '', //输入控件初始化规则
         value: 1,
         minValue: 1,
-        maxValue: 8,
+        maxValue: 10000,
         step:2,
         placeholder: '',
       }),
