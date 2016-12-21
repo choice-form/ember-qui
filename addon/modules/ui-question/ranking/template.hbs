@@ -11,7 +11,8 @@
 </div>
 
 {{#each options as |option|}}
-  {{#if (eq option.inputType "select")}}
+  {{#if option.inputType}}
     {{ui-question/choice node option handleEvents}}
   {{/if}}
 {{/each}}
+

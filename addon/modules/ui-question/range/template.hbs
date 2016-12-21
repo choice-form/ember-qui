@@ -1,4 +1,4 @@
-{{#if (eq option.inputType "select")}}
+{{#if option.inputType}}
   {{ui-question/choice node option handleEvents}}
 {{else}}
   {{#if option.text}}

@@ -28,7 +28,7 @@ export default Component.extend({
   }),
 
   uploadText: computed('option.value', function () {
-    return get(this, 'option.value') ? 'refresh upload' : 'Upload Picture';
+    return get(this, 'option.value') ? '重新上传' : '上传图片';
   }),
 
   progress: 0,
