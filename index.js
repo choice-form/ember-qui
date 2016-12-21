@@ -22,18 +22,16 @@ module.exports = {
       bowser: { import: ['bowser.js'] },
       fastclick: { import: [{ path: 'lib/fastclick.js' }] },
       'masonry-layout': {
-        import: [{ path: 'dist/masonry.pkgd.js', outputFile: 'assets/masonry.js' }]
+        import: [{ path: 'dist/masonry.pkgd.js' }]
       },
       sortablejs: {
-        import: [{ path: 'Sortable.js', outputFile: 'assets/sortable.js' }]
+        import: [{ path: 'Sortable.js' }]
       },
       swiper: {
         srcDir: 'dist',
         import: [
           'css/swiper.min.css',
-          { path: 'js/swiper.min.js',
-            outputFile: 'assets/swiper.js',
-            sourceMap: 'js/maps/swiper.min.js.map' }
+          { path: 'js/swiper.min.js', sourceMap: 'js/maps/swiper.min.js.map' }
         ]
       }
     }
@@ -51,12 +49,12 @@ module.exports = {
   contentFor(type, config, content) {
     return ('body-footer' === type)
       ? [
-        `<script async src="/assets/masonry.js?node={{node}}"></script>`,
-        `<script async src="/assets/mobiscroll.js?node={{node}}"></script>`,
+        // `<script async src="/assets/masonry.js?node={{node}}"></script>`,
         `<link rel="stylesheet" href="/assets/mobiscroll.css?node={{node}}">`,
-        `<script async src="/assets/qrcode.js?node={{node}}"></script>`,
-        `<script async src="/assets/sortable.js?node={{node}}"></script>`,
-        `<script async src="/assets/swiper.js?node={{node}}"></script>`,
+        `<script defer src="/assets/mobiscroll.js?node={{node}}"></script>`,
+        // `<script async src="/assets/qrcode.js?node={{node}}"></script>`,
+        // `<script async src="/assets/sortable.js?node={{node}}"></script>`,
+        // `<script async src="/assets/swiper.js?node={{node}}"></script>`,
         this.contentForSVGIcons()
       ].join('\n')
       : '';
@@ -77,16 +75,11 @@ module.exports = {
     app.import(`${app.bowerDirectory}/device.js/lib/device.js`);
     app.import(`./vendor/shims/device.js`);
 
-    app.import(`./vendor/shims/masonry.js`,
-               { outputFile: 'assets/masonry.js' });
-    app.import(`${app.bowerDirectory}/qrcode/lib/qrcode.js`,
-               { outputFile: 'assets/qrcode.js' });
-    app.import(`./vendor/shims/qrcode.js`,
-               { outputFile: 'assets/qrcode.js' });
-    app.import(`./vendor/shims/sortable.js`,
-               { outputFile: 'assets/sortable.js' });
-    app.import(`./vendor/shims/swiper.js`,
-               { outputFile: 'assets/swiper.js' });
+    app.import(`./vendor/shims/masonry.js`);
+    app.import(`${app.bowerDirectory}/qrcode/lib/qrcode.js`);
+    app.import(`./vendor/shims/qrcode.js`);
+    app.import(`./vendor/shims/sortable.js`);
+    app.import(`./vendor/shims/swiper.js`);
 
     app.import(`./vendor/mobiscroll/css/mobiscroll.custom-3.0.0.min.css`,
                { outputFile: 'assets/mobiscroll.css' });
