@@ -197,6 +197,8 @@ export default Route.extend({
         },
 
         handleOptionInput(data, option, question){
+          data ? set(option, 'errorMessage', '你的输入有误，请重新输入')
+            : set(option, 'errorMessage', '');
           console.log(data);
           console.log(option);
           console.log(question);
