@@ -19,13 +19,10 @@ export default Component.extend({
     });
   },
 
-  tipValue: {
-    to: function(value) {
-      return window.parseInt(value, 10);
-    }
-  },
-
   actions: {
+    updateDisplayValue(value) {
+    },
+
     handleOptionUpdate(option, value){
       set(option, 'value', window.parseInt(value, 10));
     },

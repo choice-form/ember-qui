@@ -15,18 +15,20 @@
 
     <div class="range-slider">
       <h4 style="position:relative">
-        <span style="opacity: 0;visibility: hidden">{{option.maxValue}}{{node.unit}}</span>
-        <span style="position: absolute;left: 0;bottom: 0;">{{if option.value option.value ' - '}}{{node.unit}}</span>
+        <span style="opacity: 0; visibility: hidden;">
+          {{option.maxValue}}{{node.unit}}
+        </span>
+        <span style="position: absolute; left: 0; bottom: 0;">
+          <span class="displayValue">{{option.value}}</span>{{node.unit}}
+        </span>
       </h4>
 
-      {{range-slider
-        start=(if option.value (numberize displayValue) 0)
-        connect="lower"
+      {{ui-range
+        value=option.value
         min=0
-        tooltips=tipValue
-        max=(numberize option.maxValue)
-        on-change=(action "handleOptionInput" option)
-      }}
+        max=option.maxValue
+        on-slide=(action "updateDisplayValue" displayValue)
+        on-change=(action "handleOptionInput" option)}}
     </div>
   </div>
 {{/each}}
