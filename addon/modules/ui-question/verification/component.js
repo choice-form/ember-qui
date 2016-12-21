@@ -11,10 +11,8 @@ export default Component.extend({
 
   //用户手机号
   phoneNumber: '',
-
   //验证按钮的切换
   getInfoButton: true,
-
   //倒计时
   countDown: '30 sec',
 
@@ -67,14 +65,14 @@ export default Component.extend({
       if(verificationType == 'captcha') return;
 
       set(this, 'getInfoButton', false);
-      let t1 = setInterval(()=> {
+      this.time = setInterval(()=> {
         countTime--;
         set(this, 'countDown', `${countTime} sec`);
         if (countTime <= 0) {
           countTime= 30;
           set(this, 'countDown', `${countTime} sec`);
           set(this, 'getInfoButton', true);
-          clearInterval(t1);
+          clearInterval( this.time );
         }
       }, 1000);
     },
@@ -82,6 +80,7 @@ export default Component.extend({
 
   willDestroyElement(){
     countTime = 0;
+    this.time && clearInterval(this.time);
   }
 
 }).reopenClass({positionalParams: ['node', 'handleEvents']});

@@ -76,8 +76,9 @@
         {{/if}}
       </div>
 
+
       <div class="reward-additional">
-        {{ui-addon/disclaimer description=true}}
+        {{ui-addon/disclaimer description=(eq node.rewardType 'wechat')}}
       </div>
 
     </div>
