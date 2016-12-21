@@ -7,7 +7,7 @@
   </div>
 </div>
 
-{{#each options as |option|}}
+{{#each options as |option index|}}
   <div class="ui-range">
     {{#if option.text}}
       <h4 class="range-title">{{option.text}}</h4>
@@ -19,7 +19,7 @@
           {{option.maxValue}}{{node.unit}}
         </span>
         <span style="position: absolute; left: 0; bottom: 0;">
-          <span class="displayValue">{{option.value}}</span>{{node.unit}}
+          <span class="displayValue">{{unless option.value 0 option.value}}</span>{{node.unit}}
         </span>
       </h4>
 
@@ -27,7 +27,7 @@
         value=option.value
         min=0
         max=option.maxValue
-        on-slide=(action "updateDisplayValue" displayValue)
+        on-slide=(action "updateDisplayValue" index)
         on-change=(action "handleOptionInput" option)}}
     </div>
   </div>

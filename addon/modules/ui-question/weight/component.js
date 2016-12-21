@@ -2,7 +2,6 @@ import Component from 'ember-component';
 import layout from './template';
 import get from 'ember-metal/get';
 import set from 'ember-metal/set';
-import { htmlSafe } from 'ember-string';
 import { reads } from 'ember-computed';
 
 export default Component.extend({
@@ -20,7 +19,9 @@ export default Component.extend({
   },
 
   actions: {
-    updateDisplayValue(value) {
+    updateDisplayValue(index, values, handle) {
+      const displayValue = this.element.querySelectorAll('.displayValue')[index]
+      displayValue.innerText = Math.round(values[handle])
     },
 
     handleOptionUpdate(option, value){
