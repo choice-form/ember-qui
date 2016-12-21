@@ -36,7 +36,8 @@ export default Component.extend({
       }
     });
 
-    this.sortable = new Sortable(this.element, {
+    const sortableWrapper = this.element.querySelector('.ranking-wrapper');
+    this.sortable = new Sortable(sortableWrapper, {
       handle: '.handle',
       scroll: false,
       scrollSensitivity: device.desktop() ? 64 : 0,

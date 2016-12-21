@@ -69,10 +69,5 @@
 </div>
 
 {{#each node.otherOptions as |option|}}
-  {{ui-component/ui-text
-    inputRule=option.inputRule
-    placeholder=option.placeholder
-    value=option.value
-    handleOptionInput=(action "handleOptionInput")
-    handleOptionInputForTextarea=(action "handleOptionInputForTextarea")}}
+  {{ui-question/choice node option handleEvents}}
 {{/each}}

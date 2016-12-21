@@ -69,18 +69,15 @@ export default Route.extend({
         placeholder: '',
       }),
       Ember.Object.create({
-        selected: '',
+        selected: false,
         renderId: faker.date.between('2016-01-01', '2016-12-31'),
-        text: faker.lorem.words(),
-        uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C94",
-        icon: '', // 选项的Icon
-        inputType: 'input', // 'select', 'input', 'select-input',
-        inputRule: 'time', //输入控件初始化规则
-        value: '',
-        minValue: 1,
-        maxValue: 9,
-        step:1,
-        placeholder: '选择时间',
+        text: faker.lorem.paragraph(),
+        uuid: "4ghE6B4F-D705-483D-905F-07E420920E18",
+        icon: 'checkbox',
+        inputType: 'select',
+        inputRule: '',
+        value: '选项',
+        placeholder: 'input count',
       }),
     ];
 
@@ -112,6 +109,24 @@ export default Route.extend({
           set(option, 'value',  data);
           return true;
         },
+
+        handleOptionClick: (option, node) => {
+          console.log(option);
+          console.log(node);
+
+
+          if (option.toggleProperty('selected')) {
+
+            node.options.forEach((opt) => {
+              if (opt != option) {
+                set(opt, 'selected', false);
+              }
+            })
+          }
+
+          return true;
+        },
+
       },
 
       prevButton: '上一题',

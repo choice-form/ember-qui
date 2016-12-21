@@ -1,10 +1,5 @@
-{{#if isTextMode}}
-  {{ui-component/ui-text inputRule=(unbound option.inputRule)
-                         placeholder=(unbound option.placeholder)
-                         renderId=(unbound option.renderId)
-                         value=option.value
-                         handleOptionInput=(action "handleOptionInput")
-                         handleOptionInputForTextarea=(action "handleOptionInputForTextarea")}}
+{{#if (eq option.inputType "select")}}
+  {{ui-question/choice node option handleEvents}}
 {{else}}
   <div class="ui-rating" data-render-id={{option.renderId}}>
     <h4 class="cell-labels">

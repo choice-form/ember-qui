@@ -1,11 +1,5 @@
-{{#if (eq option.inputType "input")}}
-  {{ui-component/ui-text
-    inputRule=(unbound option.inputRule)
-    placeholder=(unbound option.placeholder)
-    value=value
-    renderId=(unbound option.renderId)
-    handleOptionInput=(action "handleOptionInput")
-    handleOptionInputForTextarea=(action "handleOptionInputForTextarea")}}
+{{#if (eq option.inputType "select")}}
+  {{ui-question/choice node option handleEvents}}
 {{else}}
   {{#if option.text}}
     <h4 class="range-title">{{option.text}}</h4>

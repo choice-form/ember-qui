@@ -248,7 +248,18 @@ export default Route.extend({
                 return faker.random.number();
               }),
               placeholder: '',
-            })
+            }),
+            Ember.Object.create({
+              selected: false,
+              renderId: faker.date.between('2016-01-01', '2016-12-31'),
+              text: faker.lorem.paragraph(),
+              uuid: "4ghE6B4F-D705-483D-905F-07E420920E18",
+              icon: 'radio',
+              inputType: 'select',
+              inputRule: '',
+              value: '选项',
+              placeholder: 'input count',
+            }),
           ],
         }
       ],
@@ -268,6 +279,21 @@ export default Route.extend({
           set(option, 'value', newValue);
           return true;
         },
+
+        handleOptionClick: (option, node) => {
+          console.log(option);
+          console.log(node);
+          if (option.toggleProperty('selected')) {
+            node.options.forEach((opt) => {
+              if (opt != option) {
+                set(opt, 'selected', false);
+              }
+            })
+          }
+
+          return true;
+        },
+
 
 
       },
