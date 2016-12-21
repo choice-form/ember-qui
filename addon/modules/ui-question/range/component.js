@@ -1,7 +1,8 @@
 import Component from 'ember-component';
 import layout from './template';
-import { reads } from 'ember-computed';
+import computed, { reads } from 'ember-computed';
 import get from 'ember-metal/get';
+import set from 'ember-metal/set';
 
 export default Component.extend({
   layout,
@@ -10,13 +11,16 @@ export default Component.extend({
   attributeBindings: ['data-render-id'],
   'data-render-id': reads('option.renderId'),
 
-  tipValue: {
-    to: function(value) {
-      return window.parseInt(value, 10);
-    }
-  },
+  displayValue: computed('option.value', {
+    get() { return get(this, 'option.value') ? get(this, 'option.value') : '-'},
+    set(key, value) { return value }
+  }),
 
   actions: {
+    updateDisplayValue(values, handle) {
+      set(this, 'displayValue', Math.round(values[handle]))
+    },
+
     handleOptionInput(value){
       this.handleEvents.handleOptionInput(
         window.parseInt(value, 10), get(this, 'option'), get(this,'node')

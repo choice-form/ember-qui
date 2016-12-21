@@ -9,7 +9,6 @@ module.exports = {
   afterInstall() {
     return RSVP.all([
       this.addBowerPackageToProject('devicejs'),
-      this.addBowerPackageToProject('nouislider'),
       this.addBowerPackageToProject('qrcode'),
       this.addPackageToProject('bowser'),
       this.addPackageToProject('fastclick'),
