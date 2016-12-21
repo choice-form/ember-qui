@@ -31,6 +31,7 @@ export default Route.extend({
           number:'3',
           value:'123123',
           placeholder:'请下拉选择',
+          hideLogo:true,
           options,
         }
       ],

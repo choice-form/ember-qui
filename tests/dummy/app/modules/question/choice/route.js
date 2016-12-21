@@ -218,6 +218,8 @@ export default Route.extend({
       nextButton: 'Next',
 
       logoText:'GMO',
+
+      hideFooter: true,
     }
   }
 });

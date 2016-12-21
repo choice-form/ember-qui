@@ -21,5 +21,6 @@
 
 }}
 
-
-{{ui-addon/footer logoText=question.logoText}}
+{{#unless question.hideFooter}}
+  {{ui-addon/footer logoText=question.logoText}}
+{{/unless}}

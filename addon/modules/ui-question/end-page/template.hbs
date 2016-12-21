@@ -1,3 +1,10 @@
+{{#unless node.hideLogo}}
+  {{ui-addon/progressive-image
+    ratio='1'
+    thumbnail=''
+    image='https://cform-files.b0.upaiyun.com/UploadFiles/style-copy/img/choiceform.png'}}
+{{/unless}}
+
 {{#if node.hasReward}}
   {{ui-component/ui-label icon="round-e-info"
                           text=(unbound option.text)}}
