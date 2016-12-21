@@ -18,7 +18,6 @@ export default Component.extend({
   //倒计时
   countDown: '30 sec',
 
-
   captchaClass:computed('node.verificationType', function () {
     const verificationType = get(this, 'node.verificationType');
     return  verificationType == 'captcha' ? " captcha" : "";
@@ -30,10 +29,10 @@ export default Component.extend({
 
     if(getInfoButton){
       if(verificationType == 'sms' ){
-        return "Get verification code"
+        return "获取短信验证码"
       }
       if(verificationType == 'captcha' ){
-        return "Get captcha code"
+        return "获取验证码"
       }
     }
 
@@ -48,16 +47,25 @@ export default Component.extend({
 
       if(e.currentTarget.type == 'tel'){
         set(this, 'phoneNumber', value);
-        this.handleEvents.handleQuestionInput({phoneNumber: value}, get(this, 'node'));
+       this.handleEvents.handleQuestionInput({phoneNumber: value}, get(this, 'node'));
       }else{
         this.handleEvents.handleQuestionInput({code: value}, get(this, 'node'));
       }
+
     },
 
     /**
      * input
      */
     handleOptionClick(){
+      //调用model方法
+      const bool = this.handleEvents.handleOptionClick('', get(this, 'node'));
+      //如果手机号输入有误，是不能获取验证码的
+      if(!bool) return ;
+
+      const verificationType = get(this, 'node.verificationType');
+      if(verificationType == 'captcha') return;
+
       set(this, 'getInfoButton', false);
       let t1 = setInterval(()=> {
         countTime--;
@@ -69,11 +77,11 @@ export default Component.extend({
           clearInterval(t1);
         }
       }, 1000);
-
-      //调用model方法
-      this.handleEvents.handleOptionClick('', get(this, 'node'));
     },
   },
 
+  willDestroyElement(){
+    countTime = 0;
+  }
 
 }).reopenClass({positionalParams: ['node', 'handleEvents']});

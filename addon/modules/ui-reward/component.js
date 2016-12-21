@@ -67,5 +67,10 @@ export default Component.extend({
     handleNextClick(){
       get(this, 'handleEvents').handleNextClick(get(this,'node'));
     }
+  },
+
+  willDestroyElement(){
+    countTime = 0;
   }
+
 }).reopenClass({positionalParams: ['node']});

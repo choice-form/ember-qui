@@ -30,13 +30,12 @@ export default Route.extend({
           console.log(option);
           console.log(question);
 
-          return true;
+          return false;
         },
 
         handleQuestionInput(dynamic, question){
           console.log(dynamic);
           console.log(question);
-
           return true;
         },
 
