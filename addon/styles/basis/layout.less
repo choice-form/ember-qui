@@ -1,0 +1,31 @@
+.c-container {
+  max-width: 720px;
+}
+
+svg:not(:root) {
+  display: none;
+  overflow: visible;
+  pointer-events: none;
+
+  fill: currentColor;
+}
+
+.preview-flag {
+  padding: 1rem 3rem;
+  text-align: center;
+  margin-top: 24px;
+  -webkit-backface-visibility: hidden;
+  -webkit-transform-style: preserve-3d;
+  & span {
+    display: block;
+    border-radius: 3px;
+  }
+}
+
+html.mobile {
+  & .preview-flag {
+    padding: 1rem;
+    margin-top: 12px;
+
+  }
+}
