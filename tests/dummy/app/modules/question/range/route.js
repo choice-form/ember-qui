@@ -21,7 +21,7 @@ export default Route.extend({
         maxValue: 100,
         minValueText:'最小分值',
         maxValueText: '最大分值',
-        step:1,
+        step:'1',
         placeholder: '',
       }),
       Ember.Object.create({

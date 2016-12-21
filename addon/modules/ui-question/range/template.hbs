@@ -16,7 +16,7 @@
       start=(if option.value (numberize option.value) 0)
       connect="lower"
       tooltips=tipValue
-      step=(if option.step option.step 1)
+      step=(if option.step (numberize option.step) 1)
       min=(numberize option.minValue)
       max=(numberize option.maxValue)
       on-change=(action "handleOptionInput")
