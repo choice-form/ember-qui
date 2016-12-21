@@ -1815,9 +1815,15 @@ ember-qunit@^2.0.0-beta.1:
   dependencies:
     ember-test-helpers "^0.6.0-beta.1"
 
+<<<<<<< refs/remotes/origin/master
 ember-refined-slideranger@^0.0.2:
   version "0.0.2"
   resolved "https://registry.yarnpkg.com/ember-refined-slideranger/-/ember-refined-slideranger-0.0.2.tgz#a95a286eff6233d10a90cc5ebade60f14bedb093"
+=======
+ember-refined-slideranger@^0.0.1:
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/ember-refined-slideranger/-/ember-refined-slideranger-0.0.1.tgz#c5b36ff17bb5af3ec93dc81c5a8c254d2d993ca9"
+>>>>>>> Release with new ui-range landed
   dependencies:
     ember-cli-babel "^5.1.7"
     ember-cli-htmlbars "^1.0.10"
