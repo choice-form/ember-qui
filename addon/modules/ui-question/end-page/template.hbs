@@ -6,6 +6,6 @@
 {{/unless}}
 
 {{#if node.hasReward}}
-  {{ui-component/ui-label icon="round-e-info"
-                          text=(unbound option.text)}}
+  {{svg-item "time"}}
+  <span>{{unbound option.text}}</span>
 {{/if}}

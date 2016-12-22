@@ -14,6 +14,6 @@ export const particle = (argv, {size = 'm'}) => {
               <li class="particle-item"></li>
             </ul>
           </div>`);
-}
+};
 
 export default Helper.helper(particle)
