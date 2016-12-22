@@ -25,37 +25,34 @@ export default Component.extend({
     return `pin ${get(this, 'locationState')}`;
   }).readOnly(),
 
-  tips: computed('svgState', function() {
-    switch (get(this, 'svgState')) {
-      case 'positioning': return '正在获取位置信息...';
-      case 'location-successful': return '成功获取位置信息';
-      case 'location-failed': return '定位失败';
-      default: return '点击获取位置信息';
-    }
-  }),
+  tips : '点击获取位置信息',
 
   actions: {
     handleOptionClick() {
+
       setProperties(
-        this, { svgState: 'positioning', locationState: 'positioning' }
+        this, { svgState: 'positioning', locationState: 'positioning', tips:'正在获取位置信息...'}
       );
 
-      getLocation()
-        .then((position) => {
-          if(position.accuracy==null){
+      const that = this;
+      navigator.geolocation.getCurrentPosition(function() {
+        getLocation()
+          .then((position) => {
+            that.handleEvents.handleQuestionInput(position, get(that, 'node'));
             setProperties(
-              this, { locationState: 'failed', svgState: 'location-failed' }
+              that, { locationState: 'successful', svgState: 'location-successful' ,tips:'成功获取位置信息'}
             );
-            return;
-          }
-          this.handleEvents.handleQuestionInput(position, get(this, 'node'));
+          }).catch(() => {
           setProperties(
-            this, { locationState: 'successful', svgState: 'location-successful' }
+            that, { locationState: 'failed', svgState: 'location-failed' , tips:'定位失败!'}
           );
-        }).catch(() => {
-          setProperties(
-            this, { locationState: 'failed', svgState: 'location-failed' }
-          );
+        });
+      }, (data)=>{
+        setProperties(
+          that, { locationState: 'failed', svgState: 'location-failed', tips: data.code == '1' ? '请开启定位服务!' : '定位超时，请使用GPS定位!'}
+        );
+      },{
+        timeout: 10000
       });
     },
   }

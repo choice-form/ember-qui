@@ -5,7 +5,9 @@
   <label for={{node.renderId}}>
     <div class="effect-container">
       {{svg-item svgState size="40px" viewBox="40"}}
-      {{ui-addon/active-line-animation}}
+      {{#if (eq svgState 'location-successful')}}
+        {{particle size='xl'}}
+      {{/if}}
     </div>
   </label>
 </div>
@@ -18,6 +20,5 @@
 
 
 {{#if (eq svgState 'location-failed')}}
-  <p>请使用GPS定位</p>
   <a class="button secondary" onclick={{action 'handleOptionClick'}}>请重试</a>
 {{/if}}

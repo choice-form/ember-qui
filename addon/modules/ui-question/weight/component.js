@@ -1,7 +1,6 @@
 import Component from 'ember-component';
 import layout from './template';
 import get from 'ember-metal/get';
-import set from 'ember-metal/set';
 import { reads } from 'ember-computed';
 
 export default Component.extend({

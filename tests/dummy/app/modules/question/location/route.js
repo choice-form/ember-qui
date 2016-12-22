@@ -27,7 +27,7 @@ export default Route.extend({
         handleQuestionInput(dynamic, question){
 
           console.log(dynamic);
-          set(question, 'value', "shanghai");
+          set(question, 'value', "上海市-上海-龙华");
           return true;
         },
       },
