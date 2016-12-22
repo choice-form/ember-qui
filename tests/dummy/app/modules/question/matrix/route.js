@@ -27,6 +27,15 @@ export default Route.extend({
             },
             {
               text: `COLUMN3 ${faker.finance.accountName()}`,
+            },
+            {
+              text: `COLUMN4 ${faker.finance.accountName()}COLUMN1 ${faker.finance.accountName()}COLUMN1 ${faker.finance.accountName()}`,
+            },
+            {
+              text: `COLUMN5 ${faker.finance.accountName()} COLUMN1 ${faker.finance.accountName()}COLUMN1 ${faker.finance.accountName()}COLUMN1 ${faker.finance.accountName()}COLUMN1 ${faker.finance.accountName()}`,
+            },
+            {
+              text: `COLUMN6 ${faker.finance.accountName()}`,
             }
           ],
           renderOptionsY:[
@@ -97,16 +106,72 @@ export default Route.extend({
                 selected:false,
                 renderId:Math.random(1000),
               },
+            ],
+            [
+              {
+                selected:false,
+                renderId:Math.random(1000),
+              },
+              {
+                selected:false,
+                renderId:Math.random(1000),
+              },
+              {
+                selected:false,
+                renderId:Math.random(1000),
+              },
+              {
+                selected:false,
+                renderId:Math.random(1000),
+              },
+            ],
+            [
+              {
+                selected:false,
+                renderId:Math.random(1000),
+              },
+              {
+                selected:false,
+                renderId:Math.random(1000),
+              },
+              {
+                selected:false,
+                renderId:Math.random(1000),
+              },
+              {
+                selected:false,
+                renderId:Math.random(1000),
+              },
+            ],
+            [
+              {
+                selected:false,
+                renderId:Math.random(1000),
+              },
+              {
+                selected:false,
+                renderId:Math.random(1000),
+              },
+              {
+                selected:false,
+                renderId:Math.random(1000),
+              },
+              {
+                selected:false,
+                renderId:Math.random(1000),
+              },
             ]
           ],
           otherOptions:[
             {
               selected:false,
+              renderId: faker.date.between('2016-01-01', '2016-12-31'),
               inputType: 'input', // 'select', 'input', 'select-input, ower-input',
               inputRule: 'date', //输入控件初始化规则
             },
             {
               selected:false,
+              renderId: faker.date.between('2016-01-01', '2016-12-31'),
               inputType: 'input', // 'select', 'input', 'select-input, ower-input',
               inputRule: 'dateRange', //输入控件初始化规则
             },
@@ -148,7 +213,6 @@ export default Route.extend({
       ],
 
       handleEvents: {
-
         handleOptionInput(data, option, question){
           console.log(data);
           console.log(option);

@@ -15,7 +15,6 @@ export default Component.extend({
   attributeBindings: ['data-render-id'],
   'data-render-id': reads('node.renderId'),
 
-  isDesktop: computed(() => device.desktop()).readOnly,
   resizeIcon: computed(() => 'stretch'),
 
   swiperEffect(slidesNum){
@@ -41,7 +40,7 @@ export default Component.extend({
   didInsertElement(){
     scheduleOnce('afterRender',this,'swiperEffect', device.desktop() ? 2 : 1);
 
-    if (get(this, 'isDesktop')) {
+    if (device.desktop()) {
       window.onresize = ()=> {
         matirxSetHeight.call(this);
       };

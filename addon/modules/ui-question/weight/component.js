@@ -11,7 +11,7 @@ export default Component.extend({
   'data-render-id': reads('node.renderId'),
 
   didInsertElement(){
-    const noUiScrolls = this.element.getElementsByClassName('noUi-target');
+    const noUiScrolls = this.element.getElementsByClassName('noUi-connect');
     get(this, 'node.options').forEach((item, index)=>{
       noUiScrolls[index].style.background = item.color;
       noUiScrolls[index].style['box-shadow'] = `0 0 0 1px ${item.color}`;

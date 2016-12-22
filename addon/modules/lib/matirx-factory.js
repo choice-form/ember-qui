@@ -50,7 +50,6 @@ export function swiperHeaderInit(element, config) {
 }
 
 export function swiperMatrixInit(element, matrixThumbnails, config, callBack) {
-
   const isDesktop = device.desktop();
   let touchIndex = 1;
   let startTime = 0;
