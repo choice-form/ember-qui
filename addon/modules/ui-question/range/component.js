@@ -23,7 +23,7 @@ export default Component.extend({
 
     handleOptionInput(value){
       this.handleEvents.handleOptionInput(
-        window.parseInt(value, 10), get(this, 'option'), get(this,'node')
+        Math.round(value), get(this, 'option'), get(this,'node')
       );
     },
 

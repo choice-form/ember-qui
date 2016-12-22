@@ -24,13 +24,9 @@ export default Component.extend({
       displayValue.innerText = Math.round(values[handle])
     },
 
-    handleOptionUpdate(option, value){
-      set(option, 'value', window.parseInt(value, 10));
-    },
-
     handleOptionInput(option, value){
       this.handleEvents.handleOptionInput(
-        window.parseInt(value, 10), option, get(this,'node')
+        Math.round(value), option, get(this,'node')
       );
     }
   }
