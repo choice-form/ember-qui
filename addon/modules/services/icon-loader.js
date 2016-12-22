@@ -10,15 +10,9 @@ function isValidUrl(url) {
 export default Service.extend({
   ajax: inject(),
 
-  _cache: {},
-
   getIconByUrl(url) {
     if (!isValidUrl(url)) {
       return RSVP.reject();
-    }
-
-    if (this._cache[url]) {
-      return RSVP.resolve(this._cache[url]);
     }
 
     return get(this, 'ajax')
