@@ -1,7 +1,7 @@
 import Helper from 'ember-helper'
 import { htmlSafe } from 'ember-string'
 
-export const particle = ({size = 'm'}) => {
+export const particle = (argv, {size = 'm'}) => {
   return htmlSafe(`<div class="particle-wrapper ${size}">
             <ul class="particle-container">
               <li class="particle-item"></li>

@@ -2,14 +2,14 @@ import Component from 'ember-component';
 import computed from 'ember-computed';
 import layout from './template';
 import get from 'ember-metal/get';
-import { setProperties } from 'ember-metal/set';
-import { getLocation } from '../../lib/bMapApi';
+import {setProperties} from 'ember-metal/set';
+import {getLocation} from '../../lib/bMapApi';
 
 export default Component.extend({
   layout,
   classNameBindings: ['typeClassName'],
 
-  typeClassName: computed(function() {
+  typeClassName: computed(function () {
     return `ui-${get(this, 'node.quesType')}`
   }).readOnly(),
 
@@ -21,39 +21,49 @@ export default Component.extend({
   // 'positioning' 'successful' 'failed'
   locationState: '',
 
-  locationClassName: computed('locationState', function() {
+  locationClassName: computed('locationState', function () {
     return `pin ${get(this, 'locationState')}`;
   }).readOnly(),
 
-  tips : '点击获取位置信息',
+  tips: '点击获取位置信息',
+
+  _handlePositionSuccess(position) {
+    this.handleEvents.handleQuestionInput(position, get(this, 'node'));
+    setProperties(
+      this, {locationState: 'successful', svgState: 'location-successful', tips: '成功获取位置信息'}
+    );
+  },
+
+  _handlePositionError() {
+    setProperties(this, {
+      locationState: 'failed',
+      svgState: 'location-failed',
+      tips: '定位失败!'
+    });
+  },
 
   actions: {
     handleOptionClick() {
-
       setProperties(
-        this, { svgState: 'positioning', locationState: 'positioning', tips:'正在获取位置信息...'}
+        this, {svgState: 'positioning', locationState: 'positioning', tips: '正在获取位置信息...'}
       );
 
-      const that = this;
-      navigator.geolocation.getCurrentPosition(function() {
+      navigator.geolocation.getCurrentPosition(() => {
         getLocation()
-          .then((position) => {
-            that.handleEvents.handleQuestionInput(position, get(that, 'node'));
-            setProperties(
-              that, { locationState: 'successful', svgState: 'location-successful' ,tips:'成功获取位置信息'}
-            );
-          }).catch(() => {
-          setProperties(
-            that, { locationState: 'failed', svgState: 'location-failed' , tips:'定位失败!'}
+          .then(() => this._handlePositionSuccess())
+          .catch(() => this._handlePositionError())
+      }, (data) => {
+        if (data.code == '1') {
+          return setProperties(
+            this, {locationState: 'failed', svgState: 'location-failed', tips: '请开启定位服务!'}
           );
-        });
-      }, (data)=>{
-        setProperties(
-          that, { locationState: 'failed', svgState: 'location-failed', tips: data.code == '1' ? '请开启定位服务!' : '定位超时，请使用GPS定位!'}
-        );
-      },{
-        timeout: 10000
-      });
+        }
+        if (data.code == '3') {
+          getLocation()
+            .then(() => this._handlePositionSuccess())
+            .catch(() => this._handlePositionError())
+        }
+      }, {timeout: 100});
     },
   }
-}).reopenClass({ positionalParams: ['node', 'handleEvents'] });
+}).reopenClass({positionalParams: ['node', 'handleEvents']});
