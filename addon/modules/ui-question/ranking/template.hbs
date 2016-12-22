@@ -3,7 +3,9 @@
     {{#unless option.inputType }}
       <div class="ranking-rank" data-render-id={{option.renderId}}>
         <div class="ranking-number">{{option.sortNo}}</div>
-        {{ui-component/ui-label text=option.text icon=option.icon}}
+        {{ui-component/ui-label
+          text=option.text
+          icon=option.icon}}
         <div class="handle"></div>
       </div>
     {{/unless}}

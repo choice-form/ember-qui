@@ -18,7 +18,18 @@
   {{/if}}
 
   {{#if selected}}
-    {{svg-particle}}
+    <div class={{concat "particle-wrapper " particleSize}}>
+      <ul class="particle-container">
+        <li class="particle-item"></li>
+        <li class="particle-item"></li>
+        <li class="particle-item"></li>
+        <li class="particle-item"></li>
+        <li class="particle-item"></li>
+        <li class="particle-item"></li>
+        <li class="particle-item"></li>
+        <li class="particle-item"></li>
+      </ul>
+    </div>
   {{/if}}
 
 </div>

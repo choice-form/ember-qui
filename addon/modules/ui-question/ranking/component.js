@@ -42,7 +42,6 @@ export default Component.extend({
       scroll: false,
       scrollSensitivity: device.desktop() ? 64 : 0,
       animation: 250,
-      delay: 50,
       sort: true,
       ghostClass: "ghost",
       chosenClass: "chosen",
