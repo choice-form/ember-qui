@@ -17,7 +17,7 @@
                             icon=(if option.selected (concat (unbound option.icon) '-active') (unbound option.icon))}}
   </div>
 {{else}}
-  {{ui-component/ui-text inputRule=(unbound option.inputType)
+  {{ui-component/ui-text inputRule=(unbound option.inputRule)
                          placeholder=(unbound option.placeholder)
                          renderId=(unbound option.renderId)
                          value=option.value

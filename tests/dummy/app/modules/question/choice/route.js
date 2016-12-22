@@ -172,7 +172,7 @@ export default Route.extend({
               inputType: 'input',
               inputRule: 'timeRange',
               value: '',
-              placeholder: 'input calendar',
+              placeholder: 'timeRange',
             })
           ],
         }
