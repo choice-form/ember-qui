@@ -1,4 +1,6 @@
 .ui-matrix {
+  flex-grow: 1;
+  flex-shrink: 0;
   & .matrix-wrapper {
     position: relative;
     margin-bottom: 3rem;
@@ -93,6 +95,7 @@
           }
           & .column-item {
             position: relative;
+            backface-visibility: hidden;
             &:not(:last-child) {
               .border(auto, 0, -1px, 0, 1px, .3);
             }

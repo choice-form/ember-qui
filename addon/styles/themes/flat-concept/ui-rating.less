@@ -1,5 +1,6 @@
 .ui-rating {
   position: relative;
+  backface-visibility: hidden;
   & .rating-wrapper {
     position: relative;
     width: 100%;
@@ -31,9 +32,11 @@
     & li {
       margin-top: .5rem;
       padding: .2rem;
+      backface-visibility: hidden;
     }
   }
   & .rating-shape {
+    backface-visibility: hidden;
     & li {
       position: relative;
     }

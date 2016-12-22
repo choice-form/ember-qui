@@ -11,11 +11,13 @@ svg:not(:root) {
 }
 
 .preview-flag {
+  position: relative;
   padding: 1rem 3rem;
   text-align: center;
   margin-top: 24px;
   -webkit-backface-visibility: hidden;
   -webkit-transform-style: preserve-3d;
+  .border(auto, 0, 100%, 0, 24px, 1);
   & span {
     display: block;
     border-radius: 3px;

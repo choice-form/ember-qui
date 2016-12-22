@@ -7,6 +7,8 @@
 
 .lazy-loader {
   position: relative;
+
+  backface-visibility: hidden;
   &:not(:first-child) {
     & .row {
       padding: 2rem 0;
@@ -31,17 +33,17 @@
 }
 
 .lazy-loader-wrapper {
-  pointer-events: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   z-index: 10;
+  display: flex;
   visibility: visible;
   transition: opacity .5s ease, visibility .5s ease;
+  pointer-events: none;
 
+  justify-content: center;
+  align-items: center;
   .absolute(0,0,0,0);
   &:after {
+    content: 'Loading ... ' counter(section) '';
     counter-increment: section;
-    content: "Loading ... " counter(section) "";
   }
 }
