@@ -1,5 +1,6 @@
 .one-by-one {
   & .preview-flag {
+    margin-top: 24px;
     & ~ section {
       & .row {
         padding-top: 0 !important;
@@ -10,6 +11,14 @@
     padding: 2rem 0 1rem 0 !important;
     &:before {
       display: none;
+    }
+  }
+}
+
+html.mobile {
+  & .one-by-one {
+    & .preview-flag {
+      margin-top: 12px;
     }
   }
 }
