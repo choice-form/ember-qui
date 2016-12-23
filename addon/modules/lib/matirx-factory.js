@@ -7,9 +7,9 @@ function matrixSetHeight() {
    * 设置fixheader的高度
    * @type {any}
    */
-  const fixHeaderColumns = this.element.getElementsByClassName('fix-header-column');
+  const fixHeaderColumns = this.element.querySelectorAll('.fix-header-column');
   $(fixHeaderColumns).css('height', 'auto');
-  const matrixThumbnail = this.element.getElementsByClassName('matrix-thumbnail')[0];
+  const matrixThumbnail = this.element.querySelector('.matrix-thumbnail');
   const matrixThumbnailHeight =  matrixThumbnail.offsetHeight;
   let maxHeightForHeader = 0;
   for (let i = 0; i < fixHeaderColumns.length; i++) {
@@ -27,16 +27,17 @@ function matrixSetHeight() {
    * @type {any}
    */
 
-  const fixColumns = this.element.getElementsByClassName('fix-column')[0].getElementsByTagName('li');
+  const fixColumns = this.element.querySelector('.fix-column').querySelectorAll('li');
+  console.log(fixColumns);
   let colHeights = [];
 
   for (let j = 0; j < fixColumns.length; j++) {
     colHeights[j] = fixColumns[j].offsetHeight;
   }
 
-  const columns = this.element.getElementsByClassName('column');
+  const columns = this.element.querySelectorAll('.column');
   for (let k = 0; k < columns.length; k++) {
-    const columnItems = columns[k].getElementsByClassName('column-item');
+    const columnItems = columns[k].querySelectorAll('.column-item');
     for (var l = 0; l < colHeights.length; l++) {
       columnItems[l].style.height = colHeights[l] + 'px';
     }
@@ -68,6 +69,7 @@ export function swiperMatrixInit(element, matrixThumbnails, config, callBack) {
     },
 
     onTouchStart(swiper){
+      if(isDesktop) return null;
       this.startX = swiper.touches.startX;
     },
 

@@ -17,6 +17,8 @@ export default Component.extend({
 
   resizeIcon: computed(() => 'stretch'),
 
+  isDesktop:computed(()=>device.desktop()),
+
   swiperEffect(slidesNum){
     if (this.element) {
       const fixHeader = this.element.querySelector('.fix-header');
