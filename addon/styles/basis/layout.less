@@ -11,16 +11,19 @@ svg:not(:root) {
 }
 
 .preview-flag {
-  position: relative;
+  margin-top: 24px;
   padding: 1rem 3rem;
   text-align: center;
-  margin-top: 24px;
+  visibility: hidden;
+
+  .absolute(0, 0, auto, 0);
   -webkit-backface-visibility: hidden;
   -webkit-transform-style: preserve-3d;
-  .border(auto, 0, 100%, 0, 24px, 1);
   & span {
     display: block;
     border-radius: 3px;
+    opacity: 0;
+    transition: opacity 300ms ease;
   }
 }
 
@@ -30,8 +33,7 @@ svg:not(:root) {
 
 html.mobile {
   & .preview-flag {
-    padding: 1rem;
     margin-top: 12px;
-
+    padding: 1rem;
   }
 }

@@ -1,5 +1,16 @@
 article {
   position: relative;
+  &.form-preview {
+    & section {
+      padding-top: 3rem !important;
+      & ~ .preview-flag {
+        visibility: visible;
+        & span {
+          opacity: 1;
+        }
+      }
+    }
+  }
 }
 
 section {
