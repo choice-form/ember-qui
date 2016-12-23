@@ -9,7 +9,9 @@ export default Component.extend({
     const lottery =  $('.lottery');
     lottery.css('padding','0');
     lottery.siblings().remove();
-    $('button').prepend('<svg x="0" y="0" width="16px" height="16px" viewBox="0 0 16 16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#gift"></use></svg>');
+
+    $('button').find('#lottery-gift').length < 1 &&
+    $('button').prepend('<svg id="lottery-gift" x="0" y="0" width="16px" height="16px" viewBox="0 0 16 16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#gift"></use></svg>');
   }
 
 }).reopenClass({positionalParams: ['node', 'handleEvents']});
