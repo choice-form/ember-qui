@@ -5,8 +5,16 @@
       {{#ui-question/lazy-loader isSingle=question.lazyLoad as |viewable|}}
         {{#if viewable}}
           {{ui-question/-node node question.handleEvents}}
+        {{else}}
+          <div class="global-loading">
+            <ul class="pad">
+              <li class="line"></li>
+              <li class="line"></li>
+              <li class="line"></li>
+            </ul>
+            <span>loading...</span>
+          </div>
         {{/if}}
-        <div class="lazy-loader-wrapper"></div>
       {{/ui-question/lazy-loader}}
     {{/each}}
   </div>

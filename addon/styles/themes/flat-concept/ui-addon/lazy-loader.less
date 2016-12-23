@@ -31,19 +31,3 @@
     }
   }
 }
-
-.lazy-loader-wrapper {
-  z-index: 10;
-  display: flex;
-  visibility: visible;
-  transition: opacity .5s ease, visibility .5s ease;
-  pointer-events: none;
-
-  justify-content: center;
-  align-items: center;
-  .absolute(0,0,0,0);
-  &:after {
-    content: 'Loading ... ' counter(section) '';
-    counter-increment: section;
-  }
-}

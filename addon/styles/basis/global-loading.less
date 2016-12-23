@@ -1,0 +1,65 @@
+.global-loading {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  width: 30px;
+  transform: translate(-50%, -50%);
+  & .pad {
+    height: 36px;
+    margin: 0 auto;
+    padding: 6px;
+    border: 2px solid currentColor;
+    & .line {
+      margin-top: 4px;
+      animation: writeline 3s infinite ease-in;
+      opacity: 0;
+      border-top: 2px solid currentColor;
+      &:first-child {
+        margin-top: 2px;
+      }
+      &:nth-child(1) {
+        animation-delay: 0s;
+      }
+      &:nth-child(2)  {
+        animation-delay: .5s;
+      }
+      &:nth-child(3)  {
+        animation-delay: 1s;
+      }
+    }
+  }
+  & span {
+    font-size: 10px;
+    position: absolute;
+    right: -50%;
+    left: -50%;
+    margin-top: 6px;
+    text-align: center;
+    color: currentColor;
+    text-transform: uppercase;
+    &:after {
+      content: counter(section) '';
+      counter-increment: section;
+    }
+  }
+  &.fixed {
+    position: fixed;
+  }
+}
+
+@keyframes writeline {
+  0% {
+    width: 0;
+    opacity: 0;
+  }
+  33% {
+    width: 100%;
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
