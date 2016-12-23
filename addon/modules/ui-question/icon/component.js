@@ -9,10 +9,11 @@ export default Component.extend({
   tagName: '',
   iconService: inject("icon-loader"),
 
-  init(){
+  didReceiveAttrs(args){
     this._super(...arguments);
-
-    get(this, 'iconService').getIconByUrl(get(this, 'option.icon'))
+    const renderId = args.newAttrs.option.renderId;
+    console.log(renderId);
+    get(this, 'iconService').getIconByUrl(get(this, 'option.icon'), renderId)
       .then(icon => !this.isDestroyed && set(this, 'svg', icon))
   },
 
