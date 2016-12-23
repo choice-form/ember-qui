@@ -2,7 +2,7 @@
   <h4>权重指示</h4>
   <div class="weight-chart">
     {{#each options as |option|}}
-      {{html-safe (concat "<div style='flex-basis:" option.value "%;" "background:" option.color "'></div>")}}
+      {{html-safe (concat "<div style='flex-basis:" option.percent ";" "background:" option.color "'></div>")}}
     {{/each}}
   </div>
 </div>
@@ -19,7 +19,7 @@
           {{option.maxValue}}{{node.unit}}
         </span>
         <span style="position: absolute; left: 0; bottom: 0;">
-          <span class="displayValue">{{unless option.value 0 option.value}}</span>{{node.unit}}
+          <span class="displayValue">{{if (eq option.value '') '-' option.value}}</span>{{node.unit}}
         </span>
       </h4>
 

@@ -16,7 +16,7 @@
         {{option.maxValue}}{{node.unit}}
       </span>
       <span style="position: absolute; left: 0; bottom: 0;">
-        {{displayValue}}{{node.unit}}
+         <span class="displayValue">{{if (eq displayValue '') '-' displayValue}}</span>{{node.unit}}
       </span>
     </h4>
     {{ui-range

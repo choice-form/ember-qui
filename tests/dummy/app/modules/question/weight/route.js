@@ -13,7 +13,8 @@ export default Route.extend({
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
         icon: '', // 选项的Icon
         color:'#2DBE60',
-        value: '',
+        value: '20',
+        percent: '20%',
         maxValue:100,
       }),
       Ember.Object.create({
@@ -23,6 +24,7 @@ export default Route.extend({
         icon: '', // 选项的Icon
         color:'#0FA6F0',
         value: '',
+        percent: '50%',
         maxValue:100,
       }),
       Ember.Object.create({
@@ -32,6 +34,7 @@ export default Route.extend({
         icon: '', // 选项的Icon
         color:'#ca2027',
         value: '',
+        percent: '2%',
         maxValue:100,
       }),
       Ember.Object.create({
@@ -41,6 +44,7 @@ export default Route.extend({
         icon: '', // 选项的Icon
         color:'gray',
         value: '',
+        percent: '6%',
         maxValue:100,
       })
     ];

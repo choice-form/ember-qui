@@ -16,7 +16,7 @@ export default Route.extend({
         icon: '', // 选项的Icon
         inputType: '', // 'select', 'input', 'select-input',
         inputRule: '', //输入控件初始化规则
-        value: '',
+        value: '100',
         minValue: 0,
         maxValue: 10000,
         minValueText:'最小分值',
@@ -62,7 +62,7 @@ export default Route.extend({
         icon: '', // 选项的Icon
         inputType: '', // 'select', 'input', 'select-input',
         inputRule: '', //输入控件初始化规则
-        value: 1,
+        value: '',
         minValue: 1,
         maxValue: 10000,
         step:2,

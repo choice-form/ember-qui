@@ -1,6 +1,6 @@
 import Component from 'ember-component';
 import layout from './template';
-import computed, { reads } from 'ember-computed';
+import computed, {reads} from 'ember-computed';
 import get from 'ember-metal/get';
 import set from 'ember-metal/set';
 
@@ -12,7 +12,7 @@ export default Component.extend({
   'data-render-id': reads('option.renderId'),
 
   displayValue: computed('option.value', {
-    get() { return get(this, 'option.value') ? get(this, 'option.value') : '-'},
+    get() { return get(this, 'option.value') },
     set(key, value) { return value }
   }),
 
@@ -23,11 +23,11 @@ export default Component.extend({
 
     handleOptionInput(value){
       this.handleEvents.handleOptionInput(
-        Math.round(value), get(this, 'option'), get(this,'node')
+        Math.round(value), get(this, 'option'), get(this, 'node')
       );
     },
 
-    handleOptionInputForTextarea({ currentTarget: target }){
+    handleOptionInputForTextarea({currentTarget: target}){
       this.handleEvents.handleOptionInput(
         target.value, get(this, 'option'), get(this, 'node')
       );
@@ -36,4 +36,4 @@ export default Component.extend({
       target.style.height = target.scrollHeight + 2 + 'px';
     }
   }
-}).reopenClass({ positionalParams: ['node', 'option', 'handleEvents'] });
+}).reopenClass({positionalParams: ['node', 'option', 'handleEvents']});
