@@ -16,7 +16,10 @@ export default Component.extend({
   checked: false,
 
   // 状态，location、positioning、location-successful、location-failed
-  svgState: 'location',
+  svgState: computed('node.value', function () {
+    const value = get(this, 'node.value');
+    return value ? 'location-successful' : 'location';
+  }),
 
   // 'positioning' 'successful' 'failed'
   locationState: '',
@@ -25,7 +28,10 @@ export default Component.extend({
     return `pin ${get(this, 'locationState')}`;
   }).readOnly(),
 
-  tips: '点击获取位置信息',
+  tips: computed('node.value', function () {
+    const value = get(this, 'node.value');
+    return value ? '定位成功' : '点击获取位置信息';
+  }),
 
   _handlePositionSuccess(position) {
     this.handleEvents.handleQuestionInput(position, get(this, 'node'));
