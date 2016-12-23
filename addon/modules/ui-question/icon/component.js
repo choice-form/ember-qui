@@ -12,7 +12,6 @@ export default Component.extend({
   didReceiveAttrs(args){
     this._super(...arguments);
     const renderId = args.newAttrs.option.renderId;
-    console.log(renderId);
     get(this, 'iconService').getIconByUrl(get(this, 'option.icon'), renderId)
       .then(icon => !this.isDestroyed && set(this, 'svg', icon))
   },
