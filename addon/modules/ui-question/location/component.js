@@ -50,7 +50,7 @@ export default Component.extend({
 
       navigator.geolocation.getCurrentPosition(() => {
         getLocation()
-          .then(() => this._handlePositionSuccess())
+          .then((position) => this._handlePositionSuccess(position))
           .catch(() => this._handlePositionError())
       }, (data) => {
         if (data.code == '1') {
@@ -60,7 +60,7 @@ export default Component.extend({
         }
         if (data.code == '3') {
           getLocation()
-            .then(() => this._handlePositionSuccess())
+            .then((position) => this._handlePositionSuccess(position))
             .catch(() => this._handlePositionError())
         }
       }, {timeout: 100});
