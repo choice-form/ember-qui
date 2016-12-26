@@ -20,14 +20,16 @@
   </div>
 </section>
 
-{{ui-question/-node/button-cell
-  prevButton=question.prevButton
-  nextButton=question.nextButton
-  handlePrevClick=question.handleEvents.handlePrevClick
-  handleNextClick=question.handleEvents.handleNextClick
-  rightIcon="arrows-tail-right"
+{{#if (or question.prevButton question.nextButton)}}
+  {{ui-question/-node/button-cell
+    prevButton=question.prevButton
+    nextButton=question.nextButton
+    handlePrevClick=question.handleEvents.handlePrevClick
+    handleNextClick=question.handleEvents.handleNextClick
+    rightIcon="arrows-tail-right"
+  }}
+{{/if}}
 
-}}
 
 {{#unless question.hideFooter}}
   {{ui-addon/footer logoText=question.logoText}}
