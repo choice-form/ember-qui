@@ -10,28 +10,7 @@ svg:not(:root) {
   fill: currentColor;
 }
 
-.preview-flag {
-  padding: 1rem 3rem;
-  text-align: center;
-  visibility: hidden;
-
-  .absolute(0, 0, auto, 0);
-  -webkit-backface-visibility: hidden;
-  -webkit-transform-style: preserve-3d;
-  & span {
-    display: block;
-    border-radius: 3px;
-    opacity: 0;
-    transition: opacity 300ms ease;
-  }
-}
-
 .mbsc-fr-overlay {
   backface-visibility: hidden;
 }
 
-html.mobile {
-  & .preview-flag {
-    padding: 1rem;
-  }
-}

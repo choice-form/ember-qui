@@ -63,6 +63,9 @@ export default Route.extend({
         {icon: "trash"},
         {icon: "ranking"},
         {icon: "count-down"},
+        {icon: "imac"},
+        {icon: "ipad"},
+        {icon: "iphone"},
       ],
       basic: [
         {icon: "checkbox"},
