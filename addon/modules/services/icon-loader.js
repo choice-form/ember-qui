@@ -17,12 +17,12 @@ export default Service.extend({
       return RSVP.reject();
     }
 
-    if (this._cache[renderId]) {
-      return RSVP.resolve(this._cache[renderId]);
+    if (this._cache[renderId+url]) {
+      return RSVP.resolve(this._cache[renderId+url]);
     }
 
     return get(this, 'ajax')
       .request(url, { dataType: 'xml' })
-      .then(res => this._cache[renderId] = res.children[0]);
+      .then(res => this._cache[renderId+url] = res.children[0]);
   },
 });
