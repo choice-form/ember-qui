@@ -1,0 +1,75 @@
+.count-down {
+  position: fixed;
+  z-index: 9;
+  top: 0;
+  right: 0;
+  left: 0;
+  text-align: center;
+  pointer-events: none;
+  & .count-down-wrapper {
+    margin: 0 auto;
+    .height-fix();
+    & div {
+      float: right;
+      width: 6.5rem;
+      padding: .5rem 1rem;
+      & span,
+      & svg {
+        display: inline-block;
+        vertical-align: middle;
+      }
+    }
+  }
+}
+
+
+/*------------------- responsive -------------------*/
+
+html.desktop,
+html.tablet.landscape {
+  & .count-down {
+    & + .progress-bar {
+      & .progress-wrapper {
+        padding-right: 10rem;
+        &:before {
+          right: 10rem;
+        }
+      }
+    }
+    & .count-down-wrapper {
+      padding: 0 3rem;
+      & div {
+        border-radius: 0 0 3px 3px;
+      }
+    }
+  }
+}
+
+html.tablet.portrait {
+  & .count-down {
+    & .count-down-wrapper {
+      & div {
+        width: 10vh;
+        border-radius: 0 0 3px 3px;
+      }
+    }
+  }
+}
+
+html.mobile {
+  & .count-down {
+    & + .progress-bar {
+      & .progress-wrapper {
+        padding-right: 6.5rem;
+        &:before {
+          right: 6.5rem;
+        }
+      }
+    }
+    & .count-down-wrapper {
+      & div {
+        border-radius: 0 0 0 3px;
+      }
+    }
+  }
+}

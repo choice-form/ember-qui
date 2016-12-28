@@ -1,0 +1,145 @@
+.ui-icon {
+  position: relative;
+  backface-visibility: hidden;
+  & input {
+    margin: 0;
+
+    .absolute(auto, 0, 0, auto);
+    .input(100%, 100%);
+    &:checked {
+      & + label {
+        transition: color 200ms ease;
+      }
+    }
+  }
+  & label {
+    padding: 1rem;
+    cursor: pointer;
+    & .effect-container {
+      margin-bottom: .5rem;
+
+      align-self: center;
+      & .svg-wrapper {
+        position: relative;
+        width: 64px;
+        height: 64px;
+        & svg {
+          display: inline-block;
+          vertical-align: middle;
+          margin: auto;
+
+          .absolute(0, 0, 0, 0);
+        }
+      }
+    }
+    & .labels {
+      padding-top: .5rem;
+      text-align: center;
+      & svg {
+        display: inline-block;
+      }
+      & span {
+        font-size: smaller;
+        display: block;
+      }
+    }
+  }
+}
+
+/*------------------- fix -------------------*/
+
+.icon-fix() {
+  .icon {
+    text-align: center;
+    & .ui-icon {
+      width: 24.4%;
+      display: inline-block;
+      @media (max-width: 767px) {
+        width: 32.8%;
+      }
+    }
+  }
+}
+
+html.ie {
+  .icon-fix();
+}
+
+@supports not(display: flex) {
+  .icon-fix();
+}
+
+/*------------------- supports -------------------*/
+
+.icon-supports() {
+  .icon {
+    display: flex;
+    flex-direction: row;
+
+    flex-wrap: wrap;
+    justify-content: center;
+    & .ui-icon {
+      display: flex;
+      flex-direction: column;
+
+      align-self: stretch;
+      flex-basis: 25%;
+      @media (max-width: 767px) {
+        flex-basis: 33.3%;
+      }
+      & label {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 2;
+      }
+    }
+  }
+}
+
+html.internet,
+html.edge {
+  .icon-supports();
+}
+
+@supports(display: flex) {
+  .icon-supports();
+}
+
+/*------------------- responsive -------------------*/
+
+html.desktop {
+  & .ui-icon {
+    & input:checked {
+      & + label {
+        & .svg-wrapper {
+          & svg {
+            opacity: 1;
+          }
+        }
+      }
+    }
+    & label {
+      & .svg-wrapper {
+        & svg {
+          transition: opacity 200ms ease;
+          opacity: .8;
+        }
+      }
+      &:hover {
+        & .svg-wrapper {
+          & svg {
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+}
+
+/*------------------- custom -------------------*/
+.icon {
+  & .ui-text, & .ui-choice {
+    width: 100%;
+    flex-basis: 100%;
+  }
+}
