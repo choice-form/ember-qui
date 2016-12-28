@@ -4,7 +4,7 @@ import layout from './template';
 export default Component.extend({
   layout,
 
-  didRender(){
+  didInsertElement(){
      // 先删除control节点
     this.element.parentNode.remove();
   }
