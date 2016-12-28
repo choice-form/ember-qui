@@ -8,12 +8,6 @@ export default Component.extend({
   layout,
   classNames:['row'],
 
-  classNameBindings: ['typeClassName'],
-  typeClassName: computed('node.quesType', function() {
-    const type = get(this, 'node.quesType');
-    return type ? `data-${type}` : null;
-  }).readOnly(),
-
   attributeBindings: ['data-render-id'],
   'data-render-id': reads('node.renderId'),
 
