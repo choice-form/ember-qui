@@ -28,9 +28,7 @@ function matrixSetHeight() {
    */
 
   const fixColumns = this.element.querySelector('.fix-column').querySelectorAll('li');
-  console.log(fixColumns);
   let colHeights = [];
-
   for (let j = 0; j < fixColumns.length; j++) {
     colHeights[j] = fixColumns[j].offsetHeight;
   }
