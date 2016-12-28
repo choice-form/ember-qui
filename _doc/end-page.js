@@ -39,5 +39,8 @@
  }
 
  href:'https://cform.io/' //自定义链接
+ hideFooter: false //是否影藏footer
+ customText: 'logotext' //自定义logo的文字
+ customLogo:'http://img/1.png' //自定义logo的图片
  ```
  */
