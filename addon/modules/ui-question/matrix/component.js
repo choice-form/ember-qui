@@ -16,6 +16,8 @@ export default Component.extend({
   'data-render-id': reads('node.renderId'),
 
   resizeIcon: computed(() => 'stretch'),
+  isDesktop:false,
+  device: '',
 
   swiperEffect(slidesNum){
     if (this.element) {
@@ -37,6 +39,15 @@ export default Component.extend({
     }
   },
 
+  deviceChangeSwiper(e){
+    const device = e.detail.device;
+    if(get(this, 'device') == device) return ;
+    this.swiper && this.swiper.destroy(true, true);
+    this.fixHeader && this.fixHeader.destroy(true, true);
+    this.swiperEffect(device=='desktop' ? 2 : 1);
+    set(this,'device', device);
+  },
+
   didReceiveAttrs(){
     this._super(...arguments);
     if(hasClass(document.getElementsByTagName('html')[0],'desktop')){
@@ -54,11 +65,13 @@ export default Component.extend({
         matirxSetHeight.call(this);
       };
     }
+    window.addEventListener('device_change', e => this.deviceChangeSwiper(e));
   },
 
   willDestroyElement(){
     this.swiper && this.swiper.destroy(true, true);
     this.fixHeader && this.fixHeader.destroy(true, true);
+    window.removeEventListener('device_change', this.deviceChangeSwiper);
   },
 
   actions: {
