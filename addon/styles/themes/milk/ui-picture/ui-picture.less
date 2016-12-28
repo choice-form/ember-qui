@@ -1,0 +1,193 @@
+@import "full";
+@import "grid";
+@import "matrix";
+@import "thumbnail";
+@import "pinterest";
+
+.picture-choice {
+  padding: 2rem 1rem 1rem 1rem;
+  backface-visibility: hidden;
+  &:before {
+    display: none;
+  }
+}
+
+.picture-layout {
+  &.insert-block {
+    & .attachment {
+      margin-bottom: 0;
+    }
+    & .pic-description {
+      font-size: smaller;
+      padding: .5rem 1rem;
+
+      .absolute(auto, 0, 0, 0);
+    }
+  }
+  &.superscript {
+    & .ui-picture {
+      & label {
+        & .attachment {
+          &:before {
+            z-index: 1;
+            content: '';
+            border-left: 4.5rem solid transparent;
+
+            .absolute(0, -1px, auto, auto);
+          }
+        }
+        & .pic-description {
+          position: static;
+          & .effect-container {
+            z-index: 2;
+            width: 1.5rem;
+            height: 1.5rem;
+
+            .absolute(.5rem, .5rem, auto, auto);
+            & .svg-wrapper {
+              & svg {
+                display: block;
+                width: 1.5rem;
+                height: 1.5rem;
+                margin: 0;
+              }
+            }
+          }
+        }
+      }
+    }
+    &.insert-block {
+      & .pic-description {
+        padding: 0;
+        & > span {
+          padding: .5rem 1rem;
+
+          .absolute(auto, 0, 0, 0);
+        }
+      }
+    }
+  }
+}
+
+.ui-picture {
+  position: relative;
+  backface-visibility: hidden;
+  & input {
+    margin: 0;
+
+    .absolute(0, auto, auto, 0);
+    .input(1.5rem, 1.5rem);
+  }
+  & label {
+    display: block;
+    cursor: pointer;
+
+    will-change: box-shadow;
+    & .attachment {
+      position: relative;
+      margin-bottom: 1rem;
+      padding: 0;
+      user-select: none;
+      &:after {
+        z-index: 2;
+        content: '';
+        transition: box-shadow 200ms ease, background-color 200ms ease;
+
+        .absolute(0, 0, 0, 0);
+      }
+    }
+    & .pic-description {
+      position: relative;
+      & .effect-container {
+        position: relative;
+        display: inline-block;
+        vertical-align: middle;
+        & .svg-wrapper {
+          & svg {
+            display: block;
+            width: 1rem;
+            height: 1rem;
+          }
+        }
+      }
+      & span {
+        display: inline;
+        vertical-align: middle;
+      }
+    }
+  }
+}
+.thumb-wrapper {
+  width: 100%;
+  & .thumb {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    padding-top: 1rem;
+    margin: 1.5rem -.5rem 0 -.5rem;
+    .border(0, .5rem, auto, .5rem, 2px, .3);
+    & .thumb-item {
+      display: inline-block;
+      vertical-align: middle;
+      & a {
+        position: relative;
+        display: block;
+        cursor: pointer;
+        margin: .5rem;
+        width: 3.5rem;
+        height: 3.5rem;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        &:after {
+          z-index: 2;
+          content: '';
+          transition: box-shadow 200ms ease, background-color 200ms ease;
+
+          .absolute(0, 0, 0, 0);
+        }
+      }
+    }
+  }
+}
+
+/*------------------- fix -------------------*/
+
+.picture-fix() {
+  .picture-layout {
+    display: block;
+  }
+}
+
+html.ie {
+  .picture-fix();
+}
+
+@supports not(display: flex) {
+.picture-fix();
+}
+
+/*------------------- supports -------------------*/
+
+.picture-supports() {
+  .picture-layout {
+    display: flex;
+  }
+}
+
+html.edge,
+html.internet {
+  .picture-supports();
+}
+
+@supports (display: flex) {
+.picture-supports();
+}
+
+/*------------------- responsive -------------------*/
+
+html.mobile {
+  & .picture-choice {
+    padding: 0 .5rem 1rem .5rem;
+  }
+}

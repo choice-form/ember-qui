@@ -1,0 +1,80 @@
+
+
+.ui-ranking {
+  counter-reset: ranking-badass-counter;
+  backface-visibility: hidden;
+  & .ranking-wrapper {
+    & + .ui-text {
+      margin-top: 1rem;
+    }
+  }
+  & .ranking-rank {
+    position: relative;
+    display: flex;
+    transition: box-shadow 200ms ease;
+    border-radius: @radius-m;
+    backface-visibility: hidden;
+    &:not(:last-child) {
+      margin-bottom: 1rem;
+    }
+    & label {
+      display: block;
+      padding: 1rem 4rem 1rem 1rem;
+
+      flex-grow: 2;
+      & .effect-container {
+        width: 16px;
+        height: 16px;
+        margin: auto 0;
+
+        .absolute(0, 1rem, 0, auto);
+        & svg {
+          display: block;
+        }
+      }
+    }
+    &.complete {
+      & .ranking-number {
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1rem;
+        display: flex;
+        flex-direction: column;
+        padding: 1rem 0 1rem 1rem;
+        opacity: .6;
+
+        justify-content: center;
+        & span {
+          font-size: 1.5rem;
+          font-weight: bold;
+          line-height: 1rem;
+          content: counter(ranking-badass-counter, decimal);
+          counter-increment: ranking-badass-counter;
+        }
+      }
+    }
+    & .handle {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 30%;
+      cursor: move;
+      cursor: -webkit-grabbing;
+      backface-visibility: hidden;
+    }
+    &.ghost {
+      box-shadow: none !important;
+    }
+  }
+}
+
+/*------------------- responsive -------------------*/
+
+html.desktop {
+  & .ui-ranking {
+    & .handle {
+      width: 100%;
+    }
+  }
+}

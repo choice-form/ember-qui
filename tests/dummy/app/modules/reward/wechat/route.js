@@ -4,8 +4,6 @@ import faker from 'faker';
 
 export default Route.extend({
   model() {
-
-
     return {
       title: `title${faker.finance.accountName()}`,
       renderId: faker.date.between('2016-01-01', '2016-12-31'),

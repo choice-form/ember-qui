@@ -4,7 +4,7 @@ import computed, { reads } from 'ember-computed';
 import get from 'ember-metal/get';
 import set from 'ember-metal/set';
 import { scheduleOnce, later } from 'ember-runloop';
-import device from 'device';
+import { hasClass } from '../../lib/attribute-manage';
 import $ from 'jquery';
 import matirxSetHeight, { swiperHeaderInit, swiperMatrixInit } from '../../lib/matirx-factory';
 
@@ -16,8 +16,6 @@ export default Component.extend({
   'data-render-id': reads('node.renderId'),
 
   resizeIcon: computed(() => 'stretch'),
-
-  isDesktop:computed(()=>device.desktop()),
 
   swiperEffect(slidesNum){
     if (this.element) {
@@ -34,15 +32,24 @@ export default Component.extend({
       },()=>{
         matirxSetHeight.call(this);
       });
-      !device.desktop() && this.swiper.disableTouchControl();
+      !get(this, 'isDesktop') && this.swiper.disableTouchControl();
       this.swiper.params.control = this.fixHeader;
     }
   },
 
-  didInsertElement(){
-    scheduleOnce('afterRender',this,'swiperEffect', device.desktop() ? 2 : 1);
+  didReceiveAttrs(){
+    this._super(...arguments);
+    if(hasClass(document.getElementsByTagName('html')[0],'desktop')){
+      set(this, 'isDesktop', true);
+    }else{
+      set(this, 'isDesktop', false);
+    }
+  },
 
-    if (device.desktop()) {
+  didInsertElement(){
+    this._super(...arguments);
+    scheduleOnce('afterRender',this,'swiperEffect', get(this, 'isDesktop') ? 2 : 1);
+    if (get(this, 'isDesktop')) {
       window.onresize = ()=> {
         matirxSetHeight.call(this);
       };
@@ -68,7 +75,7 @@ export default Component.extend({
       } else {
         set(this, 'resizeIcon', 'stretch');
         later(()=>{
-          this.swiperEffect(device.desktop() ? 2 : 1);
+          this.swiperEffect(2);
         },100)
       }
     },

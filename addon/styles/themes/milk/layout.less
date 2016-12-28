@@ -1,5 +1,5 @@
 article {
-  position: relative;
+  overflow: hidden;
 }
 
 .c-container {
@@ -8,8 +8,6 @@ article {
 
 section {
   min-height: 100vh;
-  margin-bottom: -12rem;
-  padding: 2rem 2rem 12rem 2rem;
 }
 
 .wrapper {
@@ -26,22 +24,19 @@ section {
 
 .header {
   position: relative;
-  padding: 1rem;
+  padding: 4rem 1rem;
   & h2 {
     margin-bottom: 1rem;
     word-wrap: break-word;
-  }
-  & + .control {
-    margin-top: 1rem;
-    padding-top: 2rem;
-
-    .border(0, 1rem, auto, 1rem, 1px, .2);
   }
 }
 
 .control {
   position: relative;
-  padding: 1rem;
+  padding: 0 1rem;
+  margin: 1rem;
+  border-radius: .5rem;
+  box-shadow: 0 0 6px 2px currentColor;
 
   .height-fix();
   & label {
@@ -81,7 +76,6 @@ html.tablet.portrait {
 
 html.tablet.portrait {
   & article {
-    padding-top: 24px;
     max-width: 70vw;
   }
   & section {
@@ -91,9 +85,6 @@ html.tablet.portrait {
 
 html.mobile {
   font-size: 14px;
-  & article {
-    padding-top: 12px;
-  }
   & section {
     padding: 0 0 12rem 0;
   }

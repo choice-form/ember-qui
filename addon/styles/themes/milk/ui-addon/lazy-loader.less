@@ -1,0 +1,33 @@
+.row {
+  & + .lazy-loader-wrapper {
+    visibility: hidden;
+    opacity: 0;
+  }
+}
+
+.lazy-loader {
+  position: relative;
+
+  backface-visibility: hidden;
+  &:not(:first-child) {
+    & .row {
+
+    }
+  }
+  &:first-child:not(:only-child) {
+    & .row {
+
+    }
+  }
+  &:last-child,
+  &:only-child {
+    & .row {
+
+    }
+  }
+  &:not(:last-child) {
+    & .row {
+      .border(auto, 1rem, 0, 1rem, 2px, 1);
+    }
+  }
+}
