@@ -1,6 +1,10 @@
-{{#if customLogo}}
-  <span class="custom-text">{{customText}}</span>
-  <img alt="Custom Logo" src={{customLogo}}>
+{{#if useCustomLogo}}
+  {{#if customText}}
+    <span class="custom-text">{{customText}}</span>
+  {{/if}}
+  {{#if customLogo}}
+    <img alt="Custom Logo" src={{customLogo}}>
+  {{/if}}
 {{else}}
   <span>Powered by</span>
   <svg viewBox="0 0 78 13">
