@@ -4,7 +4,11 @@
       <header class="reward-header">
         {{#if (eq node.rewardType 'wechat')}}
           <div class="wechat-profile">
-            <img src={{node.wechatImage}}>
+            {{#if node.wechatImage}}
+              <img src={{node.wechatImage}}>
+              {{else}}
+              {{svg-item 'users' size='64'}}
+            {{/if}}
             <span>{{node.wechatID}}</span>
           </div>
         {{/if}}

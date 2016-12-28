@@ -11,7 +11,7 @@ export default Route.extend({
       renderId: faker.date.between('2016-01-01', '2016-12-31'),
       description: `description${faker.lorem.paragraph()}`,
       rewardValue: `$${faker.finance.mask()}`,
-      wechatImage: faker.image.avatar(),
+      wechatImage: '',
       wechatID: faker.name.findName(),
       icon: 'present-gift',
       typeName: '验证节点',
