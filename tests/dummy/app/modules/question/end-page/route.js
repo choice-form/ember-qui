@@ -68,7 +68,9 @@ export default Route.extend({
 
       nextButton: '下一题',
 
-      hideFooter: true,
+      hideFooter: false,
+
+      useCustomLogo:true,
       customText:'janisesheng',
       customLogo:'/images/sample-1.jpg',
 
