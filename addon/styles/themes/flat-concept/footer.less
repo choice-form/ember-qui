@@ -1,7 +1,6 @@
 footer {
   position: relative;
   height: 12rem;
-  padding-top: 4rem;
   text-align: center;
   border-top-width: 1px;
   border-top-style: solid;
@@ -15,7 +14,7 @@ footer {
     font-size: small;
     display: block;
   }
-  a {
+  & a {
     text-decoration: underline;
     color: currentColor;
   }
@@ -23,23 +22,72 @@ footer {
     font-size: 1.5rem;
     color: currentColor;
   }
+  & img {
+    pointer-events: none;
+    max-width: 10rem;
+    & + span {
+      margin-top: .5rem;
+    }
+  }
+}
+
+/*------------------- fix -------------------*/
+
+.footer-fix() {
+  footer {
+    display: table;
+    width: 100%;
+    & .footer-wrapper {
+      display: table-cell;
+      vertical-align: middle;
+    }
+  }
+}
+
+html.ie {
+  .footer-fix();
+}
+
+@supports not(display: flex) {
+.footer-fix();
+}
+
+/*------------------- supports -------------------*/
+
+.footer-supports() {
+  footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+html.internet,
+html.edge {
+  .footer-supports();
+}
+
+@supports(display: flex) {
+.footer-supports();
 }
 
 /*------------------- responsive -------------------*/
 
+html.tablet.portrait {
+  & footer {
+    border: none;
+  }
+}
+
 html.mobile {
   & footer {
-    height: auto;
     margin: 0 1.5rem;
-    padding: 2rem 0;
+    border: none;
     & svg:not(:root) {
       height: 1rem;
     }
     & span {
       font-size: x-small;
-    }
-    & .custom-logo-text {
-      font-size: 1rem;
     }
   }
 }
