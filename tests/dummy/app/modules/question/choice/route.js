@@ -26,8 +26,8 @@ export default Route.extend({
           selectType: 'radio',
           showStyle: '',
           uuid: '001',
-          isMust: true,
-          number: '1',
+          asterisks: true,
+          number: '',
           options: [
             Ember.Object.create({
               selected: false,
@@ -91,7 +91,7 @@ export default Route.extend({
           selectType: 'checkbox',
           showStyle: '',
           uuid: '002',
-          isMust: false,
+          asterisks: true,
           number: '2',
           options: [
             Ember.Object.create({

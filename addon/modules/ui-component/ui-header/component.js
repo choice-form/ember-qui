@@ -17,10 +17,17 @@ export default Component.extend({
   hasTopImages: and('hasImages', 'imageTop').readOnly(),
   hasNormalImages: and('hasImages', 'imageNormal').readOnly(),
 
-  requiredMark: computed('header.isMust', {
+  requiredMark: computed('header.asterisks', {
     get() {
-      return get(this, 'header.isMust')
+      return get(this, 'header.asterisks')
         ? htmlSafe(`<span class="required-asterisk">*</span>`) : null;
+    }
+  }).readOnly(),
+
+  quesNumber: computed('header.number', {
+    get() {
+      return get(this, 'header.number')
+        ? htmlSafe(`<span class="question-number">${get(this, 'header.number')}.</span>`) : null;
     }
   }).readOnly(),
 
@@ -55,7 +62,7 @@ export default Component.extend({
       image: image.natural,
  }
  ```
- * @property {Bool} header.isMust - 是否必选
+ * @property {Bool} header.asterisks - 是否必选
  * @property {Number} header.number - 当前是第几题
  * @property {String} header.title - 问卷标题
  * @property {String} header.description - 问卷描述

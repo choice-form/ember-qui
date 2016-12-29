@@ -17,7 +17,7 @@
  * @property {String} node.quesType - 当前的题型: verification
  * @property {String} node.verificationType - 验证类型: sms, password, captcha
  * @property {String} node.captcha - 验证码 验证是返回的image base64
- * @property {String} node.isMust - 当前节点,是否为必选, 'true' or 'false'
+ * @property {String} node.asterisks - 当前节点,是否为必选, 'true' or 'false'
  * @property {String} node.uuid - 当前题目节点的唯一ID
  * @property {String} node.number - 当前节点的索引值
  * @example
@@ -38,7 +38,7 @@
       verificationType: 'captcha', // 验证类型: sms, password, captcha
       captcha: 'base64',
       uuid: '002',
-      isMust:true,
+      asterisks:true,
       number:'3',
  }
  ```

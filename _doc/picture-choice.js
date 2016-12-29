@@ -21,7 +21,7 @@
  * @property {String} node.objectFit - 图片是否显示全部或者撑满 cover、contain, 默认会附带背景色
  * @property {String} node.textDirection - 图片文字的位置 'insert-block , out-block, empty'
  * @property {String} node.pictureSize: - thumbnail模式使用,控制图片的大小, 默认大图, 参数为'pic-s' 为小图,
- * @property {String} node.isMust - 当前节点,是否为必选, 'true' or 'false'
+ * @property {String} node.asterisks - 当前节点,是否为必选, 'true' or 'false'
  * @property {String} node.uuid - 当前题目节点的唯一ID
  * @property {String} node.number - 当前节点的索引值
  * @example
@@ -40,7 +40,7 @@
       textDirection:'insert-block', //insert-block(文字在图片上) ,out-block(默认), empty(文字为空)
       pictureSize: 'pic-s',  //pic-s 代表小图, 默认为大图
       uuid: faker.date.between('2016-01-01', '2016-12-31'),
-      isMust:false,
+      asterisks:false,
       number:'2',
  }
  ```

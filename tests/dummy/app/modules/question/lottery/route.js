@@ -19,7 +19,7 @@ export default Route.extend({
           ],
           title: faker.finance.accountName(),
           description: faker.lorem.paragraph(),
-          goal: true,
+          goal: false,
           rewardCount: 100,
           renderId: faker.date.between('2016-01-01', '2016-12-31'),
           typeName:'抽奖节点',
