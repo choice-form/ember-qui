@@ -33,11 +33,100 @@
       & h2 {
         margin-bottom: 1rem;
       }
-
       & .current-time {
         font-size: smaller;
         display: block;
         margin-top: 1rem;
+      }
+      & .reward-numbering {
+        display: inline-block;
+        margin-top: 2rem;
+        padding: .5rem 1rem;
+        border: 1px solid currentColor;
+        border-radius: @radius-m;
+        & strong {
+          padding: 0 .2rem;
+        }
+      }
+    }
+    & .congratulations {
+      & .ribbon {
+        position: relative;
+        display: block;
+        margin: 1rem 3rem;
+        animation: main 250ms;
+        & h2 {
+          position: relative;
+          z-index: 3;
+          padding: 1rem;
+          text-align: center;
+          text-transform: uppercase;
+        }
+        & i {
+          position: absolute;
+          &:nth-of-type(1),
+          &:nth-of-type(2) {
+            position: absolute;
+            z-index: 2;
+            bottom: -1rem;
+            animation: edge 500ms;
+            border: 1rem solid transparent;
+          }
+          &:nth-of-type(1) {
+            left: -1rem;
+            border-right-color: fade(black, 50%);
+          }
+          &:nth-of-type(2) {
+            right: -1rem;
+            border-left-color: fade(black, 50%);
+          }
+          &:nth-of-type(3),
+          &:nth-of-type(4) {
+            z-index: 1;
+            bottom: -1rem;
+            width: 2rem;
+            transform-origin: 100% 0;
+            animation: back 600ms;
+            border-width: 2rem;
+            border-style: solid;
+          }
+          &:nth-of-type(3) {
+            left: -3rem;
+            border-left-color: transparent !important;
+          }
+          &:nth-of-type(4) {
+            right: -3rem;
+            transform-origin: 0 0;
+            border-right-color: transparent !important;
+          }
+        }
+      }
+      /* animations */
+      @keyframes main {
+        0% {
+          transform: scaleX(0);
+        }
+        100% {
+          transform: scaleX(1);
+        }
+      }
+      @keyframes edge {
+        0%,
+        50% {
+          transform: scaleY(0);
+        }
+        100% {
+          transform: scaleY(1);
+        }
+      }
+      @keyframes back {
+        0%,
+        75% {
+          transform: scaleX(0);
+        }
+        100% {
+          transform: scaleX(1);
+        }
       }
     }
   }
@@ -58,8 +147,8 @@
       }
       & .qrcode-item {
         & canvas {
-          max-width: 15rem;
           width: 100%;
+          max-width: 15rem;
         }
         & span {
           display: block;

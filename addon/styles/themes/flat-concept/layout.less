@@ -28,8 +28,10 @@ section {
   position: relative;
   padding: 1rem;
   & h2 {
-    margin-bottom: 1rem;
     word-wrap: break-word;
+    & + p {
+      margin-top: 1rem;
+    }
   }
   & + .control {
     margin-top: 1rem;
@@ -41,7 +43,7 @@ section {
 
 .control {
   position: relative;
-  padding: 1rem;
+  padding: 0 1rem;
 
   .height-fix();
   & label {
@@ -81,7 +83,7 @@ html.tablet.portrait {
 
 html.tablet.portrait {
   & article {
-    max-width: 70vw;
+
   }
   & section {
     padding: 0 0 12rem 0;

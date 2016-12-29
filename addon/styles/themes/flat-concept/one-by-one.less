@@ -1,11 +1,14 @@
 .one-by-one {
   & .lazy-loader {
-    padding: 2rem 0 1rem 0;
-    &.data-end-page {
-      padding-top: 0;
-    }
+    padding: 2rem 0;
     &:before {
       display: none;
+    }
+    &:last-child,
+    &:only-child {
+      .row {
+        padding-bottom: 0;
+      }
     }
   }
 }
