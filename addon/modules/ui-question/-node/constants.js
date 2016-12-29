@@ -1,5 +1,5 @@
 export const HEADER_META = [
-  'title', 'description', 'images', 'isMust', 'number', 'quesType'
+  'title', 'description', 'images', 'asterisks', 'number', 'quesType'
 ];
 
 export const SPECIAL_TYPES = [

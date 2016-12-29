@@ -1,5 +1,4 @@
 import Swiper from 'swiper';
-import device from 'device';
 import $ from 'jquery';
 
 function matrixSetHeight() {
@@ -48,8 +47,7 @@ export function swiperHeaderInit(element, config) {
   });
 }
 
-export function swiperMatrixInit(element, matrixThumbnails, config, callBack) {
-  const isDesktop = device.desktop();
+export function swiperMatrixInit(isDesktop, element, matrixThumbnails, config, callBack) {
   let touchIndex = 1;
   let startTime = 0;
   let endTime = 600;

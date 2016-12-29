@@ -16,7 +16,7 @@
  * @property {String} node.typeName - 选项类型名称
  * @property {String} node.quesType - 当前的题型
  * @property {String} node.selectType - 选择类型, 是【单选】或【多选】
- * @property {String} node.isMust - 当前节点,是否为必选, 'true' or 'false'
+ * @property {String} node.asterisks - 当前节点,是否为必选, 'true' or 'false'
  * @property {String} node.uuid - 当前题目节点的唯一ID
  * @property {String} node.number - 当前节点的索引值
  * @example
@@ -36,7 +36,7 @@
       quesType: 'choice',
       selectType: 'radio', //单选'raidio', 多选'checkbox'
       uuid: '001',
-      isMust:true,
+      asterisks:true,
       number:'1',
  }
  ```

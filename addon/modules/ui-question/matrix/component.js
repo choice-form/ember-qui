@@ -29,7 +29,7 @@ export default Component.extend({
         slidesPerView: slidesNum,
       });
 
-      this.swiper = swiperMatrixInit(columnList, matrixThumbnails, {
+      this.swiper = swiperMatrixInit(get(this, 'isDesktop'), columnList, matrixThumbnails, {
         slidesPerView: slidesNum,
       },()=>{
         matirxSetHeight.call(this);

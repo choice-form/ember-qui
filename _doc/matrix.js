@@ -15,7 +15,7 @@
  * @property {String} node.renderId - 页面渲染的ID号,单页滚动时候需要
  * @property {String} node.typeName - 选项类型名称
  * @property {String} node.quesType - 当前的题型
- * @property {bool} node.isMust - 当前节点,是否为必选, 'true' or 'false'
+ * @property {bool} node.asterisks - 当前节点,是否为必选, 'true' or 'false'
  * @property {String} node.uuid - 当前题目节点的唯一ID
  * @property {String} node.number - 当前节点的索引值
  * @property {Array} node.optionsX - 头部上面的选项
@@ -39,7 +39,7 @@
       renderId: '4567yy0-0987',
       quesType: 'matrix',
       uuid: '005',
-      isMust: true,
+      asterisks: true,
       number: '7',
       optionsX:[
             {

@@ -11,8 +11,8 @@
 {{/if}}
 
 <header class="header">
-  {{#if header.number}}
-    <div>{{requiredMark}} <span class="question-number">{{header.number}}.</span></div>
+  {{#if (or header.asterisks header.number)}}
+    <div>{{requiredMark}} {{quesNumber}}</div>
   {{/if}}
 
   <h2 class="title">{{header.title}}</h2>

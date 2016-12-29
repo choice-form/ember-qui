@@ -15,7 +15,7 @@
  * @property {String} node.renderId - 页面渲染的ID号,单页滚动时候需要
  * @property {String} node.typeName - 选项类型名称
  * @property {String} node.quesType - 当前的题型
- * @property {String} node.isMust - 当前节点,是否为必选, 'true' or 'false'
+ * @property {String} node.asterisks - 当前节点,是否为必选, 'true' or 'false'
  * @property {String} node.uuid - 当前题目节点的唯一ID
  * @property {String} node.number - 当前节点的索引值
  * @property {Array} node.regions - 地域字典
@@ -38,7 +38,7 @@
     renderId: '4567890-0987',
     quesType: 'region',
     uuid: '002',
-    isMust:true,
+    asterisks:true,
     number:'3',
     grade: 2,
     regions: [],
