@@ -2,17 +2,20 @@
   <header class="reward-header">
     <div class="congratulations">
       <div class="ribbon">
-        <h2>{{if node.goal '恭喜您' '很遗憾'}}</h2>
+        <h2>{{node.rewardTitle}}</h2>
         <i></i><i></i><i></i><i></i>
       </div>
     </div>
     <div class="reward-contents">
-      <h2>{{if node.goal '成功获得奖励一份' '谢谢您的参与'}}</h2>
+      <h2>{{node.rewardDescribe}}{{node.rewardName}}</h2>
       <span class="current-time">{{node.rewardTime}}</span>
-      <p class="reward-numbering">总奖励数：<strong>{{node.rewardCount}}</strong>份</p>
+      <div class="reward-numbering">
+        {{#each node.rewardName as |reward|}}
+          <p>{{reward.rewardName}}：<strong>{{reward.rewardNumbering}}</strong>份</p>
+        {{/each}}
+      </div>
     </div>
   </header>
-
 
   <div class="reward-additional">
     {{ui-addon/disclaimer description=false}}
