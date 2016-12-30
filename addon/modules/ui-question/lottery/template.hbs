@@ -10,7 +10,7 @@
       <h2>{{node.rewardDescribe}}{{node.rewardName}}</h2>
       <span class="current-time">{{node.rewardTime}}</span>
       <div class="reward-numbering">
-        {{#each node.rewardName as |reward|}}
+        {{#each node.rewardList as |reward|}}
           <p>{{reward.rewardName}}：<strong>{{reward.rewardNumbering}}</strong>份</p>
         {{/each}}
       </div>
