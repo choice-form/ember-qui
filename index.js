@@ -2,6 +2,8 @@
 
 const fs = require('fs');
 const path = require('path');
+const mergeTrees = require('broccoli-merge-trees');
+const LessCompiler = require('broccoli-less-single');
 const LessPluginAutoPrefix = require('less-plugin-autoprefix');
 const autoPrefixPlugin = new LessPluginAutoPrefix();
 
@@ -11,7 +13,9 @@ module.exports = {
   options: {
     outputPaths: {
       app: {
-        css: {'app': '/assets/bundle.css'},
+        css: {
+          'app': '/assets/bundle.css',
+        },
         js: '/assets/bundle.js',
       },
     },
@@ -86,5 +90,32 @@ module.exports = {
     app.import(`./vendor/mobiscroll/js/mobiscroll.custom-3.0.0.min.js`,
                { outputFile: 'assets/mobiscroll.js' });
     app.import(`./vendor/shims/mobiscroll.js`, { outputFile: 'assets/mobiscroll.js' });
+  },
+
+  treeForPublic(tree) {
+    const publicTree = this._super.treeForPublic.apply(this, arguments);
+    const trees = [];
+
+    if (publicTree) {
+      trees.push(publicTree);
+    }
+
+    // default theme
+    trees.push(LessCompiler(
+      './addon/styles/themes',
+      'flat-concept.less',
+      'assets/themes/flat-concept.css',
+      { paths: ['./addon/styles', './addon/styles/themes'] }
+    ));
+
+    // milk theme
+    trees.push(LessCompiler(
+      './addon/styles/themes',
+      'milk.less',
+      'assets/themes/milk.css',
+      { paths: ['./addon/styles', './addon/styles/themes'] }
+    ));
+
+    return mergeTrees(trees, { overwrite: true });
   }
 };
