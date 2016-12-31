@@ -25,7 +25,7 @@ export default Route.extend({
           number:'2',
           options:[
             Ember.Object.create({
-              selected: false,
+              selected: true,
               renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.sentence(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
@@ -41,7 +41,7 @@ export default Route.extend({
               placeholder: '',
             }),
             Ember.Object.create({
-              selected: false,
+              selected: true,
               renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.sentence(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),

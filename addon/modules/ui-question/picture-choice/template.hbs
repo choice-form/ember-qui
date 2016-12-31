@@ -17,18 +17,21 @@
     {{/unless}}
   {{/each}}
 </div>
-<aside class="thumb-wrapper">
-  <ul class="thumb">
-    {{#each node.options as |option|}}
-      {{#if option.selected}}
+
+
+{{#if (gt (arraylength (filter-by "selected" true (filter-by 'image' node.options))) 0)}}
+  <aside class="thumb-wrapper">
+    <ul class="thumb">
+      {{#each (filter-by "selected" true (filter-by 'image' node.options)) as |option|}}
         <li class="thumb-item">
           <a href={{concat "#" option.renderId "cform"}}
                style={{html-safe (concat "background-image: url('" option.image.natural "')")}}></a>
         </li>
-      {{/if}}
-    {{/each}}
-  </ul>
-</aside>
+      {{/each}}
+    </ul>
+  </aside>
+{{/if}}
+
 
 {{#each node.options as |option|}}
   {{#if option.inputType}}
