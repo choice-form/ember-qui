@@ -7,7 +7,7 @@
             {{#if node.wechatImage}}
               <img src={{node.wechatImage}}>
               {{else}}
-              {{svg-item 'users' size='64'}}
+              <div class="default-avatar"></div>
             {{/if}}
             <span>{{node.wechatID}}</span>
           </div>
@@ -25,14 +25,12 @@
       </header>
 
       <div class="control reward">
-
         {{#if (eq node.rewardType 'wechat')}}
           <div class="currency">
-            <input type="checkbox" id={{node.renderId}} checked>
-            {{ui-component/ui-label icon=node.icon
-                                    for=node.renderId
-                                    size="40px"
-                                    viewBox="40"}}
+            <div class="reward-icon">
+              {{svg-item node.icon size="40px" viewBox="40"}}
+              {{particle size="l"}}
+            </div>
             <h3>{{node.rewardValue}}</h3>
           </div>
         {{/if}}
@@ -63,13 +61,11 @@
           <div class="ui-verification">
             <span>通过手机号获取信息</span>
             <div class="get-verification">
-              <div class="ui-text">
-                {{ui-component/ui-input type='url'
-                                        value=''
-                                        icon='mobile'
-                                        placeholder='请输入手机号'
-                                        handleOptionInput=(action "handleQuestionInput")}}
-              </div>
+              {{ui-component/ui-input type='url'
+                                      value=''
+                                      icon='mobile'
+                                      placeholder='请输入手机号'
+                                      handleOptionInput=(action "handleQuestionInput")}}
               {{ui-component/ui-button text=(if getInfoButton "获取信息" countDown)
                                        className="contrast"
                                        leftIcon=(if getInfoButton '' 'refresh')
@@ -80,9 +76,11 @@
         {{/if}}
       </div>
 
-
       <div class="reward-additional">
-        {{ui-addon/disclaimer description=(eq node.rewardType 'wechat')}}
+        <div class="reward-description">
+          <h4>红包发放说明:</h4>
+          <span>24小时内，红包会发到您的账户。您在收到微信红包通知后即可领取。</span>
+        </div>
       </div>
 
     </div>

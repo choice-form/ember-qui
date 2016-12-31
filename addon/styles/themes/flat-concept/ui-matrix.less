@@ -20,7 +20,9 @@
           z-index: 2;
           & .fix-header-column {
             position: relative;
-            display: table;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             width: 100%;
             padding: 1rem;
             text-align: center;
@@ -32,8 +34,6 @@
             }
             & span {
               word-break: break-all;
-              display: table-cell;
-              vertical-align: middle;
             }
           }
         }
