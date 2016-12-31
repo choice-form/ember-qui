@@ -10,13 +10,6 @@ export default Route.extend({
       nodes:[
         {
           rewardName: faker.finance.accountName(),
-          images: [
-            {
-              ratio: 0.6666667,
-              natural:'/images/sample-1.jpg',
-              thumbnail:'/images/sample-1-thumbnail.jpg',
-            }
-          ],
           title: faker.finance.accountName(),
           description: faker.lorem.paragraph(),
           goal: false,
@@ -26,6 +19,11 @@ export default Route.extend({
           quesType: 'lottery',
           uuid: '002',
           rewardTime:'2016-11-11 00:00',
+          rewardImage: {
+            ratio: 0.6666667,
+            natural:'/images/sample-1.jpg',
+            thumbnail:'/images/sample-1-thumbnail.jpg',
+          },
         }
       ],
 

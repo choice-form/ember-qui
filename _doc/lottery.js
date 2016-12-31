@@ -13,7 +13,7 @@
  * @property {String} node.description - 节点描述
  * @property {bool} node.goal - 是否中奖
  * @property {bool} node.rewardCount - 奖励数量
- * @property {Array} node.images - 图片列表
+ * @property {Array} node.rewardImage - 抽奖结果图片
  * @property {String} node.renderId - 页面渲染的ID号,单页滚动时候需要
  * @property {String} node.typeName - 选项类型名称: 抽奖节点
  * @property {String} node.quesType - 当前的题型: lottery
@@ -24,13 +24,12 @@
  ```javascript
  node:{
       rewardName: faker.finance.accountName(),
-      images: [
+      rewardImage:
         {
           ratio: 0.6666667,
           natural:'/images/sample-1.jpg',
           thumbnail:'/images/sample-1-thumbnail.jpg',
-        }
-      ],
+        },
       title: faker.finance.accountName(),
       description: faker.lorem.paragraph(),
       renderId: faker.date.between('2016-01-01', '2016-12-31'),
