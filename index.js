@@ -100,20 +100,23 @@ module.exports = {
       trees.push(publicTree);
     }
 
+    const prefix = this.project.isEmberCLIAddon()
+          ? '.' : './node_modules/@choiceform/ember-cform-ui';
+
     // default theme
     trees.push(LessCompiler(
-      './addon/styles/themes',
+      `${prefix}/addon/styles/themes`,
       'flat-concept.less',
       'assets/themes/flat-concept.css',
-      { paths: ['./addon/styles', './addon/styles/themes'] }
+      { paths: [`${prefix}/addon/styles`, `${prefix}/addon/styles/themes`] }
     ));
 
     // milk theme
     trees.push(LessCompiler(
-      './addon/styles/themes',
+      `${prefix}/addon/styles/themes`,
       'milk.less',
       'assets/themes/milk.css',
-      { paths: ['./addon/styles', './addon/styles/themes'] }
+      { paths: [`${prefix}/addon/styles`, `${prefix}/addon/styles/themes`] }
     ));
 
     return mergeTrees(trees, { overwrite: true });
