@@ -1,15 +1,13 @@
-<div class={{concat "matrix-wrapper" (if (eq resizeIcon "pinch") " zoom")}}>
+<div class={{wrapperClassNames}}>
   <div class="matrix-thumbnail">
     <div class="matrix-thumbnail-wrapper">
-      <div>
-        {{#each node.matrix as |subMatrix|}}
-          <ul>
-            {{#each subMatrix as |option|}}
-              <li class={{if option.selected "active"}}><span></span></li>
-            {{/each}}
-          </ul>
-        {{/each}}
-      </div>
+      {{#each node.matrix as |indicators|}}
+        <ul>
+          {{#each indicators as |indicator|}}
+            <li class={{if indicator.selected "active"}}><span></span></li>
+          {{/each}}
+        </ul>
+      {{/each}}
     </div>
   </div>
 

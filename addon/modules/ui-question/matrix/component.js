@@ -16,6 +16,10 @@ export default Component.extend({
   'data-render-id': reads('node.renderId'),
 
   resizeIcon: computed(() => 'stretch'),
+  wrapperClassNames: computed('resizeIcon', function() {
+    return `matrix-wrapper${get(this, 'resizeIcon') === 'pinch' ? ' zoom' : ''}`;
+  }).readOnly(),
+
   isDesktop:false,
   device: '',
 
