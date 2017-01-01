@@ -1,11 +1,11 @@
 import Component from 'ember-component';
 import layout from './template';
-import computed, { gt, and, reads } from 'ember-computed';
-import device from 'device';
 import get from 'ember-metal/get';
 import set from 'ember-metal/set';
 import { scheduleOnce, later } from 'ember-runloop';
+import computed, { gt, and, reads } from 'ember-computed';
 import $ from 'jquery';
+import device from 'device';
 import matirxSetHeight, { swiperHeaderInit, swiperMatrixInit } from '../../lib/matirx-factory';
 
 export default Component.extend({
@@ -77,22 +77,14 @@ export default Component.extend({
   },
 
   actions: {
-    matrixResize() {
-      const resizeIcon = get(this, 'resizeIcon');
-      this.swiper.destroy(true, true);
-      this.fixHeader.destroy(true, true);
+    resizeMatrix() {
+      this.swiper && this.swiper.destroy(true, true);
+      this.fixHeader && this.fixHeader.destroy(true, true);
 
-      if (resizeIcon == 'stretch') {
-        set(this, 'resizeIcon', 'pinch');
-        later(()=>{
-          this.swiperEffect(4);
-        }, 100);
-      } else {
-        set(this, 'resizeIcon', 'stretch');
-        later(()=>{
-          this.swiperEffect(2);
-        },100)
-      }
+      const isStretch = 'stretch' === get(this, 'resizeIcon');
+      set(this, 'resizeIcon', isStretch ? 'pinch' : 'stretch');
+
+      scheduleOnce('afterRender', this, this.swiperEffect, isStretch ? 4 : 2);
     },
 
     handleOptionClick(option,e){
