@@ -45,29 +45,13 @@ export default Component.extend({
     }
   },
 
-  deviceChangeSwiper(e){
-    const device = e.detail.device;
-    if(get(this, 'device') == device) return ;
-    this.swiper && this.swiper.destroy(true, true);
-    this.fixHeader && this.fixHeader.destroy(true, true);
-    this.swiperEffect(device=='desktop' ? 2 : 1);
-    set(this,'device', device);
-  },
-
   init() {
     this._super(...arguments);
     this.isDesktop = device.desktop();
   },
 
-  didInsertElement(){
-    this._super(...arguments);
-    scheduleOnce('afterRender',this,'swiperEffect', get(this, 'isDesktop') ? 2 : 1);
-    if (get(this, 'isDesktop')) {
-      window.onresize = ()=> {
-        matirxSetHeight.call(this);
-      };
-    }
-    window.addEventListener('device_change', e => this.deviceChangeSwiper(e));
+  didInsertElement() {
+    scheduleOnce('afterRender', this, 'swiperEffect', this.isDesktop ? 2 : 1);
   },
 
   willDestroyElement(){
