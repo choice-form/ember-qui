@@ -1,0 +1,215 @@
+.header {
+  & + .control.file-upload {
+
+  }
+}
+
+.file-upload {
+  & .ui-file-upload {
+    margin-bottom: @offset/1.25;
+    &:nth-child(odd) {
+      & .upload-item-wrapper {
+        margin-right: @offset/2.5;
+      }
+    }
+    &:nth-child(even) {
+      & .upload-item-wrapper {
+        margin-left: @offset/2.5;
+      }
+    }
+    &:only-child,
+    &:last-child {
+      & .upload-item-wrapper {
+        margin: 0;
+      }
+    }
+    & .upload-item-wrapper {
+      flex-grow: 1;
+      transition: border 200ms ease;
+      text-align: center;
+      & .upload-item {
+        padding: @offset/4;
+        position: relative;
+        box-shadow: inset 0 0 0 1px currentColor;
+        border-radius: @radius-m;
+        & input[type='file'] {
+          .absolute(auto, 0, 0, 0);
+          .input(100%, @offset*2);
+        }
+
+        & .upload-progress-bar {
+          position: absolute;
+          top: 0;
+          right: 0;
+          left: 0;
+          height: 2px;
+          & .upload-progress {
+            width: 0;
+            height: 2px;
+            transition: width 3s cubic-bezier(0.29, 1.1, 0.8, 0.99);
+          }
+        }
+
+        & > svg {
+          display: inline-block;
+          margin: @offset/2 0;
+          pointer-events: none;
+
+          align-self: center;
+        }
+        & .upload-thumbnail {
+          position: relative;
+          & img {
+            margin-bottom: @offset/4;
+          }
+        }
+        & + span {
+          font-size: small;
+          line-height: normal;
+          display: block;
+          margin-bottom: -@offset/4;
+          padding: @offset/4;
+          text-align: left;
+        }
+        &.success {
+          & label {
+            margin-top: auto;
+          }
+          & a.clear {
+            width: @offset*1.5;
+            margin-bottom: @offset/4;
+            cursor: pointer;
+
+            align-self: center;
+            & svg {
+              display: inline-block;
+              vertical-align: middle;
+            }
+            & span {
+              vertical-align: middle;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/*------------------- fix -------------------*/
+
+.file-upload-fix() {
+  .file-upload {
+    text-align: center;
+    & .ui-file-upload {
+      width: 49%;
+      display: inline-block;
+      vertical-align: top;
+      @media (max-width: 767px) {
+        width: 100%;
+      }
+      & .upload-item-wrapper {
+        & .upload-item {
+          & label {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}
+
+html.ie {
+  .file-upload-fix();
+}
+
+@supports not(display: flex) {
+  .file-upload-fix();
+}
+
+/*------------------- supports -------------------*/
+
+.file-upload-supports() {
+  .file-upload {
+    display: flex;
+    flex-direction: row;
+
+    flex-wrap: wrap;
+    justify-content: center;
+    & .ui-file-upload {
+      display: flex;
+      flex-basis: 50%;
+      @media (max-width: 767px) {
+        width: 100%;
+        flex-basis: auto;
+        & .upload-item-wrapper {
+          margin: 0 !important;
+        }
+      }
+      & .upload-item-wrapper {
+        display: flex;
+        flex-direction: column;
+        & .upload-item {
+          display: flex;
+          flex-direction: column;
+          &.success {
+            flex-grow: 1;
+          }
+        }
+      }
+    }
+  }
+}
+
+html.internet,
+html.edge {
+  .file-upload-supports();
+}
+
+@supports (display: flex) {
+  .file-upload-supports();
+}
+
+/*------------------- responsive -------------------*/
+
+html.desktop {
+  & .file-upload {
+    & input[type='file'] {
+      pointer-events: none;
+    }
+  }
+}
+
+html.tablet.portrait,
+html.mobile {
+  & .row {
+    & .header {
+      & + .control.file-upload {
+        padding-top: 0;
+        &:before {
+          display: none;
+        }
+      }
+    }
+    & .file-upload {
+      flex-direction: column;
+      & .ui-file-upload {
+        &:last-child {
+          margin-bottom: 0;
+        }
+        & .upload-item-wrapper {
+          margin: 0 !important;
+          & .upload-item {
+            & .upload-thumbnail {
+              & img {
+                margin-bottom: @offset/2;
+              }
+            }
+          }
+          & label {
+            padding: @offset/2 @offset/4;
+          }
+        }
+      }
+    }
+  }
+}

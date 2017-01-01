@@ -1,0 +1,105 @@
+.picture-layout.grid {
+  &.superscript {
+    & .ui-picture {
+      &:nth-child(odd) {
+        & input {
+          .absolute(@offset/4, @offset/1.6, auto, auto);
+        }
+      }
+      &:nth-child(even) {
+        & input {
+          .absolute(@offset/4, @offset/4, auto, auto);
+        }
+      }
+    }
+  }
+}
+
+/*------------------- fix -------------------*/
+
+.picture-grid-fix() {
+  .picture-layout.grid {
+    & .ui-picture {
+      width: 49.6%;
+      display: inline-block;
+      vertical-align: top;
+      margin-bottom: @offset/1.25;
+    }
+  }
+}
+
+html.ie {
+  .picture-grid-fix();
+}
+
+@supports not(display: flex) {
+  .picture-grid-fix();
+}
+
+/*------------------- supports -------------------*/
+
+.picture-grid-supports() {
+  .picture-layout.grid {
+    flex-direction: row;
+
+    flex-wrap: wrap;
+    & .ui-picture {
+      display: flex;
+      flex-direction: column;
+
+      flex-basis: 50%;
+      &:not(:last-of-type) {
+        margin-bottom: @offset/1.25;
+        padding-bottom: @offset/1.25;
+
+        .border(auto, 0, 0, 0, 1px, .3);
+      }
+      &:nth-last-of-type(2):nth-of-type(odd) {
+        margin-bottom: 0;
+        padding-bottom: 0;
+        &:before {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+html.internet,
+html.edge {
+  .picture-grid-supports();
+}
+
+@supports (display: flex) {
+  .picture-grid-supports();
+}
+
+/*------------------- responsive -------------------*/
+
+html.desktop,
+html.tablet,
+html.mobile.landscape {
+  & .picture-layout.grid {
+    & .ui-picture {
+      &:nth-child(odd) {
+        padding-right: @offset/2.5;
+      }
+      &:nth-child(even) {
+        padding-left: @offset/2.5;
+      }
+    }
+  }
+}
+
+html.mobile.portrait {
+  & .picture-layout.grid {
+    & .ui-picture {
+      &:nth-child(odd) {
+        padding-right: @offset/8;
+      }
+      &:nth-child(even) {
+        padding-left: @offset/8;
+      }
+    }
+  }
+}

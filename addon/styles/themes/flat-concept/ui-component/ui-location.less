@@ -1,0 +1,61 @@
+.ui-location {
+  text-align: center;
+  backface-visibility: hidden;
+  & .pin {
+    display: block;
+    padding: @offset 0;
+    backface-visibility: hidden;
+    & input {
+      margin: 0 auto;
+
+      .absolute(@offset*1.5, 0, @offset*1.5, 0);
+      .input(@offset*4, @offset*4);
+    }
+    & label {
+      display: block;
+      width: @offset*4;
+      height: @offset*4;
+      margin: 0 auto;
+      cursor: pointer;
+      transition: background-color 200ms ease;
+      border-radius: 50%;
+      & .effect-container {
+        position: absolute;
+        z-index: 2;
+        width: @offset*4;
+        height: @offset*4;
+        color: currentColor;
+        & svg {
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          display: block;
+          width: @offset*2.5;
+          height: @offset*2.5;
+          margin: auto;
+        }
+      }
+    }
+    &.failed {
+      padding-bottom: @offset/2;
+    }
+  }
+  & h4 {
+    display: block;
+    text-align: center;
+  }
+  & a.button {
+    display: inline-block;
+    margin-top: @offset/2;
+  }
+}
+
+/*------------------- responsive -------------------*/
+
+html.mobile.portrait {
+  & .ui-location {
+    padding-bottom: @offset/1.25;
+  }
+}

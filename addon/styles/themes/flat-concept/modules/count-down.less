@@ -1,0 +1,74 @@
+.count-down {
+  position: fixed;
+  z-index: 9;
+  top: 0;
+  right: 0;
+  left: 0;
+  text-align: center;
+  pointer-events: none;
+  & .count-down-wrapper {
+    margin: 0 auto;
+    .height-fix();
+    & div {
+      float: right;
+      width: @offset*3.25;
+      padding: @offset/4 @offset/2;
+      & span,
+      & svg {
+        display: inline-block;
+        vertical-align: middle;
+      }
+    }
+  }
+}
+
+
+/*------------------- responsive -------------------*/
+
+html.desktop,
+html.tablet.landscape {
+  & .count-down {
+    & + .progress-bar {
+      & .progress-wrapper {
+        padding-right: @offset*5;
+        &:before {
+          right: @offset*5;
+        }
+      }
+    }
+    & .count-down-wrapper {
+      padding: 0 @offset*1.5;
+      & div {
+        border-radius: 0 0 @radius-m @radius-m;
+      }
+    }
+  }
+}
+
+html.tablet.portrait {
+  & .count-down {
+    & .count-down-wrapper {
+      & div {
+        border-radius: 0 0 @radius-m @radius-m;
+      }
+    }
+  }
+}
+
+html.mobile {
+  & .count-down {
+    & + .progress-bar {
+      & .progress-wrapper {
+        padding-right: @offset*3.25;
+        &:before {
+          right: @offset*3.25;
+        }
+      }
+    }
+    & .count-down-wrapper {
+      & div {
+        border-radius: 0 0 0 @radius-m;
+      }
+    }
+  }
+}

@@ -1,0 +1,38 @@
+.input-alert {
+  animation: transform-fade-in 500ms cubic-bezier(.23, 1, .32, 1);
+
+  .absolute(@offset/4, auto, auto, @offset/4);
+  animation-fill-mode: forwards;
+  & .alert-wrapper {
+    position: relative;
+    display: inline-block;
+    padding: @offset/4 @offset/2;
+    border-radius: @radius-s;
+    &:after {
+      position: absolute;
+      bottom: -@offset/4;
+      left: @offset/2;
+      width: 0;
+      height: 0;
+      content: '';
+      border-right: @offset/4 solid transparent;
+      border-left: @offset/4 solid transparent;
+    }
+    & span,
+    & svg {
+      display: inline-block;
+      vertical-align: middle;
+    }
+  }
+}
+
+@keyframes transform-fade-in {
+  0% {
+    transform: translateY(-50%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(-100%);
+    opacity: 1;
+  }
+}

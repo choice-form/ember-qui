@@ -1,0 +1,42 @@
+.disclaimer {
+  font-size: small;
+  position: relative;
+  & a {
+    cursor: pointer;
+    transition: color 200ms ease;
+    text-decoration: underline;
+  }
+}
+
+.disclaimer-contents {
+  font-size: @font-size/1.25;
+  position: relative;
+  margin-top: @offset;
+  padding: @offset/2 0 0 0;
+  & .disclaimer-close {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto;
+    padding: 24px;
+    cursor: pointer;
+    transition: background-color 200ms ease, color 200ms ease;
+    border-radius: 50%;
+
+    .absolute(auto, 0, 0, 0);
+    transform: translateY(76px);
+    & svg {
+      display: block;
+    }
+  }
+}
+
+/*------------------- responsive -------------------*/
+
+html.tablet.portrait,
+html.mobile.portrait {
+  & .disclaimer {
+    margin-top: @offset/2;
+    text-align: center;
+    font-size: x-small;
+  }
+}

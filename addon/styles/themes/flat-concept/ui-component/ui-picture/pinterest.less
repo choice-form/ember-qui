@@ -1,0 +1,44 @@
+.picture-layout.pinterest {
+  padding: 0;
+  & .ui-picture {
+    width: 33.3%;
+    padding: @offset/4;
+    &:not(:nth-last-child(3)) {
+      & .ui-picture:not(.insert-block) {
+        margin-bottom: @offset/2;
+      }
+    }
+    @media (max-width: 767px) {
+      width: 50%;
+      &:not(:nth-last-child(2)) {
+        & .ui-picture:not(.insert-block) {
+          margin-bottom: @offset/2;
+        }
+      }
+    }
+  }
+  &.superscript {
+    & .ui-picture {
+      & input {
+        top: @offset/2;
+        right: @offset/2;
+      }
+    }
+  }
+}
+
+/*------------------- responsive -------------------*/
+
+html.mobile {
+  & .picture-layout.pinterest {
+    margin: 0 -@offset/8;
+    & .ui-picture {
+      padding: @offset/8;
+      & label {
+        & .attachment {
+          margin-bottom: @offset/4;
+        }
+      }
+    }
+  }
+}

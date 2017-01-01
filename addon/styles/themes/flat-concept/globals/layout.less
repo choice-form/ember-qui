@@ -1,0 +1,159 @@
+article {
+  position: relative;
+  & section {
+    min-height: 100vh;
+    margin-bottom: -@offset*6;
+    padding: @offset @offset @offset*6 @offset;
+    & .wrapper {
+      counter-reset: section;
+      & .lazy-loader {
+        & .row {
+          & > .attachment {
+            padding: @offset/2;
+          }
+        }
+      }
+    }
+  }
+}
+
+.lazy-loader {
+  position: relative;
+
+  backface-visibility: hidden;
+  &:not(:first-child) {
+    & .row {
+      padding: @offset 0;
+    }
+  }
+  &:first-child:not(:only-child) {
+    & .row {
+      padding-bottom: @offset;
+    }
+  }
+  &:last-child,
+  &:only-child {
+    & .row {
+      padding-bottom: @offset/2;
+    }
+  }
+  &:not(:last-child) {
+    & .row {
+      .border(auto, @offset/2, 0, @offset/2, 2px, 1);
+    }
+  }
+}
+
+.one-by-one {
+  & .lazy-loader {
+    padding: @offset 0;
+    &:before {
+      display: none;
+    }
+    &:last-child,
+    &:only-child {
+      .row {
+        padding-bottom: 0;
+      }
+    }
+  }
+}
+
+.row {
+  position: relative;
+  & + .lazy-loader-wrapper {
+    visibility: hidden;
+    opacity: 0;
+  }
+  & .header {
+    position: relative;
+    padding: @offset/2;
+    & h2 {
+      word-wrap: break-word;
+      & + p {
+        margin-top: @offset/2;
+      }
+    }
+    & + .control {
+      margin-top: @offset/2;
+      padding-top: @offset;
+
+      .border(0, @offset/2, auto, @offset/2, 1px, .2);
+    }
+  }
+  & .control {
+    position: relative;
+    padding: 0 @offset/2;
+
+    .height-fix();
+    & label {
+      position: relative;
+    }
+  }
+}
+
+.c-container {
+  margin: 0 auto;
+}
+
+sup {
+  display: inline-block;
+  padding: @offset/2;
+  vertical-align: bottom;
+  & > span {
+    margin-right: @offset/4;
+    padding: 0 @offset/4;
+    border-radius: @radius-s;
+  }
+}
+
+/*------------------- responsive -------------------*/
+
+html.desktop {
+  & body {
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+  }
+  & .c-container {
+    min-width: 480px;
+  }
+}
+
+html.tablet,
+html.mobile {
+  user-select: none;
+  & label {
+    & * {
+      pointer-events: none;
+    }
+  }
+}
+
+html.mobile.portrait,
+html.mobile.landscape,
+html.tablet.portrait {
+  & .attachment.header,
+  & .wrapper {
+    box-shadow: 0 4px 4px 0 fade(black, 15%);
+  }
+}
+
+html.tablet.portrait {
+  & article {
+    max-width: 70vw;
+  }
+  & section {
+    padding: @offset*1.5 0 @offset*6 0;
+  }
+}
+
+html.mobile {
+  font-size: 14px;
+  & section {
+    padding: 0 0 @offset*6 0;
+  }
+  & .wrapper {
+    overflow: hidden;
+  }
+}

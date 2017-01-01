@@ -1,0 +1,115 @@
+.header {
+  & + .control.choice {
+    padding-top: 0;
+  }
+}
+
+.ui-choice {
+  position: relative;
+  backface-visibility: hidden;
+  & input {
+    margin: auto 0;
+
+    .absolute(0, 0, 0, auto);
+    .input(@offset/1.25, @offset/1.25);
+  }
+  & label {
+    display: block;
+    padding: @offset/1.25 @offset*1.25 @offset/1.25 0;
+    cursor: pointer;
+    vertical-align: middle;
+    white-space: normal;
+    word-wrap: break-word;
+    & .effect-container {
+      width: @offset/1.25;
+      height: @offset/1.25;
+      margin: auto 0;
+
+      .absolute(0, 0, 0, auto);
+      & .svg-wrapper {
+        & svg {
+          display: block;
+          width: @offset/1.25;
+          height: @offset/1.25;
+        }
+      }
+    }
+    & span {
+      font-size: @font-size*1.2;
+      line-height: @offset/1.25;
+      display: block;
+    }
+  }
+}
+
+/*------------------- fix -------------------*/
+
+.ui-choice-fix() {
+  .ui-choice {
+    .border(0, 0, auto, 0, 1px, .3);
+    &:first-of-type {
+      &:before {
+        display: none;
+      }
+    }
+  }
+}
+
+
+html.ie {
+  .ui-choice-fix();
+}
+
+@supports not(display: flex) {
+  .ui-choice-fix();
+}
+
+/*------------------- supports -------------------*/
+
+.ui-choice-supports() {
+  .ui-choice {
+    &:not(:first-of-type) {
+      .border(0, 0, auto, 0, 1px, .3);
+    }
+  }
+}
+
+html.internet,
+html.edge {
+  .ui-choice-supports();
+}
+
+@supports (display: flex) {
+  .ui-choice-supports();
+}
+
+/*------------------- responsive -------------------*/
+
+html.desktop {
+  & .ui-choice {
+    & input:focus {
+      & + label:before {
+        opacity: .1;
+      }
+    }
+    & input:checked {
+      & + label:before {
+        opacity: 0;
+      }
+    }
+    & label {
+      &:hover:before {
+        opacity: .1;
+      }
+      &:before {
+        content: '';
+        transition: opacity 200ms ease;
+        pointer-events: none;
+        opacity: 0;
+        border-radius: @radius-m;
+
+        .absolute(@offset/2, -@offset/4, @offset/2, -@offset/4);
+      }
+    }
+  }
+}

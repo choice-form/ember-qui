@@ -77,7 +77,6 @@ input[type='checkbox'] {
   margin: 0;
 }
 
-/* 如果发现某些标签的字体继承缺失，补在这条规则里来覆盖 */
 input,
 textarea,
 keygen,
@@ -92,4 +91,11 @@ img {
   width: 100%;
   max-width: 100%;
   vertical-align: middle;
+}
+
+svg:not(:root) {
+  display: none;
+  pointer-events: none;
+
+  fill: currentColor;
 }

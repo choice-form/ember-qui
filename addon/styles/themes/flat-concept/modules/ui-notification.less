@@ -1,0 +1,177 @@
+.ui-notification {
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  right: 0;
+  left: 0;
+  backface-visibility: hidden;
+  & .instance {
+    margin: 0 auto;
+    animation: notification-hide .45s cubic-bezier(.6, .04, .98, .335);
+
+    animation-fill-mode: forwards;
+    &.in {
+      animation: notification-show .55s cubic-bezier(.86, 0, .07, 1);
+      & .notification {
+        animation: notification-fadein .55s cubic-bezier(.86, 0, .07, 1);
+        opacity: 1;
+      }
+    }
+    & .notification {
+      position: relative;
+      animation: notification-fadeout .45s cubic-bezier(.6, .04, .98, .335);
+      opacity: 0;
+      border-radius: 0 0 @radius-m @radius-m;
+
+      animation-fill-mode: forwards;
+      & .notification-close {
+        cursor: pointer;
+        & > svg {
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+@keyframes notification-show {
+  0% {
+    transform: translateY(-80px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes notification-hide {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-80px);
+  }
+}
+
+@keyframes notification-fadein {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes notification-fadeout {
+  0% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/*------------------- fix -------------------*/
+
+.ui-notification-fix() {
+  .ui-notification {
+    & .notification {
+      padding: @offset/2 @offset*1.5 @offset/2 @offset/2;
+      & .notification-close {
+        width: @offset*2;
+        height: @offset*2;
+        margin: auto 0;
+        padding: @offset/2;
+
+        .absolute(0, @offset/2, 0, auto);
+      }
+      & > svg {
+        display: inline-block;
+        vertical-align: middle;
+        &:first-of-type {
+          margin-right: @offset/2;
+        }
+      }
+    }
+  }
+}
+
+html.ie {
+  .ui-notification-fix();
+}
+
+@supports not(display: flex) {
+.ui-notification-fix();
+}
+
+/*------------------- supports -------------------*/
+
+.ui-notification-supports() {
+  .ui-notification {
+    & .notification {
+      padding: @offset/2;
+      display: flex;
+
+      align-items: center;
+      & .notification-close {
+        margin-left: auto;
+        padding: @offset/2;
+      }
+      & strong {
+        flex-grow: 2;
+      }
+      & > svg {
+        display: block;
+        &:first-of-type {
+          margin-right: @offset/2;
+        }
+      }
+    }
+  }
+}
+
+html.internet,
+html.edge {
+  .ui-notification-supports();
+}
+
+@supports (display: flex) {
+.ui-notification-supports();
+}
+
+/*------------------- responsive -------------------*/
+
+html.desktop {
+  & .ui-notification {
+    & .instance {
+      padding: 0 @offset*1.5;
+    }
+  }
+}
+
+html.tablet.portrait {
+  & .ui-notification {
+    & .instance {
+      max-width: 80vw;
+    }
+  }
+}
+
+html.tablet.landscape {
+  & .ui-notification {
+    & .instance {
+      padding: 0 @offset;
+    }
+  }
+}
+
+html.mobile {
+  & .ui-notification {
+    padding: 0 @offset/4;
+  }
+}

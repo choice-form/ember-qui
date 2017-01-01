@@ -1,0 +1,116 @@
+.submit-actions {
+  padding: 0 @offset*1.5;
+  height: @offset*6;
+  & button,
+  & a.button{
+    min-width: @offset*5;
+  }
+  & .nextButton {
+    & span {
+      & + svg {
+        margin: 0 -@offset/2 0 @offset/4;
+      }
+    }
+  }
+}
+
+.button {
+  display: inline-block;
+  padding: @offset/2;
+  cursor: pointer;
+  text-align: center;
+  border-radius: @radius-m;
+  transition: background-color 200ms ease, color 200ms ease, border 200ms ease;
+  & span,
+  & svg {
+    display: inline-block;
+    vertical-align: middle;
+    fill: currentColor;
+  }
+}
+
+button {
+  font-size: @font-size;
+  line-height: @offset/2;
+  overflow: hidden;
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  border: none;
+  outline: 0;
+  outline-style: none;
+}
+
+/*------------------- fix -------------------*/
+
+.submit-actions-fix() {
+  .submit-actions {
+    padding: 4.5rem 3rem;
+    display: table;
+    width: 100%;
+    & button {
+      display: table-cell;
+      vertical-align: middle;
+    }
+    & .nextButton {
+      float: right;
+    }
+  }
+}
+
+html.ie {
+  .submit-actions-fix();
+}
+
+@supports not(display: flex) {
+  .submit-actions-fix();
+}
+
+/*------------------- supports -------------------*/
+
+.submit-actions-supports() {
+  .submit-actions {
+    display: flex;
+    align-items: center;
+    & .nextButton {
+      margin-left: auto;
+    }
+  }
+}
+
+html.internet,
+html.edge {
+  .submit-actions-supports();
+}
+
+@supports (display: flex) {
+  .submit-actions-supports();
+}
+
+/*------------------- responsive -------------------*/
+
+html.tablet.portrait {
+  & .submit-actions {
+    padding: 0;
+  }
+}
+
+html.mobile {
+  & .submit-actions {
+    padding: 0 @offset/2;
+    & button {
+      min-width: inherit;
+      font-size: @font-size*1.2;
+      padding: @offset/1.25 @offset;
+      &.prevButton {
+        margin-right: @offset/1.25;
+      }
+      @supports (display: flex) {
+        &.nextButton {
+          flex-grow: 2;
+        }
+      }
+    }
+  }
+}
