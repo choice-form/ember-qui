@@ -1,16 +1,18 @@
 import Component from 'ember-component';
 import layout from './template';
 import computed, { gt, and, reads } from 'ember-computed';
+import device from 'device';
 import get from 'ember-metal/get';
 import set from 'ember-metal/set';
 import { scheduleOnce, later } from 'ember-runloop';
-import { hasClass } from '../../lib/attribute-manage';
 import $ from 'jquery';
 import matirxSetHeight, { swiperHeaderInit, swiperMatrixInit } from '../../lib/matirx-factory';
 
 export default Component.extend({
   layout,
   classNames: ['ui-matrix'],
+
+  device: '',
 
   attributeBindings: ['data-render-id'],
   'data-render-id': reads('node.renderId'),
@@ -22,9 +24,6 @@ export default Component.extend({
 
   hasMoreEnoughOptionsX: gt('node.renderOptionsX.length', 3),
   advancedControlNeeded: and('isDesktop', 'hasMoreEnoughOptionsX'),
-
-  isDesktop: false,
-  device: '',
 
   swiperEffect(slidesNum){
     if (this.element) {
@@ -55,13 +54,9 @@ export default Component.extend({
     set(this,'device', device);
   },
 
-  didReceiveAttrs(){
+  init() {
     this._super(...arguments);
-    if(hasClass(document.getElementsByTagName('html')[0],'desktop')){
-      set(this, 'isDesktop', true);
-    }else{
-      set(this, 'isDesktop', false);
-    }
+    this.isDesktop = device.desktop();
   },
 
   didInsertElement(){
