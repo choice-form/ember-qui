@@ -32,23 +32,23 @@
 
     <div class="column-container swiper-container">
       <div class="swiper-wrapper">
-        {{#each node.matrix as |subMatrix|}}
+        {{#each node.matrix as |options|}}
           <div class="column swiper-slide">
-            {{#each subMatrix as |option|}}
+            {{#each options as |option|}}
               <div class="column-item">
                 <input
-                    name={{node.renderId}}
-                    id={{option.renderId}}
-                    type="checkbox"
-                    onclick={{action "handleOptionClick" option}}
-                    checked={{option.selected}}
-                    disabled={{disabled}}
-                    required>
+                  required
+                  type="checkbox"
+                  disabled={{disabled}}
+                  name={{node.renderId}}
+                  id={{option.renderId}}
+                  checked={{option.selected}}
+                  onclick={{action "handleOptionClick" option}}>
                 {{ui-component/ui-label
-                  particleSize="m"
-                  selected=option.selected
                   for=option.renderId
-                  icon=(if option.selected "checkbox-active" 'checkbox')}}
+                  selected=option.selected
+                  particleSize="m"
+                  icon=(if option.selected "checkbox-active" "checkbox")}}
               </div>
             {{/each}}
           </div>
