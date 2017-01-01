@@ -1,6 +1,6 @@
 import Component from 'ember-component';
 import layout from './template';
-import computed, { reads } from 'ember-computed';
+import computed, { gt, and, reads } from 'ember-computed';
 import get from 'ember-metal/get';
 import set from 'ember-metal/set';
 import { scheduleOnce, later } from 'ember-runloop';
@@ -20,7 +20,10 @@ export default Component.extend({
     return `matrix-wrapper${get(this, 'resizeIcon') === 'pinch' ? ' zoom' : ''}`;
   }).readOnly(),
 
-  isDesktop:false,
+  hasMoreEnoughOptionsX: gt('node.renderOptionsX.length', 3),
+  advancedControlNeeded: and('isDesktop', 'hasMoreEnoughOptionsX'),
+
+  isDesktop: false,
   device: '',
 
   swiperEffect(slidesNum){

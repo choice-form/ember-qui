@@ -56,7 +56,8 @@
       </div>
 
       <div class="swiper-pagination"></div>
-      {{#if (and isDesktop (gt (arraylength node.renderOptionsX) 3))}}
+
+      {{#if advancedControlNeeded}}
         <a class="matrix-resize" onclick={{action "matrixResize"}}>{{svg-item resizeIcon}}</a>
         <div class="matrix-button-next">{{svg-item "arrows-stre-right"}}</div>
         <div class="matrix-button-prev">{{svg-item "arrows-stre-left"}}</div>

@@ -1,5 +1,6 @@
 import Component from 'ember-component';
 import layout from './template';
+import { filterBy, gt } from 'ember-computed';
 import get from 'ember-metal/get';
 import Masonry from 'masonry';
 import { scheduleOnce } from 'ember-runloop';
@@ -7,6 +8,10 @@ import { scheduleOnce } from 'ember-runloop';
 export default Component.extend({
   layout,
   classNames:['picture-wrapper'],
+
+  imageOptions: filterBy('node.options', 'image', true),
+  selectedImageOptions: filterBy('imageOptions', 'selected', true),
+  hasSelectedImageOptions: gt('selectedImageOptions.length', 0),
 
   actions: {
     /**
