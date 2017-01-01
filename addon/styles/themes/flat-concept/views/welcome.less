@@ -1,9 +1,9 @@
 .data-welcome {
   & .header {
     position: relative;
-    padding: 3rem 1rem;
+    padding: @offset*1.5 @offset/2;
 
-    .border(auto, 1rem, 0, 1rem, 2px, .5);
+    .border(auto, @offset/2, 0, @offset/2, 2px, .5);
     & h2 {
       text-align: center;
     }
@@ -33,7 +33,7 @@
   & .header {
     z-index: 2;
 
-    .absolute(auto, 2rem, 12rem, 2rem);
+    .absolute(auto, @offset, @offset*6, @offset);
   }
   & + .submit-actions {
     z-index: 2;
@@ -48,7 +48,7 @@ html.tablet.portrait,
 html.mobile {
   & .data-welcome {
     & .header {
-      padding: 2rem 1.5rem;
+      padding: @offset @offset/1.25;
       &:before {
         display: none;
       }
@@ -60,7 +60,7 @@ html.mobile {
       background: none;
       box-shadow: none;
 
-      .absolute(auto, 0, 8.2rem, 0);
+      .absolute(auto, 0, @offset*4.1, 0);
     }
   }
 }

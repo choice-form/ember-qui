@@ -167,6 +167,15 @@ html {
   }
 }
 
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 /*------------------- responsive -------------------*/
 
 html.mobile {
@@ -175,8 +184,8 @@ html.mobile {
       & .particle-container {
         & .particle-item {
           &:before {
-            top: @offset/1.25;
-            height: @offset/1.25;
+            top: @offset/1.5;
+            height: @offset/1.5;
           }
         }
       }

@@ -4,12 +4,6 @@
 @import "thumbnail";
 @import "pinterest";
 
-section {
-  & .lazy-loader.data-picture-choice {
-    padding-bottom: 0;
-  }
-}
-
 .picture-choice {
   padding: @offset @offset/2 @offset/2 @offset/2;
   backface-visibility: hidden;
@@ -130,7 +124,7 @@ section {
     display: inline-block;
     vertical-align: middle;
     padding-top: @offset/2;
-    margin: @offset/1.25 -@offset/4 0 -@offset/4;
+    margin: @offset/1.25 -@offset/4 -@offset/4 -@offset/4;
     .border(0, @offset/4, auto, @offset/4, 2px, .3);
     & .thumb-item {
       display: inline-block;

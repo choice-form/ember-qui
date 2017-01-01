@@ -2,16 +2,16 @@
   &.superscript {
     & .ui-picture {
       & input {
-        top: .5rem;
+        top: @offset/4;
         right: 60%;
         left: auto;
-        margin-right: .5rem;
+        margin-right: @offset/4;
       }
       & label {
         & .pic-description {
           & .effect-container {
             right: 60%;
-            margin-right: .5rem;
+            margin-right: @offset/4;
           }
         }
       }
@@ -36,7 +36,7 @@
         margin-bottom: 0;
       }
       & .pic-description {
-        margin-left: 1.5rem;
+        margin-left: @offset/1.25;
       }
     }
   }
@@ -65,8 +65,8 @@
 .picture-thumbnail-fix() {
   .picture-layout.thumbnail {
     & .ui-picture {
-      margin-bottom: 1.5rem;
-      padding-bottom: 1.5rem;
+      margin-bottom: @offset/1.25;
+      padding-bottom: @offset/1.25;
 
       .border(auto, 0, 0, 0, 1px, .3);
       & label {
@@ -114,8 +114,8 @@ html.ie {
         }
       }
       &:not(:last-of-type) {
-        margin-bottom: 1.5rem;
-        padding-bottom: 1.5rem;
+        margin-bottom: @offset/1.25;
+        padding-bottom: @offset/1.25;
 
         .border(auto, 0, 0, 0, 1px, .3);
       }

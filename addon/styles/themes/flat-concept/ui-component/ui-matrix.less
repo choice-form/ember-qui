@@ -54,7 +54,7 @@
           position: relative;
           display: table;
           width: 100%;
-          min-height: 3.5rem;
+          min-height: @offset*1.75;
           padding: @offset/2;
           &:not(:last-child) {
             .border(auto, 0, -1px, 0, 1px, .3);
@@ -106,7 +106,7 @@
             & label {
               display: block;
               height: 100%;
-              min-height: 3.5rem;
+              min-height: @offset*1.75;
               cursor: pointer;
               text-align: center;
               & .effect-container {
