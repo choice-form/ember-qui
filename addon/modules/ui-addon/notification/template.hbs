@@ -1,5 +1,5 @@
 {{#each notification as |n|}}
-  <div class="instance c-container {{unless (get n 'dismiss') 'in' }} {{n.type}}"
+  <div class="instance c-container {{unless (get n 'dismiss') 'in' }} {{n.type}} style={{if maxWidth (html-safe (concat 'max-width:' maxWidth))}}"
        onmouseenter={{action "pause" n}}
          onmouseleave={{action "resume" n}}>
 

@@ -1,3 +1,3 @@
-<div class="progress-wrapper c-container" style={{html-safe (concat 'max-width:' maxWidth)}}>
+<div class="progress-wrapper c-container" style={{if maxWidth (html-safe (concat 'max-width:' maxWidth))}}>
   <div class="progress" style={{html-safe (concat "width:" (if value value 0) "%")}}></div>
 </div>
