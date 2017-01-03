@@ -55,9 +55,9 @@ export default Component.extend({
     function cx(x) {return x * cwidth;}
     function cy(y) {return y * cheight;}
 
-    ctx.fillStyle = '#000000';
+    ctx.fillStyle = document.body.currentStyle.color;
 
-    ctx.font = "bold 16px Arial";
+    ctx.font = "16px Arial";
     //设置字体填充颜色
     ctx.textAlign="center";
     ctx.fillText(data, 125, 280);
