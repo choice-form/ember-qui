@@ -1,5 +1,5 @@
 <section data-render-id={{node.renderId}}>
-  <div class="warapper">
+  <div class="wrapper">
     <div class="row reward-container">
       <header class="reward-header">
         {{#if (eq node.rewardType 'wechat')}}
@@ -59,7 +59,6 @@
 
         {{#if node.rewardToMessage}}
           <div class="ui-verification">
-            <span>通过手机号获取信息</span>
             <div class="get-verification">
               {{ui-component/ui-input type='url'
                                       value=''
@@ -72,6 +71,7 @@
                                        handleClick=(if getInfoButton (action "handleOptionClick") '')
               }}
             </div>
+            <span>通过手机号获取信息</span>
           </div>
         {{/if}}
       </div>

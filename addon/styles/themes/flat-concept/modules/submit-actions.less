@@ -12,6 +12,15 @@
       }
     }
   }
+  & .prevButton,
+  & .nextButton {
+    animation-name: fadein;
+    animation-duration: .65s;
+    animation-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+    animation-iteration-count: 1;
+
+    animation-fill-mode: forwards;
+  }
 }
 
 .button {
@@ -40,6 +49,7 @@ button {
   border: none;
   outline: 0;
   outline-style: none;
+  background-color: transparent;
 }
 
 /*------------------- fix -------------------*/
