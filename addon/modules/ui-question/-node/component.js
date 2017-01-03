@@ -8,9 +8,6 @@ export default Component.extend({
   layout,
   classNames:['row'],
 
-  attributeBindings: ['data-render-id'],
-  'data-render-id': reads('node.renderId'),
-
   quesType: computed('node.quesType', function() {
     const type = get(this, 'node.quesType');
     return (['icon', 'gender'].indexOf(type) > -1) ? 'icon' : type;

@@ -28,6 +28,7 @@ export default Route.extend({
           uuid: '001',
           asterisks: true,
           number: '',
+          errorMessage:'第一题错误',
           options: [
             Ember.Object.create({
               selected: false,

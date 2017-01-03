@@ -1,13 +1,13 @@
 {{ui-component/ui-header header=headerData}}
 
-{{#if (or node.minSelect  node.maxSelect)}}
+{{#if node.typeName}}
   <sup>
     <span>{{node.typeName}}</span>
-    Least: {{node.minSelect}} - Most: {{node.maxSelect}}
+    {{node.typeDescription}}
   </sup>
 {{/if}}
 
-<div class={{concat "control " quesType}}>
+<div class={{concat "control " quesType (if node.errorMessage ' error')}}>
   {{#if isSpecialComponent}}
     {{component componentName node handleEvents options=(unbound node.options) matrix=(unbound node.matrix)}}
   {{else}}
@@ -16,3 +16,6 @@
     {{/each}}
   {{/if}}
 </div>
+{{#if node.errorMessage}}
+  <div class="error-message">{{node.errorMessage}}</div>
+{{/if}}

@@ -2,7 +2,7 @@
 <section>
   <div class="wrapper">
     {{#each question.nodes as |node|}}
-      {{#ui-question/lazy-loader class=(concat 'data-' node.quesType) isSingle=question.lazyLoad as |viewable|}}
+      {{#ui-question/lazy-loader class=(concat 'data-' node.quesType) renderId=node.renderId isSingle=question.lazyLoad as |viewable|}}
         {{#if viewable}}
           {{ui-question/-node node question.handleEvents}}
         {{else}}

@@ -1,4 +1,4 @@
-<div class="count-down-wrapper c-container" style={{html-safe (concat 'max-width:' maxWidth)}}>
+<div class="count-down-wrapper c-container" style={{if maxWidth (html-safe (concat 'max-width:' maxWidth))}}>
   <div>
     {{svg-item "count-down"}}
     <span>{{value}}</span>

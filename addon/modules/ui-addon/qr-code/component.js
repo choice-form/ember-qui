@@ -7,8 +7,8 @@ export default Component.extend({
   tagName: 'canvas',
   classNames: ['qr-code'],
   attributeBindings: ['width', 'height'],
-  width: 270,
-  height: 270,
+  width: 250,
+  height: 250,
   light: 'white',
   dark: 'black',
   ctx: null,
@@ -47,7 +47,7 @@ export default Component.extend({
     const size = qr.getModuleCount();
     const cwidth = width / size;
     const cheight = height / size;
-    const pad = 0;
+    const pad = 24;
 
     function cx(x) {return x * cwidth;}
     function cy(y) {return y * cheight;}
