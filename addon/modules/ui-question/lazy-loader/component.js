@@ -1,7 +1,7 @@
 import Component from 'ember-component'
 import InViewportMixin from 'ember-in-viewport'
 import layout from './template'
-import computed from 'ember-computed'
+import computed, { reads } from 'ember-computed'
 import { htmlSafe } from 'ember-string'
 import get from 'ember-metal/get'
 import set, { setProperties } from 'ember-metal/set'
@@ -9,11 +9,11 @@ import set, { setProperties } from 'ember-metal/set'
 export default Component.extend(InViewportMixin, {
   layout,
   classNames: ['lazy-loader'],
-  attributeBindings: ['style'],
+  attributeBindings: ['style', 'data-render-id'],
+  'data-render-id': reads('renderId'),
 
   viewable: false,
   height: computed(() => 'auto'),
-
   style: computed('height', function() {
     return htmlSafe(`height: ${get(this, 'height')};`)
   }).readOnly(),

@@ -2,6 +2,7 @@
   <textarea
       value={{value}}
       placeholder={{placeholder}}
+      onblur={{action handleOnblur}}
       oninput={{action handleOptionInputForTextarea}}></textarea>
   {{svg-item icon size=size viewbox=viewbox}}
 {{else}}
@@ -11,6 +12,7 @@
       value={{value}}
       required
       placeholder={{placeholder}}
+      onblur={{action handleOnblur}}
       oninput={{handleOptionInput}}
       onchange={{handleOptionInput}}>
   {{svg-item icon size=size viewbox=viewbox}}

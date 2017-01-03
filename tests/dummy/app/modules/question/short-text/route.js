@@ -184,7 +184,6 @@ export default Route.extend({
           console.log(data);
           console.log(option);
           console.log(question);
-
           return true;
         },
 
