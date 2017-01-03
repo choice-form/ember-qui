@@ -6,9 +6,10 @@ import QRCode from 'qrcode';
 export default Component.extend({
   tagName: 'canvas',
   classNames: ['qr-code'],
-  attributeBindings: ['width', 'height'],
-  width: 270,
-  height: 270,
+  attributeBindings: ['width', 'height', 'style'],
+  style: 'border:20px solid white',
+  width: 250,
+  height: 300,
   light: 'white',
   dark: 'black',
   ctx: null,
@@ -23,7 +24,9 @@ export default Component.extend({
 
     set(this, 'light', backgroundColor);
     set(this, 'dark', color);
+
     set(this,'ctx', this.element.getContext('2d'));
+
     return this.draw();
   },
 
@@ -37,8 +40,8 @@ export default Component.extend({
     this.empty();
     const data = get(this, 'data');
     const ctx = get(this, 'ctx');
-    const width = get(this, 'width');
-    const height = get(this, 'height');
+    const width = 250;
+    const height = 250;
 
     const qr = new QRCode(0, 1);
     qr.addData(data);
@@ -52,12 +55,17 @@ export default Component.extend({
     function cx(x) {return x * cwidth;}
     function cy(y) {return y * cheight;}
 
+    ctx.fillStyle = '#000000';
+
+    ctx.font = "bold 16px Arial";
+    //设置字体填充颜色
+    ctx.textAlign="center";
+    ctx.fillText(data, 125, 280);
     ctx.fillStyle = get(this, 'dark');
     for (let row = 0; row < size; ++row)
       for (let col = 0; col < size; ++col)
         if (qr.isDark(row, col))
           ctx.fillRect(cx(row) + pad, cy(col) + pad, cwidth - pad, cheight - pad);
 
-    this.element.style.border = "20px solid white";
   }
 });

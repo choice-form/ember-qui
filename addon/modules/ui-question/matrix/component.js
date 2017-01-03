@@ -2,7 +2,7 @@ import Component from 'ember-component';
 import layout from './template';
 import get from 'ember-metal/get';
 import set from 'ember-metal/set';
-import { scheduleOnce, later } from 'ember-runloop';
+import { scheduleOnce } from 'ember-runloop';
 import computed, { gt, and, reads } from 'ember-computed';
 import $ from 'jquery';
 import device from 'device';

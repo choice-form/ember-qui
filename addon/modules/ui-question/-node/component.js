@@ -1,7 +1,7 @@
 import Component from 'ember-component';
 import layout from './template';
 import { HEADER_META, SPECIAL_TYPES } from './constants';
-import computed, { reads } from 'ember-computed';
+import computed from 'ember-computed';
 import get, { getProperties } from 'ember-metal/get'
 
 export default Component.extend({
