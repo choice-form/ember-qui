@@ -23,6 +23,7 @@
                          renderId=(unbound option.renderId)
                          value=option.value
                          errorMessage=option.errorMessage
+                         handleOnblur=(action "handleOptionInput")
                          handleOptionInput=(action "handleOptionInput")
                          handleOptionInputForTextarea=(action "handleOptionInputForTextarea")}}
 {{/unless}}
@@ -35,6 +36,7 @@
                          renderId=(unbound option.renderId)
                          errorMessage=option.errorMessage
                          value=option.value
+                         handleOnblur=(action "handleOptionInput")
                          handleOptionInput=(action "handleOptionInput")
                          handleOptionInputForTextarea=(action "handleOptionInputForTextarea")}}
 {{/if}}

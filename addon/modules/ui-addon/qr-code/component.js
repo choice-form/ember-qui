@@ -7,8 +7,8 @@ export default Component.extend({
   tagName: 'canvas',
   classNames: ['qr-code'],
   attributeBindings: ['width', 'height'],
-  width: 250,
-  height: 250,
+  width: 270,
+  height: 270,
   light: 'white',
   dark: 'black',
   ctx: null,
@@ -47,7 +47,7 @@ export default Component.extend({
     const size = qr.getModuleCount();
     const cwidth = width / size;
     const cheight = height / size;
-    const pad = 24;
+    const pad = 0;
 
     function cx(x) {return x * cwidth;}
     function cy(y) {return y * cheight;}
@@ -57,5 +57,7 @@ export default Component.extend({
       for (let col = 0; col < size; ++col)
         if (qr.isDark(row, col))
           ctx.fillRect(cx(row) + pad, cy(col) + pad, cwidth - pad, cheight - pad);
+
+    this.element.style.border = "20px solid white";
   }
 });
