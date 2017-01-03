@@ -17,6 +17,12 @@
  */
 
 /**
+ * 图片是否全屏
+ *
+ * @property {bool} bgImageMode
+ */
+
+/**
  * 内容文字
  *
  * @property {String} summary
@@ -55,9 +61,7 @@
  *
  * @example
  ``` text
- cover: 图片在文字上面 (type 可以为空)
- no-cover: 没有图片 (type 可以为空)
- full-screen-cover: 图片全屏当背景 (type : full-screen-cover)
+ bgImageMode: true,  //背景图片是否全屏
  ```
  */
 

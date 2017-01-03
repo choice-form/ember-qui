@@ -9,15 +9,15 @@ export default Route.extend({
       description: faker.lorem.paragraph(),
       summary:faker.lorem.paragraph(),
       renderId: faker.date.between('2016-01-01', '2016-12-31'),
-      style: 'full-screen-cover',
       images: [
         {
-          objectFit: "cover",
           ratio: 1.50,
           natural:'/images/welcome/welcome-2.jpg',
           thumbnail:'/images/welcome/welcome-2-thumbnail.jpg',
         }
       ],
+
+      bgImageMode: false,
 
       handleEvents: {
         handleNextClick: (foo) => {

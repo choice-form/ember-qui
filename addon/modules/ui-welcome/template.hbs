@@ -1,11 +1,11 @@
-<section class={{concat 'welcome ' (unbound intro.style)}}>
+<section class={{concat 'welcome ' (unbound intro.style) (if intro.bgImageMode 'full-screen-cover')}}>
   <div class="wrapper">
     <div class="row data-welcome" data-render-id={{unbound intro.renderId}}>
         <figure class="attachment">
           {{#each intro.images as |image|}}
             {{ui-addon/progressive-image
               ratio=image.ratio
-              objectFit=image.objectFit
+              objectFit=(if intro.bgImageMode 'cover')
               thumbnail=image.thumbnail
               image=image.natural}}
           {{/each}}
