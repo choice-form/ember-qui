@@ -12,7 +12,7 @@ export default Component.extend({
   width: reads('size'),
   height: computed('size', 'padding', function () {
 
-    return get(this,'size')+ get(this, 'padding') / 2 + 16
+    return get(this,'size')+ get(this, 'padding') / 4 + 16
   }),
   light: 'white',
   dark: 'black',
