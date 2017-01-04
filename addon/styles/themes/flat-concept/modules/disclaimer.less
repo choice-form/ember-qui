@@ -22,7 +22,7 @@
     transition: background-color 200ms ease, color 200ms ease;
     border-radius: 50%;
 
-    .absolute(auto, 0, -@offset*1.5, 0);
+    .absolute(auto, 0, -@offset, 0);
     & svg {
       display: block;
     }
@@ -34,11 +34,10 @@
 html.tablet.portrait,
 html.mobile.portrait {
   & .disclaimer {
-    margin-top: @offset/2;
     text-align: center;
     font-size: x-small;
   }
   & .disclaimer-contents {
-    padding: @offset/2 0 @offset/2 0;
+    padding: @offset/2 0 @offset 0;
   }
 }

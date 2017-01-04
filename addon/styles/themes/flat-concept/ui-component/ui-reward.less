@@ -9,6 +9,11 @@
   }
   & .attachment {
     padding: 0 !important;
+    & + .reward-header {
+      & .congratulations {
+        margin-top: @offset/2;
+      }
+    }
   }
   & .wechat-profile {
     padding-top: @offset*2;
@@ -65,6 +70,7 @@
       }
     }
     & .congratulations {
+      margin-top: @offset;
       & .ribbon {
         position: relative;
         display: block;
@@ -144,6 +150,9 @@
         }
       }
     }
+    & + .reward-additional {
+      margin-top: @offset/2;
+    }
   }
   & .reward {
     text-align: center;
@@ -218,12 +227,14 @@
         animation-fill-mode: forwards;
       }
     }
+    & + .reward-additional {
+      padding: @offset @offset/2;
+    }
   }
 }
 
 .reward-additional {
-  padding: @offset/2;
-  text-align: left;
+  padding: 0 @offset/2;
 }
 
 /*------------------- responsive -------------------*/
@@ -242,7 +253,6 @@ html.mobile {
       }
     }
   }
-  & .reward-additional,
   & .reward {
     & .reward-contents {
       padding-top: 0;

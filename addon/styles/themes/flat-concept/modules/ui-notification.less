@@ -157,7 +157,7 @@ html.desktop {
 html.tablet.portrait {
   & .ui-notification {
     & .instance {
-      max-width: 80vw;
+      max-width: 70vw;
     }
   }
 }
@@ -173,5 +173,10 @@ html.tablet.landscape {
 html.mobile {
   & .ui-notification {
     padding: 0 @offset/4;
+    & .instance {
+      & .notification {
+        padding: @offset/4 @offset/4 @offset/4 @offset/2;
+      }
+    }
   }
 }

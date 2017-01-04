@@ -6,10 +6,9 @@ import QRCode from 'qrcode';
 export default Component.extend({
   tagName: 'canvas',
   classNames: ['qr-code'],
-  attributeBindings: ['width', 'height', 'style'],
-  style: 'border:20px solid white',
-  width: 250,
-  height: 300,
+  attributeBindings: ['width', 'height'],
+  width: 360,
+  height: 360,
   light: 'white',
   dark: 'black',
   ctx: null,
@@ -40,8 +39,8 @@ export default Component.extend({
     this.empty();
     const data = get(this, 'data');
     const ctx = get(this, 'ctx');
-    const width = 250;
-    const height = 250;
+    const width = 240;
+    const height = 240;
 
     const qr = new QRCode(0, 1);
     qr.addData(data);

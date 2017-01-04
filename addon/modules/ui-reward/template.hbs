@@ -51,13 +51,16 @@
             <div class="qrcode-item">
               {{ui-addon/qr-code data=node.qrCode}}
             </div>
-            <div class="scan-icon">{{svg-item "scan"}}</div>
             <span>请截屏进行保存</span>
           </div>
         {{/if}}
 
         {{#if node.rewardToMessage}}
           <div class="ui-verification">
+            <span>
+              {{svg-item "round-e-info"}}
+              通过手机号获取信息
+            </span>
             <div class="get-verification">
               {{ui-component/ui-input type='url'
                                       value=''
@@ -70,7 +73,6 @@
                                        handleClick=(if getInfoButton (action "handleOptionClick") '')
               }}
             </div>
-            <span>通过手机号获取信息</span>
           </div>
         {{/if}}
       </div>

@@ -4,6 +4,22 @@
     margin: 0 auto @offset auto;
     opacity: .5;
   }
+  & > span {
+    position: relative;
+    display: block;
+    text-align: left;
+    font-size: small;
+    border-radius: @radius-s;
+    padding: @offset/6 @offset;
+    & svg {
+      display: block;
+      margin: auto 0;
+      .absolute(0, auto, 0, @offset/4);
+    }
+    & + .get-verification {
+      margin-top: @offset/4;
+    }
+  }
   & .get-verification {
     margin-top: @offset/2;
     & .ui-text {
