@@ -51,7 +51,7 @@
         }
 
         & > svg {
-          display: inline-block;
+          display: block;
           margin: @offset/2 0;
           pointer-events: none;
 
@@ -76,14 +76,13 @@
             margin-top: auto;
           }
           & a.clear {
-            width: @offset*1.5;
+            padding: @offset/4;
             margin-bottom: @offset/4;
             cursor: pointer;
 
             align-self: center;
             & svg {
-              display: inline-block;
-              vertical-align: middle;
+              display: block;
             }
             & span {
               vertical-align: middle;

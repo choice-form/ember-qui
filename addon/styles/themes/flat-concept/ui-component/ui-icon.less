@@ -24,8 +24,7 @@
         width: @offset*2;
         height: @offset*2;
         & svg {
-          display: inline-block;
-          vertical-align: middle;
+          display: block;
           margin: auto;
 
           .absolute(0, 0, 0, 0);
@@ -36,7 +35,8 @@
       padding-top: @offset/4;
       text-align: center;
       & svg {
-        display: inline-block;
+        display: block;
+        margin: 0 auto;
       }
       & span {
         font-size: smaller;
