@@ -2,17 +2,20 @@ import Component from 'ember-component';
 import set from 'ember-metal/set';
 import get from 'ember-metal/get';
 import QRCode from 'qrcode';
+import { reads } from 'ember-computed';
 
 export default Component.extend({
   tagName: 'canvas',
   classNames: ['qr-code'],
   attributeBindings: ['width', 'height'],
-  width: 360,
-  height: 360,
+  size:360,
+  width: reads('size'),
+  height: reads('size'),
   light: 'white',
   dark: 'black',
   ctx: null,
   data: '',
+  padding:'60',
 
   didInsertElement() {
     HTMLElement.prototype.__defineGetter__("currentStyle", function () {
@@ -32,15 +35,15 @@ export default Component.extend({
   empty() {
     const ctx = get(this, 'ctx');
     ctx.fillStyle = get(this, 'light');
-    return ctx.fillRect(0, 0, get(this, 'width'), get(this, 'height'));
+    return ctx.fillRect(0, 0, get(this, 'size'), get(this, 'size'));
   },
 
   draw() {
     this.empty();
     const data = get(this, 'data');
     const ctx = get(this, 'ctx');
-    const width = 240;
-    const height = 240;
+    const width = get(this, 'size') - get(this, 'padding');
+    const height = get(this, 'size') - get(this, 'padding');
 
     const qr = new QRCode(0, 1);
     qr.addData(data);
@@ -59,12 +62,17 @@ export default Component.extend({
     ctx.font = "16px Arial";
     //设置字体填充颜色
     ctx.textAlign="center";
-    ctx.fillText(data, 125, 280);
+    ctx.fillText(data, get(this, 'size') / 2,  (get(this, 'size') - get(this, 'padding') / 8));
     ctx.fillStyle = get(this, 'dark');
+    const offestX = (get(this, 'size') - width) / 2;
+    const offestY = (get(this, 'size') - height) / 2;
+    ctx.translate(offestX, offestY);
     for (let row = 0; row < size; ++row)
       for (let col = 0; col < size; ++col)
-        if (qr.isDark(row, col))
+        if (qr.isDark(row, col)){
           ctx.fillRect(cx(row) + pad, cy(col) + pad, cwidth - pad, cheight - pad);
+        }
+
 
   }
 });
