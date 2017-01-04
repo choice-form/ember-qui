@@ -49,7 +49,7 @@ article {
     padding: @offset 0;
     animation-name: fadein;
     animation-duration: .65s;
-    animation-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+    animation-timing-function: cubic-bezier(.645, .045, .355, 1);
     animation-iteration-count: 1;
 
     animation-fill-mode: forwards;
@@ -92,14 +92,6 @@ article {
     padding: 0 @offset/2;
 
     .height-fix();
-    &.error {
-      animation-name: fadein;
-      animation-duration: .65s;
-      animation-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
-      animation-iteration-count: 1;
-
-      animation-fill-mode: forwards;
-    }
     & label {
       position: relative;
     }
@@ -131,9 +123,6 @@ html.desktop {
   }
   & .c-container {
     min-width: 480px;
-  }
-  & .control {
-    border-radius: @radius-l;
   }
 }
 

@@ -7,6 +7,14 @@
   </sup>
 {{/if}}
 
+{{#if node.errorMessage}}
+  <div class="error-message">
+    <span>
+      {{svg-item "square-e-alert"}}
+      {{node.errorMessage}}
+    </span>
+  </div>
+{{/if}}
 <div class={{concat "control " quesType (if node.errorMessage ' error')}}>
   {{#if isSpecialComponent}}
     {{component componentName node handleEvents options=(unbound node.options) matrix=(unbound node.matrix)}}
@@ -16,6 +24,3 @@
     {{/each}}
   {{/if}}
 </div>
-{{#if node.errorMessage}}
-  <div class="error-message">{{node.errorMessage}}</div>
-{{/if}}
