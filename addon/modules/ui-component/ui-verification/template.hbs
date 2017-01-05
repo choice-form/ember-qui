@@ -7,6 +7,8 @@
   {{ui-component/ui-input handleOptionInput=handleOptionInput
                           type=(if (eq verificationType "password") 'password' 'tel')
                           placeholder=(if (eq verificationType "password") '请输入密码' '请输入手机号')
+                          value=(if (eq verificationType "password") code phoneNumber)
+                          disabled=(or msgPassed pwdPassed)
                           icon=(if (eq verificationType "password") 'int' 'mobile')}}
 {{/unless}}
 
@@ -15,10 +17,14 @@
   <div class={{concat "get-verification" captchaClass}}>
     {{ui-component/ui-input type='url' value='' handleOptionInput=handleOptionInput
                             placeholder=(if (eq verificationType "captcha") '请输入验证码' '请输入短信验证码')
+                            value=code
+                            disabled=msgPassed
                             icon='int'}}
 
     {{#if getInfoButton}}
-      {{ui-component/ui-button text=buttonText className="button contrast"
+      {{ui-component/ui-button text=buttonText
+                               className="button contrast"
+                               disabled=msgPassed
                                handleClick=handleOptionClick}}
     {{else}}
       {{ui-component/ui-button leftIcon='refresh' className="button primary refresh" text=countDown}}

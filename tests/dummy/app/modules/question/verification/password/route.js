@@ -21,6 +21,9 @@ export default Route.extend({
           uuid: '002',
           isMust:true,
           number:'3',
+          phoneNumber:'13564897584',
+          code:'112255',
+          pwdPassed:true,
           options,
           declarative: faker.lorem.paragraph(),
         }

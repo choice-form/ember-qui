@@ -7,11 +7,13 @@ export default Component.extend({
   tagName: 'button',
   classNames: ['ui-button', 'button'],
   classNameBindings: ['className'],
+  attributeBindings: ['disabled'],
+  disabled:false,
   className: "",
   size: '16px',
   viewBox: '16',
 
-  click(){
+  click() {
     this.handleClick && this.handleClick();
   }
 });

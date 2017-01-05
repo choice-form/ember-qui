@@ -21,6 +21,9 @@ export default Route.extend({
           uuid: '002',
           isMust: true,
           number: '3',
+          phoneNumber:'',
+          code:'',
+          msgPassed:false,
           options,
         }
       ],

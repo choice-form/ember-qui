@@ -26,6 +26,7 @@ export default Route.extend({
           isMust:true,
           number:'3',
           captcha:'',
+          code:'112255',
           options,
           declarative: faker.lorem.paragraph(),
         }
