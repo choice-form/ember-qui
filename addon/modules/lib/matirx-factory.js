@@ -44,6 +44,12 @@ function matrixSetHeight() {
 
 export function swiperHeaderInit(element, config) {
   return new Swiper(element, {
+    breakpoints: {
+      // when window width is <= 768px
+      768: {
+        slidesPerView: 1
+      }
+    },
     ...config
   });
 }
@@ -57,6 +63,12 @@ export function swiperMatrixInit(isDesktop, element, matrixThumbnails, config, c
     nextButton: '.matrix-button-next',
     prevButton: '.matrix-button-prev',
     pagination: '.swiper-pagination',
+    breakpoints: {
+      // when window width is <= 768px
+      768: {
+        slidesPerView: 1
+      }
+    },
     ...config,
     runCallbacksOnInit: true,
     onInit: (swiper)=> {
