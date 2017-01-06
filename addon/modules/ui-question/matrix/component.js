@@ -68,7 +68,7 @@ export default Component.extend({
     if(!get(this, 'preview')) return;
 
     window.addEventListener('device_change', e => this.deviceChangeSwiper(e));
-    window.addEventListener('orientation_change', () => this.orientationChangeSwiper);
+    window.addEventListener('orientation_change', () => this.orientationChangeSwiper());
   },
 
   willDestroyElement(){
