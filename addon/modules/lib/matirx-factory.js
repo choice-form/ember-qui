@@ -6,14 +6,15 @@ function matrixSetHeight() {
    * 设置fixheader的高度
    * @type {any}
    */
+  const fixHeaderColumnSpans = this.element.querySelectorAll('.fix-header-column span');
   const fixHeaderColumns = this.element.querySelectorAll('.fix-header-column');
-  $(fixHeaderColumns).css('height', 'auto');
   const matrixThumbnail = this.element.querySelector('.matrix-thumbnail');
+  matrixThumbnail.style.height='auto';
   const matrixThumbnailHeight =  matrixThumbnail.offsetHeight;
   let maxHeightForHeader = 0;
-  for (let i = 0; i < fixHeaderColumns.length; i++) {
-    if (fixHeaderColumns[i].offsetHeight > maxHeightForHeader) {
-      maxHeightForHeader = fixHeaderColumns[i].offsetHeight;
+  for (let i = 0; i < fixHeaderColumnSpans.length; i++) {
+    if (fixHeaderColumnSpans[i].offsetHeight > maxHeightForHeader) {
+      maxHeightForHeader = fixHeaderColumnSpans[i].offsetHeight;
     }
   }
   const maxHeaderHeight = matrixThumbnailHeight > maxHeightForHeader ? matrixThumbnailHeight : maxHeightForHeader;
