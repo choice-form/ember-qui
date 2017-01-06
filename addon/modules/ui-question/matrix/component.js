@@ -12,8 +12,6 @@ export default Component.extend({
   layout,
   classNames: ['ui-matrix'],
 
-  device: '',
-
   attributeBindings: ['data-render-id'],
   'data-render-id': reads('node.renderId'),
 
@@ -45,6 +43,12 @@ export default Component.extend({
     }
   },
 
+  deviceChangeSwiper(e){
+    this.swiper && this.swiper.destroy(true, true);
+    this.fixHeader && this.fixHeader.destroy(true, true);
+    this.swiperEffect(e.detail.device=='desktop' ? 2 : 1);
+  },
+
   init() {
     this._super(...arguments);
     this.isDesktop = device.desktop();
@@ -52,11 +56,14 @@ export default Component.extend({
 
   didInsertElement() {
     scheduleOnce('afterRender', this, 'swiperEffect', this.isDesktop ? 2 : 1);
+    if(!get(this, 'preview')) return;
+    window.addEventListener('device_change', e => this.deviceChangeSwiper(e));
   },
 
   willDestroyElement(){
     this.swiper && this.swiper.destroy(true, true);
     this.fixHeader && this.fixHeader.destroy(true, true);
+    if(!get(this, 'preview')) return;
     window.removeEventListener('device_change', this.deviceChangeSwiper);
   },
 

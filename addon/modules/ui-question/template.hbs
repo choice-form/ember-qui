@@ -4,7 +4,7 @@
     {{#each question.nodes as |node|}}
       {{#ui-question/lazy-loader class=(concat 'data-' node.quesType) renderId=node.renderId isSingle=question.lazyLoad as |viewable|}}
         {{#if viewable}}
-          {{ui-question/-node node question.handleEvents}}
+          {{ui-question/-node node question.handleEvents preview=question.preview}}
         {{else}}
           <div class="global-loading">
             <ul class="pad">
