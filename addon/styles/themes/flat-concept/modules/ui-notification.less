@@ -4,9 +4,11 @@
   top: 0;
   right: 0;
   left: 0;
+  overflow: hidden;
   backface-visibility: hidden;
   & .instance {
     margin: 0 auto;
+    padding-bottom: @offset/6;
     animation: notification-hide .45s cubic-bezier(.6, .04, .98, .335);
 
     animation-fill-mode: forwards;
