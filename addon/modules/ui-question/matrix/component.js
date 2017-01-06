@@ -23,19 +23,15 @@ export default Component.extend({
   hasMoreEnoughOptionsX: gt('node.renderOptionsX.length', 3),
   advancedControlNeeded: and('isDesktop', 'hasMoreEnoughOptionsX'),
 
-  swiperEffect(slidesNum){
+  swiperEffect(isStretch){
     if (this.element) {
       const fixHeader = this.element.querySelector('.fix-header');
       const columnList = this.element.querySelector('.column-container');
       const matrixThumbnails = $(this.element.querySelector('.matrix-thumbnail-wrapper')).find('ul');
 
-      this.fixHeader = swiperHeaderInit(fixHeader, {
-        slidesPerView: slidesNum,
-      });
+      this.fixHeader = swiperHeaderInit(fixHeader, isStretch);
 
-      this.swiper = swiperMatrixInit(get(this, 'isDesktop'), columnList, matrixThumbnails, {
-        slidesPerView: slidesNum,
-      },()=>{
+      this.swiper = swiperMatrixInit(get(this, 'isDesktop'), columnList, matrixThumbnails, isStretch,()=>{
         matirxSetHeight.call(this);
       });
       !get(this, 'isDesktop') && this.swiper.disableTouchControl();
@@ -44,15 +40,17 @@ export default Component.extend({
   },
 
   deviceChangeSwiper(e){
+
     this.swiper && this.swiper.destroy(true, true);
     this.fixHeader && this.fixHeader.destroy(true, true);
-    this.swiperEffect(e.detail.device=='desktop' ? 2 : 1);
+    set(this, 'advancedControlNeeded', e.detail.device=='desktop' ? true : false);
+    this.swiperEffect();
   },
 
   orientationChangeSwiper(){
     this.swiper && this.swiper.destroy(true, true);
     this.fixHeader && this.fixHeader.destroy(true, true);
-    this.swiperEffect(1);
+    this.swiperEffect();
   },
 
   init() {
@@ -61,13 +59,13 @@ export default Component.extend({
   },
 
   didInsertElement() {
-    scheduleOnce('afterRender', this, 'swiperEffect', this.isDesktop ? 2 : 1);
+    scheduleOnce('afterRender', this, 'swiperEffect');
     if (get(this, 'isDesktop')) {
       window.addEventListener('resize', () => matirxSetHeight.call(this));
     }
     if(!get(this, 'preview')) return;
 
-    window.addEventListener('device_change', e => this.deviceChangeSwiper(e));
+    window.addEventListener('device_change', (e) => this.deviceChangeSwiper(e));
     window.addEventListener('orientation_change', () => this.orientationChangeSwiper());
   },
 
@@ -88,7 +86,7 @@ export default Component.extend({
       const isStretch = 'stretch' === get(this, 'resizeIcon');
       set(this, 'resizeIcon', isStretch ? 'pinch' : 'stretch');
 
-      scheduleOnce('afterRender', this, this.swiperEffect, isStretch ? 4 : 2);
+      scheduleOnce('afterRender', this, this.swiperEffect, isStretch);
     },
 
     handleOptionClick(option,e){

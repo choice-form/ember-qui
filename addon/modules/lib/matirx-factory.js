@@ -6,15 +6,14 @@ function matrixSetHeight() {
    * 设置fixheader的高度
    * @type {any}
    */
-  const fixHeaderColumnSpans = this.element.querySelectorAll('.fix-header-column span');
   const fixHeaderColumns = this.element.querySelectorAll('.fix-header-column');
+  $(fixHeaderColumns).css('height', 'auto');
   const matrixThumbnail = this.element.querySelector('.matrix-thumbnail');
-  matrixThumbnail.style.height='auto';
   const matrixThumbnailHeight =  matrixThumbnail.offsetHeight;
   let maxHeightForHeader = 0;
-  for (let i = 0; i < fixHeaderColumnSpans.length; i++) {
-    if (fixHeaderColumnSpans[i].offsetHeight > maxHeightForHeader) {
-      maxHeightForHeader = fixHeaderColumnSpans[i].offsetHeight;
+  for (let i = 0; i < fixHeaderColumns.length; i++) {
+    if (fixHeaderColumns[i].offsetHeight > maxHeightForHeader) {
+      maxHeightForHeader = fixHeaderColumns[i].offsetHeight;
     }
   }
   const maxHeaderHeight = matrixThumbnailHeight > maxHeightForHeader ? matrixThumbnailHeight : maxHeightForHeader;
@@ -42,38 +41,39 @@ function matrixSetHeight() {
   }
 }
 
-export function swiperHeaderInit(element, config) {
+export function swiperHeaderInit(element, isStretch) {
   return new Swiper(element, {
+    slidesPerView: isStretch ? 4 : 2,
     breakpoints: {
       // when window width is <= 768px
       768: {
-        slidesPerView: 1
+        slidesPerView: isStretch ? 2 : 1
       }
     },
-    ...config
   });
 }
 
-export function swiperMatrixInit(isDesktop, element, matrixThumbnails, config, callBack) {
+export function swiperMatrixInit(isDesktop, element, matrixThumbnails, isStretch, callBack) {
   let touchIndex = 1;
   let startTime = 0;
   let endTime = 600;
+  const slidesPerView = isStretch ? 4 : 2;
   return new Swiper(element, {
     touchMoveStopPropagation:true,
     nextButton: '.matrix-button-next',
     prevButton: '.matrix-button-prev',
     pagination: '.swiper-pagination',
+    slidesPerView: slidesPerView,
     breakpoints: {
       // when window width is <= 768px
       768: {
-        slidesPerView: 1
+        slidesPerView: isStretch ? 2 : 1
       }
     },
-    ...config,
     runCallbacksOnInit: true,
     onInit: (swiper)=> {
       matrixThumbnails.removeAttr('class');
-      matrixThumbnails.slice(swiper.realIndex, swiper.realIndex + config.slidesPerView).addClass('active');
+      matrixThumbnails.slice(swiper.realIndex, swiper.realIndex + swiper.params.slidesPerView).addClass('active');
       callBack && callBack();
     },
 
@@ -108,13 +108,13 @@ export function swiperMatrixInit(isDesktop, element, matrixThumbnails, config, c
       }
       swiper.slideTo(realIndex + offset);
       matrixThumbnails.removeAttr('class');
-      matrixThumbnails.slice(swiper.realIndex, swiper.realIndex + config.slidesPerView).addClass('active');
+      matrixThumbnails.slice(swiper.realIndex, swiper.realIndex + swiper.params.slidesPerView).addClass('active');
     },
 
     onSlideChangeEnd: (swiper)=> {
       if(!isDesktop) return null;
       matrixThumbnails.removeAttr('class');
-      matrixThumbnails.slice(swiper.realIndex, swiper.realIndex + config.slidesPerView).addClass('active');
+      matrixThumbnails.slice(swiper.realIndex, swiper.realIndex + swiper.params.slidesPerView).addClass('active');
     },
 
   });
