@@ -49,6 +49,12 @@ export default Component.extend({
     this.swiperEffect(e.detail.device=='desktop' ? 2 : 1);
   },
 
+  orientationChangeSwiper(){
+    this.swiper && this.swiper.destroy(true, true);
+    this.fixHeader && this.fixHeader.destroy(true, true);
+    this.swiperEffect(1);
+  },
+
   init() {
     this._super(...arguments);
     this.isDesktop = device.desktop();
@@ -56,15 +62,22 @@ export default Component.extend({
 
   didInsertElement() {
     scheduleOnce('afterRender', this, 'swiperEffect', this.isDesktop ? 2 : 1);
+    if (get(this, 'isDesktop')) {
+      window.addEventListener('resize', () => matirxSetHeight.call(this));
+    }
     if(!get(this, 'preview')) return;
+
     window.addEventListener('device_change', e => this.deviceChangeSwiper(e));
+    window.addEventListener('orientation_change', () => this.orientationChangeSwiper);
   },
 
   willDestroyElement(){
     this.swiper && this.swiper.destroy(true, true);
     this.fixHeader && this.fixHeader.destroy(true, true);
+    window.removeEventListener('resize', matirxSetHeight);
     if(!get(this, 'preview')) return;
     window.removeEventListener('device_change', this.deviceChangeSwiper);
+    window.removeEventListener('orientation_change', this.orientationChangeSwiper);
   },
 
   actions: {
