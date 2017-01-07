@@ -12,6 +12,8 @@ export default Route.extend({
           title: faker.finance.accountName(),
           description: faker.lorem.paragraph(),
           images: '',
+          tipImageDesktop:'/images/tip/matrix-desktop.gif',
+          tipImageMobile:'/images/tip/matrix-moblie.gif',
           typeName: '排序题',
           renderId: faker.date.between('2016-01-01', '2016-12-31'),
           quesType: 'matrix',

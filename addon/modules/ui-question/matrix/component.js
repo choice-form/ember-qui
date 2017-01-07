@@ -40,7 +40,6 @@ export default Component.extend({
   },
 
   deviceChangeSwiper(e){
-
     this.swiper && this.swiper.destroy(true, true);
     this.fixHeader && this.fixHeader.destroy(true, true);
     set(this, 'advancedControlNeeded', e.detail.device=='desktop' ? true : false);
@@ -104,5 +103,6 @@ export default Component.extend({
       this.handleEvents.handleOptionInput(value, get(this, 'option'), get(this, 'node'));
       e.currentTarget.style.height = e.currentTarget.scrollHeight + 2 + 'px';
     },
+
   },
 }).reopenClass({ positionalParams: ['node', 'handleEvents'] });

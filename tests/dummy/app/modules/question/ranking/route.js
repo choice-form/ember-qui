@@ -15,13 +15,8 @@ export default Route.extend({
         {
           title: faker.finance.accountName(),
           description: faker.lorem.paragraph(),
-          images: [
-            {
-              ratio: 0.667,
-              natural: '/images/sample-1.jpg',
-              thumbnail: '/images/sample-1-thumbnail.jpg',
-            }
-          ],
+
+          tipImage:'/images/tip/ranging.gif',
           typeName: '排序题',
           renderId: faker.date.between('2016-01-01', '2016-12-31'),
           quesType: 'ranking',
