@@ -8,7 +8,7 @@
     </figure>
   {{/if}}
   <header class="reward-header">
-    <div class="congratulations">
+    <div class={{html-safe (concat 'congratulations' (unless node.goal ' disabled'))}}>
       <div class="ribbon">
         <h2>{{node.rewardTitle}}</h2>
         <i></i><i></i><i></i><i></i>
@@ -17,11 +17,13 @@
     <div class="reward-contents">
       <h2>{{node.rewardDescribe}}{{node.rewardName}}</h2>
       <span class="current-time">{{node.rewardTime}}</span>
-      <div class="reward-numbering">
-        {{#each node.rewardList as |reward|}}
-          <p>{{reward.rewardName}}：<strong>{{reward.rewardNumbering}}</strong>份</p>
-        {{/each}}
-      </div>
+      {{#if node.goal}}
+        <div class="reward-numbering">
+          {{#each node.rewardList as |reward|}}
+            <p>{{reward.rewardName}}：<strong>{{reward.rewardNumbering}}</strong>份</p>
+          {{/each}}
+        </div>
+      {{/if}}
     </div>
   </header>
 
