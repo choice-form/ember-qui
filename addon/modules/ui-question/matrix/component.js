@@ -25,15 +25,16 @@ export default Component.extend({
 
   swiperEffect(isStretch){
     if (this.element) {
+      const columnLength = get(this, 'node.renderOptionsX').length;
       const fixHeader = this.element.querySelector('.fix-header');
       const columnList = this.element.querySelector('.column-container');
       const matrixThumbnails = $(this.element.querySelector('.matrix-thumbnail-wrapper')).find('ul');
 
-      this.fixHeader = swiperHeaderInit(fixHeader, isStretch);
+      this.fixHeader = swiperHeaderInit(fixHeader, isStretch, columnLength);
 
       this.swiper = swiperMatrixInit(get(this, 'isDesktop'), columnList, matrixThumbnails, isStretch,()=>{
         matirxSetHeight.call(this);
-      });
+      },columnLength);
       !get(this, 'isDesktop') && this.swiper.disableTouchControl();
       this.swiper.params.control = this.fixHeader;
     }

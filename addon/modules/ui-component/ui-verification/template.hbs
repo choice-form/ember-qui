@@ -16,7 +16,7 @@
 {{#unless (eq verificationType 'password')}}
   <div class={{concat "get-verification" captchaClass}}>
     {{ui-component/ui-input type='url' value='' handleOptionInput=handleOptionInput
-                            placeholder=(if (eq verificationType "captcha") '请输入验证码' '请输入短信验证码')
+                            placeholder=(if (eq verificationType "captcha") '请输入验证码' '请输入验证码')
                             value=code
                             disabled=msgPassed
                             icon='int'}}

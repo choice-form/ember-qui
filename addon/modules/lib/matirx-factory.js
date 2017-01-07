@@ -42,9 +42,10 @@ function matrixSetHeight() {
   }
 }
 
-export function swiperHeaderInit(element, isStretch) {
+export function swiperHeaderInit(element, isStretch, columnLength) {
+  const slidesPerView = isStretch ? 4 : 2;
   return new Swiper(element, {
-    slidesPerView: isStretch ? 4 : 2,
+    slidesPerView: columnLength < 2 ? 1 : slidesPerView,
     breakpoints: {
       // when window width is <= 768px
       768: {
@@ -54,7 +55,7 @@ export function swiperHeaderInit(element, isStretch) {
   });
 }
 
-export function swiperMatrixInit(isDesktop, element, matrixThumbnails, isStretch, callBack) {
+export function swiperMatrixInit(isDesktop, element, matrixThumbnails, isStretch, callBack, columnLength) {
   let touchIndex = 1;
   let startTime = 0;
   let endTime = 600;
@@ -64,7 +65,7 @@ export function swiperMatrixInit(isDesktop, element, matrixThumbnails, isStretch
     nextButton: '.matrix-button-next',
     prevButton: '.matrix-button-prev',
     pagination: '.swiper-pagination',
-    slidesPerView: slidesPerView,
+    slidesPerView: columnLength < 2 ? 1 : slidesPerView,
     breakpoints: {
       // when window width is <= 768px
       768: {
