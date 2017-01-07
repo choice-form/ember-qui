@@ -29,13 +29,12 @@
     {{else}}
       {{ui-component/ui-button leftIcon='refresh' className="button primary refresh" text=countDown}}
     {{/if}}
-
-    {{#if captcha}}
-      <div class="captcha-wrapper">
-        <div class="captcha-canvas"><img src={{captcha}} alt=""></div>
-      </div>
-    {{/if}}
   </div>
+  {{#if captcha}}
+    <div class="captcha-wrapper">
+      <div class="captcha-canvas"><img src={{captcha}} alt=""></div>
+    </div>
+  {{/if}}
 {{/unless}}
 
 {{#if declarative}}
