@@ -109,6 +109,11 @@ export default Component.extend({
     $('body').stop();
   },
 
+  init() {
+    this._super(...arguments);
+    this.isDesktop = device.desktop();
+  },
+
   didInsertElement(){
     scheduleOnce('afterRender', this, 'renderSortable');
 
@@ -123,7 +128,7 @@ export default Component.extend({
 
     if (device.desktop()) return ;
 
-    this.element.removeEventListener('touchmove', this.scrollMovie, false);
-    this.element.removeEventListener('touchend', this.scrollStop, false);
+    this.element && this.element.removeEventListener('touchmove', this.scrollMovie, false);
+    this.element && this.element.removeEventListener('touchend', this.scrollStop, false);
   }
 }).reopenClass({ positionalParams: ['node', 'handleEvents']});

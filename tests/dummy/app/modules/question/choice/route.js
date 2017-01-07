@@ -220,7 +220,7 @@ export default Route.extend({
 
       logoText:'GMO',
 
-      hideFooter: true,
+      hideFooter: false,
     }
   }
 });
