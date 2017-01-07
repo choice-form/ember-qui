@@ -10,8 +10,6 @@ export default Component.extend({
   didInsertElement(){
     this._super(...arguments);
     const storage = get(this, 'storage');
-    console.log(storage);
-    console.log(localStorage.getItem(storage));
     if(localStorage.getItem(storage)){
       set(this, 'showTipImage', false);
     }else {
