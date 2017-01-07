@@ -24,7 +24,6 @@
             align-items: center;
             justify-content: center;
             width: 100%;
-            padding: @offset/2;
             text-align: center;
             &:not(:last-child) {
               .border(@offset/2, -1px, @offset/2, auto, auto, .3);
@@ -33,6 +32,7 @@
               }
             }
             & span {
+              padding: @offset/2;
               word-break: break-all;
             }
           }
@@ -59,7 +59,7 @@
           &:not(:last-child) {
             .border(auto, 0, -1px, 0, 1px, .3);
           }
-          & span {
+          & p {
             word-break: break-all;
             display: table-cell;
             vertical-align: middle;
