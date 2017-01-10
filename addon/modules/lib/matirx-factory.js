@@ -82,6 +82,7 @@ export function swiperMatrixInit(isDesktop, element, matrixThumbnails, isStretch
     onTouchStart(swiper){
       if(isDesktop) return null;
       this.startX = swiper.touches.startX;
+      this.startY = swiper.touches.startY;
     },
 
     onTouchEnd(swiper){
@@ -98,8 +99,9 @@ export function swiperMatrixInit(isDesktop, element, matrixThumbnails, isStretch
       if(Math.abs(time) < 300) return ;
       const realIndex = swiper.realIndex;
       this.endX = swiper.touches.startX;
+      this.endY = swiper.touches.startY;
       const diff = this.endX - this.startX;
-
+      const diffY = Math.abs(this.endY - this.startY);
       let offset = 0;
       if(diff > 20){
         offset = -1;
@@ -108,9 +110,13 @@ export function swiperMatrixInit(isDesktop, element, matrixThumbnails, isStretch
       }else{
         offset = 0;
       }
-      swiper.slideTo(realIndex + offset);
-      matrixThumbnails.removeAttr('class');
-      matrixThumbnails.slice(swiper.realIndex, swiper.realIndex + swiper.params.slidesPerView).addClass('active');
+      if(diffY > 0) {
+        later(()=>{
+          swiper.slideTo(realIndex + offset);
+          matrixThumbnails.removeAttr('class');
+          matrixThumbnails.slice(swiper.realIndex, swiper.realIndex + swiper.params.slidesPerView).addClass('active');
+        }, 10);
+      }
     },
 
     onSlideChangeEnd: (swiper)=> {
