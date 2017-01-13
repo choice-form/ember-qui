@@ -27,6 +27,7 @@ export default Route.extend({
           showStyle: '',
           uuid: '002',
           hasReward: true,
+          showRewardLimitTime:false,
           isMust:true,
           number:'3',
           value:'123123',

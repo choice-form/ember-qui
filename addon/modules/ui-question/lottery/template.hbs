@@ -17,7 +17,7 @@
     <div class="reward-contents">
       <h2>{{node.rewardDescribe}}{{node.rewardName}}</h2>
       <span class="current-time">{{node.rewardTime}}</span>
-      {{#if node.goal}}
+      {{#if (and node.goal node.rewardList)}}
         <div class="reward-numbering">
           {{#each node.rewardList as |reward|}}
             <p>{{reward.rewardName}}：<strong>{{reward.rewardNumbering}}</strong>份</p>
