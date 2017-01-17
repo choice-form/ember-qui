@@ -1,4 +1,5 @@
 import Swiper from 'swiper';
+import { later } from 'ember-runloop';
 import $ from 'jquery';
 
 function matrixSetHeight() {
