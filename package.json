@@ -1,6 +1,6 @@
 {
   "name": "@choiceform/ember-cform-ui",
-  "version": "0.1.36",
+  "version": "0.1.37",
   "description": "UI components for q.cform.io",
   "main": "index.js",
   "directories": {
