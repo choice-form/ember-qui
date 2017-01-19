@@ -17,7 +17,7 @@
 {{/if}}
 <div class={{concat "control " quesType (if node.errorMessage ' error')}}>
   {{#if isSpecialComponent}}
-    {{component componentName node handleEvents options=(unbound node.options) matrix=(unbound node.matrix) preview=preview}}
+    {{component componentName node handleEvents options=(if node.dynamicOption node.options (unbound node.options)) matrix=(unbound node.matrix) preview=preview}}
   {{else}}
     {{#each node.options as |option|}}
       {{component componentName node option handleEvents}}
