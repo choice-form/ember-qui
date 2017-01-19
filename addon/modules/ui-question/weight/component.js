@@ -9,7 +9,7 @@ export default Component.extend({
   attributeBindings:['data-render-id'],
   'data-render-id': reads('node.renderId'),
 
-  didInsertElement(){
+  didRender(){
     const noUiScrolls = this.element.getElementsByClassName('noUi-connect');
     get(this, 'node.options').forEach((item, index)=>{
       noUiScrolls[index].style.background = item.color;
