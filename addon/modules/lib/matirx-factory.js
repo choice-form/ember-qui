@@ -77,7 +77,7 @@ export function swiperMatrixInit(isDesktop, element, matrixThumbnails, isStretch
     onInit: (swiper)=> {
       matrixThumbnails.removeAttr('class');
       matrixThumbnails.slice(swiper.realIndex, swiper.realIndex + swiper.params.slidesPerView).addClass('active');
-      callBack && callBack();
+      callBack && later(()=>{callBack()}, 100);
     },
 
     onTouchStart(swiper){
