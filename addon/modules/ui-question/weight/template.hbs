@@ -24,7 +24,7 @@
       </h4>
 
       {{ui-range
-        value=option.value
+        value=(numberize option.value)
         min=0
         max=option.maxValue
         on-slide=(action "updateDisplayValue" index)
