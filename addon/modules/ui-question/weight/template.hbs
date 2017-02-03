@@ -24,11 +24,12 @@
       </h4>
 
       {{ui-range
-        value=(numberize option.value)
+        value=option.value
         min=0
         max=option.maxValue
         on-slide=(action "updateDisplayValue" index)
-        on-change=(action "handleOptionInput" option)}}
+        on-change=(action "handleOptionInput" option)
+        on-end=(action 'valueParseInt' option.value index)}}
     </div>
   </div>
 {{/each}}

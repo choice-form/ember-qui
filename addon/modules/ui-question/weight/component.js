@@ -27,6 +27,12 @@ export default Component.extend({
       this.handleEvents.handleOptionInput(
         Math.round(value), option, get(this,'node')
       );
+    },
+
+    valueParseInt(value, index){
+      console.log(value);
+      const displayValue = this.element.querySelectorAll('.displayValue')[index];
+      displayValue.innerText = parseInt(value);
     }
   }
 }).reopenClass({ positionalParams: ['node', 'handleEvents'] });
