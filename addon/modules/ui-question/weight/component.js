@@ -30,7 +30,6 @@ export default Component.extend({
     },
 
     valueParseInt(value, index){
-      console.log(value);
       const displayValue = this.element.querySelectorAll('.displayValue')[index];
       displayValue.innerText = parseInt(value);
     }
