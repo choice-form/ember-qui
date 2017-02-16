@@ -10,9 +10,4 @@ export default Component.extend({
     icon: 'round-e-info', // 选项的Icon
   },
 
-  didInsertElement(){
-    // 如果没有奖励，删除control节点
-    !this.node.hasReward && this.element.parentNode.remove();
-  }
-
 }).reopenClass({positionalParams: ['node', 'handleEvents']});
