@@ -34,6 +34,10 @@ export default Component.extend({
   }),
 
   _handlePositionSuccess(position) {
+    if(!position.address.city){
+      setProperties(this, {locationState: 'failed', svgState: 'location-failed', tips: '定位失败!'});
+      return ;
+    }
     this.handleEvents.handleQuestionInput(position, get(this, 'node'));
     setProperties(
       this, {locationState: 'successful', svgState: 'location-successful', tips: '成功获取位置信息'}
