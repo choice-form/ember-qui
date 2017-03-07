@@ -1,7 +1,7 @@
 import Component from 'ember-component';
 import layout from './template';
 import get from 'ember-metal/get';
-import set from 'ember-metal/set';
+import set, {setProperties} from 'ember-metal/set';
 import { scheduleOnce } from 'ember-runloop';
 import computed, { gt, and, reads } from 'ember-computed';
 import $ from 'jquery';
@@ -20,8 +20,11 @@ export default Component.extend({
     return `matrix-wrapper${get(this, 'resizeIcon') === 'pinch' ? ' zoom' : ''}`;
   }).readOnly(),
 
-  hasMoreEnoughOptionsX: gt('node.renderOptionsX.length', 3),
-  advancedControlNeeded: and('isDesktop', 'hasMoreEnoughOptionsX'),
+  hasAdvancedButton: gt('node.renderOptionsX.length', 3),
+  moreButtonNeeded: and('isDesktop', 'hasAdvancedButton'),
+
+  hasArrowButton: gt('node.renderOptionsX.length', 2),
+  arrowButtonNeeded: and('isDesktop', 'hasArrowButton'),
 
   swiperEffect(isStretch){
     if (this.element) {
@@ -43,7 +46,10 @@ export default Component.extend({
   deviceChangeSwiper(e){
     this.swiper && this.swiper.destroy(true, true);
     this.fixHeader && this.fixHeader.destroy(true, true);
-    set(this, 'advancedControlNeeded', e.detail.device=='desktop' ? true : false);
+    setProperties(this, {
+      'moreButtonNeeded': e.detail.device=='desktop' ? true : false,
+      'arrowButtonNeeded': e.detail.device=='desktop' ? true : false,
+    })
     this.swiperEffect();
   },
 
