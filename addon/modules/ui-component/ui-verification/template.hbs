@@ -5,11 +5,11 @@
 
 {{#unless (eq verificationType 'captcha')}}
   {{ui-component/ui-input handleOptionInput=handleOptionInput
-                          type=(if (eq verificationType "password") 'password' 'tel')
+                          type=(if _pass_white 'password' 'tel')
                           placeholder=_placeholder
-                          value=(if (eq verificationType "password") code phoneNumber)
+                          value=(if _pass_white code phoneNumber)
                           disabled=(or msgPassed pwdPassed)
-                          icon=(if (eq verificationType "password") 'int' 'mobile')}}
+                          icon=(if _pass_white 'int' 'mobile')}}
 {{/unless}}
 
 
