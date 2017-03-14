@@ -1,11 +1,11 @@
-{{#if icon}}
-  {{svg-item icon size="64px" viewBox="40"}}
+{{#if _icon}}
+  {{svg-item _icon size="64px" viewBox="40"}}
 {{/if}}
 
 
 {{#unless (eq verificationType 'captcha')}}
   {{ui-component/ui-input handleOptionInput=handleOptionInput
-                          type=(if _pass_white 'password' 'tel')
+                          type=_type
                           placeholder=_placeholder
                           value=(if _pass_white code phoneNumber)
                           disabled=(or msgPassed pwdPassed)

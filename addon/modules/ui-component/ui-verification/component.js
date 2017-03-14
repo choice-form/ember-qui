@@ -30,6 +30,14 @@ export default Component.extend({
     return '请输入手机号';
   }),
 
+  _type: computed('verificationType', function () {
+    const type = get(this, 'verificationType');
+    if(type == 'password') return 'password';
+    if(type == 'white_list') return 'text';
+    return 'tel';
+  }),
+
+
   _pass_white: computed('verificationType', function () {
     const type = get(this, 'verificationType');
     return ['password','white_list'].indexOf(type) > -1;
