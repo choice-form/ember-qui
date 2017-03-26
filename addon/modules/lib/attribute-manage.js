@@ -41,7 +41,7 @@ export function insertImg(str='') {
       width = str.replace('?w=','');
     });
 
-    s.replace(/&h=.*(?=##)/, function (str) {
+    s.replace(/&h=.*(?=#\b)/, function (str) {
       height = str.replace('&h=','');
     });
 
