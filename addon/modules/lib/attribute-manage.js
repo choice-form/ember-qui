@@ -21,3 +21,30 @@ export function toggleClass(obj,cls){
     addClass(obj, cls);
   }
 }
+
+export function insertImg(str='') {
+
+  const hasimg =  new RegExp(/##\S+\?\S*##/);
+  if(!hasimg.test(str)){
+    return str;
+  }
+
+  return str.replace(/##\S*##/,function (s) {
+    let img = '';
+    let width='';
+    let height='';
+    s.replace(/##.*(?=\?)/, function (str) {
+      img = str.replace('##','');
+    });
+
+    s.replace(/\?w=.*(?=&h=)/, function (str) {
+      width = str.replace('?w=','');
+    });
+
+    s.replace(/&h=.*(?=##)/, function (str) {
+      height = str.replace('&h=','');
+    });
+
+    return `<img src=${img} width=${width} height=${height}>` ;
+  })
+}

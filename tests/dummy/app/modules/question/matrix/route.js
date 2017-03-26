@@ -22,7 +22,7 @@ export default Route.extend({
           number: '7',
           renderOptionsX:[
             {
-              text: `COLUMN1 ${faker.finance.accountName()}COLUMN1 ${faker.finance.accountName()}COLUMN1 ${faker.finance.accountName()}`,
+              text: `上传题##/images/sample-1.jpg?w=20&h=30##${faker.finance.accountName()}`,
             },
             {
               text: `COLUMN2 ${faker.finance.accountName()} COLUMN1 ${faker.finance.accountName()}COLUMN1 ${faker.finance.accountName()}COLUMN1 ${faker.finance.accountName()}COLUMN1 ${faker.finance.accountName()}`,

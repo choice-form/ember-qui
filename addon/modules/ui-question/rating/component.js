@@ -3,6 +3,7 @@ import layout from './template';
 import computed, { equal } from 'ember-computed';
 import get from 'ember-metal/get';
 import { htmlSafe } from 'ember-string';
+import {insertImg} from '../../lib/attribute-manage';
 
 export default Component.extend({
   layout,
@@ -11,7 +12,7 @@ export default Component.extend({
   text: computed('option.text', {
     get() {
       return get(this, 'option.text')
-        ? htmlSafe(`<span>${get(this, 'option.text')}</span>`) : null
+        ? htmlSafe(`<span>${insertImg(get(this, 'option.text'))}</span>`) : null
     }
   }).readOnly(),
 

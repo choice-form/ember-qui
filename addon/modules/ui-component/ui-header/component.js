@@ -3,6 +3,7 @@ import layout from './template';
 import computed, { notEmpty, and, not } from 'ember-computed';
 import get from 'ember-metal/get';
 import { htmlSafe } from 'ember-string';
+import {insertImg} from '../../lib/attribute-manage';
 
 export default Component.extend({
   layout,
@@ -34,9 +35,10 @@ export default Component.extend({
   description: computed('header.description', {
     get() {
       const description = get(this, 'header.description');
-      return description ? htmlSafe(`<pre class="description">${description}</pre>`) : null;
+      return description ? htmlSafe(`<pre class="description">${insertImg(description)}</pre>`) : null;
     }
-  }).readOnly()
+  }).readOnly(),
+
 }).reopenClass({positionalParams: ['header']});
 
 /**

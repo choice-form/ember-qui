@@ -28,7 +28,7 @@ export default Route.extend({
             Ember.Object.create({
               selected: false,
               renderId: faker.date.between('2016-01-01', '2016-12-31'),
-              text: 'Submit your photograph. You need to submit at least one photograph with the front view of face.',
+              text: `上传题##/images/sample-1.jpg?w=20&h=30##${faker.finance.accountName()}`,
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'camera', // 选项的Icon
               inputType: '', // 'select', 'input', 'select-input, ower-input',

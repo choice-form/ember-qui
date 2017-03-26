@@ -16,7 +16,7 @@
       <div class="swiper-wrapper">
         {{#each node.renderOptionsX as |option|}}
           <div class="fix-header-column swiper-slide">
-            <span>{{option.text}}</span>
+            <span>{{{insert-img option.text}}}</span>
           </div>
         {{/each}}
       </div>
@@ -26,7 +26,7 @@
   <div class="matrix-content">
     <ul class="fix-column">
       {{#each node.renderOptionsY as |option|}}
-        <li><p>{{option.text}}</p></li>
+        <li><p>{{{insert-img option.text}}}</p></li>
       {{/each}}
     </ul>
 

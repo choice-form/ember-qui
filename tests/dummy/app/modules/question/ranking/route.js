@@ -26,7 +26,7 @@ export default Route.extend({
 
           options:[
             Ember.Object.create({
-              text: `1-${faker.lorem.paragraph()}`,
+              text: `排序-1##/images/sample-1.jpg?w=20&h=30##${faker.finance.accountName()}`,
               renderId: faker.date.between('2016-01-01', '2016-12-31'),
               uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
               icon: 'ranking', // 选项的Icon
@@ -36,7 +36,7 @@ export default Route.extend({
               sortStateClass: '',
             }),
             Ember.Object.create({
-              text: `2-${faker.finance.accountName()}`,
+              text: `排序-2##/images/sample-1.jpg?w=20&h=30##${faker.finance.accountName()}`,
               renderId: faker.date.between('2016-01-01', '2016-12-31'),
               uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
               icon: 'ranking', // 选项的Icon

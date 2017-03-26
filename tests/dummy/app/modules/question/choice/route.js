@@ -9,8 +9,8 @@ export default Route.extend({
     return {
       nodes: [
         {
-          title: faker.finance.accountName(),
-          description: faker.lorem.paragraph(),
+          title: `选择题标题##/images/sample-1.jpg?w=20&h=30##${faker.finance.accountName()}`,
+          description: `选择题描述##/images/sample-2.jpg?w=20&h=30##${faker.lorem.paragraph()}`,
           images: [
             {
               ratio: 0.6666667,
@@ -33,7 +33,7 @@ export default Route.extend({
             Ember.Object.create({
               selected: false,
               renderId: faker.date.between('2016-01-01', '2016-12-31'),
-              text: faker.lorem.sentence(),
+              text: `选项##/images/sample-3.jpg?w=20&h=30##${faker.lorem.sentence()}`,
               uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
               icon: 'radio', // 选项的Icon
               inputType: 'select-input', // 'select', 'input', 'select-input,

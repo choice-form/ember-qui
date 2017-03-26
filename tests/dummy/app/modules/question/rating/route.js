@@ -26,7 +26,7 @@ export default Route.extend({
             Ember.Object.create({
               selected: '',
               renderId: faker.date.between('2016-01-01', '2016-12-31'),
-              text: faker.lorem.sentence(),
+              text: `图形打分1##/images/sample-1.jpg?w=20&h=30##${faker.finance.accountName()}`,
               description: 'Rating Labels',
               uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
               icon: 'rating-star', // 选项的Icon
@@ -39,7 +39,7 @@ export default Route.extend({
             Ember.Object.create({
               selected: '',
               renderId: faker.date.between('2016-01-01', '2016-12-31'),
-              text: faker.lorem.sentence(),
+              text: `图形打分2##/images/sample-1.jpg?w=20&h=30##${faker.finance.accountName()}`,
               description: 'Rating Labels',
               uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C91",
               icon: 'rating-love', // 选项的Icon

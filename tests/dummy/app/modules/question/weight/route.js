@@ -8,7 +8,7 @@ export default Route.extend({
   model() {
     let options = [
       Ember.Object.create({
-        text: faker.finance.accountName(),
+        text: `权重1##/images/sample-1.jpg?w=20&h=30##${faker.finance.accountName()}`,
         renderId: faker.date.between('2016-01-01', '2016-12-31'),
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
         icon: '', // 选项的Icon
@@ -18,7 +18,7 @@ export default Route.extend({
         maxValue:100,
       }),
       Ember.Object.create({
-        text: faker.finance.accountName(),
+        text: `权重2##/images/sample-1.jpg?w=20&h=30##${faker.finance.accountName()}`,
         renderId: faker.date.between('2016-01-01', '2016-12-31'),
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
         icon: '', // 选项的Icon
