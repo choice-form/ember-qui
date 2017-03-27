@@ -23,21 +23,7 @@ export function toggleClass(obj,cls){
 }
 
 export function insertImg(str='') {
-  return str.replace(/##\S*?##/g,function (s) {
-    let img = '';
-    let width='';
-    let height='';
-    s.replace(/##.*(?=\?)/, function (str) {
-      img = str.replace('##','');
-    });
-
-    s.replace(/\?w=.*(?=&h=)/, function (str) {
-      width = str.replace('?w=','');
-    });
-
-    s.replace(/&h=.*(?=#\b)/, function (str) {
-      height = str.replace('&h=','');
-    });
-    return `<img src="${img}" style="width:${width}px; height:${height}px">` ;
-  })
+  return str.replace(/##(\S+?)\?w=(\d+)&h=(\d+)\S*?##/g, function (matched, url, width, height) {
+    return `<img src="${url}" style="width:${width}px; height:${height}px">`;
+  });
 }
