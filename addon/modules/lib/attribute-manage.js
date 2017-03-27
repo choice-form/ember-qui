@@ -24,6 +24,9 @@ export function toggleClass(obj,cls){
 
 export function insertImg(str='') {
   return str.replace(/##(\S+?)\?w=(\d+)&h=(\d+)\S*?##/g, function (matched, url, width, height) {
-    return `<img src="${url}" style="width:${width}px; height:${height}px">`;
+    if(width == 0 && height ==0) return `<img src="${url}">`;
+    const _width = width == 0 ? '' : `width:${width}px;`;
+    const _height = height == 0 ? '' : `height:${height}px;`;
+    return `<img src="${url}" style="${_width} ${_height}">`;
   });
 }
