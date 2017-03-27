@@ -23,13 +23,7 @@ export function toggleClass(obj,cls){
 }
 
 export function insertImg(str='') {
-
-  const hasimg =  new RegExp(/##\S+\?\S*##/);
-  if(!hasimg.test(str)){
-    return str;
-  }
-
-  return str.replace(/##\S*##/g,function (s) {
+  return str.replace(/##\S*?##/g,function (s) {
     let img = '';
     let width='';
     let height='';
