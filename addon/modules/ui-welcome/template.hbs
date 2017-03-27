@@ -14,10 +14,10 @@
       <header class="header">
         <h2 class="title">{{intro.title}}</h2>
         {{#if intro.summary}}
-          <p style="margin-bottom: 1rem">{{intro.summary}}</p>
+          <p style="margin-bottom: 1rem">{{{insert-img intro.summary}}}</p>
         {{/if}}
         {{#if intro.description}}
-          <pre class="description">{{intro.description}}</pre>
+          <pre class="description">{{{insert-img intro.description}}}</pre>
         {{/if}}
       </header>
 
