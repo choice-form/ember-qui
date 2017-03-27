@@ -29,7 +29,7 @@ export function insertImg(str='') {
     return str;
   }
 
-  return str.replace(/##\S*##/,function (s) {
+  return str.replace(/##\S*##/g,function (s) {
     let img = '';
     let width='';
     let height='';
@@ -44,7 +44,6 @@ export function insertImg(str='') {
     s.replace(/&h=.*(?=#\b)/, function (str) {
       height = str.replace('&h=','');
     });
-
-    return `<img src=${img} width=${width} height=${height}>` ;
+    return `<img src="${img}" style="width:${width}px; height:${height}px">` ;
   })
 }
