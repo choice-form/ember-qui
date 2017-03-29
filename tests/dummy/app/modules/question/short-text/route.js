@@ -61,6 +61,7 @@ export default Route.extend({
         icon: '', // 选项的Icon
         inputType: 'input', // 'select', 'input', 'select-input',
         inputRule: 'date', //输入控件初始化规则
+        grade:2, //1:yyyy,2:yyyy-mm,3yyyy-mm-dd:
         value: '',
         placeholder: '选择日期',
       }),

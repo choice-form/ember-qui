@@ -25,8 +25,6 @@ const mScroll = {
       display: mobInfo.display, //显示方式 ，可选：modal\inline\bubble\top\bottom
       mode: mobInfo.mode, //日期选择模式，可选：scroller\clickpick\mixed
       lang: mobInfo.lang,
-      dateFormat: 'yyyy-mm-dd', // 日期格式
-      dateOrder: 'yyyymmdd', //面板中日期排列格式
       showNow: true,
       startYear: currYear - 200, //开始年份
       endYear: currYear + 100, //结束年份
