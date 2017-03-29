@@ -19,6 +19,7 @@
   </div>
 {{else}}
   {{ui-component/ui-text inputRule=(unbound option.inputRule)
+                         grade=(unbound option.grade)
                          placeholder=(unbound option.placeholder)
                          renderId=(unbound option.renderId)
                          value=option.value
@@ -32,6 +33,7 @@
 {{#if (eq (unbound option.inputType)"select-input")}}
   {{ui-component/ui-text display=(if option.selected "block" "none")
                          inputRule=(unbound option.inputRule)
+                         grade=(unbound option.grade)
                          placeholder=(unbound option.placeholder)
                          renderId=(unbound option.renderId)
                          errorMessage=option.errorMessage
