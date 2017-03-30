@@ -49,13 +49,13 @@ export default Route.extend({
         },
 
         handleNextClick: () => {
-          console.log('点击了下一题');
+          console.log('点击了下一题？？？？？');
         }
       },
 
       prevButton: '上一题',
 
-      nextButton: '下一题',
+      nextButton: '那奖励吧',
 
     }
   }

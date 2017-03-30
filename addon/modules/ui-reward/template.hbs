@@ -87,6 +87,19 @@
     </div>
   </div>
 </section>
+
+
+
+
+{{#if node.nextButton}}
+  {{ui-question/-node/button-cell
+    nextButton=node.nextButton
+    handleNextClick=node.handleEvents.handleNextClick
+    rightIcon="arrows-tail-right"
+  }}
+{{/if}}
+
+
 {{#unless node.hideFooter}}
   {{ui-addon/footer useCustomLogo=node.useCustomLogo customLogo=node.customLogo customText=node.customText}}
 {{/unless}}
