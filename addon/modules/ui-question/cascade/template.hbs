@@ -1,25 +1,40 @@
 <div class="ui-dropdown ui-text dropdown">
-  <select class='dropdown-list' style="display:none" multiple>
+  {{#ui-component/mobi-select handleSelect=handleEvents.handleQuestionInput node=node}}
     {{#each node.options as |q|}}
-      <option data-selected={{q.selected}}>{{q.text}}</option>
+      <option selected={{q.selected}}>{{q.text}}</option>
     {{/each}}
-  </select>
+  {{/ui-component/mobi-select}}
 
-  {{svg-item "arrows-small-down"}}
+
+  {{#each node.options as |secondOption|}}
+
+    {{#if secondOption.selected}}
+
+      <div class="second" style="margin: 12px 24px">
+
+        {{#ui-component/mobi-select handleSelect=handleEvents.handleQuestionInput node=node}}
+          {{#each secondOption.list as |q|}}
+            <option selected={{q.selected}}>{{q.text}}</option>
+          {{/each}}
+        {{/ui-component/mobi-select}}
+
+        {{#each secondOption.list as |thiredOption|}}
+
+          {{#if thiredOption.selected}}
+
+            <div class="thired" style="margin: 12px 48px">
+              {{#ui-component/mobi-select handleSelect=handleEvents.handleQuestionInput node=node}}
+                {{#each thiredOption.list as |q|}}
+                  <option selected={{q.selected}}>{{q.text}}</option>
+                {{/each}}
+              {{/ui-component/mobi-select}}
+            </div>
+
+          {{/if}}
+
+        {{/each}}
+      </div>
+
+    {{/if}}
+  {{/each}}
 </div>
-
-{{#each node.subOptions as |item|}}
-  <div class="ui-dropdown ui-text dropdown">
-    <sup>
-      <span>{{item.typeName}}</span>
-      {{item.typeDescription}}
-    </sup>
-    <ul class='dropdown-list' style="display:none">
-      {{#each item.options as |opt|}}
-        <li data-selected={{opt.selected}}>{{opt.text}}</li>
-      {{/each}}
-    </ul>
-
-    {{svg-item "arrows-small-down"}}
-  </div>
-{{/each}}
