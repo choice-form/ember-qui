@@ -1,0 +1,25 @@
+<div class="ui-dropdown ui-text dropdown">
+  <select class='dropdown-list' style="display:none" multiple>
+    {{#each node.options as |q|}}
+      <option data-selected={{q.selected}}>{{q.text}}</option>
+    {{/each}}
+  </select>
+
+  {{svg-item "arrows-small-down"}}
+</div>
+
+{{#each node.subOptions as |item|}}
+  <div class="ui-dropdown ui-text dropdown">
+    <sup>
+      <span>{{item.typeName}}</span>
+      {{item.typeDescription}}
+    </sup>
+    <ul class='dropdown-list' style="display:none">
+      {{#each item.options as |opt|}}
+        <li data-selected={{opt.selected}}>{{opt.text}}</li>
+      {{/each}}
+    </ul>
+
+    {{svg-item "arrows-small-down"}}
+  </div>
+{{/each}}

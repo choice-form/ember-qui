@@ -93,11 +93,11 @@ function mobiInit(input, config) {
 /**
  * 用mobile库把input控件初始化选择树
  * @param {object} list
- * @param {number} grades
  * @param {object} config
  */
 export function mobiInitTreeList(list, config = {}){
-  mobiscroll.treelist(list, 'clear');
+  // 新版好像没有这个接口了
+  // mobiscroll.treelist(list, 'clear');
   config = {
     theme: mobInfo.theme,
     display: mobInfo.display,
@@ -107,6 +107,19 @@ export function mobiInitTreeList(list, config = {}){
   };
   mobiscroll.treelist(list, config);
 }
+
+
+export const initSelect = (list, config = {}) => {
+  // 新版好像没有这个接口了
+  //mobiscroll.select(list, 'clear');
+  config = {
+    theme: mobInfo.theme,
+    display: mobInfo.display,
+    lang: mobInfo.lang,
+    ...config
+  };
+  mobiscroll.select(list, config);
+};
 
 
 export default mobiInit;
