@@ -116,7 +116,8 @@ export const initSelect = (list, config = {}) => {
     theme: mobInfo.theme,
     display: mobInfo.display,
     lang: mobInfo.lang,
-    ...config
+    placeholder: '请点击选择...',
+    ...config,
   };
   mobiscroll.select(list, config);
 };

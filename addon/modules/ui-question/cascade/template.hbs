@@ -1,40 +1,26 @@
 <div class="ui-dropdown ui-text dropdown">
-  {{#ui-component/mobi-select handleSelect=handleEvents.handleQuestionInput node=node}}
-    {{#each node.options as |q|}}
-      <option selected={{q.selected}}>{{q.text}}</option>
+  {{#each node.options as |option|}}
+    <span>{{option.text}}</span>
+    {{#ui-component/mobi-select handleSelect=handleEvents.handleQuestionInput node=node list=option.list
+                                option=option
+                                multiple=option.multiple}}
+      {{#each option.list as |item|}}
+        <option selected={{item.selected}}>{{item.text}}</option>
+      {{/each}}
+    {{/ui-component/mobi-select}}
+    {{#each option.list as |subOption|}}
+      {{#if (and subOption.selected (gt subOption.list.length 0))}}
+        <div class="second" style="margin: 12px 24px">
+          <span>{{subOption.text}}</span>
+          {{#ui-component/mobi-select handleSelect=handleEvents.handleQuestionInput node=node list=subOption.list
+                                      option=subOption
+                                      multiple=option.multiple}}
+            {{#each subOption.list as |subItem|}}
+              <option selected={{subItem.selected}}>{{subItem.text}}</option>
+            {{/each}}
+          {{/ui-component/mobi-select}}
+        </div>
+      {{/if}}
     {{/each}}
-  {{/ui-component/mobi-select}}
-
-
-  {{#each node.options as |secondOption|}}
-
-    {{#if secondOption.selected}}
-
-      <div class="second" style="margin: 12px 24px">
-
-        {{#ui-component/mobi-select handleSelect=handleEvents.handleQuestionInput node=node}}
-          {{#each secondOption.list as |q|}}
-            <option selected={{q.selected}}>{{q.text}}</option>
-          {{/each}}
-        {{/ui-component/mobi-select}}
-
-        {{#each secondOption.list as |thiredOption|}}
-
-          {{#if thiredOption.selected}}
-
-            <div class="thired" style="margin: 12px 48px">
-              {{#ui-component/mobi-select handleSelect=handleEvents.handleQuestionInput node=node}}
-                {{#each thiredOption.list as |q|}}
-                  <option selected={{q.selected}}>{{q.text}}</option>
-                {{/each}}
-              {{/ui-component/mobi-select}}
-            </div>
-
-          {{/if}}
-
-        {{/each}}
-      </div>
-
-    {{/if}}
   {{/each}}
 </div>
