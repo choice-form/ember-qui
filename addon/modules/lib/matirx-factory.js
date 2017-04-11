@@ -50,7 +50,7 @@ export function swiperHeaderInit(element, isStretch, columnLength) {
     breakpoints: {
       // when window width is <= 768px
       768: {
-        slidesPerView: isStretch ? 2 : 1
+        slidesPerView: 2,
       }
     },
   });
@@ -70,7 +70,7 @@ export function swiperMatrixInit(isDesktop, element, matrixThumbnails, isStretch
     breakpoints: {
       // when window width is <= 768px
       768: {
-        slidesPerView: isStretch ? 2 : 1
+        slidesPerView: 2,
       }
     },
     runCallbacksOnInit: true,
