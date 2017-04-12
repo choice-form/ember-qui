@@ -1,5 +1,7 @@
 <div class="ui-dropdown ui-text dropdown">
   {{!--顶层级联菜单--}}
+  <span>{{node.cascade.hint}}</span>
+  <span>{{node.cascade.text}}</span>
   {{#ui-component/mobi-select handleSelect=handleEvents.handleOptionClick node=node list=node.cascade.list
                               group=node.cascade
                               multiple=node.cascade.multiple}}
@@ -11,6 +13,7 @@
   {{#each node.cascade.list as |second|}}
     {{#if (and second.selected (gt second.list.length 0))}}
       <div class="second" style="margin: 12px 0 12px 10px">
+        <span>{{second.hint}}</span>
         <span>{{second.text}}</span>
         {{#ui-component/mobi-select handleSelect=handleEvents.handleOptionClick node=node list=second.list
                                     group=second
@@ -23,6 +26,7 @@
         {{#each second.list as |third|}}
           {{#if (and third.selected (gt third.list.length 0))}}
             <div class="third" style="margin: 12px 0 12px 10px">
+              <span>{{third.hint}}</span>
               <span>{{third.text}}</span>
               {{#ui-component/mobi-select handleSelect=handleEvents.handleOptionClick node=node list=third.list
                                           group=third
