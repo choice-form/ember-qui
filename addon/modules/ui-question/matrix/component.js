@@ -2,11 +2,11 @@ import Component from 'ember-component';
 import layout from './template';
 import get from 'ember-metal/get';
 import set, {setProperties} from 'ember-metal/set';
-import { scheduleOnce } from 'ember-runloop';
-import computed, { gt, and, reads } from 'ember-computed';
+import {scheduleOnce} from 'ember-runloop';
+import computed, {gt, and, reads} from 'ember-computed';
 import $ from 'jquery';
 import device from 'device';
-import matirxSetHeight, { swiperHeaderInit, swiperMatrixInit } from '../../lib/matirx-factory';
+import matirxSetHeight, {swiperHeaderInit, swiperMatrixInit} from '../../lib/matirx-factory';
 
 export default Component.extend({
   layout,
@@ -16,7 +16,7 @@ export default Component.extend({
   'data-render-id': reads('node.renderId'),
 
   resizeIcon: computed(() => 'stretch'),
-  wrapperClassNames: computed('resizeIcon', function() {
+  wrapperClassNames: computed('resizeIcon', function () {
     return `matrix-wrapper${get(this, 'resizeIcon') === 'pinch' ? ' zoom' : ''}`;
   }).readOnly(),
 
@@ -35,9 +35,9 @@ export default Component.extend({
 
       this.fixHeader = swiperHeaderInit(fixHeader, isStretch, columnLength);
 
-      this.swiper = swiperMatrixInit(get(this, 'isDesktop'), columnList, matrixThumbnails, isStretch,()=>{
+      this.swiper = swiperMatrixInit(get(this, 'isDesktop'), columnList, matrixThumbnails, isStretch, () => {
         matirxSetHeight.call(this);
-      },columnLength);
+      }, columnLength);
       !get(this, 'isDesktop') && this.swiper.disableTouchControl();
       this.swiper.params.control = this.fixHeader;
     }
@@ -47,9 +47,9 @@ export default Component.extend({
     this.swiper && this.swiper.destroy(true, true);
     this.fixHeader && this.fixHeader.destroy(true, true);
     setProperties(this, {
-      'moreButtonNeeded': e.detail.device=='desktop' ? true : false,
-      'arrowButtonNeeded': e.detail.device=='desktop' ? true : false,
-    })
+      'moreButtonNeeded': e.detail.device === 'desktop',
+      'arrowButtonNeeded': e.detail.device === 'desktop',
+    });
     this.swiperEffect();
   },
 
@@ -69,7 +69,7 @@ export default Component.extend({
     if (get(this, 'isDesktop')) {
       window.addEventListener('resize', () => matirxSetHeight.call(this));
     }
-    if(!get(this, 'preview')) return;
+    if (!get(this, 'preview')) return;
 
     window.addEventListener('device_change', (e) => this.deviceChangeSwiper(e));
     window.addEventListener('orientation_change', () => this.orientationChangeSwiper());
@@ -79,7 +79,7 @@ export default Component.extend({
     this.swiper && this.swiper.destroy(true, true);
     this.fixHeader && this.fixHeader.destroy(true, true);
     window.removeEventListener('resize', matirxSetHeight);
-    if(!get(this, 'preview')) return;
+    if (!get(this, 'preview')) return;
     window.removeEventListener('device_change', this.deviceChangeSwiper);
     window.removeEventListener('orientation_change', this.orientationChangeSwiper);
   },
@@ -95,7 +95,7 @@ export default Component.extend({
       scheduleOnce('afterRender', this, this.swiperEffect, isStretch);
     },
 
-    handleOptionClick(option,e){
+    handleOptionClick(option, e){
       !this.handleEvents.handleOptionClick(option, get(this, 'node'))
       && e.preventDefault();
     },
@@ -112,4 +112,4 @@ export default Component.extend({
     },
 
   },
-}).reopenClass({ positionalParams: ['node', 'handleEvents'] });
+}).reopenClass({positionalParams: ['node', 'handleEvents']});
