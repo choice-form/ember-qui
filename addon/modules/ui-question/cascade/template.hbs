@@ -1,7 +1,9 @@
 <div class="ui-dropdown ui-text dropdown">
   {{!--顶层级联菜单--}}
   <div class="cascade-sup">
-    <sup><span>{{node.cascade.hint}}</span></sup>
+    {{#if node.cascade.hint}}
+      <sup><span>{{node.cascade.hint}}</span></sup>
+    {{/if}}
     <span>{{node.cascade.text}}</span>
   </div>
   {{#ui-component/mobi-select handleSelect=handleEvents.handleOptionClick node=node list=node.cascade.list
@@ -16,7 +18,9 @@
     {{#if (and second.selected (gt second.list.length 0))}}
       <div class="cascade-second">
         <div class="cascade-sup">
-          <sup><span>{{second.hint}}</span></sup>
+          {{#if second.hint}}
+            <sup><span>{{second.hint}}</span></sup>
+          {{/if}}
           <span>{{second.text}}</span>
         </div>
         {{#ui-component/mobi-select handleSelect=handleEvents.handleOptionClick node=node list=second.list
@@ -31,7 +35,9 @@
           {{#if (and third.selected (gt third.list.length 0))}}
             <div class="cascade-third">
               <div class="cascade-sup">
-                <sup><span>{{third.hint}}</span></sup>
+                {{#if third.hint}}
+                  <sup><span>{{third.hint}}</span></sup>
+                {{/if}}
                 <span>{{third.text}}</span>
               </div>
               {{#ui-component/mobi-select handleSelect=handleEvents.handleOptionClick node=node list=third.list
