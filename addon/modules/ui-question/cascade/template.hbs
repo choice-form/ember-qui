@@ -13,44 +13,49 @@
       <option selected={{item.selected}}>{{second.text}}</option>
     {{/each}}
   {{/ui-component/mobi-select}}
-  {{!--二层级联菜单--}}
-  {{#each node.cascade.list as |second|}}
-    {{#if (and second.selected (gt second.list.length 0))}}
-      <div class="cascade-second">
-        <div class="cascade-sup">
-          {{#if second.hint}}
-            <sup><span>{{second.hint}}</span></sup>
-          {{/if}}
-          <span>{{second.text}}</span>
+  <div class="cascade-wrapper">
+    {{!--二层级联菜单--}}
+    {{#each node.cascade.list as |second|}}
+      {{#if (and second.selected (gt second.list.length 0))}}
+        <div class="cascade-second">
+          <div class="cascade-sup">
+            {{#if second.hint}}
+              <sup><span>{{second.hint}}</span></sup>
+            {{/if}}
+            <span>{{second.text}}</span>
+          </div>
+          {{#ui-component/mobi-select handleSelect=handleEvents.handleOptionClick node=node list=second.list
+                                      group=second
+                                      multiple=second.multiple}}
+            {{#each second.list as |third|}}
+              <option selected={{third.selected}}>{{third.text}}</option>
+            {{/each}}
+          {{/ui-component/mobi-select}}
+          <div class="cascade-wrapper">
+            {{!--三层级联菜单--}}
+            {{#each second.list as |third|}}
+              {{#if (and third.selected (gt third.list.length 0))}}
+                <div class="cascade-third">
+                  <div class="cascade-sup">
+                    {{#if third.hint}}
+                      <sup><span>{{third.hint}}</span></sup>
+                    {{/if}}
+                    <span>{{third.text}}</span>
+                  </div>
+                  {{#ui-component/mobi-select handleSelect=handleEvents.handleOptionClick node=node list=third.list
+                                              group=third
+                                              multiple=third.multiple}}
+                    {{#each third.list as |bottom|}}
+                      <option selected={{bottom.selected}}>{{bottom.text}}</option>
+                    {{/each}}
+                  {{/ui-component/mobi-select}}
+                </div>
+              {{/if}}
+            {{/each}}
+          </div>
         </div>
-        {{#ui-component/mobi-select handleSelect=handleEvents.handleOptionClick node=node list=second.list
-                                    group=second
-                                    multiple=second.multiple}}
-          {{#each second.list as |third|}}
-            <option selected={{third.selected}}>{{third.text}}</option>
-          {{/each}}
-        {{/ui-component/mobi-select}}
-        {{!--三层级联菜单--}}
-        {{#each second.list as |third|}}
-          {{#if (and third.selected (gt third.list.length 0))}}
-            <div class="cascade-third">
-              <div class="cascade-sup">
-                {{#if third.hint}}
-                  <sup><span>{{third.hint}}</span></sup>
-                {{/if}}
-                <span>{{third.text}}</span>
-              </div>
-              {{#ui-component/mobi-select handleSelect=handleEvents.handleOptionClick node=node list=third.list
-                                          group=third
-                                          multiple=third.multiple}}
-                {{#each third.list as |bottom|}}
-                  <option selected={{bottom.selected}}>{{bottom.text}}</option>
-                {{/each}}
-              {{/ui-component/mobi-select}}
-            </div>
-          {{/if}}
-        {{/each}}
-      </div>
-    {{/if}}
-  {{/each}}
+      {{/if}}
+    {{/each}}
+  </div>
+
 </div>
