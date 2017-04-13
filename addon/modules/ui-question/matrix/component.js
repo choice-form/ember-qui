@@ -27,6 +27,7 @@ export default Component.extend({
   arrowButtonNeeded: and('isDesktop', 'hasArrowButton'),
 
   swiperEffect(isStretch){
+    isStretch = isStretch || get(this, 'node.isDoubleGrid');
     if (this.element) {
       const columnLength = get(this, 'node.renderOptionsX').length;
       const fixHeader = this.element.querySelector('.fix-header');
@@ -88,8 +89,8 @@ export default Component.extend({
     resizeMatrix() {
       this.swiper && this.swiper.destroy(true, true);
       this.fixHeader && this.fixHeader.destroy(true, true);
-
-      const isStretch = 'stretch' === get(this, 'resizeIcon');
+      const isStretch = 'stretch' === get(this, 'resizeIcon') ||
+        get(this, 'node.isDoubleGrid');
       set(this, 'resizeIcon', isStretch ? 'pinch' : 'stretch');
 
       scheduleOnce('afterRender', this, this.swiperEffect, isStretch);
