@@ -1,14 +1,17 @@
 <div class={{wrapperClassNames}}>
   <div class="matrix-thumbnail">
-    {{!--<div class="matrix-thumbnail-wrapper">
-      {{#each node.matrix as |indicators|}}
-        <ul>
-          {{#each indicators as |indicator|}}
-            <li class={{if indicator.selected "active"}}><span></span></li>
-          {{/each}}
-        </ul>
-      {{/each}}
-    </div>--}}
+    {{#unless node.noGridIndicator}}
+      <div class="matrix-thumbnail-wrapper">
+        {{#each node.matrix as |indicators|}}
+          <ul>
+            {{#each indicators as |indicator|}}
+              <li class={{if indicator.selected "active"}}><span></span></li>
+            {{/each}}
+          </ul>
+        {{/each}}
+      </div>
+    {{/unless}}
+
   </div>
 
   <div class="fix-header-position">
@@ -40,9 +43,9 @@
                   required
                   type="checkbox"
                   disabled={{disabled}}
-                  name={{node.renderId}}
+                    name={{node.renderId}}
                   id={{option.renderId}}
-                  checked={{option.selected}}
+                    checked={{option.selected}}
                   onclick={{action "handleOptionClick" option}}>
                 {{ui-component/ui-label
                   for=option.renderId
