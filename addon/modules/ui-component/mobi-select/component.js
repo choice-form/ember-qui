@@ -23,10 +23,15 @@ export default Component.extend({
   tagName: 'select',
   attributeBindings: ['style', 'multiple'],
   style: 'display:none',
-  multiple: true,
-
   selectInit(){
+    let select = 'single';
+    if(get(this, 'group.multiple')){
+      select = get(this, 'group.max');
+    }
     initSelect(this.element, {
+      multiline: get(this, 'group.multiLine'),
+      display: get(this, 'group.display'),
+      select,
       onInit: (event, inst) => {
         // 需要恢复到上层数据的状态
         recoverSelected(inst, get(this, 'list'));
