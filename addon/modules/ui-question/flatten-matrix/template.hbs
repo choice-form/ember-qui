@@ -1,0 +1,10 @@
+{{#each node.flatten as |outerItem|}}
+  <span>{{outerItem.text}}</span>
+  {{#each outerItem.list as |option|}}
+    {{ui-question/choice node option handleEvents}}
+  {{/each}}
+{{/each}}
+
+{{#each node.otherOptions as |option|}}
+  {{ui-question/choice node option handleEvents}}
+{{/each}}
