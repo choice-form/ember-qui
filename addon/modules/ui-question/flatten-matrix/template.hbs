@@ -1,4 +1,4 @@
-{{#if (device 'mobile')}}
+{{#if (lt clientWidth 640)}}
   {{#each node.flatten as |outerItem|}}
     <div class="flatten-row">
       <h3>{{outerItem.text}}</h3>
@@ -16,7 +16,7 @@
 
 {{else}}
 
-
+  <div>grater than 640</div>
 
 {{/if}}
 
