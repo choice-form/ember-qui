@@ -6,7 +6,7 @@ import {gt, and, reads} from 'ember-computed';
 
 export default Component.extend({
   layout,
-  classNames: [''],
+  classNames: ['ui-flatten-matrix'],
 
   attributeBindings: ['data-render-id'],
   'data-render-id': reads('node.renderId'),

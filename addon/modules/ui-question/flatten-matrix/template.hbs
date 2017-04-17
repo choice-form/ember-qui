@@ -1,10 +1,23 @@
-{{#each node.flatten as |outerItem|}}
-  <span>{{outerItem.text}}</span>
-  {{#each outerItem.list as |option|}}
+{{#if (device 'mobile')}}
+  {{#each node.flatten as |outerItem|}}
+    <div class="flatten-row">
+      <h3>{{outerItem.text}}</h3>
+    </div>
+    <div class="flatten-column">
+      {{#each outerItem.list as |option|}}
+        {{ui-question/choice node option handleEvents}}
+      {{/each}}
+    </div>
+  {{/each}}
+
+  {{#each node.otherOptions as |option|}}
     {{ui-question/choice node option handleEvents}}
   {{/each}}
-{{/each}}
 
-{{#each node.otherOptions as |option|}}
-  {{ui-question/choice node option handleEvents}}
-{{/each}}
+{{else}}
+
+
+
+{{/if}}
+
+
