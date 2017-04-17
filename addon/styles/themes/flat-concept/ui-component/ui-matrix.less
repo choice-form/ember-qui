@@ -148,8 +148,18 @@
 
 .ui-flatten-matrix {
   counter-reset: section;
-  & .flatten-header {
+
+  & .flatten-body {
     display: flex;
+    & .flatten-wrapper {
+
+      & .flatten-header {
+        display: flex;
+      }
+      & .flatten-column-wrapper {
+        display: flex;
+      }
+    }
   }
   & .flatten-row {
     position: relative;

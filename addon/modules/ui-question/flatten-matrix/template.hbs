@@ -10,14 +10,60 @@
     </div>
   {{/each}}
 
-  {{#each node.otherOptions as |option|}}
-    {{ui-question/choice node option handleEvents}}
-  {{/each}}
-
 {{else}}
+  <div class="flatten-body">
+    <div class="flatten-wrapper">
+      <div class="flatten-column-wrapper">
+        <div class="column">
+          {{#each node.flatten.firstObject.list as |option|}}
+            <div>{{option.text}}</div>
+          {{/each}}
+        </div>
+        {{#each node.flatten as |outerItem|}}
+          <div class="column">
+            <h3>{{outerItem.text}}</h3>
+            {{#each outerItem.list as |option|}}
+              <div class="column-item">
+                <input required type="checkbox"
+                       disabled={{disabled}}
+                         name={{node.renderId}}
+                       id={{option.renderId}}
+                         checked={{option.selected}}
+                       onclick={{action "handleOptionClick" option}}>
+                {{ui-component/ui-label
+                  for=option.renderId
+                  selected=option.selected
+                  particleSize="m"
+                  icon=(if option.selected "checkbox-active" "checkbox")}}
+              </div>
+            {{/each}}
+          </div>
+        {{/each}}
+      </div>
 
-  <div>grater than 640</div>
+    </div>
+
+    <table>
+      <tr>
+        {{#each node.flatten as |option|}}
+          <th></th>
+          <th>{{option.text}}</th>
+        {{/each}}
+      </tr>
+      <tr>
+        {{#each node.flatten as |option index|}}
+          {{#if (eq index 0)}}
+            <td>{{option.list.firstObject.text}}</td>
+          {{/if}}
+        {{/each}}
+
+      </tr>
+    </table>
+  </div>
 
 {{/if}}
 
+{{#each node.otherOptions as |option|}}
+  {{ui-question/choice node option handleEvents}}
+{{/each}}
 
