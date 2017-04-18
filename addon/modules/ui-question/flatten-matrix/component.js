@@ -12,6 +12,15 @@ export default Component.extend({
   attributeBindings: ['data-render-id'],
   'data-render-id': reads('node.renderId'),
 
+  clientWidth: window.innerWidth,
+
+  init(){
+    this._super(...arguments);
+    device.desktop() && window.addEventListener('resize', () => {
+      set(this, 'clientWidth', window.innerWidth);
+    });
+  },
+
   actions: {
 
     handleOptionClick(option, e){
