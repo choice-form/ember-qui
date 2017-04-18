@@ -50,14 +50,24 @@
           <th>{{option.text}}</th>
         {{/each}}
       </tr>
-      <tr>
-        {{#each node.flatten as |option index|}}
-          {{#if (eq index 0)}}
-            <td>{{option.list.firstObject.text}}</td>
-          {{/if}}
-        {{/each}}
-
-      </tr>
+      {{!--抽出第一组来制作行头--}}
+      {{#each node.flatten.firstObject.list as |rowHead idx|}}
+        <tr>
+          <td>{{rowHead.text}}</td>
+          {{!--每行所拥有的项目--}}
+          {{#each node.flatten as |outerItem|}}
+            {{!--每项的内容只取与行头相关联的行的内容--}}
+            {{#with (object-at idx outerItem.list) as |option|}}
+              <input required type="checkbox"
+                     disabled={{disabled}}
+                       name={{node.renderId}}
+                     id={{option.renderId}}
+                       checked={{option.selected}}
+                     onclick={{action "handleOptionClick" option}}>
+            {{/with}}
+          {{/each}}
+        </tr>
+      {{/each}}
     </table>
   </div>
 
