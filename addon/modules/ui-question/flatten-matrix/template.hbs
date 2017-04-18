@@ -1,79 +1,14 @@
-{{#if (lt clientWidth 640)}}
-  {{#each node.flatten as |outerItem|}}
-    <div class="flatten-row">
-      <h3>{{outerItem.text}}</h3>
-    </div>
-    <div class="flatten-column">
-      {{#each outerItem.list as |option|}}
-        {{ui-question/choice node option handleEvents}}
-      {{/each}}
-    </div>
-  {{/each}}
-
-{{else}}
-  <div class="flatten-body">
-    <div class="flatten-wrapper">
-      <div class="flatten-column-wrapper">
-        <div class="column">
-          {{#each node.flatten.firstObject.list as |option|}}
-            <div>{{option.text}}</div>
-          {{/each}}
-        </div>
-        {{#each node.flatten as |outerItem|}}
-          <div class="column">
-            <h3>{{outerItem.text}}</h3>
-            {{#each outerItem.list as |option|}}
-              <div class="column-item">
-                <input required type="checkbox"
-                       disabled={{disabled}}
-                         name={{node.renderId}}
-                       id={{option.renderId}}
-                         checked={{option.selected}}
-                       onclick={{action "handleOptionClick" option}}>
-                {{ui-component/ui-label
-                  for=option.renderId
-                  selected=option.selected
-                  particleSize="m"
-                  icon=(if option.selected "checkbox-active" "checkbox")}}
-              </div>
-            {{/each}}
-          </div>
-        {{/each}}
-      </div>
-
-    </div>
-
-    <table>
-      <tr>
-        {{#each node.flatten as |option|}}
-          <th></th>
-          <th>{{option.text}}</th>
-        {{/each}}
-      </tr>
-      {{!--抽出第一组来制作行头--}}
-      {{#each node.flatten.firstObject.list as |rowHead idx|}}
-        <tr>
-          <td>{{rowHead.text}}</td>
-          {{!--每行所拥有的项目--}}
-          {{#each node.flatten as |outerItem|}}
-            {{!--每项的内容只取与行头相关联的行的内容--}}
-            {{#with (object-at idx outerItem.list) as |option|}}
-              <input required type="checkbox"
-                     disabled={{disabled}}
-                       name={{node.renderId}}
-                     id={{option.renderId}}
-                       checked={{option.selected}}
-                     onclick={{action "handleOptionClick" option}}>
-            {{/with}}
-          {{/each}}
-        </tr>
-      {{/each}}
-    </table>
+{{#each node.flatten as |outerItem|}}
+  <div class="flatten-row">
+    <h3>{{outerItem.text}}</h3>
   </div>
-
-{{/if}}
+  <div class="flatten-column">
+    {{#each outerItem.list as |option|}}
+      {{ui-question/choice node option handleEvents}}
+    {{/each}}
+  </div>
+{{/each}}
 
 {{#each node.otherOptions as |option|}}
   {{ui-question/choice node option handleEvents}}
 {{/each}}
-
