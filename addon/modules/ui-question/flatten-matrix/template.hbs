@@ -11,66 +11,45 @@
   {{/each}}
 
 {{else}}
-  <div class="flatten-body">
-    <div class="flatten-wrapper">
-      <div class="flatten-column-wrapper">
-        <div class="column">
-          {{#each node.flatten.firstObject.list as |option|}}
-            <div>{{option.text}}</div>
-          {{/each}}
-        </div>
-        {{#each node.flatten as |outerItem|}}
-          <div class="column">
-            <h3>{{outerItem.text}}</h3>
-            {{#each outerItem.list as |option|}}
-              <div class="column-item">
-                <input required type="checkbox"
-                       disabled={{disabled}}
-                         name={{node.renderId}}
-                       id={{option.renderId}}
-                         checked={{option.selected}}
-                       onclick={{action "handleOptionClick" option}}>
-                {{ui-component/ui-label
-                  for=option.renderId
-                  selected=option.selected
-                  particleSize="m"
-                  icon=(if option.selected "checkbox-active" "checkbox")}}
-              </div>
+  <div class="flatten-grid">
+    <div class="flatten-body-wrapper">
+      <div class="flatten-header">
+        <div style={{html-safe (concat 'width:' 'calc(' node.flatten.firstObject.list.firstObject.length 'px * 6)')}}></div>
+        {{#each node.flatten as |option|}}
+          <div style={{html-safe (concat 'width:' 'calc(' option.length 'px * 6)')}}>
+            <strong>{{option.text}}</strong>
+          </div>
+        {{/each}}
+      </div>
+      <div class="flatten-body">
+        {{#each node.flatten.firstObject.list as |rowHead idx|}}
+          <div class="flatten--row">
+            <div class="first-column-item" style={{html-safe (concat 'width:' 'calc(' rowHead.length 'px * 6)')}}>
+              {{rowHead.text}}
+            </div>
+
+            {{#each node.flatten as |outerItem|}}
+              {{#with (object-at idx outerItem.list) as |option|}}
+                <div class="column-item" style={{html-safe (concat 'width:' 'calc(' option.headLength 'px * 6)')}}>
+                  <input required type="checkbox"
+                         disabled={{disabled}}
+                           name={{node.renderId}}
+                         id={{option.renderId}}
+                           checked={{option.selected}}
+                         onclick={{action "handleOptionClick" option}}>
+                  {{ui-component/ui-label
+                    for=option.renderId
+                    selected=option.selected
+                    particleSize="m"
+                    icon=(if option.selected "checkbox-active" "checkbox")}}
+                </div>
+              {{/with}}
             {{/each}}
           </div>
         {{/each}}
       </div>
-
     </div>
-
-    <table>
-      <tr>
-        {{#each node.flatten as |option|}}
-          <th></th>
-          <th>{{option.text}}</th>
-        {{/each}}
-      </tr>
-      {{!--抽出第一组来制作行头--}}
-      {{#each node.flatten.firstObject.list as |rowHead idx|}}
-        <tr>
-          <td>{{rowHead.text}}</td>
-          {{!--每行所拥有的项目--}}
-          {{#each node.flatten as |outerItem|}}
-            {{!--每项的内容只取与行头相关联的行的内容--}}
-            {{#with (object-at idx outerItem.list) as |option|}}
-              <input required type="checkbox"
-                     disabled={{disabled}}
-                       name={{node.renderId}}
-                     id={{option.renderId}}
-                       checked={{option.selected}}
-                     onclick={{action "handleOptionClick" option}}>
-            {{/with}}
-          {{/each}}
-        </tr>
-      {{/each}}
-    </table>
   </div>
-
 {{/if}}
 
 {{#each node.otherOptions as |option|}}
