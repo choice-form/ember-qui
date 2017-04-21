@@ -6,14 +6,12 @@ import Swiper from 'swiper';
 export default Component.extend({
   layout,
   classNames: ['header-swiper'],
-  attributeBindings: ['style'],
 
   contentSlide(){
     later(()=>{
       const content = this.element.querySelector('.header-container');
       this.swiper = new Swiper(content, {
-        pagination: '.swiper-pagination',
-        paginationClickable: false,
+        pagination: '.header-pagination',
         spaceBetween: 0,
         autoplay: 2500,
         loop: true,

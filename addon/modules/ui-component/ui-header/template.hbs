@@ -1,7 +1,7 @@
 {{#if hasTopImages}}
   <figure class="attachment">
     {{#if multiImages}}
-      {{ui-component/ui-header-swiper style=(html-safe (concat 'height:' minHeight 'px')) header=header}}
+      {{ui-component/ui-header-swiper header=header}}
     {{else}}
       {{#each header.images as |image|}}
         {{ui-addon/progressive-image
@@ -13,6 +13,7 @@
     {{/if}}
   </figure>
 {{/if}}
+
 <header class="header">
   {{#if (or header.asterisks header.number)}}
     <div>{{requiredMark}} {{quesNumber}}</div>
@@ -25,7 +26,7 @@
 {{#if hasNormalImages}}
   <figure class="attachment">
     {{#if multiImages}}
-      {{ui-component/ui-header-swiper style=(html-safe (concat 'height:' minHeight 'px')) header=header}}
+      {{ui-component/ui-header-swiper header=header}}
     {{else}}
       {{#each header.images as |image|}}
         {{ui-addon/progressive-image

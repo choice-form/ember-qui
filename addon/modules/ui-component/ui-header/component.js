@@ -22,15 +22,6 @@ export default Component.extend({
     return get(this ,'header.images').length > 1;
   }),
 
-  minHeight: computed('header.images', function () {
-    return get(this ,'header.images').reduce((min, image) => {
-      if(image.height < min){
-        min = image.height;
-      }
-      return min;
-    }, Infinity)
-  }),
-
   requiredMark: computed('header.asterisks', {
     get() {
       return get(this, 'header.asterisks')
