@@ -2,13 +2,17 @@
   <div class="wrapper">
     <div class="row data-welcome" data-render-id={{unbound intro.renderId}}>
         <figure class="attachment">
-          {{#each intro.images as |image|}}
-            {{ui-addon/progressive-image
-              ratio=image.ratio
-              objectFit=(if intro.bgImageMode 'cover')
-              thumbnail=image.thumbnail
-              image=image.natural}}
-          {{/each}}
+          {{#if multiImages}}
+            {{ui-component/ui-header-swiper intro=header}}
+          {{else}}
+            {{#each intro.images as |image|}}
+              {{ui-addon/progressive-image
+                ratio=image.ratio
+                objectFit=(if intro.bgImageMode 'cover')
+                thumbnail=image.thumbnail
+                image=image.natural}}
+            {{/each}}
+          {{/if}}
         </figure>
 
       <header class="header">

@@ -1,5 +1,5 @@
 {{#if hasTopImages}}
-  <figure class="attachment" onclick={{action "openPhotoSwipe"}}>
+  <figure class="attachment">
     {{#if multiImages}}
       {{ui-component/ui-header-swiper swiperName="header" header=header}}
     {{else}}
@@ -9,6 +9,9 @@
         thumbnail=singleImage.thumbnail
         image=singleImage.natural}}
     {{/if}}
+    <a class="zoom-button" onclick={{action "openPhotoSwipe"}}>
+      {{svg-item 'zoom-in'}}
+    </a>
   </figure>
 {{/if}}
 
@@ -22,7 +25,7 @@
 </header>
 
 {{#if hasNormalImages}}
-  <figure class="attachment" onclick={{action "openPhotoSwipe"}}>
+  <figure class="attachment">
     {{#if multiImages}}
       {{ui-component/ui-header-swiper swiperName="header" header=header}}
     {{else}}
@@ -32,5 +35,8 @@
         thumbnail=singleImage.thumbnail
         image=singleImage.natural}}
     {{/if}}
+    <a class="zoom-button" onclick={{action "openPhotoSwipe"}}>
+      {{svg-item 'zoom-in'}}
+    </a>
   </figure>
 {{/if}}

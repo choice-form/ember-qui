@@ -84,9 +84,21 @@ export default Component.extend({
         let index = swiperInstance ? swiperInstance.activeIndex - 1 : 0;
         this.openPhotoSwipe(get(this, 'header.images'), event.target, {
           index,
+          tapToClose: true,
           bgOpacity: 1,
+          //showAnimationDuration: 10000,
+          maxSpreadZoom: 4,
           history: false,
-          showHideOpacity: true,
+          showHideOpacity: false,
+          shareEl: false,
+          fullscreenEl: false,
+          getDoubleTapZoom: function(isMouseClick, item) {
+            if(isMouseClick) {
+              return 1;
+            } else {
+              return item.initialZoomLevel < 0.7 ? 1 : 1.5;
+            }
+          },
         });
       } else return;
     }

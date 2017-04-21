@@ -120,6 +120,9 @@
       }
     }
   }
+  & .zoom-button {
+    top: 0;
+  }
 }
 .thumb-wrapper {
   width: 100%;
@@ -152,6 +155,27 @@
         }
       }
     }
+  }
+}
+
+.zoom-button {
+  padding: @offset / 2;
+  position: absolute;
+  top: @offset / 2;
+  z-index: 2;
+  cursor: zoom-in;
+  &:before {
+    content: '';
+    position: absolute;
+    top: @offset / 6;
+    left: @offset / 6;
+    bottom: @offset / 6;
+    right: @offset / 6;
+    border-radius: 3px;
+    z-index: -1;
+  }
+  & svg {
+    display: block;
   }
 }
 

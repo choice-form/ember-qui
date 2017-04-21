@@ -22,8 +22,9 @@ export default Component.extend({
 
     if (!options.getThumbBoundsFn) {
       options.getThumbBoundsFn = function(/*index*/) {
+        let pageYScroll = window.pageYOffset || document.documentElement.scrollTop;
         let {left, top, width} = trigger.getBoundingClientRect();
-        return {x: left, y: top, w: width};
+        return {x: left, y: top + pageYScroll, w: width};
       }
     }
 
@@ -50,9 +51,20 @@ export default Component.extend({
       // 开始处理 PhotoSwipe
       this.openPhotoSwipe(get(this, 'images'), event.target, {
         index,
+        tapToClose: true,
         bgOpacity: 1,
+        maxSpreadZoom: 4,
         history: false,
-        showHideOpacity: true,
+        showHideOpacity: false,
+        shareEl: false,
+        fullscreenEl: false,
+        getDoubleTapZoom: function(isMouseClick, item) {
+          if(isMouseClick) {
+            return 1;
+          } else {
+            return item.initialZoomLevel < 0.7 ? 1 : 1.5;
+          }
+        },
       });
     }
   },

@@ -34,4 +34,6 @@
     <span>{{text}}</span>
   </div>
 </label>
-<div onclick={{action handleOptionZoom}} style="width: 100px; height: 100px; position: absolute; background-color: red;"></div>
+<a class="zoom-button" onclick={{action handleOptionZoom}}>
+  {{svg-item 'zoom-in'}}
+</a>
