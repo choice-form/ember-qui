@@ -1,5 +1,6 @@
 import Component from 'ember-component';
 import layout from './template';
+import inject from 'ember-service/inject';
 import computed, { notEmpty, and, not } from 'ember-computed';
 import get from 'ember-metal/get';
 import { htmlSafe } from 'ember-string';
@@ -8,6 +9,8 @@ import {insertImg} from '../../lib/attribute-manage';
 export default Component.extend({
   layout,
   tagName: '',
+
+  swiper: inject(),
 
   imageTop: computed('header', function() {
     return ['intro-page', 'end-page'].indexOf(get(this, 'header.quesType')) > -1
@@ -21,6 +24,14 @@ export default Component.extend({
   multiImages: computed('header.images', function () {
     return get(this ,'header.images').length > 1;
   }),
+
+  singleImage: computed('multiImages', function() {
+    if (!get(this, 'multiImages')) {
+      return get(this, 'header.images.firstObject');
+    } else {
+      return null;
+    }
+  }).readOnly(),
 
   requiredMark: computed('header.asterisks', {
     get() {
@@ -42,6 +53,44 @@ export default Component.extend({
       return description ? htmlSafe(`<pre class="description">${insertImg(description)}</pre>`) : null;
     }
   }).readOnly(),
+
+  openPhotoSwipe(images, trigger, options = {}) {
+    let pswpElement = document.querySelector('.pswp');
+
+    if (!options.getThumbBoundsFn) {
+      options.getThumbBoundsFn = function(/*index*/) {
+        let {left, top, width} = trigger.getBoundingClientRect();
+        return {x: left, y: top, w: width};
+      }
+    }
+
+    let items = images.map(item => ({
+      src: item.natural,
+      w: item.width,
+      h: item.height
+    }));
+
+    this.photoSwiper = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, options);
+    this.photoSwiper.init();
+  },
+
+  actions: {
+    openPhotoSwipe() {
+      // TODO 如果没有开启大图功能，就直接跳过此函数的执行逻辑
+      if (get(this, 'hasImages')) {
+        // 开始处理 PhotoSwipe
+        let swiperService = get(this, 'swiper');
+        let swiperInstance = swiperService.resolve('header');
+        let index = swiperInstance ? swiperInstance.activeIndex - 1 : 0;
+        this.openPhotoSwipe(get(this, 'header.images'), event.target, {
+          index,
+          bgOpacity: 1,
+          history: false,
+          showHideOpacity: true,
+        });
+      } else return;
+    }
+  }
 
 }).reopenClass({positionalParams: ['header']});
 

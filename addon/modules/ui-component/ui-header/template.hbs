@@ -1,15 +1,13 @@
 {{#if hasTopImages}}
-  <figure class="attachment">
+  <figure class="attachment" onclick={{action "openPhotoSwipe"}}>
     {{#if multiImages}}
-      {{ui-component/ui-header-swiper header=header}}
+      {{ui-component/ui-header-swiper swiperName="header" header=header}}
     {{else}}
-      {{#each header.images as |image|}}
-        {{ui-addon/progressive-image
-          ratio=image.ratio
-          objectFit=image.objectFit
-          thumbnail=image.thumbnail
-          image=image.natural}}
-      {{/each}}
+      {{ui-addon/progressive-image
+        ratio=singleImage.ratio
+        objectFit=singleImage.objectFit
+        thumbnail=singleImage.thumbnail
+        image=singleImage.natural}}
     {{/if}}
   </figure>
 {{/if}}
@@ -24,17 +22,15 @@
 </header>
 
 {{#if hasNormalImages}}
-  <figure class="attachment">
+  <figure class="attachment" onclick={{action "openPhotoSwipe"}}>
     {{#if multiImages}}
-      {{ui-component/ui-header-swiper header=header}}
+      {{ui-component/ui-header-swiper swiperName="header" header=header}}
     {{else}}
-      {{#each header.images as |image|}}
-        {{ui-addon/progressive-image
-          ratio=image.ratio
-          objectFit=image.objectFit
-          thumbnail=image.thumbnail
-          image=image.natural}}
-      {{/each}}
+      {{ui-addon/progressive-image
+        ratio=singleImage.ratio
+        objectFit=singleImage.objectFit
+        thumbnail=singleImage.thumbnail
+        image=singleImage.natural}}
     {{/if}}
   </figure>
 {{/if}}

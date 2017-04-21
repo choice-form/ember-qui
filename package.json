@@ -71,6 +71,7 @@
     "ember-resolver": "^2.1.0",
     "faker": "^3.1.0",
     "loader.js": "^4.1.0",
+    "photoswipe": "^4.1.2",
     "yuidoc-ember": "0.0.3"
   },
   "keywords": [

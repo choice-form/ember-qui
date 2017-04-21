@@ -37,6 +37,15 @@ module.exports = {
           'css/swiper.min.css',
           { path: 'js/swiper.min.js', sourceMap: 'js/maps/swiper.min.js.map' }
         ]
+      },
+      photoswipe: {
+        srcDir: 'dist',
+        import: [
+          'photoswipe.min.js',
+          'photoswipe-ui-default.min.js',
+          'photoswipe.css',
+          'default-skin/default-skin.css',
+        ]
       }
     }
   },

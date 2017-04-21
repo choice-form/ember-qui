@@ -9,7 +9,7 @@ const options = {
     'clipboard': {
       srcDir: 'dist',
       import: ['clipboard.js']
-    }
+    },
   })
 };
 
