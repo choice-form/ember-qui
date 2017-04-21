@@ -1,0 +1,14 @@
+<div class="header-container">
+  <div class="swiper-wrapper">
+    {{#each header.images as |image|}}
+      <div class="swiper-slide">
+        {{ui-addon/progressive-image
+          ratio=image.ratio
+          objectFit=image.objectFit
+          thumbnail=image.thumbnail
+          image=image.natural}}
+      </div>
+    {{/each}}
+  </div>
+  <div class="swiper-pagination"></div>
+</div>

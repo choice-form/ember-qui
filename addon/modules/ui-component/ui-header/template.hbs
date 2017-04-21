@@ -1,12 +1,16 @@
 {{#if hasTopImages}}
   <figure class="attachment">
-    {{#each header.images as |image|}}
-      {{ui-addon/progressive-image
-        ratio=image.ratio
-        objectFit=image.objectFit
-        thumbnail=image.thumbnail
-        image=image.natural}}
-    {{/each}}
+    {{#if multiImages}}
+      {{ui-component/ui-header-swiper style=(html-safe (concat 'height:' minHeight 'px')) header=header}}
+    {{else}}
+      {{#each header.images as |image|}}
+        {{ui-addon/progressive-image
+          ratio=image.ratio
+          objectFit=image.objectFit
+          thumbnail=image.thumbnail
+          image=image.natural}}
+      {{/each}}
+    {{/if}}
   </figure>
 {{/if}}
 <header class="header">
@@ -20,12 +24,16 @@
 
 {{#if hasNormalImages}}
   <figure class="attachment">
-    {{#each header.images as |image|}}
-      {{ui-addon/progressive-image
-        ratio=image.ratio
-        objectFit=image.objectFit
-        thumbnail=image.thumbnail
-        image=image.natural}}
-    {{/each}}
+    {{#if multiImages}}
+      {{ui-component/ui-header-swiper style=(html-safe (concat 'height:' minHeight 'px')) header=header}}
+    {{else}}
+      {{#each header.images as |image|}}
+        {{ui-addon/progressive-image
+          ratio=image.ratio
+          objectFit=image.objectFit
+          thumbnail=image.thumbnail
+          image=image.natural}}
+      {{/each}}
+    {{/if}}
   </figure>
 {{/if}}

@@ -17,16 +17,18 @@ export default Component.extend({
   hasImages: notEmpty('header.images').readOnly(),
   hasTopImages: and('hasImages', 'imageTop').readOnly(),
   hasNormalImages: and('hasImages', 'imageNormal').readOnly(),
+
   multiImages: computed('header.images', function () {
     return get(this ,'header.images').length > 1;
   }),
+
   minHeight: computed('header.images', function () {
     return get(this ,'header.images').reduce((min, image) => {
       if(image.height < min){
         min = image.height;
       }
       return min;
-    }, Infinity);
+    }, Infinity)
   }),
 
   requiredMark: computed('header.asterisks', {
