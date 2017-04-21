@@ -1,14 +1,58 @@
-{{#each node.flatten as |outerItem|}}
-  <div class="flatten-row">
-    <h3>{{outerItem.text}}</h3>
+{{#if (lt clientWidth 640)}}
+  {{#each node.flatten as |outerItem|}}
+    <div class="flatten-row">
+      <h3>{{outerItem.text}}</h3>
+    </div>
+    <div class="flatten-column">
+      {{#each outerItem.list as |option|}}
+        {{ui-question/choice node option handleEvents}}
+      {{/each}}
+    </div>
+  {{/each}}
+
+{{else}}
+  <div class="flatten-grid">
+    <div class="flatten-body-wrapper">
+      <div class="flatten-header">
+        <div style={{html-safe (concat 'width:' 'calc(' node.flatten.firstObject.list.firstObject.length 'px * 6)')}}></div>
+        {{#each node.flatten as |option|}}
+          <div style={{html-safe (concat 'width:' 'calc(' option.length 'px * 6)')}}>
+            <strong>{{option.text}}</strong>
+          </div>
+        {{/each}}
+      </div>
+      <div class="flatten-body">
+        {{#each node.flatten.firstObject.list as |rowHead idx|}}
+          <div class="flatten--row">
+            <div class="first-column-item" style={{html-safe (concat 'width:' 'calc(' rowHead.length 'px * 6)')}}>
+              {{rowHead.text}}
+            </div>
+
+            {{#each node.flatten as |outerItem|}}
+              {{#with (object-at idx outerItem.list) as |option|}}
+                <div class="column-item" style={{html-safe (concat 'width:' 'calc(' option.headLength 'px * 6)')}}>
+                  <input required type="checkbox"
+                         disabled={{disabled}}
+                           name={{node.renderId}}
+                         id={{option.renderId}}
+                           checked={{option.selected}}
+                         onclick={{action "handleOptionClick" option}}>
+                  {{ui-component/ui-label
+                    for=option.renderId
+                    selected=option.selected
+                    particleSize="m"
+                    icon=(if option.selected "checkbox-active" "checkbox")}}
+                </div>
+              {{/with}}
+            {{/each}}
+          </div>
+        {{/each}}
+      </div>
+    </div>
   </div>
-  <div class="flatten-column">
-    {{#each outerItem.list as |option|}}
-      {{ui-question/choice node option handleEvents}}
-    {{/each}}
-  </div>
-{{/each}}
+{{/if}}
 
 {{#each node.otherOptions as |option|}}
   {{ui-question/choice node option handleEvents}}
 {{/each}}
+
