@@ -65,7 +65,8 @@ export default Component.extend({
     }
 
     let items = images.map(item => ({
-      src: item.natural,
+      msrc: item.natural,
+      src: item.large,
       w: item.width,
       h: item.height
     }));
@@ -84,8 +85,6 @@ export default Component.extend({
         this.openPhotoSwipe(get(this, 'header.images'), event.target, {
           index,
           tapToClose: true,
-          bgOpacity: 1,
-          //showAnimationDuration: 10000,
           maxSpreadZoom: 4,
           history: false,
           showHideOpacity: false,

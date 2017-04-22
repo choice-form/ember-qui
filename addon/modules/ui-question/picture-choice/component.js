@@ -29,7 +29,8 @@ export default Component.extend({
     }
 
     let items = images.map(item => ({
-      src: item.image.natural,
+      msrc: item.image.natural,
+      src: item.image.large,
       w: item.image.width,
       h: item.image.height
     }));
