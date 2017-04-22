@@ -48,24 +48,25 @@ export default Component.extend({
     },
 
     openPhotoSwipe(index) {
-      // 开始处理 PhotoSwipe
-      this.openPhotoSwipe(get(this, 'images'), event.target, {
-        index,
-        tapToClose: true,
-        bgOpacity: 1,
-        maxSpreadZoom: 4,
-        history: false,
-        showHideOpacity: false,
-        shareEl: false,
-        fullscreenEl: false,
-        getDoubleTapZoom: function(isMouseClick, item) {
-          if(isMouseClick) {
-            return 1;
-          } else {
-            return item.initialZoomLevel < 0.7 ? 1 : 1.5;
-          }
-        },
-      });
+      if (get(this, 'node.optImgScale')) {
+        this.openPhotoSwipe(get(this, 'images'), event.target, {
+          index,
+          tapToClose: true,
+          bgOpacity: 1,
+          maxSpreadZoom: 4,
+          history: false,
+          showHideOpacity: false,
+          shareEl: false,
+          fullscreenEl: false,
+          getDoubleTapZoom: function(isMouseClick, item) {
+            if(isMouseClick) {
+              return 1;
+            } else {
+              return item.initialZoomLevel < 0.7 ? 1 : 1.5;
+            }
+          },
+        });
+      }
     }
   },
 

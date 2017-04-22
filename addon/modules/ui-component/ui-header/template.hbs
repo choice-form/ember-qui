@@ -9,9 +9,11 @@
         thumbnail=singleImage.thumbnail
         image=singleImage.natural}}
     {{/if}}
-    <a class="zoom-button" onclick={{action "openPhotoSwipe"}}>
-      {{svg-item 'zoom-in'}}
-    </a>
+    {{#if header.imgScale}}
+      <a class="zoom-button" onclick={{action "openPhotoSwipe"}}>
+        {{svg-item 'zoom-in'}}
+      </a>
+    {{/if}}
   </figure>
 {{/if}}
 
@@ -35,8 +37,10 @@
         thumbnail=singleImage.thumbnail
         image=singleImage.natural}}
     {{/if}}
-    <a class="zoom-button" onclick={{action "openPhotoSwipe"}}>
-      {{svg-item 'zoom-in'}}
-    </a>
+    {{#if header.imgScale}}
+      <a class="zoom-button" onclick={{action "openPhotoSwipe"}}>
+        {{svg-item 'zoom-in'}}
+      </a>
+    {{/if}}
   </figure>
 {{/if}}

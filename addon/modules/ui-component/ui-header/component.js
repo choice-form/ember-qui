@@ -76,8 +76,7 @@ export default Component.extend({
 
   actions: {
     openPhotoSwipe() {
-      // TODO 如果没有开启大图功能，就直接跳过此函数的执行逻辑
-      if (get(this, 'hasImages')) {
+      if (get(this, 'header.imgScale')) {
         // 开始处理 PhotoSwipe
         let swiperService = get(this, 'swiper');
         let swiperInstance = swiperService.resolve('header');
@@ -103,7 +102,6 @@ export default Component.extend({
       } else return;
     }
   }
-
 }).reopenClass({positionalParams: ['header']});
 
 /**
