@@ -32,7 +32,8 @@ export default Component.extend({
       msrc: item.image.natural,
       src: item.image.large,
       w: item.image.width,
-      h: item.image.height
+      h: item.image.height,
+      title: item.text
     }));
 
     this.photoSwiper = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, options);
@@ -50,22 +51,14 @@ export default Component.extend({
 
     openPhotoSwipe(index) {
       if (get(this, 'node.optImgScale')) {
-        this.openPhotoSwipe(get(this, 'images'), event.target, {
+        this.openPhotoSwipe(get(this, 'images'), event.target.parentNode, {
           index,
           tapToClose: true,
           bgOpacity: 1,
-          maxSpreadZoom: 4,
           history: false,
           showHideOpacity: false,
           shareEl: false,
           fullscreenEl: false,
-          getDoubleTapZoom: function(isMouseClick, item) {
-            if(isMouseClick) {
-              return 1;
-            } else {
-              return item.initialZoomLevel < 0.7 ? 1 : 1.5;
-            }
-          },
         });
       }
     }

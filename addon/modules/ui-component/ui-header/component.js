@@ -82,7 +82,7 @@ export default Component.extend({
         let swiperService = get(this, 'swiper');
         let swiperInstance = swiperService.resolve('header');
         let index = swiperInstance ? swiperInstance.activeIndex - 1 : 0;
-        this.openPhotoSwipe(get(this, 'header.images'), event.target, {
+        this.openPhotoSwipe(get(this, 'header.images'), event.target.parentNode, {
           index,
           tapToClose: true,
           maxSpreadZoom: 4,
@@ -90,13 +90,6 @@ export default Component.extend({
           showHideOpacity: false,
           shareEl: false,
           fullscreenEl: false,
-          getDoubleTapZoom: function(isMouseClick, item) {
-            if(isMouseClick) {
-              return 1;
-            } else {
-              return item.initialZoomLevel < 0.7 ? 1 : 1.5;
-            }
-          },
         });
       } else return;
     }

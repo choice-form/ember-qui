@@ -1,15 +1,15 @@
 .picture-layout.pinterest {
   padding: 0;
   & .ui-picture {
-    width: 33.3%;
-    padding: @offset/4;
+    width: calc(~'33.3% - 1rem');
+    margin: @offset/4;
     &:not(:nth-last-child(3)) {
       & .ui-picture:not(.insert-block) {
         margin-bottom: @offset/2;
       }
     }
     @media (max-width: 767px) {
-      width: 50%;
+      width: calc(~'50% - 1rem');
       &:not(:nth-last-child(2)) {
         & .ui-picture:not(.insert-block) {
           margin-bottom: @offset/2;
@@ -33,7 +33,7 @@ html.mobile {
   & .picture-layout.pinterest {
     margin: 0 -@offset/8;
     & .ui-picture {
-      padding: @offset/8;
+      margin: @offset/8;
       & label {
         & .attachment {
           margin-bottom: @offset/4;

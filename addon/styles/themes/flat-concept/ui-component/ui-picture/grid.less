@@ -47,7 +47,7 @@ html.ie {
       display: flex;
       flex-direction: column;
 
-      flex-basis: 50%;
+      flex-basis: calc(~'50% - .8rem');
       &:not(:last-of-type) {
         margin-bottom: @offset/1.25;
         padding-bottom: @offset/1.25;
@@ -82,10 +82,10 @@ html.mobile.landscape {
   & .picture-layout.grid {
     & .ui-picture {
       &:nth-child(odd) {
-        padding-right: @offset/2.5;
+        margin-right: @offset/2.5;
       }
       &:nth-child(even) {
-        padding-left: @offset/2.5;
+        margin-left: @offset/2.5;
       }
     }
   }
@@ -94,11 +94,12 @@ html.mobile.landscape {
 html.mobile.portrait {
   & .picture-layout.grid {
     & .ui-picture {
+      flex-basis: calc(~'50% - .25rem');
       &:nth-child(odd) {
-        padding-right: @offset/8;
+        margin-right: @offset/8;
       }
       &:nth-child(even) {
-        padding-left: @offset/8;
+        margin-left: @offset/8;
       }
     }
   }
