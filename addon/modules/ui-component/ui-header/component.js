@@ -59,8 +59,9 @@ export default Component.extend({
 
     if (!options.getThumbBoundsFn) {
       options.getThumbBoundsFn = function(/*index*/) {
+        let pageYScroll = window.pageYOffset || document.documentElement.scrollTop;
         let {left, top, width} = trigger.getBoundingClientRect();
-        return {x: left, y: top, w: width};
+        return {x: left, y: top + pageYScroll, w: width};
       }
     }
 

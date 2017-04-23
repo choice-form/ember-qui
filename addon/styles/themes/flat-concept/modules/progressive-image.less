@@ -125,5 +125,38 @@ html.ie {
 }
 
 @supports (object-fit: cover) {
-.progressive-image-supports();
+.progressive-image-fix();
+  .attachment {
+    & img {
+      width: 100% !important;
+      height: 100% !important;
+    }
+    & .object-fit {
+      &.cover {
+        &.fit-row {
+          & img {
+            width: inherit !important;
+          }
+        }
+        &.fit-column {
+          & img {
+            height: inherit !important;
+          }
+        }
+
+      }
+      &.contain {
+        &.fit-row {
+          & img {
+            height: inherit !important;
+          }
+        }
+        &.fit-column {
+          & img {
+            width: inherit !important;
+          }
+        }
+      }
+    }
+  }
 }
