@@ -54,7 +54,7 @@ export default Component.extend({
     }
   }).readOnly(),
 
-  openPhotoSwipe(images, trigger, options = {}) {
+  openPhotoSwipe(header, trigger, options = {}) {
     let pswpElement = document.querySelector('.pswp');
 
     if (!options.getThumbBoundsFn) {
@@ -65,11 +65,12 @@ export default Component.extend({
       }
     }
 
-    let items = images.map(item => ({
+    let items = header.images.map(item => ({
       msrc: item.natural,
       src: item.large,
       w: item.width,
-      h: item.height
+      h: item.height,
+      title: header.title
     }));
 
     this.photoSwiper = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, options);
@@ -83,7 +84,7 @@ export default Component.extend({
         let swiperService = get(this, 'swiper');
         let swiperInstance = swiperService.resolve('header');
         let index = swiperInstance ? swiperInstance.activeIndex - 1 : 0;
-        this.openPhotoSwipe(get(this, 'header.images'), event.target.parentNode, {
+        this.openPhotoSwipe(get(this, 'header'), event.target.parentNode, {
           index,
           tapToClose: true,
           maxSpreadZoom: 4,
