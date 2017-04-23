@@ -127,3 +127,11 @@ html.ie {
 @supports (object-fit: cover) {
 .progressive-image-supports();
 }
+
+.swiper-slide-duplicate {
+  & .progressive-image {
+    & .image {
+      opacity: 1 !important;
+    }
+  }
+}
