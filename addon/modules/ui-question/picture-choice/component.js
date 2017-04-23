@@ -56,7 +56,7 @@ export default Component.extend({
           tapToClose: true,
           bgOpacity: 1,
           history: false,
-          showHideOpacity: false,
+          showHideOpacity: get(this, 'node.objectFit') === 'cover',
           shareEl: false,
           fullscreenEl: false,
         });
