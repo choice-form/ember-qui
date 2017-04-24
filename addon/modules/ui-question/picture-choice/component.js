@@ -51,12 +51,12 @@ export default Component.extend({
 
     openPhotoSwipe(index) {
       if (get(this, 'node.optImgScale')) {
-        this.openPhotoSwipe(get(this, 'images'), event.target.parentNode, {
+        this.openPhotoSwipe(get(this, 'images'), event.target.parentNode.querySelector('img'), {
           index,
           tapToClose: true,
           bgOpacity: 1,
           history: false,
-          showHideOpacity: false,
+          showHideOpacity: get(this, 'node.objectFit') === 'cover',
           shareEl: false,
           fullscreenEl: false,
         });
