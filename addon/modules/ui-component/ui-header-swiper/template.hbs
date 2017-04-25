@@ -4,7 +4,7 @@
       <div class="swiper-slide">
         {{ui-addon/progressive-image
           ratio=image.ratio
-          objectFit=image.objectFit
+          objectFit=(if header.bgImageMode 'cover')
           thumbnail=image.thumbnail
           image=image.natural}}
       </div>
