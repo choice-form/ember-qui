@@ -14,12 +14,12 @@ export default Component.extend({
   contentSlide() {
     later(()=>{
       const content = this.element.querySelector('.header-container');
-
       this.swiperInstance = new Swiper(content, {
         pagination: '.header-pagination',
         spaceBetween: 0,
-        autoplay: 2500,
+        autoplay: get(this, 'header.imgTransTime'),
         loop: true,
+        effect: get(this, 'header.imgTransType'),
         autoplayDisableOnInteraction: false
       });
 
