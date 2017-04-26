@@ -29,6 +29,7 @@
     "Wester Xi <wester@cform.io>"
   ],
   "dependencies": {
+    "@choiceform/ember-choice-i18n": "^0.1.1",
     "bowser": "^1.6.0",
     "broccoli-less-single": "^0.6.3",
     "ember-cli-babel": "^5.2.1",
