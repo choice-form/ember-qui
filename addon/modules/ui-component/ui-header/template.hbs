@@ -45,8 +45,12 @@
   </figure>
 {{/if}}
 
-{{video-plyr
-  loadSprite=false
-  mp4="https://media.cform.io/test/video/LTE.mp4"
-  poster="https://media.cform.io/docomo201312c-47d00.jpg"
-}}
+{{#if header.video}}
+  {{video-plyr
+    loadSprite=false
+    mp4=header.video.url
+    poster=header.video.postera
+    autoPlay=true
+  }}
+{{/if}}
+
