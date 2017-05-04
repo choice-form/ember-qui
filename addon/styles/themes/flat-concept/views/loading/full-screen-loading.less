@@ -1,3 +1,41 @@
+.ui-loader {
+  backface-visibility: hidden;
+  & svg {
+    width: 36px;
+    height: 36px;
+    animation: loading 3s linear infinite;
+    & circle {
+      stroke-dashoffset: 0;
+      stroke-dasharray: 100;
+      stroke-width: 3;
+      stroke-miterlimit: 3;
+      stroke-linecap: round;
+      animation: loading-circle 2s linear infinite;
+      stroke: currentColor;
+      stroke-opacity: .6;
+      fill: transparent;
+    }
+  }
+}
+
+@keyframes loading {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes loading-circle {
+  0% {
+    stroke-dashoffset: 0
+  }
+  100% {
+    stroke-dashoffset: -200;
+  }
+}
+
 .full-screen-loading {
   position: fixed;
   top: 0;

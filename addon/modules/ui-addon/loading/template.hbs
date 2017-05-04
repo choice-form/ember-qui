@@ -1,7 +1,11 @@
 {{#if isLoading}}
   <div class="full-screen-loading">
     <div class="loading-wrapper">
-      {{svg-item "positioning" size="40px" viewBox="40"}}
+      <div class="ui-loader">
+        <svg x="0" y="0" viewBox="0 0 36 36">
+          <circle cx="18" cy="18" r="16"/>
+        </svg>
+      </div>
     </div>
   </div>
 {{/if}}

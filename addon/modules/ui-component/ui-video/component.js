@@ -9,10 +9,10 @@ export default Component.extend({
     const video = this.element.querySelector('video');
     video.setAttribute('src', this.url);
     video.setAttribute('poster', this.poster);
-    const cover = this.element.querySelector('.error-cover');
+    const cover = this.element.querySelector('.error-video-cover');
     plyr.setup(this.element);
     video.addEventListener('error', () => {
-      cover.style.display = 'block';
+      cover.style.display = 'flex';
       this.element.style.pointerEvents = 'none';
     });
   }
