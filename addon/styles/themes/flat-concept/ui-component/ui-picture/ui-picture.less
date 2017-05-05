@@ -121,6 +121,7 @@
     }
   }
 }
+
 .thumb-wrapper {
   width: 100%;
   & .thumb {
@@ -159,9 +160,12 @@
   padding: @offset / 2;
   position: absolute;
   top: 0;
+  opacity: 1;
   z-index: 2;
   cursor: zoom-in;
   backface-visibility: hidden;
+  transition-delay: 200ms;
+  transition: transform 400ms ease, opacity 400ms ease;
   &:before {
     content: '';
     position: absolute;
@@ -174,6 +178,16 @@
   }
   & svg {
     display: block;
+  }
+}
+
+.pswp {
+  &.pswp--open {
+    & + div {
+      & .zoom-button {
+        opacity: 0;
+      }
+    }
   }
 }
 

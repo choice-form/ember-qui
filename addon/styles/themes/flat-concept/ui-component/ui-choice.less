@@ -24,13 +24,18 @@
       width: @offset/1.25;
       height: @offset/1.25;
       margin: auto 0;
-
-      .absolute(0, 0, 0, auto);
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
       & .svg-wrapper {
         & svg {
           display: block;
           width: @offset/1.25;
           height: @offset/1.25;
+          & use {
+            transform: scale(.98);
+          }
         }
       }
     }

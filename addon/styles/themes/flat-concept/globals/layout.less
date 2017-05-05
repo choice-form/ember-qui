@@ -127,47 +127,6 @@ sup {
   }
 }
 
-.pinned-content {
-  backface-visibility: hidden;
-  transition: transform 400ms ease;
-  &:after {
-    content: '';
-    position: absolute;
-    bottom: 100%;
-    width: 100%;
-    height: 52px;
-    display: none;
-  }
-  &:before {
-    content: '';
-    position: absolute;
-    top: 100%;
-    width: 100%;
-    height: 64px;
-    opacity: 0;
-    transition: opacity 400ms ease;
-    pointer-events: none;
-  }
-  & + div {
-    display: none;
-    transition: transform 400ms ease;
-  }
-  &[style^="position"] {
-    z-index: 100;
-    &:after {
-      display: block;
-    }
-    &:before {
-      opacity: 1;
-    }
-    & + div {
-      display: block;
-    }
-  }
-}
-
-
-
 /*------------------- responsive -------------------*/
 
 html.desktop {
@@ -178,36 +137,6 @@ html.desktop {
   }
   & .c-container {
     min-width: 480px;
-  }
-  & .pinned-content {
-    &[style^="position"] {
-      transform: scale(1.08);
-      & + div {
-        transform: scale(1.08);
-      }
-    }
-  }
-}
-
-html.tablet {
-  & .pinned-content {
-    &[style^="position"] {
-      transform: scale(1.055);
-      & + div {
-        transform: scale(1.055);
-      }
-    }
-  }
-}
-
-html.mobile {
-  & .pinned-content {
-    &[style^="position"] {
-      transform: scale(1.08);
-      & + div {
-        transform: scale(1.08);
-      }
-    }
   }
 }
 
