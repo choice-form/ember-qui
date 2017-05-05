@@ -4,6 +4,7 @@ import layout from './template';
 export default Component.extend({
   layout,
   classNames: ['ui-video-container'],
+
   didInsertElement(){
     this._super(...arguments);
     const video = this.element.querySelector('video');

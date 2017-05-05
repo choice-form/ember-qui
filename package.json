@@ -70,7 +70,9 @@
     "ember-disable-prototype-extensions": "^1.1.0",
     "ember-export-application-global": "^1.1.1",
     "ember-load-initializers": "^0.6.3",
+
     "ember-resolver": "^2.1.0",
+    "ember-windoc": "0.1.8",
     "faker": "^3.1.0",
     "loader.js": "^4.1.0",
     "photoswipe": "^4.1.2",

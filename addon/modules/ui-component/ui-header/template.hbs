@@ -26,22 +26,26 @@
   {{description}}
 </header>
 
+
 {{#if hasNormalImages}}
   <figure class="attachment">
-    {{#if multiImages}}
-      {{ui-component/ui-header-swiper swiperName="header" header=header}}
-    {{else}}
-      {{ui-addon/progressive-image
-        ratio=singleImage.ratio
-        objectFit=singleImage.objectFit
-        thumbnail=singleImage.thumbnail
-        image=singleImage.natural}}
-    {{/if}}
-    {{#if header.imgScale}}
-      <a class="zoom-button" onclick={{action "openPhotoSwipe"}}>
-        {{svg-item 'zoom-in'}}
-      </a>
-    {{/if}}
+    {{#ui-addon/pinned top=24}}
+      {{#if multiImages}}
+        {{ui-component/ui-header-swiper swiperName="header" header=header}}
+      {{else}}
+        {{ui-addon/progressive-image
+          ratio=singleImage.ratio
+          objectFit=singleImage.objectFit
+          thumbnail=singleImage.thumbnail
+          image=singleImage.natural}}
+      {{/if}}
+      {{#if header.imgScale}}
+        <a class="zoom-button" onclick={{action "openPhotoSwipe"}}>
+          {{svg-item 'zoom-in'}}
+        </a>
+      {{/if}}
+    {{/ui-addon/pinned}}
+    <div style={{concat 'padding-top:' singleImage.ratio '%'}}></div>
   </figure>
 {{/if}}
 
@@ -51,4 +55,3 @@
     poster=header.video.poster
   }}
 {{/if}}
-
