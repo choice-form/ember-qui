@@ -127,6 +127,39 @@ sup {
   }
 }
 
+.pinned-content {
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: 100%;
+    width: 100%;
+    height: 64px;
+  }
+  &:before {
+    content: '';
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    height: 64px;
+    opacity: 0;
+    transition: opacity 400ms ease;
+  }
+  & + div {
+    display: none;
+  }
+  &[style^="position"] {
+    z-index: 100;
+    &:before {
+      opacity: 1;
+    }
+    & + div {
+      display: block;
+    }
+  }
+}
+
+
+
 /*------------------- responsive -------------------*/
 
 html.desktop {
