@@ -10,21 +10,19 @@ export default Component.extend({
     video.setAttribute('src', this.url);
     video.setAttribute('poster', this.poster);
     const cover = this.element.querySelector('.error-video-cover');
-    const player = plyr.setup(this.element, {
+    plyr.setup(this.element, {
       controls: ['play-large'],
-
-    })[0];
-    player.on('error', () => {
+    });
+    video.addEventListener('error', () => {
       cover.style.display = 'flex';
       this.element.style.pointerEvents = 'none';
       this.element.querySelector('.plyr__play-large').style.display = 'none';
     });
 
-    player.on('ended', () => {
+    video.addEventListener('ended', () => {
       if(this.video){
         this.video.ended  = true;
       }
     })
-
   }
 })
