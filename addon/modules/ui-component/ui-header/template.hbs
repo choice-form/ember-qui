@@ -29,7 +29,7 @@
 
 {{#if hasNormalImages}}
   <figure class="attachment">
-    {{#ui-addon/pinned top=24}}
+    {{#component fixComponent top=header.fixTop}}
       {{#if multiImages}}
         {{ui-component/ui-header-swiper swiperName="header" header=header}}
       {{else}}
@@ -44,15 +44,23 @@
           {{svg-item 'zoom-in'}}
         </a>
       {{/if}}
-    {{/ui-addon/pinned}}
-    <div style={{concat 'padding-top:' singleImage.ratio '%'}}></div>
+    {{/component}}
+    {{#if header.fixImage}}
+      <div style={{supportStyle}}></div>
+    {{/if}}
+
   </figure>
 {{/if}}
 
 {{#if header.video}}
-  {{ui-component/ui-video
-    video=header.video
-    url=header.video.url
-    poster=header.video.poster
-  }}
+  {{#component fixComponent top=header.fixTop}}
+    {{ui-component/ui-video
+      video=header.video
+      url=header.video.url
+      poster=header.video.poster
+    }}
+  {{/component}}
+  {{#if header.fixVideo}}
+    <div style={{supportStyle}}></div>
+  {{/if}}
 {{/if}}

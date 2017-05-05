@@ -1,9 +1,15 @@
 import Component from 'ember-component';
 import layout from './template';
-
+import set from 'ember-metal/set';
 export default Component.extend({
   layout,
   classNames: ['ui-video-container'],
+
+  measureRatio(video){
+    const videoHeight = video.videoHeight;
+    const videoWidth = video.videoWidth;
+    set(this.video, 'ratio', Math.round(videoHeight/ videoWidth * 10000) / 10000);
+  },
 
   didInsertElement(){
     this._super(...arguments);
@@ -18,12 +24,19 @@ export default Component.extend({
       cover.style.display = 'flex';
       this.element.style.pointerEvents = 'none';
       this.element.querySelector('.plyr__play-large').style.display = 'none';
+      this.measureRatio(video);
+    });
+
+    video.addEventListener('loadeddata', () => {
+      this.measureRatio(video);
     });
 
     video.addEventListener('ended', () => {
       if(this.video){
-        this.video.ended  = true;
+        set(this.video, 'ended', true);
       }
-    })
+    });
+
+
   }
 })

@@ -12,6 +12,25 @@ export default Component.extend({
 
   swiper: inject(),
 
+  fixComponent: computed('header.fixTop', function () {
+    if(get(this, 'header.fixTop') <= 0){
+      return 'ui-addon/blank-container';
+    }else{
+      return 'ui-addon/pinned'
+    }
+  }),
+
+  supportStyle: computed('header','header.video.ratio', function () {
+    if(get(this, 'header.fixImage')){
+      const image = get(this, 'singleImage');
+      return `padding-top:${image.ratio * 100}%`
+    }else if(get(this, 'header.fixVideo')){
+      const video = get(this, 'header.video');
+      return `padding-top:${video.ratio * 100}%`
+    }
+
+  }),
+
   imageTop: computed('header', function() {
     return ['intro-page', 'end-page'].indexOf(get(this, 'header.quesType')) > -1
   }),
