@@ -12,12 +12,24 @@ export default Component.extend({
 
   swiper: inject(),
 
-  fixComponent: computed('header.fixTop', function () {
-    if(get(this, 'header.fixTop') <= 0){
-      return 'ui-addon/blank-container';
-    }else{
-      return 'ui-addon/pinned'
-    }
+  needFixImage: computed('header', function(){
+    return get(this, 'header.fixImage') && get(this, 'header.fixTop') > 0;
+  }),
+
+  needFixVideo: computed('header', function(){
+    return get(this, 'header.fixVideo') && get(this, 'header.fixTop') > 0;
+  }),
+
+  fixImgCom: computed('header.fixTop', function () {
+    return get(this, 'needFixImage') ?
+      'ui-addon/pinned' :
+      'ui-addon/blank-container';
+  }),
+
+  fixVdoCom: computed('header.fixTop', function () {
+    return get(this, 'needFixVideo') ?
+      'ui-addon/pinned' :
+      'ui-addon/blank-container';
   }),
 
   supportStyle: computed('header','header.video.ratio', function () {

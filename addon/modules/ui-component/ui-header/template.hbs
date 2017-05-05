@@ -29,7 +29,7 @@
 
 {{#if hasNormalImages}}
   <figure class="attachment">
-    {{#component fixComponent top=header.fixTop}}
+    {{#component fixImgCom top=header.fixTop}}
       {{#if multiImages}}
         {{ui-component/ui-header-swiper swiperName="header" header=header}}
       {{else}}
@@ -45,7 +45,7 @@
         </a>
       {{/if}}
     {{/component}}
-    {{#if header.fixImage}}
+    {{#if needFixImage}}
       <div style={{supportStyle}}></div>
     {{/if}}
 
@@ -53,14 +53,14 @@
 {{/if}}
 
 {{#if header.video}}
-  {{#component fixComponent top=header.fixTop}}
+  {{#component fixVdoCom top=header.fixTop}}
     {{ui-component/ui-video
       video=header.video
       url=header.video.url
       poster=header.video.poster
     }}
   {{/component}}
-  {{#if header.fixVideo}}
+  {{#if needFixVideo}}
     <div style={{supportStyle}}></div>
   {{/if}}
 {{/if}}
