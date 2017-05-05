@@ -53,14 +53,16 @@
 {{/if}}
 
 {{#if header.video}}
-  {{#component fixVdoCom top=header.fixTop}}
-    {{ui-component/ui-video
-      video=header.video
-      url=header.video.url
-      poster=header.video.poster
-    }}
-  {{/component}}
-  {{#if needFixVideo}}
-    <div style={{supportStyle}}></div>
-  {{/if}}
+  <figure class="attachment">
+    {{#component fixVdoCom top=header.fixTop}}
+      {{ui-component/ui-video
+        video=header.video
+        url=header.video.url
+        poster=header.video.poster
+      }}
+    {{/component}}
+    {{#if needFixVideo}}
+      <div style={{supportStyle}}></div>
+    {{/if}}
+  </figure>
 {{/if}}
