@@ -34,8 +34,14 @@ export default Component.extend({
 
   supportStyle: computed('header','header.video.ratio', function () {
     if(get(this, 'header.fixImage')){
-      const image = get(this, 'singleImage');
-      return `padding-top:${image.ratio * 100}%`
+      const ratio = get(this, 'header.images').reduce((rs, img) => {
+        if(img.ratio > rs){
+          rs = img.ratio;
+        }
+        return rs;
+      }, 0)
+
+      return `padding-top:${ratio * 100}%`
     }else if(get(this, 'header.fixVideo')){
       const video = get(this, 'header.video');
       return `padding-top:${video.ratio * 100}%`
