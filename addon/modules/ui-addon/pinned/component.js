@@ -52,8 +52,7 @@ export default Component.extend({
       this.pinSupport = $('.pin-support')[0];
     }
     if (this.pinSupport &&
-      $('html').hasClass('desktop') &&
-      $(this.pinSupport).css('display') !== 'none') {
+      $('html').hasClass('desktop')) {
       return this.pinSupport.getBoundingClientRect();
     }
   },
