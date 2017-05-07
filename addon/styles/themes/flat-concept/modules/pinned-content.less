@@ -5,7 +5,7 @@
   &:after {
     content: '';
     position: absolute;
-    bottom: -1px;
+    bottom: 0;
     width: 100%;
     top: -24px;
     opacity: 0;
@@ -108,9 +108,9 @@ html.tablet.landscape {
 html.mobile {
   & .pinned-content {
     &[style^="position"] {
-      transform: scale(1.08);
+      transform: scale(1.1);
       & + div {
-        transform: scale(1.08);
+        transform: scale(1.1);
       }
     }
   }
