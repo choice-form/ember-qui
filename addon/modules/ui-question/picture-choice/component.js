@@ -2,20 +2,29 @@ import Component from 'ember-component';
 import layout from './template';
 import computed, { filterBy, gt } from 'ember-computed';
 import get from 'ember-metal/get';
+import set from 'ember-metal/set';
 import Masonry from 'masonry';
 import { scheduleOnce } from 'ember-runloop';
 
 export default Component.extend({
   layout,
   classNames:['picture-wrapper'],
-
-  imageOptions: filterBy('node.options', 'image', true),
-  selectedImageOptions: filterBy('imageOptions', 'selected', true),
-  hasSelectedImageOptions: gt('selectedImageOptions.length', 0),
-
+  hasSelectedImages: false,
   images: computed('node.options', function() {
-    return get(this, 'node.options').filter(option => option.inputType.length == 0);
+    return get(this, 'node.options').filter(option => option.inputType.length === 0);
   }),
+
+  init(){
+    this._super(...arguments);
+    this.updateHasSelected();
+  },
+
+  updateHasSelected(){
+    const hasSelected = get(this, 'node.options').some((opt) => {
+      return get(opt, 'selected');
+    });
+    set(this, 'hasSelectedImages', hasSelected);
+  },
 
   openPhotoSwipe(images, trigger, options = {}) {
     let pswpElement = document.querySelector('.pswp');
@@ -47,6 +56,7 @@ export default Component.extend({
     handleOptionClick(option, e){
       !this.handleEvents.handleOptionClick(option, get(this, 'node'))
       && e.preventDefault();
+      this.updateHasSelected();
     },
 
     openPhotoSwipe(index) {

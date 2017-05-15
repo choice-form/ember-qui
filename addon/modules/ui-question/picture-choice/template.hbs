@@ -6,15 +6,18 @@
   "handleOptionClick" option) handleOptionZoom=(action "openPhotoSwipe" index) }} {{/each}}
 </div>
 
-<aside class="thumb-wrapper">
-  <ul class="thumb">
-    {{#each (filter-by "selected" true (filter-by 'image' node.options)) as |option|}}
-    <li class="thumb-item">
-      <a href={{concat "#" option.renderId "cform"}} style={{html-safe (concat "background-image: url('" option.image.natural
-        "')")}}></a>
-    </li>
-    {{/each}}
-  </ul>
-</aside>
+{{#if hasSelectedImages}}
+  <aside class="thumb-wrapper">
+    <ul class="thumb">
+      {{#each (filter-by "selected" true images) as |option|}}
+        <li class="thumb-item">
+          <a href={{concat "#" option.renderId "cform"}} style={{html-safe (concat "background-image: url('" option.image.natural
+                                                                             "')")}}></a>
+        </li>
+      {{/each}}
+    </ul>
+  </aside>
+{{/if}}
+
 
 {{#each node.options as |option|}} {{#if option.inputType}} {{ui-question/choice node option handleEvents}} {{/if}} {{/each}}
