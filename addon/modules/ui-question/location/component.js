@@ -57,23 +57,15 @@ export default Component.extend({
       setProperties(
         this, {svgState: 'positioning', locationState: 'positioning', tips: '正在获取位置信息...'}
       );
-
-      navigator.geolocation.getCurrentPosition(() => {
+      if(localStorage.getItem('allow_locate') || window.confirm('是否允许使用定位?')){
+        localStorage.setItem('allow_locate', 1);
         getLocation()
           .then((position) => this._handlePositionSuccess(position))
           .catch(() => this._handlePositionError())
-      }, (data) => {
-        if (data.code == '1') {
-          return setProperties(
-            this, {locationState: 'failed', svgState: 'location-failed', tips: '请开启定位服务!'}
-          );
-        }
-        if (data.code == '3') {
-          getLocation()
-            .then((position) => this._handlePositionSuccess(position))
-            .catch(() => this._handlePositionError())
-        }
-      }, {timeout: 100});
+      }else{
+        this._handlePositionError();
+      }
+
     },
   }
 }).reopenClass({positionalParams: ['node', 'handleEvents']});
