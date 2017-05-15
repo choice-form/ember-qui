@@ -2,6 +2,7 @@
   transform-origin: 50% 0;
   backface-visibility: hidden;
   transition: transform 400ms ease;
+  will-change: transform;
   &:after {
     content: '';
     position: absolute;
@@ -22,6 +23,7 @@
     pointer-events: none;
   }
   & + div {
+    will-change: transform;
     transform-origin: 50% 0;
     display: none;
     backface-visibility: hidden;
@@ -97,9 +99,9 @@ html.tablet.portrait {
 html.tablet.landscape {
   & .pinned-content {
     &[style^="position"] {
-      transform: scale(1.04);
+      transform: scale(1.1);
       & + div {
-        transform: scale(1.04);
+        transform: scale(1.1);
       }
     }
   }
