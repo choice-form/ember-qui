@@ -31,7 +31,9 @@
         {{particle size=size}}
       {{/if}}
     </div>
-    <span>{{text}}</span>
+    {{#if text}}
+      <span>{{text}}</span>
+    {{/if}}
   </div>
 </label>
 {{#if zoomable}}
