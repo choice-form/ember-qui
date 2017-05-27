@@ -11,11 +11,14 @@ export default Component.extend({
     return get(this ,'intro.images').length > 1;
   }),
 
+  hasWelcomeUrl: computed('intro.welcomeUrl', function () {
+    return !!get(this, 'intro.welcomeUrl');
+  }),
+
   actions: {
     handleNextClick(){
       this.intro.handleEvents.handleNextClick('go');
     }
   }
-
 
 }).reopenClass({positionalParams: ['intro']});

@@ -1,6 +1,9 @@
 <section class={{concat 'welcome ' (unbound intro.style) (if intro.bgImageMode 'full-screen-cover')}}>
-  <div class="wrapper">
-    <div class="row data-welcome" data-render-id={{unbound intro.renderId}}>
+  {{#if hasWelcomeUrl}}
+    <iframe src={{intro.welcomeUrl}}></iframe>
+  {{else}}
+    <div class="wrapper">
+      <div class="row data-welcome" data-render-id={{unbound intro.renderId}}>
         <figure class="attachment welcome">
           {{#if multiImages}}
             {{ui-component/ui-header-swiper header=intro}}
@@ -15,20 +18,23 @@
           {{/if}}
         </figure>
 
-      <header class="header">
-        <h2 class="title">{{intro.title}}</h2>
-        {{#if intro.summary}}
-          <p style="margin-bottom: 1rem">{{{insert-img intro.summary}}}</p>
-        {{/if}}
-        {{#if intro.description}}
-          <pre class="description">{{{insert-img intro.description}}}</pre>
-        {{/if}}
-      </header>
-
+        <header class="header">
+          <h2 class="title">{{intro.title}}</h2>
+          {{#if intro.summary}}
+            <p style="margin-bottom: 1rem">{{{insert-img intro.summary}}}</p>
+          {{/if}}
+          {{#if intro.description}}
+            <pre class="description">{{{insert-img intro.description}}}</pre>
+          {{/if}}
+        </header>
+      </div>
     </div>
-  </div>
+  {{/if}}
+
 </section>
-{{ui-question/-node/button-cell
-  nextButton=intro.nextButton
-  handleNextClick=intro.handleEvents.handleNextClick
-}}
+{{#unless hasWelcomeUrl}}
+  {{ui-question/-node/button-cell
+    nextButton=intro.nextButton
+    handleNextClick=intro.handleEvents.handleNextClick
+  }}
+{{/unless}}
