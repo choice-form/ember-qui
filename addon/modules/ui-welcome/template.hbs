@@ -1,6 +1,6 @@
 <section class={{concat 'welcome ' (unbound intro.style) (if intro.bgImageMode 'full-screen-cover')}}>
   {{#if hasWelcomeUrl}}
-    <iframe src={{intro.welcomeUrl}}></iframe>
+    <iframe class='welcome-iframe' src={{intro.welcomeUrl}}></iframe>
   {{else}}
     <div class="wrapper">
       <div class="row data-welcome" data-render-id={{unbound intro.renderId}}>
