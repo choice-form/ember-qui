@@ -15,6 +15,7 @@
     </span>
   </div>
 {{/if}}
+
 <div class={{concat "control " quesType (if node.errorMessage ' error')}}>
   {{#if isSpecialComponent}}
     {{component componentName node handleEvents options=(if node.dynamicOption node.options (unbound node.options)) matrix=(unbound node.matrix) preview=preview}}
