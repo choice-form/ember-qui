@@ -1,55 +1,74 @@
-/*.global-loading {
+.global-loading {
   position: absolute;
-  top: 50%;
+  top: 45%;
   left: 50%;
-  width: 64px;
-  height: 64px;
+  width: 30px;
   transform: translate(-50%, -50%);
-  &.fixed {
-    position: fixed;
-  }
-  & .choiceform-logo {
-    display: block;
-    width: 64px;
-    height: 64px;
-    transform-origin: center;
-    //animation: line 1.5s linear infinite;
-    & g {
-      transform-origin: center;
-      animation: load 1.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite;
-      & .circle {
-        color: fade(white, 36%);
+  & .pad {
+    height: 36px;
+    margin: 0 auto;
+    padding: 6px;
+    border: 2px solid currentColor;
+    & .line {
+      margin-top: 4px;
+      animation: writeline 3s infinite ease-in;
+      opacity: 0;
+      border-top: 2px solid currentColor;
+      &:first-child {
+        margin-top: 2px;
       }
-      & .line {
-        transform-origin: center;
-        animation: circle-line 1.5s linear infinite;
+      &:nth-child(1) {
+        animation-delay: 0s;
+      }
+      &:nth-child(2)  {
+        animation-delay: .5s;
+      }
+      &:nth-child(3)  {
+        animation-delay: 1s;
       }
     }
   }
+  & span {
+    font-size: @font-size/1.25;
+    position: absolute;
+    right: -50%;
+    left: -50%;
+    margin-top: 6px;
+    text-align: center;
+    color: currentColor;
+    text-transform: capitalize;
+  }
+  &:not(.fixed) {
+    & span {
+      &:after {
+        display: block;
+        content: counter(section) '';
+        counter-increment: section;
+      }
+    }
+  }
+  &.fixed {
+    position: fixed;
+  }
 }
 
-@keyframes circle-line {
+@keyframes writeline {
   0% {
-    transform: rotate(0deg);
+    width: 0;
+    opacity: 0;
+  }
+  33% {
+    width: 100%;
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
   }
   100% {
-    transform: rotate(360deg);
+    opacity: 0;
   }
 }
 
-@keyframes load {
-  0% {
-    transform: translateY(0);
-  }
-
-  50% {
-    transform: translateY(37px);
-  }
-
-  100% {
-    transform: translateY(0);
-  }
-}*/
 
 .lazy-loading {
   position: absolute;

@@ -31,17 +31,15 @@
 
 {{!--选择选项再弹出输入框--}}
 {{#if (eq (unbound option.inputType)"select-input")}}
-  {{#liquid-if option.selected use='fade' class='ui-text-liquid'}}
-    {{ui-component/ui-text
-                           inputRule=(unbound option.inputRule)
-                           grade=(unbound option.grade)
-                           placeholder=(unbound option.placeholder)
-                           renderId=(unbound option.renderId)
-                           errorMessage=option.errorMessage
-                           value=option.value
-                           handleOnblur=(action "handleOptionInput")
-                           handleOptionInput=(action "handleOptionInput")
-                           handleOptionInputForTextarea=(action "handleOptionInputForTextarea")}}
-  {{/liquid-if}}
+  {{ui-component/ui-text display=(if option.selected "block" "none")
+                         inputRule=(unbound option.inputRule)
+                         grade=(unbound option.grade)
+                         placeholder=(unbound option.placeholder)
+                         renderId=(unbound option.renderId)
+                         errorMessage=option.errorMessage
+                         value=option.value
+                         handleOnblur=(action "handleOptionInput")
+                         handleOptionInput=(action "handleOptionInput")
+                         handleOptionInputForTextarea=(action "handleOptionInputForTextarea")}}
 
 {{/if}}

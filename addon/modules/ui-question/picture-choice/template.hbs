@@ -6,7 +6,7 @@
   "handleOptionClick" option) handleOptionZoom=(action "openPhotoSwipe" index) }} {{/each}}
 </div>
 
-{{#liquid-if hasSelectedImages use='fade'}}
+{{#if hasSelectedImages}}
   <aside class="thumb-wrapper">
     <ul class="thumb">
       {{#each (filter-by "selected" true images) as |option|}}
@@ -17,7 +17,7 @@
       {{/each}}
     </ul>
   </aside>
-{{/liquid-if}}
+{{/if}}
 
 
 {{#each node.options as |option|}} {{#if option.inputType}} {{ui-question/choice node option handleEvents}} {{/if}} {{/each}}
