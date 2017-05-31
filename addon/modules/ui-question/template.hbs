@@ -6,7 +6,7 @@
         {{#if viewable}}
           {{ui-question/-node node question.handleEvents preview=question.preview}}
         {{else}}
-          {{modules/ui-addon/global-loading}}
+          <div class="lazy-loading">loading...</div>
         {{/if}}
       {{/ui-question/lazy-loader}}
     {{/each}}
