@@ -1859,18 +1859,11 @@ ember-export-application-global@^1.1.1:
   dependencies:
     ember-cli-babel "^5.1.10"
 
-ember-getowner-polyfill@1.1.1, ember-getowner-polyfill@^1.0.0:
+ember-getowner-polyfill@^1.0.0:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/ember-getowner-polyfill/-/ember-getowner-polyfill-1.1.1.tgz#6bb6603827dd2f8f33be2434570a86cc9e5273ff"
   dependencies:
     ember-cli-babel "^5.1.6"
-    ember-cli-version-checker "^1.2.0"
-
-ember-hash-helper-polyfill@^0.1.2:
-  version "0.1.2"
-  resolved "https://registry.yarnpkg.com/ember-hash-helper-polyfill/-/ember-hash-helper-polyfill-0.1.2.tgz#bc8ee6fa59e9541fce07d2cf4f263cf785e9e1db"
-  dependencies:
-    ember-cli-babel "^5.1.7"
     ember-cli-version-checker "^1.2.0"
 
 ember-in-viewport@^2.1.0:
@@ -3420,20 +3413,6 @@ linkify-it@~1.2.0:
   dependencies:
     uc.micro "^1.0.1"
 
-liquid-fire@^0.27.0:
-  version "0.27.0"
-  resolved "https://registry.yarnpkg.com/liquid-fire/-/liquid-fire-0.27.0.tgz#17eac44de48638fca74fb734adf6cb9834764b1a"
-  dependencies:
-    broccoli-funnel "^1.0.1"
-    broccoli-merge-trees "^1.0.0"
-    ember-cli-babel "^5.1.7"
-    ember-cli-htmlbars "^1.0.10"
-    ember-cli-version-checker "^1.1.6"
-    ember-getowner-polyfill "1.1.1"
-    ember-hash-helper-polyfill "^0.1.2"
-    match-media "^0.2.0"
-    velocity-animate ">= 0.11.8"
-
 livereload-js@^2.2.2:
   version "2.2.2"
   resolved "https://registry.yarnpkg.com/livereload-js/-/livereload-js-2.2.2.tgz#6c87257e648ab475bc24ea257457edcc1f8d0bc2"
@@ -3779,10 +3758,6 @@ masonry-layout@^4.1.1:
   dependencies:
     get-size "^2.0.2"
     outlayer "^2.1.0"
-
-match-media@^0.2.0:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/match-media/-/match-media-0.2.0.tgz#ea4e09742e7253cc7d7e1599ba627e0fa29fbc50"
 
 matcher-collection@^1.0.0, matcher-collection@^1.0.1:
   version "1.0.4"
@@ -5634,10 +5609,6 @@ validate-npm-package-name@^2.0.1, validate-npm-package-name@~2.2.2:
 vary@~1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/vary/-/vary-1.1.0.tgz#e1e5affbbd16ae768dd2674394b9ad3022653140"
-
-"velocity-animate@>= 0.11.8":
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/velocity-animate/-/velocity-animate-1.4.0.tgz#b220a79cecfcdceeaf66c44e09ee9532bf5fcea5"
 
 verror@1.3.6:
   version "1.3.6"
