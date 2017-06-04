@@ -1,8 +1,8 @@
 import Component from 'ember-component';
 import layout from './template';
-import computed, { reads } from 'ember-computed';
+import computed, {reads} from 'ember-computed';
 import get from 'ember-metal/get';
-import { htmlSafe } from 'ember-string';
+import {htmlSafe} from 'ember-string';
 import mobiInit from '../../lib/mobile-factory'
 
 export default Component.extend({
@@ -47,9 +47,13 @@ export default Component.extend({
   didInsertElement(){
     const input = this.element.getElementsByTagName('input')[0];
     const grade = get(this, 'grade');
-    const dateFormat = ((grade == 1) && 'yyyy')||((grade == 2) && 'yyyy-mm')||((grade == 3) && 'yyyy-mm-dd') || 'yyyy-mm-dd'; // 日期格式
-    const dateOrder = ((grade == 1) && 'yyyy')||((grade == 2) && 'yyyymm')||((grade == 3) && 'yyyymmdd') || 'yyyymmdd'; // 日期格式
-    mobiInit(input, { type: get(this, 'inputRule'), dateFormat, dateOrder,});
+    const dateFormat = ((grade == 1) && 'yyyy') || ((grade == 2) && 'yyyy-mm') || ((grade == 3) && 'yyyy-mm-dd') || 'yyyy-mm-dd'; // 日期格式
+    const dateOrder = ((grade == 1) && 'yyyy') || ((grade == 2) && 'yyyymm') || ((grade == 3) && 'yyyymmdd') || 'yyyymmdd'; // 日期格式
+    const startYear = get(this, 'startYear');
+    const endYear = get(this, 'endYear');
+    const min = startYear ? new Date(startYear, 0, 1) : undefined;
+    const max = endYear ? new Date(endYear, 11, 31) : undefined;
+    mobiInit(input, {type: get(this, 'inputRule'), dateFormat, dateOrder, max, min});
   }
 });
 
