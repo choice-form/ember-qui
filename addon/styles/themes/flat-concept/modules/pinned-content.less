@@ -1,7 +1,7 @@
 .pinned-content {
   transform-origin: 50% 0;
   backface-visibility: hidden;
-  transition: transform 400ms ease;
+  transition: transform 400ms ease, box-shadow 400ms ease;
   will-change: transform;
   &:after {
     content: '';
@@ -12,15 +12,22 @@
     opacity: 0;
     pointer-events: none;
   }
-  &:before {
-    content: '';
-    position: absolute;
-    top: 100%;
-    width: 100%;
-    height: 64px;
-    opacity: 0;
-    transition: opacity 400ms ease;
-    pointer-events: none;
+  &[data-state="scale"] {
+    &:before {
+      content: '';
+      position: absolute;
+      top: 100%;
+      width: 100%;
+      height: 64px;
+      opacity: 0;
+      transition: opacity 400ms ease;
+      pointer-events: none;
+    }
+  }
+  &:not([data-state="scale"]) {
+    &[style^="position"] {
+      box-shadow: 0 4px 6px -2px fade(black, 24%);
+    }
   }
   & + div {
     will-change: transform;
@@ -51,19 +58,16 @@
 
 html.desktop {
   & .pinned-content {
-    &[style^="position"] {
-      transform: scale(1);
-      & + div {
-        transform: scale(1);
-      }
-    }
+
   }
   & .progress-bar {
     & + section {
       & .pinned-content {
         &[style^="position"] {
-          & .zoom-button {
-            transform: translateY(24px);
+          &[data-state="scale"] {
+            & .zoom-button {
+              transform: translateY(24px);
+            }
           }
         }
       }
@@ -76,8 +80,10 @@ html.tablet {
     & + section {
       & .pinned-content {
         &[style^="position"] {
-          & .zoom-button {
-            transform: translateY(24px);
+          &[data-state="scale"] {
+            & .zoom-button {
+              transform: translateY(24px);
+            }
           }
         }
       }
@@ -88,9 +94,11 @@ html.tablet {
 html.tablet.portrait {
   & .pinned-content {
     &[style^="position"] {
-      transform: scale(1.055);
-      & + div {
+      &[data-state="scale"] {
         transform: scale(1.055);
+        & + div {
+          transform: scale(1.055);
+        }
       }
     }
   }
@@ -99,9 +107,11 @@ html.tablet.portrait {
 html.tablet.landscape {
   & .pinned-content {
     &[style^="position"] {
-      transform: scale(1.1);
-      & + div {
+      &[data-state="scale"] {
         transform: scale(1.1);
+        & + div {
+          transform: scale(1.1);
+        }
       }
     }
   }
@@ -110,9 +120,11 @@ html.tablet.landscape {
 html.mobile {
   & .pinned-content {
     &[style^="position"] {
-      transform: scale(1.1);
-      & + div {
+      &[data-state="scale"] {
         transform: scale(1.1);
+        & + div {
+          transform: scale(1.1);
+        }
       }
     }
   }
@@ -120,8 +132,10 @@ html.mobile {
     & + section {
       & .pinned-content {
         &[style^="position"] {
-          & .zoom-button {
-            transform: translateY(12px);
+          &[data-state="scale"] {
+            & .zoom-button {
+              transform: translateY(12px);
+            }
           }
         }
       }

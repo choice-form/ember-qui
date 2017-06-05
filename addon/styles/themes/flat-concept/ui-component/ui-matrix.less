@@ -4,22 +4,7 @@
     margin-bottom: @offset*1.25;
     border: 1px solid currentColor;
     & .fix-header-position {
-      & .matrix-hint {
-        font-size: smaller;
-        padding: .5rem 0;
-        position: absolute;
-        bottom: 100%;
-        left: 0;
-        right: 0;
-        & span {
-          opacity: .6;
-        }
-        & svg {
-          float: right;
-          display: block;
-          opacity: .6;
-        }
-      }
+
       & .fix-header {
         position: relative;
         width: 100%;
@@ -466,25 +451,6 @@ html.desktop {
   }
 }
 
-html.desktop {
-  .ui-matrix {
-    & .matrix-wrapper {
-      & .fix-header-position {
-        & .fix-header {
-          & .swiper-wrapper {
-            & .fix-header-column {
-
-            }
-          }
-        }
-      }
-      & .matrix-content {
-
-      }
-    }
-  }
-}
-
 html.tablet {
   & .ui-flatten-matrix {
     & .flatten-grid {
@@ -498,6 +464,7 @@ html.tablet {
 html.mobile {
   .ui-matrix {
     & .matrix-wrapper {
+
       & .swiper-slide-prev,
       & .swiper-slide-next {
         &:before {
