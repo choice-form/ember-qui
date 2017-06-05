@@ -1,11 +1,12 @@
 import Ember from 'ember';
 import layout from './template';
+import get from 'ember-metal/get';
 
 const { Component, inject, computed, String: { htmlSafe }, run } = Ember;
 
 export default Component.extend({
   classNames: ['pinned-content'],
-  attributeBindings: ['style'],
+  attributeBindings: ['style', 'data-state'],
   top: null,
   bottom: null,
   windoc: inject.service(),
@@ -15,6 +16,8 @@ export default Component.extend({
   didInsertElement() {
     this._super(...arguments);
     this._saveUnfixedWidth();
+    this.pinSupport = this.element.parentNode.querySelector('.pin-support');
+    console.log(this.pinSupport);
     run.scheduleOnce('afterRender', () => {
       this.set('_initialOffsetTop', this.$().offset().top);
       this.set('_initialOffsetLeft', this.$().offset().left);
@@ -48,18 +51,28 @@ export default Component.extend({
   }),
 
   pinSupportRect() {
-    if (!this.pinSupport) {
-      this.pinSupport = $('.pin-support')[0];
-    }
     if (this.pinSupport &&
       $('html').hasClass('desktop')) {
       return this.pinSupport.getBoundingClientRect();
     }
   },
 
+  ['data-state']: computed('scale', function () {
+    return get(this, 'scale') ? 'scale' : '';
+  }),
+
+  controlPinSupport(){
+    if(this.get('_fixedToTop')){
+      $(this.pinSupport).show();
+    }else{
+      $(this.pinSupport).hide();
+    }
+  },
+
   style: computed('_initialOffsetTop', '_initialOffsetLeft', 'top', 'bottom', '_fixedToTop', '_fixedToBottom', function () {
     if (this.element) {
       let cssAttrs = [];
+      this.controlPinSupport();
       if (this.get('_fixedToTop')) {
         let rect = this.pinSupportRect();
         let left = rect ? `${rect.left}px` : `${this.get('_initialOffsetLeft')}px`;
@@ -67,6 +80,9 @@ export default Component.extend({
         cssAttrs.push(['position', 'fixed']);
         cssAttrs.push(['top', `${this.get('top')}px`]);
         cssAttrs.push(['left', left]);
+        if(left === '0px'){
+          debugger;
+        }
         if (this.get('_unfixedWidth')) {
           cssAttrs.push(['width', width]);
         }
@@ -74,6 +90,9 @@ export default Component.extend({
         cssAttrs.push(['position', 'fixed']);
         cssAttrs.push(['bottom', `${this.get('bottom')}px`]);
         cssAttrs.push(['left', `${this.get('_initialOffsetLeft')}px`]);
+        if(`${this.get('_initialOffsetLeft')}px` === '0px'){
+          debugger;
+        }
         if (this.get('_unfixedWidth')) {
           cssAttrs.push(['width', `${this.get('_unfixedWidth')}px`]);
         }

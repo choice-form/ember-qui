@@ -29,7 +29,7 @@
 
 {{#if hasNormalImages}}
   <figure class="attachment">
-    {{#component fixImgCom top=header.fixTop}}
+    {{#ui-addon/condition-pin needPin=needFixImage pinTop=header.fixTop scale=true}}
       {{#if multiImages}}
         {{ui-component/ui-header-swiper swiperName="header" header=header}}
       {{else}}
@@ -44,25 +44,18 @@
           {{svg-item 'zoom-in'}}
         </a>
       {{/if}}
-    {{/component}}
-    {{#if needFixImage}}
-      <div class='pin-support' style={{supportStyle}}></div>
-    {{/if}}
-
+    {{/ui-addon/condition-pin}}
   </figure>
 {{/if}}
 
 {{#if header.video}}
   <figure class="attachment">
-    {{#component fixVdoCom top=header.fixTop}}
+    {{#ui-addon/condition-pin needPin=needFixVideo pinTop=header.fixTop scale=true}}
       {{ui-component/ui-video
         video=header.video
         url=header.video.url
         poster=header.video.poster
       }}
-    {{/component}}
-    {{#if needFixVideo}}
-      <div class='pin-support' style={{supportStyle}}></div>
-    {{/if}}
+    {{/ui-addon/condition-pin}}
   </figure>
 {{/if}}

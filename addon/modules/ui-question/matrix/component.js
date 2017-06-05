@@ -26,6 +26,10 @@ export default Component.extend({
   hasArrowButton: gt('node.renderOptionsX.length', 2),
   arrowButtonNeeded: and('isDesktop', 'hasArrowButton'),
 
+  needFixMatrix: computed('node.fixMatrix', function () {
+    return get(this, 'node.fixMatrix') && get(this, 'node.fixTop') > 0;
+  }),
+
   swiperEffect(isStretch){
     isStretch = isStretch || get(this, 'node.isDoubleGrid');
     if (this.element) {
@@ -68,6 +72,7 @@ export default Component.extend({
   didInsertElement() {
     scheduleOnce('afterRender', this, 'swiperEffect');
     if (get(this, 'isDesktop')) {
+      // todo 绑定无法成功解除
       window.addEventListener('resize', () => matirxSetHeight.call(this));
     }
     if (!get(this, 'preview')) return;

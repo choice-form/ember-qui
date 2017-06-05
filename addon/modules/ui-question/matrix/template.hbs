@@ -4,7 +4,7 @@
       <span>请滑动内容区，查看更多列内容。</span>
       {{svg-item 'gestures-16px_tap-02'}}
     </div>
-    {{#ui-addon/pinned top=20}}
+    {{#ui-addon/condition-pin needPin=needFixMatrix pinTop=node.fixTop scale=false}}
       <div class="matrix-thumbnail">
         {{#unless node.noGridIndicator}}
           <div class="matrix-thumbnail-wrapper">
@@ -27,10 +27,9 @@
           {{/each}}
         </div>
       </div>
-    {{/ui-addon/pinned}}
+    {{/ui-addon/condition-pin}}
+    <div></div>
   </div>
-
-
 
   <div class="matrix-content">
     <ul class="fix-column">

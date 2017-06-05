@@ -1,0 +1,8 @@
+{{#if needPin}}
+  {{#ui-addon/pinned top=pinTop scale=scale}}
+    {{yield}}
+  {{/ui-addon/pinned}}
+  <div class='pin-support'></div>
+{{else}}
+  {{yield}}
+{{/if}}

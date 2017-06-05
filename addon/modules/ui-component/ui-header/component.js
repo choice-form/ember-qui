@@ -20,35 +20,6 @@ export default Component.extend({
     return get(this, 'header.fixVideo') && get(this, 'header.fixTop') > 0;
   }),
 
-  fixImgCom: computed('header.fixTop', function () {
-    return get(this, 'needFixImage') ?
-      'ui-addon/pinned' :
-      'ui-addon/blank-container';
-  }),
-
-  fixVdoCom: computed('header.fixTop', function () {
-    return get(this, 'needFixVideo') ?
-      'ui-addon/pinned' :
-      'ui-addon/blank-container';
-  }),
-
-  supportStyle: computed('header','header.video.ratio', function () {
-    if(get(this, 'header.fixImage')){
-      const ratio = get(this, 'header.images').reduce((rs, img) => {
-        if(img.ratio > rs){
-          rs = img.ratio;
-        }
-        return rs;
-      }, 0)
-
-      return `padding-top:${ratio * 100}%`
-    }else if(get(this, 'header.fixVideo')){
-      const video = get(this, 'header.video');
-      return `padding-top:${video.ratio * 100}%`
-    }
-
-  }),
-
   imageTop: computed('header', function() {
     return ['intro-page', 'end-page'].indexOf(get(this, 'header.quesType')) > -1
   }),
