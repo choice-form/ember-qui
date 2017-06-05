@@ -26,8 +26,8 @@ export default Component.extend({
   hasArrowButton: gt('node.renderOptionsX.length', 2),
   arrowButtonNeeded: and('isDesktop', 'hasArrowButton'),
 
-  needFixMatrix: computed('node.fixMatrix', function () {
-    return get(this, 'node.fixMatrix') && get(this, 'node.fixTop') > 0;
+  needFixMatrix: computed('node.fixMatrixHead', function () {
+    return get(this, 'node.fixMatrixHead') && get(this, 'node.fixTop') > 0;
   }),
 
   swiperEffect(isStretch){

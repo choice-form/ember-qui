@@ -1,6 +1,6 @@
 export const HEADER_META = [
   'title', 'description', 'images', 'asterisks', 'number', 'quesType',
-  'imgScale', 'imgTransTime', 'imgTransType', 'autoPlay', 'video', 'fixTop', 'fixImage', 'fixVideo', 'fixMatrix'
+  'imgScale', 'imgTransTime', 'imgTransType', 'autoPlay', 'video', 'fixTop', 'fixImage', 'fixVideo', 'fixMatrixHead'
 ];
 
 export const SPECIAL_TYPES = [
