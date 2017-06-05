@@ -119,13 +119,6 @@
         }
       }
     }
-    &:not(.zoom) {
-      & .swiper-slide-next {
-        &:before {
-          display: none;
-        }
-      }
-    }
     & + .ui-choice {
       &:before {
         display: none;
@@ -473,12 +466,44 @@ html.desktop {
   }
 }
 
+html.desktop {
+  .ui-matrix {
+    & .matrix-wrapper {
+      & .fix-header-position {
+        & .fix-header {
+          & .swiper-wrapper {
+            & .fix-header-column {
+
+            }
+          }
+        }
+      }
+      & .matrix-content {
+
+      }
+    }
+  }
+}
+
 html.tablet {
   & .ui-flatten-matrix {
     & .flatten-grid {
       width: auto;
       margin-left: 0;
       transform: translateX(0);
+    }
+  }
+}
+
+html.mobile {
+  .ui-matrix {
+    & .matrix-wrapper {
+      & .swiper-slide-prev,
+      & .swiper-slide-next {
+        &:before {
+          display: none;
+        }
+      }
     }
   }
 }
