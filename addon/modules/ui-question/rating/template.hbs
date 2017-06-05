@@ -1,7 +1,7 @@
 {{#if option.inputType}}
   {{ui-question/choice node option handleEvents}}
 {{else}}
-  <div class="ui-rating" data-render-id={{option.renderId}}>
+  <div class="ui-rating" data-render-id={{option.renderId}} data-state="{{node.markImgName}}">
     <h4 class="cell-labels">
       {{text}}
     </h4>

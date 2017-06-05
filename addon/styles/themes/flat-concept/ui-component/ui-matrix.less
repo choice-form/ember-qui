@@ -4,6 +4,22 @@
     margin-bottom: @offset*1.25;
     border: 1px solid currentColor;
     & .fix-header-position {
+      & .matrix-hint {
+        font-size: smaller;
+        padding: .5rem 0;
+        position: absolute;
+        bottom: 100%;
+        left: 0;
+        right: 0;
+        & span {
+          opacity: .6;
+        }
+        & svg {
+          float: right;
+          display: block;
+          opacity: .6;
+        }
+      }
       & .fix-header {
         position: relative;
         width: 100%;

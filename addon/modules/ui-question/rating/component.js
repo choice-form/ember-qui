@@ -23,7 +23,7 @@ export default Component.extend({
   }).readOnly(),
 
   graphs: computed('option.{count,value,icon,emoji}', function () {
-    const { count, value, icon: graph, emoji } = get(this, 'option');
+    const { count, value, icon: graph, emoji} = get(this, 'option');
     const randomId = new Date().getTime();
 
     let array = [];

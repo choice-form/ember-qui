@@ -36,6 +36,7 @@
     }
   }
   & .rating-shape {
+    counter-reset: ranking-badass-counter;
     backface-visibility: hidden;
     & li {
       position: relative;
@@ -70,6 +71,53 @@
         font-size: @offset*1.5;
         line-height: @offset*1.5;
         display: block;
+      }
+    }
+  }
+  &[data-state="rating-bell"] {
+    & .rating-wrapper {
+      background-color: transparent !important;
+      & .rating-shape {
+        & li {
+          & input:checked {
+            & + label {
+              & .effect-container {
+                & .svg-wrapper {
+                  &:after {
+                    color: white;
+                  }
+                }
+              }
+              & svg {
+                fill-opacity: 1;
+              }
+            }
+          }
+          & label {
+            & .effect-container {
+              & .svg-wrapper {
+                &:after {
+                  content: counter(ranking-badass-counter, decimal);
+                  counter-increment: ranking-badass-counter;
+                  position: absolute;
+                  text-align: center;
+                  top: 0;
+                  left: 0;
+                  right: 0;
+                  bottom: 0;
+                  height: 2rem;
+                  line-height: 2rem;
+                  font-size: larger;
+                  margin: auto 0;
+                }
+              }
+            }
+
+            & svg {
+              fill-opacity: .1;
+            }
+          }
+        }
       }
     }
   }
