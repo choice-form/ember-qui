@@ -74,7 +74,7 @@
       }
     }
   }
-  &[data-state="rating-bell"] {
+  &[data-state="rating-number"] {
     & .rating-wrapper {
       background-color: transparent !important;
       & .rating-shape {
@@ -83,19 +83,33 @@
             & + label {
               & .effect-container {
                 & .svg-wrapper {
-                  &:after {
-                    color: white;
+                  animation-name: none;
+                }
+                & .particle-wrapper {
+                  & .particle-container {
+                    & .particle-item {
+                      &:before {
+                        animation-name: none;
+                      }
+                    }
                   }
                 }
-              }
-              & svg {
-                fill-opacity: 1;
               }
             }
           }
           & label {
             & .effect-container {
               & .svg-wrapper {
+                &:before {
+                  content: '';
+                  position: absolute;
+                  top: .25rem;
+                  right: .25rem;
+                  bottom: .25rem;
+                  left: .25rem;
+                  border-radius: @radius-m;
+                  transition: background-color 200ms ease;
+                }
                 &:after {
                   content: counter(ranking-badass-counter, decimal);
                   counter-increment: ranking-badass-counter;
@@ -110,11 +124,41 @@
                   font-size: larger;
                   margin: auto 0;
                 }
+                & svg {
+                  visibility: hidden;
+                }
               }
             }
-
-            & svg {
-              fill-opacity: .1;
+          }
+          &.active {
+            & label {
+              & .effect-container {
+                & .particle-item {
+                  &:before {
+                    top: @offset/1.8;
+                    height: @offset/1.8;
+                  }
+                }
+                & .svg-wrapper {
+                  animation-name: shape !important;
+                  &:before {
+                    background-color: currentColor !important;
+                  }
+                  &:after {
+                    font-weight: bold;
+                    color: white !important;
+                  }
+                }
+                & .particle-wrapper {
+                  & .particle-container {
+                    & .particle-item {
+                      &:before {
+                        animation-name: line !important;
+                      }
+                    }
+                  }
+                }
+              }
             }
           }
         }
