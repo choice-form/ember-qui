@@ -36,11 +36,14 @@ export default Component.extend({
       if (i < +value ) {
         array[i].icon = graph + '-active';
         array[i].checked = true;
-        emoji && emoji.length == 2 && (array[i].emoji = emoji[1]);
+        emoji && emoji.length === 2 && (array[i].emoji = emoji[1]);
+        if(i === +value - 1){
+          array[i].active = 'active';
+        }
       } else {
         array[i].icon = graph;
         array[i].checked = false;
-        emoji && emoji.length == 2 && (array[i].emoji = emoji[0]);
+        emoji && emoji.length === 2 && (array[i].emoji = emoji[0]);
       }
     }
     return array;

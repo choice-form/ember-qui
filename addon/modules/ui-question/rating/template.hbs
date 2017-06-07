@@ -17,7 +17,7 @@
 
       <ul class="rating-shape">
         {{#each graphs as |graph|}}
-          <li>
+          <li class={{graph.active}}>
             <input type="checkbox"
                    id={{graph.renderId}}
                    value={{graph.value}}
