@@ -1,5 +1,6 @@
 import Component from 'ember-component';
 import layout from './template';
+import {tempI18n} from '../../helpers/temp-i18n';
 
 export default Component.extend({
   layout,
@@ -7,7 +8,7 @@ export default Component.extend({
 
   actions: {
     openPage(){
-      confirm('是否跳转到巧思科技主页？') && window.open('https://www.cform.io/');
+      confirm(tempI18n('UI_GoToCForm')) && window.open('https://www.cform.io/');
     }
   }
 });

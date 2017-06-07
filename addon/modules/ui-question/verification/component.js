@@ -3,6 +3,7 @@ import layout from './template';
 import computed from 'ember-computed';
 import set from 'ember-metal/set';
 import get from 'ember-metal/get';
+import {tempI18n} from '../../helpers/temp-i18n';
 
 let countTime = 30;
 export default Component.extend({
@@ -27,10 +28,10 @@ export default Component.extend({
 
     if(getInfoButton){
       if(verificationType == 'sms' ){
-        return "获取短信验证码"
+        return tempI18n('UI_GetMsgCode');
       }
       if(verificationType == 'captcha' ){
-        return "获取验证码"
+        return tempI18n('UI_GetVerifyCode');
       }
     }
 

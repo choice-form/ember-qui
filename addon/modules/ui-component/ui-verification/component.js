@@ -2,6 +2,7 @@ import Component from 'ember-component';
 import layout from './template';
 import computed from 'ember-computed';
 import get from 'ember-metal/get';
+import {tempI18n} from '../../helpers/temp-i18n';
 
 export default Component.extend({
 
@@ -25,9 +26,9 @@ export default Component.extend({
 
   _placeholder: computed('verificationType', function () {
     const type = get(this, 'verificationType');
-    if(type == 'password') return '请输入密码';
-    if(type == 'white_list') return '请输入待验证内容';
-    return '请输入手机号';
+    if(type == 'password') return tempI18n('UI_InputPsw');
+    if(type == 'white_list') return tempI18n('UI_InputVerifyContent');
+    return tempI18n('UI_InputPhoneNum');
   }),
 
   _type: computed('verificationType', function () {

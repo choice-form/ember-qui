@@ -1,12 +1,13 @@
 import Component from 'ember-component';
 import layout from './template';
+import {tempI18n} from '../../helpers/temp-i18n';
 
 export default Component.extend({
   layout,
   classNames:['ui-end-page'],
 
   option:{
-    text: '抽奖与领奖的有效时间为15分钟，请在结束答卷后15分钟内前往。',
+    text: tempI18n('UI_GetGiftIn15Min'),
     icon: 'round-e-info', // 选项的Icon
   },
 

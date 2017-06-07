@@ -20,7 +20,7 @@
       {{#if (and node.goal node.rewardList)}}
         <div class="reward-numbering">
           {{#each node.rewardList as |reward|}}
-            <p>{{reward.rewardName}}：<strong>{{reward.rewardNumbering}}</strong>份</p>
+            <p>{{reward.rewardName}}：<strong>{{reward.rewardNumbering}}</strong>{{temp-i18n 'UI_Count'}}</p>
           {{/each}}
         </div>
       {{/if}}

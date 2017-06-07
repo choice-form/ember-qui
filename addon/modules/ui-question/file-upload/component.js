@@ -4,6 +4,7 @@ import computed, {reads} from 'ember-computed';
 import get from 'ember-metal/get';
 import set from 'ember-metal/set';
 import device from 'device';
+import {tempI18n} from '../../helpers/temp-i18n';
 
 export default Component.extend({
   layout,
@@ -28,7 +29,7 @@ export default Component.extend({
   }),
 
   uploadText: computed('option.value', function () {
-    return get(this, 'option.value') ? '重新上传' : '上传图片';
+    return tempI18n(get(this, 'option.value') ? 'UI_ReUpload' : 'UI_Upload');
   }),
 
   progress: 0,

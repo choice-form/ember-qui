@@ -1,4 +1,5 @@
 import mobiscroll from 'mobiscroll'
+import {tempI18n} from '../helpers/temp-i18n';
 
 const mobInfo = {
   lang: localStorage.getItem("language") || 'zh',
@@ -116,7 +117,7 @@ export const initSelect = (list, config = {}) => {
     theme: mobInfo.theme,
     display: mobInfo.display,
     lang: mobInfo.lang,
-    placeholder: '请点击选择...',
+    placeholder: tempI18n('UI_ClickToSelect'),
     ...config,
   };
   mobiscroll.select(list, config);

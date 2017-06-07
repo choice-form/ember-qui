@@ -51,7 +51,7 @@
             <div class="qrcode-item">
               {{ui-addon/qr-code data=node.qrCode size=360 padding=60}}
             </div>
-            <span>请截屏进行保存</span>
+            <span>{{temp-i18n 'UI_ScreenPrint'}}</span>
           </div>
         {{/if}}
 
@@ -59,15 +59,15 @@
           <div class="ui-verification">
             <span>
               {{svg-item "round-e-info"}}
-              通过手机号获取信息
+              {{temp-i18n 'UI_GetMessage'}}
             </span>
             <div class="get-verification">
               {{ui-component/ui-input type='url'
                                       value=''
                                       icon='mobile'
-                                      placeholder='请输入手机号'
+                                      placeholder=(temp-i18n 'UI_InputPhoneNum')
                                       handleOptionInput=(action "handleQuestionInput")}}
-              {{ui-component/ui-button text=(if getInfoButton "获取信息" countDown)
+              {{ui-component/ui-button text=(if getInfoButton (temp-i18n 'UI_GetInfo') countDown)
                                        className="contrast"
                                        leftIcon=(if getInfoButton '' 'refresh')
                                        handleClick=(if getInfoButton (action "handleOptionClick") '')
@@ -79,8 +79,8 @@
 
       <div class="reward-additional">
         <div class="reward-description">
-          <h4>红包发放说明:</h4>
-          <span>24小时内，红包会发到您的账户。您在收到微信红包通知后即可领取。</span>
+          <h4>{{temp-i18n 'UI_GiftIntro'}}:</h4>
+          <span>{{temp-i18n 'UI_GiftIn24Hs'}}</span>
         </div>
       </div>
 

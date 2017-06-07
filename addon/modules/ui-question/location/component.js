@@ -4,6 +4,7 @@ import layout from './template';
 import get from 'ember-metal/get';
 import {setProperties} from 'ember-metal/set';
 import {getLocation} from '../../lib/bMapApi';
+import {tempI18n} from '../../helpers/temp-i18n';
 
 export default Component.extend({
   layout,
@@ -30,17 +31,17 @@ export default Component.extend({
 
   tips: computed('node.value', function () {
     const value = get(this, 'node.value');
-    return value ? '定位成功' : '点击获取位置信息';
+    return tempI18n(value ? 'UI_LocateSuccess' : 'UI_ClickToLocate');
   }),
 
   _handlePositionSuccess(position) {
     if(!position.address.city){
-      setProperties(this, {locationState: 'failed', svgState: 'location-failed', tips: '定位失败!'});
+      setProperties(this, {locationState: 'failed', svgState: 'location-failed', tips: tempI18n('UI_LocateFailed')});
       return ;
     }
     this.handleEvents.handleQuestionInput(position, get(this, 'node'));
     setProperties(
-      this, {locationState: 'successful', svgState: 'location-successful', tips: '成功获取位置信息'}
+      this, {locationState: 'successful', svgState: 'location-successful', tips: tempI18n('UI_Located')}
     );
   },
 
@@ -48,16 +49,16 @@ export default Component.extend({
     setProperties(this, {
       locationState: 'failed',
       svgState: 'location-failed',
-      tips: '定位失败!'
+      tips: tempI18n('UI_LocateFailed')
     });
   },
 
   actions: {
     handleOptionClick() {
       setProperties(
-        this, {svgState: 'positioning', locationState: 'positioning', tips: '正在获取位置信息...'}
+          this, {svgState: 'positioning', locationState: 'positioning', tips: tempI18n('UI_Locating')}
       );
-      if(localStorage.getItem('allow_locate') || window.confirm('是否允许使用定位?')){
+      if(localStorage.getItem('allow_locate') || window.confirm(tempI18n('UI_AllowLocate'))){
         localStorage.setItem('allow_locate', 1);
         getLocation()
           .then((position) => this._handlePositionSuccess(position))
