@@ -49,10 +49,8 @@ export default Component.extend({
     const grade = get(this, 'grade');
     const dateFormat = ((grade == 1) && 'yyyy') || ((grade == 2) && 'yyyy-mm') || ((grade == 3) && 'yyyy-mm-dd') || 'yyyy-mm-dd'; // 日期格式
     const dateOrder = ((grade == 1) && 'yyyy') || ((grade == 2) && 'yyyymm') || ((grade == 3) && 'yyyymmdd') || 'yyyymmdd'; // 日期格式
-    const startYear = get(this, 'startYear');
-    const endYear = get(this, 'endYear');
-    const min = startYear ? new Date(startYear, 0, 1) : undefined;
-    const max = endYear ? new Date(endYear, 11, 31) : undefined;
+    const min = get(this, 'min');
+    const max = get(this, 'max');
     mobiInit(input, {type: get(this, 'inputRule'), dateFormat, dateOrder, max, min});
   }
 });

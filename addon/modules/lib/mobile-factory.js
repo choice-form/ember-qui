@@ -8,10 +8,6 @@ const mobInfo = {
   theme: '', //默认"android-holo"
 };
 
-
-// 只会处理一下几种输入验证类型
-const willHandleInputTypes = ['date', 'time', 'timeRange', 'dateRange'];
-
 const mScroll = {
   /**
    * 用mobile库把input控件初始化为日期选择控件
@@ -19,7 +15,6 @@ const mScroll = {
    * @param {object} config
    */
   'date': (input, config) => {
-    const currYear = (new Date()).getFullYear();
     mobiscroll.date(input, {
       preset: 'date', //日期，可选：date\datetime\time\tree_list\image_text\select
       theme: mobInfo.theme, //皮肤样式，可选：default\android\android-ics light\android-ics\ios\jqm\sense-ui\wp light\wp
@@ -27,8 +22,6 @@ const mScroll = {
       mode: mobInfo.mode, //日期选择模式，可选：scroller\clickpick\mixed
       lang: mobInfo.lang,
       showNow: true,
-      startYear: currYear - 200, //开始年份
-      endYear: currYear + 100, //结束年份
       ...config,
     });
   },
@@ -80,15 +73,31 @@ const mScroll = {
       maxWidth: 100,
       ...config,
     });
+  },
+
+  "float_back": (input, config) => {
+    mobiscroll.number(input, {
+      theme: mobInfo.theme,
+      lang: mobInfo.lang,
+      display: mobInfo.display,
+      ...config,
+    })
+  },
+
+  "int_back": (input, config) => {
+    mobiscroll.number(input, {
+      theme: mobInfo.theme,
+      lang: mobInfo.lang,
+      display: mobInfo.display,
+      step: 1,
+      ...config,
+    })
   }
 };
 
 function mobiInit(input, config) {
-  const {type} = config;
-  if (willHandleInputTypes.indexOf(type) < 0){
-    return;
-  }
-  mScroll[config.type](input, config);
+  const init = mScroll[config.type];
+  init && init(input, config);
 }
 
 /**
@@ -97,8 +106,6 @@ function mobiInit(input, config) {
  * @param {object} config
  */
 export function mobiInitTreeList(list, config = {}){
-  // 新版好像没有这个接口了
-  // mobiscroll.treelist(list, 'clear');
   config = {
     theme: mobInfo.theme,
     display: mobInfo.display,
@@ -111,8 +118,6 @@ export function mobiInitTreeList(list, config = {}){
 
 
 export const initSelect = (list, config = {}) => {
-  // 新版好像没有这个接口了
-  //mobiscroll.select(list, 'clear');
   config = {
     theme: mobInfo.theme,
     display: mobInfo.display,
