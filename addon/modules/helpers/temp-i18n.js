@@ -1,6 +1,32 @@
 import Helper from 'ember-helper'
 
 const en = {
+  'UI_TransVideo': 'Encoding video...',
+  'UI_Retry': 'Please try again.',
+  'UI_Count': 'awards',
+  'UI_WeightHint': 'Weight value indicator',
+  'UI_ScreenPrint': 'Please take a screenshot and save it.',
+  'UI_GetMessage': 'Get short text message',
+  'UI_GiftIntro': 'Statement of red envelope award delivery：',
+  'UI_GiftIn24Hs': 'Red envelope award will to delivered to your account in 24 hours。Please keep track of the notification.',
+  'UI_InputVerifyCode': 'Please enter verification code.',
+  'UI_InputPhoneNum': 'Please enter your phone number.',
+  'UI_GetInfo': 'Get information',
+  'UI_GetMsgCode': 'Get verification code.',
+  'UI_GetVerifyCode': 'Get verification code.',
+  'UI_LocateSuccess': 'Success to get location！',
+  'UI_ClickToLocate': 'Click to get location.',
+  'UI_LocateFailed': 'Fail to get location！！',
+  'UI_Located': 'Success to get location！',
+  'UI_Locating': 'Locating...',
+  'UI_AllowLocate': 'Allow to get location？',
+  'UI_Upload': 'Upload image',
+  'UI_ReUpload': 'Re-upload',
+  'UI_GetGiftIn15Min': 'Please go to lottary in 15 minutes.',
+  'UI_InputPsw': 'Please enter password',
+  'UI_InputVerifyContent': 'Please enter comtent to be varified.',
+  'UI_GoToCForm': 'Go to choicefom?',
+  'UI_ClickToSelect': 'Please click to select.',
 };
 
 const zh = {
@@ -28,7 +54,7 @@ const zh = {
   'UI_GetGiftIn15Min': '抽奖与领奖的有效时间为15分钟，请在结束答卷后15分钟内前往。',
   'UI_InputPsw': '请输入密码',
   'UI_InputVerifyContent': '请输入待验证内容',
-  'UI_GoToCForm':'是否跳转到巧思科技主页？',
+  'UI_GoToCForm': '是否跳转到巧思科技主页？',
   'UI_ClickToSelect': '请点击选择...',
 
 };
@@ -41,7 +67,7 @@ const languages = {
 export const tempI18n = (name) => {
   const code = localStorage.getItem('language');
   let lang = languages[code];
-  if(!lang){
+  if (!lang) {
     lang = languages.zh;
   }
   return lang[name]
