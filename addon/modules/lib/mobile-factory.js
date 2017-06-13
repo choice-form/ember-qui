@@ -75,7 +75,7 @@ const mScroll = {
     });
   },
 
-  "float_back": (input, config) => {
+  "float": (input, config) => {
     mobiscroll.number(input, {
       theme: mobInfo.theme,
       lang: mobInfo.lang,
@@ -84,7 +84,7 @@ const mScroll = {
     })
   },
 
-  "int_back": (input, config) => {
+  "int": (input, config) => {
     mobiscroll.number(input, {
       theme: mobInfo.theme,
       lang: mobInfo.lang,
