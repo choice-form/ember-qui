@@ -76,20 +76,50 @@ const mScroll = {
   },
 
   "float": (input, config) => {
-    mobiscroll.number(input, {
-      theme: mobInfo.theme,
-      lang: mobInfo.lang,
-      display: mobInfo.display,
-      ...config,
-    })
+    if (config.max || config.min) {
+      mobiscroll.number(input, {
+        theme: mobInfo.theme,
+        lang: mobInfo.lang,
+        display: mobInfo.display,
+        ...config,
+      })
+    } else {
+      mScroll.numpad(input, {
+        ...config,
+        scale: 2,
+      })
+    }
+
   },
 
   "int": (input, config) => {
-    mobiscroll.number(input, {
+    if (config.max || config.min) {
+      mobiscroll.number(input, {
+        theme: mobInfo.theme,
+        lang: mobInfo.lang,
+        display: mobInfo.display,
+        step: 1,
+        ...config,
+      })
+    }
+    else {
+      mScroll.numpad(input, {
+        ...config,
+        scale: 0,
+      })
+    }
+  },
+  "numpad": (input, config) => {
+    console.log(config);
+    mobiscroll.numpad(input, {
       theme: mobInfo.theme,
       lang: mobInfo.lang,
       display: mobInfo.display,
-      step: 1,
+      preset: 'decimal',
+      thousandsSeparator: '',
+      decimalSeparator: '.',
+      min: -Infinity,
+      max: Infinity,
       ...config,
     })
   }
@@ -105,7 +135,7 @@ function mobiInit(input, config) {
  * @param {object} list
  * @param {object} config
  */
-export function mobiInitTreeList(list, config = {}){
+export function mobiInitTreeList(list, config = {}) {
   config = {
     theme: mobInfo.theme,
     display: mobInfo.display,
