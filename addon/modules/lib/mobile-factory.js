@@ -1,6 +1,11 @@
 import mobiscroll from 'mobiscroll'
 import {tempI18n} from '../helpers/temp-i18n';
 
+const isDeskTop = function () {
+  return $('html').hasClass('desktop');
+};
+
+
 const mobInfo = {
   lang: localStorage.getItem("language") || 'zh',
   display: 'bottom', //默认 bottom 其他有 top,modal 等
@@ -18,11 +23,11 @@ const mScroll = {
     mobiscroll.date(input, {
       preset: 'date', //日期，可选：date\datetime\time\tree_list\image_text\select
       theme: mobInfo.theme, //皮肤样式，可选：default\android\android-ics light\android-ics\ios\jqm\sense-ui\wp light\wp
-      display: mobInfo.display, //显示方式 ，可选：modal\inline\bubble\top\bottom
       mode: mobInfo.mode, //日期选择模式，可选：scroller\clickpick\mixed
       lang: mobInfo.lang,
       showNow: true,
       ...config,
+      display: isDeskTop() ? 'center' : config.display || mobInfo.display,
     });
   },
 
@@ -36,8 +41,8 @@ const mScroll = {
     mobiscroll.range(input, {
       theme: mobInfo.theme,
       lang: mobInfo.lang,
-      display: mobInfo.display,
       ...config,
+      display: isDeskTop() ? 'center' : config.display || mobInfo.display,
     });
   },
 
@@ -50,11 +55,11 @@ const mScroll = {
     mobiscroll.time(input, {
       theme: mobInfo.theme,
       lang: mobInfo.lang,
-      display: mobInfo.display,
       timeFormat: 'HH:ii',
       timeWheels: 'HHii',
       headerText: false,
       ...config,
+      display: isDeskTop() ? 'center' : config.display || mobInfo.display,
     });
   },
 
@@ -68,10 +73,10 @@ const mScroll = {
     mobiscroll.range(input, {
       theme: mobInfo.theme,
       lang: mobInfo.lang,
-      display: mobInfo.display,
       controls: ['time'],
       maxWidth: 100,
       ...config,
+      display: isDeskTop() ? 'center' : config.display || mobInfo.display,
     });
   },
 
@@ -80,9 +85,9 @@ const mScroll = {
       mobiscroll.number(input, {
         theme: mobInfo.theme,
         lang: mobInfo.lang,
-        display: mobInfo.display,
         step: 1,
         ...config,
+        display: isDeskTop() ? 'center' : config.display || mobInfo.display,
       })
     }
     else {
@@ -96,11 +101,11 @@ const mScroll = {
     config = {
       theme: mobInfo.theme,
       lang: mobInfo.lang,
-      display: mobInfo.display,
       preset: 'decimal',
       thousandsSeparator: '',
       decimalSeparator: '.',
       ...config,
+      display: isDeskTop() ? 'center' : config.display || mobInfo.display,
     };
     if(!config.min && config.min !== 0){
       config.min = -Infinity;
@@ -125,10 +130,10 @@ function mobiInit(input, config) {
 export function mobiInitTreeList(list, config = {}) {
   config = {
     theme: mobInfo.theme,
-    display: mobInfo.display,
     lang: mobInfo.lang,
     circular: [false, false, false],
-    ...config
+    ...config,
+    display: isDeskTop() ? 'center' : config.display || mobInfo.display,
   };
   mobiscroll.treelist(list, config);
 }
@@ -137,10 +142,10 @@ export function mobiInitTreeList(list, config = {}) {
 export const initSelect = (list, config = {}) => {
   config = {
     theme: mobInfo.theme,
-    display: mobInfo.display,
     lang: mobInfo.lang,
     placeholder: tempI18n('UI_ClickToSelect'),
     ...config,
+    display: isDeskTop() ? 'center' : config.display || mobInfo.display,
   };
   mobiscroll.select(list, config);
 };
