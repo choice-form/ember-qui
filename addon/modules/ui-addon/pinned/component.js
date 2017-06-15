@@ -17,7 +17,6 @@ export default Component.extend({
     this._super(...arguments);
     this._saveUnfixedWidth();
     this.pinSupport = this.element.parentNode.querySelector('.pin-support');
-    console.log(this.pinSupport);
     run.scheduleOnce('afterRender', () => {
       this.set('_initialOffsetTop', this.$().offset().top);
       this.set('_initialOffsetLeft', this.$().offset().left);

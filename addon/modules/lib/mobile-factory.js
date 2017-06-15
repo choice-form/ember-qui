@@ -75,23 +75,6 @@ const mScroll = {
     });
   },
 
-  "float": (input, config) => {
-    if (config.max || config.min) {
-      mobiscroll.number(input, {
-        theme: mobInfo.theme,
-        lang: mobInfo.lang,
-        display: mobInfo.display,
-        ...config,
-      })
-    } else {
-      mScroll.numpad(input, {
-        ...config,
-        scale: 2,
-      })
-    }
-
-  },
-
   "int": (input, config) => {
     if (config.max || config.min) {
       mobiscroll.number(input, {
@@ -110,18 +93,22 @@ const mScroll = {
     }
   },
   "numpad": (input, config) => {
-    console.log(config);
-    mobiscroll.numpad(input, {
+    config = {
       theme: mobInfo.theme,
       lang: mobInfo.lang,
       display: mobInfo.display,
       preset: 'decimal',
       thousandsSeparator: '',
       decimalSeparator: '.',
-      min: -Infinity,
-      max: Infinity,
       ...config,
-    })
+    };
+    if(!config.min && config.min !== 0){
+      config.min = -Infinity;
+    }
+    if(!config.max && config.max !== 0){
+      config.max = Infinity;
+    }
+    mobiscroll.numpad(input, config)
   }
 };
 

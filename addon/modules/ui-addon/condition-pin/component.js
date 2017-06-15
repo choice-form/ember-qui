@@ -18,7 +18,6 @@ export default Ember.Component.extend({
         this.resizePinSupport();
       }, 500);
       if(device.desktop()){
-        console.log('add');
         window.addEventListener('resize', this.resizePinSupport);
       }
     }
@@ -28,7 +27,6 @@ export default Ember.Component.extend({
   resizePinSupport(){
     clearTimeout(this.resizeTaskId);
     this.resizeTaskId= setTimeout(()=>{
-      console.log(111);
       if(!this.pinned){
         this.pinned = this.element.querySelector('.pinned-content');
         this.pinSupport = this.element.querySelector('.pin-support');
