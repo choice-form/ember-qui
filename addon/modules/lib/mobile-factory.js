@@ -1,6 +1,14 @@
 import mobiscroll from 'mobiscroll'
 import {tempI18n} from '../helpers/temp-i18n';
 
+const zh = mobiscroll.i18n.zh;
+
+if(zh){
+  zh.labels = ["年","月","天","小时","分钟","秒",""];
+  zh.labelsShort = ["年","月","天","时","分","秒",""];
+}
+
+
 const isDeskTop = function () {
   return $('html').hasClass('desktop');
 };
@@ -97,7 +105,7 @@ const mScroll = {
   "float": (input, config) => {
     mScroll["numpad"](input, {
       ...config,
-      scale: 2,
+      scale: config._scale || 2,
     });
   },
 
@@ -116,8 +124,8 @@ const mScroll = {
       decimalSeparator: '.',
       ...config,
       display: isDeskTop() ? 'center' : config.display || mobInfo.display,
-      min: -Infinity,
-      max: Infinity
+      min: -999999999999999,
+      max: 999999999999999
     });
   },
   "timeSpan": (input, config) => {

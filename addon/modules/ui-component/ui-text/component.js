@@ -50,7 +50,8 @@ export default Component.extend({
     const _timeGrade = get(this, 'timeGrade');
     const min = get(this, 'min');
     const max = get(this, 'max');
-    mobiInit(input, {type: get(this, 'inputRule'), max, min, _grade, _timeGrade});
+    const _scale = get(this, 'scale');
+    mobiInit(input, {type: get(this, 'inputRule'), max, min, _grade, _timeGrade, _scale});
   }
 });
 

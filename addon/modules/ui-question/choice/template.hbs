@@ -19,6 +19,7 @@
   </div>
 {{else}}
   {{ui-component/ui-text inputRule=(unbound option.inputRule)
+                         scale=option.scale
                          min=option.validateMin
                          max=option.validateMax
                          timeGrade=(unbound option.timeGrade)
@@ -35,6 +36,7 @@
 {{!--选择选项再弹出输入框--}}
 {{#if (eq (unbound option.inputType)"select-input")}}
   {{ui-component/ui-text display=(if option.selected "block" "none")
+                         scale=option.scale
                          min=option.validateMin
                          max=option.validateMax
                          timeGrade=(unbound option.timeGrade)
