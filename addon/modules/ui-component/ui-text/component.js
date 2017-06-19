@@ -46,12 +46,11 @@ export default Component.extend({
 
   didInsertElement(){
     const input = this.element.getElementsByTagName('input')[0];
-    const grade = get(this, 'grade');
-    const dateFormat = ((grade == 1) && 'yyyy') || ((grade == 2) && 'yyyy-mm') || ((grade == 3) && 'yyyy-mm-dd') || 'yyyy-mm-dd'; // 日期格式
-    const dateOrder = ((grade == 1) && 'yyyy') || ((grade == 2) && 'yyyymm') || ((grade == 3) && 'yyyymmdd') || 'yyyymmdd'; // 日期格式
+    const _grade = get(this, 'grade');
+    const _timeGrade = get(this, 'timeGrade');
     const min = get(this, 'min');
     const max = get(this, 'max');
-    mobiInit(input, {type: get(this, 'inputRule'), dateFormat, dateOrder, max, min});
+    mobiInit(input, {type: get(this, 'inputRule'), max, min, _grade, _timeGrade});
   }
 });
 

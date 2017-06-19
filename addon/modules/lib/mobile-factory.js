@@ -5,12 +5,21 @@ const isDeskTop = function () {
   return $('html').hasClass('desktop');
 };
 
-
 const mobInfo = {
   lang: localStorage.getItem("language") || 'zh',
   display: 'bottom', //默认 bottom 其他有 top,modal 等
   mode: 'Scroller', // 默认是Scroller ,其他有Mixed
   theme: '', //默认"android-holo"
+};
+
+
+const timeSpanMaps = {
+  '1': 'dd',
+  '2': 'ddhh',
+  '3': 'ddhhii',
+  '4': 'hh',
+  '5': 'hhii',
+  '6': 'hhiiss',
 };
 
 const mScroll = {
@@ -20,6 +29,9 @@ const mScroll = {
    * @param {object} config
    */
   'date': (input, config) => {
+    const {_grade} = config;
+    const dateFormat = ((_grade === 1) && 'yyyy') || ((_grade === 2) && 'yyyy-mm') || ((_grade === 3) && 'yyyy-mm-dd') || 'yyyy-mm-dd'; // 日期格式
+    const dateOrder = ((_grade === 1) && 'yyyy') || ((_grade === 2) && 'yyyymm') || ((_grade === 3) && 'yyyymmdd') || 'yyyymmdd'; // 日期格式
     mobiscroll.date(input, {
       preset: 'date', //日期，可选：date\datetime\time\tree_list\image_text\select
       theme: mobInfo.theme, //皮肤样式，可选：default\android\android-ics light\android-ics\ios\jqm\sense-ui\wp light\wp
@@ -28,6 +40,8 @@ const mScroll = {
       showNow: true,
       ...config,
       display: isDeskTop() ? 'center' : config.display || mobInfo.display,
+      dateFormat,
+      dateOrder,
     });
   },
 
@@ -80,25 +94,21 @@ const mScroll = {
     });
   },
 
+  "float": (input, config) => {
+    mScroll["numpad"](input, {
+      ...config,
+      scale: 2,
+    });
+  },
+
   "int": (input, config) => {
-    if (config.max || config.min) {
-      mobiscroll.number(input, {
-        theme: mobInfo.theme,
-        lang: mobInfo.lang,
-        step: 1,
-        ...config,
-        display: isDeskTop() ? 'center' : config.display || mobInfo.display,
-      })
-    }
-    else {
-      mScroll.numpad(input, {
-        ...config,
-        scale: 0,
-      })
-    }
+    mScroll["numpad"](input, {
+      ...config,
+      scale: 0,
+    });
   },
   "numpad": (input, config) => {
-    config = {
+    mobiscroll.numpad(input, {
       theme: mobInfo.theme,
       lang: mobInfo.lang,
       preset: 'decimal',
@@ -106,14 +116,21 @@ const mScroll = {
       decimalSeparator: '.',
       ...config,
       display: isDeskTop() ? 'center' : config.display || mobInfo.display,
-    };
-    if(!config.min && config.min !== 0){
-      config.min = -Infinity;
-    }
-    if(!config.max && config.max !== 0){
-      config.max = Infinity;
-    }
-    mobiscroll.numpad(input, config)
+      min: -Infinity,
+      max: Infinity
+    });
+  },
+  "timeSpan": (input, config) => {
+    const {_timeGrade} = config;
+    const wheelOrder = timeSpanMaps[_timeGrade] || 'hhiiss';
+    console.log(wheelOrder, config);
+    mobiscroll.timespan(input, {
+      theme: mobInfo.theme,
+      lang: mobInfo.lang,
+      ...config,
+      display: isDeskTop() ? 'center' : config.display || mobInfo.display,
+      wheelOrder,
+    })
   }
 };
 
