@@ -23,10 +23,12 @@ export function toggleClass(obj,cls){
 }
 
 export function insertImg(str='') {
+  // 防止有转义的&
+  str = str.replace('&amp;', '&');
   return str.replace(/##(\S+?)\?w=(\d+)&h=(\d+).*?##/g, function (matched, url, width, height) {
-    if(width === 0 && height === 0) return `<img src="${url}">`;
-    const _width = width === 0 ? '' : `width:${width}px;`;
-    const _height = height === 0 ? '' : `height:${height}px;`;
+    if(width == 0 && height == 0) return `<img src="${url}">`;
+    const _width = width == 0 ? '' : `width:${width}px;`;
+    const _height = height == 0 ? '' : `height:${height}px;`;
     return `<img src="${url}" style="${_width} ${_height}">`;
   });
 }
