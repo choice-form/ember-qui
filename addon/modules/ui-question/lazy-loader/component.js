@@ -23,7 +23,7 @@ export default Component.extend(InViewportMixin, {
   },
 
   didInsertElement() {
-    this._super(...arguments)
+    this._super(...arguments);
     setProperties(this, {
       viewportRefreshRate: 500,
       viewportSpy: get(this, 'isSingle')

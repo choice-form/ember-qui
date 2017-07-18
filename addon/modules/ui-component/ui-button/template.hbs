@@ -3,12 +3,14 @@
 {{/if}}
 
 {{yield}}
+{{#if loading}}
+  <div class="ui-loader onclick">
+    <svg x="0" y="0" viewBox="0 0 36 36">
+      <circle cx="18" cy="18" r="16"/>
+    </svg>
+  </div>
+{{/if}}
 
-<div class="ui-loader onclick">
-  <svg x="0" y="0" viewBox="0 0 36 36">
-    <circle cx="18" cy="18" r="16"/>
-  </svg>
-</div>
 
 
 {{#if text}}
