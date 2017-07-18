@@ -50,6 +50,9 @@
     & + div {
       display: block;
     }
+    & .zoom-button {
+      transform: translateX(.25rem);
+    }
   }
 }
 
@@ -133,7 +136,7 @@ html.mobile {
         &[style^="position"] {
           &[data-state="scale"] {
             & .zoom-button {
-              transform: translateY(12px);
+              transform: translate(.25rem, .75rem);
             }
           }
         }
