@@ -131,7 +131,6 @@ const mScroll = {
   "timeSpan": (input, config) => {
     const {_timeGrade} = config;
     const wheelOrder = timeSpanMaps[_timeGrade] || 'hhiiss';
-    console.log(wheelOrder, config);
     mobiscroll.timespan(input, {
       theme: mobInfo.theme,
       lang: mobInfo.lang,
