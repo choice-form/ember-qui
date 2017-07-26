@@ -94,9 +94,9 @@ module.exports = {
     app.import(`./vendor/shims/sortable.js`);
     app.import(`./vendor/shims/swiper.js`);
 
-    app.import(`./vendor/mobiscroll/css/mobiscroll.custom-3.0.0.min.css`,
+    app.import(`./vendor/mobiscroll/css/mobiscroll.custom.min.css`,
                { outputFile: 'assets/mobiscroll.css' });
-    app.import(`./vendor/mobiscroll/js/mobiscroll.custom-3.0.0.min.js`,
+    app.import(`./vendor/mobiscroll/js/mobiscroll.custom.min.js`,
                { outputFile: 'assets/mobiscroll.js' });
     app.import(`./vendor/shims/mobiscroll.js`, { outputFile: 'assets/mobiscroll.js' });
   },
