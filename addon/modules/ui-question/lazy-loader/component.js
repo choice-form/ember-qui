@@ -31,13 +31,13 @@ export default Component.extend(InViewportMixin, {
   },
 
   didEnterViewport() {
-    if (!get(this, 'viewable')) set(this, 'viewable', true)
+    if (!get(this, 'viewable')) set(this, 'viewable', true);
     get(this, 'viewportSpy') && set(this, 'height', 'auto')
   },
 
   didExitViewport() {
-    const { height, top, bottom } = this.element.getBoundingClientRect()
-    const viewportTolerance = { top: height, bottom: height, left: 0, right: 0 }
+    const { height, top, bottom } = this.element.getBoundingClientRect();
+    const viewportTolerance = { top: height, bottom: height, left: 0, right: 0 };
 
     // top below viewport bottom or bottom over viewport top
     if (top > document.documentElement.clientHeight || bottom < 0) {

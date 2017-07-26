@@ -1,15 +1,25 @@
-
 <section>
   <div class="wrapper">
-    {{#each question.nodes as |node|}}
-      {{#ui-question/lazy-loader class=(concat 'data-' node.quesType) renderId=node.renderId isSingle=question.lazyLoad as |viewable|}}
-        {{#if viewable}}
+    {{#if question.lazyLoad}}
+      {{#each question.nodes as |node|}}
+        {{#ui-question/lazy-loader class=(concat 'data-' node.quesType) renderId=node.renderId
+                                   isSingle=true as |viewable|}}
+          {{#if viewable}}
+            {{ui-question/-node node question.handleEvents preview=question.preview}}
+          {{else}}
+            <div class="lazy-loading">loading...</div>
+          {{/if}}
+        {{/ui-question/lazy-loader}}
+      {{/each}}
+    {{else}}
+      {{#each question.nodes as |node|}}
+        <div data-render-id={{node.renderId}} class={{concat 'lazy-loader data-' node.quesType}}>
           {{ui-question/-node node question.handleEvents preview=question.preview}}
-        {{else}}
-          <div class="lazy-loading">loading...</div>
-        {{/if}}
-      {{/ui-question/lazy-loader}}
-    {{/each}}
+        </div>
+
+      {{/each}}
+    {{/if}}
+
   </div>
 </section>
 
