@@ -1,0 +1,8 @@
+<div>hehe</div>
+
+
+{{#each node.options as |option|}}
+  {{#if option.isOther}}
+    {{ui-question/choice node option handleEvents}}
+  {{/if}}
+{{/each}}
