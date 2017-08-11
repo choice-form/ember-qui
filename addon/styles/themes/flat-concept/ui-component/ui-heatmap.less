@@ -1,0 +1,46 @@
+.heat-map {
+  position: relative;
+  & .heat-spot {
+    position: absolute;
+    top: 0;
+    border: 1px solid;
+    & > span {
+      position: absolute;
+      left: 0;
+      bottom: 100%;
+      font-size: smaller;
+
+    }
+    & input {
+      margin: auto 0;
+
+      .absolute(0, 0, 0, 0);
+      .input(100%, 100%);
+    }
+    & label {
+      display: block;
+      padding: @offset/1.25 @offset*1.25 @offset/1.25 0;
+      cursor: pointer;
+      vertical-align: middle;
+      & .effect-container {
+        width: @offset/1.25;
+        height: @offset/1.25;
+        margin: auto 0;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        & .svg-wrapper {
+          & svg {
+            display: block;
+            width: @offset/1.25;
+            height: @offset/1.25;
+            & use {
+              transform: scale(.98);
+            }
+          }
+        }
+      }
+    }
+  }
+}

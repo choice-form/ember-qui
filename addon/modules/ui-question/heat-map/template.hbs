@@ -3,9 +3,24 @@
   {{#each spotList as |spot|}}
       <div class="heat-spot"
            data-selected="{{spot.origin.selected}}"
-           style="{{spot.style}}"
-           onclick={{action 'handleSpotClick' spot}}
-      >{{spot.text}}</div>
+           style="{{spot.style}}">
+        <span>{{spot.text}}</span>
+        <input class="heat-spot"
+               id={{unbound option.renderId}}
+                 type={{unbound node.selectType}}
+               onclick={{action 'handleSpotClick' spot}}
+                 name={{unbound node.renderId}}
+               checked={{spot.origin.selected}}
+                 required={{required}}
+               tabindex={{tabindex}}>
+
+        {{ui-component/ui-label selected=spot.origin.selected
+                                for=(unbound option.renderId)
+                                particleSize="m"
+                                icon=(if spot.origin.selected 'check-circle') size="32px" viewBox="32"}}
+
+
+      </div>
   {{/each}}
 </div>
 
