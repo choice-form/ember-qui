@@ -1,8 +1,15 @@
-<div>hehe</div>
+<div class="heat-map">
+  <img src="{{node.mapImage.natural}}">
+  {{#each spotList as |spot|}}
+      <div class="heat-spot"
+           data-selected="{{spot.origin.selected}}"
+           style="{{spot.style}}"
+           onclick={{action 'handleSpotClick' spot}}
+      >{{spot.text}}</div>
+  {{/each}}
+</div>
 
 
-{{#each node.options as |option|}}
-  {{#if option.isOther}}
+{{#each others as |option|}}
     {{ui-question/choice node option handleEvents}}
-  {{/if}}
 {{/each}}

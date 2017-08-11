@@ -1,0 +1,21 @@
+.heat-map {
+  position: relative;
+  & .heat-spot {
+    position: absolute;
+    top: 0;
+    border: 1px solid;
+    &[data-selected=true]{
+      &:after{
+        content: '';
+        position: absolute;
+        transform: rotate(-45deg);
+        width: 30px;
+        height:15px;
+        border-left: 4px solid red;
+        border-bottom: 4px solid red;
+        right: 0;
+        top: 0;
+      }
+    }
+  }
+}
