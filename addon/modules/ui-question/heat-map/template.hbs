@@ -2,11 +2,10 @@
   <img src="{{node.mapImage.natural}}">
   {{#each spotList as |spot|}}
       <div class="heat-spot"
-           data-selected="{{spot.origin.selected}}"
            style="{{spot.style}}">
         <span>{{spot.text}}</span>
         <input class="heat-spot"
-               id={{unbound option.renderId}}
+               id={{unbound spot.origin.renderId}}
                  type={{unbound node.selectType}}
                onclick={{action 'handleSpotClick' spot}}
                  name={{unbound node.renderId}}
@@ -15,7 +14,7 @@
                tabindex={{tabindex}}>
 
         {{ui-component/ui-label selected=spot.origin.selected
-                                for=(unbound option.renderId)
+                                for=(unbound spot.origin.renderId)
                                 particleSize="m"
                                 icon=(if spot.origin.selected 'check-circle') size="32px" viewBox="32"}}
 
