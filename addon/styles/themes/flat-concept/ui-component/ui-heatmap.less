@@ -9,7 +9,6 @@
       left: 0;
       bottom: 100%;
       font-size: smaller;
-
     }
     & input {
       margin: auto 0;
@@ -19,15 +18,17 @@
     }
     & label {
       display: block;
-      padding: @offset/1.25 @offset*1.25 @offset/1.25 0;
+      padding: @offset/1.25;
       cursor: pointer;
-      vertical-align: middle;
+      width: 100%;
+      height: 100%;
       & .effect-container {
         width: @offset/1.25;
         height: @offset/1.25;
-        margin: auto 0;
+        margin: auto;
         position: absolute;
         top: 0;
+        left: 0;
         right: 0;
         bottom: 0;
         & .svg-wrapper {
@@ -35,6 +36,8 @@
             display: block;
             width: @offset/1.25;
             height: @offset/1.25;
+            stroke-width: 2px;
+            overflow: visible;
             & use {
               transform: scale(.98);
             }
