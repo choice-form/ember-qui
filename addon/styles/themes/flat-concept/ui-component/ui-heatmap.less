@@ -1,14 +1,61 @@
 .heat-map {
   position: relative;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select:none;
+  & .operation-tips {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    padding: .25rem;
+    &:before {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      content: '';
+      pointer-events: none;
+      border: solid transparent;
+      border-width: 2.25rem;
+    }
+    & > svg {
+      display: block;
+      position: relative;
+    }
+  }
   & .heat-spot {
     position: absolute;
     top: 0;
-    border: 1px solid;
+    &:before {
+      pointer-events: none;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      content: '';
+      background-color: currentColor;
+      opacity: 0;
+      transition: opacity 400ms ease;
+    }
+    &:after {
+      pointer-events: none;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      content: '';
+      border: 1px solid;
+      opacity: 0;
+      transition: opacity 400ms ease;
+    }
     & > span {
       position: absolute;
       left: 0;
       bottom: 100%;
       font-size: smaller;
+      opacity: 0;
+      transition: opacity 400ms ease;
     }
     & input {
       margin: auto 0;
@@ -41,6 +88,51 @@
             & use {
               transform: scale(.98);
             }
+          }
+        }
+      }
+    }
+  }
+}
+
+/*------------------- responsive -------------------*/
+
+html.desktop {
+  & .heat-map {
+    &:hover {
+      & img {
+        pointer-events: none;
+        & ~ .heat-spot {
+          &:after {
+            opacity: 1;
+          }
+          &:before {
+            opacity: .24;
+          }
+          & > span {
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+}
+
+html.tablet,
+html.mobile {
+  & .heat-map {
+    &:active {
+      & img {
+        pointer-events: none;
+        & ~ .heat-spot {
+          &:after {
+            opacity: 1;
+          }
+          &:before {
+            opacity: .24;
+          }
+          & > span {
+            opacity: 1;
           }
         }
       }
