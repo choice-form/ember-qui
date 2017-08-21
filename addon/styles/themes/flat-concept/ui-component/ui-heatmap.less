@@ -56,6 +56,11 @@
       font-size: smaller;
       opacity: 0;
       transition: opacity 400ms ease;
+      overflow : hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
     }
     & input {
       margin: auto 0;
@@ -89,6 +94,21 @@
               transform: scale(.98);
             }
           }
+        }
+      }
+    }
+  }
+  &.auto-show {
+    & img {
+      & ~ .heat-spot {
+        &:after {
+          opacity: 1;
+        }
+        &:before {
+          opacity: .24;
+        }
+        & > span {
+          opacity: 1;
         }
       }
     }

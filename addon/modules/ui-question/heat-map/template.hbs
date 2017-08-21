@@ -1,4 +1,4 @@
-<div class="heat-map">
+<div class={{concat "heat-map " (if node.autoShowRect "auto-show")}}>
   <div class="operation-tips">
     {{svg-item 'tap-02' size="32px" viewBox="32"}}
   </div>
@@ -6,7 +6,9 @@
   {{#each spotList as |spot|}}
       <div class="heat-spot"
            style="{{spot.style}}">
-        <span>{{spot.text}}</span>
+        {{#if node.autoShowText}}
+          <span>{{spot.text}}</span>
+        {{/if}}
         <input class="heat-spot"
                id={{unbound spot.origin.renderId}}
                  type={{unbound node.selectType}}
