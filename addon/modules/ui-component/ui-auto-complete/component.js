@@ -33,14 +33,20 @@ export default Component.extend({
     this.captureMousedown = this.captureMousedown.bind(this);
   },
 
+  matchText(value, name, triggers){
+    return name.toLowerCase().indexOf(value) > -1 ||
+    triggers.some(trigger => trigger.toLowerCase().indexOf(value) > -1);
+  },
+
 
   searchResults(value){
     let results = [];
     if (value) {
       value = value.toLowerCase();
       results = this.completeGroups.reduce((rs, {name, triggers}) => {
-        const matched = name.toLowerCase().indexOf(value) > -1 ||
-          triggers.some(trigger => trigger.toLowerCase().indexOf(value) > -1);
+        // 拼音输入法下面输入时字母间可能有空格或'号
+        const matched = this.matchText(value, name, triggers) ||
+            this.matchText(value.replace(/['\s]/g, ''), name, triggers);
         matched && rs.push(name);
         return rs;
       }, []);
