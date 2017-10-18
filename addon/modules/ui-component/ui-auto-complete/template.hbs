@@ -2,12 +2,3 @@
           placeholder={{placeholder}}
           onblur={{onblur}}
           oninput={{action 'ipTextarea'}}></textarea>
-
-{{#if hasResult}}
-  <div class="complete-list">
-    {{#each results as |result|}}
-      <div onclick={{action 'ckOption'}}>{{result}}</div>
-    {{/each}}
-  </div>
-
-{{/if}}
