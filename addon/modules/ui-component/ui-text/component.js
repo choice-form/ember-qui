@@ -21,6 +21,10 @@ export default Component.extend({
     return ['noValidation', 'count'].indexOf(get(this, 'inputRule')) > -1;
   }).readOnly(),
 
+  isAutoComplete: computed('inputRule', function () {
+    return 'autoComplete' === get(this, 'inputRule');
+  }).readOnly(),
+
   type: computed('inputRule', function () {
     const inputRule = get(this, 'inputRule');
 

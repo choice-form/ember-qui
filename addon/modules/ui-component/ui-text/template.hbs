@@ -1,19 +1,26 @@
 {{#if isTextArea}}
   <textarea
-      value={{value}}
+    value={{value}}
       placeholder={{placeholder}}
-      onblur={{handleOnblur}}
+    onblur={{handleOnblur}}
       oninput={{handleOptionInputForTextarea}}></textarea>
   {{svg-item icon size=size viewbox=viewbox}}
+{{else if isAutoComplete}}
+  {{ui-component/ui-auto-complete
+    completeGroups=completeGroups
+    value=value
+    placeholder=placeholder
+    onblur=handleOnblur
+    oninput=handleOptionInputForTextarea}}
 {{else}}
   <input
-      class={{className}}
+    class={{className}}
       type={{type}}
-      value={{value}}
+    value={{value}}
       required
-      placeholder={{placeholder}}
+    placeholder={{placeholder}}
       onblur={{handleOnblur}}
-      oninput={{handleOptionInput}}
+    oninput={{handleOptionInput}}
       onchange={{handleOptionInput}}>
   {{svg-item icon size=size viewbox=viewbox}}
 {{/if}}
