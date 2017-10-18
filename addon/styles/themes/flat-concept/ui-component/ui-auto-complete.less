@@ -1,10 +1,51 @@
 .ui-auto-complete {
-
+  position: relative;
+  & textarea {
+    &:focus {
+      & + .mini-loader {
+        display: block;
+      }
+    }
+  }
+  & .mini-loader {
+    display: none;
+    position: absolute;
+    top: @offset / 4;
+    right: @offset / 8;
+  }
 }
 
-body > .complete-list {
+.auto-complete-menu {
   position: absolute;
-  & > div {
-    color: inherit;
+  padding: @offset / 4 0;
+  margin: 0 @offset / 4;
+  border-radius: @radius-m;
+  max-width: calc(~'100vw - 3rem');
+  box-shadow: 0 2px 6px 0 fade(black, 24%);
+  z-index: 10;
+  & .complete-option {
+    position: relative;
+    font-size: small;
+    display: inline-block;
+    padding: @offset / 8 @offset / 2;
+    border-radius: @radius-s;
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: @offset / 4;
+      bottom: 0;
+      left: @offset / 4;
+      border-radius: @radius-s;
+      z-index: -1;
+    }
+    & + .complete-option {
+      &:after {
+        opacity: .48;
+        position: absolute;
+        left: calc(~'-.25rem + 1px');
+        content: '|';
+      }
+    }
   }
 }

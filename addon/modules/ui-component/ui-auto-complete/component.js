@@ -29,7 +29,7 @@ export default Component.extend({
   },
 
   ckOption(e){
-    if ($(e.target).hasClass('auto-text') && e.currentTarget.dataset.belong === this.elementId) {
+    if ($(e.target).hasClass('complete-option') && e.currentTarget.dataset.belong === this.elementId) {
       const value = e.target.textContent;
       const $textarea = $(this.element).find('textarea');
       $textarea.val(value).trigger('input');
@@ -46,7 +46,7 @@ export default Component.extend({
         // 拼音输入法下面输入时字母间可能有空格或'号
         const matched = this.matchText(value, name, triggers) ||
           this.matchText(value.replace(/['\s]/g, ''), name, triggers);
-        matched && (rs += `<div class="auto-text">${name}</div>`);
+        matched && (rs += `<div class="complete-option">${name}</div>`);
         return rs;
       }, '');
       this.showDrop(results);
@@ -60,7 +60,7 @@ export default Component.extend({
     const rect = this.element.getBoundingClientRect();
     const style = {
       left: rect.left,
-      width: rect.width,
+      //width: rect.width,
     };
     const height = this.$dropContainer.height();
     console.log(height + 60, window.innerHeight - rect.bottom);
@@ -91,9 +91,9 @@ export default Component.extend({
 
 
   initDrop(){
-    let $dropContainer = $('body > .complete-list');
+    let $dropContainer = $('body > .auto-complete-menu');
     if ($dropContainer.length === 0) {
-      $dropContainer = $('<div class="complete-list"></div>').hide();
+      $dropContainer = $('<div class="auto-complete-menu"></div>').hide();
       $(document.body).append($dropContainer);
     }
     this.$dropContainer = $dropContainer;
