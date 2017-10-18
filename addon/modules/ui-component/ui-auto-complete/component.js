@@ -29,7 +29,7 @@ export default Component.extend({
   },
 
   ckOption(e){
-    if ($(e.target).hasClass('auto-text')) {
+    if ($(e.target).hasClass('auto-text') && e.currentTarget.dataset.belong === this.elementId) {
       const value = e.target.textContent;
       const $textarea = $(this.element).find('textarea');
       $textarea.val(value).trigger('input');
@@ -76,8 +76,11 @@ export default Component.extend({
   },
 
   showDrop(results){
-    this.$dropContainer.empty().append(results)
-      .attr('style', this.getDropStyle())
+    results && this.$dropContainer.empty().append(results)
+      .attr({
+        style: this.getDropStyle(),
+        'data-belong': this.elementId,
+      })
       .show();
 
   },
