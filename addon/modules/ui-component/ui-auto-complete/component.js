@@ -34,8 +34,8 @@ export default Component.extend({
   },
 
   matchText(value, name, triggers){
-    return name.toLowerCase().indexOf(value) > -1 ||
-    triggers.some(trigger => trigger.toLowerCase().indexOf(value) > -1);
+    return name.toLowerCase().indexOf(value) == 0 ||
+    triggers.some(trigger => trigger.toLowerCase().indexOf(value) == 0);
   },
 
 
