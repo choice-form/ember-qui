@@ -59,8 +59,8 @@ export default Component.extend({
   getDropStyle(){
     const rect = this.element.getBoundingClientRect();
     const style = {
-      left: rect.left,
-      //width: rect.width,
+      left: rect.left - 8,
+      'max-width': rect.width,
     };
     const height = this.$dropContainer.height();
 
