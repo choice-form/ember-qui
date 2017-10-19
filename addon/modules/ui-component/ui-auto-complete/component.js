@@ -63,7 +63,6 @@ export default Component.extend({
       //width: rect.width,
     };
     const height = this.$dropContainer.height();
-    console.log(height + 60, window.innerHeight - rect.bottom);
 
     if (height + 60 >= window.innerHeight - rect.bottom) {
       style.bottom = rect.bottom + rect.height;
