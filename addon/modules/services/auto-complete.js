@@ -130,9 +130,11 @@ export const autoComplete = (component, inputElem, value, dataSource) => {
     $completeMenu.empty().append(result)
       .attr('style', getStyle())
       .show();
+    window.addEventListener('mousedown', captureMouseDown, true);
+    window.addEventListener('scroll', handleScroll);
+    isMobile() && window.addEventListener('resize', handleResize);
+  }else{
+    $completeMenu.hide();
   }
-  window.addEventListener('mousedown', captureMouseDown, true);
-  window.addEventListener('scroll', handleScroll);
-  isMobile() && window.addEventListener('resize', handleResize);
 };
 
