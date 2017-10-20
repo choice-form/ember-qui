@@ -1,7 +1,7 @@
 import Component from 'ember-component';
 import layout from './template';
 import {htmlSafe} from 'ember-string';
-import {autoComplete} from '../../services/auto-complete';
+import {autoComplete} from '../../services/auto-complete/main';
 
 export default Component.extend({
   layout,

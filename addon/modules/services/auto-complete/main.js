@@ -1,4 +1,3 @@
-
 let $completeMenu = null;
 
 let menu = null;
@@ -10,6 +9,8 @@ let textarea = null;
 let lastResizeStyle = '';
 
 let scrollHandling = false;
+
+let existed = null;
 
 
 /**
@@ -60,7 +61,7 @@ const handleResize = () => {
  */
 const handleSelect = (e) => {
   if ($(e.target).hasClass('complete-option')) {
-    const value = e.target.textContent;
+    const value = existed.concat(e.target.textContent).join(',');
     $(textarea).val(value).trigger('input');
     hide();
   }
@@ -80,48 +81,71 @@ const captureMouseDown = (e) => {
   hide();
 };
 
+/**
+ * 匹配规则
+ * @type {object}
+ */
+const matchRules = {
+  'partial': (value, targetValue) => targetValue.indexOf(value) > -1,
+  'start': (value, targetValue) => targetValue.indexOf(value) === 0,
+  'full': (value, targetValue) => targetValue === value,
+};
+
 
 /**
  * 匹配文字和提示
  * @param {Array} valueList 文字列表
  * @param {string} name 名称
- * @param {string} triggers 触发别名列表
+ * @param {Array} triggers 触发别名列表
+ * @param {Array} existed 触发别名列表
+ * @param {string} rule 匹配规则
  * @returns {boolean}
  */
-const matchText = (valueList, {name, triggers}) => {
+const matchText = (valueList, {name, triggers}, existed, rule = 'full') => {
+  const match = matchRules[rule];
   return valueList.some(value => {
-    return name.toLowerCase().indexOf(value) == 0 ||
-      triggers.some(trigger => trigger.toLowerCase().indexOf(value) == 0);
+    return existed.indexOf(name) < 0
+      &&
+      (
+        match(value.toLowerCase(), name) ||
+        triggers.some(trigger => match(value, trigger.toLowerCase()))
+      );
   });
 };
 
 /**
- * 获得用于匹配的值
+ * 分解搜索关键字获得用于匹配的值和已存在的项目
  * 尽量获取最后一个逗号的后面部分作为匹配值
- * @param value
- * @returns {*}
+ * @param {string} text 搜索关键字
+ * @returns {{value:string, existed:Array}}
  */
-const getMatchValue = (value) => {
-  const list = value.split(/[,，]/g);
-  if(list.length > 1){
-    value = list[list.length - 1];
+const analyzeValue = (text) => {
+  const list = text.split(/[,，]/g);
+  if (list.length > 1) {
+    text = list.pop();
+    existed = list;
+  } else {
+    existed = [];
   }
-  return value.toLowerCase();
+  return {
+    value: text.toLowerCase(),
+    existed,
+  }
 };
 
 /**
  * 搜索匹配结果
- * @param value
- * @param dataSource
- * @returns {*}
+ * @param {string} text 搜索关键字
+ * @param {Array} dataSource 搜索元数据
+ * @param {string} rule 匹配规则
+ * @returns {string}
  */
-const searchResults = (value, dataSource) => {
-  // value = getMatchValue(value);
+const searchResults = (text, dataSource, rule) => {
+  const {value, existed} = analyzeValue(text);
   if (value) {
-    value = value.toLowerCase();
     return dataSource.reduce((rs, config) => {
       // 拼音输入法下面输入时字母间可能有空格或'号
-      const matched = matchText([value, value.replace(/['\s]/g, '')], config);
+      const matched = matchText([value, value.replace(/['\s]/g, '')], config, existed, rule);
       matched && (rs += `<div class="complete-option">${config.name}</div>`);
       return rs;
     }, '');
@@ -178,10 +202,11 @@ const hide = () => {
  * @param {Component} component 触发源组件
  * @param {HTMLInputElement} inputElem 触发源输入框
  * @param {Array} dataSource 内容匹配元数据
+ * @param {string} rule 匹配规则 partial: 任意部分匹配, start:从头开始部分匹配, full:全部匹配
  */
-export const autoComplete = (component, inputElem, dataSource) => {
+export const autoComplete = (component, inputElem, dataSource, rule) => {
   init();
-  const result = searchResults(inputElem.value, dataSource);
+  const result = searchResults(inputElem.value, dataSource, rule);
   if (result) {
     owner = component;
     textarea = inputElem;
