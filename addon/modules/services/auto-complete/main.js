@@ -1,3 +1,5 @@
+import {getPinyin} from './pinyin';
+
 let $completeMenu = null;
 
 let menu = null;
@@ -91,9 +93,34 @@ const matchRules = {
   'full': (value, targetValue) => targetValue === value,
 };
 
+/**
+ * 匹配文字,如果包含汉字的话会清楚其他非汉字字符,并且将汉字转成拼音进行匹配
+ * @param {string} value 值
+ * @param {string} targetValue 对比目标值
+ * @param {string} rule 匹配规则
+ * @returns {boolean}
+ */
+const matchText = (value, targetValue, rule = 'full') => {
+  const matchFn = matchRules[rule];
+  const vPinyin = getPinyin(value);
+  const tPinyin = getPinyin(targetValue);
+  if (vPinyin && tPinyin) {
+    return matchFn(vPinyin.full, tPinyin.full) || matchFn(vPinyin.head, tPinyin.head)
+      || matchFn(vPinyin.mix, tPinyin.mix);
+  } else if (vPinyin) {
+    return matchFn(vPinyin.full, targetValue) || matchFn(vPinyin.head, targetValue)
+      || matchFn(vPinyin.mix, targetValue);
+  } else if (tPinyin) {
+    return matchFn(value, tPinyin.full) || matchFn(value, tPinyin.head)
+      || matchFn(value, tPinyin.mix);
+  } else {
+    return matchFn(value, targetValue);
+  }
+};
+
 
 /**
- * 匹配文字和提示
+ * 匹配配置中的文字和提示
  * @param {Array} valueList 文字列表
  * @param {string} name 名称
  * @param {Array} triggers 触发别名列表
@@ -101,14 +128,13 @@ const matchRules = {
  * @param {string} rule 匹配规则
  * @returns {boolean}
  */
-const matchText = (valueList, {name, triggers}, existed, rule = 'full') => {
-  const match = matchRules[rule];
+const matchConfig = (valueList, {name, triggers}, existed, rule) => {
   return valueList.some(value => {
     return existed.indexOf(name) < 0
       &&
       (
-        match(value.toLowerCase(), name) ||
-        triggers.some(trigger => match(value, trigger.toLowerCase()))
+        matchText(value, name.toLowerCase(), rule) ||
+        triggers.some(trigger => matchText(value, trigger.toLowerCase(), rule))
       );
   });
 };
@@ -145,7 +171,7 @@ const searchResults = (text, dataSource, rule) => {
   if (value) {
     return dataSource.reduce((rs, config) => {
       // 拼音输入法下面输入时字母间可能有空格或'号
-      const matched = matchText([value, value.replace(/['\s]/g, '')], config, existed, rule);
+      const matched = matchConfig([value, value.replace(/['\s]/g, '')], config, existed, rule);
       matched && (rs += `<div class="complete-option">${config.name}</div>`);
       return rs;
     }, '');
