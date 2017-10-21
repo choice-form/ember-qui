@@ -105,8 +105,10 @@ const matchText = (value, targetValue, rule = 'full') => {
   const vPinyin = getPinyin(value);
   const tPinyin = getPinyin(targetValue);
   if (vPinyin && tPinyin) {
-    return matchFn(vPinyin.full, tPinyin.full) || matchFn(vPinyin.head, tPinyin.head)
-      || matchFn(vPinyin.mix, tPinyin.mix);
+    // 当输入值为汉字切目标也为汉字,不要用拼音首字母匹配
+    // 否则输入'八戒'会能匹配所有bj开的的词组,如暴君,布甲等.
+    // 只有一边是汉字的时候才开启首字母匹配
+    return matchFn(vPinyin.full, tPinyin.full) || matchFn(vPinyin.mix, tPinyin.mix);
   } else if (vPinyin) {
     return matchFn(vPinyin.full, targetValue) || matchFn(vPinyin.head, targetValue)
       || matchFn(vPinyin.mix, targetValue);
@@ -237,7 +239,6 @@ export const autoComplete = (component, inputElem, dataSource, rule) => {
 
   clearTimeout(taskId);
   taskId = setTimeout(() => {
-    console.log(1);
     init();
     const result = searchResults(inputElem.value, dataSource, rule);
     if (result) {
