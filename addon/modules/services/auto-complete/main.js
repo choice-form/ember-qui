@@ -223,6 +223,9 @@ const hide = () => {
 };
 
 
+let taskId = -1;
+
+
 /**
  * 召唤自动提示菜单
  * @param {Component} component 触发源组件
@@ -231,19 +234,25 @@ const hide = () => {
  * @param {string} rule 匹配规则 partial: 任意部分匹配, start:从头开始部分匹配, full:全部匹配
  */
 export const autoComplete = (component, inputElem, dataSource, rule) => {
-  init();
-  const result = searchResults(inputElem.value, dataSource, rule);
-  if (result) {
-    owner = component;
-    textarea = inputElem;
-    $completeMenu.empty().append(result)
-      .attr('style', getStyle())
-      .show();
-    window.addEventListener('mousedown', captureMouseDown, true);
-    window.addEventListener('scroll', handleScroll);
-    isMobile() && window.addEventListener('resize', handleResize);
-  } else {
-    $completeMenu.hide();
-  }
+
+  clearTimeout(taskId);
+  taskId = setTimeout(() => {
+    console.log(1);
+    init();
+    const result = searchResults(inputElem.value, dataSource, rule);
+    if (result) {
+      owner = component;
+      textarea = inputElem;
+      $completeMenu.empty().append(result)
+        .attr('style', getStyle())
+        .show();
+      window.addEventListener('mousedown', captureMouseDown, true);
+      window.addEventListener('scroll', handleScroll);
+      isMobile() && window.addEventListener('resize', handleResize);
+    } else {
+      $completeMenu.hide();
+    }
+  }, 250);
+
 };
 
