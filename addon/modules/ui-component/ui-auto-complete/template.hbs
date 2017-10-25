@@ -7,3 +7,11 @@
   <div class="dot"></div>
   <div class="dot"></div>
 </div>
+{{#if hasResult}}
+  <div class="auto-complete-menu">
+    {{#each result as |text|}}
+      <div class="complete-option" onclick={{action 'clickOption'}}>{{text}}</div>
+    {{/each}}
+  </div>
+{{/if}}
+

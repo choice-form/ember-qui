@@ -16,7 +16,8 @@
 }
 
 .auto-complete-menu {
-  position: fixed;
+  position: absolute;
+  bottom: 100%;
   padding: @offset / 4 0;
   margin: 0 @offset / 4;
   border-radius: @radius-m;
@@ -48,4 +49,10 @@
       }
     }
   }
+}
+// 提示菜单自动隐藏需要用到mousedown事件(不能用touchstart或touchend)
+// iso下非输入元素不会触发mousedown事件
+// 在ios下强行开启以下样式,能触发mousedown事件
+html.ios * {
+  cursor: pointer;
 }
