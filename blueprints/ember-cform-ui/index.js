@@ -11,7 +11,6 @@ module.exports = {
       this.addBowerPackageToProject('devicejs'),
       this.addBowerPackageToProject('qrcode'),
       this.addPackageToProject('bowser'),
-      this.addPackageToProject('fastclick'),
       this.addPackageToProject('masonry-layout'),
       this.addPackageToProject('sortablejs', '~1.4.2'),
       this.addPackageToProject('swiper'),

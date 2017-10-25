@@ -24,7 +24,6 @@ module.exports = {
     },
     nodeAssets: {
       bowser: { import: ['bowser.js'] },
-      fastclick: { import: [{ path: 'lib/fastclick.js' }] },
       'masonry-layout': {
         import: [{ path: 'dist/masonry.pkgd.js' }]
       },
