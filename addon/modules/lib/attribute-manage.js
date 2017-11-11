@@ -24,7 +24,7 @@ export function toggleClass(obj,cls){
 
 export function insertImg(str='') {
   // 防止有转义的&
-  str = str.replace(/&amp;/g, '&');
+  str = str.replace(/&(?:amp;)+/g, '&');
   return str.replace(/##(\S+?)\?w=(\d+)&h=(\d+).*?##/g, function (matched, url, width, height) {
     if(width == 0 && height == 0) return `<img src="${url}">`;
     const _width = width == 0 ? '' : `width:${width}px;`;
