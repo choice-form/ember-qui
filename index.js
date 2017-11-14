@@ -37,6 +37,16 @@ module.exports = {
           { path: 'js/swiper.min.js', sourceMap: 'js/maps/swiper.min.js.map' }
         ]
       },
+      nouislider: {
+        srcDir: 'distribute',
+        import: [
+          { path: 'nouislider.css' },
+          {
+            path: 'nouislider.js',
+            using: [{ transformation: 'amd', as: 'slideranger' }]
+          }
+        ]
+      },
       photoswipe: {
         srcDir: 'dist',
         import: [

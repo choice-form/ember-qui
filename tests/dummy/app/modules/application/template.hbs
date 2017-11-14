@@ -1,6 +1,10 @@
-{{ui-addon/count-down value='04:45' maxWidth='720px'}}
-{{ui-addon/progress-bar value='50' maxWidth='720px'}}
+{{outlet}}
 
-<article class="c-container"><!--one-by-one-->
-  {{outlet}}
-</article>
+<section style="margin: 1rem auto; width: 50%">
+  {{ui-component/ui-range
+    value=value
+    step=step
+    min=min
+    max=max
+    connect=connect}}
+</section>
