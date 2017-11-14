@@ -16,6 +16,18 @@ export default Component.extend({
     set(key, value) { return value }
   }),
 
+  init(){
+    this._super(...arguments);
+    const {option: {minValue, maxValue}} = this;
+    if(minValue >= 0){
+      this.connect = [true, false];
+    }else if(maxValue <= 0){
+      this.connect = [false, true];
+    }else{
+      this.connect = [false, false];
+    }
+  },
+
   actions: {
     updateDisplayValue(values, handle) {
       set(this, 'displayValue', Math.round(values[handle]))

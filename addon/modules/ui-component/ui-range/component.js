@@ -26,10 +26,10 @@ export default Component.extend({
 
     set(this, '_options.format', {
       to(value) {
-        return value;
+        return Number(value);
       },
       from(value) {
-        return "NaN" === value ? 0 : value;
+        return Number(value) || 0;
       }
     });
   },
