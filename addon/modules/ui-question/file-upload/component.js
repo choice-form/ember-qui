@@ -6,13 +6,6 @@ import set from 'ember-metal/set';
 import device from 'device';
 import {tempI18n} from '../../helpers/temp-i18n';
 
-
-window.onerror = function (e) {
-  if(window.uptestcount >= 5){
-    window.postLog && window.postLog('ui error', e);
-  }
-};
-
 export default Component.extend({
   layout,
   classNames: ['ui-file-upload'],
@@ -48,9 +41,6 @@ export default Component.extend({
     },
 
     handleOptionClick(e){
-      if(window.uptestcount >= 5){
-        window.postLog && window.postLog('upload clicked', '');
-      }
       //如果不能上传图片,就阻止input的默认事件
       !this.handleEvents.handleOptionClick(get(this, 'option'), get(this, 'node'))
       && e.preventDefault();
