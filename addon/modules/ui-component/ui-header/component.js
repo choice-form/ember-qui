@@ -58,7 +58,7 @@ export default Component.extend({
   description: computed('header.description', {
     get() {
       const description = get(this, 'header.description');
-      return description ? htmlSafe(`<pre class="description">${insertImg(description)}</pre>`) : null;
+      return description ? htmlSafe(`<div class="description">${insertImg(description)}</div>`) : null;
     }
   }).readOnly(),
 
