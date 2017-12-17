@@ -4,7 +4,7 @@ import {getPinyin} from './pinyin';
  * 匹配规则
  * @type {object}
  */
-const matchRules = {
+export const matchRules = {
   'partial': (value, targetValue) => targetValue.indexOf(value) > -1,
   'start': (value, targetValue) => targetValue.indexOf(value) === 0,
   'full': (value, targetValue) => targetValue === value,
@@ -17,7 +17,7 @@ const matchRules = {
  * @param {string} rule 匹配规则
  * @returns {boolean}
  */
-const matchText = (value, targetValue, rule = 'full') => {
+const matchTextComplex = (value, targetValue, rule = 'full') => {
   const matchFn = matchRules[rule];
   const vPinyin = getPinyin(value);
   const tPinyin = getPinyin(targetValue);
@@ -37,6 +37,16 @@ const matchText = (value, targetValue, rule = 'full') => {
   }
 };
 
+/**
+ * 简单匹配文字
+ * @param value
+ * @param text
+ * @returns {boolean}
+ */
+const matchTextSimple = (value, text) => {
+  return value.toLowerCase().replace(/\s+/g, '') === text.toLowerCase().replace(/\s+/g, '');
+};
+
 
 /**
  * 匹配配置中的文字和提示
@@ -45,15 +55,19 @@ const matchText = (value, targetValue, rule = 'full') => {
  * @param {Array} triggers 触发别名列表
  * @param {Array} existed 触发别名列表
  * @param {string} rule 匹配规则
+ * @param {boolean} simple 是否简单匹配
  * @returns {boolean}
  */
-const matchConfig = (valueList, {name, triggers}, existed, rule) => {
+const matchConfig = (valueList, {name, triggers}, existed, rule, simple) => {
+
+  const matchFn = simple ? matchTextSimple : matchTextComplex;
+
   return valueList.some(value => {
     return existed.indexOf(name) < 0
       &&
       (
-        matchText(value, name.toLowerCase(), rule) ||
-        triggers.some(trigger => matchText(value, trigger.toLowerCase(), rule))
+        matchFn(value, name.toLowerCase(), rule) ||
+        triggers.some(trigger => matchFn(value, trigger.toLowerCase(), rule))
       );
   });
 };
@@ -81,16 +95,17 @@ const analyzeValue = (text) => {
  * 搜索匹配结果
  * @param {string} text 搜索关键字
  * @param {Array} dataSource 搜索元数据
- * @param {string} [rule] 匹配规则
+ * @param {string} rule 匹配规则,
+ * @param {boolean} [simple] 是否简单匹配
  * @returns {Object}
  */
-export const searchResult = (text, dataSource, rule) => {
+export const searchResult = (text, dataSource, rule, simple) => {
   const {value, existed} = analyzeValue(text);
   let result = [];
   if (value) {
     result = dataSource.reduce((rs, config) => {
       // 拼音输入法下面输入时字母间可能有空格或'号
-      const matched = matchConfig([value, value.replace(/['\s]/g, '')], config, existed, rule);
+      const matched = matchConfig([value, value.replace(/['\s]/g, '')], config, existed, rule, simple);
       matched && (rs.push(config.name));
       return rs;
     }, []);

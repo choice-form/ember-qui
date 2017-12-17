@@ -40,7 +40,7 @@ export default Component.extend({
   searchBy(keyword){
     clearTimeout(this.taskId);
     this.taskId = setTimeout(()=>{
-      const {result, existed} = searchResult(keyword, this.completeGroups);
+      const {result, existed} = searchResult(keyword, this.completeGroups, 'full', this.simpleCplt);
       this.set('result', result);
       this.existed = existed;
     }, 250);

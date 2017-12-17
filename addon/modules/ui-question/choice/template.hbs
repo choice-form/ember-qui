@@ -20,6 +20,7 @@
 {{else}}
   {{ui-component/ui-text inputRule=(unbound option.inputRule)
                          completeGroups=option.completeGroups
+                         simpleCplt=option.simpleCplt
                          scale=option.scale
                          defaultValue=option.defaultValue
                          min=option.validateMin
@@ -39,6 +40,7 @@
 {{#if (eq (unbound option.inputType)"select-input")}}
   {{ui-component/ui-text display=(if option.selected "block" "none")
                          completeGroups=option.completeGroups
+                         simpleCplt=option.simpleCplt
                          scale=option.scale
                          min=option.validateMin
                          max=option.validateMax
