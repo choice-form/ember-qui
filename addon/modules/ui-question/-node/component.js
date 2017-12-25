@@ -13,7 +13,7 @@ export default Component.extend({
     return (['icon', 'gender'].indexOf(type) > -1) ? 'icon' : type;
   }).readOnly(),
 
-  headerData: computed('node', function() {
+  headerData: computed('node', 'node.reminder', function() {
     return getProperties(get(this, 'node'), HEADER_META);
   }).readOnly(),
 
