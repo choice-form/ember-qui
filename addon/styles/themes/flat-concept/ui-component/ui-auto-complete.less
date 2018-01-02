@@ -53,6 +53,8 @@
 // 提示菜单自动隐藏需要用到mousedown事件(不能用touchstart或touchend)
 // iso下非输入元素不会触发mousedown事件
 // 在ios下强行开启以下样式,能触发mousedown事件
-html.ios * {
-  cursor: pointer;
+html.ios {
+  & .ui-auto-complete {
+    cursor: pointer;
+  }
 }

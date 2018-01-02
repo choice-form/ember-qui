@@ -1,90 +1,54 @@
 .preview-flag {
+  display: flex;
+  align-items: center;
   position: fixed;
-  z-index: 10;
+  z-index: 1000;
   top: 0;
   right: 0;
   left: 0;
-  padding: 8px 24px;
-  text-align: center;
+  height: 38px;
+  padding: 0 1rem;
 
   -webkit-backface-visibility: hidden;
   -webkit-transform-style: preserve-3d;
   & h3 {
-    font-size: 18px;
-    line-height: 22px;
-    font-weight: bold;
+    font-size: 16px;
+    font-weight: normal;
+    letter-spacing: 1px;
+    text-transform: uppercase;
     margin: 0;
   }
-  & > a {
-    cursor: auto;
-    text-decoration: underline;
-    color: currentColor;
-    @media(max-width: 768px) {
-      display: none;
-    }
-    & svg {
-      position: absolute;
-      top: 18px;
-      left: 24px;
-      height: 24px;
+}
 
-      fill: currentColor;
-    }
+html.desktop {
+  & .preview-flag {
+    display: none;
   }
-  & .responsive-design {
-    position: absolute;
-    top: 16px;
-    right: 24px;
-    & a {
-      display: inline-block;
-      margin-left: 24px;
-      cursor: pointer;
-      vertical-align: middle;
-      &.active {
-        pointer-events: none;
-        & svg {
-          opacity: 1;
-        }
-        &.pad-mode {
-          transition: all 200ms ease;
-          @media screen and (max-height: 960px) {
-            transform: rotate(90deg);
+}
+
+html.tablet,
+html.mobile {
+  & .preview-flag {
+    & + article.form-preview {
+      padding-top: 38px;
+      & .ui-notification,
+      & .count-down,
+      & .progress-bar {
+        top: 38px;
+      }
+      & section {
+        min-height: ~"calc(100vh - 38px)";
+        &.full-screen-cover {
+          & .data-welcome {
+            height: ~"calc(100vh - 38px)";
           }
         }
       }
-      &:hover {
-        & svg {
-          opacity: 1;
-        }
-      }
-      & svg {
-        display: block;
-        transition: opacity 200ms ease;
-        opacity: .6;
-
-        fill: currentColor;
-      }
     }
-  }
-  & + article.form-preview {
-    padding-top: 38px;
-    & .ui-notification,
-    & .count-down,
-    & .progress-bar {
-      top: 38px;
-    }
-    & section {
-      min-height: ~"calc(100vh - 38px)";
-      &.full-screen-cover {
-        & .data-welcome {
-          height: ~"calc(100vh - 38px)";
-        }
+    & + article {
+      & .welcome-iframe {
+        padding-top: 38px;
       }
-    }
-  }
-  & + article {
-    & .welcome-iframe {
-      padding-top: 38px;
     }
   }
 }
