@@ -1,20 +1,18 @@
 .time-log-btn {
   font-size: small;
-  position: absolute;
-  z-index: 4;
-  right: 0;
-  bottom: 1rem;
-  left: 0;
-  width: 6rem;
-  margin: 0 auto;
-  padding: .5rem;
-  border-radius: 3px;
-  box-shadow: 0 2px 4px 0 fade(black, 16%);
+  position: fixed;
+  z-index: 1001;
+  top: 0;
+  right: 38px;
+  padding: calc(~'.5rem + 3px');
+  & svg {
+    display: block;
+  }
 }
 
 .time-log {
   font-size: small;
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0;
   bottom: 0;
@@ -22,16 +20,6 @@
   overflow: auto;
   padding: 6.5rem 1rem 5rem 1rem;
   -webkit-overflow-scrolling: touch;
-  &:not([style*='display']) {
-    & + .time-log-btn {
-      & span {
-        display: none;
-      }
-      &:before {
-        content: 'Close';
-      }
-    }
-  }
   & .time-log-list {
     position: relative;
     padding: .5rem 0;
