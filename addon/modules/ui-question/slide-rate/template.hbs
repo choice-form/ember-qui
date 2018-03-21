@@ -35,7 +35,7 @@
   <div class="swiper-pagination"></div>
 </div>
 
-<ul class="rate-wrapper">
+<ul class="rate-wrapper" data-state={{rateOptions.length}}>
   {{#each rateOptions as |rateOption|}}
     <li data-state={{if (eq currentOption.value rateOption.value) "checked"}}>
 

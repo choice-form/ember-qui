@@ -3,6 +3,7 @@ import layout from './template';
 import inject from 'ember-service/inject';
 import computed from 'ember-computed';
 import set from 'ember-metal/set';
+import { later } from 'ember-runloop';
 import Swiper from 'swiper';
 
 export default Component.extend({
@@ -54,9 +55,11 @@ export default Component.extend({
       const option = this.get('options')[swiper.activeIndex];
       this.handleEvents.handleOptionInput(value, option, this.get('node'));
 
-      swiper.unlockSwipeToNext();
-      swiper.slideNext();
-      swiper.lockSwipeToNext();
+      later(this, function() {
+        swiper.unlockSwipeToNext();
+        swiper.slideNext();
+        swiper.lockSwipeToNext();
+      }, 750);
     }
   }
 }).reopenClass({positionalParams: ['node','handleEvents']});
