@@ -1,8 +1,41 @@
-<div style="height: 200px; padding: 100px;">slide-rate</div>
+<div>
+  {{#each rateOptions as |rateOption|}}
+    <div>
+      {{{rateOption.svg}}}
 
+      {{#each rateOption.result as |result|}}
+        <img src={{result.image.thumbnail}}>
+      {{/each}}
+    </div>
+  {{/each}}
+</div>
+
+<div class="swiper-container" style="height: 300px; width: 600px;">
+  <div class="swiper-wrapper">
+    {{#each options as |option|}}
+      <div class="swiper-slide" data-state={{if option.image "image" "text"}}>
+        {{#if option.image}}
+          <img src={{option.image.large}}>
+        {{/if}}
+        <p>{{option.text}}</p>
+      </div>
+    {{/each}}
+  </div>
+
+  <div class="swiper-pagination"></div>
+</div>
+
+<div>
+  {{#each rateOptions as |rateOption|}}
+    <div
+      data-state={{if (eq currentOption.value rateOption.value) "checked"}}
+      onclick={{action "handleOptionInput" rateOption.value}}
+    >
+      {{{rateOption.svg}}}
+    </div>
+  {{/each}}
+</div>
 
 {{#each node.otherOptions as |option|}}
   {{ui-question/choice node option handleEvents}}
 {{/each}}
-
-
