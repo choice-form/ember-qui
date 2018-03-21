@@ -1,16 +1,26 @@
-<div>
+<ul class="slide-rate-dock">
   {{#each rateOptions as |rateOption|}}
-    <div>
-      {{{rateOption.svg}}}
-
-      {{#each rateOption.result as |result|}}
-        <img src={{result.image.thumbnail}}>
-      {{/each}}
-    </div>
+    <li>
+      <div class="rate-dock-icon">
+        <i>
+          {{{rateOption.svg}}}
+        </i>
+        <span>{{rateOption.text}}</span>
+      </div>
+      <div class="rate-dock-item">
+        {{#each rateOption.result as |result|}}
+          {{#if result.image.thumbnail}}
+            <img src={{result.image.thumbnail}}>
+          {{else}}
+            <span>{{result.text}}</span>
+          {{/if}}
+        {{/each}}
+      </div>
+    </li>
   {{/each}}
-</div>
+</ul>
 
-<div class="swiper-container" style="height: 300px; width: 600px;">
+<div class="swiper-container">
   <div class="swiper-wrapper">
     {{#each options as |option|}}
       <div class="swiper-slide" data-state={{if option.image "image" "text"}}>
@@ -25,16 +35,24 @@
   <div class="swiper-pagination"></div>
 </div>
 
-<div>
+<ul class="rate-wrapper">
   {{#each rateOptions as |rateOption|}}
-    <div
-      data-state={{if (eq currentOption.value rateOption.value) "checked"}}
-      onclick={{action "handleOptionInput" rateOption.value}}
-    >
-      {{{rateOption.svg}}}
-    </div>
+    <li data-state={{if (eq currentOption.value rateOption.value) "checked"}}>
+
+      <a onclick={{action "handleOptionInput" rateOption.value}}>
+        <div class="effect-container">
+          <div class="svg-wrapper">
+            {{{rateOption.svg}}}
+          </div>
+          {{#if (eq currentOption.value rateOption.value)}}
+            {{particle size='l'}}
+          {{/if}}
+        </div>
+      </a>
+      <span>{{rateOption.text}}</span>
+    </li>
   {{/each}}
-</div>
+</ul>
 
 {{#each node.otherOptions as |option|}}
   {{ui-question/choice node option handleEvents}}
