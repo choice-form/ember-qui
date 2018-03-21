@@ -8,16 +8,21 @@
       border-radius: @radius-m;
       & .rate-dock-icon {
         display: flex;
+        min-height: 1.5rem;
 
         align-items: center;
-        & svg {
-          display: block;
-          width: 24px;
-          height: 24px;
+        & i {
+          & svg {
+            display: block;
+            width: 24px;
+            height: 24px;
+          }
+          & + span {
+            margin-left: .5rem;
+          }
         }
         & span {
           font-size: small;
-          margin-left: .5rem;
         }
       }
       & .rate-dock-item {
@@ -58,6 +63,7 @@
     }
   }
   & .swiper-container {
+    padding-bottom: 1rem;
     & .swiper-wrapper {
       & .swiper-slide {
         display: flex;
@@ -91,17 +97,46 @@
   & .rate-wrapper {
     display: flex;
     margin-top: 1rem;
-    padding: .5rem;
+    padding: .25rem;
     border-radius: @radius-m;
 
     flex-wrap: wrap;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
+    &[data-state='1'],
+    &[data-state='2'],
+    &[data-state='3'] {
+      & li {
+        & svg {
+          width: 48px;
+          height: 48px;
+        }
+      }
+    }
     & li {
       display: flex;
       flex-direction: column;
+      padding: .25rem;
 
       align-items: center;
+      & a[data-state='label'] {
+        border: 1px solid currentColor;
+        border-radius: @radius-m;
+        & .effect-container {
+          & .svg-wrapper {
+            padding: 1rem .5rem;
+            & span {
+              line-height: 1;
+              display: block;
+            }
+          }
+        }
+      }
+      & a[data-state='icon'] {
+        & + span {
+          margin-top: .5rem;
+        }
+      }
       & svg {
         display: block;
         width: 32px;
@@ -109,7 +144,27 @@
       }
       & span {
         font-size: small;
-        margin-top: .5rem;
+      }
+      &[data-state='checked'] {
+        & a[data-state='icon'] {
+          & svg {
+            animation-name: shape;
+            animation-duration: .75s;
+            animation-timing-function: cubic-bezier(.5, 0, 0, .8);
+            animation-delay: .1s;
+            animation-iteration-count: 1;
+
+            animation-fill-mode: forwards;
+          }
+        }
+        & a[data-state='label'] {
+          animation-name: shape;
+          animation-duration: .5s;
+          animation-timing-function: cubic-bezier(.5, 0, 0, .8);
+          animation-iteration-count: 1;
+
+          animation-fill-mode: forwards;
+        }
       }
     }
   }
@@ -146,5 +201,18 @@
   to {
     transform: scale(1);
     animation-timing-function: cubic-bezier(.755, .05, .855, .05);
+  }
+}
+
+/*------------------- responsive -------------------*/
+
+html.desktop {
+  & .slide-rate {
+    & .rate-wrapper {
+      & li {
+        cursor: pointer;
+        border-radius: @radius-m;
+      }
+    }
   }
 }

@@ -37,6 +37,7 @@ export default Component.extend({
 
     const swiper = new Swiper('.swiper-container', {
       allowSwipeToNext: false,
+      autoHeight: true,
       pagination: '.swiper-pagination',
       onSlideChangeEnd: (swiper) => {
         const option = this.get('options')[swiper.activeIndex];
@@ -59,7 +60,7 @@ export default Component.extend({
         swiper.unlockSwipeToNext();
         swiper.slideNext();
         swiper.lockSwipeToNext();
-      }, 750);
+      }, 850);
     }
   }
 }).reopenClass({positionalParams: ['node','handleEvents']});
