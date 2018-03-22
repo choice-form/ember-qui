@@ -1,5 +1,6 @@
 .ui-icon {
   position: relative;
+
   backface-visibility: hidden;
   & input {
     margin: 0;
@@ -8,40 +9,84 @@
     .input(100%, 100%);
     &:checked {
       & + label {
-        transition: color 200ms ease;
+        &.text {
+          & .effect-container {
+            & .icon-text {
+              animation-name: shape;
+              animation-duration: .75s;
+              animation-timing-function: cubic-bezier(.5, 0, 0, .8);
+              animation-delay: .1s;
+              animation-iteration-count: 1;
+              background-color: currentColor;
+
+              animation-fill-mode: forwards;
+            }
+          }
+        }
+        &.svg {
+          transition: color 200ms ease;
+        }
       }
     }
   }
   & label {
-    padding: @offset/2;
     cursor: pointer;
-    & .effect-container {
-      margin-bottom: @offset/4;
+    &.text {
+      padding: 1rem 0;
+      & .effect-container {
+        align-self: center;
+        & .icon-text {
+          display: flex;
+          width: 88px;
+          height: 88px;
+          padding: @offset/4;
+          border-radius: 1.6rem;
 
-      align-self: center;
-      & .svg-wrapper {
-        position: relative;
-        width: 64px;
-        height: 64px;
-        & svg {
-          display: block;
-          margin: auto;
+          align-items: center;
+          justify-content: center;
+          & span {
+            display: -webkit-box;
+            overflow: hidden;
+            text-align: center;
+            word-break: break-word;
 
-          .absolute(0, 0, 0, 0);
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 3;
+          }
         }
       }
     }
-    & .labels {
-      padding-top: @offset/4;
-      text-align: center;
-      & svg {
-        display: block;
-        margin: 0 auto;
+    &.svg {
+      padding: @offset/2;
+      & .effect-container {
+        align-self: center;
+        & .svg-wrapper {
+          position: relative;
+          width: 64px;
+          height: 64px;
+          & svg {
+            display: block;
+            margin: auto;
+
+            .absolute(0, 0, 0, 0);
+          }
+        }
+        & + .labels {
+          margin-top: @offset/4;
+        }
       }
-      & span {
-        margin-top: @offset/4;
-        font-size: smaller;
-        display: block;
+      & .labels {
+        padding-top: @offset/4;
+        text-align: center;
+        & svg {
+          display: block;
+          margin: 0 auto;
+        }
+        & span {
+          font-size: smaller;
+          display: block;
+          margin-top: @offset/4;
+        }
       }
     }
   }
@@ -53,8 +98,8 @@
   .icon {
     text-align: center;
     & .ui-icon {
-      width: 24.4%;
       display: inline-block;
+      width: 24.4%;
       @media (max-width: 767px) {
         width: 32.8%;
       }
@@ -91,6 +136,7 @@ html.ie {
       & label {
         display: flex;
         flex-direction: column;
+
         flex-grow: 2;
       }
     }
@@ -139,8 +185,10 @@ html.desktop {
 
 /*------------------- custom -------------------*/
 .icon {
-  & .ui-text, & .ui-choice {
+  & .ui-text,
+  & .ui-choice {
     width: 100%;
+
     flex-basis: 100%;
   }
 }
