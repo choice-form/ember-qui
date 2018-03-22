@@ -31,6 +31,8 @@ export default Component.extend({
 
   allowSwipeToNext: false,
 
+  isEnd: false,
+
   didInsertElement() {
     this._super(...arguments);
 
@@ -51,6 +53,7 @@ export default Component.extend({
           currentOption: option,
           allowSwipeToPrev: swiper.activeIndex != 0,
           allowSwipeToNext: !!option.value && swiper.activeIndex != this.get('options.length') - 1,
+          isEnd: swiper.activeIndex == this.get('options.length') - 1,
         });
       },
     });

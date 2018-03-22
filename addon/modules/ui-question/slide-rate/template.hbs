@@ -44,7 +44,9 @@
     <div onclick={{action "swipeToPrev"}}>1</div>
   {{/if}}
 
-  <div>2</div>
+  {{#if isEnd}}
+    <div>2</div>
+  {{/if}}
 
   {{#if allowSwipeToNext}}
     <div onclick={{action "swipeToNext"}}>3</div>
