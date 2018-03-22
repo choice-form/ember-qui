@@ -96,7 +96,7 @@
   }
   & .rate-wrapper {
     display: flex;
-    margin-top: 1rem;
+    margin-top: .5rem;
     padding: .25rem;
     border-radius: @radius-m;
 
@@ -170,14 +170,37 @@
   }
   & .swiper-pagination {
     bottom: 0;
+    font-size: small;
+    opacity: .5;
+    pointer-events: none;
     display: flex;
-
-    align-items: center;
     justify-content: center;
-    & .swiper-pagination-bullet {
-      width: 6px;
-      height: 6px;
+    & span {
+      line-height: 1rem;
       margin: 0 .25rem;
+    }
+  }
+  & .swiper-navigation {
+    position: relative;
+    display: flex;
+    height: 48px;
+    margin-top: -32px;
+    z-index: 2;
+    & a {
+      width: 48px;
+      height: 48px;
+      padding: 16px;
+      border-radius: @radius-m;
+      cursor: pointer;
+      &.prev {
+        margin-right: auto;
+      }
+      &.next {
+        margin-left: auto;
+      }
+      & svg {
+        display: block;
+      }
     }
   }
 }
