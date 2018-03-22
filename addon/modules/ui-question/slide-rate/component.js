@@ -1,7 +1,7 @@
 import Component from 'ember-component';
 import layout from './template';
 import inject from 'ember-service/inject';
-import computed, { alias } from 'ember-computed';
+import computed from 'ember-computed';
 import set from 'ember-metal/set';
 import { later } from 'ember-runloop';
 import Swiper from 'swiper';
@@ -31,8 +31,6 @@ export default Component.extend({
 
   allowSwipeToNext: false,
 
-  isEnd: false,
-
   didInsertElement() {
     this._super(...arguments);
 
@@ -47,13 +45,12 @@ export default Component.extend({
       autoHeight: true,
       pagination: '.swiper-pagination',
       paginationType: 'fraction',
-      onSlideChangeEnd: swiper => {
+      onSlideChangeStart: swiper => {
         const option = this.get('options')[swiper.activeIndex];
         this.setProperties({
           currentOption: option,
           allowSwipeToPrev: swiper.activeIndex != 0,
           allowSwipeToNext: !!option.value && swiper.activeIndex != this.get('options.length') - 1,
-          isEnd: swiper.activeIndex == this.get('options.length') - 1,
         });
       },
     });
