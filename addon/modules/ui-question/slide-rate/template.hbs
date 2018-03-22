@@ -31,12 +31,24 @@
         {{#if option.image}}
           <img src={{option.image.large}}>
         {{/if}}
-        <p>{{option.text}}</p>
+        <p>{{{insert-img option.text}}}</p>
       </div>
     {{/each}}
   </div>
 
   <div class="swiper-pagination"></div>
+</div>
+
+<div>
+  {{#if allowSwipeToPrev}}
+    <div onclick={{action "swipeToPrev"}}>1</div>
+  {{/if}}
+
+  <div>2</div>
+
+  {{#if allowSwipeToNext}}
+    <div onclick={{action "swipeToNext"}}>3</div>
+  {{/if}}
 </div>
 
 <ul class="rate-wrapper" data-state={{rateOptions.length}}>

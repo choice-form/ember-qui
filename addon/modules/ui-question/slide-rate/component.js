@@ -1,7 +1,7 @@
 import Component from 'ember-component';
 import layout from './template';
 import inject from 'ember-service/inject';
-import computed from 'ember-computed';
+import computed, { alias } from 'ember-computed';
 import set from 'ember-metal/set';
 import { later } from 'ember-runloop';
 import Swiper from 'swiper';
@@ -27,6 +27,10 @@ export default Component.extend({
     return this.get('options')[0];
   }),
 
+  allowSwipeToPrev: false,
+
+  allowSwipeToNext: false,
+
   didInsertElement() {
     this._super(...arguments);
 
@@ -36,13 +40,18 @@ export default Component.extend({
     });
 
     const swiper = new Swiper('.swiper-container', {
+      allowSwipeToPrev: false,
       allowSwipeToNext: false,
       autoHeight: true,
       pagination: '.swiper-pagination',
-      onSlideChangeEnd: (swiper) => {
+      paginationType: 'fraction',
+      onSlideChangeEnd: swiper => {
         const option = this.get('options')[swiper.activeIndex];
-        set(this, 'currentOption', option);
-        option.value ? swiper.unlockSwipeToNext() : swiper.lockSwipeToNext();
+        this.setProperties({
+          currentOption: option,
+          allowSwipeToPrev: swiper.activeIndex != 0,
+          allowSwipeToNext: !!option.value && swiper.activeIndex != this.get('options.length') - 1,
+        });
       },
     });
 
@@ -61,6 +70,20 @@ export default Component.extend({
         swiper.slideNext();
         swiper.lockSwipeToNext();
       }, 850);
+    },
+
+    swipeToPrev() {
+      const swiper = this.get('swiper');
+      swiper.unlockSwipeToPrev();
+      swiper.slidePrev();
+      swiper.lockSwipeToPrev();
+    },
+
+    swipeToNext() {
+      const swiper = this.get('swiper');
+      swiper.unlockSwipeToNext();
+      swiper.slideNext();
+      swiper.lockSwipeToNext();
     }
   }
 }).reopenClass({positionalParams: ['node','handleEvents']});
