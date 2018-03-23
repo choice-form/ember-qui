@@ -133,6 +133,9 @@
         }
       }
       & a[data-state='icon'] {
+        & svg {
+          stroke: currentColor;
+        }
         & + span {
           margin-top: .5rem;
         }
@@ -155,6 +158,12 @@
             animation-iteration-count: 1;
 
             animation-fill-mode: forwards;
+            & > g {
+              fill: currentColor;
+              & > *[data-color="color-2"] {
+
+              }
+            }
           }
         }
         & a[data-state='label'] {
