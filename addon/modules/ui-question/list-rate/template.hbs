@@ -1,0 +1,7 @@
+<div>
+  列表方式展现
+</div>
+
+{{#each node.otherOptions as |option|}}
+  {{ui-question/choice node option handleEvents}}
+{{/each}}
