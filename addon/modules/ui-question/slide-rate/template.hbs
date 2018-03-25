@@ -13,7 +13,7 @@
       </div>
       <div class="rate-dock-item">
         {{#each rateOption.result as |result|}}
-          {{#if result.image.thumbnail}}
+          {{#if result.image}}
             <img src={{result.image.thumbnail}}>
           {{else}}
             <span>{{result.text}}</span>
