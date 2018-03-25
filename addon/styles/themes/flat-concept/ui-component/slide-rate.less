@@ -1,3 +1,4 @@
+.list-rate,
 .slide-rate {
   & .slide-rate-dock {
     margin-bottom: 1rem;
@@ -16,6 +17,7 @@
             display: block;
             width: 24px;
             height: 24px;
+            stroke: currentColor;
           }
           & + span {
             margin-left: .5rem;
@@ -158,7 +160,7 @@
             animation-iteration-count: 1;
 
             animation-fill-mode: forwards;
-            & > g {
+            & > * {
               fill: currentColor;
               & > *[data-color="color-2"] {
 
