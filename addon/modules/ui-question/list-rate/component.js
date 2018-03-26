@@ -9,14 +9,12 @@ export default Component.extend({
   tagName:'',
   iconService: inject("icon-loader"),
 
-  rateOptions: computed('options.@each.value', function() {
-    const result = this.get('options').reduce((acc, option) => {
-      acc[option.value] ? acc[option.value].push(option) : acc[option.value] = [option];
-      return acc;
-    }, {});
+  rateOptions: computed(function() {
+    const rateOptions = this.get('node.rateOptions');
+    const num = Math.floor(rateOptions.length / 2) - rateOptions.length + 1;
 
-    return this.get('node.rateOptions').map(rateOption => {
-      set(rateOption, 'result', result[rateOption.value] || []);
+    return rateOptions.map((rateOption, index) => {
+      set(rateOption, 'value', num + index);
       return rateOption;
     });
   }),
@@ -28,4 +26,19 @@ export default Component.extend({
         .then(icon => set(rateOption, 'svg', icon.outerHTML));
     });
   },
+
+  actions: {
+    handleOptionInput(value, option) {
+      const node = this.get('node');
+
+      if (value == 0) {
+        return this.handleEvents.handleOptionInput(value, option, node);
+      }
+
+      if (value == option.value) {
+        value = value > 0 ? value - 1 : value + 1;
+      }
+      this.handleEvents.handleOptionInput(value, option, node);
+    }
+  }
 }).reopenClass({positionalParams: ['node','handleEvents']});
