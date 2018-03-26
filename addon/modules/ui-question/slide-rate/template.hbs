@@ -52,7 +52,7 @@
   {{/if}}
 </div>
 
-<ul class="rate-wrapper" data-state={{rateOptions.length}}>
+<ul class="rate-wrapper slide" data-state={{rateOptions.length}}>
   {{#each rateOptions as |rateOption|}}
     <li data-state={{if (eq currentOption.value rateOption.value) "checked"}}>
       <a data-state={{if rateOption.svg 'icon' 'label'}} onclick={{action "handleOptionInput" rateOption.value}}>
@@ -65,7 +65,7 @@
             {{/if}}
           </div>
           {{#if (and (eq currentOption.value rateOption.value) rateOption.svg)}}
-            {{particle size='l'}}
+            {{particle size='m'}}
           {{/if}}
         </div>
       </a>

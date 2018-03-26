@@ -17,6 +17,7 @@
             display: block;
             width: 24px;
             height: 24px;
+
             stroke: currentColor;
           }
           & + span {
@@ -70,20 +71,19 @@
       & .swiper-slide {
         display: flex;
         flex-direction: column;
-        min-height: 256px;
         text-align: center;
 
         align-items: center;
         justify-content: center;
         &[data-state='image'] {
           & img {
-            width: auto;
+            width: 50%;
             color: currentColor;
 
             object-fit: cover;
             & + p {
               font-size: larger;
-              margin-top: 1rem;
+              margin: 0 0 1rem 0;
             }
           }
         }
@@ -98,13 +98,50 @@
   }
   & .rate-wrapper {
     display: flex;
-    margin-top: .5rem;
-    padding: .25rem;
-    border-radius: @radius-m;
 
     flex-wrap: wrap;
-    align-items: center;
     justify-content: space-around;
+    &.list {
+      margin-top: .5rem;
+      padding: .25rem 0;
+      border-radius: @radius-m;
+
+      flex-wrap: nowrap;
+      align-items: flex-start;
+      & li {
+        & span {
+          font-size: x-small;
+          text-align: center;
+        }
+      }
+      @media(max-width: 320px) {
+        & li {
+          & span {
+            width: 24px;
+          }
+        }
+      }
+    }
+    &.slide {
+      position: relative;
+      margin: .5rem -.5rem 0 -.5rem;
+      padding-top: 1rem;
+
+      align-items: center;
+      &:before {
+        position: absolute;
+        top: 0;
+        right: .75rem;
+        left: .75rem;
+        height: 2px;
+        content: '';
+        opacity: .1;
+        background-color: currentColor;
+      }
+      & li {
+        padding: .25rem;
+      }
+    }
     &[data-state='1'],
     &[data-state='2'],
     &[data-state='3'] {
@@ -118,7 +155,6 @@
     & li {
       display: flex;
       flex-direction: column;
-      padding: .25rem;
 
       align-items: center;
       & a[data-state='label'] {
@@ -135,6 +171,14 @@
         }
       }
       & a[data-state='icon'] {
+        & .effect-container {
+          & .particle-wrapper {
+            & .particle-container {
+              //top: -.2rem;
+              //left: calc(~'50% - .2rem');
+            }
+          }
+        }
         & svg {
           stroke: currentColor;
         }
@@ -150,7 +194,7 @@
       & span {
         font-size: small;
       }
-      &[data-state='checked'] {
+      &[data-state*='checked'] {
         & a[data-state='icon'] {
           & svg {
             animation-name: shape;
@@ -162,9 +206,6 @@
             animation-fill-mode: forwards;
             & > * {
               fill: currentColor;
-              & > *[data-color="color-2"] {
-
-              }
             }
           }
         }
@@ -180,6 +221,13 @@
     }
     & + .ui-text {
       margin-top: @offset/1.25;
+    }
+    @media(max-width: 320px) {
+      & li {
+        & span {
+          font-size: x-small;
+        }
+      }
     }
   }
   & .swiper-pagination {
