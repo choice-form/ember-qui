@@ -1,12 +1,12 @@
 {{#each options as |option|}}
   <div class="list-wrapper">
-    <p>{{{insert-img option.text}}}</p>
+    <p>{{insert-img option.text}}</p>
 
-    <ul class="rate-wrapper list" data-state={{rateOptions.length}} data-value={{option.value}}>
+    <ul class="rate-wrapper slide" data-state={{rateOptions.length}}>
       {{#each rateOptions as |rateOption|}}
         <li
-          data-state="{{if (eq option.value rateOption.value) "checked "}}{{if (list-rate-option-checked option.value rateOption.value) "ass"}}"
-            onclick={{action "handleOptionInput" rateOption.value option}}>
+          data-state={{if (eq option.value rateOption.value) "checked"}}
+            onclick={{action handleEvents.handleOptionInput rateOption.value option node}}>
           <a data-state={{if rateOption.svg 'icon' 'label'}}>
             <div class="effect-container">
               <div class="svg-wrapper">
@@ -16,7 +16,7 @@
                   <span>{{rateOption.text}}</span>
                 {{/if}}
               </div>
-              {{#if (and (list-rate-option-checked option.value rateOption.value) rateOption.svg)}}
+              {{#if (and (eq option.value rateOption.value) rateOption.svg)}}
                 {{particle size='m'}}
               {{/if}}
             </div>
