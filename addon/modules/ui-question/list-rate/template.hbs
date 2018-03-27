@@ -2,7 +2,7 @@
   <div class="list-wrapper">
     <p>{{insert-img option.text}}</p>
 
-    <ul class="rate-wrapper slide" data-state={{rateOptions.length}}>
+    <ul class="rate-wrapper list" data-state={{rateOptions.length}}>
       {{#each rateOptions as |rateOption|}}
         <li
           data-state={{if (eq option.value rateOption.value) "checked"}}
