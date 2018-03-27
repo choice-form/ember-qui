@@ -11,7 +11,7 @@ export default Component.extend({
   tagName:'',
   iconService: inject("icon-loader"),
 
-  rateOptions: computed(function() {
+  rateOptions: computed('options.@each.value', function() {
     const result = this.get('options').reduce((acc, option) => {
       acc[option.value] ? acc[option.value].push(option) : acc[option.value] = [option];
       return acc;
