@@ -24,6 +24,12 @@ export default Component.extend({
       });
   }),
 
+  click(e) {
+    if (e.target.className.indexOf('ui-auto-complete') != -1) {
+      $(this.element).find('input').focus();
+    }
+  },
+
   actions: {
     search(e) {
       this.searchBy(e.target.value);
@@ -46,6 +52,11 @@ export default Component.extend({
         this.$textarea.val(value).trigger('input');
       }
     },
+
+    deleteItem(name) {
+      const value = this.value.split(/[,，]/g).filter(n => n != name).join(',');
+      this.$textarea.val(value).trigger('input');
+    }
   },
 
   init(){
@@ -75,7 +86,6 @@ export default Component.extend({
   didInsertElement(){
     this.$textarea = $(this.element).find('textarea');
     window.addEventListener('mousedown', this.captureMouseDown, true);
-    this.set('for', this.element.querySelector('input').id);
   },
 
   willDestroyElement(){
