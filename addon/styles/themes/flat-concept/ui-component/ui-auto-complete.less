@@ -15,20 +15,87 @@
   & .hide-input {
     display: none;
   }
-  & .virtual-input {
-    line-height: 2rem;
-    width: auto;
-    margin: .5rem;
-    padding: 0;
-    border: none;
-    border-radius: 0;
+  & .input-result {
+    position: relative;
 
     flex-grow: 1;
-    &:hover,
-    &:focus {
+    & .virtual-input {
+      line-height: 2rem;
+      width: auto;
+      margin: .5rem;
+      padding: 0;
       border: none;
-      outline: none;
-      box-shadow: none !important;
+      border-radius: 0;
+      &:hover,
+      &:focus {
+        border: none;
+        outline: none;
+        box-shadow: none !important;
+      }
+    }
+    & .auto-complete-menu {
+      position: absolute;
+      z-index: 10;
+      bottom: calc(~'100% + 2px');
+      display: flex;
+      max-width: calc(~'100vw - 3rem');
+      margin: 0 @offset / 4;
+      padding: 1.25rem .25rem .25rem .25rem;
+      transform-origin: left bottom;
+      animation-name: menu;
+      animation-duration: .5s;
+      animation-timing-function: cubic-bezier(.5, 0, 0, .8);
+      animation-iteration-count: 1;
+      border-radius: @radius-s;
+
+      flex-wrap: wrap;
+      align-items: center;
+
+      &:after {
+        position: absolute;
+        top: 100%;
+        left: 1.25rem;
+        width: 0;
+        height: 0;
+        margin-left: -.5rem;
+        content: ' ';
+        pointer-events: none;
+        border: .5rem solid transparent;
+        border-top-color: currentColor;
+      }
+      & > span {
+        font-size: xx-small;
+        line-height: 1rem;
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        padding: .25rem .5rem;
+        opacity: .64;
+      }
+      & .complete-option {
+        font-size: small;
+        position: relative;
+        display: inline-flex;
+        min-height: 2rem;
+        margin: .25rem;
+        padding: .25rem .5rem;
+        cursor: pointer;
+        border-radius: @radius-s;
+
+        flex-shrink: 0;
+        align-items: center;
+        & > i {
+          overflow: hidden;
+          width: 24px;
+          height: 24px;
+          margin-right: .5rem;
+          border-radius: 50%;
+          & img {
+            width: 24px;
+          }
+        }
+      }
     }
   }
   & .mini-loader {
@@ -69,75 +136,28 @@
   }
 }
 
-.auto-complete-menu {
-  position: absolute;
-  z-index: 10;
-  bottom: calc(~'100% + .5rem + 2px');
-  display: flex;
-  min-width: 128px;
-  max-width: calc(~'100vw - 3rem');
-  margin: 0 @offset / 4;
-  padding-top: 24px;
-  border-radius: @radius-s;
-
-  flex-wrap: wrap;
-  align-items: center;
-  &:after {
-    position: absolute;
-    top: 100%;
-    left: 1.25rem;
-    width: 0;
-    height: 0;
-    content: ' ';
-    pointer-events: none;
-    border: solid transparent;
+@keyframes menu {
+  from {
+    transform: scale(0);
+    opacity: 0;
   }
-  &:after {
-    margin-left: -.5rem;
-    border-width: .5rem;
-    border-color: transparent;
-    border-top-color: currentColor;
+  15% {
+    transform: scale(0);
+    opacity: 1;
   }
-  & > i {
-    font-size: x-small;
-    position: absolute;
-    top: 0;
-    right: 0;
-    left: 0;
-    display: flex;
-    padding: .25rem .5rem;
-
-    align-items: center;
-    & svg {
-      display: block;
-      margin-right: .25rem;
-    }
+  40% {
+    transform: scale(1.10);
   }
-  & .complete-option {
-    font-size: small;
-    position: relative;
-    display: inline-flex;
-    min-height: 2rem;
-    margin: .5rem;
-    padding: @offset / 8 @offset / 2;
-    padding: .25rem .5rem;
-    cursor: pointer;
-    border-radius: @radius-s;
-
-    flex-shrink: 0;
-    align-items: center;
-    & > i {
-      overflow: hidden;
-      width: 24px;
-      height: 24px;
-      margin-right: .5rem;
-      border-radius: 50%;
-      & img {
-        width: 24px;
-      }
-    }
+  70% {
+    transform: scale(.90);
+    animation-timing-function: cubic-bezier(.215, .6, .355, 1);
+  }
+  to {
+    transform: scale(1);
+    animation-timing-function: cubic-bezier(.755, .05, .855, .05);
   }
 }
+
 // 提示菜单自动隐藏需要用到mousedown事件(不能用touchstart或touchend)
 // iso下非输入元素不会触发mousedown事件
 // 在ios下强行开启以下样式,能触发mousedown事件

@@ -18,12 +18,34 @@
   {{/each}}
 {{/if}}
 
-{{input
-  class='virtual-input'
-  value=virtualValue
-  placeholder=placeholder
-  input=(action "search")
-  key-down=(action "handleKeyPress")}}
+<div class="input-result">
+  {{input
+    class='virtual-input'
+    value=virtualValue
+    placeholder=placeholder
+    autocomplete="off"
+    input=(action "search")
+    key-down=(action "handleKeyPress")}}
+
+  {{#if hasResult}}
+    <div class="auto-complete-menu">
+      <span>请选择自动提示项</span>
+      {{#each result as |item|}}
+        <div class='complete-option' onclick={{action "autoComplete" item.name}}>
+          {{#if item.icon}}
+            <i>
+              <img src={{item.icon}}>
+            </i>
+          {{/if}}
+          {{#if item.name}}
+            <span>{{item.name}}</span>
+          {{/if}}
+        </div>
+      {{/each}}
+    </div>
+  {{/if}}
+</div>
+
 
 <textarea class='hide-input' type="text" oninput={{action "triggerInput"}}>{{value}}</textarea>
 
@@ -32,27 +54,3 @@
   <div class="dot"></div>
   <div class="dot"></div>
 </div>
-
-{{#if hasResult}}
-  <div class="auto-complete-menu">
-    <i>
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16">
-        <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" d="M2.5,7.5a1,1,0,0,0-1,1v2c0,4,3,5,3,5h9l1.485-6.684A2,2,0,0,0,13.13,6.385L7.5,6.111V2a1.5,1.5,0,0,0-3,0v8"/>
-      </svg>
-      <span>请选择自动提示项</span>
-    </i>
-
-    {{#each result as |item|}}
-      <div class='complete-option' onclick={{action "autoComplete" item.name}}>
-        {{#if item.icon}}
-          <i>
-            <img src={{item.icon}}>
-          </i>
-        {{/if}}
-        {{#if item.name}}
-          <span>{{item.name}}</span>
-        {{/if}}
-      </div>
-    {{/each}}
-  </div>
-{{/if}}
