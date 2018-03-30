@@ -1,6 +1,11 @@
 {{#each options as |option|}}
   <div class="list-wrapper">
-    <p>{{{insert-img option.text}}}</p>
+    <p>
+      {{#if option.image}}
+        <img src={{option.image.large}}>
+      {{/if}}
+      {{{insert-img option.text}}}
+    </p>
 
     <ul class="rate-wrapper list" data-state={{rateOptions.length}}>
       {{#each rateOptions as |rateOption|}}

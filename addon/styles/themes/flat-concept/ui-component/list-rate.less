@@ -2,4 +2,11 @@
   &:not(:last-child) {
     margin-bottom: @offset/1.25;
   }
+  & > p {
+    display: flex;
+    align-items: center;
+    & img {
+      width: 48px;
+    }
+  }
 }
