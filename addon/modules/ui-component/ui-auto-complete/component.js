@@ -1,28 +1,50 @@
 import Component from 'ember-component';
 import layout from './template';
-import {htmlSafe} from 'ember-string';
-import {notEmpty} from 'ember-computed';
+import computed, {notEmpty} from 'ember-computed';
 import {searchResult} from '../../services/auto-complete/main';
+import $ from 'jquery';
 
 export default Component.extend({
   layout,
   classNames: ['ui-auto-complete'],
   result: [],
   hasResult: notEmpty('result').readOnly(),
-  $textarea: null,
+
+  virtualValue: '',
+
+  selected: computed('value', function() {
+    if (this.value == "") {
+      return [];
+    }
+
+    return this.value.split(/[,，]/g)
+      .map(name => {
+        const item = this.completeGroups.findBy('name', name);
+        return {name: item.name, icon: item.icon}
+      });
+  }),
+
   actions: {
-    ipTextarea(e){
-      if (e.isTrigger) {
-        e.currentTarget = e.target;
-      } else {
-        this.searchBy(e.target.value);
-      }
+    search(e) {
+      this.searchBy(e.target.value);
+    },
+
+    autoComplete(name) {
+      this.set('virtualValue', '');
+      this.$input.val(`${this.value ? this.value + ',' : ''}${name}`).trigger('input');
+      this.closeMenu();
+    },
+
+    triggerInput(e) {
+      e.currentTarget = e.target;
       this.oninput(e);
     },
-    clickOption(e){
-      const value = this.existed.concat(e.target.textContent).join(',');
-      this.$textarea.val(value).trigger('input');
-      this.closeMenu();
+
+    handleKeyPress(v, e) {
+      if (e.keyCode == 8 && e.target.value == '') {
+        const value = this.value.split(/[,，]/g).slice(0, -1).join(',');
+        this.$input.val(value).trigger('input');
+      }
     }
   },
 
@@ -40,9 +62,8 @@ export default Component.extend({
   searchBy(keyword){
     clearTimeout(this.taskId);
     this.taskId = setTimeout(()=>{
-      const {result, existed} = searchResult(keyword, this.completeGroups, 'full', this.simpleCplt);
-      this.set('result', result);
-      this.existed = existed;
+      const {result} = searchResult(keyword, this.completeGroups, 'full', this.simpleCplt);
+      this.set('result', result.filter(i => this.value.indexOf(i.name) == -1));
     }, 250);
   },
 
@@ -52,7 +73,7 @@ export default Component.extend({
   },
 
   didInsertElement(){
-    this.$textarea = $(this.element).find('textarea');
+    this.$input = $(this.element).find('input');
     window.addEventListener('mousedown', this.captureMouseDown, true);
   },
 

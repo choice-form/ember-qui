@@ -106,7 +106,7 @@ export const searchResult = (text, dataSource, rule, simple) => {
     result = dataSource.reduce((rs, config) => {
       // 拼音输入法下面输入时字母间可能有空格或'号
       const matched = matchConfig([value, value.replace(/['\s]/g, '')], config, existed, rule, simple);
-      matched && (rs.push(config.name));
+      matched && (rs.push({name: config.name, icon: config.icon}));
       return rs;
     }, []);
   }
@@ -115,4 +115,3 @@ export const searchResult = (text, dataSource, rule, simple) => {
     existed,
   }
 };
-
