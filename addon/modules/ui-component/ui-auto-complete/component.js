@@ -31,7 +31,7 @@ export default Component.extend({
 
     autoComplete(name) {
       this.set('virtualValue', '');
-      this.$input.val(`${this.value ? this.value + ',' : ''}${name}`).trigger('input');
+      this.$textarea.val(`${this.value ? this.value + ',' : ''}${name}`).trigger('input');
       this.closeMenu();
     },
 
@@ -43,9 +43,9 @@ export default Component.extend({
     handleKeyPress(v, e) {
       if (e.keyCode == 8 && e.target.value == '') {
         const value = this.value.split(/[,，]/g).slice(0, -1).join(',');
-        this.$input.val(value).trigger('input');
+        this.$textarea.val(value).trigger('input');
       }
-    }
+    },
   },
 
   init(){
@@ -73,8 +73,9 @@ export default Component.extend({
   },
 
   didInsertElement(){
-    this.$input = $(this.element).find('input');
+    this.$textarea = $(this.element).find('textarea');
     window.addEventListener('mousedown', this.captureMouseDown, true);
+    this.set('for', this.element.querySelector('input').id);
   },
 
   willDestroyElement(){

@@ -1,31 +1,57 @@
-<div>
+{{#if selected}}
   {{#each selected as |item|}}
-    <img src={{item.icon}}>
-    <div>{{item.name}}</div>
+    <div class="auto-complete-tag">
+      {{#if item.icon}}
+        <i>
+          <img src={{item.icon}}>
+        </i>
+      {{/if}}
+      {{#if item.name}}
+        <span>{{item.name}}</span>
+      {{/if}}
+      <a>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 8">
+          <path d="M7.924 6.51L5.45 4.035 7.925 1.56a.499.499 0 0 0 0-.707L7.217.146a.5.5 0 0 0-.707 0L4.036 2.621 1.561.146a.5.5 0 0 0-.707 0L.147.854a.499.499 0 0 0 0 .707l2.475 2.475L.147 6.51a.499.499 0 0 0 0 .707l.707.707a.5.5 0 0 0 .707 0l2.475-2.475L6.51 7.924a.5.5 0 0 0 .707 0l.707-.707a.497.497 0 0 0 0-.707z"></path>
+        </svg>
+      </a>
+    </div>
   {{/each}}
-</div>
+{{/if}}
 
-<input type="text" value={{value}} oninput={{action "triggerInput"}}>
-
-
-{{textarea
+{{input
+  class='virtual-input'
   value=virtualValue
   placeholder=placeholder
   input=(action "search")
-  key-down=(action "handleKeyPress")
-}}
+  key-down=(action "handleKeyPress")}}
+
+<textarea class='hide-input' type="text" oninput={{action "triggerInput"}}>{{value}}</textarea>
 
 <div class="mini-loader">
   <div class="dot"></div>
   <div class="dot"></div>
   <div class="dot"></div>
 </div>
+
 {{#if hasResult}}
   <div class="auto-complete-menu">
+    <i>
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16">
+        <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" d="M2.5,7.5a1,1,0,0,0-1,1v2c0,4,3,5,3,5h9l1.485-6.684A2,2,0,0,0,13.13,6.385L7.5,6.111V2a1.5,1.5,0,0,0-3,0v8"/>
+      </svg>
+      <span>请选择自动提示项</span>
+    </i>
+
     {{#each result as |item|}}
-      <div onclick={{action "autoComplete" item.name}}>
-        <img src={{item.icon}}>
-        <div class="complete-option" >{{item.name}}</div>
+      <div class='complete-option' onclick={{action "autoComplete" item.name}}>
+        {{#if item.icon}}
+          <i>
+            <img src={{item.icon}}>
+          </i>
+        {{/if}}
+        {{#if item.name}}
+          <span>{{item.name}}</span>
+        {{/if}}
       </div>
     {{/each}}
   </div>

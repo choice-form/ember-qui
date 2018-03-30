@@ -1,51 +1,139 @@
 .ui-auto-complete {
   position: relative;
-  & textarea {
+  display: flex;
+  padding: @offset/4;
+  border: 1px solid currentColor;
+  border-radius: @radius-m;
+
+  align-items: self-start;
+  flex-wrap: wrap;
+  &:focus-within {
+    & .mini-loader {
+      display: block;
+    }
+  }
+  & .hide-input {
+    display: none;
+  }
+  & .virtual-input {
+    line-height: 2rem;
+    width: auto;
+    margin: .5rem;
+    padding: 0;
+    border: none;
+    border-radius: 0;
+
+    flex-grow: 1;
+    &:hover,
     &:focus {
-      & + .mini-loader {
-        display: block;
-      }
+      border: none;
+      outline: none;
+      box-shadow: none !important;
     }
   }
   & .mini-loader {
-    display: none;
     position: absolute;
     top: @offset / 4;
-    right: @offset / 8;
+    right: 0;
+    display: none;
+  }
+  & .auto-complete-tag {
+    display: inline-flex;
+    min-height: 2rem;
+    margin: .5rem;
+    padding: .25rem .5rem;
+    border-radius: @radius-s;
+
+    flex-shrink: 0;
+    align-items: center;
+    & > i {
+      overflow: hidden;
+      width: 24px;
+      height: 24px;
+      margin-right: .5rem;
+      border-radius: 50%;
+      & img {
+        width: 24px;
+      }
+    }
+    & a {
+      margin-left: .5rem;
+      padding: .5rem;
+      cursor: pointer;
+      & svg {
+        display: block;
+        width: 8px;
+        height: 8px;
+      }
+    }
   }
 }
 
 .auto-complete-menu {
   position: absolute;
-  bottom: 100%;
-  padding: @offset / 4 0;
-  margin: 0 @offset / 4;
-  border-radius: @radius-m;
-  max-width: calc(~'100vw - 3rem');
-  box-shadow: 0 2px 6px 0 fade(black, 24%);
   z-index: 10;
-  & .complete-option {
-    position: relative;
-    font-size: small;
-    display: inline-block;
-    padding: @offset / 8 @offset / 2;
-    border-radius: @radius-s;
-    &:before {
-      content: '';
-      position: absolute;
-      top: 0;
-      right: @offset / 4;
-      bottom: 0;
-      left: @offset / 4;
-      border-radius: @radius-s;
-      z-index: -1;
+  bottom: calc(~'100% + .5rem + 2px');
+  display: flex;
+  min-width: 128px;
+  max-width: calc(~'100vw - 3rem');
+  margin: 0 @offset / 4;
+  padding-top: 24px;
+  border-radius: @radius-s;
+
+  flex-wrap: wrap;
+  align-items: center;
+  &:after {
+    position: absolute;
+    top: 100%;
+    left: 1.25rem;
+    width: 0;
+    height: 0;
+    content: ' ';
+    pointer-events: none;
+    border: solid transparent;
+  }
+  &:after {
+    margin-left: -.5rem;
+    border-width: .5rem;
+    border-color: transparent;
+    border-top-color: currentColor;
+  }
+  & > i {
+    font-size: x-small;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    display: flex;
+    padding: .25rem .5rem;
+
+    align-items: center;
+    & svg {
+      display: block;
+      margin-right: .25rem;
     }
-    & + .complete-option {
-      &:after {
-        opacity: .48;
-        position: absolute;
-        left: calc(~'-.25rem + 1px');
-        content: '|';
+  }
+  & .complete-option {
+    font-size: small;
+    position: relative;
+    display: inline-flex;
+    min-height: 2rem;
+    margin: .5rem;
+    padding: @offset / 8 @offset / 2;
+    padding: .25rem .5rem;
+    cursor: pointer;
+    border-radius: @radius-s;
+
+    flex-shrink: 0;
+    align-items: center;
+    & > i {
+      overflow: hidden;
+      width: 24px;
+      height: 24px;
+      margin-right: .5rem;
+      border-radius: 50%;
+      & img {
+        width: 24px;
       }
     }
   }
