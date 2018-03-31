@@ -1,21 +1,57 @@
 import Component from 'ember-component';
 import layout from './template';
-import inject from 'ember-service/inject';
-import {reads} from 'ember-computed';
-import set from 'ember-metal/set';
+import noUiSlider from 'slideranger';
 
 export default Component.extend({
   layout,
   tagName:'',
-  iconService: inject("icon-loader"),
-
-  rateOptions: reads('node.rateOptions'),
 
   didInsertElement() {
     this._super(...arguments);
-    this.get('rateOptions').forEach(rateOption => {
-      this.get('iconService').getIconByUrl(rateOption.url, rateOption.url)
-        .then(icon => set(rateOption, 'svg', icon.outerHTML));
-    });
+
+    this.initSlider();
   },
+
+  initSlider() {
+    const rateOptions = this.get('node.rateOptions');
+    const length = rateOptions.length;
+
+    const options = {
+      range: {
+        min: rateOptions[0].value,
+        max: rateOptions[length - 1].value
+      },
+      step: 1,
+      tooltips: {
+        to(value) {
+          return rateOptions.findBy('value', value).text;
+        }
+      },
+      pips: {
+        mode: 'steps',
+        density: 100,
+        filter() {return 1},
+        format: {
+          to(value) {
+            return rateOptions.findBy('value', value).text;
+          }
+        }
+      }
+    }
+
+    this.options.forEach(option => {
+      const slider = document.querySelector(`.slider-${option.index}`);
+      const start = option.value || rateOptions[Math.floor(length / 2)].value;
+
+      const ranger = noUiSlider.create(slider, {
+        ...options,
+        start: [start],
+      });
+
+      ranger.on('change', (values, index) => {
+        const value = Number.parseInt(values[index]);
+        this.handleEvents.handleOptionInput(value, option, this.node);
+      });
+    });
+  }
 }).reopenClass({positionalParams: ['node','handleEvents']});
