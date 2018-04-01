@@ -23,8 +23,8 @@ export default Component.extend({
       },
       step: 1,
       tooltips: {
-        to(value) {
-          return rateOptions.findBy('value', value).text;
+        to: (value) => {
+          return rateOptions.findBy('value', Number.parseInt(value)).text;
         }
       },
       pips: {
@@ -33,7 +33,7 @@ export default Component.extend({
         filter() {return 1},
         format: {
           to(value) {
-            return rateOptions.findBy('value', value).text;
+            return rateOptions.findBy('value', Number.parseInt(value)).text;
           }
         }
       }

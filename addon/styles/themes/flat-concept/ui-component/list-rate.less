@@ -14,6 +14,14 @@
   }
   & .list-wrapper-slider {
     margin: 3rem 1rem 1rem 1rem;
+    & .noUi-tooltip {
+      display: none;
+    }
+    &[data-tooltips='show'] {
+      & .noUi-tooltip {
+        display: block;
+      }
+    }
     &[data-state='1'] {
       & .noUi-base {
         &:before {

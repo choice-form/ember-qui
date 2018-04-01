@@ -1,5 +1,5 @@
 {{#each options as |option|}}
-  <div class="list-wrapper">
+  <div class="list-wrapper" data-count={{node.rateOptions.length}}>
     <p>
       {{#if option.image}}
         <img src={{option.image.large}}>
@@ -7,7 +7,7 @@
       {{{insert-img option.text}}}
     </p>
 
-    <div class="list-wrapper-slider slider-{{option.index}}" data-state={{option.value}}></div>
+    <div class="list-wrapper-slider slider-{{option.index}}" data-state={{option.value}} data-tooltips={{if option.value "show"}}></div>
   </div>
 {{/each}}
 
