@@ -1,13 +1,141 @@
 .list-wrapper {
+  margin-bottom: 3rem;
   &:not(:last-child) {
     margin-bottom: @offset/1.25;
   }
   & > p {
     display: flex;
+
     align-items: center;
     & img {
       width: 48px;
       margin-right: .5rem;
+    }
+  }
+  & .list-wrapper-slider {
+    margin: 3rem 1rem 1rem 1rem;
+    &[data-state='1'] {
+      & .noUi-base {
+        &:before {
+          right: 50%;
+          left: 0;
+        }
+      }
+    }
+    &[data-state='2'] {
+      & .noUi-base {
+        &:before {
+          right: 50%;
+          left: 16.6667%;
+        }
+      }
+    }
+    &[data-state='3'] {
+      & .noUi-base {
+        &:before {
+          right: 50%;
+          left: 33.3333%;
+        }
+      }
+    }
+    &[data-state='4'] {
+      & .noUi-base {
+        &:after,
+        &:before {
+          right: 50%;
+          left: 50%;
+        }
+      }
+    }
+    &[data-state='5'] {
+      & .noUi-base {
+        &:after {
+          right: 33.3333%;
+          left: 50%;
+        }
+      }
+    }
+    &[data-state='6'] {
+      & .noUi-base {
+        &:after {
+          right: 16.6667%;
+          left: 50%;
+        }
+      }
+    }
+    &[data-state='7'] {
+      & .noUi-base {
+        &:after {
+          right: 0;
+          left: 50%;
+        }
+      }
+    }
+    &.noUi-target {
+      box-shadow: none;
+    }
+    &.noUi-horizontal {
+      height: 12px;
+    }
+    & .noUi-base {
+      &:after,
+      &:before {
+        position: absolute;
+        z-index: -1;
+        top: 4px;
+        bottom: 4px;
+        content: '';
+        transition: all 200ms ease-in-out;
+        pointer-events: none;
+      }
+      & .noUi-origin {
+        & .noUi-handle {
+          top: -10px;
+          left: -16px;
+          width: 32px;
+          height: 32px;
+          border: none;
+          border-radius: 50%;
+          background: none;
+          & .noUi-tooltip {
+            font-size: small;
+            bottom: 130%;
+            padding: .25rem;
+            white-space: nowrap;
+            border-radius: @radius-s;
+            &:after {
+              position: absolute;
+              top: 100%;
+              left: 50%;
+              width: 0;
+              height: 0;
+              margin-left: -.25rem;
+              content: ' ';
+              pointer-events: none;
+              border: .25rem solid transparent;
+            }
+          }
+        }
+      }
+    }
+    & .noUi-pips-horizontal {
+      z-index: 2;
+      top: 22px;
+      height: 64px;
+      padding: 0;
+      pointer-events: none;
+      & .noUi-marker-horizontal.noUi-marker-large {
+        position: absolute;
+        bottom: 100%;
+        width: 32px;
+        height: 32px;
+        margin-left: -16px;
+        border-radius: 50%;
+      }
+      & .noUi-value {
+        font-size: x-small;
+        white-space: nowrap;
+      }
     }
   }
 }
