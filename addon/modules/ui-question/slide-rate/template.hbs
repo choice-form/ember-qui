@@ -24,7 +24,7 @@
   {{/each}}
 </ul>
 
-<div class="swiper-container">
+<div class="swiper-container" data-render-id="{{node.renderId}}">
   <div class="swiper-wrapper">
     {{#each options as |option|}}
       <div class="swiper-slide" data-state={{if option.image "image" "text"}}>
