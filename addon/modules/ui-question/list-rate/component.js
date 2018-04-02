@@ -37,10 +37,10 @@ export default Component.extend({
           }
         }
       }
-    }
+    };
 
     this.options.forEach(option => {
-      const slider = document.querySelector(`.slider-${option.index}`);
+      const slider = document.querySelector(`.slider-${option.renderId}`);
       const start = option.value || rateOptions[Math.floor(length / 2)].value;
 
       const ranger = noUiSlider.create(slider, {

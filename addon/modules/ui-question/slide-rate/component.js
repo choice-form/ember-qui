@@ -39,7 +39,9 @@ export default Component.extend({
         .then(icon => set(rateOption, 'svg', icon.outerHTML));
     });
 
-    const swiper = new Swiper('.swiper-container', {
+    const selector = `[data-render-id='${this.get('node.renderId')}'].swiper-container`;
+
+    const swiper = new Swiper(selector, {
       allowSwipeToPrev: false,
       allowSwipeToNext: false,
       autoHeight: true,
