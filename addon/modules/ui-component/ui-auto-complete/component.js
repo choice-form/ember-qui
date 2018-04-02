@@ -39,6 +39,8 @@ export default Component.extend({
       this.set('virtualValue', '');
       this.$textarea.val(`${this.value ? this.value + ',' : ''}${name}`).trigger('input');
       this.closeMenu();
+
+      $(this.element).find('input').focus();
     },
 
     triggerInput(e) {
