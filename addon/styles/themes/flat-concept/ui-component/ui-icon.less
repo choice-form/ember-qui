@@ -12,14 +12,7 @@
         &.text {
           & .effect-container {
             & .icon-text {
-              animation-name: shape;
-              animation-duration: .75s;
-              animation-timing-function: cubic-bezier(.5, 0, 0, .8);
-              animation-delay: .1s;
-              animation-iteration-count: 1;
               background-color: currentColor;
-
-              animation-fill-mode: forwards;
             }
           }
         }
@@ -32,18 +25,12 @@
   & label {
     cursor: pointer;
     &.text {
-      padding: 1rem 0;
       & .effect-container {
-        align-self: center;
         & .icon-text {
-          display: flex;
           width: 88px;
           height: 88px;
           padding: @offset/4;
           border-radius: 1.6rem;
-
-          align-items: center;
-          justify-content: center;
           & span {
             display: -webkit-box;
             overflow: hidden;
@@ -59,7 +46,6 @@
     &.svg {
       padding: @offset/2;
       & .effect-container {
-        align-self: center;
         & .svg-wrapper {
           position: relative;
           width: 64px;
@@ -90,6 +76,19 @@
       }
     }
   }
+  @media (max-width: 320px) {
+    & label {
+      &.text {
+        & .effect-container {
+          & .icon-text {
+            width: 72px;
+            height: 72px;
+            border-radius: 1.25rem;
+          }
+        }
+      }
+    }
+  }
 }
 
 /*------------------- fix -------------------*/
@@ -101,13 +100,37 @@
       display: inline-block;
       width: 24.4%;
       @media (max-width: 767px) {
-        width: 32.8%;
+        width: 32%;
+      }
+      & label {
+        &.text {
+          display: block;
+          padding: .5rem 0;
+          & .effect-container {
+            & .icon-text {
+              display: table;
+              margin: 0 auto;
+              & span {
+                font-size: small;
+                display: table-cell;
+                vertical-align: middle;
+              }
+            }
+          }
+        }
+        &.svg {
+          & .effect-container {
+          }
+        }
       }
     }
   }
 }
 
-html.ie {
+/*------------------- fix -------------------*/
+
+html.ie,
+html[class*='safari -8'] {
   .icon-fix();
 }
 
@@ -133,11 +156,47 @@ html.ie {
       @media (max-width: 767px) {
         flex-basis: 33.3%;
       }
+      & input {
+        &:checked {
+          & + label {
+            &.text {
+              & .effect-container {
+                & .icon-text {
+                  animation-name: shape;
+                  animation-duration: .75s;
+                  animation-timing-function: cubic-bezier(.5, 0, 0, .8);
+                  animation-delay: .1s;
+                  animation-iteration-count: 1;
+
+                  animation-fill-mode: forwards;
+                }
+              }
+            }
+          }
+        }
+      }
       & label {
         display: flex;
         flex-direction: column;
 
         flex-grow: 2;
+        &.text {
+          padding: 1rem 0;
+          & .effect-container {
+            align-self: center;
+            & .icon-text {
+              display: flex;
+
+              align-items: center;
+              justify-content: center;
+            }
+          }
+        }
+        &.svg {
+          & .effect-container {
+            align-self: center;
+          }
+        }
       }
     }
   }

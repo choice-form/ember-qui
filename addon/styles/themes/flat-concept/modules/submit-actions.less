@@ -5,6 +5,7 @@
   & button,
   & a.button {
     min-width: @offset*5;
+
     backface-visibility: hidden;
   }
   & .nextButton {
@@ -18,7 +19,7 @@
   & .nextButton {
     animation-name: fadein;
     animation-duration: .65s;
-    animation-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+    animation-timing-function: cubic-bezier(.645, .045, .355, 1);
     animation-iteration-count: 1;
 
     animation-fill-mode: forwards;
@@ -61,9 +62,14 @@ button {
     display: table;
     width: 100%;
     padding: @offset*2.25 @offset*1.5;
+    vertical-align: middle;
     & button {
       display: table-cell;
+      margin-top: @offset*2;
       vertical-align: middle;
+      &:only-of-type {
+        width: 100%;
+      }
     }
     & .nextButton {
       float: right;
@@ -71,12 +77,13 @@ button {
   }
 }
 
-html.ie {
+html.ie,
+html[class*='safari -8'] {
   .submit-actions-fix();
 }
 
 @supports not(display: flex) {
-.submit-actions-fix();
+  .submit-actions-fix();
 }
 
 /*------------------- supports -------------------*/
@@ -84,6 +91,7 @@ html.ie {
 .submit-actions-supports() {
   .submit-actions {
     display: flex;
+
     align-items: center;
     & .nextButton {
       margin-left: auto;
@@ -97,7 +105,7 @@ html.edge {
 }
 
 @supports (display: flex) {
-.submit-actions-supports();
+  .submit-actions-supports();
 }
 
 /*------------------- responsive -------------------*/

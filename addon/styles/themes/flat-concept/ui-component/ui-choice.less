@@ -6,6 +6,7 @@
 
 .ui-choice {
   position: relative;
+
   backface-visibility: hidden;
   & input {
     margin: auto 0;
@@ -21,13 +22,13 @@
     white-space: normal;
     word-wrap: break-word;
     & .effect-container {
-      width: @offset/1.25;
-      height: @offset/1.25;
-      margin: auto 0;
       position: absolute;
       top: 0;
       right: 0;
       bottom: 0;
+      width: @offset/1.25;
+      height: @offset/1.25;
+      margin: auto 0;
       & .svg-wrapper {
         & svg {
           display: block;
@@ -61,7 +62,8 @@
 }
 
 
-html.ie {
+html.ie,
+html[class*='safari -8'] {
   .ui-choice-fix();
 }
 

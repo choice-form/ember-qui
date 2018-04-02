@@ -1,6 +1,4 @@
 .preview-flag {
-  display: flex;
-  align-items: center;
   position: fixed;
   z-index: 1000;
   top: 0;
@@ -14,10 +12,40 @@
   & h3 {
     font-size: 16px;
     font-weight: normal;
+    margin: 0;
     letter-spacing: 1px;
     text-transform: uppercase;
-    margin: 0;
   }
+}
+
+html.ie,
+html[class*='safari -8'] {
+  .ui-preview-fix();
+}
+
+@supports not(display: flex) {
+  .ui-preview-fix();
+}
+
+.ui-preview-fix() {
+  .preview-flag {
+    & h3 {
+      line-height: 38px;
+      float: left;
+    }
+  }
+}
+
+.ui-preview-supports() {
+  .preview-flag {
+    display: flex;
+
+    align-items: center;
+  }
+}
+
+@supports (display: flex) {
+  .ui-preview-supports();
 }
 
 html.desktop {
