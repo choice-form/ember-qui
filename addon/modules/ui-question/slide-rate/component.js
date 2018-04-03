@@ -3,7 +3,7 @@ import layout from './template';
 import inject from 'ember-service/inject';
 import computed from 'ember-computed';
 import set from 'ember-metal/set';
-import { later } from 'ember-runloop';
+import { later, throttle } from 'ember-runloop';
 import Swiper from 'swiper';
 
 export default Component.extend({
@@ -29,7 +29,9 @@ export default Component.extend({
 
   allowSwipeToPrev: false,
 
-  allowSwipeToNext: false,
+  allowSwipeToNext: computed(function() {
+    return !!this.get('options')[0].value;
+  }),
 
   didInsertElement() {
     this._super(...arguments);
@@ -60,18 +62,23 @@ export default Component.extend({
     this.set('swiper', swiper);
   },
 
+  throttleHandleOptionInput() {
+    const swiper = this.get('swiper');
+
+    const option = this.get('options')[swiper.activeIndex];
+    this.handleEvents.handleOptionInput(this.get('value'), option, this.get('node'));
+
+    later(this, function() {
+      swiper.unlockSwipeToNext();
+      swiper.slideNext();
+      swiper.lockSwipeToNext();
+    }, 850);
+  },
+
   actions: {
     handleOptionInput(value) {
-      const swiper = this.get('swiper');
-
-      const option = this.get('options')[swiper.activeIndex];
-      this.handleEvents.handleOptionInput(value, option, this.get('node'));
-
-      later(this, function() {
-        swiper.unlockSwipeToNext();
-        swiper.slideNext();
-        swiper.lockSwipeToNext();
-      }, 850);
+      this.set('value', value);
+      throttle(this, this.throttleHandleOptionInput, 850);
     },
 
     swipeToPrev() {
