@@ -4,7 +4,7 @@
     <a class={{if (eq first.uuid currentOption.uuid) "selected"}} data-state={{if (get state first.uuid) "active"}} onclick={{action "handleOptionClick" node.cascade first}}>
       <span>{{first.text}}</span>
       {{#if (get state first.uuid)}}
-        <span>{{get state first.uuid}}</span>
+        <div class="number">{{get state first.uuid}}</div>
       {{/if}}
     </a>
   {{/each}}
@@ -20,5 +20,21 @@
         </a>
       {{/each}}
     </div>
+  {{else}}
+    <div class="tips">
+      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32">
+        <g fill="none" stroke="currentColor" stroke-linecap="square" stroke-miterlimit="10" stroke-width="2">
+          <path d="M16 1L16 31" data-color="color-2"></path>
+          <path d="M23 3H31V11H23z"></path>
+          <path d="M19 7L16 7" data-color="color-2"></path>
+          <path d="M23 21H31V29H23z"></path>
+          <path d="M19 25L16 25" data-color="color-2"></path>
+          <path d="M1 12H9V20H1z" transform="rotate(-180 5 16)"></path>
+          <path d="M13 16L16 16" data-color="color-2"></path>
+        </g>
+      </svg>
+      <span>请根据左侧一级指标，对右侧二级指标进行选择。</span>
+    </div>
+
   {{/if}}
 </div>
