@@ -12,7 +12,7 @@ export default Component.extend({
 
   count: 2,
 
-  currentIndex: null,
+  currentOption: null,
 
   state: computed(function() {
     return this.node.cascade.list.reduce((acc, item) => {
@@ -43,7 +43,7 @@ export default Component.extend({
       this.handleEvents.handleOptionClick({resultList, list: cascade.list, group: cascade}, this.node);
 
       if (option.list) {
-        this.set('currentIndex', option.uuid);
+        this.set('currentOption', option);
       } else {
         this.set(`state.${cascade.uuid}`, true);
       }

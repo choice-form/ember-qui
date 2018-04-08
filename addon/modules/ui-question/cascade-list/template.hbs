@@ -1,15 +1,19 @@
 {{!--顶层级联菜单--}}
-{{#each node.cascade.list as |first|}}
-  <span
-    data-state={{if (get state first.uuid) "selected"}}
-    style={{if first.selected "color: red"}}
-    onclick={{action "handleOptionClick" node.cascade first}}
-  >{{first.text}}</span>
+<div class="first">
+  {{#each node.cascade.list as |first|}}
+    <span
+      data-state={{if (get state first.uuid) "selected"}}
+      style={{if first.selected "color: red"}}
+      onclick={{action "handleOptionClick" node.cascade first}}
+    >{{first.text}}</span>
+  {{/each}}
+</div>
 
-  {{!--二层级联菜单--}}
-  {{#if (eq first.uuid currentIndex)}}
-    {{#each first.list as |second|}}
-      <span style={{if second.selected "color: red"}} onclick={{action "handleOptionClick" first second}}>{{second.text}}</span>
+{{!--二层级联菜单--}}
+<div class="second">
+  {{#if currentOption}}
+    {{#each currentOption.list as |second|}}
+      <span style={{if second.selected "color: red"}} onclick={{action "handleOptionClick" currentOption second}}>{{second.text}}</span>
     {{/each}}
   {{/if}}
-{{/each}}
+</div>
