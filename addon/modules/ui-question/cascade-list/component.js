@@ -17,7 +17,7 @@ export default Component.extend({
 
   state: computed(function() {
     return this.node.cascade.list.reduce((acc, item) => {
-      acc[item.uuid] = item.list.some(i => i.selected);
+      acc[item.uuid] = item.list.filter(i => i.selected).length;
       return acc;
     }, {})
   }),
@@ -51,7 +51,7 @@ export default Component.extend({
         this.set('currentOption', option);
       } else {
         // 选中或取消二级选项时，设置一级选中的状态
-        this.set(`state.${cascade.uuid}`, resultList.length > 0);
+        this.set(`state.${cascade.uuid}`, resultList.length);
       }
     }
   }
