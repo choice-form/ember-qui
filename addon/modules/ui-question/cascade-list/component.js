@@ -3,7 +3,6 @@ import layout from './template';
 import { reads } from 'ember-computed';
 import computed from 'ember-computed';
 
-
 export default Component.extend({
   layout,
 
@@ -11,8 +10,15 @@ export default Component.extend({
 
   renderId: reads('node.renderId'),
 
-  count: computed(function() {
-    return Math.max(...this.node.options.map(option => option.cascadePath.split('=>').length));
+  count: 2,
+
+  currentIndex: null,
+
+  state: computed(function() {
+    return this.node.cascade.list.reduce((acc, item) => {
+      acc[item.uuid] = item.list.some(i => i.selected);
+      return acc;
+    }, {})
   }),
 
   actions: {
@@ -29,14 +35,18 @@ export default Component.extend({
 
         if (resultList.indexOf(option.text) == -1) {
           resultList.push(option.text);
-        } else {
-          resultList = resultList.filter(item => item != option.text);
         }
       } else {
         resultList = option.text;
       }
 
       this.handleEvents.handleOptionClick({resultList, list: cascade.list, group: cascade}, this.node);
+
+      if (option.list) {
+        this.set('currentIndex', option.uuid);
+      } else {
+        this.set(`state.${cascade.uuid}`, true);
+      }
     }
   }
 }).reopenClass({ positionalParams: ['node','handleEvents']});
