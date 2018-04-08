@@ -1,24 +1,26 @@
 {{!--顶层级联菜单--}}
 <div class="cascade-list-tabs">
   {{#each node.cascade.list as |first|}}
-    <a data-state={{if (get state first.uuid) "active"}}
-      class={{if (eq first.uuid currentOption.uuid) "selected"}}
-      onclick={{action "handleOptionClick" node.cascade first}}>
+    <a class={{if (eq first.uuid currentOption.uuid) "selected"}} data-state={{if (get state first.uuid) "active"}} onclick={{action "handleOptionClick" node.cascade first}}>
       <span>{{first.text}}</span>
       {{#if (get state first.uuid)}}
-        <svg xmlns="http://www.w3.org/2000/svg" x="0" y="0" width="11" height="8" viewBox="0 0 11 8" enable-background="new 0 0 11 8"><path d="M3.646 7.858l-3.5-3.417a.473.473 0 0 1 0-.684l.707-.684a.514.514 0 0 1 .707 0L4 5.467 9.439.142a.514.514 0 0 1 .707 0l.707.684a.472.472 0 0 1 0 .683l-6.5 6.351a.514.514 0 0 1-.707-.002z"></path></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" x="0" y="0" width="11" height="8" viewBox="0 0 11 8" enable-background="new 0 0 11 8">
+          <path d="M3.646 7.858l-3.5-3.417a.473.473 0 0 1 0-.684l.707-.684a.514.514 0 0 1 .707 0L4 5.467 9.439.142a.514.514 0 0 1 .707 0l.707.684a.472.472 0 0 1 0 .683l-6.5 6.351a.514.514 0 0 1-.707-.002z"></path>
+        </svg>
       {{/if}}
     </a>
   {{/each}}
 </div>
 
 {{!--二层级联菜单--}}
-<div class="cascade-list-contents">
+<div class={{concat "cascade-list-mask " (if currentOption 'active')}}>
   {{#if currentOption}}
-    {{#each currentOption.list as |second|}}
-      <a class={{if second.selected "selected"}} onclick={{action "handleOptionClick" currentOption second}}>
-        <span>{{second.text}}</span>
-      </a>
-    {{/each}}
+    <div class="cascade-list-contents">
+      {{#each currentOption.list as |second|}}
+        <a class={{if second.selected "selected"}} onclick={{action "handleOptionClick" currentOption second}}>
+          <span>{{second.text}}</span>
+        </a>
+      {{/each}}
+    </div>
   {{/if}}
 </div>
