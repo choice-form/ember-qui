@@ -2,7 +2,7 @@
 <div class="cascade-list-tabs">
   {{#each node.cascade.list as |first|}}
     <a data-state={{if (get state first.uuid) "active"}}
-      class={{if first.selected "selected"}}
+      class={{if (eq first.uuid currentOption.uuid) "selected"}}
       onclick={{action "handleOptionClick" node.cascade first}}>
       <span>{{first.text}}</span>
       {{#if (get state first.uuid)}}

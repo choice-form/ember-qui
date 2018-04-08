@@ -36,6 +36,9 @@ export default Component.extend({
 
         if (resultList.indexOf(option.text) == -1) {
           resultList.push(option.text);
+        } else if (!option.list) {
+          // 多选二级取消选中
+          resultList = resultList.filter(i => i != option.text);
         }
       } else {
         resultList = option.text;
@@ -44,9 +47,11 @@ export default Component.extend({
       this.handleEvents.handleOptionClick({resultList, list: cascade.list, group: cascade}, this.node);
 
       if (option.list) {
+        // 选中或取消一级选项时，并设置为当前的一级选中
         this.set('currentOption', option);
       } else {
-        this.set(`state.${cascade.uuid}`, true);
+        // 选中或取消二级选项时，设置一级选中的状态
+        this.set(`state.${cascade.uuid}`, resultList.length > 0);
       }
     }
   }
