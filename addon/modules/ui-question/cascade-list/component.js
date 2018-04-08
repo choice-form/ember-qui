@@ -5,6 +5,7 @@ import computed from 'ember-computed';
 
 export default Component.extend({
   layout,
+  classNames: ['cascade-list-wrapper'],
 
   attributeBindings: ['renderId:data-render-id', 'count:data-count'],
 

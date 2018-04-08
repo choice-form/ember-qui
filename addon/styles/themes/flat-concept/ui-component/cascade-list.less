@@ -1,0 +1,27 @@
+.cascade-list {
+  & .cascade-list-wrapper {
+    display: flex;
+    font-size: small;
+    & .cascade-list-tabs {
+      display: flex;
+      flex-direction: column;
+      & a {
+        &.selected {
+          color: red;
+        }
+        &[data-state='active'] {
+
+        }
+      }
+    }
+    & .cascade-list-contents {
+      display: flex;
+      flex-direction: column;
+      & a {
+        &.selected {
+          color: red;
+        }
+      }
+    }
+  }
+}
