@@ -51,7 +51,7 @@ export default Component.extend({
         this.set('currentOption', option);
       } else {
         // 选中或取消二级选项时，设置一级选中的状态
-        this.set(`state.${cascade.uuid}`, resultList.length);
+        this.set(`state.${cascade.uuid}`, Array.isArray(resultList) ? resultList.length : 1);
       }
     }
   }
