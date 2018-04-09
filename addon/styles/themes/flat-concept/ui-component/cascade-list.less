@@ -1,30 +1,18 @@
 .cascade-list {
   margin-bottom: 1rem;
   & .cascade-list-wrapper {
-    display: flex;
-
-    align-items: stretch;
     & .cascade-list-tabs {
       font-size: small;
-      display: flex;
-      flex-direction: column;
       margin-right: -1px;
       padding: 1rem 0;
-
-      flex-basis: 30%;
       & a {
         position: relative;
-        display: flex;
         padding: .5rem 2rem .5rem .5rem;
         border: 1px solid transparent;
         border-radius: @radius-m 0 0 @radius-m;
-
-        align-items: flex-start;
         & span {
           line-height: 1rem;
           margin-right: .5rem;
-
-          flex-grow: 1;
         }
         & .number {
           font-size: xx-small;
@@ -35,8 +23,6 @@
           min-width: 1rem;
           text-align: center;
           border-radius: .5rem;
-
-          flex-shrink: 0;
         }
         &.selected {
           z-index: 2;
@@ -46,8 +32,7 @@
     }
     & .cascade-list-mask {
       position: relative;
-
-      flex-grow: 1;
+      min-height: 200px;
       &:before {
         position: absolute;
         top: 1rem;
@@ -63,46 +48,134 @@
         }
       }
       & .tips {
-        position: absolute;
-        top: 1rem;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        display: flex;
-        flex-direction: column;
-        margin: auto;
-        padding: 1rem 3rem;
         text-align: center;
         pointer-events: none;
-        opacity: .64;
-
-        align-items: center;
-        justify-content: center;
+        & svg {
+          opacity: .32;
+        }
         & span {
           font-size: x-small;
           margin-top: 1rem;
+          opacity: .64;
         }
       }
       & .cascade-list-contents {
         height: 100%;
         padding: .5rem 0 0 .5rem;
         border-radius: @radius-m;
-
-        flex-shrink: 0;
-        flex-basis: 70%;
         & a {
           display: inline-block;
           margin: 0 .25rem .5rem 0;
           padding: .25rem .5rem;
           border-radius: @radius-m;
-          &.selected {
-            animation-name: shape;
-            animation-duration: .75s;
-            animation-timing-function: cubic-bezier(.5, 0, 0, .8);
-            animation-delay: .1s;
-            animation-iteration-count: 1;
+        }
+      }
+    }
+  }
+}
 
-            animation-fill-mode: forwards;
+/*------------------- fix -------------------*/
+
+html.ie,
+html[class*='safari -8'] {
+  .ui-cascade-list-fix();
+}
+
+@supports not(display: flex) {
+  .ui-cascade-list-fix();
+}
+
+@supports (display: flex) {
+  .ui-cascade-list-supports();
+}
+
+.ui-cascade-list-fix() {
+  .cascade-list {
+    & .cascade-list-wrapper {
+      & .cascade-list-tabs {
+        float: left;
+        width: 35%;
+        & a {
+          display: block;
+        }
+      }
+      & .cascade-list-mask {
+        display: table;
+        float: left;
+        width: 65%;
+        & .tips {
+          display: table-cell;
+          padding: 1rem;
+          vertical-align: middle;
+          & span {
+            display: block;
+          }
+        }
+        & .cascade-list-contents {
+          & a {
+            font-size: small;
+          }
+        }
+      }
+    }
+  }
+}
+
+.ui-cascade-list-supports() {
+  .cascade-list {
+    & .cascade-list-wrapper {
+      display: flex;
+
+      align-items: stretch;
+      & .cascade-list-tabs {
+        display: flex;
+        flex-direction: column;
+
+        flex-basis: 30%;
+        & a {
+          display: flex;
+
+          align-items: flex-start;
+          & span {
+            flex-grow: 1;
+          }
+          & .number {
+            flex-shrink: 0;
+          }
+        }
+      }
+      & .cascade-list-mask {
+        flex-grow: 1;
+        & .tips {
+          position: absolute;
+          top: 1rem;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          display: flex;
+          flex-direction: column;
+          margin: auto;
+          padding: 1rem 3rem;
+
+          align-items: center;
+          justify-content: center;
+          & svg {
+            flex-shrink: 0;
+          }
+        }
+        & .cascade-list-contents {
+          flex-shrink: 0;
+          flex-basis: 70%;
+          & a {
+            &.selected {
+              animation-name: shape;
+              animation-duration: .75s;
+              animation-timing-function: cubic-bezier(.5, 0, 0, .8);
+              animation-delay: .1s;
+              animation-iteration-count: 1;
+
+              animation-fill-mode: forwards;
+            }
           }
         }
       }

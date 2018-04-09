@@ -1,4 +1,3 @@
-{{!--顶层级联菜单--}}
 <div class="cascade-list-tabs">
   {{#each node.cascade.list as |first|}}
     <a class={{if (eq first.uuid currentOption.uuid) "selected"}} data-state={{if (get state first.uuid) "active"}} onclick={{action "handleOptionClick" node.cascade first}}>
@@ -10,7 +9,6 @@
   {{/each}}
 </div>
 
-{{!--二层级联菜单--}}
 <div class={{concat "cascade-list-mask " (if currentOption 'active')}}>
   {{#if currentOption}}
     <div class="cascade-list-contents">
