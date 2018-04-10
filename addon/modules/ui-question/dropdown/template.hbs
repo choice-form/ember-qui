@@ -3,7 +3,7 @@
   {{#ui-component/mobi-select handleSelect=handleEvents.handleOptionClick node=node list=node.options
                               group=node}}
     {{#each node.options as |option|}}
-      <option selected={{option.selected}}>{{option.text}}</option>
+      <option selected={{option.selected}} mutex={{option.mutexNumber}}>{{option.text}}</option>
     {{/each}}
   {{/ui-component/mobi-select}}
 

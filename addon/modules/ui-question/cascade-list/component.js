@@ -13,9 +13,11 @@ export default Component.extend({
 
   count: 2,
 
+  reminder: 0,
+
   currentOption: null,
 
-  state: computed(function() {
+  state: computed('reminder', function() {
     return this.node.cascade.list.reduce((acc, item) => {
       acc[item.uuid] = item.list.filter(i => i.selected).length;
       return acc;
@@ -44,15 +46,16 @@ export default Component.extend({
         resultList = option.text;
       }
 
-      this.handleEvents.handleOptionClick({resultList, list: cascade.list, group: cascade}, this.node);
+      const ok = this.handleEvents.handleOptionClick({resultList, list: cascade.list, group: cascade}, this.node);
 
-      if (option.list) {
-        // 选中或取消一级选项时，并设置为当前的一级选中
-        this.set('currentOption', option);
-      } else {
-        // 选中或取消二级选项时，设置一级选中的状态
-        this.set(`state.${cascade.uuid}`, Array.isArray(resultList) ? resultList.length : 1);
+      if(ok){
+        if (option.list) {
+          // 选中或取消一级选项时，并设置为当前的一级选中
+          this.set('currentOption', option);
+        }
+        this.set('reminder', this.get('reminder') + 1);
       }
+
     }
   }
 }).reopenClass({ positionalParams: ['node','handleEvents']});
