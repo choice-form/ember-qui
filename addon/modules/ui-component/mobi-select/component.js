@@ -45,7 +45,7 @@ export default Component.extend({
           if (mutexNumber === 10) {
             // 排他的直接排掉其他使用自己
             inst.setVal(item.text);
-          } else if (inst._tempValue) {
+          } else{
             // 互斥的排掉同队和排他的即可
             let tempArray = inst._tempValue.split(',');
             tempArray.forEach((v, index) => {

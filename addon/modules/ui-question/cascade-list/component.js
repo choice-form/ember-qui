@@ -37,7 +37,7 @@ export default Component.extend({
           if(mutexNumber === 10){
             // 排他的直接使用自己排掉其他
             selected = [option];
-          }else if(selected.length){
+          }else{
             // 互斥的排掉同队及排他再加上自己
             selected = selected.filter(item => {
               return (!mutexNumber || item.mutexNumber !== mutexNumber)
