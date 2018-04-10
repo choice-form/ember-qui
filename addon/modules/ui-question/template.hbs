@@ -1,8 +1,9 @@
-<section>
+<section data-state={{question.nodeName}}>
   <div class="wrapper">
     {{#if question.lazyLoad}}
       {{#each question.nodes as |node|}}
-        {{#ui-question/lazy-loader class=(concat 'data-' node.quesType) renderId=node.renderId
+        {{#ui-question/lazy-loader class=(concat 'data-' node.quesType ' node-' node.nodeName)
+                                   renderId=node.renderId
                                    isSingle=true as |viewable|}}
           {{#if viewable}}
             {{ui-question/-node node question.handleEvents preview=question.preview}}
@@ -13,7 +14,7 @@
       {{/each}}
     {{else}}
       {{#each question.nodes as |node|}}
-        <div data-render-id={{node.renderId}} class={{concat 'lazy-loader data-' node.quesType}}>
+        <div data-render-id={{node.renderId}} class={{concat 'lazy-loader data-' node.quesType ' node-' node.nodeName}}>
           {{ui-question/-node node question.handleEvents preview=question.preview}}
         </div>
 

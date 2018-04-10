@@ -29,19 +29,31 @@ export default Component.extend({
       let resultList;
 
       if (cascade.multiple) {
-        resultList = cascade.list.reduce((acc, item) => {
-          if (item.selected) {
-            acc.push(item.text);
-          }
-          return acc;
-        }, []);
 
-        if (resultList.indexOf(option.text) == -1) {
-          resultList.push(option.text);
+        let selected = cascade.list.filter(item => item.selected);
+
+        if (selected.indexOf(option) == -1) {
+          const {mutexNumber} = option;
+          if(mutexNumber === 10){
+            // 排他的直接使用自己排掉其他
+            selected = [option];
+          }else if(selected.length){
+            // 互斥的排掉同队及排他再加上自己
+            selected = selected.filter(item => {
+              return (!mutexNumber || item.mutexNumber !== mutexNumber)
+              && item.mutexNumber !== 10;
+            });
+            selected.push(option);
+          }
+
         } else if (!option.list) {
           // 多选二级取消选中
-          resultList = resultList.filter(i => i != option.text);
+          selected = selected.filter(i => i !== option);
         }
+        if(selected.length > cascade.max){
+          return;
+        }
+        resultList = selected.map(item => item.text);
       } else {
         resultList = option.text;
       }
