@@ -53,7 +53,9 @@
 </div>
 
 {{#if node.isHackSlide}}
-  <div class="list-wrapper-slider slider-{{node.renderId}}" data-state={{currentOption.value}} data-tooltips={{if currentOption.value "show"}}></div>
+  <div class="list-wrapper" data-count={{node.rateOptions.length}}>
+    <div class="list-wrapper-slider slider-{{node.renderId}}" data-state={{currentOption.value}} data-tooltips={{if currentOption.value "show"}}></div>
+  </div>
 {{else}}
   <ul class="rate-wrapper slide" data-state={{rateOptions.length}}>
     {{#each rateOptions as |rateOption|}}
