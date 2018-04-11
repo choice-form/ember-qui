@@ -11,7 +11,7 @@ export const matchRules = {
 };
 
 /**
- * 匹配文字,如果包含汉字的话会清楚其他非汉字字符,并且将汉字转成拼音进行匹配
+ * 匹配文字,如果包含汉字的话会清除其他非汉字字符,并且将汉字转成拼音进行匹配
  * @param {string} value 值
  * @param {string} targetValue 对比目标值
  * @param {string} rule 匹配规则
@@ -38,7 +38,7 @@ const matchTextComplex = (value, targetValue, rule = 'full') => {
 };
 
 /**
- * 简单匹配文字
+ * 简单匹配文字,完全匹配或者去掉空格后完全匹配
  * @param value
  * @param text
  * @returns {boolean}
@@ -59,7 +59,7 @@ const matchTextSimple = (value, text) => {
  * @returns {boolean}
  */
 const matchConfig = (valueList, {name, triggers}, existed, rule, simple) => {
-
+  name = String(name);
   const matchFn = simple ? matchTextSimple : matchTextComplex;
 
   return valueList.some(value => {
@@ -67,7 +67,7 @@ const matchConfig = (valueList, {name, triggers}, existed, rule, simple) => {
       &&
       (
         matchFn(value, name.toLowerCase(), rule) ||
-        triggers.some(trigger => matchFn(value, trigger.toLowerCase(), rule))
+        triggers.some(trigger => matchFn(value, String(trigger).toLowerCase(), rule))
       );
   });
 };
@@ -106,7 +106,7 @@ export const searchResult = (text, dataSource, rule, simple) => {
     result = dataSource.reduce((rs, config) => {
       // 拼音输入法下面输入时字母间可能有空格或'号
       const matched = matchConfig([value, value.replace(/['\s]/g, '')], config, existed, rule, simple);
-      matched && (rs.push({name: config.name, icon: config.icon}));
+      matched && (rs.push({name: String(config.name), icon: config.icon}));
       return rs;
     }, []);
   }
