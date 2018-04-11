@@ -12,11 +12,13 @@
 <div class={{concat "cascade-list-mask " (if currentOption 'active')}}>
   {{#if currentOption}}
     <div class="cascade-list-contents">
-      {{#each currentOption.list as |second|}}
-        <a class={{if second.selected "selected"}} onclick={{action "handleOptionClick" currentOption second}}>
-          <span>{{second.text}}</span>
-        </a>
-      {{/each}}
+      {{#liquid-spacer}}
+        {{#each currentOption.list as |second|}}
+          <a class={{if second.selected "selected"}} onclick={{action "handleOptionClick" currentOption second}}>
+            <span>{{second.text}}</span>
+          </a>
+        {{/each}}
+      {{/liquid-spacer}}
     </div>
   {{else}}
     <div class="tips">
@@ -33,6 +35,5 @@
       </svg>
       <span>请根据左侧一级指标，对右侧二级指标进行选择。</span>
     </div>
-
   {{/if}}
 </div>

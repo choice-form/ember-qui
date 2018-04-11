@@ -1,37 +1,49 @@
 <ul class="slide-rate-dock">
   {{#each rateOptions as |rateOption|}}
-    <li>
-      <div class="rate-dock-icon">
-        {{#if rateOption.svg}}
-          <i>
-            {{{rateOption.svg}}}
-          </i>
-        {{/if}}
-        {{#if rateOption.text}}
-          <span>{{rateOption.text}}</span>
-        {{/if}}
-      </div>
-      <div class="rate-dock-item">
-        {{#each rateOption.result as |result|}}
-          {{#if result.image}}
-            <img src={{result.image.thumbnail}}>
-          {{else}}
-            <span>{{result.text}}</span>
+    {{#liquid-if rateOption.result}}
+      <li>
+        <div class="rate-dock-icon">
+          {{#if rateOption.svg}}
+            <i>
+              {{{rateOption.svg}}}
+            </i>
           {{/if}}
-        {{/each}}
-      </div>
-    </li>
+          {{#if rateOption.text}}
+            <span>{{rateOption.text}}</span>
+          {{/if}}
+        </div>
+        <div class="rate-dock-item">
+          {{#each rateOption.result as |result|}}
+            {{#if result.image}}
+              <img src={{result.image.thumbnail}}>
+            {{else}}
+              <span>{{result.text}}</span>
+            {{/if}}
+          {{/each}}
+        </div>
+      </li>
+    {{/liquid-if}}
   {{/each}}
 </ul>
 
 <div class="swiper-container" data-render-id="{{node.renderId}}">
   <div class="swiper-wrapper">
     {{#each options as |option|}}
-      <div class="swiper-slide" data-state={{if option.image "image" "text"}}>
+      <div class={{concat "swiper-slide " (if currentOption.value "complete")}} data-state={{if option.image "image" "text"}}>
         {{#if option.image}}
-          <img src={{option.image.large}}>
+          <div class="slide-image">
+            <img src={{option.image.large}}>
+            {{#if currentOption.value}}
+              {{particle size='l'}}
+            {{/if}}
+          </div>
         {{/if}}
         <p>{{{insert-img option.text}}}</p>
+        {{#unless option.image}}
+          {{#if currentOption.value}}
+            {{particle size='l'}}
+          {{/if}}
+        {{/unless}}
       </div>
     {{/each}}
   </div>
