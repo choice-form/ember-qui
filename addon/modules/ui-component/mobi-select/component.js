@@ -3,6 +3,7 @@ import layout from './template';
 import {scheduleOnce} from 'ember-runloop';
 import get from 'ember-metal/get';
 import {initSelect} from '../../lib/mobile-factory';
+import {tempI18n} from "../../helpers/temp-i18n";
 
 
 const recoverSelected = (inst, list) => {
@@ -60,6 +61,8 @@ export default Component.extend({
             // 不能超过最大项目数限制
             if(tempArray.length <= this.get('group.max')){
               inst.setVal(tempArray.join(','))
+            }else{
+              this.handleEvents.handleNotification(tempI18n('UI_SelMaxLimit', this.get('group.max')));
             }
           }
         }
@@ -76,7 +79,8 @@ export default Component.extend({
       },
       onItemTap,
       onSet: (event, inst) => {
-        const result = get(this, 'handleSelect') && get(this, 'handleSelect')({
+        const handleEvents = get(this, 'handleEvents');
+        const result = handleEvents && handleEvents.handleOptionClick({
           resultList: inst.getVal(),
           list: get(this, 'list'),
           group: get(this, 'group'),

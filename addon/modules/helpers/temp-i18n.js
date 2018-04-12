@@ -27,6 +27,7 @@ const en = {
   'UI_InputVerifyContent': 'Please enter comtent to be varified.',
   'UI_GoToCForm': 'Go to choicefom?',
   'UI_ClickToSelect': 'Please click to select.',
+  'UI_SelMaxLimit': 'can select #v1# items at most'
 };
 
 const zh = {
@@ -56,6 +57,7 @@ const zh = {
   'UI_InputVerifyContent': '请输入待验证内容',
   'UI_GoToCForm': '是否跳转到巧思科技主页？',
   'UI_ClickToSelect': '请点击选择...',
+  'UI_SelMaxLimit': '最多只能选中#v1#项'
 
 };
 
@@ -64,13 +66,19 @@ const languages = {
   zh,
 };
 
-export const tempI18n = (name) => {
+export const tempI18n = (name, ...replacements) => {
   const code = localStorage.getItem('language');
   let lang = languages[code];
   if (!lang) {
     lang = languages.zh;
   }
-  return lang[name]
+  let result = lang[name];
+  if (replacements.length > 0) {
+    replacements.forEach((replacement, index) => {
+      result = result.replace(new RegExp(`#v${index + 1}#`, 'g'), replacement);
+    });
+  }
+  return result;
 };
 
 export default Helper.helper(tempI18n);

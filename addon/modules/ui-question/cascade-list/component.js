@@ -2,6 +2,7 @@ import Component from 'ember-component';
 import layout from './template';
 import { reads } from 'ember-computed';
 import computed from 'ember-computed';
+import {tempI18n} from "../../helpers/temp-i18n";
 
 export default Component.extend({
   layout,
@@ -51,6 +52,7 @@ export default Component.extend({
           selected = selected.filter(i => i !== option);
         }
         if(selected.length > cascade.max){
+          this.handleEvents.handleNotification(tempI18n('UI_SelMaxLimit', cascade.max));
           return;
         }
         resultList = selected.map(item => item.text);
