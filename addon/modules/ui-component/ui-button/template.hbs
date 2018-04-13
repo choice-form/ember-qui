@@ -9,12 +9,10 @@
       <circle cx="18" cy="18" r="16"/>
     </svg>
   </div>
-{{/if}}
-
-
-
-{{#if text}}
-  <span>{{text}}</span>
+{{else}}
+  {{#if text}}
+    <span>{{text}}</span>
+  {{/if}}
 {{/if}}
 
 {{#if rightIcon}}

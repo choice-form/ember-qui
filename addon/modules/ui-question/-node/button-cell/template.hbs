@@ -1,6 +1,14 @@
 {{#if prevButton}}
-  {{ui-component/ui-button className='prevButton secondary' handleClick=(action 'handlePrevClick') text=prevButton}}
+  {{ui-component/ui-button className='prevButton secondary'
+                           disabled=nextLoading
+                           handleClick=(action 'handlePrevClick')
+                           text=prevButton}}
 {{/if}}
 {{#if nextButton}}
-  {{ui-component/ui-button className='nextButton contrast' handleClick=(action 'handleNextClick') leftIcon=leftIcon rightIcon=rightIcon text=nextButton loading=nextLoading}}
+  {{ui-component/ui-button className='nextButton contrast'
+                           handleClick=(action 'handleNextClick')
+                           leftIcon=leftIcon
+                           rightIcon=rightIcon
+                           text=nextButton
+                           loading=nextLoading}}
 {{/if}}
