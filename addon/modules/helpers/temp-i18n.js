@@ -75,7 +75,10 @@ export const tempI18n = (name, ...replacements) => {
   let result = lang[name];
   if (replacements.length > 0) {
     replacements.forEach((replacement, index) => {
-      result = result.replace(new RegExp(`#v${index + 1}#`, 'g'), replacement);
+      const type = typeof replacement;
+      if(type === 'string' || type === 'number'){
+        result = result.replace(new RegExp(`#v${index + 1}#`, 'g'), replacement);
+      }
     });
   }
   return result;
