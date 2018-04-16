@@ -40,10 +40,9 @@
         }
       }
     }
-    & span {
+    & > pre {
       font-size: @font-size*1.2;
       line-height: @offset/1.25;
-      display: block;
     }
   }
 }
@@ -56,6 +55,11 @@
     &:first-of-type {
       &:before {
         display: none;
+      }
+    }
+    & label {
+      & > pre {
+        display: block;
       }
     }
   }
@@ -77,6 +81,12 @@ html[class*='safari -8'] {
   .ui-choice {
     &:not(:first-of-type) {
       .border(0, 0, auto, 0, 1px, .3);
+    }
+    & label {
+      & > pre {
+        display: flex;
+        align-items: center;
+      }
     }
   }
 }
