@@ -42,7 +42,7 @@
 
           object-fit: cover;
         }
-        & span {
+        & > span {
           font-size: x-small;
           overflow: hidden;
           max-width: 128px;
@@ -57,6 +57,10 @@
           border-radius: @radius-s;
 
           object-fit: cover;
+          & .var-light {
+            background: none;
+            color: currentColor;
+          }
         }
       }
     }
