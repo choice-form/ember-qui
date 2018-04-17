@@ -12,13 +12,11 @@
 <div class={{concat "cascade-list-mask " (if currentOption 'active')}}>
   {{#if currentOption}}
     <div class="cascade-list-contents">
-      {{#liquid-spacer}}
-        {{#each currentOption.list as |second|}}
-          <a class={{if second.selected "selected"}} onclick={{action "handleOptionClick" currentOption second}}>
-            <span>{{second.text}}</span>
-          </a>
-        {{/each}}
-      {{/liquid-spacer}}
+      {{#each currentOption.list as |second|}}
+        <a class={{if second.selected "selected"}} onclick={{action "handleOptionClick" currentOption second}}>
+          <span>{{second.text}}</span>
+        </a>
+      {{/each}}
     </div>
   {{else}}
     <div class="tips">
