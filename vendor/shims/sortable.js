@@ -1,8 +1,7 @@
 (function() {
   function vendorModule() {
     'use strict';
-
-    return { 'default': self['Sortable'] };
+    return self['Draggable'];
   }
 
   define('sortable', [], vendorModule);
