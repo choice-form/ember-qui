@@ -27,8 +27,8 @@ module.exports = {
       'masonry-layout': {
         import: [{ path: 'dist/masonry.pkgd.js' }]
       },
-      sortablejs: {
-        import: [{ path: 'Sortable.js' }]
+      "@shopify/draggable": {
+        import: [{ path: 'lib/es5/draggable.bundle.js' }]
       },
       swiper: {
         srcDir: 'dist',
