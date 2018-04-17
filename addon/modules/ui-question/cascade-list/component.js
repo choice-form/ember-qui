@@ -31,7 +31,13 @@ export default Component.extend({
 
       if (cascade.multiple) {
 
-        let selected = cascade.list.filter(item => item.selected);
+        let selected = cascade.list.filter(item => {
+          if(item.list){
+            return item.selected && item.list.some(subItem => subItem.selected);
+          }else{
+            return item.selected;
+          }
+        });
 
         if (selected.indexOf(option) == -1) {
           const {mutexNumber} = option;
