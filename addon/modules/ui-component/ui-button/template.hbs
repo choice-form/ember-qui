@@ -4,17 +4,21 @@
 
 {{yield}}
 {{#if loading}}
-  <div class="ui-loader onclick">
-    <svg x="0" y="0" viewBox="0 0 36 36">
-      <circle cx="18" cy="18" r="16"/>
-    </svg>
+  <div class="loading-wrapper">
+    <span>Loading</span>
+    <div class="ui-loader onclick">
+      <svg x="0" y="0" viewBox="0 0 36 36">
+        <circle cx="18" cy="18" r="16"/>
+      </svg>
+  </div>
   </div>
 {{else}}
   {{#if text}}
     <span>{{text}}</span>
+    {{#if rightIcon}}
+      {{svg-item rightIcon size=size viewBox=viewBox}}
+    {{/if}}
   {{/if}}
 {{/if}}
 
-{{#if rightIcon}}
-  {{svg-item rightIcon size=size viewBox=viewBox}}
-{{/if}}
+
