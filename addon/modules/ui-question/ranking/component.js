@@ -6,10 +6,7 @@ import {reads} from 'ember-computed';
 import {Sortable, Plugins} from 'sortable';
 import {scheduleOnce, later} from 'ember-runloop';
 import {addClass} from '../../lib/attribute-manage'
-import $ from 'jquery';
 import device from 'device';
-
-console.log(Sortable, Plugins);
 
 export default Component.extend({
   layout,
@@ -74,44 +71,6 @@ export default Component.extend({
         });
       })
     });
-
-  },
-
-  scrollMovie(event) {
-    if (event.target.className !== 'handle') return;
-
-    const offset = 64;
-    const clientY = event.targetTouches[0].clientY;
-    const winowHeight = $(window).height();
-    const offsetX = offset;
-    const offsetY = winowHeight - offset;
-
-    const scrollAnimate = num => {
-      const scrollTop = $('body').scrollTop;
-      const scrollTime = scrollTop * 2 / winowHeight > 0.3 ? 4000 : 2000;
-      $('body').animate({scrollTop: num}, scrollTime);
-    };
-
-    if ((clientY < offsetX) && this.isScrollUp) {
-      scrollAnimate(0);
-      this.isScrollUp = false;
-    }
-
-    if ((clientY > offsetY) && this.isScrollDown) {
-      scrollAnimate(winowHeight);
-      this.isScrollDown = false;
-    }
-
-    if ((clientY <= offsetY) && (clientY >= offsetX)
-      && (!this.isScrollUp || !this.isScrollDown)) {
-      $('body').stop();
-      this.isScrollUp = true;
-      this.isScrollDown = true;
-    }
-  },
-
-  scrollStop() {
-    $('body').stop();
   },
 
   init() {
@@ -121,19 +80,5 @@ export default Component.extend({
 
   didInsertElement() {
     scheduleOnce('afterRender', this, 'renderSortable');
-
-    if (device.desktop()) return;
-
-    this.element.addEventListener('touchmove', this.scrollMovie, false);
-    this.element.addEventListener('touchend', this.scrollStop, false);
   },
-
-  willDestroyElement() {
-    this.sortable && this.sortable.destroy();
-
-    if (device.desktop()) return;
-
-    this.element && this.element.removeEventListener('touchmove', this.scrollMovie, false);
-    this.element && this.element.removeEventListener('touchend', this.scrollStop, false);
-  }
 }).reopenClass({positionalParams: ['node', 'handleEvents']});
