@@ -4,14 +4,10 @@
   padding: 0 @offset*1.5;
   & button,
   & a.button {
+    position: relative;
     min-width: @offset*5;
 
     backface-visibility: hidden;
-    & .loading-wrapper {
-      & span {
-        visibility: hidden;
-      }
-    }
   }
   & .nextButton {
     & span {
@@ -117,6 +113,9 @@ html.edge {
 
 html.desktop {
   & .submit-actions {
+    & button {
+      min-height: 44px;
+    }
     & .nextButton {
       position: relative;
       &:before {
@@ -142,6 +141,7 @@ html.tablet,
 html.mobile {
   & button {
     overflow: hidden;
+    min-height: 62px;
   }
 }
 
