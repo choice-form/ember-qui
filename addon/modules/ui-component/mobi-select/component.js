@@ -46,7 +46,7 @@ export default Component.extend({
           if (mutexNumber === 10) {
             // 排他的直接排掉其他使用自己
             inst.setVal(item.text);
-          } else{
+          } else {
             // 互斥的排掉同队和排他的即可
             let tempArray = inst._tempValue.split(',');
             tempArray.forEach((v, index) => {
@@ -59,10 +59,13 @@ export default Component.extend({
             });
             tempArray.push(event.value);
             // 不能超过最大项目数限制
-            if(tempArray.length <= this.get('group.max')){
+            if (tempArray.length <= this.get('group.max')) {
               inst.setVal(tempArray.join(','))
-            }else{
-              this.handleEvents.handleNotification(tempI18n('UI_SelMaxLimit', this.get('group.max')));
+            } else {
+              const text = this.group.text;
+              this.handleEvents.handleNotification(tempI18n('UI_SelMaxLimit',
+                text ? tempI18n('UI_ListItem') + text : tempI18n('UI_TopList'),
+                this.get('group.max')));
             }
           }
         }

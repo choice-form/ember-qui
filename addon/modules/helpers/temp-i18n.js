@@ -27,7 +27,9 @@ const en = {
   'UI_InputVerifyContent': 'Please enter comtent to be varified.',
   'UI_GoToCForm': 'Go to choicefom?',
   'UI_ClickToSelect': 'Please click to select.',
-  'UI_SelMaxLimit': 'can select #v1# items at most'
+  'UI_SelMaxLimit': '#v1#:can select #v2# items at most',
+  'UI_TopList': 'Top list',
+  'UI_ListItem': 'List item',
 };
 
 const zh = {
@@ -57,7 +59,9 @@ const zh = {
   'UI_InputVerifyContent': '请输入待验证内容',
   'UI_GoToCForm': '是否跳转到巧思科技主页？',
   'UI_ClickToSelect': '请点击选择...',
-  'UI_SelMaxLimit': '最多只能选中#v1#项'
+  'UI_SelMaxLimit': '#v1#:最多只能选中#v2#项',
+  'UI_TopList': '顶层列表',
+  'UI_ListItem': '列表项',
 
 };
 

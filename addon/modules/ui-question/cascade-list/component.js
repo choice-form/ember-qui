@@ -58,7 +58,9 @@ export default Component.extend({
           selected = selected.filter(i => i !== option);
         }
         if(selected.length > cascade.max){
-          this.handleEvents.handleNotification(tempI18n('UI_SelMaxLimit', cascade.max));
+          this.handleEvents.handleNotification(tempI18n('UI_SelMaxLimit',
+            cascade.text ? tempI18n('UI_ListItem') + cascade.text : tempI18n('UI_TopList'),
+            cascade.max));
           return;
         }
         resultList = selected.map(item => item.text);
