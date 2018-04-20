@@ -5,6 +5,7 @@
 
   backface-visibility: hidden;
   & .ranking-wrapper {
+    cursor: ns-resize;
     & + .ui-text {
       margin-top: @offset/1.25;
     }
@@ -15,7 +16,6 @@
       padding-bottom: @offset/2;
     }
     & .ranking-container {
-      pointer-events: none;
       position: relative;
       display: flex;
       transition: box-shadow 200ms ease;
@@ -23,6 +23,7 @@
 
       backface-visibility: hidden;
       & label {
+        pointer-events: none;
         display: block;
         padding: @offset/2 @offset*2 @offset/2 @offset/2;
 
@@ -62,9 +63,13 @@
       }
     }
     &.ghost {
+      cursor: grabbing;
       & .ranking-container {
         box-shadow: none !important;
       }
+    }
+    &.chosen {
+
     }
   }
 }

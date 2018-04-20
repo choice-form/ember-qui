@@ -41,7 +41,6 @@ export default Component.extend({
       mirror: {
         constrainDimensions: true,
       },
-      //handle: '.handle',
       swapAnimation: {
         duration: 200,
         easingFunction: 'ease-in-out',
@@ -61,6 +60,10 @@ export default Component.extend({
 
       if (newIndex === undefined) {
         newIndex = oldIndex;
+      }
+
+      if (newIndex === oldIndex) {
+        return;
       }
 
       const indexArray = this.handleEvents.handleOptionDrop(

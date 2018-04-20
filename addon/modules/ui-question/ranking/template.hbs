@@ -1,17 +1,17 @@
-<div class="ranking-wrapper">
+<ul class="ranking-wrapper">
   {{#each options as |option|}}
     {{#unless option.inputType }}
-      <div class="ranking-rank" data-render-id={{option.renderId}}>
+      <li class="ranking-rank" data-render-id={{option.renderId}}>
         <div class="ranking-container">
           <div class="ranking-number">{{option.sortNo}}</div>
           {{ui-component/ui-label
             text=option.text
             icon=option.icon}}
         </div>
-      </div>
+      </li>
     {{/unless}}
   {{/each}}
-</div>
+</ul>
 
 {{#each options as |option|}}
   {{#if option.inputType}}
