@@ -133,7 +133,6 @@ html[class*='safari -8'] {
         flex-direction: column;
 
         flex-shrink: 0;
-        flex-basis: 35%;
         & a {
           display: flex;
 
@@ -148,7 +147,6 @@ html[class*='safari -8'] {
       }
       & .cascade-list-mask {
         flex-grow: 1;
-        flex-basis: 65%;
         & .tips {
           position: absolute;
           top: 1rem;
@@ -167,12 +165,9 @@ html[class*='safari -8'] {
           }
         }
         & .cascade-list-contents {
-          display: flex;
-
-          flex-wrap: wrap;
           flex-shrink: 0;
-          align-content: flex-start;
           & a {
+            float: left;
             &.selected {
               animation-name: shape;
               animation-duration: .75s;

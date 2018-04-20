@@ -26,6 +26,12 @@
     height: 36px;
     margin: auto;
     zoom: .7;
+    animation-name: fade-in;
+    animation-duration: .75s;
+    animation-timing-function: cubic-bezier(.5, 0, 0, .8);
+    animation-iteration-count: 1;
+
+    animation-fill-mode: forwards;
   }
 }
 
@@ -44,6 +50,15 @@
   }
   100% {
     stroke-dashoffset: -200;
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
 

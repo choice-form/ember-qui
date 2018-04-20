@@ -37,7 +37,11 @@ export default Component.extend({
     const sortableWrapper = this.element.querySelector('.ranking-wrapper');
     const sortable = new Sortable(sortableWrapper, {
       draggable: '.ranking-rank',
-      handle: '.handle',
+      appendTo: sortableWrapper,
+      mirror: {
+        constrainDimensions: true,
+      },
+      //handle: '.handle',
       swapAnimation: {
         duration: 200,
         easingFunction: 'ease-in-out',
@@ -46,6 +50,7 @@ export default Component.extend({
       classes: {
         'source:dragging': 'ghost',
         'source:original': 'drag-origin',
+        'draggable:over': 'draggable--over',
         mirror: 'chosen'
       }
     });
