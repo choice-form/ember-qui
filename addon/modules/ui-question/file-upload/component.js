@@ -35,18 +35,27 @@ export default Component.extend({
   progress: 0,
 
   actions: {
-    handleOptionRemove(){
+    handleOptionRemove() {
       this.handleEvents.handleOptionInput('', get(this, 'option'), get(this, 'node'));
       this.element.getElementsByTagName('input')[0].value = '';
     },
 
-    handleOptionClick(e){
+    handleOptionClick(e) {
       //如果不能上传图片,就阻止input的默认事件
-      !this.handleEvents.handleOptionClick(get(this, 'option'), get(this, 'node'))
-      && e.preventDefault();
+      const node = get(this, 'node');
+      // 兼容新版上传
+      if (node.newapi) {
+        node.onProgress = (e) => {
+          set(this, 'progress', e + '');
+        }
+      }
+      const rs = this.handleEvents.handleOptionClick(get(this, 'option'), get(this, 'node'));
+      if (!rs || node.newapi) {
+        e.preventDefault()
+      }
     },
 
-    handleOptionInput(e){
+    handleOptionInput(e) {
       const data = e.currentTarget.files;
       set(this, 'progress', '99');
       this.handleEvents.handleOptionInput(data, get(this, 'option'), get(this, 'node'))
