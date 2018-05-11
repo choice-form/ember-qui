@@ -28,7 +28,11 @@
       {{#if svg}}
         <div class="labels">
           <div class="svg-wrapper">
-            {{svg-item (if option.selected (concat node.selectType '-active') node.selectType)}}
+            <div class={{concat 'option-type ' (if option.selected (concat node.selectType '-active') node.selectType)}}>
+              {{#if (and option.selected (eq node.selectType 'checkbox'))}}
+                {{svg-item 'checkbox-active' size="16px" viewBox="16"}}
+              {{/if}}
+            </div>
           </div>
           <span>{{{insert-img option.text}}}</span>
         </div>

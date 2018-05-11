@@ -25,7 +25,11 @@
   <div class="pic-description">
     <div class="effect-container">
       <div class="svg-wrapper">
-        {{svg-item icon}}
+        <div class={{concat 'option-type ' icon}}>
+          {{#if (eq icon 'checkbox-active')}}
+            {{svg-item 'checkbox-active' size="16px" viewBox="16"}}
+          {{/if}}
+        </div>
       </div>
       {{#if selected}}
         {{particle size=size}}

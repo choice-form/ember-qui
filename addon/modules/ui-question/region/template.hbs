@@ -1,8 +1,6 @@
-<div class="ui-dropdown ui-text dropdown">
-  <div class="titleIcon">
-    {{svg-item "map-location" size="64px" viewBox="40" iconClass="region-pin-icon"}}
-  </div>
+{{svg-item "map-location" size="64px" viewBox="40" iconClass="region-pin-icon"}}
 
+<div class="ui-dropdown ui-text dropdown">
   <ul class="dropdown-list" style="display: none;">
     {{#each (unbound node.regions) as |region|}}
       <li>{{region.Meaning}}

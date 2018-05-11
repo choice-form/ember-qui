@@ -1,9 +1,11 @@
 article {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100vh;
   & section {
-    min-height: 100vh;
-    margin-bottom: -@offset*6;
-    padding: @offset @offset @offset*6 @offset;
+    padding: @offset;
     & .wrapper {
       counter-reset: section;
       & .lazy-loader {
@@ -76,6 +78,7 @@ article {
     padding: @offset/2;
     & h2 {
       word-wrap: break-word;
+      & + .description,
       & + p {
         margin-top: @offset/2;
       }
@@ -188,8 +191,12 @@ html.tablet.portrait {
 
 html.mobile {
   font-size: 14px;
+  & article {
+    justify-content: flex-start;
+  }
   & section {
-    padding: 0 0 @offset*6 0;
+    flex-grow: 1;
+    padding: 0;
   }
   & .wrapper {
     overflow: hidden;

@@ -137,10 +137,33 @@
 
       .absolute(0, 0, 0, 0);
       & .svg-wrapper {
-        & svg {
-          display: block;
-          width: @offset/1.25;
-          height: @offset/1.25;
+        & .option-type {
+          width: 24px;
+          height: 24px;
+          transition: all 100ms ease-in;
+          &.radio {
+            border-radius: 12px;
+            box-shadow: inset 0 0 0 1px currentColor;
+          }
+          &.radio-active {
+            border-radius: 12px;
+            box-shadow: inset 0 0 0 7px currentColor;
+          }
+          &.checkbox {
+            border-radius: 2px;
+            box-shadow: inset 0 0 0 1px currentColor;
+          }
+          &.checkbox-active {
+            position: relative;
+            border-radius: 2px;
+            background-color: currentColor;
+            box-shadow: inset 0 0 0 1px currentColor;
+            & svg {
+              position: absolute;
+              top: 4px;
+              right: 4px;
+            }
+          }
         }
       }
     }
@@ -462,15 +485,18 @@ html.tablet {
 }
 
 html.mobile {
-  .ui-matrix {
+  & .ui-matrix {
     & .matrix-wrapper {
-
       & .swiper-slide-prev,
       & .swiper-slide-next {
         &:before {
           display: none;
         }
       }
+    }
+    & .matrix-button-prev,
+    & .matrix-button-next {
+      display: none;
     }
   }
 }
