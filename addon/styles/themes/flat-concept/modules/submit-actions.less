@@ -1,6 +1,5 @@
 .submit-actions {
   position: relative;
-  height: @offset*6;
   padding: 0 @offset*1.5;
   & button,
   & a.button {
@@ -112,6 +111,7 @@ html.edge {
 
 html.desktop {
   & .submit-actions {
+    justify-content: space-around;
     & button {
       min-height: 44px;
     }
@@ -121,6 +121,7 @@ html.desktop {
 html.tablet,
 html.mobile {
   & .submit-actions {
+    height: @offset*6;
     & button {
       overflow: hidden;
       min-height: 62px;
@@ -142,7 +143,7 @@ html.mobile {
       min-width: inherit;
       padding: @offset/1.25 @offset;
       &.prevButton {
-        margin-right: @offset/1.25;
+        margin-right: @offset/2;
       }
       @supports (display: flex) {
         &.nextButton {
