@@ -9,12 +9,16 @@
   {{else}}
 
     <div class="svg-wrapper">
-      {{#if icon}}
-        <div class={{concat 'option-type ' icon}}>
-          {{#if (eq icon 'checkbox-active')}}
+      {{#if checkboxIcon}}
+        <div class={{concat 'option-type ' checkboxIcon}}>
+          {{#if (eq checkboxIcon 'checkbox-active')}}
             {{svg-item 'checkbox-active' size="16px" viewBox="16"}}
           {{/if}}
         </div>
+      {{/if}}
+      
+      {{#if icon}}
+        {{svg-item icon size=size viewBox=viewBox}}
       {{else}}
         {{svg}}
       {{/if}}

@@ -15,7 +15,7 @@
                             particleSize="m"
                             for=(unbound option.renderId)
                             text=(if node.dynamicOption option.text (unbound option.text))
-                            icon=(if option.selected (concat (unbound option.icon) '-active') (unbound option.icon))}}
+                            checkboxIcon=(if option.selected (concat (unbound option.icon) '-active') (unbound option.icon))}}
   </div>
 {{else}}
   {{ui-component/ui-text inputRule=(unbound option.inputRule)
