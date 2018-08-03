@@ -5,6 +5,15 @@
     image='https://cform-files.b0.upaiyun.com/UploadFiles/style-copy/img/choiceform.png'}}
 {{/unless}}
 
+{{#if node.qrCode}}
+  <div class="ui-qrcode">
+    <div class="qrcode-item">
+      {{ui-addon/qr-code data=node.qrCode size=360 padding=60}}
+      <span>{{temp-i18n 'UI_ScanQrCode'}}</span>
+    </div>
+  </div>
+{{/if}}
+
 {{#if (and node.hasReward node.showRewardLimitTime)}}
   <div class="valid-time">
     {{svg-item "time"}}

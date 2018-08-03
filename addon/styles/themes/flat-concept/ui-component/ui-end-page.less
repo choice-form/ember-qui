@@ -8,4 +8,33 @@
       .absolute(3px, auto, auto, 0);
     }
   }
+
+  & .ui-qrcode {
+    padding: @offset;
+    text-align: center;
+    & .scan-icon {
+      margin-top: @offset/2;
+      & svg {
+        display: inline-block;
+        vertical-align: middle;
+      }
+    }
+    & p {
+      font-size: small;
+    }
+    & .qrcode-item {
+      position: relative;
+      & canvas {
+        width: 100%;
+        max-width: @offset*8;
+      }
+      & span {
+        width: 100%;
+        position: absolute;
+        display: block;
+        bottom: 22px;
+        background: white;
+      }
+    }
+  }
 }
