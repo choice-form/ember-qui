@@ -8,28 +8,28 @@
       .absolute(3px, auto, auto, 0);
     }
   }
+}
 
-  & .ui-qrcode {
-    padding: @offset;
-    text-align: center;
-    & .scan-icon {
-      margin-top: @offset/2;
-      & svg {
-        display: inline-block;
-        vertical-align: middle;
-      }
+& .ui-qrcode {
+  padding: @offset;
+  text-align: center;
+  & .scan-icon {
+    margin-top: @offset/2;
+    & svg {
+      display: inline-block;
+      vertical-align: middle;
     }
-    & p {
-      font-size: small;
+  }
+  & p {
+    font-size: small;
+  }
+  & .qrcode-item {
+    & canvas {
+      width: 100%;
+      max-width: @offset*8;
     }
-    & .qrcode-item {
-      & canvas {
-        width: 100%;
-        max-width: @offset*8;
-      }
-      & span {
-        display: block;
-      }
+    & span {
+      display: block;
     }
   }
 }
