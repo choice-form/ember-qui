@@ -1,9 +1,20 @@
 <div class={{concat 'picture-layout ' node.showStyle ' ' node.picStyle ' ' node.textDirection ' ' node.pictureSize}}>
-  {{#each images as |option index|}} {{ui-component/ui-picture id=(concat (unbound option.renderId) 'cform') background=(unbound
-  node.background) picStyle=(unbound node.picStyle) renderId=(unbound option.renderId) selectType=(unbound node.selectType) placeholder=(unbound option.placeholder)
-  selected=option.selected value=option.value image=(unbound option.image) objectFit=(unbound node.objectFit) text=(unbound
-  option.text) zoomable=(unbound node.optImgScale) icon=(if option.selected (concat option.icon "-active") option.icon) handleOptionClick=(action
-  "handleOptionClick" option) handleOptionZoom=(action "openPhotoSwipe" index) }} {{/each}}
+  {{#each images as |option index|}}
+    {{ui-component/ui-picture
+      id=(concat (unbound option.renderId) 'cform')
+      background=(unbound node.background)
+      picStyle=(unbound node.picStyle)
+      renderId=(unbound option.renderId)
+      selectType=(unbound node.selectType)
+      placeholder=(unbound option.placeholder)
+      selected=option.selected value=option.value
+      image=(unbound option.image)
+      objectFit=(unbound node.objectFit)
+      text=(unbound option.text)
+      zoomable=(unbound node.optImgScale)
+      icon=(if option.selected (concat option.icon "-active") option.icon)
+      handleOptionClick=(action "handleOptionClick" option)
+      handleOptionZoom=(action "openPhotoSwipe" index) }} {{/each}}
 </div>
 
 {{#if hasSelectedImages}}
@@ -11,13 +22,15 @@
     <ul class="thumb">
       {{#each (filter-by "selected" true images) as |option|}}
         <li class="thumb-item">
-          <a href={{concat "#" option.renderId "cform"}} style={{html-safe (concat "background-image: url('" option.image.natural
-                                                                             "')")}}></a>
+          <a href={{concat "#" option.renderId "cform"}} style={{html-safe (concat "background-image: url('" option.image.natural "')")}}></a>
         </li>
       {{/each}}
     </ul>
   </aside>
 {{/if}}
 
-
-{{#each node.options as |option|}} {{#if option.inputType}} {{ui-question/choice node option handleEvents}} {{/if}} {{/each}}
+{{#each node.options as |option|}}
+  {{#if option.inputType}}
+    {{ui-question/choice node option handleEvents}}
+  {{/if}}
+{{/each}}
