@@ -6,5 +6,5 @@ export const HEADER_META = [
 export const SPECIAL_TYPES = [
   'slide', 'dropdown', 'region', 'location', 'matrix', 'intro-page', 'end-page', 'flatten-matrix', 'list-rate',
   'verification', 'ranking', 'weight', 'picture-choice', 'gender', 'lottery', 'cascade', 'heat-map', 'slide-rate',
-  'cascade-list'
+  'cascade-list', 'table-matrix'
 ];

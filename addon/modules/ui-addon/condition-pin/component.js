@@ -21,7 +21,6 @@ export default Ember.Component.extend({
         window.addEventListener('resize', this.resizePinSupport);
       }
     }
-
   },
 
   resizePinSupport(){
