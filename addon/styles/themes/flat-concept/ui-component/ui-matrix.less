@@ -294,6 +294,47 @@
   }
 }
 
+.ui-table-matrix {
+  & table {
+    width: 100%;
+    border-collapse: collapse;
+    &[data-state="mobile"] {
+      font-size: small;
+      margin: 0 -1rem;
+      width: calc(~'100% + 2rem');
+      & thead {
+        & th {
+          padding: .5rem;
+        }
+      }
+      & tbody {
+        & tr {
+          & td {
+            padding: .5rem;
+          }
+        }
+      }
+    }
+    & thead {
+      & th {
+        white-space: nowrap;
+        padding: .5rem 1rem;
+      }
+    }
+    & tbody {
+      & tr {
+        & td {
+          padding: .5rem 1rem;
+          border-bottom: 1px solid currentColor;
+          .matrix-column-item();
+          & label {
+            transform: scale(.725);
+          }
+        }
+      }
+    }
+  }
+}
 
 .matrix-thumbnail {
   z-index: 3;

@@ -1,79 +1,44 @@
-<div class={{wrapperClassNames}} data-state={{if node.isDoubleGrid 'double-grid'}}>
-  <div class="fix-header-position">
+<table data-state="{{if (lt clientWidth 640) 'mobile'}}">
+  <thead>
+  <tr>
+    <th></th>
+    {{#each node.flatten as |option|}}
+      <th>
+        <strong>{{option.text}}</strong>
+      </th>
+    {{/each}}
+  </tr>
+  </thead>
 
-    {{#ui-addon/condition-pin needPin=needFixMatrix pinTop=node.fixTop scale=false}}
-      <div class="matrix-thumbnail">
-        {{#unless node.noGridIndicator}}
-          <div class="matrix-thumbnail-wrapper">
-            {{#each node.matrix as |indicators|}}
-              <ul>
-                {{#each indicators as |indicator|}}
-                  <li class={{if indicator.selected "active"}}><span></span></li>
-                {{/each}}
-              </ul>
-            {{/each}}
-          </div>
-        {{/unless}}
-      </div>
-      <div class="fix-header swiper-container">
-        <div class="swiper-wrapper">
-          {{#each node.renderOptionsX as |option|}}
-            <div class="fix-header-column swiper-slide">
-              <span>{{{insert-img option.text}}}</span>
-            </div>
-          {{/each}}
-        </div>
-      </div>
-    {{/ui-addon/condition-pin}}
-    <div></div>
-  </div>
-
-  <div class="matrix-content">
-    <ul class="fix-column">
-      {{#each node.renderOptionsY as |option|}}
-        <li><p>{{{insert-img option.text}}}</p></li>
+  <tbody>
+  {{#each node.flatten.firstObject.list as |rowHead idx|}}
+    <tr>
+      <td class="first-column-item">
+        {{rowHead.text}}
+      </td>
+      {{#each node.flatten as |outerItem|}}
+        {{#with (object-at idx outerItem.list) as |option|}}
+          <td>
+            <input required type="checkbox"
+                   disabled={{disabled}}
+                   name={{node.renderId}}
+                   id={{option.renderId}}
+                   checked={{option.selected}}
+                   onclick={{action "handleOptionClick" option}}>
+            {{ui-component/ui-label
+              for=option.renderId
+              selected=option.selected
+              particleSize="m"
+              checkboxIcon=(if option.selected (concat node.selectType '-active') node.selectType)}}
+          </td>
+        {{/with}}
       {{/each}}
-    </ul>
-
-    <div class="column-container swiper-container">
-      <div class="swiper-wrapper">
-        {{#each node.matrix as |options|}}
-          <div class="column swiper-slide">
-            {{#each options as |option|}}
-              <div class="column-item">
-                <input
-                  required
-                  type="checkbox"
-                  disabled={{disabled}}
-                    name={{node.renderId}}
-                  id={{option.renderId}}
-                    checked={{option.selected}}
-                  onclick={{action "handleOptionClick" option}}>
-                {{ui-component/ui-label
-                  for=option.renderId
-                  selected=option.selected
-                  particleSize="m"
-                  checkboxIcon=(if option.selected (concat node.selectType '-active') node.selectType)}}
-              </div>
-            {{/each}}
-          </div>
-        {{/each}}
-      </div>
-
-      <div class="swiper-pagination"></div>
-
-      <!--\{{#if moreButtonNeeded}}-->
-        <!--<a class="matrix-resize" onclick=\{{action "resizeMatrix"}}>\{{svg-item resizeIcon}}</a>-->
-      <!--\{{/if}}-->
-
-      {{#if arrowButtonNeeded}}
-        <div class="matrix-button-next">{{svg-item "arrows-stre-right"}}</div>
-        <div class="matrix-button-prev">{{svg-item "arrows-stre-left"}}</div>
-      {{/if}}
-    </div>
-  </div>
-</div>
+    </tr>
+  {{/each}}
+  </tbody>
+</table>
 
 {{#each node.otherOptions as |option|}}
   {{ui-question/choice node option handleEvents}}
 {{/each}}
+
