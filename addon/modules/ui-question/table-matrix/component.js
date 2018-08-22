@@ -14,11 +14,18 @@ export default Component.extend({
 
   clientWidth: window.innerWidth,
 
+  resize(){
+    set(this, 'clientWidth', window.innerWidth);
+  },
+
   init(){
     this._super(...arguments);
-    device.desktop() && window.addEventListener('resize', () => {
-      set(this, 'clientWidth', window.innerWidth);
-    });
+    this.resize = this.resize.bind(this);
+    device.desktop() && window.addEventListener('resize', this.resize);
+  },
+
+  willDestroyElement(){
+    window.removeEventListener('resize', this.resize);
   },
 
   actions: {
