@@ -1,7 +1,7 @@
 {{#if (lt clientWidth 640)}}
   {{#each node.flatten as |outerItem|}}
     <div class="flatten-row">
-      <h3>{{outerItem.text}}</h3>
+      <h3>{{{insert-img outerItem.text}}}</h3>
     </div>
     <div class="flatten-column">
       {{#each outerItem.list as |option|}}
@@ -17,7 +17,7 @@
         <div style={{html-safe (concat 'width:' 'calc(' node.flatten.firstObject.list.firstObject.length 'px * 6)')}}></div>
         {{#each node.flatten as |option|}}
           <div style={{html-safe (concat 'width:' 'calc(' option.length 'px * 6)')}}>
-            <strong>{{option.text}}</strong>
+            <strong>{{{insert-img option.text}}}</strong>
           </div>
         {{/each}}
       </div>
@@ -25,7 +25,7 @@
         {{#each node.flatten.firstObject.list as |rowHead idx|}}
           <div class="flatten--row">
             <div class="first-column-item" style={{html-safe (concat 'width:' 'calc(' rowHead.length 'px * 6)')}}>
-              {{rowHead.text}}
+              {{{insert-img rowHead.text}}}
             </div>
 
             {{#each node.flatten as |outerItem|}}

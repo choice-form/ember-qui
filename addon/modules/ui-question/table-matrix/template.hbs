@@ -4,7 +4,7 @@
     <th></th>
     {{#each node.flatten as |option|}}
       <th>
-        <strong>{{option.text}}</strong>
+        <strong>{{{insert-img option.text}}}</strong>
       </th>
     {{/each}}
   </tr>
@@ -14,7 +14,7 @@
   {{#each node.flatten.firstObject.list as |rowHead idx|}}
     <tr>
       <td class="first-column-item">
-        {{rowHead.text}}
+        {{{insert-img rowHead.text}}}
       </td>
       {{#each node.flatten as |outerItem|}}
         {{#with (object-at idx outerItem.list) as |option|}}
