@@ -63,7 +63,7 @@ const zh = {
   'UI_SelMaxLimit': '#v1#:最多只能选中#v2#项',
   'UI_TopList': '顶层列表',
   'UI_ListItem': '列表项',
-  'UI_ScanQrCode': '微信扫描二维码领取奖励',
+  'UI_ScanQrCode': '截图保存二维码，微信扫描二维码领取微信红包奖励。',
 
 };
 
