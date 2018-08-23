@@ -19,11 +19,13 @@ export const getLocation = () => {
 
   return new rsvp.Promise((resolve, reject) => {
     cache.geoLocation.getCurrentPosition((position) => {
-      if (cache.geoLocation.getStatus() == window.BMAP_STATUS_SUCCESS) {
+      if (cache.geoLocation.getStatus() === window.BMAP_STATUS_SUCCESS) {
         resolve(position);
       } else {
         reject(new Error('locating failed'));
       }
+    }, () => {
+      reject(new Error('timeout'));
     });
   });
 };
