@@ -205,7 +205,13 @@ html.mobile {
 }
 
 html.ie, html[class*="safari -8"] {
-  .particle-wrapper {
+  & .particle-wrapper {
+    display: none;
+  }
+}
+
+html[data-platform="weibo"] {
+  & .particle-wrapper {
     display: none;
   }
 }
