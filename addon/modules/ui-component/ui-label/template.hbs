@@ -33,4 +33,8 @@
 
 {{#if text}}
   <span>{{{insert-img text}}}</span>
+{{else}}
+  {{#if (eq type 1)}}
+    <span class="placeholder-label">{{temp-i18n 'UI_PlaceholderChoice'}}</span>
+  {{/if}}
 {{/if}}

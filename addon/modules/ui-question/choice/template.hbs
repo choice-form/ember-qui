@@ -13,6 +13,7 @@
         value={{option.value}}>
     {{ui-component/ui-label selected=option.selected
                             particleSize="m"
+                            type=node.type
                             for=(unbound option.renderId)
                             text=(if node.dynamicOption option.text (unbound option.text))
                             checkboxIcon=(if option.selected (concat (unbound option.icon) '-active') (unbound option.icon))}}

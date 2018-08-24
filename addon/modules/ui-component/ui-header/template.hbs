@@ -22,7 +22,19 @@
     <div>{{requiredMark}} {{quesNumber}}</div>
   {{/if}}
 
-  <h2 class="title">{{{insert-img header.title}}}</h2>
+  <h2 class="title">
+    {{#if header.title}}
+      {{{insert-img header.title}}}
+    {{else}}
+      <span class="placeholder-label">
+      {{#if (eq type 10)}}
+        {{temp-i18n 'UI_PlaceholderEnd'}}
+      {{else}}
+        {{temp-i18n 'UI_PlaceholderTitle'}}
+      {{/if}}
+      </span>
+    {{/if}}
+  </h2>
   {{description}}
 </header>
 
