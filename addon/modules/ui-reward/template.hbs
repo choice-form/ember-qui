@@ -13,12 +13,22 @@
           </div>
         {{/if}}
 
+        <h2>
         {{#if node.rewardName}}
-          <h2>{{node.rewardName}}</h2>
+          {{node.rewardName}}
+        {{else}}
+          <span class="placeholder-label">{{temp-i18n 'UI_PlaceholderRewardTitle'}}</span>
         {{/if}}
+        </h2>
 
         <div class="reward-contents">
-          <h2>{{node.title}}</h2>
+          <h3>
+            {{#if node.title}}
+              {{node.title}}
+            {{else}}
+              <span class="placeholder-label">{{temp-i18n 'UI_PlaceholderRewardMessage'}}</span>
+            {{/if}}
+          </h3>
           <span class="reward-description">{{{node.description}}}</span>
           <span class="current-time">{{node.rewardTime}}</span>
         </div>

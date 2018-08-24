@@ -33,6 +33,8 @@ const en = {
   'UI_ScanQrCode': 'Scan qr code via wechat to get gift',
   'UI_PlaceholderTitle': 'Enter your question',
   'UI_PlaceholderEnd': 'You can add a Custom Thank You to the end of your survey',
+  'UI_PlaceholderRewardTitle': 'Enter your title',
+  'UI_PlaceholderRewardMessage': 'You can add a custom message to the rewards page',
   'UI_PlaceholderChoice': 'Enter an answer choice',
 };
 
@@ -69,6 +71,8 @@ const zh = {
   'UI_ScanQrCode': '截图保存二维码，微信扫描二维码领取微信红包奖励。',
   'UI_PlaceholderTitle': '请输入问题',
   'UI_PlaceholderEnd': '请输入结束语',
+  'UI_PlaceholderRewardTitle': '请输入活动名称',
+  'UI_PlaceholderRewardMessage': '请输入祝福语',
   'UI_PlaceholderChoice': '请输入选项文字',
 
 };
