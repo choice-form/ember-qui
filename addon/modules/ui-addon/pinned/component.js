@@ -42,7 +42,7 @@ export default Component.extend({
     }
   }),
 
-  _fixedToBottom: computed('_initialOffsetTop', 'windoc.clientHeight', 'windoc.scrollBottom', 'bottom', function () {
+  _fixedToBottom: computed('_initialOffsetTop', 'windoc.{clientHeight,scrollBottom}', 'bottom', function () {
     if (this.get('bottom') === null) {
       run.debounce(this, '_saveUnfixedWidth', 10);
       return false;

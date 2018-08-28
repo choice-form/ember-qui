@@ -5,5 +5,5 @@ export default Controller.extend({
   step: 0,
   min: -100,
   max: 100,
-  connect: [true, true],
+  connect: [true, true], // eslint-disable-line
 });

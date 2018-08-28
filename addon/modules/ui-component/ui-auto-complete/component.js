@@ -7,11 +7,18 @@ import $ from 'jquery';
 
 export default Component.extend({
   layout,
+
   classNames: ['ui-auto-complete'],
-  result: [],
+
   hasResult: notEmpty('result').readOnly(),
 
   virtualValue: '',
+
+  init() {
+    this._super(...arguments);
+    this.result = [];
+    this.captureMouseDown = this.captureMouseDown.bind(this);
+  },
 
   selected: computed('value', function() {
     if (this.value == "") {
@@ -60,11 +67,6 @@ export default Component.extend({
       const value = this.value.split(/[,，]/g).filter(n => n != name).join(',');
       this.$textarea.val(value).trigger('input');
     }
-  },
-
-  init(){
-    this._super(...arguments);
-    this.captureMouseDown = this.captureMouseDown.bind(this);
   },
 
   captureMouseDown(e){

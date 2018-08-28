@@ -34,7 +34,7 @@ export default Component.extend({
   },
 
   _prepareHandlers() {
-    this._handlers = Object.keys(this.attrs)
+    this._handlers = Object.keys(this)
       .filter(name => /^on-/i.test(name))
       .map(name => name.slice(3));
   },

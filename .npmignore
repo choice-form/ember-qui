@@ -12,14 +12,16 @@
 .editorconfig
 **/.eslintrc.js
 .ember-cli
-.gitignore
 .eslintrc.js
+.gitignore
 .watchmanconfig
 .travis.yml
 bower.json
 CNAME
 ember-cli-build.js
 testem.js
-jsconfig.json
-yarn.lock
-yui*
+
+# ember-try
+.node_modules.ember-try/
+bower.json.ember-try
+package.json.ember-try

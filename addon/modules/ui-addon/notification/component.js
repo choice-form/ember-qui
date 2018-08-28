@@ -8,9 +8,12 @@ export default Component.extend({
   layout,
 
   attributeBindings: ['style'],
+
   classNames: ['ui-notification'],
+
   classNameBindings: ['positionClassName'],
-  localClassNames: ['container'],
+
+  localClassNames: ['container'], // eslint-disable-line
 
   position: 'top',
   positionClassName: computed('position', function() {

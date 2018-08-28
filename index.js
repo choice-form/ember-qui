@@ -1,4 +1,3 @@
-/* eslint-env node */
 'use strict';
 
 const fs = require('fs');
@@ -109,10 +108,10 @@ module.exports = {
     app.import(`./vendor/pinyin/index.js`);
     app.import(`./vendor/shims/pinyin.js`);
 
-    app.import(`./vendor/mobiscroll/css/mobiscroll.custom.min.css`, { outputFile: 'assets/mobiscroll.css' });
-    app.import(`./vendor/mobiscroll/js/mobiscroll.custom.min.js`, { outputFile: 'assets/mobiscroll.js' });
-    app.import(`./vendor/shims/mobiscroll.js`, { outputFile: 'assets/mobiscroll.js' });
-    app.import(`./vendor/shims/mobiscroll.js`, { outputFile: 'assets/mobiscroll.js' });
+    // app.import(`./vendor/mobiscroll/css/mobiscroll.custom.min.css`, { outputFile: 'assets/mobiscroll.css' });
+    // app.import(`./vendor/mobiscroll/js/mobiscroll.custom.min.js`, { outputFile: 'assets/mobiscroll.js' });
+    // app.import(`./vendor/shims/mobiscroll.js`, { outputFile: 'assets/mobiscroll.js' });
+    // app.import(`./vendor/shims/mobiscroll.js`, { outputFile: 'assets/mobiscroll.js' });
   },
 
   treeForPublic(tree) {

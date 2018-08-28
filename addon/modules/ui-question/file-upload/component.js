@@ -15,7 +15,7 @@ export default Component.extend({
     return device.mobile() ? 'image/*' : null;
   }).readOnly(),
 
-  icon: computed('option.value', 'option.icon', function () {
+  icon: computed('option.{icon,value}', function () {
     return get(this, 'option.value') ? 'refresh' : get(this, 'option.icon');
   }),
 
