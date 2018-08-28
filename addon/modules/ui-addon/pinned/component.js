@@ -1,15 +1,19 @@
-import Ember from 'ember';
-import layout from './template';
-import get from 'ember-metal/get';
+import { computed } from '@ember/object';
+import { get } from '@ember/object';
+import { htmlSafe } from '@ember/template';
+import { inject as service } from '@ember/service';
+import { run } from '@ember/runloop';
+import $ from 'jquery';
+import Component from '@ember/component';
 
-const { Component, inject, computed, String: { htmlSafe }, run } = Ember;
+import layout from './template';
 
 export default Component.extend({
   classNames: ['pinned-content'],
   attributeBindings: ['style', 'data-state'],
   top: null,
   bottom: null,
-  windoc: inject.service(),
+  windoc: service(),
   layout,
   _unfixedWidth: null,
   pinSupport: null,
@@ -80,7 +84,7 @@ export default Component.extend({
         cssAttrs.push(['top', `${this.get('top')}px`]);
         cssAttrs.push(['left', left]);
         if(left === '0px'){
-          debugger;
+          debugger; // eslint-disable-line
         }
         if (this.get('_unfixedWidth')) {
           cssAttrs.push(['width', width]);
@@ -90,7 +94,7 @@ export default Component.extend({
         cssAttrs.push(['bottom', `${this.get('bottom')}px`]);
         cssAttrs.push(['left', `${this.get('_initialOffsetLeft')}px`]);
         if(`${this.get('_initialOffsetLeft')}px` === '0px'){
-          debugger;
+          debugger; // eslint-disable-line
         }
         if (this.get('_unfixedWidth')) {
           cssAttrs.push(['width', `${this.get('_unfixedWidth')}px`]);

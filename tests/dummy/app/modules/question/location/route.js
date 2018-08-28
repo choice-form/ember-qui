@@ -1,5 +1,5 @@
-import Route from 'ember-route';
-import set from 'ember-metal/set';
+import Route from '@ember/routing/route';
+import { set } from '@ember/object';
 import faker from 'faker';
 
 /*eslint-disable no-console */

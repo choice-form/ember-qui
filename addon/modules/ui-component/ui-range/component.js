@@ -1,8 +1,7 @@
-import Component from 'ember-component';
-import set from 'ember-metal/set';
-import get from 'ember-metal/get';
-import observer from 'ember-metal/observer';
-import { bind } from 'ember-runloop';
+import { bind } from '@ember/runloop';
+import { get, set } from '@ember/object';
+import { observer } from '@ember/object';
+import Component from '@ember/component';
 import SlideRanger from 'slideranger';
 
 export default Component.extend({

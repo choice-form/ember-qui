@@ -1,12 +1,14 @@
-import Component from 'ember-component';
+import Component from '@ember/component';
 import layout from './template';
-import get from 'ember-metal/get';
-import set, {setProperties} from 'ember-metal/set';
-import {scheduleOnce} from 'ember-runloop';
-import computed, {gt, and, reads} from 'ember-computed';
+import { computed, get, set, setProperties } from '@ember/object';
+import { scheduleOnce } from '@ember/runloop';
+import { gt, and, reads } from '@ember/object/computed';
 import $ from 'jquery';
 import device from 'device';
-import matirxSetHeight, {swiperHeaderInit, swiperMatrixInit} from '../../lib/matirx-factory';
+import matirxSetHeight, {
+  swiperHeaderInit,
+  swiperMatrixInit
+} from '../../lib/matirx-factory';
 
 export default Component.extend({
   layout,

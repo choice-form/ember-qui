@@ -1,10 +1,10 @@
-import Component from 'ember-component';
-import computed from 'ember-computed';
+import Component from '@ember/component';
+import { computed } from '@ember/object';
 import layout from './template';
-import get from 'ember-metal/get';
-import {setProperties} from 'ember-metal/set';
-import {getLocation} from '../../lib/bMapApi';
-import {tempI18n} from '../../helpers/temp-i18n';
+import { get } from '@ember/object';
+import { setProperties } from '@ember/object';
+import { getLocation } from '../../lib/bMapApi';
+import { tempI18n } from '../../helpers/temp-i18n';
 
 export default Component.extend({
   layout,

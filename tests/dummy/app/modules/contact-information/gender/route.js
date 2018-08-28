@@ -1,28 +1,28 @@
 /* eslint-disable */
-import Route from 'ember-route';
-import set from 'ember-metal/set';
-import get from 'ember-metal/get';
-import Ember from 'ember';
+import EmberObject from '@ember/object';
+import Route from '@ember/routing/route';
+import { set } from '@ember/object';
+import { get } from '@ember/object';
 import faker from 'faker';
 
 export default Route.extend({
   model() {
     let options = [
-      Ember.Object.create({
+      EmberObject.create({
         selected: false,
         renderId: faker.date.between('2016-01-01', '2016-12-31'),
         text: faker.lorem.words(),
         uuid: faker.date.between('2016-01-01', '2016-12-31'),
         icon: 'men',
       }),
-      Ember.Object.create({
+      EmberObject.create({
         selected: false,
         renderId: faker.date.between('2016-01-01', '2016-12-31'),
         text: faker.lorem.words(),
         uuid: faker.date.between('2016-01-01', '2016-12-31'),
         icon: 'women',
       }),
-      Ember.Object.create({
+      EmberObject.create({
         renderId: faker.date.between('2016-01-01', '2016-12-31'),
         text: faker.lorem.words(),
         uuid: faker.date.between('2016-01-01', '2016-12-31'),
@@ -32,7 +32,7 @@ export default Route.extend({
         value: '',
         placeholder: 'input float',
       }),
-      Ember.Object.create({
+      EmberObject.create({
         selected: false,
         renderId: faker.date.between('2016-01-01', '2016-12-31'),
         text: faker.lorem.sentence(),
@@ -43,7 +43,7 @@ export default Route.extend({
         value: 'input time',
         placeholder: '',
       }),
-      Ember.Object.create({
+      EmberObject.create({
         selected: false,
         renderId: faker.date.between('2016-01-01', '2016-12-31'),
         text: faker.lorem.sentence(),

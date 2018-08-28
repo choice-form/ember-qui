@@ -1,7 +1,7 @@
-import Component from 'ember-component';
+import Component from '@ember/component';
 import layout from './template';
-import get from 'ember-metal/get';
-import {addClass, removeClass} from '../../lib/attribute-manage';
+import { get } from '@ember/object';
+import { addClass, removeClass } from '../../lib/attribute-manage';
 
 export default Component.extend({
   layout,

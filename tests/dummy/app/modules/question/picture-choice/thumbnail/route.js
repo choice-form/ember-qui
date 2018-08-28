@@ -1,6 +1,6 @@
-import Route from 'ember-route';
-import set from 'ember-metal/set';
-import Ember from 'ember';
+import EmberObject from '@ember/object';
+import Route from '@ember/routing/route';
+import { set } from '@ember/object';
 import faker from 'faker';
 
 /*eslint-disable no-console */
@@ -24,7 +24,7 @@ export default Route.extend({
           number:'2',
           thumbnail: true,
           options:[
-            Ember.Object.create({
+            EmberObject.create({
               selected: false,
               renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.sentence(),
@@ -40,7 +40,7 @@ export default Route.extend({
               value: '',
               placeholder: '',
             }),
-            Ember.Object.create({
+            EmberObject.create({
               selected: false,
               renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.sentence(),
@@ -56,7 +56,7 @@ export default Route.extend({
               value: '',
               placeholder: '',
             }),
-            Ember.Object.create({
+            EmberObject.create({
               selected: false,
               renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.paragraph(),
@@ -72,7 +72,7 @@ export default Route.extend({
               value: '',
               placeholder: '',
             }),
-            Ember.Object.create({
+            EmberObject.create({
               selected: false,
               renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.sentence(),
@@ -88,7 +88,7 @@ export default Route.extend({
               value: '',
               placeholder: '',
             }),
-            Ember.Object.create({
+            EmberObject.create({
               selected: false,
               renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.paragraph(),
@@ -104,7 +104,7 @@ export default Route.extend({
               value: '',
               placeholder: '',
             }),
-            Ember.Object.create({
+            EmberObject.create({
               selected: false,
               renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.paragraph(),
@@ -139,7 +139,7 @@ export default Route.extend({
           number:'2',
           thumbnail: true,
           options:[
-            Ember.Object.create({
+            EmberObject.create({
               selected: false,
               renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.sentence(),
@@ -155,7 +155,7 @@ export default Route.extend({
               value: '',
               placeholder: '',
             }),
-            Ember.Object.create({
+            EmberObject.create({
               selected: false,
               renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.sentence(),
@@ -171,7 +171,7 @@ export default Route.extend({
               value: '',
               placeholder: '',
             }),
-            Ember.Object.create({
+            EmberObject.create({
               selected: false,
               renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.paragraph(),
@@ -187,7 +187,7 @@ export default Route.extend({
               value: '',
               placeholder: '',
             }),
-            Ember.Object.create({
+            EmberObject.create({
               selected: false,
               renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.sentence(),
@@ -203,7 +203,7 @@ export default Route.extend({
               value: '',
               placeholder: '',
             }),
-            Ember.Object.create({
+            EmberObject.create({
               selected: false,
               renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.paragraph(),
@@ -219,7 +219,7 @@ export default Route.extend({
               value: '',
               placeholder: '',
             }),
-            Ember.Object.create({
+            EmberObject.create({
               selected: false,
               renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.paragraph(),
@@ -253,7 +253,7 @@ export default Route.extend({
           number:'2',
           thumbnail: true,
           options:[
-            Ember.Object.create({
+            EmberObject.create({
               selected: false,
               renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.sentence(),
@@ -269,7 +269,7 @@ export default Route.extend({
               value: '',
               placeholder: '',
             }),
-            Ember.Object.create({
+            EmberObject.create({
               selected: false,
               renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.sentence(),
@@ -285,7 +285,7 @@ export default Route.extend({
               value: '',
               placeholder: '',
             }),
-            Ember.Object.create({
+            EmberObject.create({
               selected: false,
               renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.paragraph(),
@@ -301,7 +301,7 @@ export default Route.extend({
               value: '',
               placeholder: '',
             }),
-            Ember.Object.create({
+            EmberObject.create({
               selected: false,
               renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.sentence(),
@@ -317,7 +317,7 @@ export default Route.extend({
               value: '',
               placeholder: '',
             }),
-            Ember.Object.create({
+            EmberObject.create({
               selected: false,
               renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.paragraph(),
@@ -333,7 +333,7 @@ export default Route.extend({
               value: '',
               placeholder: '',
             }),
-            Ember.Object.create({
+            EmberObject.create({
               selected: false,
               renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.paragraph(),
@@ -367,7 +367,7 @@ export default Route.extend({
           number:'2',
           thumbnail: true,
           options:[
-            Ember.Object.create({
+            EmberObject.create({
               selected: false,
               renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.sentence(),
@@ -383,7 +383,7 @@ export default Route.extend({
               value: '',
               placeholder: '',
             }),
-            Ember.Object.create({
+            EmberObject.create({
               selected: false,
               renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.sentence(),
@@ -399,7 +399,7 @@ export default Route.extend({
               value: '',
               placeholder: '',
             }),
-            Ember.Object.create({
+            EmberObject.create({
               selected: false,
               renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.paragraph(),
@@ -415,7 +415,7 @@ export default Route.extend({
               value: '',
               placeholder: '',
             }),
-            Ember.Object.create({
+            EmberObject.create({
               selected: false,
               renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.sentence(),
@@ -431,7 +431,7 @@ export default Route.extend({
               value: '',
               placeholder: '',
             }),
-            Ember.Object.create({
+            EmberObject.create({
               selected: false,
               renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.paragraph(),
@@ -447,7 +447,7 @@ export default Route.extend({
               value: '',
               placeholder: '',
             }),
-            Ember.Object.create({
+            EmberObject.create({
               selected: false,
               renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.paragraph(),
@@ -488,6 +488,6 @@ export default Route.extend({
       prevButton: 'Previous',
 
       nextButton: 'Next',
-    }
+    };
   }
 });

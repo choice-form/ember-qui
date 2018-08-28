@@ -1,5 +1,5 @@
-import Helper from 'ember-helper'
-import { htmlSafe } from 'ember-string'
+import { helper } from '@ember/component/helper';
+import { htmlSafe } from '@ember/string';
 import device from 'device';
 
 export const particle = (argv, {size = 'm'}) => {
@@ -19,4 +19,4 @@ export const particle = (argv, {size = 'm'}) => {
           </div>`);
 };
 
-export default Helper.helper(particle)
+export default helper(particle)

@@ -1,9 +1,8 @@
-import Component from 'ember-component';
+import { get, set } from '@ember/object';
+import { reads } from '@ember/object/computed';
+import Component from '@ember/component';
+
 import layout from './template';
-import get from 'ember-metal/get';
-import set, {setProperties} from 'ember-metal/set';
-import {scheduleOnce} from 'ember-runloop';
-import {gt, and, reads} from 'ember-computed';
 
 export default Component.extend({
   layout,

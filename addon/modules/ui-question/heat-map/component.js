@@ -1,4 +1,6 @@
-import Component from 'ember-component';
+import $ from 'jquery';
+import Component from '@ember/component';
+
 import layout from './template';
 
 export default Component.extend({
@@ -32,7 +34,6 @@ export default Component.extend({
 
   maintainSpot(){
     const $heatMap = $(this.element).find('.heat-map');
-    console.log($heatMap.width());
     const ratio = $heatMap.width() / this.node.mapImgWidth;
     const spotList = this.normals.map((item) => {
       const x = item.x * ratio;

@@ -1,5 +1,7 @@
+import $ from 'jquery';
 import mobiscroll from 'mobiscroll'
-import {tempI18n} from '../helpers/temp-i18n';
+
+import { tempI18n } from '../helpers/temp-i18n';
 
 const zh = mobiscroll.i18n.zh;
 

@@ -1,9 +1,9 @@
-import Component from 'ember-component';
+import Component from '@ember/component';
 import layout from './template';
-import computed from 'ember-computed';
-import set from 'ember-metal/set';
-import get from 'ember-metal/get';
-import {tempI18n} from '../../helpers/temp-i18n';
+import { computed } from '@ember/object';
+import { set } from '@ember/object';
+import { get } from '@ember/object';
+import { tempI18n } from '../../helpers/temp-i18n';
 
 let countTime = 30;
 export default Component.extend({

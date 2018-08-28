@@ -1,4 +1,4 @@
-import {getPinyin} from './pinyin';
+import { getPinyin } from './pinyin';
 
 /**
  * 匹配规则

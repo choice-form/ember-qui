@@ -11,6 +11,12 @@ module.exports = {
   env: {
     browser: true
   },
+  globals: {
+    device: false,
+    plyr: false,
+    PhotoSwipe: false,
+    PhotoSwipeUI_Default: false
+  },
   rules: {
   }
 };

@@ -1,7 +1,8 @@
-import Component from 'ember-component';
+import Component from '@ember/component';
 import layout from './template';
-import computed, {notEmpty} from 'ember-computed';
-import {searchResult} from '../../services/auto-complete/main';
+import { computed } from '@ember/object';
+import { notEmpty } from '@ember/object/computed';
+import { searchResult } from '../../services/auto-complete/main';
 import $ from 'jquery';
 
 export default Component.extend({

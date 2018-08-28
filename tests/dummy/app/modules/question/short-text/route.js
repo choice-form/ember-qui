@@ -1,14 +1,14 @@
 /* eslint-disable */
-import Route from 'ember-route';
-import set from 'ember-metal/set';
-import Ember from 'ember';
+import EmberObject from '@ember/object';
+import Route from '@ember/routing/route';
+import { set } from '@ember/object';
 import faker from 'faker';
 
 export default Route.extend({
   model() {
 
     let options = [
-      Ember.Object.create({
+      EmberObject.create({
         selected: '',
         renderId: faker.date.between('2016-01-01', '2016-12-31'),
         text: '',
@@ -19,7 +19,7 @@ export default Route.extend({
         value: '',
         placeholder: 'count',
       }),
-      Ember.Object.create({
+      EmberObject.create({
         selected: '',
         errorMessage: '',
         renderId: faker.date.between('2016-01-01', '2016-12-31'),
@@ -31,7 +31,7 @@ export default Route.extend({
         value: '',
         placeholder: 'int',
       }),
-      Ember.Object.create({
+      EmberObject.create({
         selected: '',
         renderId: faker.date.between('2016-01-01', '2016-12-31'),
         text: '',
@@ -42,7 +42,7 @@ export default Route.extend({
         value: '',
         placeholder: 'mobile',
       }),
-      Ember.Object.create({
+      EmberObject.create({
         selected: '',
         renderId: faker.date.between('2016-01-01', '2016-12-31'),
         text: '',
@@ -53,7 +53,7 @@ export default Route.extend({
         value: '',
         placeholder: 'email',
       }),
-      Ember.Object.create({
+      EmberObject.create({
         selected: '',
         renderId: faker.date.between('2016-01-01', '2016-12-31'),
         text: '',
@@ -65,7 +65,7 @@ export default Route.extend({
         value: '',
         placeholder: '选择日期',
       }),
-      Ember.Object.create({
+      EmberObject.create({
         selected: '',
         renderId: faker.date.between('2016-01-01', '2016-12-31'),
         text: '',
@@ -76,7 +76,7 @@ export default Route.extend({
         value: '',
         placeholder: '选择时间',
       }),
-      Ember.Object.create({
+      EmberObject.create({
         selected: '',
         renderId: faker.date.between('2016-01-01', '2016-12-31'),
         text: '',
@@ -87,7 +87,7 @@ export default Route.extend({
         value: '',
         placeholder: '选择日期范围',
       }),
-      Ember.Object.create({
+      EmberObject.create({
         selected: '',
         renderId: faker.date.between('2016-01-01', '2016-12-31'),
         text: '',
@@ -98,7 +98,7 @@ export default Route.extend({
         value: '',
         placeholder: '选择时间范围',
       }),
-      Ember.Object.create({
+      EmberObject.create({
         selected: '',
         renderId: faker.date.between('2016-01-01', '2016-12-31'),
         text: '',
@@ -109,7 +109,7 @@ export default Route.extend({
         value: '',
         placeholder: 'float',
       }),
-      Ember.Object.create({
+      EmberObject.create({
         selected: '',
         renderId: faker.date.between('2016-01-01', '2016-12-31'),
         text: '',
@@ -120,7 +120,7 @@ export default Route.extend({
         value: '',
         placeholder: 'postCode',
       }),
-      Ember.Object.create({
+      EmberObject.create({
         selected: '',
         renderId: faker.date.between('2016-01-01', '2016-12-31'),
         text: '',
@@ -131,7 +131,7 @@ export default Route.extend({
         value: '',
         placeholder: 'link',
       }),
-      Ember.Object.create({
+      EmberObject.create({
         selected: '',
         renderId: faker.date.between('2016-01-01', '2016-12-31'),
         text: '',

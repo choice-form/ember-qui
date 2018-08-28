@@ -1,11 +1,11 @@
-import Component from 'ember-component';
+import Component from '@ember/component';
 import layout from './template';
-import get from 'ember-metal/get';
-import set from 'ember-metal/set';
-import {reads} from 'ember-computed';
-import {Sortable, Plugins} from 'sortable';
-import {scheduleOnce, later} from 'ember-runloop';
-import {addClass} from '../../lib/attribute-manage'
+import { get } from '@ember/object';
+import { set } from '@ember/object';
+import { reads } from '@ember/object/computed';
+import { Sortable, Plugins } from 'sortable';
+import { scheduleOnce, later } from '@ember/runloop';
+import { addClass } from '../../lib/attribute-manage'
 import device from 'device';
 
 export default Component.extend({
@@ -55,7 +55,6 @@ export default Component.extend({
     });
 
     sortable.on('sortable:stop', (e) => {
-      console.log(e);
       let {data: {newIndex, oldIndex}} = e;
 
       if (newIndex === undefined) {
