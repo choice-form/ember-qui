@@ -1,8 +1,0 @@
-{
-  "name": "ember-cform-ui",
-  "dependencies": {
-    "device.js": "devicejs#^0.2.7",
-    "qrcode": "1.0.2"
-  },
-  "version": "0.16.1"
-}

@@ -4,8 +4,6 @@ const fs = require('fs');
 const path = require('path');
 const mergeTrees = require('broccoli-merge-trees');
 const LessCompiler = require('broccoli-less-single');
-const LessPluginAutoPrefix = require('less-plugin-autoprefix');
-const autoPrefixPlugin = new LessPluginAutoPrefix();
 
 module.exports = {
   name: 'ember-cform-ui',
@@ -13,17 +11,6 @@ module.exports = {
   options: {
     babel: {
       plugins: ['syntax-object-rest-spread']
-    },
-    outputPaths: {
-      app: {
-        css: {
-          'app': '/assets/bundle.css',
-        },
-        js: '/assets/bundle.js',
-      },
-    },
-    lessOptions: {
-      plugins: [autoPrefixPlugin]
     },
     nodeAssets: {
       bowser: { import: ['bowser.js'] },
@@ -97,12 +84,12 @@ module.exports = {
     this._super.included.apply(this, arguments);
 
     app.import(`./vendor/shims/bowser.js`);
-    app.import(`${app.bowerDirectory}/device.js/lib/device.js`);
-    app.import(`./vendor/shims/device.js`);
+    // app.import(`${app.bowerDirectory}/device.js/lib/device.js`);
+    // app.import(`./vendor/shims/device.js`);
 
     app.import(`./vendor/shims/masonry.js`);
-    app.import(`${app.bowerDirectory}/qrcode/lib/qrcode.js`);
-    app.import(`./vendor/shims/qrcode.js`);
+    // app.import(`${app.bowerDirectory}/qrcode/lib/qrcode.js`);
+    // app.import(`./vendor/shims/qrcode.js`);
     app.import(`./vendor/shims/sortable.js`);
     app.import(`./vendor/shims/swiper.js`);
     app.import(`./vendor/pinyin/index.js`);
