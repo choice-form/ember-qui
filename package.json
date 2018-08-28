@@ -12,14 +12,7 @@
     "start": "ember server",
     "test": "ember try:each"
   },
-  "homepage": "https://gitlab.cform.io/dev/ember-cform-ui",
-  "repository": {
-    "type": "git",
-    "url": "git@gitlab.cform.io:dev/ember-cform-ui.git"
-  },
-  "bugs": {
-    "url": "https://gitlab.cform.io/dev/ember-cform-ui/issues"
-  },
+  "repository": "https://github.com/choice-form/ember-qui",
   "engines": {
     "node": ">= 0.12.0"
   },
@@ -73,14 +66,12 @@
     "ember-windoc": "0.1.8",
     "faker": "^3.1.0",
     "loader.js": "^4.1.0",
-    "photoswipe": "^4.1.2",
-    "yuidoc-ember": "0.0.3"
+    "photoswipe": "^4.1.2"
   },
   "keywords": [
     "ember-addon"
   ],
   "ember-addon": {
-    "configPath": "tests/dummy/config",
-    "demoURL": "http://cform-ui.surge.sh/"
+    "configPath": "tests/dummy/config"
   }
 }
