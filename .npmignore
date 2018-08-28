@@ -13,8 +13,7 @@
 **/.eslintrc.js
 .ember-cli
 .gitignore
-*.sublime*
-.vscodeignore
+.eslintrc.js
 .watchmanconfig
 .travis.yml
 bower.json
