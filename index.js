@@ -41,8 +41,8 @@ module.exports = {
 
   contentForSVGIcons() {
     const iconPath = this.isAddon()
-          ? path.join(this.project.root, 'icons', 'index.html')
-          : path.join(this.project.nodeModulesPath, '@choiceform', 'ember-cform-ui', 'icons', 'index.html');
+          ? path.resolve(this.project.root, 'icons', 'index.html')
+          : path.resolve('node_modules', '@choiceform', 'ember-cform-ui', 'icons', 'index.html');
 
     return fs.readFileSync(iconPath, 'utf-8').replace(/\n\r?/g, '')
   },
