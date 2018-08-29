@@ -1,16 +1,19 @@
-import Component from 'ember-component';
+import Component from '@ember/component';
 import layout from './template';
-import computed from 'ember-computed';
-import get from 'ember-metal/get';
-import set from 'ember-metal/set';
+import { computed } from '@ember/object';
+import { get } from '@ember/object';
+import { set } from '@ember/object';
 
 export default Component.extend({
   layout,
 
   attributeBindings: ['style'],
+
   classNames: ['ui-notification'],
+
   classNameBindings: ['positionClassName'],
-  localClassNames: ['container'],
+
+  localClassNames: ['container'], // eslint-disable-line
 
   position: 'top',
   positionClassName: computed('position', function() {

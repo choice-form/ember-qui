@@ -1,8 +1,8 @@
-import Component from 'ember-component';
+import Component from '@ember/component';
 import layout from './template';
-import computed, {reads} from 'ember-computed';
-import get from 'ember-metal/get';
-import {htmlSafe} from 'ember-string';
+import { reads } from '@ember/object/computed';
+import { computed, get } from '@ember/object';
+import { htmlSafe } from '@ember/string';
 import mobiInit from '../../lib/mobile-factory'
 
 export default Component.extend({

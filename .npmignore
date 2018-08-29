@@ -1,3 +1,5 @@
+/.github
+/.vscode
 /bower_components
 /config/ember-try.js
 /dist
@@ -8,19 +10,19 @@
 /docs
 **/.gitkeep
 .bowerrc
-.csscomb.json
 .editorconfig
 **/.eslintrc.js
 .ember-cli
+.eslintrc.js
 .gitignore
-*.sublime*
-.vscodeignore
 .watchmanconfig
 .travis.yml
 bower.json
 CNAME
 ember-cli-build.js
 testem.js
-jsconfig.json
-yarn.lock
-yui*
+
+# ember-try
+.node_modules.ember-try/
+bower.json.ember-try
+package.json.ember-try

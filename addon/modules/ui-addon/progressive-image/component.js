@@ -1,11 +1,10 @@
-import Component from 'ember-component';
+import Component from '@ember/component';
 import layout from './template';
-import computed, { notEmpty } from 'ember-computed';
-import get from 'ember-metal/get';
-import { htmlSafe } from 'ember-string';
+import { notEmpty } from '@ember/object/computed';
+import { computed, get } from '@ember/object';
+import { htmlSafe } from '@ember/string';
 import stackBlurImage from './stack-blur';
-import { later } from 'ember-runloop';
-import bowser from 'bowser';
+import { later } from '@ember/runloop';
 
 const ie = bowser.msie && bowser.version <= 9;
 

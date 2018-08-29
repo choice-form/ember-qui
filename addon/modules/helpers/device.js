@@ -1,7 +1,8 @@
-import Helper from 'ember-helper'
+import { helper } from '@ember/component/helper';
+import { device } from 'device';
 
-export const device = ([name]) => {
-  return window.device[name]();
+export const _device = ([name]) => {
+  return device[name]();
 };
 
-export default Helper.helper(device);
+export default helper(_device);

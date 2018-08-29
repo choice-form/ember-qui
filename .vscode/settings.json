@@ -1,11 +1,10 @@
 {
   "files.exclude": {
-    "_doc": true,
+    ".github": true,
     ".idea": true,
     ".vscode": true,
-    "bower_components": true,
-    "node_modules": true,
+    "dist": true,
+    "node_modules": false,
     "tmp": true,
-  },
-  "window.zoomLevel": 1.25
+  }
 }

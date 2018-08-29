@@ -1,4 +1,4 @@
-import Helper from 'ember-helper'
+import { helper } from '@ember/component/helper';
 
 const en = {
   'UI_TransVideo': 'Encoding video...',
@@ -100,4 +100,4 @@ export const tempI18n = (name, ...replacements) => {
   return result;
 };
 
-export default Helper.helper(tempI18n);
+export default helper(tempI18n);

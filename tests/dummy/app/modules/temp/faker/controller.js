@@ -1,6 +1,6 @@
-import Controller from 'ember-controller';
+import Controller from '@ember/controller';
 import faker from 'faker';
-import computed from 'ember-computed';
+import { computed } from '@ember/object';
 
 export default Controller.extend({
   name: faker.name.findName(),

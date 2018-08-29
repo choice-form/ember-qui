@@ -1,9 +1,9 @@
-import Component from 'ember-component';
+import Component from '@ember/component';
 import layout from './template';
-import {scheduleOnce} from 'ember-runloop';
-import get from 'ember-metal/get';
-import {initSelect} from '../../lib/mobile-factory';
-import {tempI18n} from "../../helpers/temp-i18n";
+import { scheduleOnce } from '@ember/runloop';
+import { get } from '@ember/object';
+import { initSelect } from '../../lib/mobile-factory';
+import { tempI18n } from "../../helpers/temp-i18n";
 
 
 const recoverSelected = (inst, list) => {

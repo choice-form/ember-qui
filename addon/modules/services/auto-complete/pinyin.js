@@ -1,6 +1,5 @@
 import pinyin from 'pinyin';
 
-
 const nasalMap = [
   {normal: 'an', velar: 'ang'},
   {normal: 'en', velar: 'eng'},

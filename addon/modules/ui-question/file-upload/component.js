@@ -1,10 +1,10 @@
-import Component from 'ember-component';
+import { computed, get, set } from '@ember/object';
+import { reads } from '@ember/object/computed';
+import Component from '@ember/component';
+import { device } from 'device';
+
+import { tempI18n } from '../../helpers/temp-i18n';
 import layout from './template';
-import computed, {reads} from 'ember-computed';
-import get from 'ember-metal/get';
-import set from 'ember-metal/set';
-import device from 'device';
-import {tempI18n} from '../../helpers/temp-i18n';
 
 export default Component.extend({
   layout,
@@ -16,7 +16,7 @@ export default Component.extend({
     return device.mobile() ? 'image/*' : null;
   }).readOnly(),
 
-  icon: computed('option.value', 'option.icon', function () {
+  icon: computed('option.{icon,value}', function () {
     return get(this, 'option.value') ? 'refresh' : get(this, 'option.icon');
   }),
 

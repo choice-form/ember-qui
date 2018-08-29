@@ -1,11 +1,11 @@
-import Component from 'ember-component';
+import Component from '@ember/component';
 import layout from './template';
-import inject from 'ember-service/inject';
-import computed from 'ember-computed';
-import set from 'ember-metal/set';
-import { later, throttle } from 'ember-runloop';
+import { inject } from '@ember/service';
+import { computed } from '@ember/object';
+import { set } from '@ember/object';
+import { later, throttle } from '@ember/runloop';
 import Swiper from 'swiper';
-import noUiSlider from 'slideranger';
+import noUiSlider from 'nouislider';
 
 export default Component.extend({
   layout,

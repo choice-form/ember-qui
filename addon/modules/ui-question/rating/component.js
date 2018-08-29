@@ -1,9 +1,9 @@
-import Component from 'ember-component';
+import Component from '@ember/component';
 import layout from './template';
-import computed, { equal } from 'ember-computed';
-import get from 'ember-metal/get';
-import { htmlSafe } from 'ember-string';
-import {insertImg} from '../../lib/attribute-manage';
+import { equal } from '@ember/object/computed';
+import { computed, get } from '@ember/object';
+import { htmlSafe } from '@ember/string';
+import { insertImg } from '../../lib/attribute-manage';
 
 export default Component.extend({
   layout,

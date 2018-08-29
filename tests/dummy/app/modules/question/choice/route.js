@@ -1,7 +1,7 @@
 /* eslint-disable */
-import Route from 'ember-route';
-import set from 'ember-metal/set';
-import Ember from 'ember';
+import EmberObject from '@ember/object';
+import Route from '@ember/routing/route';
+import { set } from '@ember/object';
 import faker from 'faker';
 
 export default Route.extend({
@@ -30,7 +30,7 @@ export default Route.extend({
           number: '',
           errorMessage:'第一题错误',
           options: [
-            Ember.Object.create({
+            EmberObject.create({
               selected: false,
               renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: `选项##/images/sample-3.jpg?w=20&h=30##${faker.lorem.sentence()}`,
@@ -41,7 +41,7 @@ export default Route.extend({
               value: 'Here is options comment',
               placeholder: 'comment',
             }),
-            Ember.Object.create({
+            EmberObject.create({
               selected: false,
               renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.sentence(),
@@ -52,7 +52,7 @@ export default Route.extend({
               value: '',
               placeholder: 'placeholder',
             }),
-            Ember.Object.create({
+            EmberObject.create({
               selected: false,
               renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.sentence(),
@@ -63,7 +63,7 @@ export default Route.extend({
               value: '选项',
               placeholder: 'input count',
             }),
-            Ember.Object.create({
+            EmberObject.create({
               selected: false,
               renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.sentence(),
@@ -95,7 +95,7 @@ export default Route.extend({
           asterisks: true,
           number: '2',
           options: [
-            Ember.Object.create({
+            EmberObject.create({
               selected: false,
               renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.sentence(),
@@ -106,7 +106,7 @@ export default Route.extend({
               value: 'Here is options comment',
               placeholder: 'comment',
             }),
-            Ember.Object.create({
+            EmberObject.create({
               selected: false,
               renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.sentence(),
@@ -117,7 +117,7 @@ export default Route.extend({
               value: '',
               placeholder: 'placeholder',
             }),
-            Ember.Object.create({
+            EmberObject.create({
               selected: false,
               renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.paragraph(),
@@ -128,7 +128,7 @@ export default Route.extend({
               value: '选项',
               placeholder: 'input count',
             }),
-            Ember.Object.create({
+            EmberObject.create({
               selected: false,
               renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.sentence(),
@@ -139,7 +139,7 @@ export default Route.extend({
               value: 'input time',
               placeholder: '',
             }),
-            Ember.Object.create({
+            EmberObject.create({
               selected: true,
               renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.paragraph(),
@@ -150,7 +150,7 @@ export default Route.extend({
               value: '',
               placeholder: 'input int',
             }),
-            Ember.Object.create({
+            EmberObject.create({
               selected: true,
               renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: '',
@@ -161,7 +161,7 @@ export default Route.extend({
               value: '',
               placeholder: 'input float',
             }),
-            Ember.Object.create({
+            EmberObject.create({
               /**
                * @prop {bool} - 是否选中
                */
@@ -221,6 +221,6 @@ export default Route.extend({
       logoText:'GMO',
 
       hideFooter: false,
-    }
+    };
   }
 });

@@ -1,9 +1,8 @@
-import Component from 'ember-component';
-import set from 'ember-metal/set';
-import get from 'ember-metal/get';
-import observer from 'ember-metal/observer';
-import { bind } from 'ember-runloop';
-import SlideRanger from 'slideranger';
+import { bind } from '@ember/runloop';
+import { get, set } from '@ember/object';
+import { observer } from '@ember/object';
+import Component from '@ember/component';
+import noUiSlider from 'nouislider';
 
 export default Component.extend({
   init() {
@@ -35,7 +34,7 @@ export default Component.extend({
   },
 
   _prepareHandlers() {
-    this._handlers = Object.keys(this.attrs)
+    this._handlers = Object.keys(this)
       .filter(name => /^on-/i.test(name))
       .map(name => name.slice(3));
   },
@@ -49,7 +48,7 @@ export default Component.extend({
   },
 
   didInsertElement() {
-    this.ranger = SlideRanger.create(this.element, get(this, '_options'));
+    this.ranger = noUiSlider.create(this.element, get(this, '_options'));
 
     for (let handler of this._handlers) {
       this.ranger.on(handler, get(this, `on-${handler}`));

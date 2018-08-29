@@ -1,10 +1,9 @@
-import Component from 'ember-component'
+import Component from '@ember/component';
 import InViewportMixin from 'ember-in-viewport'
 import layout from './template'
-import computed, { reads } from 'ember-computed'
-import { htmlSafe } from 'ember-string'
-import get from 'ember-metal/get'
-import set, { setProperties } from 'ember-metal/set'
+import { reads } from '@ember/object/computed';
+import { computed, get, set, setProperties } from '@ember/object';
+import { htmlSafe } from '@ember/string';
 
 export default Component.extend(InViewportMixin, {
   layout,

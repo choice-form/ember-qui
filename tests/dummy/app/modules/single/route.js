@@ -1,6 +1,6 @@
-import Route from 'ember-route';
-import set from 'ember-metal/set';
-import Ember from 'ember';
+import EmberObject from '@ember/object';
+import Route from '@ember/routing/route';
+import { set } from '@ember/object';
 import faker from 'faker';
 
 /*eslint-disable no-console */
@@ -45,7 +45,7 @@ export default Route.extend({
           isMust:true,
           number:'1',
           options:[
-            Ember.Object.create({
+            EmberObject.create({
               selected: false,
               renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.sentence(),
@@ -56,7 +56,7 @@ export default Route.extend({
               value: 'Here is options comment',
               placeholder: 'comment',
             }),
-            Ember.Object.create({
+            EmberObject.create({
               selected: false,
               renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.sentence(),
@@ -67,7 +67,7 @@ export default Route.extend({
               value: '',
               placeholder: 'placeholder',
             }),
-            Ember.Object.create({
+            EmberObject.create({
               selected: false,
               renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.sentence(),
@@ -78,7 +78,7 @@ export default Route.extend({
               value: '选项',
               placeholder: 'input count',
             }),
-            Ember.Object.create({
+            EmberObject.create({
               selected: false,
               renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.sentence(),
@@ -104,49 +104,49 @@ export default Route.extend({
           isMust: true,
           number: '1',
           options:[
-            Ember.Object.create({
+            EmberObject.create({
               selected: false,
               renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.words(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'https://csvfx-files.b0.upaiyun.com/uploadfiles/UploadSvg/c0872608-5cb0-44c5-907e-f61b64fef3fc.svg',
             }),
-            Ember.Object.create({
+            EmberObject.create({
               selected: false,
               renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.words(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'https://csvfx-files.b0.upaiyun.com/uploadfiles/UploadSvg/089ff4a5-bd7e-4493-a991-fec1f251dee2.svg',
             }),
-            Ember.Object.create({
+            EmberObject.create({
               selected: false,
               renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.words(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'https://csvfx-files.b0.upaiyun.com/uploadfiles/UploadSvg/16d016f3-cbe9-4e21-9ed0-53d49a67c0bf.svg',
             }),
-            Ember.Object.create({
+            EmberObject.create({
               selected: false,
               renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.words(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'https://csvfx-files.b0.upaiyun.com/uploadfiles/UploadSvg/83a44a20-7ca3-4254-b43b-07cc987aa3ee.svg',
             }),
-            Ember.Object.create({
+            EmberObject.create({
               selected: true,
               renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.words(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'https://csvfx-files.b0.upaiyun.com/uploadfiles/UploadSvg/1c2fb2d2-fd88-45d7-afce-a6176f50af2d.svg',
             }),
-            Ember.Object.create({
+            EmberObject.create({
               selected: true,
               renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.words(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'https://csvfx-files.b0.upaiyun.com/uploadfiles/UploadSvg/e4cff5bb-6989-4e58-bc38-2742c3986231.svg',
             }),
-            Ember.Object.create({
+            EmberObject.create({
               selected: true,
               renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.words(),
@@ -315,7 +315,7 @@ export default Route.extend({
           number: '4',
 
           options:[
-            Ember.Object.create({
+            EmberObject.create({
               selected: '',
               renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.sentence(),
@@ -330,7 +330,7 @@ export default Route.extend({
               }),
               placeholder: '',
             }),
-            Ember.Object.create({
+            EmberObject.create({
               selected: '',
               renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.sentence(),
@@ -344,7 +344,7 @@ export default Route.extend({
               }),
               placeholder: '',
             }),
-            Ember.Object.create({
+            EmberObject.create({
               selected: '',
               renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.sentence(),
@@ -360,7 +360,7 @@ export default Route.extend({
               }),
               placeholder: '',
             }),
-            Ember.Object.create({
+            EmberObject.create({
               selected: '',
               renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.sentence(),
@@ -376,7 +376,7 @@ export default Route.extend({
               }),
               placeholder: '',
             }),
-            Ember.Object.create({
+            EmberObject.create({
               selected: '',
               renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.sentence(),
@@ -409,7 +409,7 @@ export default Route.extend({
           isMust:true,
           number:'1',
           options:[
-            Ember.Object.create({
+            EmberObject.create({
               selected: false,
               renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.sentence(),
@@ -420,7 +420,7 @@ export default Route.extend({
               value: 'Here is options comment',
               placeholder: 'comment',
             }),
-            Ember.Object.create({
+            EmberObject.create({
               selected: false,
               renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.sentence(),
@@ -431,7 +431,7 @@ export default Route.extend({
               value: '',
               placeholder: 'placeholder',
             }),
-            Ember.Object.create({
+            EmberObject.create({
               selected: false,
               renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.sentence(),
@@ -442,7 +442,7 @@ export default Route.extend({
               value: '选项',
               placeholder: 'input count',
             }),
-            Ember.Object.create({
+            EmberObject.create({
               selected: false,
               renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.sentence(),
@@ -468,49 +468,49 @@ export default Route.extend({
           isMust: true,
           number: '1',
           options:[
-            Ember.Object.create({
+            EmberObject.create({
               selected: false,
               renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.words(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'https://csvfx-files.b0.upaiyun.com/uploadfiles/UploadSvg/c0872608-5cb0-44c5-907e-f61b64fef3fc.svg',
             }),
-            Ember.Object.create({
+            EmberObject.create({
               selected: false,
               renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.words(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'https://csvfx-files.b0.upaiyun.com/uploadfiles/UploadSvg/089ff4a5-bd7e-4493-a991-fec1f251dee2.svg',
             }),
-            Ember.Object.create({
+            EmberObject.create({
               selected: false,
               renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.words(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'https://csvfx-files.b0.upaiyun.com/uploadfiles/UploadSvg/16d016f3-cbe9-4e21-9ed0-53d49a67c0bf.svg',
             }),
-            Ember.Object.create({
+            EmberObject.create({
               selected: false,
               renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.words(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'https://csvfx-files.b0.upaiyun.com/uploadfiles/UploadSvg/83a44a20-7ca3-4254-b43b-07cc987aa3ee.svg',
             }),
-            Ember.Object.create({
+            EmberObject.create({
               selected: true,
               renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.words(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'https://csvfx-files.b0.upaiyun.com/uploadfiles/UploadSvg/1c2fb2d2-fd88-45d7-afce-a6176f50af2d.svg',
             }),
-            Ember.Object.create({
+            EmberObject.create({
               selected: true,
               renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.words(),
               uuid: faker.date.between('2016-01-01', '2016-12-31'),
               icon: 'https://csvfx-files.b0.upaiyun.com/uploadfiles/UploadSvg/e4cff5bb-6989-4e58-bc38-2742c3986231.svg',
             }),
-            Ember.Object.create({
+            EmberObject.create({
               selected: true,
               renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.words(),
@@ -679,7 +679,7 @@ export default Route.extend({
           number: '4',
 
           options:[
-            Ember.Object.create({
+            EmberObject.create({
               selected: '',
               renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.sentence(),
@@ -694,7 +694,7 @@ export default Route.extend({
               }),
               placeholder: '',
             }),
-            Ember.Object.create({
+            EmberObject.create({
               selected: '',
               renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.sentence(),
@@ -708,7 +708,7 @@ export default Route.extend({
               }),
               placeholder: '',
             }),
-            Ember.Object.create({
+            EmberObject.create({
               selected: '',
               renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.sentence(),
@@ -724,7 +724,7 @@ export default Route.extend({
               }),
               placeholder: '',
             }),
-            Ember.Object.create({
+            EmberObject.create({
               selected: '',
               renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.sentence(),
@@ -740,7 +740,7 @@ export default Route.extend({
               }),
               placeholder: '',
             }),
-            Ember.Object.create({
+            EmberObject.create({
               selected: '',
               renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.sentence(),
@@ -791,6 +791,6 @@ export default Route.extend({
       prevButton: '上一题',
 
       nextButton: '下一题',
-    }
+    };
   }
 });

@@ -1,10 +1,10 @@
-import Component from 'ember-component';
+import Component from '@ember/component';
 import layout from './template';
-import computed, { filterBy, gt } from 'ember-computed';
-import get from 'ember-metal/get';
-import set from 'ember-metal/set';
+import { computed, get, set } from '@ember/object';
 import Masonry from 'masonry';
-import { scheduleOnce } from 'ember-runloop';
+import { scheduleOnce } from '@ember/runloop';
+import PhotoSwipe from 'photoswipe';
+import PhotoSwipeUI_Default from 'photoswipeui-default';
 
 export default Component.extend({
   layout,

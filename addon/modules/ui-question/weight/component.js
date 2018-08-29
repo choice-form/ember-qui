@@ -1,7 +1,7 @@
-import Component from 'ember-component';
+import Component from '@ember/component';
 import layout from './template';
-import get from 'ember-metal/get';
-import { reads } from 'ember-computed';
+import { get } from '@ember/object';
+import { reads } from '@ember/object/computed';
 
 export default Component.extend({
   layout,

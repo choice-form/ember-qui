@@ -1,8 +1,11 @@
-import Ember from 'ember';
-import layout from './template';
-import get from 'ember-metal/get';
+import { get } from '@ember/object';
+import $ from 'jquery';
+import Component from '@ember/component';
+import { device } from 'device';
 
-export default Ember.Component.extend({
+import layout from './template';
+
+export default Component.extend({
   layout,
   pinned: null,
   pinSupport: null,

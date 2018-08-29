@@ -1,13 +1,13 @@
-import ArrayProxy from 'ember-controller/proxy';
-import { A } from 'ember-array/utils';
-import O from 'ember-object';
-import { htmlSafe } from 'ember-string';
-import { isNone } from 'ember-utils';
-import get from 'ember-metal/get';
-import set from 'ember-metal/set';
-import computed from 'ember-computed';
-import { assign } from 'ember-platform';
-import { later, cancel } from 'ember-runloop';
+import ArrayProxy from '@ember/array/proxy';
+import { A } from '@ember/array';
+import EmberObject from '@ember/object';
+import { htmlSafe } from '@ember/string';
+import { isNone } from '@ember/utils';
+import { get } from '@ember/object';
+import { set } from '@ember/object';
+import { computed } from '@ember/object';
+import { assign } from '@ember/polyfills';
+import { later, cancel } from '@ember/runloop';
 import RSVP from 'rsvp';
 
 const DELAY_FOR_ANIMATION = 500;
@@ -91,7 +91,7 @@ export default ArrayProxyService.extend({
     // a number gt zero ? actual value : default value
     options.autoClear = isNone(options.autoClear) ? get(this, 'defaultAutoClear') : options.autoClear;
 
-    const NotificationFactory = O.extend({
+    const NotificationFactory = EmberObject.extend({
       countdownStyle: computed('autoClear', 'paused', function() {
         const duration = get(this, 'autoClear');
         const animationState = get(this, 'paused') ? 'paused' : 'running';

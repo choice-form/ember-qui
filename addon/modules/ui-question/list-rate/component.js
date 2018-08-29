@@ -1,6 +1,6 @@
-import Component from 'ember-component';
+import Component from '@ember/component';
 import layout from './template';
-import noUiSlider from 'slideranger';
+import noUiSlider from 'nouislider';
 
 export default Component.extend({
   layout,
