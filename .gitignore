@@ -1,11 +1,10 @@
 # compiled output
-/dist
-/docs
-/tmp
-/desgin
+/dist/
+/tmp/
+
 # dependencies
-/node_modules
-/bower_components
+/bower_components/
+/node_modules/
 
 # misc
 .DS_Store
@@ -13,15 +12,13 @@
 /.idea
 /.sass-cache
 /connect.lock
-/coverage/*
+/coverage/
 /libpeerconnection.log
-/typings
-jsconfig.json
-npm-debug.log*
-yarn-error.log
-testem.log
+/npm-debug.log*
+/testem.log
+/yarn-error.log
 
 # ember-try
-.node_modules.ember-try/
-bower.json.ember-try
-package.json.ember-try
+/.node_modules.ember-try/
+/bower.json.ember-try
+/package.json.ember-try
