@@ -1,7 +1,9 @@
-import Component from '@ember/component';
-import layout from './template';
 import { get, set } from '@ember/object';
 import { reads } from '@ember/object/computed';
+import Component from '@ember/component';
+import { device } from 'device';
+
+import layout from './template';
 
 export default Component.extend({
   layout,

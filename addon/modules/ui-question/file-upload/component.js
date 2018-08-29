@@ -1,9 +1,10 @@
-import Component from '@ember/component';
-import layout from './template';
-import { reads } from '@ember/object/computed';
 import { computed, get, set } from '@ember/object';
-import device from 'device';
+import { reads } from '@ember/object/computed';
+import Component from '@ember/component';
+import { device } from 'device';
+
 import { tempI18n } from '../../helpers/temp-i18n';
+import layout from './template';
 
 export default Component.extend({
   layout,

@@ -2,7 +2,7 @@ import { bind } from '@ember/runloop';
 import { get, set } from '@ember/object';
 import { observer } from '@ember/object';
 import Component from '@ember/component';
-import SlideRanger from 'slideranger';
+import noUiSlider from 'nouislider';
 
 export default Component.extend({
   init() {
@@ -48,7 +48,7 @@ export default Component.extend({
   },
 
   didInsertElement() {
-    this.ranger = SlideRanger.create(this.element, get(this, '_options'));
+    this.ranger = noUiSlider.create(this.element, get(this, '_options'));
 
     for (let handler of this._handlers) {
       this.ranger.on(handler, get(this, `on-${handler}`));

@@ -3,6 +3,8 @@ import layout from './template';
 import { computed, get, set } from '@ember/object';
 import Masonry from 'masonry';
 import { scheduleOnce } from '@ember/runloop';
+import PhotoSwipe from 'photoswipe';
+import PhotoSwipeUI_Default from 'photoswipeui-default';
 
 export default Component.extend({
   layout,

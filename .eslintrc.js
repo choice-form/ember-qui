@@ -18,10 +18,9 @@ module.exports = {
     browser: true
   },
   globals: {
+    bowser: false,
     device: false,
-    plyr: false,
-    PhotoSwipe: false,
-    PhotoSwipeUI_Default: false
+    plyr: false
   },
   rules: {
   },

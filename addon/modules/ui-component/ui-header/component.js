@@ -5,6 +5,8 @@ import { notEmpty, and, not } from '@ember/object/computed';
 import { computed, get } from '@ember/object';
 import { htmlSafe } from '@ember/string';
 import { insertImg } from '../../lib/attribute-manage';
+import PhotoSwipe from 'photoswipe';
+import PhotoSwipeUI_Default from 'photoswipeui-default';
 
 export default Component.extend({
   layout,

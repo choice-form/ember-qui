@@ -1,9 +1,9 @@
-import bowser from 'bowser';
+import { device } from 'device';
 
 export default {
-  name: 'bowser',
-
   initialize() {
+    device.addClasses(document.documentElement);
+
     if (bowser.msie) {
       const classNames = ` ie -${bowser.version.split('.')[0]}`
       document.documentElement.classNames += classNames

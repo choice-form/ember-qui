@@ -5,7 +5,6 @@ import { computed, get } from '@ember/object';
 import { htmlSafe } from '@ember/string';
 import stackBlurImage from './stack-blur';
 import { later } from '@ember/runloop';
-import bowser from 'bowser';
 
 const ie = bowser.msie && bowser.version <= 9;
 

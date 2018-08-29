@@ -1,6 +1,7 @@
 import { get, set } from '@ember/object';
 import { reads } from '@ember/object/computed';
 import Component from '@ember/component';
+import { device } from 'device';
 
 import layout from './template';
 

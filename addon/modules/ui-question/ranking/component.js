@@ -1,12 +1,13 @@
-import Component from '@ember/component';
-import layout from './template';
 import { get } from '@ember/object';
-import { set } from '@ember/object';
 import { reads } from '@ember/object/computed';
-import { Sortable, Plugins } from 'sortable';
 import { scheduleOnce, later } from '@ember/runloop';
+import { set } from '@ember/object';
+import { Draggable, Plugins } from 'sortable';
+import Component from '@ember/component';
+import { device } from 'device';
+
 import { addClass } from '../../lib/attribute-manage'
-import device from 'device';
+import layout from './template';
 
 export default Component.extend({
   layout,
@@ -34,10 +35,10 @@ export default Component.extend({
         addClass(rankItems[index], 'complete')
       }
     });
-    const sortableWrapper = this.element.querySelector('.ranking-wrapper');
-    const sortable = new Sortable(sortableWrapper, {
+    const draggableWrapper = this.element.querySelector('.ranking-wrapper');
+    const draggable = new Draggable(draggableWrapper, {
       draggable: '.ranking-rank',
-      appendTo: sortableWrapper,
+      appendTo: draggableWrapper,
       mirror: {
         constrainDimensions: true,
       },
@@ -54,7 +55,7 @@ export default Component.extend({
       }
     });
 
-    sortable.on('sortable:stop', (e) => {
+    draggable.on('sortable:stop', (e) => {
       let {data: {newIndex, oldIndex}} = e;
 
       if (newIndex === undefined) {

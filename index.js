@@ -4,6 +4,8 @@ const fs = require('fs');
 const path = require('path');
 const mergeTrees = require('broccoli-merge-trees');
 const LessCompiler = require('broccoli-less-single');
+const LessPluginAutoPrefix = require('less-plugin-autoprefix');
+const autoPrefixPlugin = new LessPluginAutoPrefix();
 
 module.exports = {
   name: 'ember-cform-ui',
@@ -12,40 +14,9 @@ module.exports = {
     babel: {
       plugins: ['syntax-object-rest-spread']
     },
-    nodeAssets: {
-      bowser: { import: ['bowser.js'] },
-      'masonry-layout': {
-        import: [{ path: 'dist/masonry.pkgd.js' }]
-      },
-      "@shopify/draggable": {
-        import: [{ path: 'lib/es5/draggable.bundle.js' }]
-      },
-      swiper: {
-        srcDir: 'dist',
-        import: [
-          'css/swiper.min.css',
-          { path: 'js/swiper.min.js', sourceMap: 'js/maps/swiper.min.js.map' }
-        ]
-      },
-      nouislider: {
-        srcDir: 'distribute',
-        import: [
-          { path: 'nouislider.css' },
-          {
-            path: 'nouislider.js',
-            using: [{ transformation: 'amd', as: 'slideranger' }]
-          }
-        ]
-      },
-      photoswipe: {
-        srcDir: 'dist',
-        import: [
-          'photoswipe.min.js',
-          'photoswipe-ui-default.min.js',
-          'photoswipe.css',
-          'default-skin/default-skin.css',
-        ]
-      }
+
+    lessOptions: {
+      plugins: [autoPrefixPlugin]
     }
   },
 
@@ -58,21 +29,17 @@ module.exports = {
     return (keywords && keywords.indexOf('ember-addon') !== -1);
   },
 
-  contentFor(type, config, content) {
+  contentFor(type) {
     return ('body-footer' === type)
       ? [
-        // `<script async src="/assets/masonry.js?node={{node}}"></script>`,
         `<link rel="stylesheet" href="/assets/mobiscroll.css?node={{node}}">`,
         `<script defer src="/assets/mobiscroll.js?node={{node}}"></script>`,
-        // `<script async src="/assets/qrcode.js?node={{node}}"></script>`,
-        // `<script async src="/assets/sortable.js?node={{node}}"></script>`,
-        // `<script async src="/assets/swiper.js?node={{node}}"></script>`,
         this.contentForSVGIcons()
       ].join('\n')
       : '';
   },
 
-  contentForSVGIcons(prefix) {
+  contentForSVGIcons() {
     const iconPath = this.isAddon()
           ? path.join(this.project.root, 'icons', 'index.html')
           : path.join(this.project.nodeModulesPath, '@choiceform', 'ember-cform-ui', 'icons', 'index.html');
@@ -83,25 +50,57 @@ module.exports = {
   included(app) {
     this._super.included.apply(this, arguments);
 
-    app.import(`./vendor/shims/bowser.js`);
-    // app.import(`${app.bowerDirectory}/device.js/lib/device.js`);
-    // app.import(`./vendor/shims/device.js`);
+    app.import('node_modules/bowser/src/bowser.js');
 
-    app.import(`./vendor/shims/masonry.js`);
-    // app.import(`${app.bowerDirectory}/qrcode/lib/qrcode.js`);
-    // app.import(`./vendor/shims/qrcode.js`);
-    app.import(`./vendor/shims/sortable.js`);
-    app.import(`./vendor/shims/swiper.js`);
-    app.import(`./vendor/pinyin/index.js`);
-    app.import(`./vendor/shims/pinyin.js`);
+    app.import('node_modules/device.js/dist/device.umd.js', {
+      using: [{ transformation: 'amd', as: 'device' }]
+    });
 
-    // app.import(`./vendor/mobiscroll/css/mobiscroll.custom.min.css`, { outputFile: 'assets/mobiscroll.css' });
-    // app.import(`./vendor/mobiscroll/js/mobiscroll.custom.min.js`, { outputFile: 'assets/mobiscroll.js' });
-    // app.import(`./vendor/shims/mobiscroll.js`, { outputFile: 'assets/mobiscroll.js' });
-    // app.import(`./vendor/shims/mobiscroll.js`, { outputFile: 'assets/mobiscroll.js' });
+    app.import('node_modules/@shopify/draggable/lib/draggable.bundle.js', {
+      using: [{ transformation: 'amd', as: 'draggable' }]
+    });
+
+    app.import('node_modules/masonry-layout/dist/masonry.pkgd.js', {
+      using: [{ transformation: 'amd', as: 'masonry' }]
+    });
+
+    app.import('node_modules/nouislider/distribute/nouislider.css');
+    app.import('node_modules/nouislider/distribute/nouislider.js', {
+      using: [{ transformation: 'amd', as: 'nouislider' }]
+    });
+
+    app.import('node_modules/qrcode.js/lib/qrcode.js', {
+      using: [{ transformation: 'amd', as: 'qrcode' }]
+    });
+
+    app.import('node_modules/swiper/dist/js/swiper.min.js', {
+      using: [{ transformation: 'amd', as: 'swiper' }]
+    });
+
+    app.import('node_modules/photoswipe/dist/photoswipe.css');
+    app.import('node_modules/photoswipe/dist/default-skin/default-skin.css');
+    app.import('node_modules/photoswipe/dist/photoswipe.js', {
+      using: [{ transformation: 'amd', as: 'photoswipe' }]
+    });
+    app.import('node_modules/photoswipe/dist/photoswipe-ui-default.js', {
+      using: [{ transformation: 'amd', as: 'photoswipeui-default' }]
+    });
+
+    app.import('vendor/pinyin/index.js');
+    app.import('vendor/shims/pinyin.js');
+
+    app.import('vendor/mobiscroll/css/mobiscroll.custom.min.css', {
+      outputFile: 'assets/mobiscroll.css'
+    });
+    app.import('vendor/mobiscroll/js/mobiscroll.custom.min.js', {
+      outputFile: 'assets/mobiscroll.js'
+    });
+    app.import('vendor/shims/mobiscroll.js', {
+      outputFile: 'assets/mobiscroll.js'
+    });
   },
 
-  treeForPublic(tree) {
+  treeForPublic() {
     const publicTree = this._super.treeForPublic.apply(this, arguments);
     const trees = [];
 

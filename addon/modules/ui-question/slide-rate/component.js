@@ -5,7 +5,7 @@ import { computed } from '@ember/object';
 import { set } from '@ember/object';
 import { later, throttle } from '@ember/runloop';
 import Swiper from 'swiper';
-import noUiSlider from 'slideranger';
+import noUiSlider from 'nouislider';
 
 export default Component.extend({
   layout,

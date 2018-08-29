@@ -1,6 +1,7 @@
 import { get } from '@ember/object';
 import $ from 'jquery';
 import Component from '@ember/component';
+import { device } from 'device';
 
 import layout from './template';
 
