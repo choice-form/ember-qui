@@ -1,4 +1,4 @@
-import Route from 'ember-route';
+import Route from '@ember/routing/route';
 import faker from 'faker';
 
 /*eslint-disable no-console */

@@ -1,14 +1,14 @@
 /* eslint-disable */
-import Route from 'ember-route';
-import set from 'ember-metal/set';
-import Ember from 'ember';
+import EmberObject from '@ember/object';
+import Route from '@ember/routing/route';
+import { set } from '@ember/object';
 import faker from 'faker';
 
 export default Route.extend({
   model() {
 
     let options = [
-      Ember.Object.create({
+      EmberObject.create({
         renderId: faker.date.between('2016-01-01', '2016-12-31'),
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
         alignSelf:'auto',
@@ -27,7 +27,7 @@ export default Route.extend({
           img: '/images/sample-random/sample-random-0.58-13.jpeg',
         },
       }),
-      Ember.Object.create({
+      EmberObject.create({
         renderId: faker.date.between('2016-01-01', '2016-12-31'),
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
         alignSelf:'auto',
@@ -77,7 +77,7 @@ export default Route.extend({
           }
         ],
       }),
-      Ember.Object.create({
+      EmberObject.create({
         renderId: faker.date.between('2016-01-01', '2016-12-31'),
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
         alignSelf:'auto',
@@ -108,7 +108,7 @@ export default Route.extend({
           }
         ],
       }),
-      Ember.Object.create({
+      EmberObject.create({
         renderId: faker.date.between('2016-01-01', '2016-12-31'),
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
         alignSelf:'auto',
@@ -127,7 +127,7 @@ export default Route.extend({
           img: '/images/sample-random/sample-random-0.633-9.jpeg',
         },
       }),
-      Ember.Object.create({
+      EmberObject.create({
         renderId: faker.date.between('2016-01-01', '2016-12-31'),
         uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
         alignSelf:'auto',

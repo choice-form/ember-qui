@@ -1,6 +1,6 @@
-import Route from 'ember-route';
-import set from 'ember-metal/set';
-import Ember from 'ember';
+import EmberObject from '@ember/object';
+import Route from '@ember/routing/route';
+import { set } from '@ember/object';
 import faker from 'faker';
 
 /*eslint-disable no-console */
@@ -8,7 +8,7 @@ export default Route.extend({
   model() {
 
     let options = [
-      Ember.Object.create({
+      EmberObject.create({
         selected: '',
         renderId: faker.date.between('2016-01-01', '2016-12-31'),
         text: `打分题##/images/sample-1.jpg?w=20&h=30##${faker.finance.accountName()}`,
@@ -24,7 +24,7 @@ export default Route.extend({
         step:'1',
         placeholder: '',
       }),
-      Ember.Object.create({
+      EmberObject.create({
         selected: '',
         renderId: faker.date.between('2016-01-01', '2016-12-31'),
         text: faker.lorem.words(),
@@ -40,7 +40,7 @@ export default Route.extend({
         step:2,
         placeholder: '',
       }),
-      Ember.Object.create({
+      EmberObject.create({
         selected: '',
         renderId: faker.date.between('2016-01-01', '2016-12-31'),
         text: faker.lorem.words(),
@@ -54,7 +54,7 @@ export default Route.extend({
         step:4,
         placeholder: '',
       }),
-      Ember.Object.create({
+      EmberObject.create({
         selected: '',
         renderId: faker.date.between('2016-01-01', '2016-12-31'),
         text: faker.lorem.words(),
@@ -68,7 +68,7 @@ export default Route.extend({
         step:2,
         placeholder: '',
       }),
-      Ember.Object.create({
+      EmberObject.create({
         selected: false,
         renderId: faker.date.between('2016-01-01', '2016-12-31'),
         text: faker.lorem.paragraph(),

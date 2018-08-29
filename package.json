@@ -2,85 +2,80 @@
   "name": "@choiceform/ember-cform-ui",
   "version": "0.2.57",
   "description": "UI components for q.cform.io",
+  "keywords": [
+    "ember-addon"
+  ],
   "main": "index.js",
+  "repository": "https://github.com/choice-form/ember-qui",
+  "author": "Albert Yu <albert@cform.io>",
+  "contributors": [
+    "Wester Xi <wester@cform.io>"
+  ],
   "directories": {
     "doc": "doc",
     "test": "tests"
   },
   "scripts": {
     "build": "ember build",
-    "start": "ember server",
-    "test": "ember try:each"
+    "lint:js": "eslint .",
+    "start": "ember serve",
+    "test": "ember test",
+    "test:all": "ember try:each"
   },
-  "homepage": "https://gitlab.cform.io/dev/ember-cform-ui",
-  "repository": {
-    "type": "git",
-    "url": "git@gitlab.cform.io:dev/ember-cform-ui.git"
-  },
-  "bugs": {
-    "url": "https://gitlab.cform.io/dev/ember-cform-ui/issues"
-  },
-  "engines": {
-    "node": ">= 0.12.0"
-  },
-  "license": "MIT",
-  "author": "Albert Yu <albert@cform.io>",
-  "contributors": [
-    "Wester Xi <wester@cform.io>"
-  ],
   "dependencies": {
-    "@choiceform/ember-choice-i18n": "^0.1.1",
-    "@shopify/draggable": "^1.0.0-beta.6",
-    "bowser": "^1.6.0",
-    "broccoli-less-single": "^0.6.3",
-    "ember-cli-babel": "^5.2.1",
-    "ember-cli-htmlbars": "^1.1.1",
-    "ember-cli-less": "^1.5.3",
-    "ember-composable-helpers": "^1.1.2",
-    "ember-in-viewport": "^2.1.0",
-    "ember-truth-helpers": "^1.2.0",
-    "imagesloaded": "^4.1.1",
-    "less-plugin-autoprefix": "^1.5.1",
-    "liquid-fire": "0.29.2",
-    "masonry-layout": "^4.1.1",
-    "nouislider": "^11.0.3",
-    "swiper": "^3.4.1"
+    "@shopify/draggable": "1.0.0-beta.7",
+    "bowser": "~1.6.1",
+    "broccoli-less-single": "~1.0.1",
+    "broccoli-merge-trees": "~3.0.1",
+    "device.js": "~2.3.0",
+    "ember-cli-babel": "~6.17.0",
+    "ember-cli-htmlbars": "~3.0.0",
+    "ember-cli-less": "~2.0.1",
+    "ember-composable-helpers": "~2.1.0",
+    "ember-in-viewport": "~3.1.3",
+    "ember-truth-helpers": "~2.1.0",
+    "less-plugin-autoprefix": "~2.0.0",
+    "liquid-fire": "~0.29.5",
+    "masonry-layout": "~4.2.2",
+    "nouislider": "~11.1.0",
+    "photoswipe": "~4.1.2",
+    "qrcode.js": "janantala/qrcode.js",
+    "swiper": "~4.3.5"
   },
   "devDependencies": {
-    "broccoli-asset-rev": "^2.5.0",
-    "clipboard": "^1.5.16",
-    "csscomb": "^3.1.7",
-    "ember-ajax": "^2.5.3",
-    "ember-cli": "~2.10.0",
-    "ember-cli-app-version": "^2.0.1",
-    "ember-cli-dependency-checker": "^1.3.0",
-    "ember-cli-eslint": "^3.0.0",
-    "ember-cli-htmlbars": "^1.1.1",
-    "ember-cli-htmlbars-inline-precompile": "^0.3.6",
-    "ember-cli-inject-live-reload": "^1.4.1",
-    "ember-cli-node-assets": "^0.1.6",
-    "ember-cli-plyr": "0.3.0",
-    "ember-cli-qunit": "^3.0.4",
-    "ember-cli-sri": "^2.1.1",
-    "ember-cli-surge": "1.1.16",
-    "ember-cli-test-loader": "^1.1.0",
-    "ember-cli-uglify": "^1.2.0",
-    "ember-composable-helpers": "^1.1.2",
-    "ember-disable-prototype-extensions": "^1.1.0",
-    "ember-export-application-global": "^1.1.1",
-    "ember-load-initializers": "^0.6.3",
-    "ember-resolver": "^2.1.0",
-    "ember-windoc": "0.1.8",
-    "faker": "^3.1.0",
-    "loader.js": "^4.1.0",
-    "photoswipe": "^4.1.2",
-    "yuidoc-ember": "0.0.3"
+    "babel-plugin-syntax-object-rest-spread": "~6.13.0",
+    "broccoli-asset-rev": "~3.0.0",
+    "clipboard": "~2.0.1",
+    "ember-ajax": "~3.1.0",
+    "ember-cli": "~3.3.0",
+    "ember-cli-dependency-checker": "~3.0.0",
+    "ember-cli-eslint": "~4.2.3",
+    "ember-cli-htmlbars-inline-precompile": "~1.0.3",
+    "ember-cli-inject-live-reload": "~1.8.2",
+    "ember-cli-qunit": "~4.3.2",
+    "ember-cli-shims": "~1.2.0",
+    "ember-cli-sri": "~2.1.1",
+    "ember-cli-uglify": "~2.1.0",
+    "ember-composable-helpers": "~2.1.0",
+    "ember-disable-prototype-extensions": "~1.1.3",
+    "ember-export-application-global": "~2.0.0",
+    "ember-load-initializers": "~1.1.0",
+    "ember-maybe-import-regenerator": "~0.1.6",
+    "ember-resolver": "~5.0.1",
+    "ember-source": "~3.3.2",
+    "ember-source-channel-url": "~1.1.0",
+    "ember-try": "~0.2.23",
+    "ember-windoc": "~0.2.0",
+    "eslint-plugin-ember": "~5.2.0",
+    "eslint-plugin-node": "~7.0.1",
+    "faker": "3.1.0",
+    "loader.js": "~4.7.0",
+    "qunit-dom": "^0.7.1"
   },
-  "keywords": [
-    "ember-addon"
-  ],
+  "engines": {
+    "node": "6.* || 8.* || >= 10.*"
+  },
   "ember-addon": {
-    "configPath": "tests/dummy/config",
-    "demoURL": "http://cform-ui.surge.sh/"
+    "configPath": "tests/dummy/config"
   }
 }

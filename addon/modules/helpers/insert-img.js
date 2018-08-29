@@ -1,9 +1,8 @@
-import Helper from 'ember-helper';
-import {insertImg} from '../lib/attribute-manage';
-import { htmlSafe } from 'ember-string'
+import { helper } from '@ember/component/helper';
+import { insertImg } from '../lib/attribute-manage';
 
 const insetimg =([str])=>{
   return insertImg(str);
 };
 
-export default Helper.helper(insetimg);
+export default helper(insetimg);

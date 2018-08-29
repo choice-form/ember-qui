@@ -1,7 +1,7 @@
 /* eslint-disable */
-import Route from 'ember-route';
-import set from 'ember-metal/set';
-import get from 'ember-metal/get';
+import Route from '@ember/routing/route';
+import { set } from '@ember/object';
+import { get } from '@ember/object';
 import faker from 'faker';
 
 export default Route.extend({

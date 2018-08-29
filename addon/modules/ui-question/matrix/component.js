@@ -1,12 +1,16 @@
-import Component from 'ember-component';
-import layout from './template';
-import get from 'ember-metal/get';
-import set, {setProperties} from 'ember-metal/set';
-import {scheduleOnce} from 'ember-runloop';
-import computed, {gt, and, reads} from 'ember-computed';
+import { computed, get, set, setProperties } from '@ember/object';
+import { gt, and, reads } from '@ember/object/computed';
+import { scheduleOnce } from '@ember/runloop';
 import $ from 'jquery';
-import device from 'device';
-import matirxSetHeight, {swiperHeaderInit, swiperMatrixInit} from '../../lib/matirx-factory';
+import Component from '@ember/component';
+import { device } from 'device';
+
+import layout from './template';
+
+import matirxSetHeight, {
+  swiperHeaderInit,
+  swiperMatrixInit
+} from '../../lib/matirx-factory';
 
 export default Component.extend({
   layout,
@@ -33,7 +37,7 @@ export default Component.extend({
   swiperEffect(isStretch){
     isStretch = isStretch || get(this, 'node.isDoubleGrid');
     if (this.element) {
-      const columnLength = get(this, 'node.renderOptionsX').length;
+      const columnLength = get(this, 'node.renderOptionsX.length');
       const fixHeader = this.element.querySelector('.fix-header');
       const columnList = this.element.querySelector('.column-container');
       const matrixThumbnails = $(this.element.querySelector('.matrix-thumbnail-wrapper')).find('ul');
@@ -66,7 +70,7 @@ export default Component.extend({
 
   init() {
     this._super(...arguments);
-    this.isDesktop = device.desktop();
+    this.isDesktop = device.desktop;
   },
 
   didInsertElement() {

@@ -1,9 +1,9 @@
-import Component from 'ember-component';
+import Component from '@ember/component';
 import layout from './template';
-import set from 'ember-metal/set';
-import get from 'ember-metal/get';
-import {reads} from 'ember-computed';
-import inject from 'ember-service/inject';
+import { set } from '@ember/object';
+import { get } from '@ember/object';
+import { reads } from '@ember/object/computed';
+import { inject } from '@ember/service';
 
 let countTime = 30;
 export default Component.extend({

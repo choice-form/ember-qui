@@ -1,4 +1,4 @@
-import Component from 'ember-component';
+import Component from '@ember/component';
 import layout from './template';
 
 
@@ -22,4 +22,3 @@ export default Component.extend({
 /**
  * @property {String} value - 进度条的百分值, 默认0， 最大100
  */
-

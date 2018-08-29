@@ -1,8 +1,9 @@
-import Component from 'ember-component';
-import layout from './template';
+import { computed } from '@ember/object';
+import { get, getProperties } from '@ember/object';
+import Component from '@ember/component';
+
 import { HEADER_META, SPECIAL_TYPES } from './constants';
-import computed from 'ember-computed';
-import get, { getProperties } from 'ember-metal/get'
+import layout from './template';
 
 export default Component.extend({
   layout,

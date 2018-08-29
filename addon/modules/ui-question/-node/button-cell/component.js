@@ -1,7 +1,7 @@
-import Component from 'ember-component';
+import Component from '@ember/component';
 import layout from './template';
-import get from 'ember-metal/get';
-import inject from 'ember-service/inject';
+import { get } from '@ember/object';
+import { inject } from '@ember/service';
 
 export default Component.extend({
   layout,
@@ -25,7 +25,3 @@ export default Component.extend({
     }
   }
 });
-
-
-
-

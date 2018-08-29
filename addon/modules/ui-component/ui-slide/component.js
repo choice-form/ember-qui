@@ -1,6 +1,6 @@
-import Component from 'ember-component';
+import Component from '@ember/component';
 import layout from './template';
-import {reads} from 'ember-computed';
+import { reads } from '@ember/object/computed';
 import Swiper from 'swiper';
 
 export default Component.extend({

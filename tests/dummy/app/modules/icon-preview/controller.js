@@ -1,4 +1,4 @@
-import Controller from 'ember-controller';
+import Controller from '@ember/controller';
 import Clipboard from 'clipboard';
 
 export default Controller.extend({

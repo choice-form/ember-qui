@@ -1,19 +1,26 @@
-import Component from 'ember-component';
+import { get } from '@ember/object';
+import { inject } from '@ember/service';
+import { set } from '@ember/object';
+import Component from '@ember/component';
+
 import layout from './template';
-import get from 'ember-metal/get';
-import inject from 'ember-service/inject';
-import set from 'ember-metal/set';
 
 export default Component.extend({
   layout,
+
   tagName: '',
+
   iconService: inject("icon-loader"),
 
-  didReceiveAttrs(args){
-    this._super(...arguments);
-    const renderId = args.newAttrs.option.renderId;
-    get(this, 'iconService').getIconByUrl(get(this, 'option.icon'), renderId)
-      .then(icon => !this.isDestroyed && set(this, 'svg', icon))
+  _renderIdCache: null,
+
+  didReceiveAttrs(){
+    if (this._renderIdCache !== this.option.renderId) {
+      this._renderIdCache = this.option.renderId;
+      get(this, 'iconService')
+        .getIconByUrl(get(this, 'option.icon'), this.option.renderId)
+        .then(icon => !this.isDestroyed && set(this, 'svg', icon))
+    }
   },
 
   actions: {

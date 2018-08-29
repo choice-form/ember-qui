@@ -1,10 +1,10 @@
 /* eslint-disable */
-import Route from 'ember-route';
-import get from 'ember-metal/get';
-import set from 'ember-metal/set';
-import Ember from 'ember';
+import EmberObject from '@ember/object';
+import Route from '@ember/routing/route';
+import { get } from '@ember/object';
+import { set } from '@ember/object';
 import faker from 'faker';
-import {later} from 'ember-runloop';
+import { later } from '@ember/runloop';
 
 
 
@@ -25,7 +25,7 @@ export default Route.extend({
           uuid: '005',
 
           options:[
-            Ember.Object.create({
+            EmberObject.create({
               text: `排序-1##/images/sample-1.jpg?w=20&h=30##${faker.finance.accountName()}`,
               renderId: faker.date.between('2016-01-01', '2016-12-31'),
               uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
@@ -35,7 +35,7 @@ export default Route.extend({
               inputRule: '', //输入控件初始化规则
               sortStateClass: '',
             }),
-            Ember.Object.create({
+            EmberObject.create({
               text: `排序-2##/images/sample-1.jpg?w=20&h=30##${faker.finance.accountName()}`,
               renderId: faker.date.between('2016-01-01', '2016-12-31'),
               uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
@@ -45,7 +45,7 @@ export default Route.extend({
               inputRule: '', //输入控件初始化规则
               sortStateClass: '',
             }),
-            Ember.Object.create({
+            EmberObject.create({
               text: `3-${faker.finance.accountName()}`,
               renderId: faker.date.between('2016-01-01', '2016-12-31'),
               uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
@@ -55,7 +55,7 @@ export default Route.extend({
               inputRule: '', //输入控件初始化规则
               sortStateClass: '',
             }),
-            Ember.Object.create({
+            EmberObject.create({
               text: `4-${faker.finance.accountName()}`,
               renderId: faker.date.between('2016-01-01', '2016-12-31'),
               uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
@@ -65,7 +65,7 @@ export default Route.extend({
               inputRule: '', //输入控件初始化规则
               sortStateClass: '',
             }),
-            Ember.Object.create({
+            EmberObject.create({
               text: `5-${faker.finance.accountName()}`,
               renderId: faker.date.between('2016-01-01', '2016-12-31'),
               uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
@@ -75,7 +75,7 @@ export default Route.extend({
               inputRule: '', //输入控件初始化规则
               sortStateClass: '',
             }),
-            Ember.Object.create({
+            EmberObject.create({
               text: `6-${faker.finance.accountName()}`,
               renderId: faker.date.between('2016-01-01', '2016-12-31'),
               uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
@@ -85,7 +85,7 @@ export default Route.extend({
               inputRule: '', //输入控件初始化规则
               sortStateClass: '',
             }),
-            Ember.Object.create({
+            EmberObject.create({
               text: `7-${faker.finance.accountName()}`,
               renderId: faker.date.between('2016-01-01', '2016-12-31'),
               uuid: "299CA073-8FD0-4C6F-8C07-02B063AC8C90",
@@ -96,7 +96,7 @@ export default Route.extend({
               value: '',
               placeholder: '',
             }),
-            Ember.Object.create({
+            EmberObject.create({
               selected: false,
               renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.paragraph(),
@@ -143,6 +143,6 @@ export default Route.extend({
       prevButton: 'Previous',
 
       nextButton: 'Next',
-    }
+    };
   }
 });

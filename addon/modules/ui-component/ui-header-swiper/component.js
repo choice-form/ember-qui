@@ -1,8 +1,8 @@
-import Component from 'ember-component';
+import Component from '@ember/component';
 import layout from './template';
-import inject from 'ember-service/inject';
-import get from 'ember-metal/get';
-import {scheduleOnce, later} from 'ember-runloop';
+import { inject } from '@ember/service';
+import { get } from '@ember/object';
+import { scheduleOnce, later } from '@ember/runloop';
 import Swiper from 'swiper';
 
 export default Component.extend({

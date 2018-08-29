@@ -1,6 +1,6 @@
-import Route from 'ember-route';
-import set from 'ember-metal/set';
-import Ember from 'ember';
+import EmberObject from '@ember/object';
+import Route from '@ember/routing/route';
+import { set } from '@ember/object';
 import faker from 'faker';
 
 /*eslint-disable no-console */
@@ -23,7 +23,7 @@ export default Route.extend({
           number: '4',
 
           options:[
-            Ember.Object.create({
+            EmberObject.create({
               selected: '',
               renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: `图形打分1##/images/sample-1.jpg?w=20&h=30##${faker.finance.accountName()}`,
@@ -36,7 +36,7 @@ export default Route.extend({
               marks: '',
               placeholder: '',
             }),
-            Ember.Object.create({
+            EmberObject.create({
               selected: '',
               renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: `图形打分2##/images/sample-1.jpg?w=20&h=30##${faker.finance.accountName()}`,
@@ -50,7 +50,7 @@ export default Route.extend({
               }),
               placeholder: '',
             }),
-            Ember.Object.create({
+            EmberObject.create({
               selected: '',
               renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.sentence(),
@@ -64,7 +64,7 @@ export default Route.extend({
               }),
               placeholder: '',
             }),
-            Ember.Object.create({
+            EmberObject.create({
               selected: '',
               renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.sentence(),
@@ -78,7 +78,7 @@ export default Route.extend({
               }),
               placeholder: '',
             }),
-            Ember.Object.create({
+            EmberObject.create({
               selected: '',
               renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.sentence(),
@@ -92,7 +92,7 @@ export default Route.extend({
               }),
               placeholder: '',
             }),
-            Ember.Object.create({
+            EmberObject.create({
               selected: '',
               renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.sentence(),
@@ -106,7 +106,7 @@ export default Route.extend({
               }),
               placeholder: '',
             }),
-            Ember.Object.create({
+            EmberObject.create({
               selected: '',
               renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.sentence(),
@@ -120,7 +120,7 @@ export default Route.extend({
               }),
               placeholder: '',
             }),
-            Ember.Object.create({
+            EmberObject.create({
               selected: '',
               renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.sentence(),
@@ -134,7 +134,7 @@ export default Route.extend({
               }),
               placeholder: '',
             }),
-            Ember.Object.create({
+            EmberObject.create({
               selected: '',
               renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.sentence(),
@@ -148,7 +148,7 @@ export default Route.extend({
               }),
               placeholder: '',
             }),
-            Ember.Object.create({
+            EmberObject.create({
               selected: '',
               renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.sentence(),
@@ -162,7 +162,7 @@ export default Route.extend({
               }),
               placeholder: '',
             }),
-            Ember.Object.create({
+            EmberObject.create({
               selected: '',
               renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.sentence(),
@@ -176,7 +176,7 @@ export default Route.extend({
               }),
               placeholder: '',
             }),
-            Ember.Object.create({
+            EmberObject.create({
               selected: '',
               renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.sentence(),
@@ -190,7 +190,7 @@ export default Route.extend({
               }),
               placeholder: '',
             }),
-            Ember.Object.create({
+            EmberObject.create({
               selected: '',
               renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.sentence(),
@@ -205,7 +205,7 @@ export default Route.extend({
               placeholder: '',
             }),
 
-            Ember.Object.create({
+            EmberObject.create({
               selected: '',
               renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.sentence(),
@@ -219,7 +219,7 @@ export default Route.extend({
               }),
               placeholder: '',
             }),
-            Ember.Object.create({
+            EmberObject.create({
               selected: '',
               renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.sentence(),
@@ -233,7 +233,7 @@ export default Route.extend({
               }),
               placeholder: '',
             }),
-            Ember.Object.create({
+            EmberObject.create({
               selected: '',
               renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.sentence(),
@@ -249,7 +249,7 @@ export default Route.extend({
               }),
               placeholder: '',
             }),
-            Ember.Object.create({
+            EmberObject.create({
               selected: false,
               renderId: faker.date.between('2016-01-01', '2016-12-31'),
               text: faker.lorem.paragraph(),
@@ -301,6 +301,6 @@ export default Route.extend({
       prevButton: 'Previous',
 
       nextButton: 'Next',
-    }
+    };
   }
 });

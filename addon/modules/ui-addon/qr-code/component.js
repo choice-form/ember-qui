@@ -1,8 +1,7 @@
-import Component from 'ember-component';
-import set from 'ember-metal/set';
-import get from 'ember-metal/get';
+import Component from '@ember/component';
+import { computed, get, set } from '@ember/object';
 import QRCode from 'qrcode';
-import computed, {reads} from 'ember-computed';
+import { reads } from '@ember/object/computed';
 import layout from './template';
 
 export default Component.extend({

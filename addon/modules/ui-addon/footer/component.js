@@ -1,6 +1,6 @@
-import Component from 'ember-component';
+import Component from '@ember/component';
 import layout from './template';
-import {tempI18n} from '../../helpers/temp-i18n';
+import { tempI18n } from '../../helpers/temp-i18n';
 
 export default Component.extend({
   layout,
