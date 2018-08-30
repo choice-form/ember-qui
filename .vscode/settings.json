@@ -4,7 +4,7 @@
     ".idea": true,
     ".vscode": true,
     "dist": true,
-    "node_modules": false,
+    "node_modules": true,
     "tmp": true,
   }
 }

@@ -1,42 +1,50 @@
+import { set, computed } from '@ember/object';
 import Component from '@ember/component';
+import { Plyr } from '@very-geek/ember-plyr';
+
 import layout from './template';
-import { set } from '@ember/object';
+
 export default Component.extend({
+
   layout,
+
   classNames: ['ui-video-container'],
 
-  measureRatio(video){
-    const videoHeight = video.videoHeight;
-    const videoWidth = video.videoWidth;
-    set(this.video, 'ratio', Math.round(videoHeight/ videoWidth * 10000) / 10000);
-  },
+  type: computed('src', {
+    get() {
+      return this.src ? `video/${this.src.split('.')[1]}` : '';
+    }
+  }),
 
   didInsertElement(){
-    this._super(...arguments);
     const video = this.element.querySelector('video');
-    video.setAttribute('src', this.url);
-    video.setAttribute('poster', this.poster);
     const cover = this.element.querySelector('.error-video-cover');
-    plyr.setup(this.element, {
-      controls: ['play-large'],
-    });
-    video.addEventListener('error', () => {
+
+    // video.setAttribute('src', this.url);
+    // video.setAttribute('poster', this.poster);
+
+    const instance = new Plyr(video, { controls: ['play-large'] });
+
+    instance.on('error', () => {
       cover.style.display = 'flex';
       this.element.style.pointerEvents = 'none';
       this.element.querySelector('.plyr__play-large').style.display = 'none';
-      this.measureRatio(video);
+      this.measureRatio(this.video);
     });
 
-    video.addEventListener('loadeddata', () => {
-      this.measureRatio(video);
+    instance.on('loadeddata', () => {
+      this.measureRatio(this.video);
     });
 
-    video.addEventListener('ended', () => {
-      if(this.video){
-        set(this.video, 'ended', true);
-      }
+    instance.on('ended', () => {
+      set(this.video, 'ended', true);
     });
+  },
 
+  measureRatio(video){
+    const { videoHeight, videoWidth } = video;
+    const ratio = Math.round(videoHeight/ videoWidth * 10000) / 10000;
+    set(this.video, 'ratio', ratio);
+  },
 
-  }
-})
+});
