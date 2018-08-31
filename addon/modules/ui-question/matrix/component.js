@@ -1,16 +1,16 @@
-import { computed, get, set, setProperties } from '@ember/object';
+import { computed, set, setProperties } from '@ember/object';
+import { device } from 'device';
 import { gt, and, reads } from '@ember/object/computed';
 import { scheduleOnce } from '@ember/runloop';
 import $ from 'jquery';
 import Component from '@ember/component';
-import { device } from 'device';
 
 import layout from './template';
 
-import matirxSetHeight, {
+import matrixSetHeight, {
   swiperHeaderInit,
-  swiperMatrixInit
-} from '../../lib/matirx-factory';
+  swiperMatrixInit,
+} from '../../lib/matrix-factory';
 
 export default Component.extend({
   layout,
@@ -20,8 +20,8 @@ export default Component.extend({
   'data-render-id': reads('node.renderId'),
 
   resizeIcon: computed(() => 'stretch'),
-  wrapperClassNames: computed('resizeIcon', function () {
-    return `matrix-wrapper${get(this, 'resizeIcon') === 'pinch' ? ' zoom' : ''}`;
+  wrapperClassNames: computed('resizeIcon', function() {
+    return `matrix-wrapper${this.resizeIcon === 'pinch' ? ' zoom' : ''}`;
   }).readOnly(),
 
   hasAdvancedButton: gt('node.renderOptionsX.length', 3),
@@ -30,39 +30,47 @@ export default Component.extend({
   hasArrowButton: gt('node.renderOptionsX.length', 2),
   arrowButtonNeeded: and('isDesktop', 'hasArrowButton'),
 
-  needFixMatrix: computed('node.fixMatrixHead', function () {
-    return get(this, 'node.fixMatrixHead') && get(this, 'node.fixTop') > 0;
+  needFixMatrix: computed('node.fixMatrixHead', function() {
+    return this.node.fixMatrixHead && this.node.fixTop > 0;
   }),
 
-  swiperEffect(isStretch){
-    isStretch = isStretch || get(this, 'node.isDoubleGrid');
+  swiperEffect(isStretch) {
+    isStretch = isStretch || this.node.isDoubleGrid;
     if (this.element) {
-      const columnLength = get(this, 'node.renderOptionsX.length');
+      const columnLength = this.node.renderOptionsX.length;
       const fixHeader = this.element.querySelector('.fix-header');
       const columnList = this.element.querySelector('.column-container');
-      const matrixThumbnails = $(this.element.querySelector('.matrix-thumbnail-wrapper')).find('ul');
+      const matrixThumbnails = $(
+        this.element.querySelector('.matrix-thumbnail-wrapper')
+      ).find('ul');
 
       this.fixHeader = swiperHeaderInit(fixHeader, isStretch, columnLength);
 
-      this.swiper = swiperMatrixInit(get(this, 'isDesktop'), columnList, matrixThumbnails, isStretch, () => {
-        matirxSetHeight.call(this);
-      }, columnLength);
-      !get(this, 'isDesktop') && this.swiper.disableTouchControl();
-      this.swiper.params.control = this.fixHeader;
+      this.swiper = swiperMatrixInit(
+        this.isDesktop,
+        columnList,
+        matrixThumbnails,
+        isStretch,
+        () => {
+          matrixSetHeight.call(this);
+        },
+        columnLength
+      );
+      this.swiper.controller.control = this.fixHeader;
     }
   },
 
-  deviceChangeSwiper(e){
+  deviceChangeSwiper(e) {
     this.swiper && this.swiper.destroy(true, true);
     this.fixHeader && this.fixHeader.destroy(true, true);
     setProperties(this, {
-      'moreButtonNeeded': e.detail.device === 'desktop',
-      'arrowButtonNeeded': e.detail.device === 'desktop',
+      moreButtonNeeded: e.detail.device === 'desktop',
+      arrowButtonNeeded: e.detail.device === 'desktop',
     });
     this.swiperEffect();
   },
 
-  orientationChangeSwiper(){
+  orientationChangeSwiper() {
     this.swiper && this.swiper.destroy(true, true);
     this.fixHeader && this.fixHeader.destroy(true, true);
     this.swiperEffect();
@@ -75,51 +83,54 @@ export default Component.extend({
 
   didInsertElement() {
     scheduleOnce('afterRender', this, 'swiperEffect');
-    if (get(this, 'isDesktop')) {
+    if (this.isDesktop) {
       // todo 绑定无法成功解除
-      window.addEventListener('resize', () => matirxSetHeight.call(this));
+      window.addEventListener('resize', () => matrixSetHeight.call(this));
     }
-    if (!get(this, 'preview')) return;
+    if (!this.preview) return;
 
-    window.addEventListener('device_change', (e) => this.deviceChangeSwiper(e));
-    window.addEventListener('orientation_change', () => this.orientationChangeSwiper());
+    window.addEventListener('device_change', e => this.deviceChangeSwiper(e));
+    window.addEventListener('orientation_change', () =>
+      this.orientationChangeSwiper()
+    );
   },
 
-  willDestroyElement(){
+  willDestroyElement() {
     this.swiper && this.swiper.destroy(true, true);
     this.fixHeader && this.fixHeader.destroy(true, true);
-    window.removeEventListener('resize', matirxSetHeight);
-    if (!get(this, 'preview')) return;
+    window.removeEventListener('resize', matrixSetHeight);
+    if (!this.preview) return;
     window.removeEventListener('device_change', this.deviceChangeSwiper);
-    window.removeEventListener('orientation_change', this.orientationChangeSwiper);
+    window.removeEventListener(
+      'orientation_change',
+      this.orientationChangeSwiper
+    );
   },
 
   actions: {
     resizeMatrix() {
       this.swiper && this.swiper.destroy(true, true);
       this.fixHeader && this.fixHeader.destroy(true, true);
-      const isStretch = 'stretch' === get(this, 'resizeIcon') ||
-        get(this, 'node.isDoubleGrid');
+      const isStretch = 'stretch' === this.resizeIcon || this.node.isDoubleGrid;
       set(this, 'resizeIcon', isStretch ? 'pinch' : 'stretch');
 
       scheduleOnce('afterRender', this, this.swiperEffect, isStretch);
     },
 
-    handleOptionClick(option, e){
-      !this.handleEvents.handleOptionClick(option, get(this, 'node'))
-      && e.preventDefault();
+    handleOptionClick(option, e) {
+      !this.handleEvents.handleOptionClick(option, this.node) &&
+        e.preventDefault();
     },
 
-    handleOptionInput(e){
+    handleOptionInput(e) {
       const value = e.currentTarget.value;
-      this.handleEvents.handleOptionInput(value, get(this, 'option'), get(this, 'node'));
+      this.handleEvents.handleOptionInput(value, this.option, this.node);
     },
 
-    handleOptionInputForTextarea(e){
+    handleOptionInputForTextarea(e) {
       const value = e.currentTarget.value;
-      this.handleEvents.handleOptionInput(value, get(this, 'option'), get(this, 'node'));
+      this.handleEvents.handleOptionInput(value, this.option, this.node);
       e.currentTarget.style.height = e.currentTarget.scrollHeight + 2 + 'px';
     },
-
   },
-}).reopenClass({positionalParams: ['node', 'handleEvents']});
+}).reopenClass({ positionalParams: ['node', 'handleEvents'] });
