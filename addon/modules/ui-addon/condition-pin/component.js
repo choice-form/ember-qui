@@ -10,26 +10,26 @@ export default Component.extend({
   pinned: null,
   pinSupport: null,
   resizeTaskId: -10000,
-  init(){
+  init() {
     this._super(...arguments);
     this.resizePinSupport = this.resizePinSupport.bind(this);
   },
-  didInsertElement(){
+  didInsertElement() {
     this._super(...arguments);
-    if(get(this, 'needPin')){
+    if (get(this, 'needPin')) {
       setTimeout(() => {
         this.resizePinSupport();
       }, 500);
-      if(device.desktop()){
+      if (device.desktop) {
         window.addEventListener('resize', this.resizePinSupport);
       }
     }
   },
 
-  resizePinSupport(){
+  resizePinSupport() {
     clearTimeout(this.resizeTaskId);
-    this.resizeTaskId= setTimeout(()=>{
-      if(!this.pinned){
+    this.resizeTaskId = setTimeout(() => {
+      if (!this.pinned) {
         this.pinned = this.element.querySelector('.pinned-content');
         this.pinSupport = this.element.querySelector('.pin-support');
       }
@@ -37,7 +37,7 @@ export default Component.extend({
     }, 250);
   },
 
-  willDestroyElement(){
+  willDestroyElement() {
     window.removeEventListener('resize', this.resizePinSupport);
-  }
+  },
 });

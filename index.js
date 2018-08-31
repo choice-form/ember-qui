@@ -59,9 +59,7 @@ module.exports = {
       using: [{ transformation: 'amd', as: 'device' }],
     });
 
-    app.import('node_modules/@shopify/draggable/lib/draggable.bundle.js', {
-      using: [{ transformation: 'amd', as: 'draggable' }],
-    });
+    app.import('node_modules/@shopify/draggable/lib/draggable.bundle.js');
 
     app.import('node_modules/masonry-layout/dist/masonry.pkgd.js', {
       using: [{ transformation: 'amd', as: 'masonry' }],

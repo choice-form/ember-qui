@@ -14,32 +14,37 @@ export default Component.extend({
 
   clientWidth: window.innerWidth,
 
-  init(){
+  init() {
     this._super(...arguments);
-    device.desktop() && window.addEventListener('resize', () => {
-      set(this, 'clientWidth', window.innerWidth);
-    });
+    device.desktop &&
+      window.addEventListener('resize', () => {
+        set(this, 'clientWidth', window.innerWidth);
+      });
   },
 
   actions: {
-
-    handleOptionClick(option, e){
-      !this.handleEvents.handleOptionClick(option, get(this, 'node'))
-      && e.preventDefault();
+    handleOptionClick(option, e) {
+      !this.handleEvents.handleOptionClick(option, get(this, 'node')) &&
+        e.preventDefault();
     },
 
-    handleOptionInput(e){
+    handleOptionInput(e) {
       const value = e.currentTarget.value;
-      this.handleEvents.handleOptionInput(value, get(this, 'option'), get(this, 'node'));
+      this.handleEvents.handleOptionInput(
+        value,
+        get(this, 'option'),
+        get(this, 'node')
+      );
     },
 
-    handleOptionInputForTextarea(e){
+    handleOptionInputForTextarea(e) {
       const value = e.currentTarget.value;
-      this.handleEvents.handleOptionInput(value, get(this, 'option'), get(this, 'node'));
+      this.handleEvents.handleOptionInput(
+        value,
+        get(this, 'option'),
+        get(this, 'node')
+      );
       e.currentTarget.style.height = e.currentTarget.scrollHeight + 2 + 'px';
     },
-
   },
-
-
-}).reopenClass({positionalParams: ['node', 'handleEvents']});
+}).reopenClass({ positionalParams: ['node', 'handleEvents'] });

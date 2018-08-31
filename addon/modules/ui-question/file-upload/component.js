@@ -12,23 +12,23 @@ export default Component.extend({
   attributeBindings: ['data-render-id'],
   'data-render-id': reads('option.renderId'),
 
-  accept: computed(function () {
-    return device.mobile() ? 'image/*' : null;
+  accept: computed(function() {
+    return device.mobile ? 'image/*' : null;
   }).readOnly(),
 
-  icon: computed('option.{icon,value}', function () {
+  icon: computed('option.{icon,value}', function() {
     return get(this, 'option.value') ? 'refresh' : get(this, 'option.icon');
   }),
 
-  state: computed('option.value', function () {
+  state: computed('option.value', function() {
     return get(this, 'option.value') ? ' success' : null;
   }),
 
-  button: computed('option.value', function () {
+  button: computed('option.value', function() {
     return get(this, 'option.value') ? ' secondary' : ' contrast';
   }),
 
-  uploadText: computed('option.value', function () {
+  uploadText: computed('option.value', function() {
     return tempI18n(get(this, 'option.value') ? 'UI_ReUpload' : 'UI_Upload');
   }),
 
@@ -36,7 +36,11 @@ export default Component.extend({
 
   actions: {
     handleOptionRemove() {
-      this.handleEvents.handleOptionInput('', get(this, 'option'), get(this, 'node'));
+      this.handleEvents.handleOptionInput(
+        '',
+        get(this, 'option'),
+        get(this, 'node')
+      );
       this.element.getElementsByTagName('input')[0].value = '';
     },
 
@@ -45,22 +49,25 @@ export default Component.extend({
       const node = get(this, 'node');
       // 兼容新版上传
       if (node.newapi) {
-        node.onProgress = (e) => {
+        node.onProgress = e => {
           set(this, 'progress', e + '');
-        }
+        };
       }
-      const rs = this.handleEvents.handleOptionClick(get(this, 'option'), get(this, 'node'));
+      const rs = this.handleEvents.handleOptionClick(
+        get(this, 'option'),
+        get(this, 'node')
+      );
       if (!rs || node.newapi) {
-        e.preventDefault()
+        e.preventDefault();
       }
     },
 
     handleOptionInput(e) {
       const data = e.currentTarget.files;
       set(this, 'progress', '99');
-      this.handleEvents.handleOptionInput(data, get(this, 'option'), get(this, 'node'))
+      this.handleEvents
+        .handleOptionInput(data, get(this, 'option'), get(this, 'node'))
         .then(() => set(this, 'progress', '100'));
     },
-  }
-
-}).reopenClass({positionalParams: ['node', 'option', 'handleEvents']});
+  },
+}).reopenClass({ positionalParams: ['node', 'option', 'handleEvents'] });
