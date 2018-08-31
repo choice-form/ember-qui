@@ -16,6 +16,7 @@ module.exports = {
     bowser: false,
     device: false,
     Draggable: false,
+    Masonry: false,
     plyr: false,
   },
   rules: {},

@@ -61,9 +61,7 @@ module.exports = {
 
     app.import('node_modules/@shopify/draggable/lib/draggable.bundle.js');
 
-    app.import('node_modules/masonry-layout/dist/masonry.pkgd.js', {
-      using: [{ transformation: 'amd', as: 'masonry' }],
-    });
+    app.import('node_modules/masonry-layout/dist/masonry.pkgd.js');
 
     app.import('node_modules/nouislider/distribute/nouislider.css');
     app.import('node_modules/nouislider/distribute/nouislider.js', {

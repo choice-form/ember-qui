@@ -1,26 +1,28 @@
-import Component from '@ember/component';
-import layout from './template';
 import { computed, get, set } from '@ember/object';
-import Masonry from 'masonry';
 import { scheduleOnce } from '@ember/runloop';
+import Component from '@ember/component';
 import PhotoSwipe from 'photoswipe';
 import PhotoSwipeUI_Default from 'photoswipeui-default';
 
+import layout from './template';
+
 export default Component.extend({
   layout,
-  classNames:['picture-wrapper'],
+  classNames: ['picture-wrapper'],
   hasSelectedImages: false,
   images: computed('node.options', function() {
-    return get(this, 'node.options').filter(option => option.inputType.length === 0);
+    return get(this, 'node.options').filter(
+      option => option.inputType.length === 0
+    );
   }),
 
-  init(){
+  init() {
     this._super(...arguments);
     this.updateHasSelected();
   },
 
-  updateHasSelected(){
-    const hasSelected = get(this, 'node.options').some((opt) => {
+  updateHasSelected() {
+    const hasSelected = get(this, 'node.options').some(opt => {
       return get(opt, 'selected');
     });
     set(this, 'hasSelectedImages', hasSelected);
@@ -31,10 +33,11 @@ export default Component.extend({
 
     if (!options.getThumbBoundsFn) {
       options.getThumbBoundsFn = function(/*index*/) {
-        let pageYScroll = window.pageYOffset || document.documentElement.scrollTop;
-        let {left, top, width} = trigger.getBoundingClientRect();
-        return {x: left, y: top + pageYScroll, w: width};
-      }
+        let pageYScroll =
+          window.pageYOffset || document.documentElement.scrollTop;
+        let { left, top, width } = trigger.getBoundingClientRect();
+        return { x: left, y: top + pageYScroll, w: width };
+      };
     }
 
     let items = images.map(item => ({
@@ -42,10 +45,15 @@ export default Component.extend({
       src: item.image.large,
       w: item.image.width,
       h: item.image.height,
-      title: item.text
+      title: item.text,
     }));
 
-    this.photoSwiper = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, options);
+    this.photoSwiper = new PhotoSwipe(
+      pswpElement,
+      PhotoSwipeUI_Default,
+      items,
+      options
+    );
     this.photoSwiper.init();
   },
 
@@ -53,28 +61,32 @@ export default Component.extend({
     /**
      * click事件
      */
-    handleOptionClick(option, e){
-      !this.handleEvents.handleOptionClick(option, get(this, 'node'))
-      && e.preventDefault();
+    handleOptionClick(option, e) {
+      !this.handleEvents.handleOptionClick(option, get(this, 'node')) &&
+        e.preventDefault();
       this.updateHasSelected();
     },
 
     openPhotoSwipe(index) {
       if (get(this, 'node.optImgScale')) {
-        this.openPhotoSwipe(get(this, 'images'), event.target.parentNode.querySelector('img'), {
-          index,
-          tapToClose: true,
-          bgOpacity: 1,
-          history: false,
-          showHideOpacity: get(this, 'node.objectFit') === 'cover',
-          shareEl: false,
-          fullscreenEl: false,
-        });
+        this.openPhotoSwipe(
+          get(this, 'images'),
+          event.target.parentNode.querySelector('img'),
+          {
+            index,
+            tapToClose: true,
+            bgOpacity: 1,
+            history: false,
+            showHideOpacity: get(this, 'node.objectFit') === 'cover',
+            shareEl: false,
+            fullscreenEl: false,
+          }
+        );
       }
-    }
+    },
   },
 
-  picNewMasonry(){
+  picNewMasonry() {
     const element = this.element.getElementsByClassName('picture-layout')[0];
     this.newMasonry = new Masonry(element);
   },
@@ -82,14 +94,11 @@ export default Component.extend({
   didInsertElement() {
     const showStyle = get(this, 'node.showStyle');
     if (showStyle == 'pinterest') {
-      scheduleOnce('afterRender',this,'picNewMasonry');
+      scheduleOnce('afterRender', this, 'picNewMasonry');
     }
   },
 
-
-  willDestroy(){
+  willDestroy() {
     this.newMasonry && this.newMasonry.remove(this.element);
-  }
-
-
-}).reopenClass({positionalParams: ['node', 'handleEvents']});
+  },
+}).reopenClass({ positionalParams: ['node', 'handleEvents'] });
