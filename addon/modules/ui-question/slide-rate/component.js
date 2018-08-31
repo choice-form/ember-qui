@@ -9,29 +9,31 @@ import noUiSlider from 'nouislider';
 
 export default Component.extend({
   layout,
-  tagName:'',
-  iconService: inject("icon-loader"),
+  tagName: '',
+  iconService: inject('icon-loader'),
 
   rateOptions: computed('options.@each.value', function() {
-    const result = this.get('options').reduce((acc, option) => {
-      acc[option.value] ? acc[option.value].push(option) : acc[option.value] = [option];
+    const result = this.options.reduce((acc, option) => {
+      acc[option.value]
+        ? acc[option.value].push(option)
+        : (acc[option.value] = [option]);
       return acc;
     }, {});
 
-    return this.get('node.rateOptions').map(rateOption => {
+    return this.node.rateOptions.map(rateOption => {
       set(rateOption, 'result', result[rateOption.value] || []);
       return rateOption;
     });
   }),
 
   currentOption: computed(function() {
-    return this.get('options')[0];
+    return this.options[0];
   }),
 
-  allowSwipeToPrev: false,
+  allowSlidePrev: false,
 
-  allowSwipeToNext: computed(function() {
-    return !!this.get('options')[0].value;
+  allowSlideNext: computed(function() {
+    return !!this.options[0].value;
   }),
 
   didInsertElement() {
@@ -39,67 +41,77 @@ export default Component.extend({
 
     this.initSwiper();
 
-    if (this.get('node.isHackSlide')) {
+    if (this.node.isHackSlide) {
       this.initSlider();
     } else {
-      this.get('rateOptions').forEach(rateOption => {
-        this.get('iconService').getIconByUrl(rateOption.url, rateOption.url)
+      this.rateOptions.forEach(rateOption => {
+        this.iconService
+          .getIconByUrl(rateOption.url, rateOption.url)
           .then(icon => set(rateOption, 'svg', icon.outerHTML));
       });
     }
   },
 
   initSwiper() {
-    const selector = `[data-render-id='${this.get('node.renderId')}'].swiper-container`;
+    const selector = `[data-render-id='${this.get(
+      'node.renderId'
+    )}'].swiper-container`;
 
     const swiper = new Swiper(selector, {
-      allowSwipeToPrev: false,
-      allowSwipeToNext: false,
+      allowSlidePrev: false,
+      allowSlideNext: false,
       autoHeight: true,
-      pagination: '.swiper-pagination',
-      paginationType: 'fraction',
-      onSlideChangeStart: swiper => {
-        const option = this.get('options')[swiper.activeIndex];
-        this.setProperties({
-          currentOption: option,
-          allowSwipeToPrev: swiper.activeIndex != 0,
-          allowSwipeToNext: !!option.value && swiper.activeIndex != this.get('options.length') - 1,
-        });
+      pagination: {
+        el: '.swiper-pagination',
+        type: 'fraction',
       },
+    });
+
+    swiper.on('slideChange', () => {
+      const option = this.options[swiper.activeIndex];
+      this.setProperties({
+        currentOption: option,
+        allowSlidePrev: swiper.activeIndex != 0,
+        allowSlideNext:
+          !!option.value && swiper.activeIndex != this.options.length - 1,
+      });
     });
 
     this.set('swiper', swiper);
   },
 
   initSlider() {
-    const rateOptions = this.get('node.rateOptions');
+    const rateOptions = this.node.rateOptions;
     const length = rateOptions.length;
 
     const options = {
       range: {
         min: rateOptions[0].value,
-        max: rateOptions[length - 1].value
+        max: rateOptions[length - 1].value,
       },
       step: 1,
       tooltips: {
-        to: (value) => {
+        to: value => {
           return rateOptions.findBy('value', Number.parseInt(value)).text;
-        }
+        },
       },
       pips: {
         mode: 'steps',
         density: 100,
-        filter() {return 1},
+        filter() {
+          return 1;
+        },
         format: {
           to(value) {
             return rateOptions.findBy('value', Number.parseInt(value)).text;
-          }
-        }
-      }
+          },
+        },
+      },
     };
 
-    const slider = document.querySelector(`.slider-${this.get('node.renderId')}`);
-    const start = this.options[0].value || rateOptions[Math.floor(length / 2)].value;
+    const slider = document.querySelector(`.slider-${this.node.renderId}`);
+    const start =
+      this.options[0].value || rateOptions[Math.floor(length / 2)].value;
 
     const ranger = noUiSlider.create(slider, {
       ...options,
@@ -115,28 +127,35 @@ export default Component.extend({
   },
 
   updateRangerValue() {
-    const rateOptions = this.get('node.rateOptions');
+    const rateOptions = this.node.rateOptions;
     const length = rateOptions.length;
 
-    const value = this.get('currentOption').value || rateOptions[Math.floor(length / 2)].value;
-    this.get('ranger').updateOptions({start: [value]});
+    const value =
+      this.currentOption.value || rateOptions[Math.floor(length / 2)].value;
+    this.ranger.updateOptions({ start: [value] });
   },
 
   throttleHandleOptionInput() {
-    const swiper = this.get('swiper');
+    const swiper = this.swiper;
 
-    const option = this.get('options')[swiper.activeIndex];
-    this.handleEvents.handleOptionInput(this.get('value'), option, this.get('node'));
+    const option = this.options[swiper.activeIndex];
+    this.handleEvents.handleOptionInput(this.value, option, this.node);
 
-    later(this, function() {
-      swiper.unlockSwipeToNext();
-      swiper.slideNext();
-      swiper.lockSwipeToNext();
+    later(
+      this,
+      function() {
+        swiper.allowSlideNext = true;
+        swiper.update();
+        swiper.slideNext();
+        swiper.allowSlideNext = false;
+        swiper.update();
 
-      if (this.get('node.isHackSlide')) {
-        this.updateRangerValue();
-      }
-    }, 850);
+        if (this.node.isHackSlide) {
+          this.updateRangerValue();
+        }
+      },
+      850
+    );
   },
 
   actions: {
@@ -146,25 +165,29 @@ export default Component.extend({
     },
 
     swipeToPrev() {
-      const swiper = this.get('swiper');
-      swiper.unlockSwipeToPrev();
+      const swiper = this.swiper;
+      swiper.allowSlidePrev = true;
+      swiper.update();
       swiper.slidePrev();
-      swiper.lockSwipeToPrev();
+      swiper.allowSlidePrev = false;
+      swiper.update();
 
-      if (this.get('node.isHackSlide')) {
+      if (this.node.isHackSlide) {
         this.updateRangerValue();
       }
     },
 
     swipeToNext() {
-      const swiper = this.get('swiper');
-      swiper.unlockSwipeToNext();
+      const swiper = this.swiper;
+      swiper.allowSlideNext = true;
+      swiper.update();
       swiper.slideNext();
-      swiper.lockSwipeToNext();
+      swiper.allowSlideNext = false;
+      swiper.update();
 
-      if (this.get('node.isHackSlide')) {
+      if (this.node.isHackSlide) {
         this.updateRangerValue();
       }
-    }
-  }
-}).reopenClass({positionalParams: ['node','handleEvents']});
+    },
+  },
+}).reopenClass({ positionalParams: ['node', 'handleEvents'] });

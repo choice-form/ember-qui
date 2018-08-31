@@ -1,18 +1,7 @@
 {{outlet}}
 
-{{!-- <section style="margin: 1rem auto; width: 50%">
-  {{ui-component/ui-range
-    value=value
-    step=step
-    min=min
-    max=max
-    connect=connect}}
-</section> --}}
-
-{{#let (hash
-  ended=false
-  url="//cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-576p.mp4"
-  poster="//cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.jpg"
-) as |video|}}
-  {{ui-component/ui-video video=video url=video.url poster=video.poster}}
-{{/let}}
+<section style="margin: 1rem;">
+  {{#application/slide-rate as |api|}}
+    {{ui-question/slide-rate api.node api.handleEvents options=api.options}}
+  {{/application/slide-rate}}
+</section>
