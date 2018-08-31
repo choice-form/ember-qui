@@ -5,7 +5,6 @@ import { Plyr } from '@very-geek/ember-plyr';
 import layout from './template';
 
 export default Component.extend({
-
   layout,
 
   classNames: ['ui-video-container'],
@@ -13,13 +12,14 @@ export default Component.extend({
   type: computed('src', {
     get() {
       return this.src ? `video/${this.src.split('.')[1]}` : '';
-    }
+    },
   }),
 
-  didInsertElement(){
+  didInsertElement() {
     const video = this.element.querySelector('video');
     const cover = this.element.querySelector('.error-video-cover');
 
+    // NOTE: use Plyr instead of primitive HTML5 video
     // video.setAttribute('src', this.url);
     // video.setAttribute('poster', this.poster);
 
@@ -29,11 +29,11 @@ export default Component.extend({
       cover.style.display = 'flex';
       this.element.style.pointerEvents = 'none';
       this.element.querySelector('.plyr__play-large').style.display = 'none';
-      this.measureRatio(this.video);
+      this.measureRatio(video);
     });
 
     instance.on('loadeddata', () => {
-      this.measureRatio(this.video);
+      this.measureRatio(video);
     });
 
     instance.on('ended', () => {
@@ -41,10 +41,9 @@ export default Component.extend({
     });
   },
 
-  measureRatio(video){
+  measureRatio(video) {
     const { videoHeight, videoWidth } = video;
-    const ratio = Math.round(videoHeight/ videoWidth * 10000) / 10000;
+    const ratio = Math.round((videoHeight / videoWidth) * 10000) / 10000;
     set(this.video, 'ratio', ratio);
   },
-
 });
