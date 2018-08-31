@@ -1,9 +1,7 @@
 <div class="ui-dropdown ui-text dropdown">
-
-  {{#ui-component/mobi-select handleEvents=handleEvents node=node list=node.options
-                              group=node}}
-    {{#each node.options as |option|}}
-      <option selected={{option.selected}} mutex={{option.mutexNumber}}>{{option.text}}</option>
+  {{#ui-component/mobi-select handleEvents=handleEvents node=node list=node.options group=node}}
+    {{#each node.options as |o|}}
+      <option selected={{o.selected}} mutex={{o.mutexNumber}}>{{o.text}}</option>
     {{/each}}
   {{/ui-component/mobi-select}}
 
