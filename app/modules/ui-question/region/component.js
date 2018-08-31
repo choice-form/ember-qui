@@ -1,1 +1,1 @@
-export { default } from 'ember-cform-ui/modules/ui-question/region/component';
+export { default } from '@choiceform/ember-cform-ui/modules/ui-question/region/component';

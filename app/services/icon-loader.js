@@ -1,1 +1,1 @@
-export { default } from 'ember-cform-ui/modules/services/icon-loader';
+export { default } from '@choiceform/ember-cform-ui/modules/services/icon-loader';

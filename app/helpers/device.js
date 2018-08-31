@@ -1,1 +1,1 @@
-export { default, _device } from 'ember-cform-ui/modules/helpers/device';
+export { default, _device } from '@choiceform/ember-cform-ui/modules/helpers/device';

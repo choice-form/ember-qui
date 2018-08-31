@@ -1,1 +1,1 @@
-export { default } from 'ember-cform-ui/modules/services/disclaimer';
+export { default } from '@choiceform/ember-cform-ui/modules/services/disclaimer';

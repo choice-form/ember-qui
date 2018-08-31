@@ -1,1 +1,1 @@
-export { default, tempI18n } from 'ember-cform-ui/modules/helpers/temp-i18n';
+export { default, tempI18n } from '@choiceform/ember-cform-ui/modules/helpers/temp-i18n';

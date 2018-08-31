@@ -1,1 +1,1 @@
-export { default } from 'ember-cform-ui/modules/ui-component/ui-slide/component';
+export { default } from '@choiceform/ember-cform-ui/modules/ui-component/ui-slide/component';

@@ -1,1 +1,1 @@
-export { default } from 'ember-cform-ui/modules/ui-addon/notification/service';
+export { default } from '@choiceform/ember-cform-ui/modules/ui-addon/notification/service';

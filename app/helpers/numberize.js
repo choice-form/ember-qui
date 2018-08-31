@@ -1,1 +1,1 @@
-export { default, numberize } from 'ember-cform-ui/modules/helpers/numberize';
+export { default, numberize } from '@choiceform/ember-cform-ui/modules/helpers/numberize';

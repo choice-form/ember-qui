@@ -1,1 +1,1 @@
-export { default, svgitem } from 'ember-cform-ui/modules/helpers/insert-img';
+export { default, svgitem } from '@choiceform/ember-cform-ui/modules/helpers/insert-img';
