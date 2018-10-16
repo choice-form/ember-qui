@@ -1,6 +1,6 @@
 {
   "name": "@choiceform/ember-cform-ui",
-  "version": "0.6.2",
+  "version": "0.6.3",
   "description": "UI components for q.cform.io",
   "keywords": [
     "ember-addon"

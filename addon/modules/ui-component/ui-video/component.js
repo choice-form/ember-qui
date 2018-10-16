@@ -11,7 +11,7 @@ export default Component.extend({
 
   type: computed('src', {
     get() {
-      return this.src ? `video/${this.src.split('.')[1]}` : '';
+      return this.url ? `video/${this.url.substr(this.url.lastIndexOf('.') + 1)}` : '';
     },
   }),
 
