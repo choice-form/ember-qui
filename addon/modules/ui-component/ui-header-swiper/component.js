@@ -17,7 +17,9 @@ export default Component.extend({
       this.swiperInstance = new Swiper(content, {
         pagination: '.header-pagination',
         spaceBetween: 0,
-        autoplay: get(this, 'header.imgTransTime'),
+        autoplay: {
+          delay: get(this, 'header.imgTransTime'),
+        },
         loop: true,
         effect: get(this, 'header.imgTransType'),
         autoplayDisableOnInteraction: false
