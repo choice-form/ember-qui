@@ -36,7 +36,7 @@ export default Component.extend({
       this.time = setInterval(()=> {
         countTime--;
         set(this, 'countDown', `${countTime} sec`);
-        if (countTime <= 0) {
+        if (countTime <= 0 || get(this, 'node').messageGetFailed) {
           countTime= 30;
           set(this, 'countDown', `${countTime} sec`);
           set(this, 'getInfoButton', true);

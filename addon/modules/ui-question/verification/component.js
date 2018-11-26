@@ -64,12 +64,11 @@ export default Component.extend({
 
       const verificationType = get(this, 'node.verificationType');
       if(verificationType == 'captcha') return;
-
       set(this, 'getInfoButton', false);
       this.time = setInterval(()=> {
         countTime--;
         set(this, 'countDown', `${countTime} sec`);
-        if (countTime <= 0) {
+        if (countTime <= 0 || get(this, 'node').messageGetFailed) {
           countTime= 30;
           set(this, 'countDown', `${countTime} sec`);
           set(this, 'getInfoButton', true);
