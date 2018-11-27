@@ -20,16 +20,19 @@ export default Component.extend({
     this.captureMouseDown = this.captureMouseDown.bind(this);
   },
 
-  selected: computed('value', function() {
+  selected: computed('value', function () {
     if (this.value == "") {
       return [];
     }
-
-    return this.value.split(/[,，]/g)
-      .map(name => {
+    const result = [];
+    this.value.split(/[,，]/g)
+      .forEach(name => {
         const item = this.completeGroups.findBy('name', name);
-        return {name: item.name, icon: item.icon}
+        if (item) {
+          result.push({ name: item.name, icon: item.icon });
+        }
       });
+    return result;
   }),
 
   click(e) {
@@ -69,31 +72,31 @@ export default Component.extend({
     }
   },
 
-  captureMouseDown(e){
-    if(e.target !== this.element && !this.element.contains(e.target)){
+  captureMouseDown(e) {
+    if (e.target !== this.element && !this.element.contains(e.target)) {
       this.closeMenu();
     }
   },
 
-  searchBy(keyword){
+  searchBy(keyword) {
     clearTimeout(this.taskId);
-    this.taskId = setTimeout(()=>{
-      const {result} = searchResult(keyword, this.completeGroups, 'full', this.simpleCplt);
+    this.taskId = setTimeout(() => {
+      const { result } = searchResult(keyword, this.completeGroups, 'full', this.simpleCplt);
       this.set('result', result.filter(i => this.value.indexOf(i.name) == -1));
     }, 250);
   },
 
-  closeMenu(){
+  closeMenu() {
     this.set('result', []);
     this.existed = [];
   },
 
-  didInsertElement(){
+  didInsertElement() {
     this.$textarea = $(this.element).find('textarea');
     window.addEventListener('mousedown', this.captureMouseDown, true);
   },
 
-  willDestroyElement(){
+  willDestroyElement() {
     window.removeEventListener('mousedown', this.captureMouseDown, true);
   }
 
